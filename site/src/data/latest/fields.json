@@ -1,0 +1,68 @@
+[
+  {
+    "field": "Creator",
+    "present": 25,
+    "total": 88,
+    "pct": 28.4
+  },
+  {
+    "field": "CreditLine",
+    "present": 25,
+    "total": 88,
+    "pct": 28.4
+  },
+  {
+    "field": "CopyrightNotice",
+    "present": 12,
+    "total": 88,
+    "pct": 13.6
+  },
+  {
+    "field": "CaptionAbstract",
+    "present": 8,
+    "total": 88,
+    "pct": 9.1
+  },
+  {
+    "field": "Source",
+    "present": 8,
+    "total": 88,
+    "pct": 9.1
+  },
+  {
+    "field": "ObjectName",
+    "present": 8,
+    "total": 88,
+    "pct": 9.1
+  },
+  {
+    "field": "DateCreated",
+    "present": 8,
+    "total": 88,
+    "pct": 9.1
+  },
+  {
+    "field": "LocationCreated",
+    "present": 8,
+    "total": 88,
+    "pct": 9.1
+  },
+  {
+    "field": "WebStatement",
+    "present": 6,
+    "total": 88,
+    "pct": 6.8
+  },
+  {
+    "field": "Keywords",
+    "present": 3,
+    "total": 88,
+    "pct": 3.4
+  },
+  {
+    "field": "LicensorURL",
+    "present": 0,
+    "total": 88,
+    "pct": 0.0
+  }
+]

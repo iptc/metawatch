@@ -1,0 +1,40 @@
+country: SG
+sites:
+- id: tamil-murasu
+  name: Tamil Murasu
+  url: https://www.tamilmurasu.com.sg/
+  homepage: https://www.tamilmurasu.com.sg/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.tamilmurasu.com.sg/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-straits-times-print
+  name: The Straits Times Print
+  url: https://www.straitstimes.com/
+  homepage: https://www.straitstimes.com/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.straitstimes.com/print/home/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

@@ -1,0 +1,59 @@
+country: BE
+sites:
+- id: de-standaard
+  name: De Standaard
+  url: http://www.standaard.be
+  homepage: http://www.standaard.be
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.standaard.be/rss/section/1f2838d4-99ea-49f0-9102-138784c7ea7c
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: het-nieuwsblad
+  name: Het Nieuwsblad
+  url: https://www.nieuwsblad.be/
+  homepage: https://www.nieuwsblad.be/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://feeds.nieuwsblad.be/nieuws/snelnieuws
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: le-soir
+  name: Le Soir
+  url: https://www.lesoir.be/
+  homepage: https://www.lesoir.be/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.lesoir.be/rss/81853/cible_principale_gratuit
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

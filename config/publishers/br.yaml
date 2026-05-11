@@ -1,0 +1,78 @@
+country: BR
+sites:
+- id: correio
+  name: Correio
+  url: https://www.correio24horas.com.br/
+  homepage: https://www.correio24horas.com.br/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.correio24horas.com.br/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: folha-de-s-paulo
+  name: Folha de S.Paulo
+  url: https://www.folha.uol.com.br/
+  homepage: https://www.folha.uol.com.br/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://feeds.folha.uol.com.br/emcimadahora/rss091.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: infobae
+  name: Infobae
+  url: https://www.infobae.com/
+  homepage: https://www.infobae.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.infobae.com/feeds/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: rio-times
+  name: Rio Times
+  url: https://riotimesonline.com/
+  homepage: https://riotimesonline.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://riotimesonline.com/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

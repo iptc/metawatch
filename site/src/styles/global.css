@@ -1,0 +1,208 @@
+/*
+ * Metawatch theme.
+ *
+ * Colours and typography aligned with iptc.org:
+ *   --iptc-navy:  #455f72  (primary dark, used for headings, header band, dark text accents)
+ *   --iptc-green: #88c16a  (accent — links, highlights, "good score" indicators)
+ *   --iptc-bg:    #ffffff
+ *   --iptc-text:  #1f2933
+ *
+ * Typography: iptc.org uses Avenir LT Pro via Adobe Typekit (kit "izn6pfj").
+ * To keep this site host-agnostic and avoid Typekit cross-origin licensing
+ * complications, we use a free Avenir-equivalent stack (Nunito Sans) loaded
+ * from Google Fonts, falling back to system sans. If IPTC's Typekit kit is
+ * available for use on this domain we can swap the @import line.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap');
+
+:root {
+  --iptc-navy: #455f72;
+  --iptc-navy-dark: #2f4250;
+  --iptc-green: #88c16a;
+  --iptc-green-dark: #6ba84e;
+  --iptc-bg: #ffffff;
+  --iptc-surface: #f6f7f8;
+  --iptc-text: #1f2933;
+  --iptc-muted: #6b7280;
+  --iptc-border: #e3e6ea;
+  --iptc-good: #88c16a;
+  --iptc-warn: #d97706;
+  --iptc-bad: #b91c1c;
+
+  --font-sans: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --max-content: 1100px;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--iptc-text);
+  background: var(--iptc-bg);
+  line-height: 1.55;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-sans);
+  color: var(--iptc-navy);
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.5rem; margin-top: 2rem; }
+h3 { font-size: 1.15rem; margin-top: 1.5rem; }
+
+a { color: var(--iptc-navy); text-decoration: underline; text-decoration-color: var(--iptc-green); text-underline-offset: 3px; }
+a:hover { color: var(--iptc-green-dark); }
+
+.site-header {
+  background: var(--iptc-navy);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-bottom: 4px solid var(--iptc-green);
+}
+.site-header .header-inner {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.site-header a { color: white; text-decoration: none; }
+.site-header .brand {
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+}
+.site-header .brand .by-iptc {
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.75);
+  margin-left: 0.5rem;
+}
+.site-header nav { display: flex; gap: 1.25rem; font-weight: 600; }
+.site-header nav a:hover { color: var(--iptc-green); }
+
+main {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.lede {
+  font-size: 1.1rem;
+  color: var(--iptc-muted);
+  max-width: 70ch;
+}
+
+.card {
+  background: white;
+  border: 1px solid var(--iptc-border);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin: 1rem 0;
+}
+
+.card-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.stat {
+  background: var(--iptc-surface);
+  border-left: 3px solid var(--iptc-green);
+  padding: 0.9rem 1.1rem;
+  border-radius: 0 4px 4px 0;
+}
+.stat .stat-label { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--iptc-muted); }
+.stat .stat-value { display: block; font-size: 1.75rem; font-weight: 800; color: var(--iptc-navy); margin-top: 0.2rem; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+th, td {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--iptc-border);
+}
+th {
+  background: var(--iptc-surface);
+  color: var(--iptc-navy);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+tbody tr:hover { background: #fbfcfc; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+.score-bar {
+  display: inline-block;
+  height: 8px;
+  width: 80px;
+  background: var(--iptc-border);
+  border-radius: 4px;
+  overflow: hidden;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+.score-bar > span {
+  display: block;
+  height: 100%;
+  background: var(--iptc-green);
+}
+.score-bar.low > span { background: var(--iptc-bad); }
+.score-bar.mid > span { background: var(--iptc-warn); }
+
+.pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: var(--iptc-surface);
+  color: var(--iptc-navy);
+  border: 1px solid var(--iptc-border);
+}
+.pill.news-agency { background: #eaf3df; border-color: var(--iptc-green); color: var(--iptc-green-dark); }
+.pill.broadcaster { background: #e9eef3; }
+
+.site-footer {
+  border-top: 1px solid var(--iptc-border);
+  margin-top: 4rem;
+  padding: 2rem 1.5rem;
+  background: var(--iptc-surface);
+  color: var(--iptc-muted);
+  font-size: 0.85rem;
+}
+.site-footer .footer-inner {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+.site-footer a { color: var(--iptc-navy); }
+
+@media (max-width: 700px) {
+  h1 { font-size: 1.75rem; }
+  .site-header .header-inner { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  main { padding: 1.5rem 1rem 3rem; }
+}

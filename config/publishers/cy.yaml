@@ -1,0 +1,59 @@
+country: CY
+sites:
+- id: cyprus-mail
+  name: Cyprus Mail
+  url: http://cyprus-mail.com/
+  homepage: http://cyprus-mail.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://cyprus-mail.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: phileleftheros
+  name: Phileleftheros
+  url: http://www.philenews.com/
+  homepage: http://www.philenews.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.philenews.com/rss.aspx?service=136
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: politis
+  name: Politis
+  url: https://politis.com.cy/
+  homepage: https://politis.com.cy/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://politis.com.cy/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

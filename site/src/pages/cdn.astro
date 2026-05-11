@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCdn } from '../lib/data';
+
+const cdn = getCdn();
+const total = cdn.by_provider.reduce((acc, x) => acc + x.images, 0);
+---
+<Layout title="CDN analysis">
+  <h1>CDN analysis</h1>
+  <p class="lede">
+    News images are typically served via a content delivery network. Many CDN image-optimization
+    features <strong>strip embedded metadata by default</strong> as part of compression — so a
+    publisher who carefully embeds IPTC data can still appear to publish "blank" images. This page
+    attributes each image we analysed to its CDN, and shows how that correlates with metadata loss.
+  </p>
+
+  <h2>CDN distribution</h2>
+  <table>
+    <thead><tr><th>Provider</th><th class="num">Images</th><th class="num">Share</th><th class="num">% with metadata stripped</th></tr></thead>
+    <tbody>
+      {cdn.by_provider.map(r => (
+        <tr>
+          <td><code>{r.provider}</code></td>
+          <td class="num">{r.images}</td>
+          <td class="num">{total ? ((100 * r.images) / total).toFixed(1) : '0.0'}%</td>
+          <td class="num">{r.pct_stripped}%</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <p style="color:var(--iptc-muted);font-size:0.9rem;margin-top:1.5rem">
+    Note: "stripped" here means the image carries neither IPTC-IIM nor IPTC-XMP fields when we
+    fetched it. This is a coarse signal — a CDN may strip metadata, but so may the publisher's own
+    workflow before the image ever reaches the CDN. Phase 2 will add a cross-check using publishers
+    that distribute the same image through multiple CDNs.
+  </p>
+</Layout>

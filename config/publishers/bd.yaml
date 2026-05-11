@@ -1,0 +1,21 @@
+country: BD
+sites:
+- id: bdnews24
+  name: BDNews24
+  url: https://bdnews24.com/
+  homepage: https://bdnews24.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://bdnews24.com/?widgetName=rssfeed&widgetId=1150&getXmlFeed=true
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

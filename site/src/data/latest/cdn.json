@@ -1,0 +1,34 @@
+{
+  "providers": {
+    "cloudflare": 9,
+    "fastly": 39,
+    "akamai": 20,
+    "cloudfront": 20
+  },
+  "by_provider": [
+    {
+      "provider": "fastly",
+      "images": 39,
+      "stripped": 20,
+      "pct_stripped": 51.3
+    },
+    {
+      "provider": "akamai",
+      "images": 20,
+      "stripped": 20,
+      "pct_stripped": 100.0
+    },
+    {
+      "provider": "cloudfront",
+      "images": 20,
+      "stripped": 20,
+      "pct_stripped": 100.0
+    },
+    {
+      "provider": "cloudflare",
+      "images": 9,
+      "stripped": 1,
+      "pct_stripped": 11.1
+    }
+  ]
+}

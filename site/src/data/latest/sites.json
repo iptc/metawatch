@@ -1,0 +1,82 @@
+[
+  {
+    "site_id": "ap",
+    "site_name": "Associated Press",
+    "country": "US",
+    "category": "news-agency",
+    "status": "ok",
+    "discovery_strategy": "config:sitemap",
+    "sitemap_url_used": "https://apnews.com/news-sitemap-content.xml",
+    "articles_sampled": 10,
+    "images_analysed": 9,
+    "mean_iptc_score": 70.56,
+    "pct_with_iptc": 88.9,
+    "cdn_breakdown": {
+      "cloudflare": 9
+    }
+  },
+  {
+    "site_id": "le-monde",
+    "site_name": "Le Monde",
+    "country": "FR",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://www.lemonde.fr/sitemap_news.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 28.75,
+    "pct_with_iptc": 95.0,
+    "cdn_breakdown": {
+      "fastly": 20
+    }
+  },
+  {
+    "site_id": "ny-times",
+    "site_name": "NY Times",
+    "country": "US",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://www.nytimes.com/sitemaps/new/news.xml.gz",
+    "articles_sampled": 20,
+    "images_analysed": 19,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "fastly": 19
+    }
+  },
+  {
+    "site_id": "bbc-news",
+    "site_name": "BBC News",
+    "country": "GB",
+    "category": "broadcaster",
+    "status": "ok",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://www.bbc.com/sitemaps/https-index-com-news.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "akamai": 20
+    }
+  },
+  {
+    "site_id": "reuters",
+    "site_name": "Reuters Top News",
+    "country": "GB",
+    "category": "news-agency",
+    "status": "ok",
+    "discovery_strategy": "robots:picture_sitemap",
+    "sitemap_url_used": "https://www.reuters.com/arc/outboundfeeds/sitemap-index/pictures/?outputType=xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudfront": 20
+    }
+  }
+]

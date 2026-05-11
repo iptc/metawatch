@@ -1,0 +1,325 @@
+country: DE
+sites:
+- id: bild
+  name: Bild
+  url: https://www.bild.de/
+  homepage: https://www.bild.de/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.bild.de/rssfeeds/vw-home/vw-home-16725562,dzbildplus=true,sort=1,teaserbildmobil=false,view=rss2.bild.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: deutsche-welle
+  name: Deutsche Welle
+  url: http://www.dw-world.de/
+  homepage: http://www.dw-world.de/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://rss.dw.com/atom/rss-en-all
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: die-welt
+  name: Die Welt
+  url: http://www.welt.de/
+  homepage: http://www.welt.de/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.welt.de/feeds/latest.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: die-zeit
+  name: Die Zeit
+  url: https://www.zeit.de
+  homepage: https://www.zeit.de
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://newsfeed.zeit.de/all
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: focus-online
+  name: FOCUS Online
+  url: http://www.focus.de/
+  homepage: http://www.focus.de/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://rss.focus.de/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: frankfurter-allgemeine
+  name: Frankfurter Allgemeine
+  url: http://www.faz.net/
+  homepage: http://www.faz.net/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.faz.net/rss/aktuell/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: frankfurter-rundschau
+  name: Frankfurter Rundschau
+  url: http://www.fr.de/
+  homepage: http://www.fr.de/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.fr.de/?_XML=rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: itb-berlin
+  name: ITB Berlin
+  url: https://itb-berlin-news.com/
+  homepage: https://itb-berlin-news.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: MS ??
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://itb-berlin-news.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: munich-now
+  name: Munich NOW
+  url: http://munichnow.com/
+  homepage: http://munichnow.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: MS ??
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://munichnow.com/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: s-ddeutsche-zeitung
+  name: Süddeutsche Zeitung
+  url: http://www.sueddeutsche.de/
+  homepage: http://www.sueddeutsche.de/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://rss.sueddeutsche.de/rss/Topthemen
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: spiegel-online-german
+  name: Spiegel Online (German)
+  url: https://www.spiegel.de
+  homepage: https://www.spiegel.de
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: MS
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.spiegel.de/schlagzeilen/index.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: spiegel-online-international
+  name: Spiegel Online International
+  url: https://www.spiegel.de
+  homepage: https://www.spiegel.de
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: MS ?? has less items than the RSS in German - see below
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.spiegel.de/international/index.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: stern-de
+  name: stern.de
+  url: http://www.stern.de/
+  homepage: http://www.stern.de/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.stern.de/feed/standard/all/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: tagesschau-de
+  name: tagesschau.de
+  url: https://www.tagesschau.de
+  homepage: https://www.tagesschau.de
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.tagesschau.de/xml/rss2
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: taz
+  name: taz
+  url: http://www.taz.de/
+  homepage: http://www.taz.de/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.taz.de/Themen-des-Tages/!p15;rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-local
+  name: The Local
+  url: http://www.thelocal.de/
+  homepage: http://www.thelocal.de/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: MS ??
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.thelocal.de/feeds/rss.php
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: zdf-heute
+  name: ZDF Heute
+  url: https://www.zdf.de/nachrichten/
+  homepage: https://www.zdf.de/nachrichten/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.zdf.de/rss/zdf/nachrichten
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

@@ -1,0 +1,78 @@
+country: HR
+sites:
+- id: 24sata
+  name: 24sata
+  url: https://www.24sata.hr/
+  homepage: https://www.24sata.hr/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.24sata.hr/feeds/aktualno.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: index
+  name: Index
+  url: https://www.index.hr/
+  homepage: https://www.index.hr/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.index.hr/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: jutarnji-list
+  name: Jutarnji list
+  url: https://www.jutarnji.hr/
+  homepage: https://www.jutarnji.hr/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.jutarnji.hr/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: novi-list
+  name: Novi list
+  url: http://www.novilist.hr/Vijesti
+  homepage: http://www.novilist.hr/Vijesti
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.novilist.hr/rss/sve.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

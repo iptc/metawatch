@@ -1,0 +1,97 @@
+country: PT
+sites:
+- id: correio-da-manh
+  name: Correio da Manhã
+  url: https://www.cmjornal.pt/
+  homepage: https://www.cmjornal.pt/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.cmjornal.pt/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: jornal-de-neg-cios
+  name: Jornal de Negócios
+  url: https://www.jornaldenegocios.pt/
+  homepage: https://www.jornaldenegocios.pt/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.jornaldenegocios.pt/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: jornal-de-not-cias
+  name: Jornal de Notícias
+  url: https://www.jn.pt/
+  homepage: https://www.jn.pt/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://feeds.jn.pt/JN-Ultimas
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: o-a-oriano-oriental
+  name: O Açoriano Oriental
+  url: https://www.acorianooriental.pt/
+  homepage: https://www.acorianooriental.pt/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.acorianooriental.pt/noticias/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: p-blico
+  name: Público
+  url: https://www.publico.pt/
+  homepage: https://www.publico.pt/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://feeds.feedburner.com/PublicoRSS
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

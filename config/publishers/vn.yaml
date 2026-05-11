@@ -1,0 +1,21 @@
+country: VN
+sites:
+- id: viet-nam-news-english
+  name: Viet Nam News (English)
+  url: https://vietnamnews.vn/
+  homepage: https://vietnamnews.vn/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://vietnamnews.vn/rss/home.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

@@ -1,0 +1,21 @@
+country: ID
+sites:
+- id: antara-news
+  name: Antara News
+  url: https://www.antaranews.com/
+  homepage: https://www.antaranews.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.antaranews.com/rss/news.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

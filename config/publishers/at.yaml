@@ -1,0 +1,154 @@
+country: AT
+sites:
+- id: der-standard
+  name: Der Standard
+  url: https://derstandard.at
+  homepage: https://derstandard.at
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: MS
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://derStandard.at/?page=rss&ressort=Seite1
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: die-presse
+  name: Die Presse
+  url: http://diepresse.com/
+  homepage: http://diepresse.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://diepresse.com/rss//home
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: heute
+  name: Heute
+  url: https://www.heute.at/
+  homepage: https://www.heute.at/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://api.heute.at/rss/view/1
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: kleine-zeitung
+  name: Kleine Zeitung
+  url: https://www.kleinezeitung.at/
+  homepage: https://www.kleinezeitung.at/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.kleinezeitung.at/rss/nachrichten_stmk
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: kronen-zeitung
+  name: Kronen Zeitung
+  url: https://www.krone.at/
+  homepage: https://www.krone.at/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://api.krone.at/v1/rss/rssfeed.html
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: kurier
+  name: Kurier
+  url: https://kurier.at/
+  homepage: https://kurier.at/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://kurier.at/xml/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: neue-vorarlberger-tageszeitung-neue
+  name: Neue Vorarlberger Tageszeitung (NEUE)
+  url: https://www.neue.at/
+  homepage: https://www.neue.at/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://service.neue.at/service/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: orf-nachrichten-news
+  name: ORF Nachrichten/News
+  url: https://orf.at
+  homepage: https://orf.at
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: MS
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://rss.orf.at/news.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

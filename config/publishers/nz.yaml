@@ -1,0 +1,40 @@
+country: NZ
+sites:
+- id: new-zealand-herald
+  name: New Zealand Herald
+  url: https://www.nzherald.co.nz/
+  homepage: https://www.nzherald.co.nz/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://rss.nzherald.co.nz/rss/xml/nzhtsrsscid_000000698.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: stuff-co-nz
+  name: Stuff.co.nz
+  url: https://www.stuff.co.nz/
+  homepage: https://www.stuff.co.nz/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.stuff.co.nz/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

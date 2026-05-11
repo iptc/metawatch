@@ -1,0 +1,116 @@
+country: IT
+sites:
+- id: ansa
+  name: ANSA
+  url: https://ansa.it
+  homepage: https://ansa.it
+  category: news-agency
+  language_primary: en
+  notes: ''
+  suggested_by: MS
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.ansa.it/sito/ansait_rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: corriere-della-sera
+  name: Corriere della Sera
+  url: http://corriere.it/
+  homepage: http://corriere.it/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: MS
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://xml2.corriereobjects.it/rss/homepage.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: il-messaggero
+  name: Il Messaggero
+  url: https://ilmessaggero.it
+  homepage: https://ilmessaggero.it
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: MS
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.ilmessaggero.it/?sez=XML&p=search&args[box]=Home&limit=20&layout=rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: la-repubblica
+  name: La Repubblica
+  url: http://www.repubblica.it
+  homepage: http://www.repubblica.it
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: MS
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.repubblica.it/rss/homepage/rss2.0.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: la-stampa
+  name: La Stampa
+  url: https://lastampa.it
+  homepage: https://lastampa.it
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: MS
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.lastampa.it/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: rai-news
+  name: RAI News
+  url: http://www.rainews.it/
+  homepage: http://www.rainews.it/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: MS
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.servizitelevideo.rai.it/televideo/pub/rss101.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

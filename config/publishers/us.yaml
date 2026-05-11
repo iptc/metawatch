@@ -1,0 +1,287 @@
+country: US
+sites:
+- id: ap
+  name: Associated Press
+  url: https://apnews.com/
+  homepage: https://apnews.com/
+  category: news-agency
+  language_primary: en
+  notes: ''
+  suggested_by: phase1-seed
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://apnews.com/news-sitemap-content.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 10
+    window_days: 30
+- id: buzzfeed
+  name: Buzzfeed
+  url: https://www.buzzfeed.com/
+  homepage: https://www.buzzfeed.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.buzzfeed.com/index.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: chicago-tribune
+  name: Chicago Tribune
+  url: https://www.chicagotribune.com/
+  homepage: https://www.chicagotribune.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.chicagotribune.com/arcio/rss/category/news/breaking/?query=display_date:[now-2d+TO+now]&sort=display_date:desc
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: cnbc
+  name: CNBC
+  url: https://www.cnbc.com/
+  homepage: https://www.cnbc.com/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.cnbc.com/id/100003114/device/rss/rss.html
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: cnn
+  name: CNN
+  url: https://edition.cnn.com/
+  homepage: https://edition.cnn.com/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://rss.cnn.com/rss/edition.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: forbes
+  name: Forbes
+  url: https://www.forbes.com/
+  homepage: https://www.forbes.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.forbes.com/most-popular/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: fox-news
+  name: Fox News
+  url: http://www.foxnews.com/
+  homepage: http://www.foxnews.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://feeds.foxnews.com/foxnews/latest
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: huffington-post
+  name: Huffington Post
+  url: https://www.huffingtonpost.com/
+  homepage: https://www.huffingtonpost.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.huffingtonpost.com/section/front-page/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: new-york-post
+  name: New York Post
+  url: https://nypost.com/
+  homepage: https://nypost.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://nypost.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: ny-times
+  name: NY Times
+  url: https://www.nytimes.com/
+  homepage: https://www.nytimes.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: observer-com
+  name: Observer.com
+  url: http://www.observer.com/
+  homepage: http://www.observer.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://observer.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: quartz
+  name: Quartz
+  url: https://qz.com/
+  homepage: https://qz.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://cms.qz.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: usa-today
+  name: USA Today
+  url: http://www.usatoday.com/
+  homepage: http://www.usatoday.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://rssfeeds.usatoday.com/usatoday-NewsTopStories
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: washington-post
+  name: Washington Post
+  url: https://www.washingtonpost.com/
+  homepage: https://www.washingtonpost.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://feeds.washingtonpost.com/rss/national
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: yahoo-news
+  name: Yahoo! News
+  url: https://news.yahoo.com/rss/
+  homepage: https://news.yahoo.com/rss/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://news.yahoo.com/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

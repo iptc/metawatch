@@ -1,0 +1,59 @@
+country: FI
+sites:
+- id: helsingin-sanomat
+  name: Helsingin Sanomat
+  url: https://www.hs.fi/
+  homepage: https://www.hs.fi/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.hs.fi/rss/tuoreimmat.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: ilta-sanomat
+  name: Ilta-Sanomat
+  url: https://www.is.fi/
+  homepage: https://www.is.fi/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.is.fi/rss/tuoreimmat.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: iltalehti
+  name: Iltalehti
+  url: https://www.iltalehti.fi/
+  homepage: https://www.iltalehti.fi/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.iltalehti.fi/rss/uutiset.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

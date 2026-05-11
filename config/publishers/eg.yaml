@@ -1,0 +1,59 @@
+country: EG
+sites:
+- id: al-masry-al-yyoum
+  name: Al Masry al Yyoum
+  url: https://www.almasryalyoum.com/
+  homepage: https://www.almasryalyoum.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.almasryalyoum.com/rss/rssfeeds
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: el-balad
+  name: El Balad
+  url: https://www.elbalad.news/
+  homepage: https://www.elbalad.news/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.elbalad.news/rss.aspx
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: see-news-english
+  name: See News (English)
+  url: https://see.news/
+  homepage: https://see.news/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://see.news/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

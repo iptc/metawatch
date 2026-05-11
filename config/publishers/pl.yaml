@@ -1,0 +1,78 @@
+country: PL
+sites:
+- id: fakt
+  name: Fakt
+  url: https://www.fakt.pl/
+  homepage: https://www.fakt.pl/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.fakt.pl/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: gazeta-pl
+  name: Gazeta.PL
+  url: https://www.gazeta.pl/https://wiadomosci.gazeta.pl/pub/rss/wiadomosci.htm
+  homepage: https://www.gazeta.pl/https://wiadomosci.gazeta.pl/pub/rss/wiadomosci.htm
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: original-2021-list
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - BQ
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: gazeta-wyborcza
+  name: Gazeta Wyborcza
+  url: http://wyborcza.pl
+  homepage: http://wyborcza.pl
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://rss.gazeta.pl/pub/rss/najnowsze_wyborcza.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: rzeczpospolita
+  name: Rzeczpospolita
+  url: https://www.rp.pl/
+  homepage: https://www.rp.pl/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.rp.pl/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

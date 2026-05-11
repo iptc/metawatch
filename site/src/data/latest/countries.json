@@ -1,0 +1,17 @@
+[
+  {
+    "country": "US",
+    "site_count": 2,
+    "mean_score": 35.28
+  },
+  {
+    "country": "FR",
+    "site_count": 1,
+    "mean_score": 28.75
+  },
+  {
+    "country": "GB",
+    "site_count": 2,
+    "mean_score": 0.0
+  }
+]

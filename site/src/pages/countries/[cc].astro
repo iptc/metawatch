@@ -1,0 +1,45 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCountries, getSites, scoreClass, countryName, categoryLabel } from '../../lib/data';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+export function getStaticPaths() {
+  const countries = getCountries();
+  return countries.map(c => ({ params: { cc: c.country.toLowerCase() }, props: { country: c } }));
+}
+
+const { country } = Astro.props;
+const sites = getSites().filter(s => s.country === country.country);
+---
+<Layout title={countryName(country.country)}>
+  <p><a href={`${base}/countries/`}>← All countries</a></p>
+  <h1>{countryName(country.country)} <span style="font-weight:400;color:var(--iptc-muted);font-size:0.6em">({country.country})</span></h1>
+
+  <div class="card-row">
+    <div class="stat"><span class="stat-label">Sites</span><span class="stat-value">{country.site_count}</span></div>
+    <div class="stat"><span class="stat-label">Mean IPTC score</span><span class="stat-value">{country.mean_score.toFixed(1)}</span></div>
+  </div>
+
+  <h2>Sites in {countryName(country.country)}</h2>
+  <table>
+    <thead>
+      <tr><th>Site</th><th>Category</th><th>Status</th><th class="num">Images</th><th class="num">% IPTC</th><th class="num">Score</th></tr>
+    </thead>
+    <tbody>
+      {sites.map(s => (
+        <tr>
+          <td><a href={`${base}/sites/${s.site_id}/`}>{s.site_name}</a></td>
+          <td><span class={`pill ${s.category}`}>{categoryLabel(s.category)}</span></td>
+          <td>{s.status === 'ok' ? <span>ok</span> : <em>{s.status}</em>}</td>
+          <td class="num">{s.images_analysed}</td>
+          <td class="num">{s.pct_with_iptc}%</td>
+          <td class="num">
+            <span class={`score-bar ${scoreClass(s.mean_iptc_score)}`}><span style={`width:${s.mean_iptc_score}%`}></span></span>
+            {s.mean_iptc_score.toFixed(1)}
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</Layout>

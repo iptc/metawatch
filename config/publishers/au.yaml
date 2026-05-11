@@ -1,0 +1,173 @@
+country: AU
+sites:
+- id: abc-news-australia
+  name: ABC News Australia
+  url: https://www.abc.net.au/news/
+  homepage: https://www.abc.net.au/news/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.abc.net.au/news/feed/51120/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: adelaide-advertiser
+  name: Adelaide Advertiser
+  url: https://www.adelaidenow.com.au/
+  homepage: https://www.adelaidenow.com.au/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://adelaidenownewscorpau.wordpress.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: courier-mail
+  name: Courier-Mail
+  url: https://www.couriermail.com.au/
+  homepage: https://www.couriermail.com.au/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.couriermail.com.au/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: daily-telegraph
+  name: Daily Telegraph
+  url: https://www.dailytelegraph.com.au/
+  homepage: https://www.dailytelegraph.com.au/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.dailytelegraph.com.au/news/breaking-news/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: herald-sun
+  name: Herald Sun
+  url: https://www.heraldsun.com.au/
+  homepage: https://www.heraldsun.com.au/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.heraldsun.com.au/news/breaking-news/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: sydney-morning-herald
+  name: Sydney Morning Herald
+  url: https://www.smh.com.au/
+  homepage: https://www.smh.com.au/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.smh.com.au/rss/feed.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-age
+  name: The Age
+  url: https://www.theage.com.au/
+  homepage: https://www.theage.com.au/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.theage.com.au/rss/feed.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-australian
+  name: The Australian
+  url: https://www.theaustralian.com.au/
+  homepage: https://www.theaustralian.com.au/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.theaustralian.com.au/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-west-australian
+  name: The West Australian
+  url: https://thewest.com.au/
+  homepage: https://thewest.com.au/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://thewest.com.au/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

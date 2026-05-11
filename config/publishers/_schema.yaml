@@ -1,0 +1,46 @@
+# JSON Schema for sites/*.yaml.
+# Used by ci.yml to validate per-country site lists.
+$schema: "https://json-schema.org/draft/2020-12/schema"
+title: "Metawatch country site list"
+type: object
+required: [country, sites]
+properties:
+  country:
+    type: string
+    pattern: "^[A-Z]{2}$"
+    description: "ISO 3166-1 alpha-2 country code, uppercase."
+  sites:
+    type: array
+    items:
+      type: object
+      required: [id, name, url]
+      properties:
+        id: { type: string, pattern: "^[a-z0-9-]+$" }
+        name: { type: string, minLength: 1 }
+        url: { type: string, format: uri }
+        homepage: { type: string, format: uri }
+        category:
+          type: string
+          enum: [newspaper, news-agency, broadcaster, online, magazine, other]
+        language_primary: { type: string }
+        notes: { type: string }
+        suggested_by: { type: string }
+        active: { type: boolean }
+        discovery:
+          type: object
+          properties:
+            strategy: { type: string, enum: [sitemap, rss, homepage] }
+            sitemap_urls:
+              type: array
+              items: { type: string, format: uri }
+            picture_sitemap_url:
+              oneOf: [{ type: string, format: uri }, { type: "null" }]
+            rss_urls:
+              type: array
+              items: { type: string, format: uri }
+            js_required: { type: boolean }
+        sample:
+          type: object
+          properties:
+            max_articles: { type: integer, minimum: 1, maximum: 200 }
+            window_days: { type: integer, minimum: 1, maximum: 365 }

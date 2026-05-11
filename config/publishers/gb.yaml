@@ -1,0 +1,401 @@
+country: GB
+sites:
+- id: bbc-news
+  name: BBC News
+  url: https://www.bbc.com
+  homepage: https://www.bbc.com
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://feeds.bbci.co.uk/news/uk/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: channel-4-news
+  name: Channel 4 News
+  url: https://www.channel4.com/news/
+  homepage: https://www.channel4.com/news/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.channel4.com/news/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: city-am
+  name: City AM
+  url: http://www.cityam.com/
+  homepage: http://www.cityam.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.cityam.com/feeds/main.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: daily-express
+  name: Daily Express
+  url: https://www.express.co.uk/
+  homepage: https://www.express.co.uk/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://feeds.feedburner.com/daily-express-news-showbiz
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: daily-mail-mail-on-sunday
+  name: Daily Mail / Mail on Sunday
+  url: http://www.dailymail.co.uk/
+  homepage: http://www.dailymail.co.uk/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.dailymail.co.uk/home/index.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: evening-standard
+  name: Evening Standard
+  url: https://www.standard.co.uk/
+  homepage: https://www.standard.co.uk/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.standard.co.uk/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: financial-times
+  name: Financial Times
+  url: https://www.ft.com/
+  homepage: https://www.ft.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.ft.com/?format=rss&edition=uk
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: huffington-post-uk
+  name: Huffington Post UK
+  url: https://www.huffingtonpost.co.uk/
+  homepage: https://www.huffingtonpost.co.uk/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.huffingtonpost.co.uk/feeds/index.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: i
+  name: i
+  url: https://inews.co.uk/
+  homepage: https://inews.co.uk/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://inews.co.uk/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: metro
+  name: Metro
+  url: https://metro.co.uk/
+  homepage: https://metro.co.uk/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://metro.co.uk/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: new-statesman
+  name: New Statesman
+  url: https://www.newstatesman.com/
+  homepage: https://www.newstatesman.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.newstatesman.com/feeds/site_feed.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: reuters
+  name: Reuters Top News
+  url: https://www.reuters.com/
+  homepage: https://www.reuters.com/
+  category: news-agency
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://feeds.reuters.com/reuters/UKTopNews
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: spectator
+  name: Spectator
+  url: https://www.spectator.co.uk/
+  homepage: https://www.spectator.co.uk/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.spectator.co.uk/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-daily-mirror-sunday-mirror
+  name: The Daily Mirror / Sunday Mirror
+  url: https://www.mirror.co.uk/
+  homepage: https://www.mirror.co.uk/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.mirror.co.uk/?service=rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-economist
+  name: The Economist
+  url: https://www.economist.com/
+  homepage: https://www.economist.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.economist.com/rss/the_world_this_week_rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-guardian
+  name: The Guardian
+  url: https://www.theguardian.com/
+  homepage: https://www.theguardian.com/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.theguardian.com/uk/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-independent
+  name: The Independent
+  url: http://www.independent.co.uk/
+  homepage: http://www.independent.co.uk/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.independent.co.uk/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-scotsman
+  name: The Scotsman
+  url: https://www.scotsman.com/
+  homepage: https://www.scotsman.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.scotsman.com/rss/cmlink/1.3942642
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-sun
+  name: The Sun
+  url: https://www.thesun.co.uk/
+  homepage: https://www.thesun.co.uk/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.thesun.co.uk/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-telegraph
+  name: The Telegraph
+  url: https://www.telegraph.co.uk/
+  homepage: https://www.telegraph.co.uk/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.telegraph.co.uk/news/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-week
+  name: The Week
+  url: http://www.theweek.co.uk/
+  homepage: http://www.theweek.co.uk/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.theweek.co.uk/feeds/all
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

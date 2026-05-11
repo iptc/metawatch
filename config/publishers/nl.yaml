@@ -1,0 +1,78 @@
+country: NL
+sites:
+- id: de-telegraaf
+  name: De Telegraaf
+  url: https://www.telegraaf.nl/
+  homepage: https://www.telegraaf.nl/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.telegraaf.nl/nieuws/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: de-volkskrant
+  name: de Volkskrant
+  url: https://www.volkskrant.nl/
+  homepage: https://www.volkskrant.nl/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.volkskrant.nl/voorpagina/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: nederlands-dagblad
+  name: Nederlands Dagblad
+  url: https://www.nd.nl/
+  homepage: https://www.nd.nl/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.nd.nl/Rss/7UZxNfzclROjiEdYoo8k_A==/Feed.lynkx
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: trouw
+  name: Trouw
+  url: https://www.trouw.nl/
+  homepage: https://www.trouw.nl/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.trouw.nl/home/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

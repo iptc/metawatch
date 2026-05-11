@@ -1,0 +1,59 @@
+country: AR
+sites:
+- id: clarin
+  name: Clarin
+  url: https://www.clarin.com/
+  homepage: https://www.clarin.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.clarin.com/rss/lo-ultimo/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: la-naci-n
+  name: La Nación
+  url: https://www.lanacion.com.ar/
+  homepage: https://www.lanacion.com.ar/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://contenidos.lanacion.com.ar/herramientas/rss-origen=2
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: pagina-12
+  name: Pagina 12
+  url: https://www.pagina12.com.ar/
+  homepage: https://www.pagina12.com.ar/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.pagina12.com.ar/rss/portada
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

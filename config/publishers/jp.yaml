@@ -1,0 +1,325 @@
+country: JP
+sites:
+- id: asahi-shimbun
+  name: Asahi Shimbun (朝日新聞)
+  url: https://www.asahi.com/
+  homepage: https://www.asahi.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://rss.asahi.com/rss/asahi/newsheadlines.rdf
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: iza
+  name: Iza
+  url: https://www.iza.ne.jp/
+  homepage: https://www.iza.ne.jp/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.iza.ne.jp/feed/kiji/kiji-n.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: japan-industry-news
+  name: Japan Industry News
+  url: https://www.japanindustrynews.com/
+  homepage: https://www.japanindustrynews.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.japanindustrynews.com/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: japan-today
+  name: Japan Today
+  url: https://japantoday.com/
+  homepage: https://japantoday.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://japantoday.com/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: kyodo-news-english
+  name: Kyodo News (English)
+  url: https://english.kyodonews.net/
+  homepage: https://english.kyodonews.net/
+  category: news-agency
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://english.kyodonews.net/rss/all.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: livedoor-news
+  name: Livedoor News
+  url: http://news.livedoor.com/
+  homepage: http://news.livedoor.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://news.livedoor.com/topics/rss/top.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: mainichi-shimbun
+  name: Mainichi Shimbun (毎日新聞)
+  url: https://mainichi.jp/
+  homepage: https://mainichi.jp/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://mainichi.jp/rss/etc/mainichi-flash.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: news-on-japan
+  name: News On Japan
+  url: http://www.newsonjapan.com/
+  homepage: http://www.newsonjapan.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.newsonjapan.com/rss/top.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: nhk-news-web
+  name: NHK News Web
+  url: https://www.nhk.or.jp/
+  homepage: https://www.nhk.or.jp/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www3.nhk.or.jp/rss/news/cat0.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: nikkei-shimbun
+  name: Nikkei Shimbun (日本経済新聞)
+  url: https://www.nikkei.com/
+  homepage: https://www.nikkei.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://assets.wor.jp/rss/rdf/nikkei/news.rdf
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: rocketnews24
+  name: RocketNews24
+  url: https://rocketnews24.com/
+  homepage: https://rocketnews24.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://feeds.rocketnews24.com/rocketnews24/en
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: sankei-shimbun
+  name: Sankei Shimbun (産経新聞)
+  url: https://www.sankei.com/
+  homepage: https://www.sankei.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://assets.wor.jp/rss/rdf/sankei/flash.rdf
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-japan-times
+  name: The Japan Times
+  url: https://www.japantimes.co.jp/
+  homepage: https://www.japantimes.co.jp/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.japantimes.co.jp/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-tokyo-reporter
+  name: The Tokyo Reporter
+  url: http://www.tokyoreporter.com/
+  homepage: http://www.tokyoreporter.com/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.tokyoreporter.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: yahoo-news-japan
+  name: Yahoo! News Japan
+  url: https://news.yahoo.co.jp/
+  homepage: https://news.yahoo.co.jp/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://news.yahoo.co.jp/pickup/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: yomiuri-shimbun
+  name: Yomiuri Shimbun (読売新聞)
+  url: https://www.yomiuri.co.jp/
+  homepage: https://www.yomiuri.co.jp/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://assets.wor.jp/rss/rdf/yomiuri/latestnews.rdf
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: zakzak
+  name: zakzak
+  url: http://www.zakzak.co.jp/
+  homepage: http://www.zakzak.co.jp/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.zakzak.co.jp/rss/news/flash-n.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

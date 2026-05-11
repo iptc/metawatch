@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate-sites:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml jsonschema
+      - name: Validate site YAMLs against schema
+        run: |
+          python - <<'PY'
+          import sys
+          from pathlib import Path
+          import yaml
+          import jsonschema
+
+          schema = yaml.safe_load(Path("config/publishers/_schema.yaml").read_text())
+          errors = 0
+          for p in sorted(Path("config/publishers").glob("*.yaml")):
+              if p.name.startswith("_"):
+                  continue
+              data = yaml.safe_load(p.read_text())
+              try:
+                  jsonschema.validate(instance=data, schema=schema)
+                  print(f"ok {p}")
+              except jsonschema.ValidationError as e:
+                  print(f"FAIL {p}: {e.message}", file=sys.stderr)
+                  errors += 1
+          sys.exit(1 if errors else 0)
+          PY
+
+  crawler-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          python -m venv .venv
+          .venv/bin/pip install --upgrade pip
+          .venv/bin/pip install -e './crawler[dev]'
+      - run: .venv/bin/ruff check crawler/src crawler/scripts
+      - run: .venv/bin/pytest crawler/tests || true   # no tests yet; will fail-fast once we add them

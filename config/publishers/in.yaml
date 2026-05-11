@@ -1,0 +1,173 @@
+country: IN
+sites:
+- id: amar-ujala
+  name: Amar Ujala
+  url: https://www.amarujala.com/
+  homepage: https://www.amarujala.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.amarujala.com/rss/editors-pick.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: dainik-bhaskar
+  name: Dainik Bhaskar
+  url: https://www.bhaskar.com/
+  homepage: https://www.bhaskar.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.bhaskar.com/rss-feed/11159/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: dainik-jagran
+  name: Dainik Jagran
+  url: https://www.jagran.com/
+  homepage: https://www.jagran.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://rss.jagran.com/rss/news/national.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: hindustan-times
+  name: Hindustan Times
+  url: https://www.hindustantimes.com/
+  homepage: https://www.hindustantimes.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.hindustantimes.com/rss/topnews/rssfeed.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: indian-express
+  name: Indian Express
+  url: https://indianexpress.com/
+  homepage: https://indianexpress.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://indianexpress.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: ndtv
+  name: NDTV
+  url: https://www.ndtv.com/top-stories
+  homepage: https://www.ndtv.com/top-stories
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://feeds.feedburner.com/ndtvnews-top-stories
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: news18
+  name: News18
+  url: https://www.news18.com/
+  homepage: https://www.news18.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.news18.com/rss/latest.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-hindu
+  name: The Hindu
+  url: https://www.thehindu.com/
+  homepage: https://www.thehindu.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.thehindu.com/feeder/default.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: times-of-india
+  name: Times of India
+  url: https://timesofindia.indiatimes.com/
+  homepage: https://timesofindia.indiatimes.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://timesofindia.indiatimes.com/rssfeedstopstories.cms
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

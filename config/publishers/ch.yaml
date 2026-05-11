@@ -1,0 +1,40 @@
+country: CH
+sites:
+- id: blick
+  name: Blick
+  url: https://blick.ch
+  homepage: https://blick.ch
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: MS
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.blick.ch/news/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: neue-z-rcher-zeitung
+  name: Neue Zürcher Zeitung
+  url: https://www.nzz.ch
+  homepage: https://www.nzz.ch
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: MS
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.nzz.ch/startseite.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

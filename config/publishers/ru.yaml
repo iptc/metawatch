@@ -1,0 +1,59 @@
+country: RU
+sites:
+- id: rt
+  name: RT
+  url: https://www.rt.com/news/
+  homepage: https://www.rt.com/news/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: https://www.rt.com/rss/news/
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.rt.com/rss/news/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: tass-english
+  name: TASS (English)
+  url: http://tass.com/
+  homepage: http://tass.com/
+  category: news-agency
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://tass.com/rss/v2.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: tass-russian
+  name: TASS (Russian)
+  url: http://tass.ru/
+  homepage: http://tass.ru/
+  category: news-agency
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://tass.ru/rss/v2.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

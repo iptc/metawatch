@@ -1,0 +1,59 @@
+country: MT
+sites:
+- id: malta-today
+  name: Malta Today
+  url: https://www.maltatoday.com.mt/
+  homepage: https://www.maltatoday.com.mt/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.maltatoday.com.mt/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-malta-independent
+  name: The Malta Independent
+  url: http://www.independent.com.mt/
+  homepage: http://www.independent.com.mt/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.independent.com.mt/newsfeed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: times-of-malta
+  name: Times of Malta
+  url: https://www.timesofmalta.com/
+  homepage: https://www.timesofmalta.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.timesofmalta.com/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

@@ -1,0 +1,78 @@
+country: CA
+sites:
+- id: 500px-iso
+  name: 500px ISO
+  url: https://iso.500px.com/
+  homepage: https://iso.500px.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://iso.500px.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: cbc-news
+  name: CBC News
+  url: https://www.cbc.ca/news
+  homepage: https://www.cbc.ca/news
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.cbc.ca/cmlink/rss-topstories
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: ctv-news
+  name: CTV News
+  url: https://www.ctvnews.ca/
+  homepage: https://www.ctvnews.ca/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.ctvnews.ca/rss/ctvnews-ca-top-stories-public-rss-1.822009
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: radio-canada-fr
+  name: Radio Canada FR
+  url: https://ici.radio-canada.ca/
+  homepage: https://ici.radio-canada.ca/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://ici.radio-canada.ca/rss/4159
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

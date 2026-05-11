@@ -1,0 +1,21 @@
+country: FJ
+sites:
+- id: fiji-sun
+  name: Fiji Sun
+  url: https://fijisun.com.fj/
+  homepage: https://fijisun.com.fj/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://fijisun.com.fj/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

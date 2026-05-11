@@ -1,0 +1,78 @@
+country: HU
+sites:
+- id: blikk
+  name: Blikk
+  url: http://www.blikk.hu/
+  homepage: http://www.blikk.hu/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.blikk.hu/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: magyar-nemzet
+  name: Magyar Nemzet
+  url: https://magyarnemzet.hu/
+  homepage: https://magyarnemzet.hu/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://magyarnemzet.hu/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: n-pszabads-g
+  name: Népszabadság
+  url: http://nol.hu/
+  homepage: http://nol.hu/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://nol.hu/rss/mindencsatorna
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: n-pszava
+  name: Népszava
+  url: https://nepszava.hu/
+  homepage: https://nepszava.hu/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://nepszava.hu/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

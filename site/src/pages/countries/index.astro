@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCountries, scoreClass, countryName } from '../../lib/data';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const countries = getCountries();
+---
+<Layout title="Countries">
+  <h1>Countries</h1>
+  <p class="lede">Per-country mean is the average across the country's sites (equal-weighted per site, regardless of how many images each site contributed).</p>
+
+  <table>
+    <thead><tr><th>Country</th><th class="num">Sites</th><th class="num">Mean score</th></tr></thead>
+    <tbody>
+      {countries.map(c => (
+        <tr>
+          <td><a href={`${base}/countries/${c.country.toLowerCase()}/`}>{countryName(c.country)}</a> <span style="color:var(--iptc-muted)">({c.country})</span></td>
+          <td class="num">{c.site_count}</td>
+          <td class="num">
+            <span class={`score-bar ${scoreClass(c.mean_score)}`}><span style={`width:${c.mean_score}%`}></span></span>
+            {c.mean_score.toFixed(1)}
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</Layout>

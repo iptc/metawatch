@@ -1,0 +1,59 @@
+country: LV
+sites:
+- id: baltic-times
+  name: Baltic Times
+  url: https://www.baltictimes.com/
+  homepage: https://www.baltictimes.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://feeds.feedburner.com/TheBalticTimesNews
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: diena
+  name: Diena
+  url: https://www.diena.lv/
+  homepage: https://www.diena.lv/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.diena.lv/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: ir
+  name: ir
+  url: https://ir.lv/
+  homepage: https://ir.lv/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://ir.lv/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

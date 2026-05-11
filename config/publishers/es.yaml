@@ -1,0 +1,116 @@
+country: ES
+sites:
+- id: abc
+  name: ABC
+  url: https://www.abc.es/
+  homepage: https://www.abc.es/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.abc.es/rss/feeds/abcPortada.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: el-correo
+  name: El Correo
+  url: https://www.elcorreo.com/
+  homepage: https://www.elcorreo.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.elcorreo.com/rss/2.0/portada
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: el-mundo
+  name: El Mundo
+  url: https://www.elmundo.es/
+  homepage: https://www.elmundo.es/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://e00-elmundo.uecdn.es/elmundo/rss/portada.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: el-pais
+  name: El Pais
+  url: https://www.elpais.com
+  homepage: https://www.elpais.com
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: MS
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://ep00.epimg.net/rss/internacional/portada.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: la-raz-n
+  name: La Razón
+  url: https://www.larazon.es/
+  homepage: https://www.larazon.es/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.larazon.es/rss/portada.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: la-vanguardia
+  name: La Vanguardia
+  url: https://www.lavanguardia.com/
+  homepage: https://www.lavanguardia.com/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.lavanguardia.com/mvc/feed/rss/home
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

@@ -164,8 +164,7 @@ venv.bak/
 # Rope project settings
 .ropeproject
 
-# mkdocs documentation
-/site
+# mkdocs documentation — n/a here (our /site is the Astro app; see "Metawatch" block below)
 
 # mypy
 .mypy_cache/
@@ -216,3 +215,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Metawatch
+.venv/
+site/node_modules/
+site/dist/
+site/.astro/

@@ -1,0 +1,53 @@
+[project]
+name = "pmd-crawler"
+version = "2.0.0a1"
+description = "Metawatch crawler: scans news publishers for embedded image metadata"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "IPTC", email = "office@iptc.org" }]
+dependencies = [
+    "httpx>=0.27",
+    "selectolax>=0.3.21",
+    "lxml>=5.2",
+    "protego>=0.3",
+    "pyyaml>=6.0",
+    "pyarrow>=17.0",
+    "feedparser>=6.0",
+    "tldextract>=5.1",
+    "click>=8.1",
+    "rich>=13.7",
+    "tenacity>=8.5",
+    "pyexiftool>=0.5",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.6",
+    "mypy>=1.11",
+    "types-PyYAML",
+]
+
+[project.scripts]
+pmd-crawler = "pmd_crawler.main:cli"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pmd_crawler"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "W"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"

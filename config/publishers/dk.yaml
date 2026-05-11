@@ -1,0 +1,78 @@
+country: DK
+sites:
+- id: berlingske
+  name: Berlingske
+  url: https://www.berlingske.dk/
+  homepage: https://www.berlingske.dk/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.berlingske.dk/content/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: bt
+  name: BT
+  url: https://www.bt.dk/
+  homepage: https://www.bt.dk/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.bt.dk/bt/seneste/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: ekstra-bladet
+  name: Ekstra Bladet
+  url: https://ekstrabladet.dk/
+  homepage: https://ekstrabladet.dk/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://ekstrabladet.dk/rssfeed/all/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: politiken
+  name: Politiken
+  url: http://politiken.dk
+  homepage: http://politiken.dk
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://politiken.dk/rss/tophistorier.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

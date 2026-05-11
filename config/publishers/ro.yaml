@@ -1,0 +1,59 @@
+country: RO
+sites:
+- id: adevarul
+  name: Adevarul
+  url: https://adevarul.ro/
+  homepage: https://adevarul.ro/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://adevarul.ro/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: realitatea
+  name: Realitatea
+  url: https://www.realitatea.net/
+  homepage: https://www.realitatea.net/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://rss.realitatea.net/stiri.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: stirile-pro-tv
+  name: Stirile Pro TV
+  url: https://www.stirileprotv.ro/
+  homepage: https://www.stirileprotv.ro/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://rss.stirileprotv.ro/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

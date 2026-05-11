@@ -1,0 +1,59 @@
+country: LU
+sites:
+- id: le-quotidien
+  name: Le Quotidien
+  url: http://www.lequotidien.lu/
+  homepage: http://www.lequotidien.lu/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.lequotidien.lu/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: luxemburger-wort
+  name: Luxemburger Wort
+  url: https://www.wort.lu/de
+  homepage: https://www.wort.lu/de
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.wort.lu/rss/de
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: tageblatt
+  name: Tageblatt
+  url: http://www.tageblatt.lu/
+  homepage: http://www.tageblatt.lu/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.tageblatt.lu/category/nachrichten/feed/atom/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

@@ -1,0 +1,97 @@
+country: SE
+sites:
+- id: aftonbladet
+  name: Aftonbladet
+  url: https://www.aftonbladet.se/
+  homepage: https://www.aftonbladet.se/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: JL
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.aftonbladet.se/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: dagens-nyheter
+  name: Dagens Nyheter
+  url: https://www.dn.se/
+  homepage: https://www.dn.se/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: JL
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.dn.se/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: expressen
+  name: Expressen
+  url: https://www.expressen.se/
+  homepage: https://www.expressen.se/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: JL
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://feeds.expressen.se/nyheter/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: svenska-dagbladet
+  name: Svenska Dagbladet
+  url: https://www.svd.se/
+  homepage: https://www.svd.se/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: JL
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.svd.se/feed/articles.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: svt-nyheter
+  name: SVT Nyheter
+  url: https://www.svt.se/
+  homepage: https://www.svt.se/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: JL
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.svt.se/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

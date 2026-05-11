@@ -1,0 +1,33 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getSites, scoreClass, countryName, categoryLabel } from '../../lib/data';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const sites = getSites();
+---
+<Layout title="All sites">
+  <h1>All sites</h1>
+  <p class="lede">Every site in this run, ranked by mean IPTC score. Sites whose <code>robots.txt</code> disallows our crawler are shown but not scored.</p>
+
+  <table>
+    <thead>
+      <tr><th>Site</th><th>Country</th><th>Category</th><th>Status</th><th class="num">Images</th><th class="num">% IPTC</th><th class="num">Score</th></tr>
+    </thead>
+    <tbody>
+      {sites.map(s => (
+        <tr>
+          <td><a href={`${base}/sites/${s.site_id}/`}>{s.site_name}</a></td>
+          <td><a href={`${base}/countries/${s.country.toLowerCase()}/`}>{countryName(s.country)}</a></td>
+          <td><span class={`pill ${s.category}`}>{categoryLabel(s.category)}</span></td>
+          <td>{s.status === 'ok' ? <span>ok</span> : <em>{s.status}</em>}</td>
+          <td class="num">{s.images_analysed}</td>
+          <td class="num">{s.pct_with_iptc}%</td>
+          <td class="num">
+            <span class={`score-bar ${scoreClass(s.mean_iptc_score)}`}><span style={`width:${s.mean_iptc_score}%`}></span></span>
+            {s.mean_iptc_score.toFixed(1)}
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</Layout>

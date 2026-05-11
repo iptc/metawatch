@@ -1,0 +1,59 @@
+country: ZA
+sites:
+- id: mail-guardian
+  name: Mail & Guardian
+  url: https://mg.co.za/
+  homepage: https://mg.co.za/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://mg.co.za/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: news24
+  name: News24
+  url: https://www.news24.com/
+  homepage: https://www.news24.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://feeds.24.com/articles/News24/TopStories/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: times-live
+  name: Times Live
+  url: https://www.timeslive.co.za/
+  homepage: https://www.timeslive.co.za/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.timeslive.co.za/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

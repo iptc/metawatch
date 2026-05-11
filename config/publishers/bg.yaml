@@ -1,0 +1,78 @@
+country: BG
+sites:
+- id: '24'
+  name: 24 часа
+  url: https://www.24chasa.bg/
+  homepage: https://www.24chasa.bg/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.24chasa.bg/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: site
+  name: Дневен Труд
+  url: https://trud.bg/
+  homepage: https://trud.bg/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://trud.bg/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: site-2
+  name: Дневник
+  url: https://www.dnevnik.bg/
+  homepage: https://www.dnevnik.bg/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.dnevnik.bg/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-daily-star
+  name: The Daily Star
+  url: https://www.thedailystar.net/
+  homepage: https://www.thedailystar.net/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.thedailystar.net/frontpage/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

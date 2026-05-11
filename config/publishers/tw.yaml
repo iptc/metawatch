@@ -1,0 +1,40 @@
+country: TW
+sites:
+- id: china-post-english
+  name: China Post (English)
+  url: https://chinapost.nownews.com/
+  homepage: https://chinapost.nownews.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://chinapost.nownews.com/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: united-daily-news
+  name: 即時/娛樂 (United Daily News)
+  url: https://udn.com/
+  homepage: https://udn.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://udn.com/rssfeed/news/1/8?ch=news
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

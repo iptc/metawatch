@@ -1,0 +1,116 @@
+country: 'NO'
+sites:
+- id: aftenposten
+  name: Aftenposten
+  url: https://www.aftenposten.no/
+  homepage: https://www.aftenposten.no/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: TH
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.aftenposten.no/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: dagbladet
+  name: Dagbladet
+  url: https://www.dagbladet.no/
+  homepage: https://www.dagbladet.no/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: TH
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.dagbladet.no/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: nettavisen
+  name: Nettavisen
+  url: https://www.nettavisen.no/
+  homepage: https://www.nettavisen.no/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: TH
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.nettavisen.no/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: nrk
+  name: NRK
+  url: https://www.nrk.no/
+  homepage: https://www.nrk.no/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: TH
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.nrk.no/toppsaker.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: tv2
+  name: TV2
+  url: https://www.tv2.no/
+  homepage: https://www.tv2.no/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: TH
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.tv2.no/rest/cms-feeds-dw-rest/v2/cms/article/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: vg
+  name: VG
+  url: https://www.vg.no/
+  homepage: https://www.vg.no/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: TH
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.vg.no/rss/feed/forsiden/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

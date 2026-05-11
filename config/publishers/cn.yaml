@@ -1,0 +1,59 @@
+country: CN
+sites:
+- id: china-daily-english
+  name: China Daily (English)
+  url: http://www.chinadaily.com.cn/
+  homepage: http://www.chinadaily.com.cn/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.chinadaily.com.cn/rss/china_rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: people-s-daily-english
+  name: People's Daily (English)
+  url: http://en.people.cn/
+  homepage: http://en.people.cn/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://en.people.cn/rss/China.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: south-china-morning-post-english
+  name: South China Morning Post (English)
+  url: https://www.scmp.com/
+  homepage: https://www.scmp.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.scmp.com/rss/91/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

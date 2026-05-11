@@ -1,0 +1,116 @@
+country: CZ
+sites:
+- id: aha
+  name: Aha!
+  url: https://www.ahaonline.cz/
+  homepage: https://www.ahaonline.cz/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.ahaonline.cz/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: blesk-cz
+  name: Blesk.cz
+  url: https://www.blesk.cz/
+  homepage: https://www.blesk.cz/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.blesk.cz/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: hospod-sk-noviny
+  name: Hospodářské noviny
+  url: https://ihned.cz/
+  homepage: https://ihned.cz/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://ihned.cz/?m=rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: lidov-noviny
+  name: Lidové noviny
+  url: https://www.lidovky.cz/
+  homepage: https://www.lidovky.cz/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://servis.lidovky.cz/rss.aspx
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: mlad-fronta-dnes-mf-dnes
+  name: Mladá fronta DNES (MF DNES)
+  url: https://www.idnes.cz
+  homepage: https://www.idnes.cz
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://servis.idnes.cz/rss.aspx
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: prague-daily-monitor
+  name: Prague Daily Monitor
+  url: http://praguemonitor.com/
+  homepage: http://praguemonitor.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://praguemonitor.com/rss/1+11+12+13+14+19+143/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

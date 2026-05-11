@@ -1,0 +1,59 @@
+country: SI
+sites:
+- id: 24ur
+  name: 24ur
+  url: https://www.24ur.com/
+  homepage: https://www.24ur.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.24ur.com/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: rtv-slo
+  name: RTV SLO
+  url: https://www.rtvslo.si/
+  homepage: https://www.rtvslo.si/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://img.rtvslo.si/_up/export/rss/novice.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: siolnet
+  name: SiolNET
+  url: https://siol.net/
+  homepage: https://siol.net/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://siol.net/feeds/latest
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

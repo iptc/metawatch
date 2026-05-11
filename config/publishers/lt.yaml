@@ -1,0 +1,78 @@
+country: LT
+sites:
+- id: 15min
+  name: 15min
+  url: https://www.15min.lt/
+  homepage: https://www.15min.lt/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.15min.lt/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: lietuvos-inios
+  name: Lietuvos žinios
+  url: https://www.lzinios.lt/
+  homepage: https://www.lzinios.lt/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.lzinios.lt/rss/all/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: lietuvos-rytas
+  name: Lietuvos rytas
+  url: https://lietuvosdiena.lrytas.lt/
+  homepage: https://lietuvosdiena.lrytas.lt/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://lietuvosdiena.lrytas.lt/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: verslo-inios
+  name: Verslo žinios
+  url: https://www.vz.lt/
+  homepage: https://www.vz.lt/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.vz.lt/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

@@ -1,0 +1,59 @@
+country: SK
+sites:
+- id: aktuality-sk
+  name: aktuality.sk
+  url: https://www.aktuality.sk/
+  homepage: https://www.aktuality.sk/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.aktuality.sk/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: nov-as
+  name: Nový Čas
+  url: https://www.cas.sk/
+  homepage: https://www.cas.sk/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.cas.sk/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: topky
+  name: Topky
+  url: https://www.topky.sk/
+  homepage: https://www.topky.sk/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.topky.sk/rss/8/Topky/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

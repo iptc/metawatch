@@ -1,0 +1,64 @@
+name: Monthly crawl
+
+on:
+  schedule:
+    - cron: "0 2 1 * *"   # 02:00 UTC on the 1st of each month
+  workflow_dispatch:
+    inputs:
+      country:
+        description: "Restrict to a single country (alpha-2). Leave blank for all."
+        required: false
+      site_id:
+        description: "Run a specific site ID (comma-separated). Leave blank for all."
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ExifTool
+        run: sudo apt-get update && sudo apt-get install -y exiftool
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install crawler
+        run: |
+          python -m venv .venv
+          .venv/bin/pip install --upgrade pip
+          .venv/bin/pip install -e ./crawler
+
+      - name: Run crawl
+        env:
+          CRAWL_DATE: ${{ steps.date.outputs.date }}
+        run: |
+          DATE=$(date -u +%Y-%m-%d)
+          OUT="data/runs/$DATE"
+          ARGS="--output $OUT"
+          if [ -n "${{ inputs.country }}" ]; then ARGS="$ARGS --country ${{ inputs.country }}"; fi
+          if [ -n "${{ inputs.site_id }}" ]; then ARGS="$ARGS --site-id ${{ inputs.site_id }}"; fi
+          .venv/bin/pmd-crawler run $ARGS
+
+      - name: Export latest run for static site
+        run: .venv/bin/python crawler/scripts/export_for_site.py
+
+      - name: Commit results
+        run: |
+          git config user.name  "metawatch-bot"
+          git config user.email "metadata-crawler@iptc.org"
+          git add data/runs/ site/src/data/latest/
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          DATE=$(date -u +%Y-%m-%d)
+          git commit -m "Crawl run $DATE"
+          git push

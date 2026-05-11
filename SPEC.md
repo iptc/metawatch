@@ -1,7 +1,7 @@
 # Photo Metadata Crawler v2 — Specification
 
 > Working project name: **Metawatch**. Alternatives still under consideration: *Metalens*, *Metascope*. Final naming TBC.
-> Working repo name: `pmd-crawler-v2`.
+> Repo name: `metawatch`.
 > Code licence: MIT. Data licence: CC-BY 4.0.
 
 ## 1. Purpose & goals
@@ -78,7 +78,7 @@ If repo size becomes a concern:
 ## 3. Repository layout
 
 ```
-pmd-crawler-v2/
+metawatch/
 ├── crawler/                    # Python crawler
 │   ├── pyproject.toml
 │   ├── src/pmd_crawler/
@@ -91,12 +91,13 @@ pmd-crawler-v2/
 │   │   ├── output.py           # Parquet writers
 │   │   └── config.py           # site-list YAML loader
 │   └── tests/
-├── sites/                      # site list (one file per country)
-│   ├── _schema.yaml            # JSON Schema for validation
-│   ├── ar.yaml
-│   ├── at.yaml
-│   ├── ...
-│   └── us.yaml
+├── config/                     # human-edited configuration
+│   └── publishers/             # per-country publisher lists ({cc}.yaml)
+│       ├── _schema.yaml        # JSON Schema for validation
+│       ├── ar.yaml
+│       ├── at.yaml
+│       ├── ...
+│       └── us.yaml
 ├── data/
 │   └── runs/
 │       └── 2026-06-01/         # one directory per crawl run
@@ -132,7 +133,7 @@ YAML, one file per country (ISO 3166-1 alpha-2 lowercase). One file per country 
 ### Schema
 
 ```yaml
-# sites/us.yaml
+# config/publishers/us.yaml
 country: US
 sites:
   - id: ap                                      # short stable ID, used as primary key
@@ -149,7 +150,7 @@ sites:
     sample:
       max_articles: 20                          # per crawl run
       window_days: 30                           # only articles published within N days
-    category: wire                              # newspaper | wire | broadcaster | online | magazine
+    category: news-agency                       # newspaper | news-agency | broadcaster | online | magazine
     language_primary: en
     notes: ""
     suggested_by: original-2021-list
@@ -273,13 +274,13 @@ CDN detection lives in `crawler/src/pmd_crawler/cdn.py` with a rules table edita
 
 ## 6. Politeness & identification
 
-- **User-Agent:** `IPTCMetadataCrawler/2.0 (+https://github.com/iptc/pmd-crawler-v2; metadata-crawler@iptc.org)`.
+- **User-Agent:** `IPTCMetadataCrawler/2.0 (+https://github.com/iptc/metawatch; metadata-crawler@iptc.org)`.
   - Deliberately doesn't pattern-match `bot`, `Claude`, `GPT`, `anthropic`, `AI` — we are not an AI bot and don't want to be lumped in with them.
 - Strict per-UA `robots.txt` compliance with `protego`.
 - Default 1 req/sec/domain; honour `Crawl-delay` if higher.
 - `Accept-Encoding: gzip`, `If-Modified-Since` where possible.
 - No JS execution unless site config requires it (smaller footprint).
-- Maintain `sites/_optouts.yaml` — any publisher who emails us asking to be removed gets added here without question.
+- Maintain `config/publishers/_optouts.yaml` — any publisher who emails us asking to be removed gets added here without question.
 
 ## 7. Output data model (Parquet)
 
@@ -497,7 +498,7 @@ Triggered on push to `main` under `data/runs/**` or `site/**`. Builds Astro site
 
 ### `ci.yml`
 
-On PR: validate `sites/*.yaml` against the JSON schema, run crawler unit tests, lint Python, typecheck TypeScript.
+On PR: validate `config/publishers/*.yaml` against the JSON schema, run crawler unit tests, lint Python, typecheck TypeScript.
 
 ## 12. Phasing
 
@@ -537,11 +538,11 @@ On PR: validate `sites/*.yaml` against the JSON schema, run crawler unit tests, 
 ## 13. Decisions made
 
 - **Working name:** Metawatch (final TBC). Shortlisted alternatives: Metalens, Metascope.
-- **Repo name:** `pmd-crawler-v2`.
+- **Repo name:** `metawatch`.
 - **Code licence:** MIT. Repo private for now.
 - **Data licence:** CC-BY 4.0 on published Parquet.
 - **Opt-out:** publishers email office@iptc.org. Documented on `/about/`.
-- **Wire services:** assigned to their home country (AP→US, AFP→FR, Reuters→GB). No separate ranking — they sit in the country tables alongside others. `category: wire` remains as a filter for cross-cuts ("agencies vs publishers").
+- **News agencies:** assigned to their home country (AP→US, AFP→FR, Reuters→GB). No separate ranking — they sit in the country tables alongside others. `category: news-agency` remains as a filter for cross-cuts ("agencies vs publishers").
 - **Image storage:** none. Only the image URL is stored; if a result needs verification we re-fetch.
 - **Historical data:** no import from v1.
 

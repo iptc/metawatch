@@ -1,0 +1,59 @@
+country: TR
+sites:
+- id: cumhuriyet
+  name: Cumhuriyet
+  url: https://www.cumhuriyet.com.tr/
+  homepage: https://www.cumhuriyet.com.tr/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.cumhuriyet.com.tr/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: daily-sabah
+  name: Daily Sabah
+  url: https://www.dailysabah.com/
+  homepage: https://www.dailysabah.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.dailysabah.com/rssFeed/10
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: h-rriyet
+  name: Hürriyet
+  url: https://www.hurriyet.com.tr/
+  homepage: https://www.hurriyet.com.tr/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.hurriyet.com.tr/rss/anasayfa
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

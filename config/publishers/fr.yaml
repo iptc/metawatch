@@ -1,0 +1,154 @@
+country: FR
+sites:
+- id: 20minutes
+  name: 20minutes
+  url: https://www.20minutes.fr/
+  homepage: https://www.20minutes.fr/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.20minutes.fr/feeds/rss-actu-france.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: euronews
+  name: Euronews
+  url: http://www.euronews.com/
+  homepage: http://www.euronews.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://feeds.feedburner.com/euronews/en/home/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: france24
+  name: France24
+  url: https://www.france24.com/fr/
+  homepage: https://www.france24.com/fr/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.france24.com/fr/france/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: l-internaute
+  name: L'Internaute
+  url: https://www.linternaute.com/
+  homepage: https://www.linternaute.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.linternaute.com/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: le-figaro
+  name: Le Figaro
+  url: http://www.lefigaro.fr/
+  homepage: http://www.lefigaro.fr/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://www.lefigaro.fr/rss/figaro_actualites.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: le-monde
+  name: Le Monde
+  url: https://www.lemonde.fr/
+  homepage: https://www.lemonde.fr/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.lemonde.fr/rss/une.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: les-echos
+  name: Les Echos
+  url: https://www.lesechos.fr/
+  homepage: https://www.lesechos.fr/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://syndication.lesechos.fr/rss/Echos_monde.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: liberation
+  name: Liberation
+  url: https://www.liberation.fr/
+  homepage: https://www.liberation.fr/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.liberation.fr/rss/latest/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

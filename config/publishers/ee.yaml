@@ -1,0 +1,116 @@
+country: EE
+sites:
+- id: delfi
+  name: Delfi
+  url: https://www.delfi.ee/
+  homepage: https://www.delfi.ee/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://feeds2.feedburner.com/delfiuudised
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: err
+  name: ERR
+  url: https://www.err.ee/
+  homepage: https://www.err.ee/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.err.ee/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: htuleht
+  name: Õhtuleht
+  url: https://www.ohtuleht.ee/
+  homepage: https://www.ohtuleht.ee/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.ohtuleht.ee/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: linnaleht
+  name: Linnaleht
+  url: https://www.linnaleht.ee/
+  homepage: https://www.linnaleht.ee/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.linnaleht.ee/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: postimees
+  name: Postimees
+  url: https://www.postimees.ee/
+  homepage: https://www.postimees.ee/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.postimees.ee/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: rip-ev
+  name: Äripäev
+  url: https://www.aripaev.ee/
+  homepage: https://www.aripaev.ee/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.aripaev.ee/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

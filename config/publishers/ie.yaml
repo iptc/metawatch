@@ -1,0 +1,78 @@
+country: IE
+sites:
+- id: evening-herald
+  name: Evening Herald
+  url: https://www.herald.ie/
+  homepage: https://www.herald.ie/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.herald.ie/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: independent
+  name: Independent
+  url: https://www.independent.ie/
+  homepage: https://www.independent.ie/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.independent.ie/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: irish-sun
+  name: Irish Sun
+  url: https://www.irishsun.com/
+  homepage: https://www.irishsun.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - http://feeds.irishsun.com/rss/aba4168066a10b8d
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: irish-times
+  name: Irish Times
+  url: https://www.irishtimes.com/
+  homepage: https://www.irishtimes.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.irishtimes.com/rss/apple-rss-1.2384003
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

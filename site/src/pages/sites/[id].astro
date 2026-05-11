@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getSites, scoreClass, countryName, categoryLabel } from '../../lib/data';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+export function getStaticPaths() {
+  // Import inside the function: at build time, fs is available here too,
+  // but Astro requires getStaticPaths to be sync OR an async returning paths.
+  // Using a top-level import works too — keeping inline for clarity.
+  const sites = getSites();
+  return sites.map(s => ({ params: { id: s.site_id }, props: { site: s } }));
+}
+
+const { site } = Astro.props;
+---
+<Layout title={site.site_name}>
+  <p><a href={`${base}/sites/`}>← All sites</a></p>
+  <h1>{site.site_name}</h1>
+  <p class="lede">
+    <a href={`${base}/countries/${site.country.toLowerCase()}/`}>{countryName(site.country)}</a> ·
+    <span class={`pill ${site.category}`}>{categoryLabel(site.category)}</span> ·
+    Discovery: <code>{site.discovery_strategy}</code>
+  </p>
+
+  <div class="card-row">
+    <div class="stat"><span class="stat-label">Articles sampled</span><span class="stat-value">{site.articles_sampled}</span></div>
+    <div class="stat"><span class="stat-label">Images analysed</span><span class="stat-value">{site.images_analysed}</span></div>
+    <div class="stat"><span class="stat-label">% with IPTC</span><span class="stat-value">{site.pct_with_iptc}%</span></div>
+    <div class="stat"><span class="stat-label">Mean IPTC score</span><span class="stat-value">{site.mean_iptc_score.toFixed(1)}</span>
+      <span class={`score-bar ${scoreClass(site.mean_iptc_score)}`} style="margin-top:6px;width:140px"><span style={`width:${site.mean_iptc_score}%`}></span></span>
+    </div>
+  </div>
+
+  {site.status !== 'ok' && (
+    <div class="card">
+      <strong>Status: {site.status}.</strong>
+      {site.status === 'robots_disallow' && <span> The site's robots.txt disallows our crawler.</span>}
+      {site.status === 'no_articles_found' && <span> Discovery succeeded but no articles were found in the sample window.</span>}
+    </div>
+  )}
+
+  <h2>CDN distribution</h2>
+  <p>Where this site's images are served from. CDN image-optimization features can strip metadata in transit.</p>
+  <table>
+    <thead><tr><th>Provider</th><th class="num">Images</th></tr></thead>
+    <tbody>
+      {Object.entries(site.cdn_breakdown).sort((a,b) => b[1] - a[1]).map(([k, v]) => (
+        <tr><td>{k}</td><td class="num">{v}</td></tr>
+      ))}
+    </tbody>
+  </table>
+
+  <h2>Crawl details</h2>
+  <div class="card">
+    <div><strong>Discovery strategy:</strong> <code>{site.discovery_strategy}</code></div>
+    {site.sitemap_url_used && <div><strong>Sitemap used:</strong> <a href={site.sitemap_url_used}><code>{site.sitemap_url_used}</code></a></div>}
+  </div>
+</Layout>
