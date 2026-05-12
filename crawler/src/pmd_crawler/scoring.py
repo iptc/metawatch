@@ -64,8 +64,28 @@ def score_image(exif_tags: dict[str, object]) -> tuple[float, list[tuple[str, bo
 
 
 def families_present(exif_tags: dict[str, object]) -> tuple[bool, bool, bool]:
-    """Return (has_exif, has_iptc_iim, has_xmp)."""
+    """Return (has_exif, has_iptc_iim, has_xmp).
+
+    has_iptc_iim requires at least one of the 11 weighted fields to be present
+    under the IPTC: group with a non-empty value. Bare structural tags like
+    IPTC:ApplicationRecordVersion don't qualify.
+    """
     has_exif = any(k.startswith("EXIF:") for k in exif_tags)
-    has_iptc = any(k.startswith("IPTC:") for k in exif_tags)
     has_xmp = any(k.startswith("XMP") for k in exif_tags)
-    return has_exif, has_iptc, has_xmp
+    has_iptc_iim = _has_substantive_iptc(exif_tags)
+    return has_exif, has_iptc_iim, has_xmp
+
+
+def _has_substantive_iptc(exif_tags: dict[str, object]) -> bool:
+    lower = {k.lower(): v for k, v in exif_tags.items() if k.startswith("IPTC:")}
+    if not lower:
+        return False
+    for _label, aliases, _w in FIELD_WEIGHTS:
+        for alias in aliases:
+            a = alias.lower()
+            if a.startswith("xmp"):
+                continue
+            key = a if a.startswith("iptc:") else f"iptc:{a}"
+            if key in lower and _truthy(lower[key]):
+                return True
+    return False

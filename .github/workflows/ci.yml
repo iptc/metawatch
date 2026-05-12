@@ -49,4 +49,4 @@ jobs:
           .venv/bin/pip install --upgrade pip
           .venv/bin/pip install -e './crawler[dev]'
       - run: .venv/bin/ruff check crawler/src crawler/scripts
-      - run: .venv/bin/pytest crawler/tests || true   # no tests yet; will fail-fast once we add them
+      - run: .venv/bin/pytest crawler/tests
