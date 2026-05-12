@@ -5,5 +5,12 @@
     "site_count": 5,
     "image_count": 88,
     "mean_score": 13.75
+  },
+  {
+    "run_id": "2026-05-12T112211Z",
+    "started_at": "2026-05-12T11:22:11.950735+00:00",
+    "site_count": 14,
+    "image_count": 242,
+    "mean_score": 9.08
   }
 ]

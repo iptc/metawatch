@@ -1,51 +1,217 @@
 [
   {
-    "site_id": "ap",
-    "site_name": "Associated Press",
-    "country": "US",
-    "category": "news-agency",
+    "site_id": "metro",
+    "site_name": "Metro",
+    "country": "GB",
+    "category": "newspaper",
     "status": "ok",
-    "discovery_strategy": "config:sitemap",
-    "sitemap_url_used": "https://apnews.com/news-sitemap-content.xml",
-    "articles_sampled": 10,
-    "images_analysed": 9,
-    "mean_iptc_score": 70.56,
-    "pct_with_iptc": 88.9,
+    "discovery_strategy": "robots:picture_sitemap",
+    "sitemap_url_used": "https://metro.co.uk/sitemap-images.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 82.5,
+    "pct_with_iptc": 85.0,
     "cdn_breakdown": {
-      "cloudflare": 9
+      "none": 20
     }
   },
   {
-    "site_id": "le-monde",
-    "site_name": "Le Monde",
-    "country": "FR",
+    "site_id": "financial-times",
+    "site_name": "Financial Times",
+    "country": "GB",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "robots:first_sitemap",
+    "sitemap_url_used": "https://www.ft.com/sitemaps/index.xml",
+    "articles_sampled": 20,
+    "images_analysed": 2,
+    "mean_iptc_score": 65.0,
+    "pct_with_iptc": 100.0,
+    "cdn_breakdown": {
+      "cloudflare": 2
+    }
+  },
+  {
+    "site_id": "the-week",
+    "site_name": "The Week",
+    "country": "GB",
     "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "robots:news_sitemap",
-    "sitemap_url_used": "https://www.lemonde.fr/sitemap_news.xml",
+    "sitemap_url_used": "https://theweek.com/sitemap-news.xml",
     "articles_sampled": 20,
     "images_analysed": 20,
-    "mean_iptc_score": 28.75,
-    "pct_with_iptc": 95.0,
+    "mean_iptc_score": 6.75,
+    "pct_with_iptc": 35.0,
+    "cdn_breakdown": {
+      "cloudfront": 20
+    }
+  },
+  {
+    "site_id": "city-am",
+    "site_name": "City AM",
+    "country": "GB",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "robots:first_sitemap",
+    "sitemap_url_used": "https://www.cityam.com/sitemap.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 5.88,
+    "pct_with_iptc": 17.6,
+    "cdn_breakdown": {
+      "none": 17
+    }
+  },
+  {
+    "site_id": "evening-standard",
+    "site_name": "Evening Standard",
+    "country": "GB",
+    "category": "broadcaster",
+    "status": "ok",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://www.standard.co.uk/sitemaps/googlenews",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 4.5,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 20
+    }
+  },
+  {
+    "site_id": "the-scotsman",
+    "site_name": "The Scotsman",
+    "country": "GB",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://www.scotsman.com/sitemaps/googlenews",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 2.25,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 20
+    }
+  },
+  {
+    "site_id": "channel-4-news",
+    "site_name": "Channel 4 News",
+    "country": "GB",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://www.channel4.com/news/sitemap.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 1.0,
+    "pct_with_iptc": 10.0,
+    "cdn_breakdown": {
+      "none": 20
+    }
+  },
+  {
+    "site_id": "daily-mail-mail-on-sunday",
+    "site_name": "Daily Mail / Mail on Sunday",
+    "country": "GB",
+    "category": "newspaper",
+    "status": "no_articles_found",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://www.dailymail.co.uk/google-news-sitemap.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "daily-express",
+    "site_name": "Daily Express",
+    "country": "GB",
+    "category": "newspaper",
+    "status": "no_articles_found",
+    "discovery_strategy": "no_sitemap",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "new-statesman",
+    "site_name": "New Statesman",
+    "country": "GB",
+    "category": "newspaper",
+    "status": "no_articles_found",
+    "discovery_strategy": "no_sitemap",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "i",
+    "site_name": "i",
+    "country": "GB",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "robots:first_sitemap",
+    "sitemap_url_used": "https://inews.co.uk/sitemap-channels.xml",
+    "articles_sampled": 20,
+    "images_analysed": 1,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 1
+    }
+  },
+  {
+    "site_id": "the-economist",
+    "site_name": "The Economist",
+    "country": "GB",
+    "category": "newspaper",
+    "status": "no_articles_found",
+    "discovery_strategy": "no_sitemap",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "huffington-post-uk",
+    "site_name": "Huffington Post UK",
+    "country": "GB",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://www.huffingtonpost.co.uk/static-assets/isolated/huffpostsitemapgeneratorjob-prod-public/uk/sitemaps/sitemap-google-news.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "fastly": 20
     }
   },
   {
-    "site_id": "ny-times",
-    "site_name": "NY Times",
-    "country": "US",
+    "site_id": "the-independent",
+    "site_name": "The Independent",
+    "country": "GB",
     "category": "newspaper",
-    "status": "ok",
+    "status": "no_articles_found",
     "discovery_strategy": "robots:news_sitemap",
-    "sitemap_url_used": "https://www.nytimes.com/sitemaps/new/news.xml.gz",
-    "articles_sampled": 20,
-    "images_analysed": 19,
+    "sitemap_url_used": "https://www.independent.co.uk/sitemaps/googlenews",
+    "articles_sampled": 0,
+    "images_analysed": 0,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "fastly": 19
-    }
+    "cdn_breakdown": {}
   },
   {
     "site_id": "bbc-news",
@@ -64,6 +230,34 @@
     }
   },
   {
+    "site_id": "the-sun",
+    "site_name": "The Sun",
+    "country": "GB",
+    "category": "newspaper",
+    "status": "robots_disallow",
+    "discovery_strategy": "robots_disallow",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "spectator",
+    "site_name": "Spectator",
+    "country": "GB",
+    "category": "newspaper",
+    "status": "no_articles_found",
+    "discovery_strategy": "robots:first_sitemap",
+    "sitemap_url_used": "https://spectator.com/sitemap_index.xml?edition=us",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
     "site_id": "reuters",
     "site_name": "Reuters Top News",
     "country": "GB",
@@ -71,6 +265,54 @@
     "status": "ok",
     "discovery_strategy": "robots:picture_sitemap",
     "sitemap_url_used": "https://www.reuters.com/arc/outboundfeeds/sitemap-index/pictures/?outputType=xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudfront": 20
+    }
+  },
+  {
+    "site_id": "the-guardian",
+    "site_name": "The Guardian",
+    "country": "GB",
+    "category": "broadcaster",
+    "status": "ok",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "http://www.theguardian.com/sitemaps/news.xml",
+    "articles_sampled": 20,
+    "images_analysed": 19,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "fastly": 19
+    }
+  },
+  {
+    "site_id": "the-telegraph",
+    "site_name": "The Telegraph",
+    "country": "GB",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://www.telegraph.co.uk/custom/daily-news/sitemap.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "akamai": 20
+    }
+  },
+  {
+    "site_id": "the-daily-mirror-sunday-mirror",
+    "site_name": "The Daily Mirror / Sunday Mirror",
+    "country": "GB",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://www.mirror.co.uk/map_news.xml",
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 0.0,

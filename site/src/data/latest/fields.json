@@ -1,68 +1,68 @@
 [
   {
-    "field": "Creator",
-    "present": 25,
-    "total": 88,
-    "pct": 28.4
-  },
-  {
-    "field": "CreditLine",
-    "present": 25,
-    "total": 88,
-    "pct": 28.4
-  },
-  {
     "field": "CopyrightNotice",
-    "present": 12,
-    "total": 88,
-    "pct": 13.6
-  },
-  {
-    "field": "CaptionAbstract",
-    "present": 8,
-    "total": 88,
-    "pct": 9.1
-  },
-  {
-    "field": "Source",
-    "present": 8,
-    "total": 88,
-    "pct": 9.1
+    "present": 28,
+    "total": 239,
+    "pct": 11.7
   },
   {
     "field": "ObjectName",
-    "present": 8,
-    "total": 88,
-    "pct": 9.1
+    "present": 27,
+    "total": 239,
+    "pct": 11.3
   },
   {
     "field": "DateCreated",
-    "present": 8,
-    "total": 88,
-    "pct": 9.1
+    "present": 25,
+    "total": 239,
+    "pct": 10.5
+  },
+  {
+    "field": "CaptionAbstract",
+    "present": 21,
+    "total": 239,
+    "pct": 8.8
   },
   {
     "field": "LocationCreated",
-    "present": 8,
-    "total": 88,
-    "pct": 9.1
+    "present": 21,
+    "total": 239,
+    "pct": 8.8
+  },
+  {
+    "field": "Creator",
+    "present": 20,
+    "total": 239,
+    "pct": 8.4
+  },
+  {
+    "field": "Source",
+    "present": 20,
+    "total": 239,
+    "pct": 8.4
+  },
+  {
+    "field": "CreditLine",
+    "present": 19,
+    "total": 239,
+    "pct": 7.9
   },
   {
     "field": "WebStatement",
-    "present": 6,
-    "total": 88,
-    "pct": 6.8
-  },
-  {
-    "field": "Keywords",
-    "present": 3,
-    "total": 88,
-    "pct": 3.4
+    "present": 19,
+    "total": 239,
+    "pct": 7.9
   },
   {
     "field": "LicensorURL",
-    "present": 0,
-    "total": 88,
-    "pct": 0.0
+    "present": 19,
+    "total": 239,
+    "pct": 7.9
+  },
+  {
+    "field": "Keywords",
+    "present": 12,
+    "total": 239,
+    "pct": 5.0
   }
 ]
