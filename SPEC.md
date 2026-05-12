@@ -548,7 +548,7 @@ On PR: validate `config/publishers/*.yaml` against the JSON schema, run crawler 
 
 ## 14. Still open
 
-1. **Hosting domain.** `metawatch.iptc.org` is the obvious default. A dedicated `metawatch.news` or similar is possible if the name sticks. Defer until name is final.
+1. **Hosting domain.** Live at <https://metawatch.iptc.org/> (GitHub Pages + DNS CNAME).
 
 ## 15. Future considerations
 

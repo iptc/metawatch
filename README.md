@@ -42,7 +42,7 @@ cd site && npm install && npm run dev
 
 - The monthly crawl is triggered by `.github/workflows/crawl.yml` (cron, 02:00 UTC on the 1st) and commits the run to `data/runs/`.
 - The static site is rebuilt and deployed to GitHub Pages by `.github/workflows/build-site.yml` whenever `site/` or `data/runs/` changes on `main`.
-- Default deployed URL: `https://iptc.github.io/metawatch/` (custom domain `metawatch.iptc.org` to be set up later).
+- Deployed at <https://metawatch.iptc.org/>.
 
 ## Licences
 
