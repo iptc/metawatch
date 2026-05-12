@@ -19,11 +19,11 @@ sites:
     max_articles: 20
     window_days: 30
 - id: joongang-ilbo
-  name: JoongAng Ilbo (중앙일보 | 전체기사)
-  url: https://joongang.joins.com/
-  homepage: https://joongang.joins.com/
+  name: JoongAng Ilbo
+  url: https://www.joins.com/
+  homepage: https://www.joins.com/
   category: newspaper
-  language_primary: en
+  language_primary: ko
   notes: Needs manual feed triage 2026-05-12 (RSS dead, no replacement found).
   suggested_by: BQ
   active: true

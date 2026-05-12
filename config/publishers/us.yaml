@@ -135,8 +135,8 @@ sites:
     window_days: 30
 - id: huffington-post
   name: Huffington Post
-  url: https://www.huffingtonpost.com/
-  homepage: https://www.huffingtonpost.com/
+  url: https://www.huffpost.com/
+  homepage: https://www.huffpost.com/
   category: newspaper
   language_primary: en
   notes: ''
@@ -230,8 +230,8 @@ sites:
     window_days: 30
 - id: usa-today
   name: USA Today
-  url: http://www.usatoday.com/
-  homepage: http://www.usatoday.com/
+  url: https://www.usatoday.com/
+  homepage: https://www.usatoday.com/
   category: newspaper
   language_primary: en
   notes: Needs manual feed triage 2026-05-12 (RSS dead, no replacement found).

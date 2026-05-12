@@ -230,8 +230,8 @@ sites:
     window_days: 30
 - id: spectator
   name: Spectator
-  url: https://www.spectator.co.uk/
-  homepage: https://www.spectator.co.uk/
+  url: https://spectator.com/
+  homepage: https://spectator.com/
   category: newspaper
   language_primary: en
   notes: ''

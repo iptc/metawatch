@@ -6,13 +6,12 @@ sites:
   homepage: https://www.herald.ie/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: 'Folded into Independent.ie (/regionals/dublin) — already covered by independent entry.'
   suggested_by: BQ
-  active: true
+  active: false
   discovery:
     strategy: sitemap
-    sitemap_urls:
-    - https://www.independent.ie/sitemap/sitemap_googlenews.xml
+    sitemap_urls: []
     picture_sitemap_url: null
     rss_urls: []
     js_required: false
