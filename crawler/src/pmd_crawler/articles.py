@@ -84,7 +84,8 @@ def _images_from_jsonld(raw: str) -> list[str]:
 def _walk_jsonld_for_images(node: object, out: list[str]) -> None:
     if isinstance(node, dict):
         t = node.get("@type")
-        if t in {"NewsArticle", "Article", "ImageObject"}:
+        types = {t} if isinstance(t, str) else set(t) if isinstance(t, list) else set()
+        if types & {"NewsArticle", "Article", "ImageObject"}:
             img = node.get("image")
             _collect_image_field(img, out)
         for v in node.values():

@@ -209,9 +209,10 @@ def _parse_urlset(root: etree._Element) -> list[ArticleCandidate]:
 
 def _parse_iso_date(s: str) -> datetime | None:
     try:
-        return datetime.fromisoformat(s.replace("Z", "+00:00"))
+        dt = datetime.fromisoformat(s.replace("Z", "+00:00"))
     except ValueError:
         return None
+    return dt.replace(tzinfo=UTC) if dt.tzinfo is None else dt
 
 
 async def discover(
