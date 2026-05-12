@@ -37,6 +37,7 @@ console = Console()
 
 DEFAULT_REQ_DELAY = 1.0
 DEFAULT_REQ_JITTER = 0.5
+SITE_TIMEOUT_SECONDS = 300  # 5-min hard cap per site so one stuck site can't stall the whole run
 
 
 @click.group()
@@ -152,10 +153,24 @@ async def _run_async(sites: list[config.Site], output_dir: Path, concurrency: in
 
             async def crawl_one(site: config.Site) -> None:
                 nonlocal succeeded, blocked
+                console.print(f"[dim]start {site.id}[/dim]")
                 try:
-                    site_result = await _crawl_site(
-                        client, exif_pool, site, run_id, domain_locks
+                    site_result = await asyncio.wait_for(
+                        _crawl_site(client, exif_pool, site, run_id, domain_locks),
+                        timeout=SITE_TIMEOUT_SECONDS,
                     )
+                except TimeoutError:
+                    console.print(f"[red]timeout[/red] {site.id}: exceeded {SITE_TIMEOUT_SECONDS}s")
+                    site_rows.append(
+                        SiteRow(
+                            run_id=run_id, site_id=site.id, site_name=site.name,
+                            country=site.country, category=site.category,
+                            status="timeout", robots_url=f"{site.url.rstrip('/')}/robots.txt",
+                            sitemap_url_used=None, discovery_strategy="timeout",
+                            articles_sampled=0, images_analysed=0, mean_iptc_score=0.0,
+                        )
+                    )
+                    return
                 except Exception as e:  # network errors etc. — record and move on
                     console.print(f"[yellow]error[/yellow] {site.id}: {e}")
                     site_rows.append(
