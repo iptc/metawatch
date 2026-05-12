@@ -59,8 +59,8 @@ sites:
     window_days: 30
 - id: novi-list
   name: Novi list
-  url: http://www.novilist.hr/Vijesti
-  homepage: http://www.novilist.hr/Vijesti
+  url: https://www.novilist.hr/
+  homepage: https://www.novilist.hr/
   category: newspaper
   language_primary: en
   notes: ''

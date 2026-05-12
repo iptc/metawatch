@@ -24,10 +24,10 @@ sites:
   url: https://www.lzinios.lt/
   homepage: https://www.lzinios.lt/
   category: newspaper
-  language_primary: en
-  notes: ''
+  language_primary: lt
+  notes: 'Site appears defunct 2026-05-12 (TLS internal alert).'
   suggested_by: BQ
-  active: true
+  active: false
   discovery:
     strategy: sitemap
     sitemap_urls: []
@@ -40,19 +40,18 @@ sites:
     window_days: 30
 - id: lietuvos-rytas
   name: Lietuvos rytas
-  url: https://lietuvosdiena.lrytas.lt/
-  homepage: https://lietuvosdiena.lrytas.lt/
+  url: https://www.lrytas.lt/
+  homepage: https://www.lrytas.lt/
   category: newspaper
-  language_primary: en
-  notes: ''
+  language_primary: lt
+  notes: 'URL fixed 2026-05-12: old lietuvosdiena.lrytas.lt subdomain gone.'
   suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
     sitemap_urls: []
     picture_sitemap_url: null
-    rss_urls:
-    - https://lietuvosdiena.lrytas.lt/rss/
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

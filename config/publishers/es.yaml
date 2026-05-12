@@ -59,8 +59,8 @@ sites:
     window_days: 30
 - id: el-pais
   name: El Pais
-  url: https://www.elpais.com
-  homepage: https://www.elpais.com
+  url: https://elpais.com/
+  homepage: https://elpais.com/
   category: newspaper
   language_primary: en
   notes: ''

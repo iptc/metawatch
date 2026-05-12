@@ -21,19 +21,19 @@ sites:
     window_days: 30
 - id: gazeta-pl
   name: Gazeta.PL
-  url: https://www.gazeta.pl/https://wiadomosci.gazeta.pl/pub/rss/wiadomosci.htm
-  homepage: https://www.gazeta.pl/https://wiadomosci.gazeta.pl/pub/rss/wiadomosci.htm
+  url: https://www.gazeta.pl/
+  homepage: https://www.gazeta.pl/
   category: newspaper
-  language_primary: en
-  notes: ''
-  suggested_by: original-2021-list
+  language_primary: pl
+  notes: 'URL and RSS fixed 2026-05-12 (v1 CSV import corruption).'
+  suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - BQ
+    - https://wiadomosci.gazeta.pl/pub/rss/wiadomosci.htm
     js_required: false
   sample:
     max_articles: 20

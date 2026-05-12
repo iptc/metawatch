@@ -382,8 +382,8 @@ sites:
     window_days: 30
 - id: the-week
   name: The Week
-  url: http://www.theweek.co.uk/
-  homepage: http://www.theweek.co.uk/
+  url: https://theweek.com/uk
+  homepage: https://theweek.com/uk
   category: newspaper
   language_primary: en
   notes: ''

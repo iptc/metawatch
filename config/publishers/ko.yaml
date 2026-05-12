@@ -1,20 +1,19 @@
 country: KO
 sites:
 - id: chosun-ilbo
-  name: Chosun Ilbo (조선닷컴
-  url: https://인기기사전체)
-  homepage: https://인기기사전체)
+  name: Chosun Ilbo
+  url: https://www.chosun.com/
+  homepage: https://www.chosun.com/
   category: newspaper
-  language_primary: en
-  notes: ''
-  suggested_by: http://newsplus.chosun.com/hitdata/xml/newsplus/index/index.xml
+  language_primary: ko
+  notes: 'URL and language fixed 2026-05-12 (v1 CSV import corruption).'
+  suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
     sitemap_urls: []
     picture_sitemap_url: null
-    rss_urls:
-    - http://www.chosun.com/
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

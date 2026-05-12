@@ -63,9 +63,9 @@ sites:
   homepage: https://www.linnaleht.ee/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: 'Domain unresolvable 2026-05-12; appears shut down.'
   suggested_by: BQ
-  active: true
+  active: false
   discovery:
     strategy: sitemap
     sitemap_urls: []

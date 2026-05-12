@@ -40,8 +40,8 @@ sites:
     window_days: 30
 - id: el-sol-de-mexico
   name: El Sol de Mexico
-  url: https://www.elsoldemexico.com.mx/
-  homepage: https://www.elsoldemexico.com.mx/
+  url: https://oem.com.mx/elsoldemexico/
+  homepage: https://oem.com.mx/elsoldemexico/
   category: newspaper
   language_primary: en
   notes: ''
@@ -63,9 +63,9 @@ sites:
   homepage: https://www.eluniversal.com.mx/english
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: 'English edition discontinued; homepage 404 as of 2026-05-12.'
   suggested_by: BQ
-  active: true
+  active: false
   discovery:
     strategy: sitemap
     sitemap_urls: []

@@ -21,8 +21,8 @@ sites:
     window_days: 30
 - id: deutsche-welle
   name: Deutsche Welle
-  url: http://www.dw-world.de/
-  homepage: http://www.dw-world.de/
+  url: https://www.dw.com/
+  homepage: https://www.dw.com/
   category: newspaper
   language_primary: en
   notes: ''
@@ -135,8 +135,8 @@ sites:
     window_days: 30
 - id: itb-berlin
   name: ITB Berlin
-  url: https://itb-berlin-news.com/
-  homepage: https://itb-berlin-news.com/
+  url: https://news.itb.com/
+  homepage: https://news.itb.com/
   category: newspaper
   language_primary: en
   notes: ''
@@ -306,8 +306,8 @@ sites:
     window_days: 30
 - id: zdf-heute
   name: ZDF Heute
-  url: https://www.zdf.de/nachrichten/
-  homepage: https://www.zdf.de/nachrichten/
+  url: https://www.zdfheute.de/
+  homepage: https://www.zdfheute.de/
   category: broadcaster
   language_primary: en
   notes: ''

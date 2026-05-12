@@ -5,7 +5,7 @@ sites:
   url: https://www.ahaonline.cz/
   homepage: https://www.ahaonline.cz/
   category: newspaper
-  language_primary: en
+  language_primary: cs
   notes: ''
   suggested_by: BQ
   active: true
@@ -24,7 +24,7 @@ sites:
   url: https://www.blesk.cz/
   homepage: https://www.blesk.cz/
   category: newspaper
-  language_primary: en
+  language_primary: cs
   notes: ''
   suggested_by: BQ
   active: true
@@ -40,10 +40,10 @@ sites:
     window_days: 30
 - id: hospod-sk-noviny
   name: Hospodářské noviny
-  url: https://ihned.cz/
-  homepage: https://ihned.cz/
+  url: https://hn.cz/
+  homepage: https://hn.cz/
   category: newspaper
-  language_primary: en
+  language_primary: cs
   notes: ''
   suggested_by: BQ
   active: true
@@ -62,7 +62,7 @@ sites:
   url: https://www.lidovky.cz/
   homepage: https://www.lidovky.cz/
   category: newspaper
-  language_primary: en
+  language_primary: cs
   notes: ''
   suggested_by: BQ
   active: true
@@ -81,7 +81,7 @@ sites:
   url: https://www.idnes.cz
   homepage: https://www.idnes.cz
   category: newspaper
-  language_primary: en
+  language_primary: cs
   notes: ''
   suggested_by: BQ
   active: true
@@ -100,7 +100,7 @@ sites:
   url: http://praguemonitor.com/
   homepage: http://praguemonitor.com/
   category: newspaper
-  language_primary: en
+  language_primary: cs
   notes: ''
   suggested_by: BQ
   active: true
