@@ -222,3 +222,4 @@ __marimo__/
 site/node_modules/
 site/dist/
 site/.astro/
+.claude/worktrees/
