@@ -133,5 +133,3 @@ def _has_type(node: object, types: set[str]) -> bool:
             if _has_type(v, types):
                 return True
     return False
-
-

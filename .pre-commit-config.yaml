@@ -1,0 +1,27 @@
+# Pre-commit hooks for Metawatch.
+#
+# One-time setup (after activating venv):
+#   pip install -e './crawler[dev]'    # installs pre-commit
+#   pre-commit install                 # registers the git hook
+#
+# After this, `git commit` will run the hooks below on staged files.
+# To run manually across the whole repo: `pre-commit run --all-files`.
+
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.9
+    hooks:
+      - id: ruff
+        name: ruff (lint crawler/)
+        files: ^crawler/(src|scripts)/.*\.py$
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+        exclude: ^config/publishers/.*\.yaml$  # validated by full JSON-Schema check in CI
+      - id: check-merge-conflict
+      - id: check-added-large-files
+        args: ["--maxkb=2000"]

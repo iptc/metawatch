@@ -19,7 +19,8 @@ site/                Astro static site (deployed to GitHub Pages)
 ```bash
 # One-time setup
 python3 -m venv .venv
-.venv/bin/pip install -e ./crawler
+.venv/bin/pip install -e './crawler[dev]'
+.venv/bin/pre-commit install      # ruff + whitespace checks on every commit
 
 brew install exiftool             # macOS — or apt-get install exiftool
 
