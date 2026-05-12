@@ -42,7 +42,7 @@ class ImageResult:
 async def fetch_and_analyse(
     client: httpx.AsyncClient,
     image_url: str,
-    exif_pool: "ExifPool",
+    exif_pool: ExifPool,
 ) -> ImageResult:
     result = ImageResult(image_url=image_url)
 
@@ -153,7 +153,7 @@ class ExifPool:
         self._helper: exiftool.ExifToolHelper | None = None
         self._lock = asyncio.Lock()
 
-    async def __aenter__(self) -> "ExifPool":
+    async def __aenter__(self) -> ExifPool:
         self._helper = exiftool.ExifToolHelper()
         self._helper.run()
         return self
