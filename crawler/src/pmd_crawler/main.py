@@ -174,10 +174,20 @@ async def _run_async(sites: list[config.Site], output_dir: Path, concurrency: in
                 image_rows.extend(site_result["images"])
                 field_rows.extend(site_result["fields"])
 
-                if site_result["site"].status == "robots_disallow":
+                row = site_result["site"]
+                if row.status == "robots_disallow":
                     blocked += 1
-                elif site_result["site"].status == "ok":
+                    console.print(f"[cyan]blocked[/cyan] {site.id}: robots disallow")
+                elif row.status == "ok":
                     succeeded += 1
+                    console.print(
+                        f"[green]ok[/green] {site.id}: "
+                        f"{row.articles_sampled} articles, "
+                        f"{row.images_analysed} images, "
+                        f"mean score {row.mean_iptc_score:.1f}"
+                    )
+                else:
+                    console.print(f"[magenta]{row.status}[/magenta] {site.id}")
 
             sem = asyncio.Semaphore(concurrency)
 
