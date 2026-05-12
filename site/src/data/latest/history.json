@@ -7,10 +7,10 @@
     "mean_score": 13.75
   },
   {
-    "run_id": "2026-05-12T112211Z",
-    "started_at": "2026-05-12T11:22:11.950735+00:00",
-    "site_count": 14,
-    "image_count": 242,
-    "mean_score": 9.08
+    "run_id": "2026-05-12T210316Z",
+    "started_at": "2026-05-12T21:03:16.998133+00:00",
+    "site_count": 159,
+    "image_count": 2639,
+    "mean_score": 6.15
   }
 ]
