@@ -90,7 +90,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - http://www.lastampa.it/rss.xml
+    - https://www.lastampa.it/rss/copertina.xml
     js_required: false
   sample:
     max_articles: 20

@@ -11,10 +11,10 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.thestar.com.my/sitemap.xml
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.thestar.com.my/rss/News
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

@@ -30,10 +30,10 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.straitstimes.com/livecoverage.xml
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.straitstimes.com/print/home/rss.xml
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

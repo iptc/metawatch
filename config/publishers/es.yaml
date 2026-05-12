@@ -90,7 +90,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.larazon.es/rss/portada.xml
+    - https://www.larazon.es/?outputType=xml
     js_required: false
   sample:
     max_articles: 20
@@ -109,7 +109,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.lavanguardia.com/mvc/feed/rss/home
+    - https://www.lavanguardia.com/rss/home.xml
     js_required: false
   sample:
     max_articles: 20

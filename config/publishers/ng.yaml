@@ -11,10 +11,10 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://newtelegraphng.com/sitemap_index.xml
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.newtelegraphng.com/feed/
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
@@ -25,15 +25,14 @@ sites:
   homepage: https://thenationonlineng.net/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: Needs manual feed triage 2026-05-12 (RSS dead, no replacement found).
   suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
     sitemap_urls: []
     picture_sitemap_url: null
-    rss_urls:
-    - https://thenationonlineng.net/feed/
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

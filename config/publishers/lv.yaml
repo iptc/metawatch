@@ -52,7 +52,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://ir.lv/feed/
+    - https://ir.lv/rss
     js_required: false
   sample:
     max_articles: 20

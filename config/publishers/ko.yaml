@@ -6,7 +6,7 @@ sites:
   homepage: https://www.chosun.com/
   category: newspaper
   language_primary: ko
-  notes: 'URL and language fixed 2026-05-12 (v1 CSV import corruption).'
+  notes: URL and language fixed 2026-05-12 (v1 CSV import corruption).
   suggested_by: BQ
   active: true
   discovery:
@@ -24,15 +24,14 @@ sites:
   homepage: https://joongang.joins.com/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: Needs manual feed triage 2026-05-12 (RSS dead, no replacement found).
   suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
     sitemap_urls: []
     picture_sitemap_url: null
-    rss_urls:
-    - https://rss.joins.com/joins_news_list.xml
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

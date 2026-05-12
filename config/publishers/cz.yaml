@@ -109,7 +109,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - http://praguemonitor.com/rss/1+11+12+13+14+19+143/feed
+    - https://praguemonitor.com/feed/
     js_required: false
   sample:
     max_articles: 20

@@ -52,7 +52,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.infobae.com/feeds/rss/
+    - https://www.infobae.com/arc/outboundfeeds/rss/category/america/mundo/
     js_required: false
   sample:
     max_articles: 20

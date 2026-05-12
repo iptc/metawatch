@@ -144,10 +144,10 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.huffpost.com/static-assets/isolated/huffpostsitemapgeneratorjob-prod-public/us/sitemaps/sitemap-v1.xml
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.huffingtonpost.com/section/front-page/feed
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
@@ -220,10 +220,10 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://qz.com/sitemap.xml
     picture_sitemap_url: null
-    rss_urls:
-    - https://cms.qz.com/feed/
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
@@ -234,15 +234,14 @@ sites:
   homepage: http://www.usatoday.com/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: Needs manual feed triage 2026-05-12 (RSS dead, no replacement found).
   suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
     sitemap_urls: []
     picture_sitemap_url: null
-    rss_urls:
-    - http://rssfeeds.usatoday.com/usatoday-NewsTopStories
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

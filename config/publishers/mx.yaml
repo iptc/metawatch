@@ -14,7 +14,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://diario.mx/jrz/media/sitemaps/rss.xml
+    - https://diario.mx/rss/feed.xml
     js_required: false
   sample:
     max_articles: 20
@@ -25,15 +25,14 @@ sites:
   homepage: https://www.debate.com.mx/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: Needs manual feed triage 2026-05-12 (RSS dead, no replacement found).
   suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
     sitemap_urls: []
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.debate.com.mx/rss/feed.xml
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
@@ -63,7 +62,7 @@ sites:
   homepage: https://www.eluniversal.com.mx/english
   category: newspaper
   language_primary: en
-  notes: 'English edition discontinued; homepage 404 as of 2026-05-12.'
+  notes: English edition discontinued; homepage 404 as of 2026-05-12.
   suggested_by: BQ
   active: false
   discovery:
@@ -87,10 +86,10 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.eluniversal.com.mx/arc/outboundfeeds/sitemap/category/tendencias/?outputType=xml
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.eluniversal.com.mx/seccion/1671/rss.xml
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

@@ -14,7 +14,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.24chasa.bg/rss/
+    - https://www.24chasa.bg/rss
     js_required: false
   sample:
     max_articles: 20

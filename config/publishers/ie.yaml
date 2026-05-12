@@ -11,10 +11,10 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.independent.ie/sitemap/sitemap_googlenews.xml
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.herald.ie/rss/
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
@@ -44,15 +44,14 @@ sites:
   homepage: https://www.irishsun.com/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: Needs manual feed triage 2026-05-12 (RSS dead, no replacement found).
   suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
     sitemap_urls: []
     picture_sitemap_url: null
-    rss_urls:
-    - http://feeds.irishsun.com/rss/aba4168066a10b8d
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
@@ -68,10 +67,10 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.irishtimes.com/arc/outboundfeeds/sitemap/
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.irishtimes.com/rss/apple-rss-1.2384003
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

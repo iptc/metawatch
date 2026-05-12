@@ -14,7 +14,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.20minutes.fr/feeds/rss-actu-france.xml
+    - https://www.20minutes.fr/feeds/rss-une.xml
     js_required: false
   sample:
     max_articles: 20

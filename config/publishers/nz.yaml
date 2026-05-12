@@ -11,10 +11,10 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.nzherald.co.nz/arc/outboundfeeds/sitemap-index/?outputType=xml&_website=nzh
     picture_sitemap_url: null
-    rss_urls:
-    - https://rss.nzherald.co.nz/rss/xml/nzhtsrsscid_000000698.xml
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

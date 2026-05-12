@@ -71,7 +71,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.acorianooriental.pt/noticias/rss
+    - https://www.acorianooriental.pt/feed/rss.xml
     js_required: false
   sample:
     max_articles: 20

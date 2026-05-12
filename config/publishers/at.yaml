@@ -14,7 +14,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - http://derStandard.at/?page=rss&ressort=Seite1
+    - https://www.derstandard.at/rss
     js_required: false
   sample:
     max_articles: 20
@@ -33,7 +33,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - http://diepresse.com/rss//home
+    - https://www.diepresse.com/rss//
     js_required: false
   sample:
     max_articles: 20
@@ -49,10 +49,10 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.heute.at/sitemap/sitemap.xml
     picture_sitemap_url: null
-    rss_urls:
-    - http://api.heute.at/rss/view/1
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
@@ -120,15 +120,14 @@ sites:
   homepage: https://www.neue.at/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: Needs manual feed triage 2026-05-12 (RSS dead, no replacement found).
   suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
     sitemap_urls: []
     picture_sitemap_url: null
-    rss_urls:
-    - https://service.neue.at/service/feed/
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

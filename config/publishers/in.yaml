@@ -30,10 +30,10 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.bhaskar.com/sitemaps-v1--sitemap-latest-videos-daily-index.xml
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.bhaskar.com/rss-feed/11159/
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
@@ -68,10 +68,10 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.hindustantimes.com/sitemap/section.xml
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.hindustantimes.com/rss/topnews/rssfeed.xml
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

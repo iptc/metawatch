@@ -30,10 +30,10 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.iza.ne.jp/feeds/sitemapindex-category/?outputType=xml
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.iza.ne.jp/feed/kiji/kiji-n.xml
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
@@ -87,10 +87,10 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://english.kyodonews.net/sitemap.xml
     picture_sitemap_url: null
-    rss_urls:
-    - https://english.kyodonews.net/rss/all.xml
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
@@ -315,10 +315,10 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.zakzak.co.jp/feeds/sitemapindex-category/?outputType=xml
     picture_sitemap_url: null
-    rss_urls:
-    - http://www.zakzak.co.jp/rss/news/flash-n.xml
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

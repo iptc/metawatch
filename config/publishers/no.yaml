@@ -44,15 +44,14 @@ sites:
   homepage: https://www.nettavisen.no/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: Needs manual feed triage 2026-05-12 (RSS dead, no replacement found).
   suggested_by: TH
   active: true
   discovery:
     strategy: sitemap
     sitemap_urls: []
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.nettavisen.no/rss/
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
@@ -109,7 +108,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.vg.no/rss/feed/forsiden/
+    - https://www.vg.no/rss/feed/?format=rss
     js_required: false
   sample:
     max_articles: 20

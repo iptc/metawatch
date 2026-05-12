@@ -49,10 +49,10 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.ctvnews.ca/arc/outboundfeeds/sitemap-index/
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.ctvnews.ca/rss/ctvnews-ca-top-stories-public-rss-1.822009
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
