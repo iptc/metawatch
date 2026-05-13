@@ -164,7 +164,7 @@ async def _walk_sitemap(
     seen.add(url)
 
     try:
-        r = await client.get(url, timeout=30.0, follow_redirects=True)
+        r = await client.get(url, timeout=15.0, follow_redirects=True)
     except (httpx.NetworkError, httpx.TimeoutException):
         return [], "network_error"
     except Exception:

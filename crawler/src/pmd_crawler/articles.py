@@ -35,7 +35,7 @@ async def fetch_article(
         )
 
     try:
-        r = await client.get(candidate.url, timeout=30.0, follow_redirects=True)
+        r = await client.get(candidate.url, timeout=15.0, follow_redirects=True)
     except Exception:
         return ArticleResult(candidate, 0, [], None)
 

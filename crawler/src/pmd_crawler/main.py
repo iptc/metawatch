@@ -38,6 +38,7 @@ console = Console()
 DEFAULT_REQ_DELAY = 1.0
 DEFAULT_REQ_JITTER = 0.5
 SITE_TIMEOUT_SECONDS = 300  # 5-min hard cap per site so one stuck site can't stall the whole run
+MAX_CONSECUTIVE_ARTICLE_FAILURES = 3  # Bail out of a site after N back-to-back article fetch failures
 
 
 @click.group()
@@ -127,7 +128,7 @@ async def _run_async(sites: list[config.Site], output_dir: Path, concurrency: in
     succeeded = 0
     blocked = 0
 
-    timeout = httpx.Timeout(connect=10.0, read=30.0, write=10.0, pool=10.0)
+    timeout = httpx.Timeout(connect=10.0, read=15.0, write=10.0, pool=10.0)
     limits = httpx.Limits(max_connections=concurrency * 4, max_keepalive_connections=concurrency)
 
     async with (
@@ -272,16 +273,45 @@ async def _crawl_site(
     lock = domain_locks.setdefault(domain, asyncio.Lock())
     delay = max(robots.crawl_delay or 0.0, DEFAULT_REQ_DELAY)
 
+    # Cap article count by what fits in the site budget given the declared
+    # crawl-delay. Each article costs ~2× delay because we acquire the
+    # domain lock (with its sleep) once for the article fetch and once
+    # for the hero image fetch. Reserve a few seconds for discovery + write.
+    per_article_budget = 2 * (max(delay, 1.0) + DEFAULT_REQ_JITTER)
+    reserved = 30.0  # discovery + parquet write
+    max_within_budget = max(1, int((SITE_TIMEOUT_SECONDS - reserved) // per_article_budget))
+    if max_within_budget < len(candidates):
+        console.print(
+            f"[yellow]capping[/yellow] {site.id} to {max_within_budget} articles "
+            f"(crawl-delay {delay:.0f}s × {len(candidates)} would exceed {SITE_TIMEOUT_SECONDS}s budget)"
+        )
+        candidates = candidates[:max_within_budget]
+
     articles: list[ArticleRow] = []
     images: list[ImageRow] = []
     fields: list[MetadataFieldRow] = []
     image_scores: list[float] = []
     seen_image_urls: set[str] = set()
+    consecutive_failures = 0
+    bailed_unreachable = False
 
     for cand in candidates:
         async with lock:
             await asyncio.sleep(delay + random.uniform(0, DEFAULT_REQ_JITTER))
             art = await fetch_article(client, cand)
+
+        # Bail out if articles keep failing — usually a stuck CDN that
+        # would otherwise burn the whole per-site time budget on timeouts.
+        if art.http_status == 0:
+            consecutive_failures += 1
+            if consecutive_failures >= MAX_CONSECUTIVE_ARTICLE_FAILURES:
+                console.print(
+                    f"[red]bail[/red] {site.id}: {consecutive_failures} consecutive article failures"
+                )
+                bailed_unreachable = True
+                break
+        else:
+            consecutive_failures = 0
 
         articles.append(
             ArticleRow(
@@ -330,6 +360,19 @@ async def _crawl_site(
                 )
 
     mean_score = round(sum(image_scores) / len(image_scores), 2) if image_scores else 0.0
+
+    if bailed_unreachable and not articles:
+        # All attempted articles failed to fetch — treat as unreachable rather than ok-with-zero.
+        return {
+            "site": SiteRow(
+                run_id=run_id, site_id=site.id, site_name=site.name,
+                country=site.country, category=site.category,
+                status="unreachable", robots_url=robots_url,
+                sitemap_url_used=sitemap_url, discovery_strategy=strategy,
+                articles_sampled=0, images_analysed=0, mean_iptc_score=0.0,
+            ),
+            "articles": [], "images": [], "fields": [],
+        }
 
     return {
         "site": SiteRow(

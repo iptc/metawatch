@@ -47,7 +47,7 @@ async def fetch_and_analyse(
     result = ImageResult(image_url=image_url)
 
     try:
-        async with client.stream("GET", image_url, timeout=30.0, follow_redirects=True) as r:
+        async with client.stream("GET", image_url, timeout=15.0, follow_redirects=True) as r:
             result.http_status = r.status_code
             result.mime_type = r.headers.get("content-type", "").split(";")[0].strip() or None
             content_length = r.headers.get("content-length")
