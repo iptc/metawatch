@@ -1,17 +1,19 @@
 /**
  * Build-time data loader for the latest crawl run.
  *
- * Reads JSON exported by `crawler/scripts/export_for_site.py`. If the data
- * directory is missing (no crawl has been run yet), returns empty stubs so the
- * site can still build during development.
+ * The JSON files under ../data/latest/ are exported by
+ * `crawler/scripts/export_for_site.py` and imported directly here so Vite
+ * inlines their contents at build time. This is more reliable than reading
+ * from disk via __dirname/path.resolve, which broke under production builds
+ * because the bundled module runs from a different cwd than the source tree.
  */
 
-import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DATA_DIR = path.resolve(__dirname, '../data/latest');
+import summaryJson from '../data/latest/summary.json';
+import countriesJson from '../data/latest/countries.json';
+import sitesJson from '../data/latest/sites.json';
+import fieldsJson from '../data/latest/fields.json';
+import cdnJson from '../data/latest/cdn.json';
+import historyJson from '../data/latest/history.json';
 
 export interface Summary {
   run_id: string | null;
@@ -76,39 +78,28 @@ export interface HistoryPoint {
   mean_score: number;
 }
 
-function readJSON<T>(filename: string, fallback: T): T {
-  const p = path.join(DATA_DIR, filename);
-  if (!fs.existsSync(p)) return fallback;
-  return JSON.parse(fs.readFileSync(p, 'utf-8')) as T;
-}
-
 export function getSummary(): Summary {
-  return readJSON('summary.json', {
-    run_id: null, started_at: null, ended_at: null,
-    site_count_attempted: 0, site_count_succeeded: 0, site_count_robots_blocked: 0,
-    article_count: 0, image_count: 0, global_mean_score: 0,
-    images_with_iptc: 0, images_with_c2pa: 0, pct_with_iptc: 0,
-  });
+  return summaryJson as Summary;
 }
 
 export function getCountries(): Country[] {
-  return readJSON('countries.json', []);
+  return countriesJson as Country[];
 }
 
 export function getSites(): Site[] {
-  return readJSON('sites.json', []);
+  return sitesJson as Site[];
 }
 
 export function getFields(): FieldStat[] {
-  return readJSON('fields.json', []);
+  return fieldsJson as FieldStat[];
 }
 
 export function getCdn(): CdnData {
-  return readJSON('cdn.json', { providers: {}, by_provider: [] });
+  return cdnJson as CdnData;
 }
 
 export function getHistory(): HistoryPoint[] {
-  return readJSON('history.json', []);
+  return historyJson as HistoryPoint[];
 }
 
 export function scoreClass(score: number): string {
