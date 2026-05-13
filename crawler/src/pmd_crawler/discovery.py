@@ -6,9 +6,11 @@ from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from urllib.parse import urljoin, urlparse
 
+import feedparser
 import httpx
 from lxml import etree
 from protego import Protego
+from selectolax.parser import HTMLParser
 
 from . import USER_AGENT
 from .config import Site
@@ -224,13 +226,111 @@ def _parse_iso_date(s: str) -> datetime | None:
     return dt.replace(tzinfo=UTC) if dt.tzinfo is None else dt
 
 
+async def fetch_rss_articles(
+    client: httpx.AsyncClient,
+    feed_url: str,
+    window_days: int,
+    max_articles: int,
+) -> list[ArticleCandidate]:
+    try:
+        r = await client.get(feed_url, timeout=20.0, follow_redirects=True)
+        if r.status_code >= 400 or not r.content:
+            return []
+    except Exception:
+        return []
+    parsed = feedparser.parse(r.content)
+    if parsed.bozo and not parsed.entries:
+        return []
+
+    cutoff = datetime.now(UTC) - timedelta(days=window_days)
+    out: list[ArticleCandidate] = []
+    for entry in parsed.entries:
+        link = entry.get("link")
+        if not link:
+            continue
+        pub = _entry_datetime(entry)
+        if pub is not None and pub < cutoff:
+            continue
+        out.append(
+            ArticleCandidate(
+                url=link,
+                publication_date=pub,
+                title=entry.get("title"),
+                language=None,
+                keywords=[],
+                image_urls_from_sitemap=[],
+            )
+        )
+    out.sort(
+        key=lambda c: c.publication_date or datetime.min.replace(tzinfo=UTC),
+        reverse=True,
+    )
+    return out[:max_articles]
+
+
+def _entry_datetime(entry) -> datetime | None:
+    """Extract a UTC datetime from a feedparser entry, trying published then updated."""
+    for key in ("published_parsed", "updated_parsed"):
+        struct = entry.get(key)
+        if struct:
+            try:
+                return datetime(*struct[:6], tzinfo=UTC)
+            except (TypeError, ValueError):
+                continue
+    return None
+
+
+async def discover_rss_links_from_homepage(
+    client: httpx.AsyncClient, homepage: str
+) -> list[str]:
+    """Return RSS/Atom URLs advertised in <link rel="alternate"> on the homepage."""
+    try:
+        r = await client.get(homepage, timeout=15.0, follow_redirects=True)
+        if r.status_code >= 400 or not r.text:
+            return []
+    except Exception:
+        return []
+    tree = HTMLParser(r.text)
+    seen: set[str] = set()
+    out: list[str] = []
+    for node in tree.css('link[rel="alternate"]'):
+        type_attr = (node.attributes.get("type") or "").lower()
+        href = node.attributes.get("href")
+        if not href or ("rss" not in type_attr and "atom" not in type_attr):
+            continue
+        absolute = urljoin(str(r.url), href)
+        if absolute not in seen:
+            seen.add(absolute)
+            out.append(absolute)
+    return out
+
+
 async def discover(
     client: httpx.AsyncClient, site: Site
 ) -> tuple[RobotsDecision, str | None, str, list[ArticleCandidate]]:
-    """Run the full discovery pipeline. Returns (robots, sitemap_url, strategy, articles)."""
+    """Run the full discovery pipeline. Returns (robots, source_url, strategy, articles).
+
+    Source priority — first to yield >=1 article wins:
+      1. config:rss          — RSS URL(s) configured in the site YAML
+      2. html:rss_link       — RSS URL(s) advertised in homepage <link rel="alternate">
+      3. config:sitemap, etc — sitemap chain (config/robots/guessed)
+    """
     robots = await fetch_robots(client, site)
     if not robots.allowed_at_root:
         return robots, None, "robots_disallow", []
+
+    window_days = site.sample.window_days
+    max_articles = site.sample.max_articles
+
+    for url in site.discovery.rss_urls:
+        articles = await fetch_rss_articles(client, url, window_days, max_articles)
+        if articles:
+            return robots, url, "config:rss", articles
+
+    for url in await discover_rss_links_from_homepage(client, site.homepage or site.url):
+        articles = await fetch_rss_articles(client, url, window_days, max_articles)
+        if articles:
+            return robots, url, "html:rss_link", articles
 
     sitemap_url, strategy = pick_sitemap(robots.sitemap_urls, site)
     if not sitemap_url:
@@ -239,6 +339,6 @@ async def discover(
         return robots, None, strategy, []
 
     articles = await fetch_sitemap_articles(
-        client, site, sitemap_url, site.sample.window_days, site.sample.max_articles
+        client, site, sitemap_url, window_days, max_articles
     )
     return robots, sitemap_url, strategy, articles
