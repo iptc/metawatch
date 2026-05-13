@@ -31,7 +31,7 @@ import httpx
 import yaml
 from selectolax.parser import HTMLParser
 
-from pmd_crawler import USER_AGENT
+from pmd_crawler import DEFAULT_HEADERS
 
 TIMEOUT = 20.0
 CONCURRENCY = 8
@@ -191,7 +191,7 @@ def load_targets(probe_path: Path, publishers_dir: Path) -> list[tuple[str, dict
 
 async def run(targets: list[tuple[str, dict, str]]) -> list[Suggestion]:
     sem = asyncio.Semaphore(CONCURRENCY)
-    headers = {"User-Agent": USER_AGENT, "Accept": "*/*"}
+    headers = {**DEFAULT_HEADERS, "Accept": "*/*"}
     async with httpx.AsyncClient(timeout=TIMEOUT, headers=headers) as client:
         return await asyncio.gather(*[suggest_for_site(sem, client, c, s, h) for c, s, h in targets])
 

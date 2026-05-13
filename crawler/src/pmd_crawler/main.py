@@ -19,7 +19,7 @@ from rich.progress import (
     TimeElapsedColumn,
 )
 
-from . import USER_AGENT, __version__, config, discovery
+from . import DEFAULT_HEADERS, __version__, config, discovery
 from .articles import fetch_article
 from .images import ExifPool, fetch_and_analyse
 from .output import (
@@ -105,7 +105,7 @@ def _domain_of(url: str) -> str:
 
 
 async def _smoke_async(site: config.Site) -> None:
-    async with httpx.AsyncClient(headers={"User-Agent": USER_AGENT}) as client:
+    async with httpx.AsyncClient(headers=DEFAULT_HEADERS) as client:
         robots, sitemap_url, strategy, articles = await discovery.discover(client, site)
     console.print(f"[bold]{site.name}[/bold] ({site.id}) — {site.country}")
     console.print(f"  robots.txt fetched: {robots.fetched}  allowed: {robots.allowed_at_root}")
@@ -132,7 +132,7 @@ async def _run_async(sites: list[config.Site], output_dir: Path, concurrency: in
 
     async with (
         httpx.AsyncClient(
-            headers={"User-Agent": USER_AGENT, "Accept-Encoding": "gzip"},
+            headers={**DEFAULT_HEADERS, "Accept-Encoding": "gzip"},
             timeout=timeout,
             limits=limits,
             follow_redirects=True,

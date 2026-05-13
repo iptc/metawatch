@@ -26,7 +26,7 @@ import feedparser
 import httpx
 import yaml
 
-from pmd_crawler import USER_AGENT
+from pmd_crawler import DEFAULT_HEADERS
 
 TIMEOUT = 15.0
 CONCURRENCY = 16
@@ -133,7 +133,7 @@ async def probe_site(sem: asyncio.Semaphore, client: httpx.AsyncClient, country:
 
 async def probe_all(publisher_dir: Path, country_filter: str | None) -> list[SiteProbe]:
     sem = asyncio.Semaphore(CONCURRENCY)
-    headers = {"User-Agent": USER_AGENT, "Accept": "*/*"}
+    headers = {**DEFAULT_HEADERS, "Accept": "*/*"}
     async with httpx.AsyncClient(timeout=TIMEOUT, headers=headers) as client:
         tasks = []
         for p in sorted(publisher_dir.glob("*.yaml")):
