@@ -56,6 +56,8 @@ export interface FieldStat {
   present: number;
   total: number;
   pct: number;
+  weight: number;
+  weight_pct: number;
 }
 
 export interface CdnByProvider {

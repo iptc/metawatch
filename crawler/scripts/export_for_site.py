@@ -116,6 +116,9 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
     sites_out.sort(key=lambda x: x["mean_iptc_score"], reverse=True)
     (out_dir / "sites.json").write_text(json.dumps(sites_out, indent=2))
 
+    from pmd_crawler.scoring import FIELD_WEIGHTS, TOTAL_WEIGHT
+    weight_for = {label: weight for label, _aliases, weight in FIELD_WEIGHTS}
+
     field_agg: dict[str, dict] = defaultdict(lambda: {"present": 0, "total": 0})
     for f in fields:
         field_agg[f["field_name"]]["total"] += 1
@@ -127,6 +130,8 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
             "present": data["present"],
             "total": data["total"],
             "pct": round(100.0 * data["present"] / data["total"], 1) if data["total"] else 0.0,
+            "weight": weight_for.get(name, 0),
+            "weight_pct": round(100.0 * weight_for.get(name, 0) / TOTAL_WEIGHT, 1),
         }
         for name, data in sorted(field_agg.items(), key=lambda x: -x[1]["present"])
     ]

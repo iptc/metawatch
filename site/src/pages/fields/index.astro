@@ -1,0 +1,90 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getFields, getSummary } from '../../lib/data';
+
+const fields = getFields();
+const summary = getSummary();
+const maxPct = fields.length ? Math.max(...fields.map(f => f.pct)) : 0;
+const totalWeight = fields.reduce((acc, f) => acc + f.weight, 0);
+---
+<Layout title="Per-field breakdown">
+  <h1>Per-field breakdown</h1>
+  <p class="lede">
+    The headline "% with any IPTC" hides a lot of detail. Below is the
+    population rate of each individual scored field across the {summary.image_count.toLocaleString()}
+    images analysed in the latest crawl. Each field also contributes a fixed weight to a site's
+    overall score — see <a href="/about/">the methodology</a> for how the score is computed.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th class="num">Present</th>
+        <th class="num">Total</th>
+        <th class="num">Population</th>
+        <th class="num">Score weight</th>
+      </tr>
+    </thead>
+    <tbody>
+      {fields.map(f => (
+        <tr>
+          <td><code>{f.field}</code></td>
+          <td class="num">{f.present.toLocaleString()}</td>
+          <td class="num">{f.total.toLocaleString()}</td>
+          <td class="num">
+            {f.pct}%
+            <span class="bar" aria-hidden="true">
+              <span style={`width:${maxPct ? (100 * f.pct / maxPct) : 0}%`}></span>
+            </span>
+          </td>
+          <td class="num">{f.weight_pct}%</td>
+        </tr>
+      ))}
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>Total</th>
+        <th class="num"></th>
+        <th class="num"></th>
+        <th class="num"></th>
+        <th class="num">{totalWeight ? '100%' : '—'}</th>
+      </tr>
+    </tfoot>
+  </table>
+
+  <p style="color:var(--iptc-muted);font-size:0.9rem;margin-top:1.5rem">
+    Bars are scaled to the most populated field, not to 100%, so differences within the
+    long tail stay visible. The score weight column reflects the per-field weights in
+    <code>crawler/src/pmd_crawler/scoring.py</code>: Creator, CopyrightNotice and
+    CaptionAbstract count for 15% each, with the rest at 5–10%.
+  </p>
+
+  <h2>What this tells us</h2>
+  <p>
+    Even the best-populated field — <code>{fields[0]?.field}</code> at
+    <strong>{fields[0]?.pct}%</strong> — appears on fewer than one in ten images we fetched.
+    The fields most relevant to licensing (<code>WebStatement</code>, <code>LicensorURL</code>)
+    are below 2%. The dataset as a whole tells a consistent story: publishers and CDNs are
+    discarding metadata that the photographers and agencies almost certainly embedded
+    upstream.
+  </p>
+</Layout>
+
+<style>
+  .bar {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+    width: 100px;
+    height: 6px;
+    background: var(--iptc-bar-bg, #eaecef);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .bar > span {
+    display: block;
+    height: 100%;
+    background: var(--iptc-green, #6db33f);
+  }
+</style>
