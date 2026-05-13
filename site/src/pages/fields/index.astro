@@ -6,14 +6,32 @@ const fields = getFields();
 const summary = getSummary();
 const maxPct = fields.length ? Math.max(...fields.map(f => f.pct)) : 0;
 const totalWeight = fields.reduce((acc, f) => acc + f.weight, 0);
+
+// Each field links to its section in the IPTC Photo Metadata Standard 2025.1.
+const SPEC_BASE = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadata-2025.1.html';
+const SPEC_ANCHORS: Record<string, string> = {
+  Creator: '#creator',
+  CopyrightNotice: '#copyright-notice',
+  CaptionAbstract: '#description',
+  CreditLine: '#credit-line',
+  Source: '#source-supply-chain',
+  ObjectName: '#title',
+  Keywords: '#keywords',
+  DateCreated: '#date-created',
+  LocationCreated: '#location-created',
+  WebStatement: '#web-statement-of-rights',
+  LicensorURL: '#licensor',
+};
 ---
 <Layout title="Per-field breakdown">
   <h1>Per-field breakdown</h1>
   <p class="lede">
-    The headline "% with any IPTC" hides a lot of detail. Below is the
-    population rate of each individual scored field across the {summary.image_count.toLocaleString()}
-    images analysed in the latest crawl. Each field also contributes a fixed weight to a site's
-    overall score — see <a href="/about/">the methodology</a> for how the score is computed.
+    The headline "% with any IPTC" hides a lot of detail. Below is the population rate of
+    each individual scored field across the {summary.image_count.toLocaleString()} images
+    analysed in the latest crawl. Field names link to their definitions in the
+    <a href={SPEC_BASE} target="_blank" rel="noopener">IPTC Photo Metadata Standard 2025.1</a>.
+    Each field also contributes a fixed weight to a site's overall score —
+    see <a href="/about/">the methodology</a> for how the score is computed.
   </p>
 
   <table>
@@ -29,7 +47,11 @@ const totalWeight = fields.reduce((acc, f) => acc + f.weight, 0);
     <tbody>
       {fields.map(f => (
         <tr>
-          <td><code>{f.field}</code></td>
+          <td>
+            {SPEC_ANCHORS[f.field]
+              ? <a href={`${SPEC_BASE}${SPEC_ANCHORS[f.field]}`} target="_blank" rel="noopener"><code>{f.field}</code></a>
+              : <code>{f.field}</code>}
+          </td>
           <td class="num">{f.present.toLocaleString()}</td>
           <td class="num">{f.total.toLocaleString()}</td>
           <td class="num">
