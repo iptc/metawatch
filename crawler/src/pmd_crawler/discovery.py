@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import gzip
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from urllib.parse import urljoin, urlparse
@@ -88,6 +89,19 @@ def _looks_like_picture_sitemap(url: str) -> bool:
     return "picture" in path or "image" in path or "/video" in path
 
 
+def _guess_rss_urls(site_url: str) -> list[str]:
+    base = site_url.rstrip("/")
+    return [
+        f"{base}/feed",
+        f"{base}/feed/",
+        f"{base}/rss",
+        f"{base}/rss.xml",
+        f"{base}/feed.xml",
+        f"{base}/atom.xml",
+        f"{base}/index.xml",
+    ]
+
+
 def _guess_sitemap_urls(site_url: str) -> list[str]:
     base = site_url.rstrip("/")
     return [
@@ -118,10 +132,11 @@ async def fetch_sitemap_articles(
     sitemap_url: str,
     window_days: int,
     max_articles: int,
-) -> list[ArticleCandidate]:
-    candidates = await _walk_sitemap(client, sitemap_url, depth=0)
+) -> tuple[list[ArticleCandidate], str | None]:
+    """Returns (articles, error_kind). See fetch_rss_articles for error_kind values."""
+    candidates, root_err = await _walk_sitemap(client, sitemap_url, depth=0)
     if not candidates:
-        return []
+        return [], root_err  # propagate the first-level error if any
 
     cutoff = datetime.now(UTC) - timedelta(days=window_days)
     filtered = [
@@ -132,7 +147,7 @@ async def fetch_sitemap_articles(
         key=lambda c: c.publication_date or datetime.min.replace(tzinfo=UTC),
         reverse=True,
     )
-    return filtered[:max_articles]
+    return filtered[:max_articles], None
 
 
 async def _walk_sitemap(
@@ -140,23 +155,36 @@ async def _walk_sitemap(
     url: str,
     depth: int,
     seen: set[str] | None = None,
-) -> list[ArticleCandidate]:
+) -> tuple[list[ArticleCandidate], str | None]:
+    """Returns (candidates, error_kind). error_kind is only meaningful for the root call."""
     if seen is None:
         seen = set()
     if url in seen or depth > 2:
-        return []
+        return [], None
     seen.add(url)
 
     try:
         r = await client.get(url, timeout=30.0, follow_redirects=True)
-        r.raise_for_status()
+    except (httpx.NetworkError, httpx.TimeoutException):
+        return [], "network_error"
     except Exception:
-        return []
+        return [], "network_error"
+    if r.status_code >= 400:
+        return [], "http_error"
+
+    body = r.content
+    # Some sites serve .xml.gz sitemaps without setting Content-Encoding,
+    # so httpx doesn't auto-decompress. Detect by URL suffix or gzip magic bytes.
+    if url.endswith(".gz") or body[:2] == b"\x1f\x8b":
+        try:
+            body = gzip.decompress(body)
+        except OSError:
+            return [], "parse_error"
 
     try:
-        root = etree.fromstring(r.content)
+        root = etree.fromstring(body)
     except etree.XMLSyntaxError:
-        return []
+        return [], "parse_error"
 
     tag = etree.QName(root.tag).localname
 
@@ -165,13 +193,14 @@ async def _walk_sitemap(
         children = root.findall("sm:sitemap/sm:loc", SITEMAP_NS)
         for child in children[:10]:
             if child.text:
-                out.extend(await _walk_sitemap(client, child.text.strip(), depth + 1, seen))
-        return out
+                child_candidates, _ = await _walk_sitemap(client, child.text.strip(), depth + 1, seen)
+                out.extend(child_candidates)
+        return out, None
 
     if tag == "urlset":
-        return _parse_urlset(root)
+        return _parse_urlset(root), None
 
-    return []
+    return [], None
 
 
 def _parse_urlset(root: etree._Element) -> list[ArticleCandidate]:
@@ -231,16 +260,28 @@ async def fetch_rss_articles(
     feed_url: str,
     window_days: int,
     max_articles: int,
-) -> list[ArticleCandidate]:
+) -> tuple[list[ArticleCandidate], str | None]:
+    """Fetch and parse an RSS/Atom feed.
+
+    Returns (articles, error_kind). error_kind is one of:
+      None             — fetched and parsed successfully
+      "network_error"  — DNS/connection/timeout/TLS failure (publisher unreachable)
+      "http_error"     — got a response, status >= 400 (e.g. 403 from a WAF)
+      "parse_error"    — got 2xx but body wasn't a parseable feed
+    """
     try:
         r = await client.get(feed_url, timeout=20.0, follow_redirects=True)
-        if r.status_code >= 400 or not r.content:
-            return []
+    except (httpx.NetworkError, httpx.TimeoutException):
+        return [], "network_error"
     except Exception:
-        return []
+        return [], "network_error"
+    if r.status_code >= 400:
+        return [], "http_error"
+    if not r.content:
+        return [], "parse_error"
     parsed = feedparser.parse(r.content)
     if parsed.bozo and not parsed.entries:
-        return []
+        return [], "parse_error"
 
     cutoff = datetime.now(UTC) - timedelta(days=window_days)
     out: list[ArticleCandidate] = []
@@ -265,7 +306,7 @@ async def fetch_rss_articles(
         key=lambda c: c.publication_date or datetime.min.replace(tzinfo=UTC),
         reverse=True,
     )
-    return out[:max_articles]
+    return out[:max_articles], None
 
 
 def _entry_datetime(entry) -> datetime | None:
@@ -322,23 +363,49 @@ async def discover(
     window_days = site.sample.window_days
     max_articles = site.sample.max_articles
 
+    attempts = 0
+    network_errors = 0
+
     for url in site.discovery.rss_urls:
-        articles = await fetch_rss_articles(client, url, window_days, max_articles)
+        attempts += 1
+        articles, err = await fetch_rss_articles(client, url, window_days, max_articles)
         if articles:
             return robots, url, "config:rss", articles
+        if err == "network_error":
+            network_errors += 1
 
     for url in await discover_rss_links_from_homepage(client, site.homepage or site.url):
-        articles = await fetch_rss_articles(client, url, window_days, max_articles)
+        attempts += 1
+        articles, err = await fetch_rss_articles(client, url, window_days, max_articles)
         if articles:
             return robots, url, "html:rss_link", articles
+        if err == "network_error":
+            network_errors += 1
+
+    for url in _guess_rss_urls(site.homepage or site.url):
+        attempts += 1
+        articles, err = await fetch_rss_articles(client, url, window_days, max_articles)
+        if articles:
+            return robots, url, "guess:rss", articles
+        if err == "network_error":
+            network_errors += 1
 
     sitemap_url, strategy = pick_sitemap(robots.sitemap_urls, site)
     if not sitemap_url:
         sitemap_url, strategy = await _try_guessed_sitemaps(client, site)
     if not sitemap_url:
+        # No sitemap to try. If every RSS attempt was a network error, the
+        # publisher is effectively unreachable from here.
+        if attempts > 0 and network_errors == attempts:
+            return robots, None, "unreachable", []
         return robots, None, strategy, []
 
-    articles = await fetch_sitemap_articles(
+    attempts += 1
+    articles, err = await fetch_sitemap_articles(
         client, site, sitemap_url, window_days, max_articles
     )
+    if err == "network_error":
+        network_errors += 1
+    if not articles and attempts > 0 and network_errors == attempts:
+        return robots, sitemap_url, "unreachable", []
     return robots, sitemap_url, strategy, articles

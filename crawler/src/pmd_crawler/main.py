@@ -201,6 +201,8 @@ async def _run_async(sites: list[config.Site], output_dir: Path, concurrency: in
                         f"{row.images_analysed} images, "
                         f"mean score {row.mean_iptc_score:.1f}"
                     )
+                elif row.status == "unreachable":
+                    console.print(f"[red]unreachable[/red] {site.id}: all sources network-failed")
                 else:
                     console.print(f"[magenta]{row.status}[/magenta] {site.id}")
 
@@ -254,11 +256,12 @@ async def _crawl_site(
         }
 
     if not candidates:
+        status = "unreachable" if strategy == "unreachable" else "no_articles_found"
         return {
             "site": SiteRow(
                 run_id=run_id, site_id=site.id, site_name=site.name,
                 country=site.country, category=site.category,
-                status="no_articles_found", robots_url=robots_url,
+                status=status, robots_url=robots_url,
                 sitemap_url_used=sitemap_url, discovery_strategy=strategy,
                 articles_sampled=0, images_analysed=0, mean_iptc_score=0.0,
             ),

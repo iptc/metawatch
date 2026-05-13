@@ -27,3 +27,11 @@ def test_entry_datetime_within_window():
     dt = _entry_datetime(entry)
     assert dt is not None
     assert dt >= datetime.now(UTC) - timedelta(days=365)
+
+
+def test_guess_rss_urls_covers_common_paths():
+    from pmd_crawler.discovery import _guess_rss_urls
+    urls = _guess_rss_urls("https://example.com/")
+    assert "https://example.com/feed" in urls
+    assert "https://example.com/rss.xml" in urls
+    assert "https://example.com/atom.xml" in urls
