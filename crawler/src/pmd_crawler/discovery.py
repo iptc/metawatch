@@ -59,7 +59,10 @@ async def fetch_robots(client: httpx.AsyncClient, site: Site) -> RobotsDecision:
 def pick_sitemap(robots_sitemaps: list[str], site: Site) -> tuple[str | None, str]:
     """Return (chosen URL, strategy label).
 
-    Order: explicit site config picture > config sitemap > robots `news`/`picture` > robots first > guesses.
+    Order: explicit config picture > config sitemap > robots `news` > robots first
+    non-picture > robots first > guesses. Picture/image sitemaps from robots are
+    avoided unless nothing else is on offer — many sites publish image-only
+    sitemaps with no <url> wrappers, so they yield zero article candidates.
     """
     if site.discovery.picture_sitemap_url:
         return site.discovery.picture_sitemap_url, "config:picture_sitemap"
@@ -67,26 +70,32 @@ def pick_sitemap(robots_sitemaps: list[str], site: Site) -> tuple[str | None, st
         return site.discovery.sitemap_urls[0], "config:sitemap"
 
     for u in robots_sitemaps:
-        path = urlparse(u).path.lower()
-        if "picture" in path or "image" in path:
-            return u, "robots:picture_sitemap"
-    for u in robots_sitemaps:
-        path = urlparse(u).path.lower()
-        if "news" in path:
+        if "news" in urlparse(u).path.lower():
             return u, "robots:news_sitemap"
+    for u in robots_sitemaps:
+        if not _looks_like_picture_sitemap(u):
+            return u, "robots:first_sitemap"
     if robots_sitemaps:
-        return robots_sitemaps[0], "robots:first_sitemap"
+        return robots_sitemaps[0], "robots:picture_sitemap_fallback"
 
     return None, "fallback_needed"
+
+
+def _looks_like_picture_sitemap(url: str) -> bool:
+    path = urlparse(url).path.lower()
+    return "picture" in path or "image" in path or "/video" in path
 
 
 def _guess_sitemap_urls(site_url: str) -> list[str]:
     base = site_url.rstrip("/")
     return [
+        f"{base}/sitemap-news.xml",
+        f"{base}/news-sitemap.xml",
+        f"{base}/sitemap_news.xml",
+        f"{base}/news-sitemap-content.xml",
         f"{base}/sitemap.xml",
         f"{base}/sitemap_index.xml",
-        f"{base}/news-sitemap.xml",
-        f"{base}/news-sitemap-content.xml",
+        f"{base}/sitemap-index.xml",
     ]
 
 
