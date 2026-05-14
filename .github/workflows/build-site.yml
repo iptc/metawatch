@@ -7,6 +7,13 @@ on:
       - "site/**"
       - "data/runs/**"
       - ".github/workflows/build-site.yml"
+  # Fire after the monthly crawl completes: commits pushed by the default
+  # GITHUB_TOKEN do not trigger other workflows via `push`, so we listen for
+  # the crawl workflow finishing instead.
+  workflow_run:
+    workflows: ["Monthly crawl"]
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -21,6 +28,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Skip if a workflow_run trigger fired but the upstream crawl didn't succeed.
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
