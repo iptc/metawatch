@@ -1,89 +1,89 @@
 [
   {
     "field": "Creator",
-    "present": 286,
-    "total": 3215,
-    "pct": 8.9,
+    "present": 254,
+    "total": 3199,
+    "pct": 7.9,
     "weight": 15,
     "weight_pct": 15.0
   },
   {
-    "field": "CreditLine",
-    "present": 241,
-    "total": 3215,
-    "pct": 7.5,
-    "weight": 10,
-    "weight_pct": 10.0
-  },
-  {
     "field": "CopyrightNotice",
-    "present": 218,
-    "total": 3215,
-    "pct": 6.8,
+    "present": 198,
+    "total": 3199,
+    "pct": 6.2,
     "weight": 15,
     "weight_pct": 15.0
   },
   {
     "field": "DateCreated",
-    "present": 206,
-    "total": 3215,
-    "pct": 6.4,
+    "present": 191,
+    "total": 3199,
+    "pct": 6.0,
+    "weight": 10,
+    "weight_pct": 10.0
+  },
+  {
+    "field": "CreditLine",
+    "present": 190,
+    "total": 3199,
+    "pct": 5.9,
     "weight": 10,
     "weight_pct": 10.0
   },
   {
     "field": "ObjectName",
-    "present": 175,
-    "total": 3215,
-    "pct": 5.4,
+    "present": 151,
+    "total": 3199,
+    "pct": 4.7,
     "weight": 5,
     "weight_pct": 5.0
   },
   {
     "field": "CaptionAbstract",
-    "present": 163,
-    "total": 3215,
-    "pct": 5.1,
+    "present": 144,
+    "total": 3199,
+    "pct": 4.5,
     "weight": 15,
     "weight_pct": 15.0
   },
   {
     "field": "Source",
-    "present": 146,
-    "total": 3215,
-    "pct": 4.5,
+    "present": 111,
+    "total": 3199,
+    "pct": 3.5,
     "weight": 5,
     "weight_pct": 5.0
   },
   {
     "field": "LocationCreated",
-    "present": 133,
-    "total": 3215,
-    "pct": 4.1,
+    "present": 100,
+    "total": 3199,
+    "pct": 3.1,
     "weight": 10,
     "weight_pct": 10.0
   },
   {
     "field": "Keywords",
-    "present": 104,
-    "total": 3215,
-    "pct": 3.2,
+    "present": 83,
+    "total": 3199,
+    "pct": 2.6,
     "weight": 5,
     "weight_pct": 5.0
   },
   {
     "field": "WebStatement",
-    "present": 51,
-    "total": 3215,
+    "present": 52,
+    "total": 3199,
     "pct": 1.6,
     "weight": 5,
     "weight_pct": 5.0
   },
   {
     "field": "LicensorURL",
-    "present": 37,
-    "total": 3215,
-    "pct": 1.2,
+    "present": 28,
+    "total": 3199,
+    "pct": 0.9,
     "weight": 5,
     "weight_pct": 5.0
   }

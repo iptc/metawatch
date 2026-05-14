@@ -1,8 +1,35 @@
 {
-  "image_count_total": 3245,
-  "image_count_with_c2pa": 0,
-  "pct_with_c2pa": 0.0,
-  "by_signer": [],
-  "by_validation_state": [],
-  "top_sites": []
+  "image_count_total": 3226,
+  "image_count_with_c2pa": 2,
+  "pct_with_c2pa": 0.06,
+  "by_signer": [
+    {
+      "signer": "Adobe Inc.",
+      "images": 1
+    },
+    {
+      "signer": "Canva",
+      "images": 1
+    }
+  ],
+  "by_validation_state": [
+    {
+      "state": "Invalid",
+      "images": 2
+    }
+  ],
+  "top_sites": [
+    {
+      "site_id": "die-presse",
+      "site_name": "Die Presse",
+      "country": "AT",
+      "images_with_c2pa": 1
+    },
+    {
+      "site_id": "mail-guardian",
+      "site_name": "Mail & Guardian",
+      "country": "ZA",
+      "images_with_c2pa": 1
+    }
+  ]
 }
