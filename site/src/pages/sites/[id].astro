@@ -1,18 +1,17 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getSites, scoreClass, countryName, categoryLabel } from '../../lib/data';
+import TimeSeriesChart from '../../components/TimeSeriesChart.astro';
+import { getSites, getSiteHistory, scoreClass, countryName, categoryLabel } from '../../lib/data';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 export function getStaticPaths() {
-  // Import inside the function: at build time, fs is available here too,
-  // but Astro requires getStaticPaths to be sync OR an async returning paths.
-  // Using a top-level import works too — keeping inline for clarity.
   const sites = getSites();
   return sites.map(s => ({ params: { id: s.site_id }, props: { site: s } }));
 }
 
 const { site } = Astro.props;
+const history = getSiteHistory(site.site_id);
 ---
 <Layout title={site.site_name}>
   <p><a href={`${base}/sites/`}>← All sites</a></p>
@@ -41,6 +40,13 @@ const { site } = Astro.props;
       {site.status === 'timeout' && <span> The site took longer than 5 minutes to crawl and was cut off.</span>}
       {site.status === 'error' && <span> An unexpected error occurred during the crawl.</span>}
     </div>
+  )}
+
+  {history.length >= 2 && (
+    <section>
+      <h2>Mean IPTC score over time</h2>
+      <TimeSeriesChart points={history} yLabel="Score (0–100)" yMax={100} />
+    </section>
   )}
 
   <h2>CDN distribution</h2>

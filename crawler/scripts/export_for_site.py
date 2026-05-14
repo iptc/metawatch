@@ -162,25 +162,52 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
     (out_dir / "cdn.json").write_text(json.dumps(cdn_out, indent=2))
 
     history = []
+    history_by_site: dict[str, list[dict]] = defaultdict(list)
+    history_by_country: dict[str, list[dict]] = defaultdict(list)
     for d in sorted(all_runs):
         rs = read(d / "runs.parquet")
-        imgs_path = d / "images.parquet"
         if not rs:
             continue
         run = rs[0]
+        run_started = fmt_dt(run["started_at"])
+
+        # Global mean from per-image scores
         scores = []
+        imgs_path = d / "images.parquet"
         if imgs_path.exists():
             for r in read(imgs_path):
                 if r["http_status"] == 200:
                     scores.append(r["iptc_score"])
         history.append({
             "run_id": run["run_id"],
-            "started_at": fmt_dt(run["started_at"]),
+            "started_at": run_started,
             "site_count": run["site_count_succeeded"],
             "image_count": run["image_count"],
             "mean_score": round(mean(scores), 2) if scores else 0.0,
         })
+
+        # Per-site and per-country series from this run's sites.parquet
+        run_sites = read(d / "sites.parquet")
+        country_buckets: dict[str, list[float]] = defaultdict(list)
+        for s in run_sites:
+            if s["status"] != "ok" or s["images_analysed"] == 0:
+                continue
+            history_by_site[s["site_id"]].append({
+                "x": run_started, "y": s["mean_iptc_score"],
+            })
+            country_buckets[s["country"]].append(s["mean_iptc_score"])
+        for cc, vals in country_buckets.items():
+            history_by_country[cc].append({
+                "x": run_started, "y": round(mean(vals), 2),
+            })
+
     (out_dir / "history.json").write_text(json.dumps(history, indent=2))
+    (out_dir / "history_by_site.json").write_text(
+        json.dumps(dict(history_by_site), indent=2)
+    )
+    (out_dir / "history_by_country.json").write_text(
+        json.dumps(dict(history_by_country), indent=2)
+    )
 
     # Per-run manifest for the public /dataset/ page.
     runs_index = []

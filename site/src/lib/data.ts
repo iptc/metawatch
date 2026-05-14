@@ -14,6 +14,8 @@ import sitesJson from '../data/latest/sites.json';
 import fieldsJson from '../data/latest/fields.json';
 import cdnJson from '../data/latest/cdn.json';
 import historyJson from '../data/latest/history.json';
+import historyBySiteJson from '../data/latest/history_by_site.json';
+import historyByCountryJson from '../data/latest/history_by_country.json';
 import runsIndexJson from '../data/latest/runs_index.json';
 
 export interface Summary {
@@ -123,6 +125,16 @@ export function getHistory(): HistoryPoint[] {
 
 export function getRunsIndex(): RunIndexEntry[] {
   return runsIndexJson as RunIndexEntry[];
+}
+
+export interface SeriesPoint { x: string; y: number; }
+
+export function getSiteHistory(siteId: string): SeriesPoint[] {
+  return ((historyBySiteJson as Record<string, SeriesPoint[]>)[siteId]) ?? [];
+}
+
+export function getCountryHistory(cc: string): SeriesPoint[] {
+  return ((historyByCountryJson as Record<string, SeriesPoint[]>)[cc]) ?? [];
 }
 
 export function scoreClass(score: number): string {

@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getCountries, getSites, scoreClass, countryName, categoryLabel } from '../../lib/data';
+import TimeSeriesChart from '../../components/TimeSeriesChart.astro';
+import { getCountries, getSites, getCountryHistory, scoreClass, countryName, categoryLabel } from '../../lib/data';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
@@ -11,6 +12,7 @@ export function getStaticPaths() {
 
 const { country } = Astro.props;
 const sites = getSites().filter(s => s.country === country.country);
+const history = getCountryHistory(country.country);
 ---
 <Layout title={countryName(country.country)}>
   <p><a href={`${base}/countries/`}>← All countries</a></p>
@@ -20,6 +22,14 @@ const sites = getSites().filter(s => s.country === country.country);
     <div class="stat"><span class="stat-label">Sites</span><span class="stat-value">{country.site_count}</span></div>
     <div class="stat"><span class="stat-label">Mean IPTC score</span><span class="stat-value">{country.mean_score.toFixed(1)}</span></div>
   </div>
+
+  {history.length >= 2 && (
+    <section>
+      <h2>Mean IPTC score over time</h2>
+      <p>Mean across this country's sites, equal-weighted per site.</p>
+      <TimeSeriesChart points={history} yLabel="Score (0–100)" yMax={100} />
+    </section>
+  )}
 
   <h2>Sites in {countryName(country.country)}</h2>
   <table>
