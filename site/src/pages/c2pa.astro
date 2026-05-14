@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getC2pa, countryName } from '../lib/data';
+
+const data = getC2pa();
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<Layout title="C2PA content credentials">
+  <h1>C2PA content credentials</h1>
+
+  <p class="lede">
+    <a href="https://c2pa.org/" target="_blank" rel="noopener">C2PA</a> (Coalition for
+    Content Provenance and Authenticity) is a cross-industry standard for embedding
+    cryptographically signed provenance information in images — who created them,
+    what edits were made, by which tools. Metawatch checks every image we fetch for
+    a C2PA manifest, alongside the IPTC scoring.
+  </p>
+
+  <div class="card-row">
+    <div class="stat">
+      <span class="stat-label">Images analysed</span>
+      <span class="stat-value">{data.image_count_total.toLocaleString()}</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">With a C2PA manifest</span>
+      <span class="stat-value">{data.image_count_with_c2pa.toLocaleString()}</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">% with C2PA</span>
+      <span class="stat-value">{data.pct_with_c2pa}%</span>
+    </div>
+  </div>
+
+  {data.image_count_with_c2pa === 0 ? (
+    <div class="card">
+      <strong>No C2PA manifests detected in the latest run.</strong> Across
+      {data.image_count_total.toLocaleString()} images sampled, none carried a C2PA
+      manifest. The first crawl to include C2PA detection will populate this page;
+      until that run lands, expect zero. C2PA adoption among general news
+      publishers is still nascent — the most visible deployments today are inside
+      camera-to-newsroom workflows (e.g. AP's Verify, Leica M11-P, Sony α1&nbsp;II)
+      rather than at the public web edge.
+    </div>
+  ) : (
+    <>
+      <h2>Top signers</h2>
+      <p>Issuers of the certificates used to sign the manifests we found.</p>
+      <table>
+        <thead><tr><th>Signer / Issuer</th><th class="num">Images</th></tr></thead>
+        <tbody>
+          {data.by_signer.map(s => (
+            <tr>
+              <td><code>{s.signer}</code></td>
+              <td class="num">{s.images.toLocaleString()}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <h2>Validation states</h2>
+      <p>Whether the embedded manifest verified at fetch time.</p>
+      <table>
+        <thead><tr><th>State</th><th class="num">Images</th></tr></thead>
+        <tbody>
+          {data.by_validation_state.map(v => (
+            <tr>
+              <td><code>{v.state}</code></td>
+              <td class="num">{v.images.toLocaleString()}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <h2>Top sites by C2PA images</h2>
+      <table>
+        <thead><tr><th>Site</th><th>Country</th><th class="num">Images with C2PA</th></tr></thead>
+        <tbody>
+          {data.top_sites.slice(0, 25).map(s => (
+            <tr>
+              <td><a href={`${base}/sites/${s.site_id}/`}>{s.site_name}</a></td>
+              <td>{countryName(s.country)}</td>
+              <td class="num">{s.images_with_c2pa}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
+  )}
+
+  <p style="color:var(--iptc-muted);font-size:0.9rem;margin-top:1.5rem">
+    Detection uses the <a href="https://github.com/contentauth/c2pa-python" target="_blank" rel="noopener">c2pa-python</a>
+    binding to the Rust c2pa-rs library. Presence-first: an image is flagged as
+    C2PA-bearing when a JUMBF manifest can be parsed from the file. We record the
+    signing certificate's issuer and the validation state for further analysis,
+    but do not yet introspect individual <code>c2pa.metadata</code> or
+    <code>cawg.metadata</code> assertions (that's planned).
+  </p>
+</Layout>

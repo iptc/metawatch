@@ -10,5 +10,6 @@
   "global_mean_score": 5.68,
   "images_with_iptc": 401,
   "images_with_c2pa": 0,
-  "pct_with_iptc": 12.4
+  "pct_with_iptc": 12.4,
+  "pct_with_c2pa": 0.0
 }

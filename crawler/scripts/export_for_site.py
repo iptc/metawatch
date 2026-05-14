@@ -69,6 +69,9 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
     summary["pct_with_iptc"] = (
         round(100.0 * summary["images_with_iptc"] / len(images), 1) if images else 0.0
     )
+    summary["pct_with_c2pa"] = (
+        round(100.0 * summary["images_with_c2pa"] / len(images), 2) if images else 0.0
+    )
 
     (out_dir / "summary.json").write_text(json.dumps(summary, indent=2))
 
@@ -160,6 +163,43 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         ],
     }
     (out_dir / "cdn.json").write_text(json.dumps(cdn_out, indent=2))
+
+    # C2PA-specific aggregations for the /c2pa/ page.
+    site_name_by_id = {s["site_id"]: s["site_name"] for s in sites}
+    site_country_by_id = {s["site_id"]: s["country"] for s in sites}
+    c2pa_images = [img for img in images if img.get("has_c2pa")]
+    signer_counts: dict[str, int] = defaultdict(int)
+    state_counts: dict[str, int] = defaultdict(int)
+    sites_with_c2pa: dict[str, int] = defaultdict(int)
+    for img in c2pa_images:
+        signer = img.get("c2pa_manifest_signer") or "(unknown signer)"
+        state = img.get("c2pa_validation_status") or "(unknown state)"
+        signer_counts[signer] += 1
+        state_counts[state] += 1
+        sites_with_c2pa[img["site_id"]] += 1
+    c2pa_out = {
+        "image_count_total": len(images),
+        "image_count_with_c2pa": len(c2pa_images),
+        "pct_with_c2pa": summary["pct_with_c2pa"],
+        "by_signer": [
+            {"signer": k, "images": v}
+            for k, v in sorted(signer_counts.items(), key=lambda x: -x[1])
+        ],
+        "by_validation_state": [
+            {"state": k, "images": v}
+            for k, v in sorted(state_counts.items(), key=lambda x: -x[1])
+        ],
+        "top_sites": [
+            {
+                "site_id": sid,
+                "site_name": site_name_by_id.get(sid, sid),
+                "country": site_country_by_id.get(sid, ""),
+                "images_with_c2pa": n,
+            }
+            for sid, n in sorted(sites_with_c2pa.items(), key=lambda x: -x[1])
+        ],
+    }
+    (out_dir / "c2pa.json").write_text(json.dumps(c2pa_out, indent=2))
 
     history = []
     history_by_site: dict[str, list[dict]] = defaultdict(list)

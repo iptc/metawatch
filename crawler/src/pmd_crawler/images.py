@@ -8,6 +8,7 @@ import tempfile
 from dataclasses import dataclass, field
 from pathlib import Path
 
+import c2pa
 import exiftool
 import httpx
 
@@ -87,11 +88,24 @@ async def fetch_and_analyse(
         tags = await exif_pool.read(tmp_path)
     except Exception:
         tags = {}
-    finally:
-        try:
-            os.unlink(tmp_path)
-        except OSError:
-            pass
+
+    # C2PA presence + active manifest summary. Runs in an executor because the
+    # c2pa-rs binding is blocking. Any error means "no manifest" — there are many
+    # legitimate ways for that to happen (wrong format, truncated file, etc.).
+    try:
+        c2pa_present, c2pa_signer, c2pa_state = await asyncio.get_running_loop().run_in_executor(
+            None, _detect_c2pa, tmp_path
+        )
+        result.has_c2pa = c2pa_present
+        result.c2pa_manifest_signer = c2pa_signer
+        result.c2pa_validation_status = c2pa_state
+    except Exception:
+        pass
+
+    try:
+        os.unlink(tmp_path)
+    except OSError:
+        pass
 
     result.raw_tags = tags
     result.metadata_field_count = sum(1 for k in tags if not k.startswith("SourceFile") and not k.startswith("File:"))
@@ -109,6 +123,32 @@ async def fetch_and_analyse(
     result.iptc_score = score
     result.per_field_presence = presence
     return result
+
+
+def _detect_c2pa(path: Path) -> tuple[bool, str | None, str | None]:
+    """Return (has_c2pa, signer_issuer, validation_state).
+
+    Detection is presence-first: the c2pa-rs Python binding raises
+    ``ManifestNotFound`` when no JUMBF manifest is embedded, and various
+    other parse errors for malformed or non-image content. Any exception is
+    treated as "no manifest" — false negatives are acceptable, false positives
+    would be misleading.
+    """
+    try:
+        reader = c2pa.Reader(str(path))
+    except Exception:
+        return False, None, None
+    try:
+        state = reader.get_validation_state()
+        manifest = reader.get_active_manifest()
+        signer = None
+        if isinstance(manifest, dict):
+            sig = manifest.get("signature_info")
+            if isinstance(sig, dict):
+                signer = sig.get("issuer") or sig.get("signer")
+        return True, signer, str(state) if state is not None else None
+    except Exception:
+        return True, None, None
 
 
 def _suffix_for(mime: str | None) -> str:

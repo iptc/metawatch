@@ -12,8 +12,8 @@ const SPEC = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadat
     Metawatch is a project of the <a href="https://iptc.org/">IPTC</a>. It periodically scans
     a curated list of major news publishers worldwide, samples the photographs they publish,
     and reports how much embedded metadata survives the journey from photographer's camera to
-    rendered article page. We look at EXIF, IPTC&nbsp;IIM and IPTC&nbsp;XMP today, with C2PA
-    content credentials planned for Phase&nbsp;2.
+    rendered article page. We check each image for EXIF, IPTC&nbsp;IIM, IPTC&nbsp;XMP
+    and <a href="/c2pa/">C2PA content credentials</a>.
   </p>
 
   <h2>Why this matters</h2>
@@ -145,8 +145,9 @@ const SPEC = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadat
     <li>Some publishers serve content differently to crawlers than to human readers
         (paywalls, soft blocks, geolocation rules). A low score for those sites may reflect
         what their bot-facing surface looks like, not what their readers see.</li>
-    <li>C2PA content credentials are listed in our scope but not yet detected. The crawler
-        will gain a C2PA pass in Phase&nbsp;2.</li>
+    <li>C2PA detection is presence-first: we report whether a manifest is embedded and
+        the signing certificate's issuer, but do not yet parse individual
+        <code>c2pa.metadata</code> or <code>cawg.metadata</code> assertions.</li>
   </ul>
 
   {summary.run_id && (

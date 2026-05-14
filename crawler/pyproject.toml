@@ -19,6 +19,7 @@ dependencies = [
     "rich>=13.7",
     "tenacity>=8.5",
     "pyexiftool>=0.5",
+    "c2pa-python>=0.32",
 ]
 
 [project.optional-dependencies]

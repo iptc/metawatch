@@ -13,6 +13,7 @@ import countriesJson from '../data/latest/countries.json';
 import sitesJson from '../data/latest/sites.json';
 import fieldsJson from '../data/latest/fields.json';
 import cdnJson from '../data/latest/cdn.json';
+import c2paJson from '../data/latest/c2pa.json';
 import historyJson from '../data/latest/history.json';
 import historyBySiteJson from '../data/latest/history_by_site.json';
 import historyByCountryJson from '../data/latest/history_by_country.json';
@@ -31,6 +32,16 @@ export interface Summary {
   images_with_iptc: number;
   images_with_c2pa: number;
   pct_with_iptc: number;
+  pct_with_c2pa: number;
+}
+
+export interface C2paData {
+  image_count_total: number;
+  image_count_with_c2pa: number;
+  pct_with_c2pa: number;
+  by_signer: { signer: string; images: number }[];
+  by_validation_state: { state: string; images: number }[];
+  top_sites: { site_id: string; site_name: string; country: string; images_with_c2pa: number }[];
 }
 
 export interface Country {
@@ -117,6 +128,10 @@ export function getFields(): FieldStat[] {
 
 export function getCdn(): CdnData {
   return cdnJson as CdnData;
+}
+
+export function getC2pa(): C2paData {
+  return c2paJson as C2paData;
 }
 
 export function getHistory(): HistoryPoint[] {
