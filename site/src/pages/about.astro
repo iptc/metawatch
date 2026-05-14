@@ -3,85 +3,157 @@ import Layout from '../layouts/Layout.astro';
 import { getSummary } from '../lib/data';
 
 const summary = getSummary();
+const SPEC = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadata-2025.1.html';
 ---
 <Layout title="About">
   <h1>About Metawatch</h1>
 
   <p class="lede">
     Metawatch is a project of the <a href="https://iptc.org/">IPTC</a>. It periodically scans
-    a curated list of major news publishers worldwide, samples the images they publish, and
-    analyses each one for embedded metadata: EXIF, IPTC&nbsp;IIM, IPTC&nbsp;XMP, and C2PA.
+    a curated list of major news publishers worldwide, samples the photographs they publish,
+    and reports how much embedded metadata survives the journey from photographer's camera to
+    rendered article page. We look at EXIF, IPTC&nbsp;IIM and IPTC&nbsp;XMP today, with C2PA
+    content credentials planned for Phase&nbsp;2.
   </p>
 
-  <h2>Why?</h2>
+  <h2>Why this matters</h2>
   <p>
-    Photographs carry information in their files: who took them, when, where, the licensing
-    terms, captions and credits. The IPTC photo metadata standards exist so that this information
-    travels with the image. In practice much of it is stripped — sometimes by publishers, sometimes
-    by content delivery networks, sometimes by image processing pipelines. Metawatch surfaces what
-    is happening at the surface of the open web.
+    Photographs carry information in their files: who took them, when and where, the licensing
+    terms, captions, credits. The
+    <a href={SPEC} target="_blank" rel="noopener">IPTC Photo Metadata Standard</a> exists so
+    that this information travels with the image, anywhere the image goes. In practice much of
+    it is stripped before readers see it — sometimes by publishers, sometimes by CDNs as part
+    of automatic resizing, sometimes by intermediate image-processing pipelines.
+  </p>
+  <p>
+    The cost falls on photographers (whose attribution is lost), agencies (whose licensing
+    terms become invisible), and readers (who lose the provenance signals that would help them
+    judge what they're looking at). Metawatch is meant to be a long-running, public, repeatable
+    way to measure the problem and watch whether it improves.
   </p>
 
-  <h2>How the score works</h2>
+  <h2>The score</h2>
   <p>
-    For each image we score 11 weighted fields drawn from IPTC&nbsp;IIM and IPTC&nbsp;XMP. A field
-    counts as present if it appears in either family. The site score is the mean across that
-    site's sampled images; the country score is the mean across that country's sites.
+    For every image we sample, we check 11 weighted fields drawn from
+    <a href={SPEC} target="_blank" rel="noopener">IPTC&nbsp;IIM and IPTC&nbsp;XMP</a>. A field
+    counts as present if it appears in either family with a non-empty value. The image's score
+    is the sum of weights for fields present, expressed as a percentage of the maximum (100).
+    A site's score is the mean across all images we sampled for it; a country's score is the
+    equal-weighted mean across that country's sites.
   </p>
   <p>
-    The fields are: Creator (15), CopyrightNotice (15), CaptionAbstract (15), CreditLine (10),
-    DateCreated (10), LocationCreated (10), Source (5), ObjectName (5), Keywords (5),
-    WebStatement (5), LicensorURL (5). Weights total 100.
-  </p>
-
-  <h2>Sampling</h2>
-  <p>
-    For each site we read <code>robots.txt</code> and follow the sitemap chain it advertises,
-    preferring news or picture sitemaps. We sample up to 20 articles from the last 30 days and
-    take the top images from each. We respect <code>Crawl-delay</code> and rate-limit to one
-    request per second per domain. Sites whose <code>robots.txt</code> disallows our user-agent
-    (<code>IPTCMetadataCrawler</code>) are recorded but not crawled.
+    The weighted fields are: Creator&nbsp;(15), CopyrightNotice&nbsp;(15),
+    CaptionAbstract&nbsp;(15), CreditLine&nbsp;(10), DateCreated&nbsp;(10),
+    LocationCreated&nbsp;(10), Source&nbsp;(5), ObjectName&nbsp;(5), Keywords&nbsp;(5),
+    WebStatement&nbsp;(5), LicensorURL&nbsp;(5). Weights total 100. See
+    <a href="/fields/">the per-field breakdown</a> for current population rates and links to
+    each field in the IPTC standard.
   </p>
 
-  <h2>Frequency</h2>
+  <h2>How a site is sampled</h2>
   <p>
-    Metawatch runs once per month, on the first of the month. Every run is committed to the
-    project repository as a directory of Parquet files; the latest is exported to JSON and
-    rendered into this static site.
+    For each site in our list we try a small chain of discovery sources, in order, and use
+    the first one that yields articles within the last 30 days:
+  </p>
+  <ol>
+    <li>RSS feed(s) declared in the site's <code>config/publishers/&lt;cc&gt;.yaml</code> entry.</li>
+    <li>RSS feed(s) we auto-discover via <code>&lt;link rel="alternate"&gt;</code> on the homepage.</li>
+    <li>Common RSS paths we guess (<code>/feed</code>, <code>/rss.xml</code>, etc.).</li>
+    <li>XML sitemap declared in <code>robots.txt</code> — preferring news sitemaps, then any
+        non-image sitemap. Image-only sitemaps are a last resort because they carry no article
+        URLs.</li>
+    <li>Common sitemap paths we guess (<code>/sitemap-news.xml</code>, <code>/sitemap.xml</code>,
+        etc.). Gzipped sitemaps (<code>.xml.gz</code>) are supported.</li>
+  </ol>
+  <p>
+    From the chosen source we take up to 20 of the most recent articles, fetch each one, and
+    extract a single "lead" image per article — either from JSON-LD <code>NewsArticle</code> /
+    <code>Article</code> markup or from <code>&lt;meta property="og:image"&gt;</code>. Inline
+    body images and related-story thumbnails are deliberately skipped: they often pick up
+    site chrome, ads, or lazy-load placeholders rather than the photographs the article was
+    built around.
+  </p>
+  <p>
+    Each image is then fetched and analysed with
+    <a href="https://exiftool.org/" target="_blank" rel="noopener">ExifTool</a>; the field
+    presence and CDN attribution flow into the per-image, per-article and per-site Parquet
+    tables in <code>data/runs/&lt;date&gt;/</code>.
   </p>
 
-  <h2>Data</h2>
+  <h2>What each site status means</h2>
+  <ul>
+    <li><code>ok</code> — we found articles, fetched them, and analysed at least one image.</li>
+    <li><code>robots_disallow</code> — the site's <code>robots.txt</code> disallows our
+        user-agent. We record the entry but don't crawl.</li>
+    <li><code>no_articles_found</code> — discovery succeeded but no articles in the 30-day
+        window were returned (often a sitemap that points at an empty news feed).</li>
+    <li><code>unreachable</code> — every feed and sitemap we tried failed at the network
+        layer, usually a CDN or WAF rejecting our requests. We make no assumption about
+        whether the site is healthy for human readers.</li>
+    <li><code>timeout</code> — the crawl of that one site exceeded a 5-minute internal cap
+        (rare; usually means a stuck CDN downstream).</li>
+  </ul>
+
+  <h2>Politeness</h2>
   <p>
-    The full raw dataset (Parquet) is available in the repository under
+    Metawatch identifies itself as <code>Metawatch/2.0</code> with a
+    <code>From: metadata-crawler@iptc.org</code> header. It always reads <code>robots.txt</code>
+    first, respects <code>Crawl-delay</code>, and waits at least one second between requests to
+    the same domain. If a publisher declares a long crawl delay we shrink the article sample so
+    the whole site finishes within a fixed time budget, rather than hammering them at the edge
+    of their allowance. We do not bypass paywalls, fingerprints, or CDN bot-management rules.
+  </p>
+
+  <h2>How often we run</h2>
+  <p>
+    Metawatch runs automatically once per month on the first of the month at 02:00&nbsp;UTC.
+    Each run commits its Parquet output and the exported JSON for this site to the project
+    repository. We may also trigger ad-hoc runs while we are iterating on the crawler — those
+    appear as additional run directories in <code>data/runs/</code>.
+  </p>
+
+  <h2>Data and source code</h2>
+  <p>
+    The full dataset (Parquet) is in the
+    <a href="https://github.com/iptc/metawatch">project repository</a> under
     <code>data/runs/</code> and is licensed
-    <a href="https://creativecommons.org/licenses/by/4.0/">CC&nbsp;BY 4.0</a>. The crawler source
-    code is MIT-licensed and lives on
-    <a href="https://github.com/iptc/metawatch">GitHub</a>.
+    <a href="https://creativecommons.org/licenses/by/4.0/">CC&nbsp;BY&nbsp;4.0</a>. The crawler
+    source code is MIT-licensed. Citations and academic use are welcome — please credit "IPTC
+    Metawatch" with a link back.
   </p>
 
   <h2>For publishers</h2>
   <p>
-    If you'd like to be removed from the crawled list, or to suggest improvements to your site's
-    entry (a better sitemap URL, for example), please email
+    If you'd like to be removed from the crawled list, or to correct your site's entry — a
+    better feed URL, a missing sitemap, a name fix — please email
     <a href="mailto:office@iptc.org">office@iptc.org</a>. We honour removal requests without
-    question.
+    question and without waiting for the next monthly run.
   </p>
 
-  <h2>Methodology limitations</h2>
+  <h2>Caveats and limitations</h2>
   <ul>
-    <li>We sample, we don't crawl exhaustively. A 20-article window may be unrepresentative for
-        large publications.</li>
-    <li>Field-level scoring rewards <em>presence</em>, not <em>correctness</em>. A photo with a
-        valid <code>Creator</code> field of <code>"AP"</code> scores the same as one naming the
+    <li>We sample, we don't crawl exhaustively. A 20-article window may be unrepresentative
+        for very large publications, and the sample is necessarily skewed toward whatever
+        a site happens to publish in any given month.</li>
+    <li>Scoring rewards <em>presence</em>, not <em>correctness</em>. A photo with a
+        <code>Creator</code> field of <code>"AP"</code> scores the same as one naming the
         actual photographer.</li>
-    <li>"Stripped by CDN" vs "never embedded" is hard to distinguish from a single fetch — we
-        plan to address this in Phase&nbsp;2.</li>
+    <li>"Stripped by CDN" versus "never embedded by the publisher" is genuinely hard to
+        distinguish from a single end-of-pipeline fetch. The <a href="/cdn/">CDN page</a>
+        gives one view of this; Phase&nbsp;2 will add a cross-check using publishers who
+        distribute the same image through more than one CDN.</li>
+    <li>Some publishers serve content differently to crawlers than to human readers
+        (paywalls, soft blocks, geolocation rules). A low score for those sites may reflect
+        what their bot-facing surface looks like, not what their readers see.</li>
+    <li>C2PA content credentials are listed in our scope but not yet detected. The crawler
+        will gain a C2PA pass in Phase&nbsp;2.</li>
   </ul>
 
   {summary.run_id && (
-    <p style="color:var(--iptc-muted);font-size:0.9rem">
-      Latest run: <code>{summary.run_id}</code> — {summary.site_count_succeeded} sites,
-      {summary.image_count} images.
+    <p style="color:var(--iptc-muted);font-size:0.9rem;margin-top:2rem">
+      Latest run: <code>{summary.run_id}</code> — {summary.site_count_succeeded} of
+      {summary.site_count_attempted} sites successfully crawled,
+      {summary.image_count.toLocaleString()} images analysed.
     </p>
   )}
 </Layout>
