@@ -1,0 +1,120 @@
+---
+/**
+ * Small dependency-free SVG line chart for run-over-run metrics.
+ *
+ * Renders nothing useful with <=1 points (just shows an empty-state note),
+ * so it stays correct as we add runs over time or zero out bad ones.
+ *
+ * Props:
+ *   points    — { x: string ISO date, y: number }[]
+ *   yLabel    — axis label, e.g. "Mean IPTC score"
+ *   yMax      — optional fixed y-axis ceiling. Defaults to data max ×1.1.
+ *   format    — function to format y values for tick labels and tooltips.
+ */
+interface Point { x: string; y: number; }
+interface Props {
+  points: Point[];
+  yLabel: string;
+  yMax?: number;
+  format?: (n: number) => string;
+}
+
+const { points, yLabel, yMax, format = (n: number) => n.toFixed(1) } = Astro.props as Props;
+
+const W = 720;
+const H = 220;
+const PAD_L = 50;
+const PAD_R = 16;
+const PAD_T = 18;
+const PAD_B = 36;
+const innerW = W - PAD_L - PAD_R;
+const innerH = H - PAD_T - PAD_B;
+
+const sorted = [...points].sort((a, b) => a.x.localeCompare(b.x));
+const N = sorted.length;
+
+const yHi = yMax ?? Math.max(1, ...sorted.map(p => p.y)) * 1.1;
+const yLo = 0;
+
+function xPos(i: number): number {
+  if (N <= 1) return PAD_L + innerW / 2;
+  return PAD_L + (i / (N - 1)) * innerW;
+}
+function yPos(v: number): number {
+  return PAD_T + innerH * (1 - (v - yLo) / (yHi - yLo));
+}
+
+const path = sorted.map((p, i) => `${i === 0 ? 'M' : 'L'} ${xPos(i).toFixed(1)} ${yPos(p.y).toFixed(1)}`).join(' ');
+
+// Y-axis ticks: 5 evenly spaced
+const yTicks = [0, 0.25, 0.5, 0.75, 1].map(t => yLo + t * (yHi - yLo));
+---
+{N === 0 ? (
+  <p style="color:var(--iptc-muted);font-style:italic">No runs available yet.</p>
+) : N === 1 ? (
+  <p style="color:var(--iptc-muted)">
+    Only one run in the dataset so far — a chart needs at least two points.
+    The single value is <strong>{format(sorted[0].y)}</strong> on {sorted[0].x.slice(0, 10)}.
+  </p>
+) : (
+  <figure class="ts-chart">
+    <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`${yLabel} over time`}>
+      {/* Y gridlines + tick labels */}
+      {yTicks.map(v => (
+        <g>
+          <line x1={PAD_L} x2={W - PAD_R} y1={yPos(v)} y2={yPos(v)}
+                stroke="var(--iptc-grid, #e5e7eb)" stroke-width="1" />
+          <text x={PAD_L - 8} y={yPos(v) + 4} text-anchor="end"
+                font-size="11" fill="var(--iptc-muted, #6b7280)">
+            {format(v)}
+          </text>
+        </g>
+      ))}
+
+      {/* X tick labels (date YYYY-MM-DD per point). End labels anchor inward to avoid clipping. */}
+      {sorted.map((p, i) => (
+        <text x={xPos(i)} y={H - PAD_B + 16}
+              text-anchor={i === 0 ? 'start' : i === N - 1 ? 'end' : 'middle'}
+              font-size="11" fill="var(--iptc-muted, #6b7280)">
+          {p.x.slice(0, 10)}
+        </text>
+      ))}
+
+      {/* Line */}
+      <path d={path} fill="none"
+            stroke="var(--iptc-green, #6db33f)" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" />
+
+      {/* Markers + numeric labels per point */}
+      {sorted.map((p, i) => (
+        <g>
+          <circle cx={xPos(i)} cy={yPos(p.y)} r="4"
+                  fill="white" stroke="var(--iptc-green, #6db33f)" stroke-width="2" />
+          <text x={xPos(i)} y={yPos(p.y) - 10} text-anchor="middle"
+                font-size="11" fill="var(--iptc-dark, #2c3e50)" font-weight="600">
+            {format(p.y)}
+          </text>
+        </g>
+      ))}
+
+      {/* Y axis label */}
+      <text x={12} y={PAD_T + innerH / 2} text-anchor="middle"
+            transform={`rotate(-90 12 ${PAD_T + innerH / 2})`}
+            font-size="11" fill="var(--iptc-muted, #6b7280)">
+        {yLabel}
+      </text>
+    </svg>
+  </figure>
+)}
+
+<style>
+  .ts-chart {
+    margin: 0;
+  }
+  .ts-chart svg {
+    width: 100%;
+    height: auto;
+    max-width: 720px;
+    display: block;
+  }
+</style>

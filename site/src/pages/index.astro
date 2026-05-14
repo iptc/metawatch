@@ -1,15 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getSummary, getCountries, getSites, scoreClass, countryName, categoryLabel } from '../lib/data';
+import TimeSeriesChart from '../components/TimeSeriesChart.astro';
+import { getSummary, getCountries, getSites, getHistory, scoreClass, countryName, categoryLabel } from '../lib/data';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const summary = getSummary();
 const countries = getCountries();
 const sites = getSites().filter(s => s.status === 'ok');
+const history = getHistory();
 
 const top10Sites = sites.slice(0, 10);
 const top10Countries = countries.slice(0, 10);
 const runDate = summary.started_at ? new Date(summary.started_at).toISOString().slice(0, 10) : 'no run yet';
+
+const scorePoints = history.map(h => ({ x: h.started_at, y: h.mean_score }));
 ---
 <Layout title="Overview">
   <h1>Metawatch</h1>
@@ -33,6 +37,23 @@ const runDate = summary.started_at ? new Date(summary.started_at).toISOString().
       once the crawler has produced its first run and the data has been exported
       with <code>crawler/scripts/export_for_site.py</code>.
     </div>
+  )}
+
+  {history.length >= 2 && (
+    <section>
+      <h2>Mean IPTC score over time</h2>
+      <p>
+        Each point is one crawl run. The chart auto-rescales when runs are added
+        or pruned; see the <a href={`${base}/dataset/`}>dataset page</a> for the
+        underlying parquet files.
+      </p>
+      <TimeSeriesChart
+        points={scorePoints}
+        yLabel="Mean IPTC score (0–100)"
+        yMax={100}
+        format={(n: number) => n.toFixed(1)}
+      />
+    </section>
   )}
 
   <h2>Top sites</h2>
