@@ -8,6 +8,7 @@ Output:
     fields.json         # global per-field presence
     cdn.json            # CDN distribution + optimizer-strip cross-tab
     history.json        # rolling snapshot across all runs (for time series)
+    runs_index.json     # one entry per run with file manifest (for dataset page)
 
 Usage:
     python scripts/export_for_site.py [--runs-dir ../data/runs] [--out ../site/src/data]
@@ -180,6 +181,30 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
             "mean_score": round(mean(scores), 2) if scores else 0.0,
         })
     (out_dir / "history.json").write_text(json.dumps(history, indent=2))
+
+    # Per-run manifest for the public /dataset/ page.
+    runs_index = []
+    for run_path in all_runs:
+        run_runs_pq = run_path / "runs.parquet"
+        if not run_runs_pq.exists():
+            continue
+        rmeta = pq.read_table(run_runs_pq).to_pylist()[0]
+        files = [
+            {"name": f.name, "size_bytes": f.stat().st_size}
+            for f in sorted(run_path.glob("*.parquet"))
+        ]
+        runs_index.append({
+            "run_id": rmeta["run_id"],
+            "started_at": fmt_dt(rmeta["started_at"]),
+            "ended_at": fmt_dt(rmeta["ended_at"]),
+            "site_count_attempted": rmeta["site_count_attempted"],
+            "site_count_succeeded": rmeta["site_count_succeeded"],
+            "image_count": rmeta["image_count"],
+            "directory": run_path.name,
+            "files": files,
+        })
+    runs_index.sort(key=lambda r: r["started_at"] or "", reverse=True)
+    (out_dir / "runs_index.json").write_text(json.dumps(runs_index, indent=2))
 
     print(f"Exported run {summary['run_id']} → {out_dir}")
     print(f"  sites={len(sites_out)} images={len(images)} mean_score={summary['global_mean_score']}")

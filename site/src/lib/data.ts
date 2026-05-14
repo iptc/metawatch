@@ -14,6 +14,7 @@ import sitesJson from '../data/latest/sites.json';
 import fieldsJson from '../data/latest/fields.json';
 import cdnJson from '../data/latest/cdn.json';
 import historyJson from '../data/latest/history.json';
+import runsIndexJson from '../data/latest/runs_index.json';
 
 export interface Summary {
   run_id: string | null;
@@ -80,6 +81,22 @@ export interface HistoryPoint {
   mean_score: number;
 }
 
+export interface RunFile {
+  name: string;
+  size_bytes: number;
+}
+
+export interface RunIndexEntry {
+  run_id: string;
+  started_at: string | null;
+  ended_at: string | null;
+  site_count_attempted: number;
+  site_count_succeeded: number;
+  image_count: number;
+  directory: string;
+  files: RunFile[];
+}
+
 export function getSummary(): Summary {
   return summaryJson as Summary;
 }
@@ -102,6 +119,10 @@ export function getCdn(): CdnData {
 
 export function getHistory(): HistoryPoint[] {
   return historyJson as HistoryPoint[];
+}
+
+export function getRunsIndex(): RunIndexEntry[] {
+  return runsIndexJson as RunIndexEntry[];
 }
 
 export function scoreClass(score: number): string {

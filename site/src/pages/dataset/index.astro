@@ -1,0 +1,118 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getRunsIndex } from '../../lib/data';
+
+const runs = getRunsIndex();
+const REPO_BASE = 'https://github.com/iptc/metawatch/raw/main/data/runs';
+const REPO_TREE = 'https://github.com/iptc/metawatch/tree/main/data/runs';
+
+function fmtBytes(n: number): string {
+  if (n < 1024) return `${n} B`;
+  if (n < 1024 * 1024) return `${(n / 1024).toFixed(1)} KB`;
+  return `${(n / (1024 * 1024)).toFixed(1)} MB`;
+}
+
+function fmtDate(s: string | null): string {
+  if (!s) return '—';
+  return s.slice(0, 10);
+}
+
+function fmtDuration(start: string | null, end: string | null): string {
+  if (!start || !end) return '—';
+  const ms = new Date(end).getTime() - new Date(start).getTime();
+  if (Number.isNaN(ms) || ms < 0) return '—';
+  const m = Math.floor(ms / 60000);
+  const s = Math.floor((ms % 60000) / 1000);
+  return `${m}m ${s}s`;
+}
+
+const FILE_NOTES: Record<string, string> = {
+  'runs.parquet': '1 row per run — start/end times, totals.',
+  'sites.parquet': '1 row per site per run — discovery strategy, status, articles & images sampled, mean score.',
+  'articles.parquet': '1 row per article fetched — URL, publication date, http status, JSON-LD payload.',
+  'images.parquet': '1 row per image — URL, dimensions, CDN attribution, per-image score, presence flags.',
+  'metadata_fields.parquet': '1 row per (image, field) tuple — long-form table for per-field aggregation.',
+};
+---
+<Layout title="Dataset">
+  <h1>Dataset</h1>
+
+  <p class="lede">
+    Every Metawatch run is published as a directory of Parquet files in the
+    <a href={REPO_TREE} target="_blank" rel="noopener">project repository</a>. The data is
+    licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC&nbsp;BY&nbsp;4.0</a> —
+    please credit "IPTC Metawatch" with a link back.
+  </p>
+
+  <h2>How to read it</h2>
+  <p>
+    Parquet is a columnar format readable by every mainstream data tool — pandas, polars,
+    DuckDB, R/arrow, Apache Spark. A quick start in Python:
+  </p>
+  <pre><code>{`import pyarrow.parquet as pq
+sites = pq.read_table("sites.parquet").to_pandas()
+print(sites[sites.status == "ok"].sort_values("mean_iptc_score", ascending=False).head())`}</code></pre>
+  <p>
+    Or with DuckDB directly against the raw URL (no download needed):
+  </p>
+  <pre><code>{`duckdb -c "SELECT site_id, mean_iptc_score FROM '${REPO_BASE}/2026-05-13/sites.parquet' WHERE status = 'ok' ORDER BY mean_iptc_score DESC LIMIT 10;"`}</code></pre>
+
+  <h2>File layout</h2>
+  <table>
+    <thead><tr><th>File</th><th>What's in it</th></tr></thead>
+    <tbody>
+      {Object.entries(FILE_NOTES).map(([name, note]) => (
+        <tr>
+          <td><code>{name}</code></td>
+          <td>{note}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <h2>Runs</h2>
+  <p>Most recent first. Click a file to download it directly.</p>
+
+  {runs.map(run => (
+    <div class="card" style="margin-bottom:1.25rem">
+      <div style="display:flex;flex-wrap:wrap;gap:1.5rem;align-items:baseline;justify-content:space-between">
+        <h3 style="margin:0">{fmtDate(run.started_at)}</h3>
+        <div style="color:var(--iptc-muted);font-size:0.95rem">
+          <code>{run.directory}</code> · run took {fmtDuration(run.started_at, run.ended_at)} ·
+          {' '}{run.site_count_succeeded}/{run.site_count_attempted} sites,
+          {' '}{run.image_count.toLocaleString()} images
+        </div>
+      </div>
+      <ul style="margin-top:0.75rem;list-style:none;padding:0">
+        {run.files.map(f => (
+          <li style="display:flex;justify-content:space-between;align-items:baseline;padding:0.2rem 0">
+            <a href={`${REPO_BASE}/${run.directory}/${f.name}`} target="_blank" rel="noopener">
+              <code>{f.name}</code>
+            </a>
+            <span style="color:var(--iptc-muted);font-size:0.9rem">{fmtBytes(f.size_bytes)}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+
+  <p style="color:var(--iptc-muted);font-size:0.9rem;margin-top:1.5rem">
+    The schema is described in <a href="https://github.com/iptc/metawatch/blob/main/SPEC.md#7-output-data-model-parquet" target="_blank" rel="noopener">SPEC.md §7</a>.
+    If you build something interesting on this data, we'd love to hear about it —
+    <a href="mailto:office@iptc.org">office@iptc.org</a>.
+  </p>
+</Layout>
+
+<style>
+  pre {
+    background: var(--iptc-code-bg, #f6f8fa);
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 0.9rem;
+  }
+  pre code {
+    background: none;
+    padding: 0;
+  }
+</style>
