@@ -26,5 +26,12 @@
     "site_count": 223,
     "image_count": 3246,
     "mean_score": 4.94
+  },
+  {
+    "run_id": "2026-05-15T074655Z",
+    "started_at": "2026-05-15T07:46:55.892933+00:00",
+    "site_count": 223,
+    "image_count": 3213,
+    "mean_score": 5.12
   }
 ]

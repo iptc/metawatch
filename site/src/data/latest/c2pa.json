@@ -1,11 +1,11 @@
 {
-  "image_count_total": 3246,
-  "image_count_with_c2pa": 2,
-  "pct_with_c2pa": 0.06,
+  "image_count_total": 3213,
+  "image_count_with_c2pa": 7,
+  "pct_with_c2pa": 0.22,
   "by_outcome": [
     {
       "outcome": "valid",
-      "images": 0
+      "images": 7
     },
     {
       "outcome": "modified",
@@ -21,36 +21,48 @@
     },
     {
       "outcome": "other_invalid",
-      "images": 2
+      "images": 0
     }
   ],
   "by_signer": [
     {
-      "signer": "Adobe Inc.",
-      "images": 1
+      "signer": "OpenAI OpCo, LLC",
+      "images": 4
     },
     {
-      "signer": "Canva",
-      "images": 1
+      "signer": "International Press Telecommunications Council",
+      "images": 3
     }
   ],
   "by_validation_state": [
     {
-      "state": "Invalid",
-      "images": 2
+      "state": "Valid",
+      "images": 7
     }
   ],
   "top_sites": [
     {
-      "site_id": "die-presse",
-      "site_name": "Die Presse",
-      "country": "AT",
+      "site_id": "iptc",
+      "site_name": "IPTC",
+      "country": "GB",
+      "images_with_c2pa": 3
+    },
+    {
+      "site_id": "site-3",
+      "site_name": "\u03a4\u03b1 \u039d\u03ad\u03b1",
+      "country": "GR",
+      "images_with_c2pa": 2
+    },
+    {
+      "site_id": "cyprus-mail",
+      "site_name": "Cyprus Mail",
+      "country": "CY",
       "images_with_c2pa": 1
     },
     {
-      "site_id": "mail-guardian",
-      "site_name": "Mail & Guardian",
-      "country": "ZA",
+      "site_id": "city-am",
+      "site_name": "City AM",
+      "country": "GB",
       "images_with_c2pa": 1
     }
   ]

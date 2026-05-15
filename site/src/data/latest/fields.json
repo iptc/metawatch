@@ -1,89 +1,89 @@
 [
   {
     "field": "Creator",
-    "present": 257,
-    "total": 3219,
+    "present": 255,
+    "total": 3194,
     "pct": 8.0,
     "weight": 15,
     "weight_pct": 15.0
   },
   {
     "field": "CreditLine",
-    "present": 196,
-    "total": 3219,
-    "pct": 6.1,
+    "present": 211,
+    "total": 3194,
+    "pct": 6.6,
     "weight": 10,
     "weight_pct": 10.0
   },
   {
     "field": "CopyrightNotice",
-    "present": 195,
-    "total": 3219,
+    "present": 194,
+    "total": 3194,
     "pct": 6.1,
     "weight": 15,
     "weight_pct": 15.0
   },
   {
     "field": "DateCreated",
-    "present": 190,
-    "total": 3219,
-    "pct": 5.9,
+    "present": 191,
+    "total": 3194,
+    "pct": 6.0,
     "weight": 10,
     "weight_pct": 10.0
   },
   {
     "field": "ObjectName",
-    "present": 147,
-    "total": 3219,
-    "pct": 4.6,
+    "present": 157,
+    "total": 3194,
+    "pct": 4.9,
     "weight": 5,
     "weight_pct": 5.0
   },
   {
     "field": "CaptionAbstract",
-    "present": 146,
-    "total": 3219,
-    "pct": 4.5,
+    "present": 149,
+    "total": 3194,
+    "pct": 4.7,
     "weight": 15,
     "weight_pct": 15.0
   },
   {
     "field": "Source",
-    "present": 111,
-    "total": 3219,
-    "pct": 3.4,
+    "present": 122,
+    "total": 3194,
+    "pct": 3.8,
     "weight": 5,
     "weight_pct": 5.0
   },
   {
     "field": "LocationCreated",
-    "present": 105,
-    "total": 3219,
-    "pct": 3.3,
+    "present": 108,
+    "total": 3194,
+    "pct": 3.4,
     "weight": 10,
     "weight_pct": 10.0
   },
   {
     "field": "Keywords",
-    "present": 85,
-    "total": 3219,
-    "pct": 2.6,
+    "present": 96,
+    "total": 3194,
+    "pct": 3.0,
     "weight": 5,
     "weight_pct": 5.0
   },
   {
     "field": "WebStatement",
-    "present": 53,
-    "total": 3219,
-    "pct": 1.6,
+    "present": 58,
+    "total": 3194,
+    "pct": 1.8,
     "weight": 5,
     "weight_pct": 5.0
   },
   {
     "field": "LicensorURL",
-    "present": 30,
-    "total": 3219,
-    "pct": 0.9,
+    "present": 41,
+    "total": 3194,
+    "pct": 1.3,
     "weight": 5,
     "weight_pct": 5.0
   }
