@@ -218,19 +218,37 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         run = rs[0]
         run_started = fmt_dt(run["started_at"])
 
-        # Global mean from per-image scores
+        # Per-run aggregates from per-image rows
         scores = []
+        c2pa_count = 0
+        valid_image_count = 0
+        c2pa_outcome_counts: dict[str, int] = defaultdict(int)
         imgs_path = d / "images.parquet"
         if imgs_path.exists():
             for r in read(imgs_path):
-                if r["http_status"] == 200:
-                    scores.append(r["iptc_score"])
+                if r["http_status"] != 200:
+                    continue
+                valid_image_count += 1
+                scores.append(r["iptc_score"])
+                if r.get("has_c2pa"):
+                    c2pa_count += 1
+                    bucket = _classify_c2pa(
+                        r.get("c2pa_validation_status"),
+                        list(r.get("c2pa_failure_codes") or []),
+                    )
+                    c2pa_outcome_counts[bucket] += 1
         history.append({
             "run_id": run["run_id"],
             "started_at": run_started,
             "site_count": run["site_count_succeeded"],
             "image_count": run["image_count"],
             "mean_score": round(mean(scores), 2) if scores else 0.0,
+            "images_with_c2pa": c2pa_count,
+            "pct_with_c2pa": (
+                round(100.0 * c2pa_count / valid_image_count, 3)
+                if valid_image_count else 0.0
+            ),
+            "c2pa_outcomes": dict(c2pa_outcome_counts),
         })
 
         # Per-site and per-country series from this run's sites.parquet

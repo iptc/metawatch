@@ -95,6 +95,9 @@ export interface HistoryPoint {
   site_count: number;
   image_count: number;
   mean_score: number;
+  images_with_c2pa: number;
+  pct_with_c2pa: number;
+  c2pa_outcomes: Partial<Record<C2paOutcome, number>>;
 }
 
 export interface RunFile {

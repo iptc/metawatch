@@ -4,34 +4,53 @@
     "started_at": "2026-05-11T20:51:09.127340+00:00",
     "site_count": 5,
     "image_count": 88,
-    "mean_score": 13.75
+    "mean_score": 13.75,
+    "images_with_c2pa": 0,
+    "pct_with_c2pa": 0.0,
+    "c2pa_outcomes": {}
   },
   {
     "run_id": "2026-05-12T210316Z",
     "started_at": "2026-05-12T21:03:16.998133+00:00",
     "site_count": 159,
     "image_count": 2639,
-    "mean_score": 6.15
+    "mean_score": 6.15,
+    "images_with_c2pa": 0,
+    "pct_with_c2pa": 0.0,
+    "c2pa_outcomes": {}
   },
   {
     "run_id": "2026-05-13T133512Z",
     "started_at": "2026-05-13T13:35:12.978931+00:00",
     "site_count": 222,
     "image_count": 3245,
-    "mean_score": 5.68
+    "mean_score": 5.68,
+    "images_with_c2pa": 0,
+    "pct_with_c2pa": 0.0,
+    "c2pa_outcomes": {}
   },
   {
     "run_id": "2026-05-14T212928Z",
     "started_at": "2026-05-14T21:29:28.512124+00:00",
     "site_count": 223,
     "image_count": 3246,
-    "mean_score": 4.94
+    "mean_score": 4.94,
+    "images_with_c2pa": 2,
+    "pct_with_c2pa": 0.062,
+    "c2pa_outcomes": {
+      "other_invalid": 2
+    }
   },
   {
     "run_id": "2026-05-15T074655Z",
     "started_at": "2026-05-15T07:46:55.892933+00:00",
     "site_count": 223,
     "image_count": 3213,
-    "mean_score": 5.12
+    "mean_score": 5.12,
+    "images_with_c2pa": 7,
+    "pct_with_c2pa": 0.218,
+    "c2pa_outcomes": {
+      "valid": 7
+    }
   }
 ]

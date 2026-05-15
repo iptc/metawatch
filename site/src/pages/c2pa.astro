@@ -1,9 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getC2pa, countryName } from '../lib/data';
+import TimeSeriesChart from '../components/TimeSeriesChart.astro';
+import { getC2pa, getHistory, countryName } from '../lib/data';
 
 const data = getC2pa();
+const history = getHistory();
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const c2paCountPoints = history.map(h => ({
+  x: h.started_at,
+  y: h.images_with_c2pa ?? 0,
+}));
+const c2paPctPoints = history.map(h => ({
+  x: h.started_at,
+  y: h.pct_with_c2pa ?? 0,
+}));
 ---
 <Layout title="C2PA content credentials">
   <h1>C2PA content credentials</h1>
@@ -30,6 +41,24 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <span class="stat-value">{data.pct_with_c2pa}%</span>
     </div>
   </div>
+
+  {history.length >= 2 && (
+    <section style="margin-top:2rem">
+      <h2>C2PA-bearing images over time</h2>
+      <p>Absolute count of images carrying a C2PA manifest across crawl runs.</p>
+      <TimeSeriesChart
+        points={c2paCountPoints}
+        yLabel="Images with C2PA"
+        format={(n: number) => Math.round(n).toString()}
+      />
+      <p style="margin-top:1.5rem">As a share of all images sampled in each run:</p>
+      <TimeSeriesChart
+        points={c2paPctPoints}
+        yLabel="% with C2PA"
+        format={(n: number) => `${n.toFixed(2)}%`}
+      />
+    </section>
+  )}
 
   {data.image_count_with_c2pa === 0 ? (
     <div class="card">
