@@ -170,17 +170,24 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
     c2pa_images = [img for img in images if img.get("has_c2pa")]
     signer_counts: dict[str, int] = defaultdict(int)
     state_counts: dict[str, int] = defaultdict(int)
+    bucket_counts: dict[str, int] = defaultdict(int)
     sites_with_c2pa: dict[str, int] = defaultdict(int)
     for img in c2pa_images:
         signer = img.get("c2pa_manifest_signer") or "(unknown signer)"
         state = img.get("c2pa_validation_status") or "(unknown state)"
+        failure_codes = list(img.get("c2pa_failure_codes") or [])
         signer_counts[signer] += 1
         state_counts[state] += 1
+        bucket_counts[_classify_c2pa(state, failure_codes)] += 1
         sites_with_c2pa[img["site_id"]] += 1
     c2pa_out = {
         "image_count_total": len(images),
         "image_count_with_c2pa": len(c2pa_images),
         "pct_with_c2pa": summary["pct_with_c2pa"],
+        "by_outcome": [
+            {"outcome": b, "images": bucket_counts.get(b, 0)}
+            for b in ("valid", "modified", "expired", "untrusted_issuer", "other_invalid")
+        ],
         "by_signer": [
             {"signer": k, "images": v}
             for k, v in sorted(signer_counts.items(), key=lambda x: -x[1])
@@ -275,6 +282,29 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
 
     print(f"Exported run {summary['run_id']} → {out_dir}")
     print(f"  sites={len(sites_out)} images={len(images)} mean_score={summary['global_mean_score']}")
+
+
+def _classify_c2pa(state: str | None, failure_codes: list[str]) -> str:
+    """Bucket a C2PA validation result into a publishable outcome.
+
+    - valid:            Reader returned state == "Valid"
+    - modified:         data hash mismatch — bytes changed after signing
+                        (the interesting "CDN stripped the manifest" case)
+    - expired:          signing certificate expired (issuer-side problem)
+    - untrusted_issuer: only failure is signingCredential.untrusted — purely
+                        a trust-list configuration matter; signature itself fine
+    - other_invalid:    anything else
+    """
+    if state == "Valid":
+        return "valid"
+    fail = set(failure_codes)
+    if "assertion.dataHash.mismatch" in fail:
+        return "modified"
+    if "signingCredential.expired" in fail:
+        return "expired"
+    if fail == {"signingCredential.untrusted"}:
+        return "untrusted_issuer"
+    return "other_invalid"
 
 
 def _counter(items: list[str]) -> dict[str, int]:

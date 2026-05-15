@@ -35,14 +35,45 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <div class="card">
       <strong>No C2PA manifests detected in the latest run.</strong> Across
       {data.image_count_total.toLocaleString()} images sampled, none carried a C2PA
-      manifest. The first crawl to include C2PA detection will populate this page;
-      until that run lands, expect zero. C2PA adoption among general news
-      publishers is still nascent — the most visible deployments today are inside
-      camera-to-newsroom workflows (e.g. AP's Verify, Leica M11-P, Sony α1&nbsp;II)
-      rather than at the public web edge.
+      manifest. C2PA adoption among general news publishers is still nascent — the
+      most visible deployments today are inside camera-to-newsroom workflows
+      (e.g. AP's Verify, Leica M11-P, Sony α1&nbsp;II) rather than at the public
+      web edge.
     </div>
   ) : (
     <>
+      <h2>Outcomes</h2>
+      <p>
+        A C2PA manifest can fail validation for very different reasons. We bucket
+        each image we find into one of these outcomes so the headline number
+        stays honest:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Outcome</th><th>Meaning</th><th class="num">Images</th></tr>
+        </thead>
+        <tbody>
+          {data.by_outcome.map(b => (
+            <tr>
+              <td><code>{b.outcome}</code></td>
+              <td>
+                {b.outcome === 'valid'
+                  && 'Cryptographically clean, issuer in our trust list, bytes unmodified.'}
+                {b.outcome === 'modified'
+                  && 'Manifest signature verified, but the data hash no longer matches — the image bytes were changed after signing (typically by a CDN re-encode).'}
+                {b.outcome === 'expired'
+                  && "Signing certificate has expired. The image's authenticity claim can't be verified even though the manifest is structurally intact."}
+                {b.outcome === 'untrusted_issuer'
+                  && "Manifest is structurally fine but the signing certificate isn't in our default trust list. Often legitimate (e.g. Adobe, Canva) — we list them here rather than as outright failures."}
+                {b.outcome === 'other_invalid'
+                  && 'Some other validation failure — see the validation_states breakdown below.'}
+              </td>
+              <td class="num">{b.images.toLocaleString()}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
       <h2>Top signers</h2>
       <p>Issuers of the certificates used to sign the manifests we found.</p>
       <table>
@@ -57,8 +88,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         </tbody>
       </table>
 
-      <h2>Validation states</h2>
-      <p>Whether the embedded manifest verified at fetch time.</p>
+      <h2>Raw validation states</h2>
+      <p>
+        The states returned by the
+        <a href="https://github.com/contentauth/c2pa-rs" target="_blank" rel="noopener"> c2pa-rs library</a>
+        before bucketing — useful if you want to drill into a specific failure mode.
+      </p>
       <table>
         <thead><tr><th>State</th><th class="num">Images</th></tr></thead>
         <tbody>

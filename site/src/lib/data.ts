@@ -35,10 +35,13 @@ export interface Summary {
   pct_with_c2pa: number;
 }
 
+export type C2paOutcome = 'valid' | 'modified' | 'expired' | 'untrusted_issuer' | 'other_invalid';
+
 export interface C2paData {
   image_count_total: number;
   image_count_with_c2pa: number;
   pct_with_c2pa: number;
+  by_outcome: { outcome: C2paOutcome; images: number }[];
   by_signer: { signer: string; images: number }[];
   by_validation_state: { state: string; images: number }[];
   top_sites: { site_id: string; site_name: string; country: string; images_with_c2pa: number }[];

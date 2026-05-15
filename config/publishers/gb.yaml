@@ -171,6 +171,26 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: iptc
+  name: IPTC
+  url: https://iptc.org/
+  homepage: https://iptc.org/
+  category: other
+  language_primary: en
+  notes: 'Standards body that publishes the IPTC Photo Metadata Standard. Included
+    as a calibration site — known to ship properly-signed C2PA on its blog images.'
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://iptc.org/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
 - id: metro
   name: Metro
   url: https://metro.co.uk/

@@ -341,6 +341,7 @@ async def _crawl_site(
                 has_iptc_xmp=img.has_iptc_xmp, has_c2pa=img.has_c2pa,
                 c2pa_manifest_signer=img.c2pa_manifest_signer,
                 c2pa_validation_status=img.c2pa_validation_status,
+                c2pa_failure_codes=img.c2pa_failure_codes,
                 cdn_provider=img.cdn_provider,
                 cdn_optimizer_active=img.cdn_optimizer_active,
                 metadata_field_count=img.metadata_field_count,

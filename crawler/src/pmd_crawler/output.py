@@ -84,6 +84,7 @@ class ImageRow:
     has_c2pa: bool
     c2pa_manifest_signer: str | None
     c2pa_validation_status: str | None
+    c2pa_failure_codes: list[str] = field(default_factory=list)
     cdn_provider: str
     cdn_optimizer_active: str
     metadata_field_count: int
@@ -189,6 +190,7 @@ def _write_images(path: Path, rows: list[ImageRow]) -> None:
         "has_c2pa": [r.has_c2pa for r in rows],
         "c2pa_manifest_signer": [r.c2pa_manifest_signer for r in rows],
         "c2pa_validation_status": [r.c2pa_validation_status for r in rows],
+        "c2pa_failure_codes": [r.c2pa_failure_codes for r in rows],
         "cdn_provider": [r.cdn_provider for r in rows],
         "cdn_optimizer_active": [r.cdn_optimizer_active for r in rows],
         "metadata_field_count": [r.metadata_field_count for r in rows],

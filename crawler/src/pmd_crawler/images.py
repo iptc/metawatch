@@ -32,6 +32,7 @@ class ImageResult:
     has_c2pa: bool = False
     c2pa_manifest_signer: str | None = None
     c2pa_validation_status: str | None = None
+    c2pa_failure_codes: list[str] = field(default_factory=list)
     cdn_provider: str = "unknown"
     cdn_optimizer_active: str = "unknown"
     metadata_field_count: int = 0
@@ -93,12 +94,13 @@ async def fetch_and_analyse(
     # c2pa-rs binding is blocking. Any error means "no manifest" — there are many
     # legitimate ways for that to happen (wrong format, truncated file, etc.).
     try:
-        c2pa_present, c2pa_signer, c2pa_state = await asyncio.get_running_loop().run_in_executor(
-            None, _detect_c2pa, tmp_path
+        c2pa_present, c2pa_signer, c2pa_state, c2pa_failures = (
+            await asyncio.get_running_loop().run_in_executor(None, _detect_c2pa, tmp_path)
         )
         result.has_c2pa = c2pa_present
         result.c2pa_manifest_signer = c2pa_signer
         result.c2pa_validation_status = c2pa_state
+        result.c2pa_failure_codes = c2pa_failures
     except Exception:
         pass
 
@@ -125,19 +127,23 @@ async def fetch_and_analyse(
     return result
 
 
-def _detect_c2pa(path: Path) -> tuple[bool, str | None, str | None]:
-    """Return (has_c2pa, signer_issuer, validation_state).
+def _detect_c2pa(path: Path) -> tuple[bool, str | None, str | None, list[str]]:
+    """Return (has_c2pa, signer_issuer, validation_state, failure_codes).
 
     Detection is presence-first: the c2pa-rs Python binding raises
     ``ManifestNotFound`` when no JUMBF manifest is embedded, and various
     other parse errors for malformed or non-image content. Any exception is
     treated as "no manifest" — false negatives are acceptable, false positives
     would be misleading.
+
+    failure_codes is the list of `failure[].code` entries from the active
+    manifest's validation results — e.g. ``signingCredential.untrusted``,
+    ``assertion.dataHash.mismatch``. Empty for valid manifests.
     """
     try:
         reader = c2pa.Reader(str(path))
     except Exception:
-        return False, None, None
+        return False, None, None, []
     try:
         state = reader.get_validation_state()
         manifest = reader.get_active_manifest()
@@ -146,9 +152,17 @@ def _detect_c2pa(path: Path) -> tuple[bool, str | None, str | None]:
             sig = manifest.get("signature_info")
             if isinstance(sig, dict):
                 signer = sig.get("issuer") or sig.get("signer")
-        return True, signer, str(state) if state is not None else None
+        failure_codes: list[str] = []
+        try:
+            vr = reader.get_validation_results()
+            if isinstance(vr, dict):
+                active = vr.get("activeManifest") or {}
+                failure_codes = [f["code"] for f in active.get("failure", []) if "code" in f]
+        except Exception:
+            pass
+        return True, signer, str(state) if state is not None else None, failure_codes
     except Exception:
-        return True, None, None
+        return True, None, None, []
 
 
 def _suffix_for(mime: str | None) -> str:
