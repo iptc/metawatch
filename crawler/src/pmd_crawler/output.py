@@ -84,11 +84,12 @@ class ImageRow:
     has_c2pa: bool
     c2pa_manifest_signer: str | None
     c2pa_validation_status: str | None
-    c2pa_failure_codes: list[str] = field(default_factory=list)
     cdn_provider: str
     cdn_optimizer_active: str
     metadata_field_count: int
     iptc_score: float
+    # Default kept last so dataclass field-ordering rules are happy.
+    c2pa_failure_codes: list[str] = field(default_factory=list)
 
     @property
     def image_url_hash(self) -> str:
