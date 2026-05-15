@@ -204,7 +204,7 @@ def _walk_jsonld_for_images(node: object, out: list[str]) -> None:
     if isinstance(node, dict):
         t = node.get("@type")
         types = {t} if isinstance(t, str) else set(t) if isinstance(t, list) else set()
-        if types & {"NewsArticle", "Article", "ImageObject"}:
+        if types & {"NewsArticle", "ReportageNewsArticle", "Article", "ImageObject"}:
             img = node.get("image")
             _collect_image_field(img, out)
         for v in node.values():
@@ -335,7 +335,7 @@ def _extract_news_article_jsonld(parser: HTMLParser) -> str | None:
             data = json.loads(text)
         except (json.JSONDecodeError, ValueError):
             continue
-        if _has_type(data, {"NewsArticle", "Article"}):
+        if _has_type(data, {"NewsArticle", "ReportageNewsArticle", "Article"}):
             return text
     return None
 
