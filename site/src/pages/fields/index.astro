@@ -8,7 +8,8 @@ const maxPct = fields.length ? Math.max(...fields.map(f => f.pct)) : 0;
 const totalWeight = fields.reduce((acc, f) => acc + f.weight, 0);
 
 // Each field links to its section in the IPTC Photo Metadata Standard 2025.1.
-const SPEC_BASE = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadata-2025.1.html';
+// Version-less URL — the iptc.org server redirects to the latest published spec.
+const SPEC_BASE = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadata';
 const SPEC_ANCHORS: Record<string, string> = {
   Creator: '#creator',
   CopyrightNotice: '#copyright-notice',

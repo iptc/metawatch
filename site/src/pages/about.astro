@@ -3,7 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import { getSummary } from '../lib/data';
 
 const summary = getSummary();
-const SPEC = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadata-2025.1.html';
+// Version-less URL — the iptc.org server redirects to the latest published spec.
+const SPEC = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadata';
 ---
 <Layout title="About">
   <h1>About Metawatch</h1>
