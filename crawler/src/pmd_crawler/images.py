@@ -13,6 +13,7 @@ import exiftool
 import httpx
 
 from . import cdn, scoring
+from . import dst as dst_mod
 
 MAX_IMAGE_BYTES = 20 * 1024 * 1024  # 20 MB
 ALLOWED_MIME = {"image/jpeg", "image/png", "image/webp", "image/avif", "image/gif", "image/tiff"}
@@ -33,6 +34,8 @@ class ImageResult:
     c2pa_manifest_signer: str | None = None
     c2pa_validation_status: str | None = None
     c2pa_failure_codes: list[str] = field(default_factory=list)
+    dst_iptc: str | None = None
+    dst_c2pa: list[str] = field(default_factory=list)
     cdn_provider: str = "unknown"
     cdn_optimizer_active: str = "unknown"
     metadata_field_count: int = 0
@@ -94,13 +97,14 @@ async def fetch_and_analyse(
     # c2pa-rs binding is blocking. Any error means "no manifest" — there are many
     # legitimate ways for that to happen (wrong format, truncated file, etc.).
     try:
-        c2pa_present, c2pa_signer, c2pa_state, c2pa_failures = (
+        c2pa_present, c2pa_signer, c2pa_state, c2pa_failures, c2pa_dst = (
             await asyncio.get_running_loop().run_in_executor(None, _detect_c2pa, tmp_path)
         )
         result.has_c2pa = c2pa_present
         result.c2pa_manifest_signer = c2pa_signer
         result.c2pa_validation_status = c2pa_state
         result.c2pa_failure_codes = c2pa_failures
+        result.dst_c2pa = c2pa_dst
     except Exception:
         pass
 
@@ -111,6 +115,7 @@ async def fetch_and_analyse(
 
     result.raw_tags = tags
     result.metadata_field_count = sum(1 for k in tags if not k.startswith("SourceFile") and not k.startswith("File:"))
+    result.dst_iptc = dst_mod.extract_dst_from_xmp(tags)
 
     has_exif, has_iptc, has_xmp = scoring.families_present(tags)
     result.has_exif = has_exif
@@ -127,8 +132,10 @@ async def fetch_and_analyse(
     return result
 
 
-def _detect_c2pa(path: Path) -> tuple[bool, str | None, str | None, list[str]]:
-    """Return (has_c2pa, signer_issuer, validation_state, failure_codes).
+def _detect_c2pa(
+    path: Path,
+) -> tuple[bool, str | None, str | None, list[str], list[str]]:
+    """Return (has_c2pa, signer_issuer, validation_state, failure_codes, dst_uris).
 
     Detection is presence-first: the c2pa-rs Python binding raises
     ``ManifestNotFound`` when no JUMBF manifest is embedded, and various
@@ -139,11 +146,14 @@ def _detect_c2pa(path: Path) -> tuple[bool, str | None, str | None, list[str]]:
     failure_codes is the list of `failure[].code` entries from the active
     manifest's validation results — e.g. ``signingCredential.untrusted``,
     ``assertion.dataHash.mismatch``. Empty for valid manifests.
+
+    dst_uris collects every distinct digitalSourceType URI seen in the
+    active manifest's c2pa.actions / c2pa.actions.v2 assertions.
     """
     try:
         reader = c2pa.Reader(str(path))
     except Exception:
-        return False, None, None, []
+        return False, None, None, [], []
     try:
         state = reader.get_validation_state()
         manifest = reader.get_active_manifest()
@@ -160,9 +170,10 @@ def _detect_c2pa(path: Path) -> tuple[bool, str | None, str | None, list[str]]:
                 failure_codes = [f["code"] for f in active.get("failure", []) if "code" in f]
         except Exception:
             pass
-        return True, signer, str(state) if state is not None else None, failure_codes
+        dst_uris = dst_mod.extract_dst_from_c2pa_manifest(manifest)
+        return True, signer, str(state) if state is not None else None, failure_codes, dst_uris
     except Exception:
-        return True, None, None, []
+        return True, None, None, [], []
 
 
 def _suffix_for(mime: str | None) -> str:

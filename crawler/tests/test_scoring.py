@@ -50,3 +50,11 @@ def test_full_score_when_all_fields_present_via_iptc():
 def test_empty_string_value_is_not_present():
     tags = {"IPTC:By-line": "   "}
     assert families_present(tags)[1] is False
+
+
+def test_xmp_dst_alone_counts_as_xmp_present():
+    # DigitalSourceType lives in XMP-iptcExt and should make has_iptc_xmp True
+    # on its own, so the "% with any IPTC" rollup catches DST-only images.
+    tags = {"XMP-iptcExt:DigitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/digitalCapture"}
+    has_exif, has_iim, has_xmp = families_present(tags)
+    assert (has_exif, has_iim, has_xmp) == (False, False, True)

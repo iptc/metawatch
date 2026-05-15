@@ -1,0 +1,149 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getDst, countryName } from '../lib/data';
+
+const data = getDst();
+const SPEC = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#digital-source-type';
+const NEWSCODES = 'http://cv.iptc.org/newscodes/digitalsourcetype/';
+
+function pct(n: number, of: number): string {
+  if (!of) return '0.00%';
+  return `${(100 * n / of).toFixed(2)}%`;
+}
+---
+<Layout title="Digital Source Type">
+  <h1>Digital Source Type</h1>
+
+  <p class="lede">
+    The IPTC
+    <a href={SPEC} target="_blank" rel="noopener"><code>DigitalSourceType</code></a>
+    field declares <em>how an image came to exist</em> — camera capture, scan,
+    composite, AI-generated, etc. Values come from
+    <a href={NEWSCODES} target="_blank" rel="noopener">the IPTC controlled vocabulary</a>.
+    Metawatch reads DST from two places: the IPTC&nbsp;XMP block embedded in the
+    image file, and the <code>c2pa.actions</code> assertions inside any C2PA
+    manifest. Both are reported separately on this page.
+  </p>
+
+  <div class="card-row">
+    <div class="stat">
+      <span class="stat-label">Images analysed</span>
+      <span class="stat-value">{data.image_count_valid.toLocaleString()}</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">DST in IPTC/XMP</span>
+      <span class="stat-value">{data.images_with_dst_iptc.toLocaleString()}</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">DST in C2PA</span>
+      <span class="stat-value">{data.images_with_dst_c2pa.toLocaleString()}</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">% with DST (IPTC)</span>
+      <span class="stat-value">{data.pct_with_dst_iptc}%</span>
+    </div>
+  </div>
+
+  {data.images_with_dst_iptc === 0 && data.images_with_dst_c2pa === 0 ? (
+    <div class="card">
+      <strong>No DigitalSourceType values seen in the latest run.</strong> Either
+      no publisher in our list is currently declaring DST, or the run pre-dates
+      our DST extraction. The next monthly crawl will populate this page if the
+      signal is there.
+    </div>
+  ) : (
+    <>
+      <h2>By bucket (IPTC&nbsp;XMP)</h2>
+      <p>
+        How the population of DST-declaring images sorts into Metawatch's
+        editable bucket scheme (see
+        <code>config/dst_vocab.yaml</code> in the repo). "Other" means the
+        raw URI was a valid IPTC newscode we haven't mapped yet; "Not declared"
+        is excluded from this table (it dominates).
+      </p>
+      {data.by_bucket_iptc.length === 0
+        ? <p style="color:var(--iptc-muted)">No XMP-sourced DST values in this run.</p>
+        : <table>
+            <thead><tr><th>Bucket</th><th class="num">Images</th><th class="num">Share of DST-declaring</th></tr></thead>
+            <tbody>
+              {data.by_bucket_iptc.map(b => (
+                <tr>
+                  <td>{b.bucket}</td>
+                  <td class="num">{b.images}</td>
+                  <td class="num">{pct(b.images, data.images_with_dst_iptc)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+      }
+
+      <h2>By bucket (C2PA actions)</h2>
+      <p>
+        Same bucketing applied to <code>digitalSourceType</code> values found
+        inside C2PA <code>c2pa.actions</code> / <code>c2pa.actions.v2</code>
+        assertions. Counts every action's DST, so an image with a chain of
+        edits contributes more than one row.
+      </p>
+      {data.by_bucket_c2pa.length === 0
+        ? <p style="color:var(--iptc-muted)">No C2PA-sourced DST values in this run.</p>
+        : <table>
+            <thead><tr><th>Bucket</th><th class="num">Occurrences</th></tr></thead>
+            <tbody>
+              {data.by_bucket_c2pa.map(b => (
+                <tr>
+                  <td>{b.bucket}</td>
+                  <td class="num">{b.images}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+      }
+
+      <h2>Raw IPTC newscode values</h2>
+      <p>The exact URIs we saw — useful for spotting buckets we haven't mapped yet.</p>
+      {data.by_uri_iptc.length === 0
+        ? <p style="color:var(--iptc-muted)">No XMP-sourced DST values in this run.</p>
+        : <table>
+            <thead><tr><th>Term</th><th>Bucket</th><th class="num">Images</th><th>URI</th></tr></thead>
+            <tbody>
+              {data.by_uri_iptc.map(r => (
+                <tr>
+                  <td><code>{r.term ?? '(unparseable)'}</code></td>
+                  <td>{r.bucket}</td>
+                  <td class="num">{r.images}</td>
+                  <td><a href={r.uri} target="_blank" rel="noopener" style="font-size:0.85rem">{r.uri}</a></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+      }
+
+      {data.by_uri_c2pa.length > 0 && (
+        <>
+          <h2>Raw C2PA values</h2>
+          <table>
+            <thead><tr><th>Term</th><th>Bucket</th><th class="num">Occurrences</th><th>URI</th></tr></thead>
+            <tbody>
+              {data.by_uri_c2pa.map(r => (
+                <tr>
+                  <td><code>{r.term ?? '(unparseable)'}</code></td>
+                  <td>{r.bucket}</td>
+                  <td class="num">{r.images}</td>
+                  <td><a href={r.uri} target="_blank" rel="noopener" style="font-size:0.85rem">{r.uri}</a></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </>
+      )}
+    </>
+  )}
+
+  <p style="color:var(--iptc-muted);font-size:0.9rem;margin-top:1.5rem">
+    The bucket → label mapping is in
+    <code>config/dst_vocab.yaml</code> and is applied at export time, not at
+    crawl time. The raw URIs are stored in <code>images.parquet</code>, so
+    editing the YAML and re-running <code>export_for_site.py</code> rebuckets
+    every historical run without re-crawling.
+  </p>
+</Layout>

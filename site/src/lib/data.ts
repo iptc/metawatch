@@ -14,6 +14,7 @@ import sitesJson from '../data/latest/sites.json';
 import fieldsJson from '../data/latest/fields.json';
 import cdnJson from '../data/latest/cdn.json';
 import c2paJson from '../data/latest/c2pa.json';
+import dstJson from '../data/latest/dst.json';
 import historyJson from '../data/latest/history.json';
 import historyBySiteJson from '../data/latest/history_by_site.json';
 import historyByCountryJson from '../data/latest/history_by_country.json';
@@ -36,6 +37,30 @@ export interface Summary {
 }
 
 export type C2paOutcome = 'valid' | 'modified' | 'expired' | 'untrusted_issuer' | 'other_invalid';
+
+export interface DstUriRow {
+  uri: string;
+  term: string | null;
+  bucket: string;
+  images: number;
+}
+
+export interface DstBucketRow {
+  bucket: string;
+  images: number;
+}
+
+export interface DstData {
+  image_count_total: number;
+  image_count_valid: number;
+  images_with_dst_iptc: number;
+  images_with_dst_c2pa: number;
+  pct_with_dst_iptc: number;
+  by_bucket_iptc: DstBucketRow[];
+  by_bucket_c2pa: DstBucketRow[];
+  by_uri_iptc: DstUriRow[];
+  by_uri_c2pa: DstUriRow[];
+}
 
 export interface C2paData {
   image_count_total: number;
@@ -138,6 +163,10 @@ export function getCdn(): CdnData {
 
 export function getC2pa(): C2paData {
   return c2paJson as C2paData;
+}
+
+export function getDst(): DstData {
+  return dstJson as DstData;
 }
 
 export function getHistory(): HistoryPoint[] {

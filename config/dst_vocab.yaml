@@ -1,0 +1,34 @@
+# IPTC DigitalSourceType vocabulary → human-friendly bucket mapping for Metawatch.
+#
+# The full controlled vocabulary lives at:
+#   http://cv.iptc.org/newscodes/digitalsourcetype/
+# Each entry below uses the URI's last path component (the "term") as key.
+#
+# The crawler stores the raw URI per image in images.parquet, so editing
+# this file and re-running crawler/scripts/export_for_site.py rebuckets
+# every historical run without any re-crawl needed.
+#
+# Unknown terms (not listed here) bucket as "Other"; an image with no DST
+# declared at all buckets as "Not declared".
+
+buckets:
+  digitalCapture: "Real-life capture"
+  computationalCapture: "Real-life capture"
+  compositeCapture: "Real-life capture"
+  negativeFilm: "Scanned"
+  positiveFilm: "Scanned"
+  print: "Scanned"
+  minorHumanEdits: "Human-edited"
+  humanEdits: "Human-edited"
+  compositeWithTrainedAlgorithmicMedia: "Edited with Generative AI"
+  algorithmicallyEnhanced: "Computer-enhanced"
+  softwareImage: "Synthetic"
+  digitalArt: "Digital creation"
+  digitalCreation: "Digital creation"
+  dataDrivenMedia: "Synthetic"
+  trainedAlgorithmicMedia: "AI-generated"
+  algorithmicMedia: "Synthetic"
+  screenCapture: "Screen capture"
+  virtualRecording: "Virtual event recording"
+  composite: "Composite"
+  compositeSynthetic: "AI-generated"

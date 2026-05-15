@@ -88,8 +88,10 @@ class ImageRow:
     cdn_optimizer_active: str
     metadata_field_count: int
     iptc_score: float
-    # Default kept last so dataclass field-ordering rules are happy.
+    # Defaults kept last so dataclass field-ordering rules are happy.
     c2pa_failure_codes: list[str] = field(default_factory=list)
+    dst_iptc: str | None = None
+    dst_c2pa: list[str] = field(default_factory=list)
 
     @property
     def image_url_hash(self) -> str:
@@ -192,6 +194,8 @@ def _write_images(path: Path, rows: list[ImageRow]) -> None:
         "c2pa_manifest_signer": [r.c2pa_manifest_signer for r in rows],
         "c2pa_validation_status": [r.c2pa_validation_status for r in rows],
         "c2pa_failure_codes": [r.c2pa_failure_codes for r in rows],
+        "dst_iptc": [r.dst_iptc for r in rows],
+        "dst_c2pa": [r.dst_c2pa for r in rows],
         "cdn_provider": [r.cdn_provider for r in rows],
         "cdn_optimizer_active": [r.cdn_optimizer_active for r in rows],
         "metadata_field_count": [r.metadata_field_count for r in rows],

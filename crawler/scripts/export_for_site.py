@@ -9,6 +9,8 @@ Output:
     cdn.json            # CDN distribution + optimizer-strip cross-tab
     history.json        # rolling snapshot across all runs (for time series)
     runs_index.json     # one entry per run with file manifest (for dataset page)
+    c2pa.json           # C2PA presence breakdown, by signer / outcome / site
+    dst.json            # DigitalSourceType breakdown, buckets + raw URIs
 
 Usage:
     python scripts/export_for_site.py [--runs-dir ../data/runs] [--out ../site/src/data]
@@ -23,6 +25,26 @@ from pathlib import Path
 from statistics import mean
 
 import pyarrow.parquet as pq
+import yaml
+
+from pmd_crawler.dst import short_term as _dst_short_term
+
+DST_VOCAB_PATH = Path(__file__).resolve().parents[2] / "config" / "dst_vocab.yaml"
+
+
+def load_dst_buckets() -> dict[str, str]:
+    if not DST_VOCAB_PATH.exists():
+        return {}
+    data = yaml.safe_load(DST_VOCAB_PATH.read_text()) or {}
+    return dict(data.get("buckets") or {})
+
+
+def bucket_for_dst(uri: str | None, vocab: dict[str, str]) -> str:
+    """Map a DST URI (or None) to a Metawatch bucket label."""
+    term = _dst_short_term(uri)
+    if not term:
+        return "Not declared"
+    return vocab.get(term, "Other")
 
 
 def latest_run_dir(runs_dir: Path) -> Path:
@@ -207,6 +229,57 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         ],
     }
     (out_dir / "c2pa.json").write_text(json.dumps(c2pa_out, indent=2))
+
+    # DigitalSourceType — per-bucket counts from both XMP and C2PA, plus a
+    # raw URI breakdown. Buckets come from config/dst_vocab.yaml (editable,
+    # so re-bucketing doesn't require a re-crawl).
+    dst_vocab = load_dst_buckets()
+    by_bucket_iptc: dict[str, int] = defaultdict(int)
+    by_bucket_c2pa: dict[str, int] = defaultdict(int)
+    by_uri_iptc: dict[str, int] = defaultdict(int)
+    by_uri_c2pa: dict[str, int] = defaultdict(int)
+    images_with_dst_iptc = 0
+    images_with_dst_c2pa = 0
+    for img in images:
+        if img.get("http_status") != 200:
+            continue
+        dst_iptc = img.get("dst_iptc")
+        if dst_iptc:
+            images_with_dst_iptc += 1
+            by_uri_iptc[dst_iptc] += 1
+            by_bucket_iptc[bucket_for_dst(dst_iptc, dst_vocab)] += 1
+        for uri in (img.get("dst_c2pa") or []):
+            images_with_dst_c2pa += 1  # counts every occurrence; an image with N C2PA DSTs contributes N
+            by_uri_c2pa[uri] += 1
+            by_bucket_c2pa[bucket_for_dst(uri, dst_vocab)] += 1
+
+    def _ordered_buckets(d: dict[str, int]) -> list[dict]:
+        return [
+            {"bucket": k, "images": v}
+            for k, v in sorted(d.items(), key=lambda x: -x[1])
+        ]
+
+    def _ordered_uris(d: dict[str, int]) -> list[dict]:
+        return [
+            {"uri": k, "term": _dst_short_term(k), "bucket": bucket_for_dst(k, dst_vocab), "images": v}
+            for k, v in sorted(d.items(), key=lambda x: -x[1])
+        ]
+
+    valid_images = sum(1 for i in images if i.get("http_status") == 200)
+    dst_out = {
+        "image_count_total": len(images),
+        "image_count_valid": valid_images,
+        "images_with_dst_iptc": images_with_dst_iptc,
+        "images_with_dst_c2pa": images_with_dst_c2pa,
+        "pct_with_dst_iptc": (
+            round(100.0 * images_with_dst_iptc / valid_images, 2) if valid_images else 0.0
+        ),
+        "by_bucket_iptc": _ordered_buckets(by_bucket_iptc),
+        "by_bucket_c2pa": _ordered_buckets(by_bucket_c2pa),
+        "by_uri_iptc": _ordered_uris(by_uri_iptc),
+        "by_uri_c2pa": _ordered_uris(by_uri_c2pa),
+    }
+    (out_dir / "dst.json").write_text(json.dumps(dst_out, indent=2))
 
     history = []
     history_by_site: dict[str, list[dict]] = defaultdict(list)
