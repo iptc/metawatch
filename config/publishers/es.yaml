@@ -114,3 +114,78 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: abc-es
+  name: ABC.es
+  url: https://www.abc.es/
+  homepage: https://www.abc.es/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.abc.es/rss/feeds/abcPortada.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: la-vanguardia-es
+  name: La Vanguardia
+  url: https://www.lavanguardia.com/
+  homepage: https://www.lavanguardia.com/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.lavanguardia.com/rss/home.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: rtve
+  name: RTVE
+  url: https://www.rtve.es/noticias/
+  homepage: https://www.rtve.es/noticias/
+  category: broadcaster
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://api.rtve.es/api/noticias.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: efe
+  name: Agencia EFE
+  url: https://efe.com/
+  homepage: https://efe.com/
+  category: news-agency
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

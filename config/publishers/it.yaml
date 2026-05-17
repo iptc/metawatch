@@ -114,3 +114,21 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: la-stampa-it
+  name: La Stampa
+  url: https://www.lastampa.it/
+  homepage: https://www.lastampa.it/
+  category: newspaper
+  language_primary: it
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

@@ -1,0 +1,58 @@
+country: IL
+sites:
+- id: haaretz
+  name: Haaretz
+  url: https://www.haaretz.com/
+  homepage: https://www.haaretz.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: times-of-israel
+  name: The Times of Israel
+  url: https://www.timesofisrael.com/
+  homepage: https://www.timesofisrael.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.timesofisrael.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: jerusalem-post
+  name: The Jerusalem Post
+  url: https://www.jpost.com/
+  homepage: https://www.jpost.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.jpost.com/rss/rssfeedsfrontpage.aspx
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

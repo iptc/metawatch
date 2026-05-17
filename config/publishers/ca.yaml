@@ -76,3 +76,78 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: globe-and-mail
+  name: The Globe and Mail
+  url: https://www.theglobeandmail.com/
+  homepage: https://www.theglobeandmail.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.theglobeandmail.com/arc/outboundfeeds/rss/category/canada/?outputType=xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: toronto-star
+  name: Toronto Star
+  url: https://www.thestar.com/
+  homepage: https://www.thestar.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: la-presse
+  name: La Presse
+  url: https://www.lapresse.ca/
+  homepage: https://www.lapresse.ca/
+  category: online
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.lapresse.ca/actualites/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: national-post
+  name: National Post
+  url: https://nationalpost.com/
+  homepage: https://nationalpost.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://nationalpost.com/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

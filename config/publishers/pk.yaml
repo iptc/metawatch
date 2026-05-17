@@ -1,0 +1,58 @@
+country: PK
+sites:
+- id: dawn
+  name: Dawn
+  url: https://www.dawn.com/
+  homepage: https://www.dawn.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.dawn.com/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: geo-news
+  name: Geo News
+  url: https://www.geo.tv/
+  homepage: https://www.geo.tv/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.geo.tv/rss/1/53
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-news-pakistan
+  name: The News International
+  url: https://www.thenews.com.pk/
+  homepage: https://www.thenews.com.pk/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

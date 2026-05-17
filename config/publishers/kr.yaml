@@ -1,0 +1,95 @@
+country: KR
+sites:
+- id: chosun-ilbo
+  name: Chosun Ilbo
+  url: https://www.chosun.com/
+  homepage: https://www.chosun.com/
+  category: newspaper
+  language_primary: ko
+  notes: URL and language fixed 2026-05-12 (v1 CSV import corruption).
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: joongang-ilbo
+  name: JoongAng Ilbo
+  url: https://www.joins.com/
+  homepage: https://www.joins.com/
+  category: newspaper
+  language_primary: ko
+  notes: Needs manual feed triage 2026-05-12 (RSS dead, no replacement found).
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: korea-herald
+  name: The Korea Herald
+  url: https://www.koreaherald.com/
+  homepage: https://www.koreaherald.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.koreaherald.com/common_prog/rssdispatch.php?ct=010100000000
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: korea-times
+  name: The Korea Times
+  url: https://www.koreatimes.co.kr/
+  homepage: https://www.koreatimes.co.kr/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.koreatimes.co.kr/www/rss/nation.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: yonhap
+  name: Yonhap News Agency
+  url: https://en.yna.co.kr/
+  homepage: https://en.yna.co.kr/
+  category: news-agency
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://en.yna.co.kr/RSS/news.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

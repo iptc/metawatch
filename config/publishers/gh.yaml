@@ -1,0 +1,39 @@
+country: GH
+sites:
+- id: myjoyonline
+  name: MyJoyOnline
+  url: https://www.myjoyonline.com/
+  homepage: https://www.myjoyonline.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.myjoyonline.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: daily-graphic
+  name: Daily Graphic
+  url: https://www.graphic.com.gh/
+  homepage: https://www.graphic.com.gh/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

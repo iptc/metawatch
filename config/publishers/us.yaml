@@ -284,3 +284,209 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: bloomberg
+  name: Bloomberg
+  url: https://www.bloomberg.com/
+  homepage: https://www.bloomberg.com/
+  category: news-agency
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: npr
+  name: NPR
+  url: https://www.npr.org/
+  homepage: https://www.npr.org/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://feeds.npr.org/1001/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: wall-street-journal
+  name: The Wall Street Journal
+  url: https://www.wsj.com/
+  homepage: https://www.wsj.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://feeds.a.dj.com/rss/RSSWorldNews.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: politico
+  name: Politico
+  url: https://www.politico.com/
+  homepage: https://www.politico.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://rss.politico.com/politics-news.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: axios
+  name: Axios
+  url: https://www.axios.com/
+  homepage: https://www.axios.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: propublica
+  name: ProPublica
+  url: https://www.propublica.org/
+  homepage: https://www.propublica.org/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.propublica.org/feeds/propublica/main
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-atlantic
+  name: The Atlantic
+  url: https://www.theatlantic.com/
+  homepage: https://www.theatlantic.com/
+  category: magazine
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.theatlantic.com/feed/all/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: wired
+  name: Wired
+  url: https://www.wired.com/
+  homepage: https://www.wired.com/
+  category: magazine
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.wired.com/feed/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: vox
+  name: Vox
+  url: https://www.vox.com/
+  homepage: https://www.vox.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.vox.com/rss/index.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: pbs-newshour
+  name: PBS NewsHour
+  url: https://www.pbs.org/newshour/
+  homepage: https://www.pbs.org/newshour/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.pbs.org/newshour/feeds/rss/headlines
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: voice-of-america
+  name: Voice of America
+  url: https://www.voanews.com/
+  homepage: https://www.voanews.com/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

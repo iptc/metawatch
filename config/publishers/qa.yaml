@@ -1,0 +1,21 @@
+country: QA
+sites:
+- id: al-jazeera-english
+  name: Al Jazeera English
+  url: https://www.aljazeera.com/
+  homepage: https://www.aljazeera.com/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.aljazeera.com/xml/rss/all.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

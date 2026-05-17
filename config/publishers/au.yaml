@@ -171,3 +171,41 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: news-com-au
+  name: news.com.au
+  url: https://www.news.com.au/
+  homepage: https://www.news.com.au/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.news.com.au/content-feeds/latest-news-national/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-conversation-au
+  name: The Conversation (AU)
+  url: https://theconversation.com/au
+  homepage: https://theconversation.com/au
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://theconversation.com/au/articles.atom
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

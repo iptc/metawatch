@@ -1,0 +1,39 @@
+country: UA
+sites:
+- id: kyiv-independent
+  name: The Kyiv Independent
+  url: https://kyivindependent.com/
+  homepage: https://kyivindependent.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://kyivindependent.com/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: ukrainska-pravda-english
+  name: Ukrainska Pravda (English)
+  url: https://www.pravda.com.ua/eng/
+  homepage: https://www.pravda.com.ua/eng/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

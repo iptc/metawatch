@@ -177,8 +177,8 @@ sites:
   homepage: https://iptc.org/
   category: other
   language_primary: en
-  notes: 'Standards body that publishes the IPTC Photo Metadata Standard. Included
-    as a calibration site — known to ship properly-signed C2PA on its blog images.'
+  notes: Standards body that publishes the IPTC Photo Metadata Standard. Included
+    as a calibration site — known to ship properly-signed C2PA on its blog images.
   suggested_by: BQ
   active: true
   discovery:
@@ -415,6 +415,80 @@ sites:
     picture_sitemap_url: null
     rss_urls:
     - http://www.theweek.co.uk/feeds/all
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: sky-news
+  name: Sky News
+  url: https://news.sky.com/
+  homepage: https://news.sky.com/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://feeds.skynews.com/feeds/rss/home.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: itv-news
+  name: ITV News
+  url: https://www.itv.com/news/
+  homepage: https://www.itv.com/news/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.itv.com/news/index.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-times
+  name: The Times
+  url: https://www.thetimes.com/
+  homepage: https://www.thetimes.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: pa-media
+  name: PA Media
+  url: https://pamediagroup.com/
+  homepage: https://pamediagroup.com/
+  category: news-agency
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

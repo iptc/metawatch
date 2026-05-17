@@ -76,3 +76,78 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: o-globo
+  name: O Globo
+  url: https://oglobo.globo.com/
+  homepage: https://oglobo.globo.com/
+  category: newspaper
+  language_primary: pt
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: estadao
+  name: Estado de São Paulo
+  url: https://www.estadao.com.br/
+  homepage: https://www.estadao.com.br/
+  category: newspaper
+  language_primary: pt
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.estadao.com.br/rss/ultimas.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: uol
+  name: UOL
+  url: https://www.uol.com.br/
+  homepage: https://www.uol.com.br/
+  category: online
+  language_primary: pt
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://rss.uol.com.br/feed/noticias.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: g1
+  name: G1 (Globo)
+  url: https://g1.globo.com/
+  homepage: https://g1.globo.com/
+  category: online
+  language_primary: pt
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://g1.globo.com/rss/g1/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

@@ -1,0 +1,39 @@
+country: CO
+sites:
+- id: el-tiempo
+  name: El Tiempo
+  url: https://www.eltiempo.com/
+  homepage: https://www.eltiempo.com/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.eltiempo.com/rss/colombia.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: semana
+  name: Semana
+  url: https://www.semana.com/
+  homepage: https://www.semana.com/
+  category: magazine
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

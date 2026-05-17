@@ -323,3 +323,57 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: nhk-world-english
+  name: NHK World English
+  url: https://www3.nhk.or.jp/nhkworld/
+  homepage: https://www3.nhk.or.jp/nhkworld/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: jiji-press
+  name: Jiji Press
+  url: https://www.jiji.com/
+  homepage: https://www.jiji.com/
+  category: news-agency
+  language_primary: ja
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: kyodo-news-japanese
+  name: Kyodo News (日本語)
+  url: https://www.kyodo.co.jp/
+  homepage: https://www.kyodo.co.jp/
+  category: news-agency
+  language_primary: ja
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

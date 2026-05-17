@@ -1,0 +1,77 @@
+country: PH
+sites:
+- id: philippine-daily-inquirer
+  name: Philippine Daily Inquirer
+  url: https://newsinfo.inquirer.net/
+  homepage: https://newsinfo.inquirer.net/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://newsinfo.inquirer.net/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: rappler
+  name: Rappler
+  url: https://www.rappler.com/
+  homepage: https://www.rappler.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.rappler.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: manila-bulletin
+  name: Manila Bulletin
+  url: https://mb.com.ph/
+  homepage: https://mb.com.ph/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://mb.com.ph/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: abs-cbn-news
+  name: ABS-CBN News
+  url: https://news.abs-cbn.com/
+  homepage: https://news.abs-cbn.com/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

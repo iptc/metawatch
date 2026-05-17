@@ -1,0 +1,58 @@
+country: AE
+sites:
+- id: the-national
+  name: The National
+  url: https://www.thenationalnews.com/
+  homepage: https://www.thenationalnews.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.thenationalnews.com/arc/outboundfeeds/rss/?outputType=xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: khaleej-times
+  name: Khaleej Times
+  url: https://www.khaleejtimes.com/
+  homepage: https://www.khaleejtimes.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: gulf-news
+  name: Gulf News
+  url: https://gulfnews.com/
+  homepage: https://gulfnews.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://gulfnews.com/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

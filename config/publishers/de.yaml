@@ -323,3 +323,77 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: dpa
+  name: Deutsche Presse-Agentur (dpa)
+  url: https://www.dpa.com/de
+  homepage: https://www.dpa.com/de
+  category: news-agency
+  language_primary: de
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: n-tv
+  name: n-tv
+  url: https://www.n-tv.de/
+  homepage: https://www.n-tv.de/
+  category: broadcaster
+  language_primary: de
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.n-tv.de/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: rtl-news
+  name: RTL News
+  url: https://www.rtl.de/cms/news.html
+  homepage: https://www.rtl.de/cms/news.html
+  category: broadcaster
+  language_primary: de
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: heise-online
+  name: Heise Online
+  url: https://www.heise.de/
+  homepage: https://www.heise.de/
+  category: online
+  language_primary: de
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.heise.de/rss/heise-atom.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

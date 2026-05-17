@@ -152,3 +152,97 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: afp-english
+  name: Agence France-Presse (English)
+  url: https://www.afp.com/en
+  homepage: https://www.afp.com/en
+  category: news-agency
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: le-parisien
+  name: Le Parisien
+  url: https://www.leparisien.fr/
+  homepage: https://www.leparisien.fr/
+  category: newspaper
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://feeds.leparisien.fr/leparisien/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: ouest-france
+  name: Ouest-France
+  url: https://www.ouest-france.fr/
+  homepage: https://www.ouest-france.fr/
+  category: newspaper
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.ouest-france.fr/rss/une
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: l-express
+  name: L'Express
+  url: https://www.lexpress.fr/
+  homepage: https://www.lexpress.fr/
+  category: magazine
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.lexpress.fr/arc/outboundfeeds/rss/?outputType=xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: le-point
+  name: Le Point
+  url: https://www.lepoint.fr/
+  homepage: https://www.lepoint.fr/
+  category: magazine
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.lepoint.fr/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

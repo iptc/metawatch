@@ -1,0 +1,39 @@
+country: SA
+sites:
+- id: arab-news
+  name: Arab News
+  url: https://www.arabnews.com/
+  homepage: https://www.arabnews.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.arabnews.com/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: saudi-gazette
+  name: Saudi Gazette
+  url: https://saudigazette.com.sa/
+  homepage: https://saudigazette.com.sa/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
