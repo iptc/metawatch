@@ -19,8 +19,8 @@ const scorePoints = history.map(h => ({ x: h.started_at, y: h.mean_score }));
   <h1>Metawatch</h1>
   <p class="lede">
     Metawatch tracks how often major news publishers preserve embedded photo metadata
-    (EXIF, IPTC&nbsp;IIM, IPTC&nbsp;XMP, C2PA) on the images they publish. We crawl a
-    curated list of publishers monthly and score the photographs they serve.
+    (Exif, IPTC Photo Metadata (in both original IIM format and newer XMP format), and C2PA) on the images they publish.
+    We crawl a curated list of publishers monthly and score the photographs they serve.
   </p>
 
   <div class="card-row">
@@ -37,8 +37,7 @@ const scorePoints = history.map(h => ({ x: h.started_at, y: h.mean_score }));
   {summary.run_id === null && (
     <div class="card">
       <strong>No crawl run is available yet.</strong> The site will populate
-      once the crawler has produced its first run and the data has been exported
-      with <code>crawler/scripts/export_for_site.py</code>.
+      once the crawler has produced its first run and the data has been exported.
     </div>
   )}
 

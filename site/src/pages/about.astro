@@ -13,18 +13,19 @@ const SPEC = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadat
     Metawatch is a project of the <a href="https://iptc.org/">IPTC</a>. It periodically scans
     a curated list of major news publishers worldwide, samples the photographs they publish,
     and reports how much embedded metadata survives the journey from photographer's camera to
-    rendered article page. We check each image for EXIF, IPTC&nbsp;IIM, IPTC&nbsp;XMP
-    and <a href="/c2pa/">C2PA content credentials</a>.
+    rendered article page. We check each image for Exif, IPTC (in IIM and XMP format)
+    and <a href="/c2pa/">C2PA Content Credentials</a>.
   </p>
 
   <h2>Why this matters</h2>
   <p>
     Photographs carry information in their files: who took them, when and where, the licensing
-    terms, captions, credits. The
+    terms, captions, credits, alt text for accessibility and more. The
     <a href={SPEC} target="_blank" rel="noopener">IPTC Photo Metadata Standard</a> exists so
     that this information travels with the image, anywhere the image goes. In practice much of
-    it is stripped before readers see it — sometimes by publishers, sometimes by CDNs as part
-    of automatic resizing, sometimes by intermediate image-processing pipelines.
+    it is stripped before readers see it: sometimes by publishers, sometimes by Content
+    Delivery Networks (CDNs) as part of automatic resizing, sometimes by intermediate
+    image-processing pipelines.
   </p>
   <p>
     The cost falls on photographers (whose attribution is lost), agencies (whose licensing
@@ -43,10 +44,19 @@ const SPEC = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadat
     equal-weighted mean across that country's sites.
   </p>
   <p>
-    The weighted fields are: Creator&nbsp;(15), CopyrightNotice&nbsp;(15),
+    The weighted fields are:
+    <table>
+        <tr>
+            <th>Field name</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+    <ul>
+        <li> Creator&nbsp;(15), CopyrightNotice&nbsp;(15),
     CaptionAbstract&nbsp;(15), CreditLine&nbsp;(10), DateCreated&nbsp;(10),
     LocationCreated&nbsp;(10), Source&nbsp;(5), ObjectName&nbsp;(5), Keywords&nbsp;(5),
-    WebStatement&nbsp;(5), LicensorURL&nbsp;(5). Weights total 100. See
+    WebStatement&nbsp;(5), LicensorURL&nbsp;(5).
+    Weights total 100. See
     <a href="/fields/">the per-field breakdown</a> for current population rates and links to
     each field in the IPTC standard.
   </p>
@@ -57,7 +67,7 @@ const SPEC = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadat
     the first one that yields articles within the last 30 days:
   </p>
   <ol>
-    <li>RSS feed(s) declared in the site's <code>config/publishers/&lt;cc&gt;.yaml</code> entry.</li>
+    <li>RSS feed(s) found on previous attempts.</li>
     <li>RSS feed(s) we auto-discover via <code>&lt;link rel="alternate"&gt;</code> on the homepage.</li>
     <li>Common RSS paths we guess (<code>/feed</code>, <code>/rss.xml</code>, etc.).</li>
     <li>XML sitemap declared in <code>robots.txt</code> — preferring news sitemaps, then any
@@ -72,13 +82,14 @@ const SPEC = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadat
     <code>Article</code> markup or from <code>&lt;meta property="og:image"&gt;</code>. Inline
     body images and related-story thumbnails are deliberately skipped: they often pick up
     site chrome, ads, or lazy-load placeholders rather than the photographs the article was
-    built around.
+    built around. Also, we encourage site owners to keep metadata on higher-resolution "lead"
+    images, but we understand if site owners want to strip metadata from smaller images for
+    bandwidth optimisation purposes.
   </p>
   <p>
     Each image is then fetched and analysed with
     <a href="https://exiftool.org/" target="_blank" rel="noopener">ExifTool</a>; the field
-    presence and CDN attribution flow into the per-image, per-article and per-site Parquet
-    tables in <code>data/runs/&lt;date&gt;/</code>.
+    presence and CDN attribution flow into the per-image, per-article and per-site database tables.
   </p>
 
   <h2>What each site status means</h2>
@@ -89,8 +100,8 @@ const SPEC = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadat
     <li><code>no_articles_found</code> — discovery succeeded but no articles in the 30-day
         window were returned (often a sitemap that points at an empty news feed).</li>
     <li><code>unreachable</code> — every feed and sitemap we tried failed at the network
-        layer, usually a CDN or WAF rejecting our requests. We make no assumption about
-        whether the site is healthy for human readers.</li>
+        layer. This usually means that a CDN or WAF is rejecting our requests. We make no
+        assumptions about whether the site is healthy for human readers.</li>
     <li><code>timeout</code> — the crawl of that one site exceeded a 5-minute internal cap
         (rare; usually means a stuck CDN downstream).</li>
   </ul>
@@ -125,10 +136,10 @@ const SPEC = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadat
 
   <h2>For publishers</h2>
   <p>
-    If you'd like to be removed from the crawled list, or to correct your site's entry — a
+    If you would like to be removed from the crawled list, or to correct your site's entry — a
     better feed URL, a missing sitemap, a name fix — please email
     <a href="mailto:office@iptc.org">office@iptc.org</a>. We honour removal requests without
-    question and without waiting for the next monthly run.
+    question.
   </p>
 
   <h2>Caveats and limitations</h2>
@@ -147,8 +158,9 @@ const SPEC = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadat
         (paywalls, soft blocks, geolocation rules). A low score for those sites may reflect
         what their bot-facing surface looks like, not what their readers see.</li>
     <li>C2PA detection is presence-first: we report whether a manifest is embedded and
-        the signing certificate's issuer, but do not yet parse individual
-        <code>c2pa.metadata</code> or <code>cawg.metadata</code> assertions.</li>
+        the signing certificate's issuer and we look for DigitalSourceType in c2pa.actions
+        assertions, but do not yet parse individual <code>c2pa.metadata</code> or
+        <code>cawg.metadata</code> assertions.</li>
   </ul>
 
   {summary.run_id && (

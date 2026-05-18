@@ -7,8 +7,8 @@ const summary = getSummary();
 const maxPct = fields.length ? Math.max(...fields.map(f => f.pct)) : 0;
 const totalWeight = fields.reduce((acc, f) => acc + f.weight, 0);
 
-// Each field links to its section in the IPTC Photo Metadata Standard 2025.1.
-// Version-less URL — the iptc.org server redirects to the latest published spec.
+// Each field links to its section in the IPTC Photo Metadata Standard.
+// We use a versionless URL — the iptc.org server redirects to the latest published spec.
 const SPEC_BASE = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadata';
 const SPEC_ANCHORS: Record<string, string> = {
   Creator: '#creator',
@@ -30,7 +30,7 @@ const SPEC_ANCHORS: Record<string, string> = {
     The headline "% with any IPTC" hides a lot of detail. Below is the population rate of
     each individual scored field across the {summary.image_count.toLocaleString()} images
     analysed in the latest crawl. Field names link to their definitions in the
-    <a href={SPEC_BASE} target="_blank" rel="noopener">IPTC Photo Metadata Standard 2025.1</a>.
+    <a href={SPEC_BASE} target="_blank" rel="noopener">IPTC Photo Metadata Standard.</a>.
     Each field also contributes a fixed weight to a site's overall score —
     see <a href="/about/">the methodology</a> for how the score is computed.
   </p>
@@ -78,9 +78,9 @@ const SPEC_ANCHORS: Record<string, string> = {
 
   <p style="color:var(--iptc-muted);font-size:0.9rem;margin-top:1.5rem">
     Bars are scaled to the most populated field, not to 100%, so differences within the
-    long tail stay visible. The score weight column reflects the per-field weights in
-    <code>crawler/src/pmd_crawler/scoring.py</code>: Creator, CopyrightNotice and
-    CaptionAbstract count for 15% each, with the rest at 5–10%.
+    long tail stay visible. The score weight column reflects the per-field weights
+    described in <a href="/about/">About</a>: Creator, CopyrightNotice and
+    Description count for 15% each, with the rest at 5–10%.
   </p>
 
   <h2>What this tells us</h2>
@@ -88,7 +88,7 @@ const SPEC_ANCHORS: Record<string, string> = {
     Even the best-populated field — <code>{fields[0]?.field}</code> at
     <strong>{fields[0]?.pct}%</strong> — appears on fewer than one in ten images we fetched.
     The fields most relevant to licensing (<code>WebStatement</code>, <code>LicensorURL</code>)
-    are below 2%. The dataset as a whole tells a consistent story: publishers and CDNs are
+    are below 3%. The dataset as a whole tells a consistent story: publishers and CDNs are
     discarding metadata that the photographers and agencies almost certainly embedded
     upstream.
   </p>
