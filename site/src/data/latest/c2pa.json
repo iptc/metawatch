@@ -1,7 +1,7 @@
 {
-  "image_count_total": 4424,
-  "image_count_with_c2pa": 6,
-  "pct_with_c2pa": 0.14,
+  "image_count_total": 4454,
+  "image_count_with_c2pa": 4,
+  "pct_with_c2pa": 0.09,
   "by_outcome": [
     {
       "outcome": "valid",
@@ -9,11 +9,11 @@
     },
     {
       "outcome": "modified",
-      "images": 1
+      "images": 0
     },
     {
       "outcome": "expired",
-      "images": 1
+      "images": 0
     },
     {
       "outcome": "untrusted_issuer",
@@ -30,19 +30,11 @@
       "images": 2
     },
     {
-      "signer": "OpenAI",
+      "signer": "Adobe Inc.",
       "images": 1
     },
     {
       "signer": "Canva",
-      "images": 1
-    },
-    {
-      "signer": "OpenAI OpCo, LLC",
-      "images": 1
-    },
-    {
-      "signer": "Google LLC",
       "images": 1
     }
   ],
@@ -50,19 +42,9 @@
     {
       "state": "Valid",
       "images": 4
-    },
-    {
-      "state": "Invalid",
-      "images": 2
     }
   ],
   "top_sites": [
-    {
-      "site_id": "cyprus-mail",
-      "site_name": "Cyprus Mail",
-      "country": "CY",
-      "images_with_c2pa": 2
-    },
     {
       "site_id": "iptc",
       "site_name": "IPTC",
@@ -76,9 +58,9 @@
       "images_with_c2pa": 1
     },
     {
-      "site_id": "il-messaggero",
-      "site_name": "Il Messaggero",
-      "country": "IT",
+      "site_id": "le-quotidien",
+      "site_name": "Le Quotidien",
+      "country": "LU",
       "images_with_c2pa": 1
     }
   ]

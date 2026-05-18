@@ -1,89 +1,89 @@
 [
   {
     "field": "Creator",
-    "present": 353,
-    "total": 4379,
-    "pct": 8.1,
+    "present": 376,
+    "total": 4411,
+    "pct": 8.5,
     "weight": 25,
     "weight_pct": 25.0,
     "scored": true
   },
   {
     "field": "CreditLine",
-    "present": 302,
-    "total": 4379,
-    "pct": 6.9,
+    "present": 316,
+    "total": 4411,
+    "pct": 7.2,
     "weight": 25,
     "weight_pct": 25.0,
     "scored": true
   },
   {
     "field": "DateCreated",
-    "present": 282,
-    "total": 4379,
-    "pct": 6.4,
+    "present": 316,
+    "total": 4411,
+    "pct": 7.2,
     "weight": 0,
     "weight_pct": 0.0,
     "scored": false
   },
   {
-    "field": "CopyrightNotice",
-    "present": 278,
-    "total": 4379,
+    "field": "Copyright",
+    "present": 277,
+    "total": 4411,
     "pct": 6.3,
-    "weight": 0,
-    "weight_pct": 0.0,
-    "scored": false
+    "weight": 25,
+    "weight_pct": 25.0,
+    "scored": true
   },
   {
-    "field": "CaptionAbstract",
-    "present": 224,
-    "total": 4379,
-    "pct": 5.1,
-    "weight": 0,
-    "weight_pct": 0.0,
-    "scored": false
+    "field": "CaptionDescription",
+    "present": 254,
+    "total": 4411,
+    "pct": 5.8,
+    "weight": 25,
+    "weight_pct": 25.0,
+    "scored": true
   },
   {
     "field": "ObjectName",
-    "present": 219,
-    "total": 4379,
-    "pct": 5.0,
+    "present": 252,
+    "total": 4411,
+    "pct": 5.7,
     "weight": 0,
     "weight_pct": 0.0,
     "scored": false
   },
   {
     "field": "Source",
-    "present": 210,
-    "total": 4379,
-    "pct": 4.8,
+    "present": 224,
+    "total": 4411,
+    "pct": 5.1,
     "weight": 0,
     "weight_pct": 0.0,
     "scored": false
   },
   {
     "field": "LocationCreated",
-    "present": 184,
-    "total": 4379,
-    "pct": 4.2,
+    "present": 210,
+    "total": 4411,
+    "pct": 4.8,
     "weight": 0,
     "weight_pct": 0.0,
     "scored": false
   },
   {
     "field": "Keywords",
-    "present": 143,
-    "total": 4379,
-    "pct": 3.3,
+    "present": 149,
+    "total": 4411,
+    "pct": 3.4,
     "weight": 0,
     "weight_pct": 0.0,
     "scored": false
   },
   {
     "field": "WebStatement",
-    "present": 82,
-    "total": 4379,
+    "present": 85,
+    "total": 4411,
     "pct": 1.9,
     "weight": 0,
     "weight_pct": 0.0,
@@ -91,9 +91,117 @@
   },
   {
     "field": "LicensorURL",
-    "present": 69,
-    "total": 4379,
-    "pct": 1.6,
+    "present": 68,
+    "total": 4411,
+    "pct": 1.5,
+    "weight": 0,
+    "weight_pct": 0.0,
+    "scored": false
+  },
+  {
+    "field": "DataMining",
+    "present": 32,
+    "total": 4411,
+    "pct": 0.7,
+    "weight": 0,
+    "weight_pct": 0.0,
+    "scored": false
+  },
+  {
+    "field": "UsageTerms",
+    "present": 29,
+    "total": 4411,
+    "pct": 0.7,
+    "weight": 0,
+    "weight_pct": 0.0,
+    "scored": false
+  },
+  {
+    "field": "DigitalSourceType",
+    "present": 1,
+    "total": 4411,
+    "pct": 0.0,
+    "weight": 0,
+    "weight_pct": 0.0,
+    "scored": false
+  },
+  {
+    "field": "LocationShown",
+    "present": 1,
+    "total": 4411,
+    "pct": 0.0,
+    "weight": 0,
+    "weight_pct": 0.0,
+    "scored": false
+  },
+  {
+    "field": "AIPromptInformation",
+    "present": 0,
+    "total": 4411,
+    "pct": 0.0,
+    "weight": 0,
+    "weight_pct": 0.0,
+    "scored": false
+  },
+  {
+    "field": "AIPromptWriterName",
+    "present": 0,
+    "total": 4411,
+    "pct": 0.0,
+    "weight": 0,
+    "weight_pct": 0.0,
+    "scored": false
+  },
+  {
+    "field": "AISystemUsed",
+    "present": 0,
+    "total": 4411,
+    "pct": 0.0,
+    "weight": 0,
+    "weight_pct": 0.0,
+    "scored": false
+  },
+  {
+    "field": "AISystemVersionUsed",
+    "present": 0,
+    "total": 4411,
+    "pct": 0.0,
+    "weight": 0,
+    "weight_pct": 0.0,
+    "scored": false
+  },
+  {
+    "field": "AltTextAccessibility",
+    "present": 0,
+    "total": 4411,
+    "pct": 0.0,
+    "weight": 0,
+    "weight_pct": 0.0,
+    "scored": false
+  },
+  {
+    "field": "ExtendedDescriptionAccessibility",
+    "present": 0,
+    "total": 4411,
+    "pct": 0.0,
+    "weight": 0,
+    "weight_pct": 0.0,
+    "scored": false
+  },
+  {
+    "field": "Genre",
+    "present": 0,
+    "total": 4411,
+    "pct": 0.0,
+    "weight": 0,
+    "weight_pct": 0.0,
+    "scored": false
+  },
+  {
+    "field": "LicensorName",
+    "present": 0,
+    "total": 4411,
+    "pct": 0.0,
     "weight": 0,
     "weight_pct": 0.0,
     "scored": false
