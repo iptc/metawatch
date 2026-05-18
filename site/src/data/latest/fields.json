@@ -4,87 +4,98 @@
     "present": 270,
     "total": 3191,
     "pct": 8.5,
-    "weight": 15,
-    "weight_pct": 15.0
+    "weight": 25,
+    "weight_pct": 25.0,
+    "scored": true
   },
   {
     "field": "CreditLine",
     "present": 211,
     "total": 3191,
     "pct": 6.6,
-    "weight": 10,
-    "weight_pct": 10.0
+    "weight": 25,
+    "weight_pct": 25.0,
+    "scored": true
   },
   {
     "field": "CopyrightNotice",
     "present": 207,
     "total": 3191,
     "pct": 6.5,
-    "weight": 15,
-    "weight_pct": 15.0
+    "weight": 25,
+    "weight_pct": 25.0,
+    "scored": true
   },
   {
     "field": "DateCreated",
     "present": 201,
     "total": 3191,
     "pct": 6.3,
-    "weight": 10,
-    "weight_pct": 10.0
+    "weight": 0,
+    "weight_pct": 0.0,
+    "scored": false
   },
   {
     "field": "ObjectName",
     "present": 162,
     "total": 3191,
     "pct": 5.1,
-    "weight": 5,
-    "weight_pct": 5.0
+    "weight": 0,
+    "weight_pct": 0.0,
+    "scored": false
   },
   {
     "field": "CaptionAbstract",
     "present": 156,
     "total": 3191,
     "pct": 4.9,
-    "weight": 15,
-    "weight_pct": 15.0
+    "weight": 25,
+    "weight_pct": 25.0,
+    "scored": true
   },
   {
     "field": "Source",
     "present": 139,
     "total": 3191,
     "pct": 4.4,
-    "weight": 5,
-    "weight_pct": 5.0
+    "weight": 0,
+    "weight_pct": 0.0,
+    "scored": false
   },
   {
     "field": "LocationCreated",
     "present": 124,
     "total": 3191,
     "pct": 3.9,
-    "weight": 10,
-    "weight_pct": 10.0
+    "weight": 0,
+    "weight_pct": 0.0,
+    "scored": false
   },
   {
     "field": "Keywords",
     "present": 99,
     "total": 3191,
     "pct": 3.1,
-    "weight": 5,
-    "weight_pct": 5.0
+    "weight": 0,
+    "weight_pct": 0.0,
+    "scored": false
   },
   {
     "field": "WebStatement",
     "present": 72,
     "total": 3191,
     "pct": 2.3,
-    "weight": 5,
-    "weight_pct": 5.0
+    "weight": 0,
+    "weight_pct": 0.0,
+    "scored": false
   },
   {
     "field": "LicensorURL",
     "present": 52,
     "total": 3191,
     "pct": 1.6,
-    "weight": 5,
-    "weight_pct": 5.0
+    "weight": 0,
+    "weight_pct": 0.0,
+    "scored": false
   }
 ]

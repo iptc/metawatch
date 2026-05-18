@@ -1,5 +1,5 @@
 {
-  "fields": [
+  "scored_fields": [
     {
       "label": "Creator",
       "aliases": [
@@ -9,7 +9,7 @@
         "XMP:Creator",
         "IPTC:By-line"
       ],
-      "weight": 15
+      "weight": 25
     },
     {
       "label": "CopyrightNotice",
@@ -19,7 +19,7 @@
         "Copyright",
         "XMP:Rights"
       ],
-      "weight": 15
+      "weight": 25
     },
     {
       "label": "CaptionAbstract",
@@ -29,7 +29,7 @@
         "ImageDescription",
         "XMP:Description"
       ],
-      "weight": 15
+      "weight": 25
     },
     {
       "label": "CreditLine",
@@ -37,15 +37,16 @@
         "Credit",
         "XMP:Credit"
       ],
-      "weight": 10
-    },
+      "weight": 25
+    }
+  ],
+  "tracked_fields": [
     {
       "label": "Source",
       "aliases": [
         "Source",
         "XMP:Source"
-      ],
-      "weight": 5
+      ]
     },
     {
       "label": "ObjectName",
@@ -53,8 +54,7 @@
         "ObjectName",
         "Title",
         "XMP:Title"
-      ],
-      "weight": 5
+      ]
     },
     {
       "label": "Keywords",
@@ -62,8 +62,7 @@
         "Keywords",
         "Subject",
         "XMP:Subject"
-      ],
-      "weight": 5
+      ]
     },
     {
       "label": "DateCreated",
@@ -72,8 +71,7 @@
         "CreateDate",
         "DateTimeOriginal",
         "XMP:DateCreated"
-      ],
-      "weight": 10
+      ]
     },
     {
       "label": "LocationCreated",
@@ -82,16 +80,14 @@
         "Country-PrimaryLocationName",
         "LocationCreatedCity",
         "XMP-iptcExt:LocationCreated"
-      ],
-      "weight": 10
+      ]
     },
     {
       "label": "WebStatement",
       "aliases": [
         "WebStatement",
         "XMP:WebStatement"
-      ],
-      "weight": 5
+      ]
     },
     {
       "label": "LicensorURL",
@@ -99,8 +95,7 @@
         "LicensorURL",
         "Licensor",
         "XMP-plus:LicensorURL"
-      ],
-      "weight": 5
+      ]
     }
   ],
   "total_weight": 100

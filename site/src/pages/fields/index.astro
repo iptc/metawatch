@@ -28,17 +28,19 @@ const SPEC_ANCHORS: Record<string, string> = {
   <h1>Per-field breakdown</h1>
   <p class="lede">
     The headline "% with any IPTC" hides a lot of detail. Below is the population rate of
-    each individual scored field across the {summary.image_count.toLocaleString()} images
-    analysed in the latest crawl. Field names link to their definitions in the
-    <a href={SPEC_BASE} target="_blank" rel="noopener">IPTC Photo Metadata Standard.</a>.
-    Each field also contributes a fixed weight to a site's overall score —
-    see <a href="/about/">the methodology</a> for how the score is computed.
+    each IPTC field across the {summary.image_count.toLocaleString()} images analysed in
+    the latest crawl. Field names link to their definitions in the
+    <a href={SPEC_BASE} target="_blank" rel="noopener">IPTC Photo Metadata Standard</a>.
+    The "scored" badge marks the four fields that contribute to a site's overall score
+    (the "Four Cs" of news photo provenance); the others are tracked for context but
+    don't affect the score — see <a href="/about/">the methodology</a> for why.
   </p>
 
   <table>
     <thead>
       <tr>
         <th>Field</th>
+        <th>Type</th>
         <th class="num">Present</th>
         <th class="num">Total</th>
         <th class="num">Population</th>
@@ -53,6 +55,11 @@ const SPEC_ANCHORS: Record<string, string> = {
               ? <a href={`${SPEC_BASE}${SPEC_ANCHORS[f.field]}`} target="_blank" rel="noopener"><code>{f.field}</code></a>
               : <code>{f.field}</code>}
           </td>
+          <td>
+            {f.scored
+              ? <span class="badge scored">scored</span>
+              : <span class="badge tracked">tracked</span>}
+          </td>
           <td class="num">{f.present.toLocaleString()}</td>
           <td class="num">{f.total.toLocaleString()}</td>
           <td class="num">
@@ -61,13 +68,14 @@ const SPEC_ANCHORS: Record<string, string> = {
               <span style={`width:${maxPct ? (100 * f.pct / maxPct) : 0}%`}></span>
             </span>
           </td>
-          <td class="num">{f.weight_pct}%</td>
+          <td class="num">{f.scored ? `${f.weight_pct}%` : '—'}</td>
         </tr>
       ))}
     </tbody>
     <tfoot>
       <tr>
         <th>Total</th>
+        <th></th>
         <th class="num"></th>
         <th class="num"></th>
         <th class="num"></th>
@@ -79,8 +87,8 @@ const SPEC_ANCHORS: Record<string, string> = {
   <p style="color:var(--iptc-muted);font-size:0.9rem;margin-top:1.5rem">
     Bars are scaled to the most populated field, not to 100%, so differences within the
     long tail stay visible. The score weight column reflects the per-field weights
-    described in <a href="/about/">About</a>: Creator, CopyrightNotice and
-    Description count for 15% each, with the rest at 5–10%.
+    in <code>config/scoring.yaml</code>: the four scored fields are weighted 25% each.
+    Tracked fields show "—" because their presence does not contribute to the score.
   </p>
 
   <h2>What this tells us</h2>
@@ -109,5 +117,22 @@ const SPEC_ANCHORS: Record<string, string> = {
     display: block;
     height: 100%;
     background: var(--iptc-green, #6db33f);
+  }
+  .badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .badge.scored {
+    background: var(--iptc-green, #6db33f);
+    color: white;
+  }
+  .badge.tracked {
+    background: var(--iptc-bar-bg, #eaecef);
+    color: var(--iptc-muted, #6b7280);
   }
 </style>

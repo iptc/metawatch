@@ -37,24 +37,21 @@ const SPEC = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadat
 
   <h2>The score</h2>
   <p>
-    For every image we sample, we check {scoring.fields.length} weighted fields drawn from
-    <a href={SPEC} target="_blank" rel="noopener">IPTC&nbsp;IIM and IPTC&nbsp;XMP</a>. A field
-    counts as present if it appears in either family with a non-empty value. The image's score
-    is the sum of weights for fields present, expressed as a percentage of the maximum
-    ({scoring.total_weight}). A site's score is the mean across all images we sampled for it;
-    a country's score is the equal-weighted mean across that country's sites.
-  </p>
-  <p>
-    The weighted fields are listed below. See
-    <a href="/fields/">the per-field breakdown</a> for current population rates and links to
-    each field in the IPTC standard.
+    For every image we sample, we check the
+    <strong>"Four&nbsp;Cs"</strong> of news photo provenance — fields drawn from
+    <a href={SPEC} target="_blank" rel="noopener">IPTC&nbsp;IIM and IPTC&nbsp;XMP</a> that
+    long-standing wire-service training treats as universally applicable. A field counts as
+    present if it appears in either family with a non-empty value. The image's score is the
+    sum of weights for fields present, expressed as a percentage of {scoring.total_weight}.
+    A site's score is the mean across all images we sampled for it; a country's score is the
+    equal-weighted mean across that country's sites.
   </p>
   <table>
     <thead>
-      <tr><th>Field</th><th class="num">Weight</th></tr>
+      <tr><th>Scored field</th><th class="num">Weight</th></tr>
     </thead>
     <tbody>
-      {scoring.fields.map(f => (
+      {scoring.scored_fields.map(f => (
         <tr>
           <td><code>{f.label}</code></td>
           <td class="num">{f.weight}</td>
@@ -65,6 +62,22 @@ const SPEC = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadat
       <tr><th>Total</th><th class="num">{scoring.total_weight}</th></tr>
     </tfoot>
   </table>
+  <p>
+    A further {scoring.tracked_fields.length} IPTC fields are <em>tracked</em> but do not
+    affect the score: we record their presence and report it on
+    <a href="/fields/">the per-field breakdown</a>, but absence isn't penalised. Many of these
+    are legitimately omitted — <code>LocationCreated</code> can endanger sources, studio
+    shoots and archival images often genuinely lack <code>DateCreated</code> or
+    <code>Keywords</code>, and so on. We don't want to confuse "didn't supply" with "supplied
+    badly".
+  </p>
+  <p style="color:var(--iptc-muted);font-size:0.9rem">
+    Tracked fields: {scoring.tracked_fields.map((f, i) => (
+      <>
+        {i > 0 && ", "}<code>{f.label}</code>
+      </>
+    ))}.
+  </p>
 
   <h2>How a site is sampled</h2>
   <p>

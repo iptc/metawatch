@@ -1,4 +1,33 @@
-from pmd_crawler.scoring import TOTAL_WEIGHT, families_present, score_image
+from pmd_crawler.scoring import (
+    ALL_FIELDS,
+    SCORED_FIELDS,
+    TOTAL_WEIGHT,
+    TRACKED_FIELDS,
+    families_present,
+    score_image,
+)
+
+
+def test_four_cs_are_the_scored_fields():
+    # Lock the methodology: only the Four Cs of news photo provenance
+    # contribute to the score. Tracked fields are recorded but worth 0.
+    assert {label for label, _, _ in SCORED_FIELDS} == {
+        "Creator", "CopyrightNotice", "CaptionAbstract", "CreditLine",
+    }
+    # Equal weights summing to 100.
+    assert TOTAL_WEIGHT == 100
+    assert all(w == 25 for _, _, w in SCORED_FIELDS)
+
+
+def test_tracked_fields_are_recorded_but_unscored():
+    # Tracked = present in ALL_FIELDS with weight 0; not in SCORED_FIELDS.
+    scored_labels = {label for label, _, _ in SCORED_FIELDS}
+    tracked_labels = {label for label, _ in TRACKED_FIELDS}
+    assert tracked_labels & scored_labels == set()
+    # All tracked fields appear in ALL_FIELDS as weight-0 entries.
+    weight_by_label = {label: weight for label, _, weight in ALL_FIELDS}
+    for label in tracked_labels:
+        assert weight_by_label[label] == 0
 
 
 def test_empty_tags_score_zero_and_no_families():
@@ -29,12 +58,23 @@ def test_xmp_only_does_not_flag_iptc_iim():
     assert (has_iptc, has_xmp) == (False, True)
 
 
-def test_full_score_when_all_fields_present_via_iptc():
+def test_full_score_from_the_four_cs_only():
+    # With only the Four Cs present we should still hit 100 — that's the
+    # whole point of the new weighting.
     tags = {
         "IPTC:By-line": "Jane Doe",
         "IPTC:CopyrightNotice": "(c) 2026",
         "IPTC:Caption-Abstract": "A photo.",
         "IPTC:Credit": "Wire Service",
+    }
+    assert score_image(tags)[0] == 100.0
+
+
+def test_tracked_fields_dont_lift_the_score():
+    # Source, ObjectName, Keywords, DateCreated, LocationCreated,
+    # WebStatement, LicensorURL are tracked but unscored. An image with only
+    # those should still score 0.
+    tags = {
         "IPTC:Source": "Agency",
         "IPTC:ObjectName": "Title",
         "IPTC:Keywords": ["news"],
@@ -43,8 +83,23 @@ def test_full_score_when_all_fields_present_via_iptc():
         "XMP:WebStatement": "https://example.com/terms",
         "XMP-plus:LicensorURL": "https://example.com/licensor",
     }
-    score, _ = score_image(tags)
-    assert score == round(100.0 * TOTAL_WEIGHT / TOTAL_WEIGHT, 2) == 100.0
+    score, presence = score_image(tags)
+    assert score == 0.0
+    # …but presence is still recorded for every tracked field so we don't
+    # lose data for the /fields/ page.
+    present_labels = {label for label, has in presence if has}
+    assert "Source" in present_labels
+    assert "Keywords" in present_labels
+    assert "LocationCreated" in present_labels
+
+
+def test_partial_score_from_some_cs():
+    # Two of four Cs present → 50.
+    tags = {
+        "IPTC:By-line": "Jane Doe",
+        "IPTC:Caption-Abstract": "A photo.",
+    }
+    assert score_image(tags)[0] == 50.0
 
 
 def test_empty_string_value_is_not_present():

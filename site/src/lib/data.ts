@@ -101,6 +101,7 @@ export interface FieldStat {
   pct: number;
   weight: number;
   weight_pct: number;
+  scored: boolean;
 }
 
 export interface CdnByProvider {
@@ -170,13 +171,18 @@ export function getDst(): DstData {
   return dstJson as DstData;
 }
 
-export interface ScoringField {
+export interface ScoredField {
   label: string;
   aliases: string[];
   weight: number;
 }
+export interface TrackedField {
+  label: string;
+  aliases: string[];
+}
 export interface ScoringConfig {
-  fields: ScoringField[];
+  scored_fields: ScoredField[];
+  tracked_fields: TrackedField[];
   total_weight: number;
 }
 

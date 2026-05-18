@@ -29,7 +29,7 @@ import pyarrow.parquet as pq
 import yaml
 
 from pmd_crawler.dst import short_term as _dst_short_term
-from pmd_crawler.scoring import FIELD_WEIGHTS, TOTAL_WEIGHT
+from pmd_crawler.scoring import ALL_FIELDS, SCORED_FIELDS, TOTAL_WEIGHT, TRACKED_FIELDS
 
 DST_VOCAB_PATH = Path(__file__).resolve().parents[2] / "config" / "dst_vocab.yaml"
 
@@ -102,9 +102,13 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
     # Mirror config/scoring.yaml into JSON so the static site can render the
     # methodology table from the same source of truth the crawler uses.
     scoring_out = {
-        "fields": [
+        "scored_fields": [
             {"label": label, "aliases": list(aliases), "weight": weight}
-            for label, aliases, weight in FIELD_WEIGHTS
+            for label, aliases, weight in SCORED_FIELDS
+        ],
+        "tracked_fields": [
+            {"label": label, "aliases": list(aliases)}
+            for label, aliases in TRACKED_FIELDS
         ],
         "total_weight": TOTAL_WEIGHT,
     }
@@ -155,7 +159,8 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
     sites_out.sort(key=lambda x: x["mean_iptc_score"], reverse=True)
     (out_dir / "sites.json").write_text(json.dumps(sites_out, indent=2))
 
-    weight_for = {label: weight for label, _aliases, weight in FIELD_WEIGHTS}
+    weight_for = {label: weight for label, _aliases, weight in ALL_FIELDS}
+    scored_labels = {label for label, _aliases, _w in SCORED_FIELDS}
 
     field_agg: dict[str, dict] = defaultdict(lambda: {"present": 0, "total": 0})
     for f in fields:
@@ -169,7 +174,11 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
             "total": data["total"],
             "pct": round(100.0 * data["present"] / data["total"], 1) if data["total"] else 0.0,
             "weight": weight_for.get(name, 0),
-            "weight_pct": round(100.0 * weight_for.get(name, 0) / TOTAL_WEIGHT, 1),
+            "weight_pct": (
+                round(100.0 * weight_for.get(name, 0) / TOTAL_WEIGHT, 1)
+                if TOTAL_WEIGHT else 0.0
+            ),
+            "scored": name in scored_labels,
         }
         for name, data in sorted(field_agg.items(), key=lambda x: -x[1]["present"])
     ]

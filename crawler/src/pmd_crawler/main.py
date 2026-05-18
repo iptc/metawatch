@@ -31,7 +31,6 @@ from .output import (
     SiteRow,
     write_run,
 )
-from .scoring import FIELD_WEIGHTS
 
 console = Console()
 
@@ -401,5 +400,4 @@ def _sha1_of(s: str) -> str:
     return hashlib.sha1(s.encode("utf-8")).hexdigest()
 
 
-# expose FIELD_WEIGHTS so the about page generator can introspect them later
-__all__ = ["cli", "FIELD_WEIGHTS"]
+__all__ = ["cli"]
