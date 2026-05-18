@@ -202,7 +202,8 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
   }
   .four-cs {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* 2-up on desktop (content area is ~1050px); collapses to 1-up below ~760px. */
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
     gap: 1.25rem;
     margin-top: 1rem;
   }
