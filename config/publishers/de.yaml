@@ -397,3 +397,40 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: epa
+  name: European Pressphoto Agency (epa)
+  url: https://www.epa.eu/
+  homepage: https://www.epa.eu/
+  category: news-agency
+  language_primary: en
+  notes: ''
+  suggested_by: BQ (IPTC member)
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: wdr
+  name: Westdeutscher Rundfunk (WDR)
+  url: https://www1.wdr.de/nachrichten/
+  homepage: https://www1.wdr.de/nachrichten/
+  category: broadcaster
+  language_primary: de
+  notes: ''
+  suggested_by: BQ (IPTC member)
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www1.wdr.de/uebersicht-100.feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

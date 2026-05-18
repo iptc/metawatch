@@ -151,3 +151,21 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: apa
+  name: Austria Presse Agentur (APA)
+  url: https://science.apa.at/
+  homepage: https://science.apa.at/
+  category: news-agency
+  language_primary: de
+  notes: ''
+  suggested_by: BQ (IPTC member)
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

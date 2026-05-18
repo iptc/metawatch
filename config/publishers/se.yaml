@@ -95,3 +95,21 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: tt
+  name: TT Nyhetsbyrån
+  url: https://tt.se/
+  homepage: https://tt.se/
+  category: news-agency
+  language_primary: sv
+  notes: ''
+  suggested_by: BQ (IPTC member)
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

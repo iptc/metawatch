@@ -113,3 +113,21 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: ntb
+  name: Norsk Telegrambyrå (NTB)
+  url: https://www.ntb.no/
+  homepage: https://www.ntb.no/
+  category: news-agency
+  language_primary: 'no'
+  notes: ''
+  suggested_by: BQ (IPTC member)
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

@@ -95,3 +95,21 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: lusa
+  name: Lusa Agência de Notícias de Portugal
+  url: https://www.lusa.pt/
+  homepage: https://www.lusa.pt/
+  category: news-agency
+  language_primary: pt
+  notes: ''
+  suggested_by: BQ (IPTC member)
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

@@ -38,3 +38,22 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: rnz
+  name: Radio New Zealand (RNZ)
+  url: https://www.rnz.co.nz/
+  homepage: https://www.rnz.co.nz/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ (IPTC member)
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.rnz.co.nz/rss/national.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
