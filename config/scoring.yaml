@@ -32,29 +32,202 @@
 scored_fields:
   - label: Creator
     weight: 25
-    aliases: [By-line, Creator, Artist, "XMP:Creator", "IPTC:By-line"]
-  - label: CopyrightNotice
+    aliases: [By-line, Creator, Artist, "XMP-dc:Creator", "IPTC:By-line", "IFD0:Artist", "XMP-plus:ImageCreator"]
+  - label: Copyright
     weight: 25
-    aliases: [CopyrightNotice, Rights, Copyright, "XMP:Rights"]
-  - label: CaptionAbstract
+    aliases: [CopyrightNotice, Rights, Copyright, "XMP-dc:Rights", "IPTC:CopyrightNotice", "IFD0:Copyright", "XMP-plus:CopyrightOwner"]
+  - label: CaptionDescription
     weight: 25
-    aliases: [Caption-Abstract, Description, ImageDescription, "XMP:Description"]
+    aliases: [Caption-Abstract, Description, ImageDescription, "XMP:Description", "XMP-dc:Description"]
   - label: CreditLine
     weight: 25
-    aliases: [Credit, "XMP:Credit"]
+    aliases: [Credit, "XMP:Credit", "XMP-photoshop:Credit"]
 
 tracked_fields:
-  - label: Source
-    aliases: [Source, "XMP:Source"]
-  - label: ObjectName
-    aliases: [ObjectName, Title, "XMP:Title"]
-  - label: Keywords
-    aliases: [Keywords, Subject, "XMP:Subject"]
+  - label: AIPromptInformation
+    aliases: [AIPromptInformation, "XMP-iptcExt:AIPromptInformation"]
+  - label: AIPromptWriterName
+    aliases: [AIPromptWriterName, "XMP-iptcExt:AIPromptWriterName"]
+  - label: AISystemUsed
+    aliases: [AISystemUsed, "XMP-iptcExt:AISystemUsed"]
+  - label: AISystemVersionUsed
+    aliases: [AISystemVersionUsed, "XMP-iptcExt:AISystemVersionUsed"]
+  - label: AltTextAccessibility
+    aliases: [AltTextAccessibility, "XMP-iptcCore:AltTextAccessibility"]
+  - label: DataMining
+    aliases: [DataMining, "XMP-plus:DataMining"]
   - label: DateCreated
     aliases: [DateCreated, CreateDate, DateTimeOriginal, "XMP:DateCreated"]
-  - label: LocationCreated
-    aliases: [City, Country-PrimaryLocationName, LocationCreatedCity, "XMP-iptcExt:LocationCreated"]
-  - label: WebStatement
-    aliases: [WebStatement, "XMP:WebStatement"]
+  - label: DigitalSourceType
+    aliases: [DigitalSourceType, "XMP-iptcExt:DigitalSourceType"]
+  - label: ExtendedDescriptionAccessibility
+    aliases: [ExtDescrAccessibility, "XMP-iptcCore:ExtDescrAccessibility"]
+  - label: Genre
+    aliases: ["XMP-iptcCore:IntellectualGenre", "XMP-iptcExt:GenreCvTerm", "XMP-iptcExt:GenreCvTermId", "XMP-iptcExt:GenreCvTermName"]
+  - label: Keywords
+    aliases: [Keywords, Subject, "XMP:Subject", "XMP-dc:Subject"]
+  # Licensor is the parent struct of LicensorURL etc
+  - label: LicensorName
+    aliases: ["XMP-plus:LicensorName"]
   - label: LicensorURL
     aliases: [LicensorURL, Licensor, "XMP-plus:LicensorURL"]
+  - label: LocationCreated
+    aliases: [City, CountryCode, Country-PrimaryLocationName, Location, "XMP-iptcCore:Location", "IPTC:Sub-location", LocationCreatedCity, "XMP-iptcExt:LocationCreated"]
+  - label: LocationShown
+    aliases: [LocationShownCity, "XMP-iptcExt:LocationShown"]
+  - label: ObjectName
+    aliases: [ObjectName, Title, "XMP:Title", "XMP-dc:Title"]
+  - label: Source
+    aliases: [Source, "XMP:Source", "XMP-photoshop:Source"]
+  - label: UsageTerms
+    aliases: [UsageTerms, "XMP:UsageTerms", "XMP-xmpRights:UsageTerms"]
+  - label: WebStatement
+    aliases: [WebStatement, "XMP:WebStatement", "XMP-xmpRights:WebStatement"]
+
+# Not analysed (yet). Note that we store all metadata, so if we add these later and re-calculate then historical values will be used.
+#  "XMP-iptcCore:CreatorCity"
+#  "XMP-iptcCore:CreatorCountry"
+#  "XMP-iptcCore:CreatorAddress"
+#  "XMP-iptcCore:CreatorPostalCode"
+#  "XMP-iptcCore:CreatorRegion"
+#  "XMP-iptcCore:CreatorWorkEmail"
+#  "XMP-iptcCore:CreatorWorkTelephone"
+#  "XMP-iptcCore:CreatorWorkURL"
+#  "XMP-iptcCore:Scene"
+#  "XMP-iptcCore:SubjectCode"
+#  "XMP-iptcExt:AIPromptInformation"
+#  "XMP-iptcExt:AIPromptWriterName"
+#  "XMP-iptcExt:AISystemUsed"
+#  "XMP-iptcExt:AISystemVersionUsed"
+#  "XMP-iptcExt:AboutCvTermCvId"
+#  "XMP-iptcExt:AboutCvTermId"
+#  "XMP-iptcExt:AboutCvTermName"
+#  "XMP-iptcExt:AboutCvTermRefinedAbout"
+#  "XMP-iptcExt:AdditionalModelInformation"
+#  "XMP-iptcExt:ArtworkCircaDateCreated"
+#  "XMP-iptcExt:ArtworkContentDescription"
+#  "XMP-iptcExt:ArtworkContributionDescription"
+#  "XMP-iptcExt:ArtworkCopyrightNotice"
+#  "XMP-iptcExt:ArtworkCreator"
+#  "XMP-iptcExt:ArtworkCreatorID"
+#  "XMP-iptcExt:ArtworkCopyrightOwnerID"
+#  "XMP-iptcExt:ArtworkCopyrightOwnerName"
+#  "XMP-iptcExt:ArtworkLicensorID"
+#  "XMP-iptcExt:ArtworkLicensorName"
+#  "XMP-iptcExt:ArtworkDateCreated"
+#  "XMP-iptcExt:ArtworkPhysicalDescription"
+#  "XMP-iptcExt:ArtworkSource"
+#  "XMP-iptcExt:ArtworkSourceInventoryNo"
+#  "XMP-iptcExt:ArtworkSourceInvURL"
+#  "XMP-iptcExt:ArtworkStylePeriod"
+#  "XMP-iptcExt:ArtworkTitle"
+#  "XMP-iptcExt:ContributorName"
+#  "XMP-iptcExt:ContributorRole"
+#  "XMP-iptcExt:ContributorIdentifier"
+#  "XMP-iptcExt:DigitalImageGUID"
+#  "XMP-iptcExt:EmbeddedEncodedRightsExpr"
+#  "XMP-iptcExt:EmbeddedEncodedRightsExprType"
+#  "XMP-iptcExt:EmbeddedEncodedRightsExprLangID"
+#  "XMP-iptcExt:Event"
+#  "XMP-iptcExt:EventID"
+#  "XMP-iptcExt:ImageRegionName"
+#  "XMP-iptcExt:ImageRegionOrganisationInImageName"
+#  "XMP-iptcExt:ImageRegionPersonInImage"
+#  "XMP-iptcExt:ImageRegionBoundaryH"
+#  "XMP-iptcExt:ImageRegionBoundaryShape"
+#  "XMP-iptcExt:ImageRegionBoundaryUnit"
+#  "XMP-iptcExt:ImageRegionBoundaryW"
+#  "XMP-iptcExt:ImageRegionBoundaryX"
+#  "XMP-iptcExt:ImageRegionBoundaryY"
+#  "XMP-iptcExt:ImageRegionCtypeName"
+#  "XMP-iptcExt:ImageRegionCtypeIdentifier"
+#  "XMP-iptcExt:ImageRegionID"
+#  "XMP-iptcExt:ImageRegionRoleName"
+#  "XMP-iptcExt:ImageRegionRoleIdentifier"
+#  "XMP-iptcExt:ImageRegionBoundaryRx"
+#  "XMP-iptcExt:ImageRegionBoundaryVerticesX"
+#  "XMP-iptcExt:ImageRegionBoundaryVerticesY"
+#  "XMP-iptcExt:LinkedEncodedRightsExpr"
+#  "XMP-iptcExt:LinkedEncodedRightsExprType"
+#  "XMP-iptcExt:LinkedEncodedRightsExprLangID"
+#  "XMP-iptcExt:LocationCreatedCity"
+#  "XMP-iptcExt:LocationCreatedCountryCode"
+#  "XMP-iptcExt:LocationCreatedCountryName"
+#  "XMP-iptcExt:LocationCreatedLocationId"
+#  "XMP-iptcExt:LocationCreatedLocationName"
+#  "XMP-iptcExt:LocationCreatedProvinceState"
+#  "XMP-iptcExt:LocationCreatedSublocation"
+#  "XMP-iptcExt:LocationCreatedWorldRegion"
+#  "XMP-iptcExt:LocationCreatedGPSAltitude"
+#  "XMP-iptcExt:LocationCreatedGPSAltitudeRef"
+#  "XMP-iptcExt:LocationCreatedGPSLatitude"
+#  "XMP-iptcExt:LocationCreatedGPSLongitude"
+#  "XMP-iptcExt:LocationShownCity"
+#  "XMP-iptcExt:LocationShownCountryCode"
+#  "XMP-iptcExt:LocationShownCountryName"
+#  "XMP-iptcExt:LocationShownLocationId"
+#  "XMP-iptcExt:LocationShownLocationName"
+#  "XMP-iptcExt:LocationShownProvinceState"
+#  "XMP-iptcExt:LocationShownSublocation"
+#  "XMP-iptcExt:LocationShownWorldRegion"
+#  "XMP-iptcExt:LocationShownGPSAltitude"
+#  "XMP-iptcExt:LocationShownGPSAltitudeRef"
+#  "XMP-iptcExt:LocationShownGPSLatitude"
+#  "XMP-iptcExt:LocationShownGPSLongitude"
+#  "XMP-iptcExt:MaxAvailHeight"
+#  "XMP-iptcExt:MaxAvailWidth"
+#  "XMP-iptcExt:ModelAge"
+#  "XMP-iptcExt:OrganisationInImageCode"
+#  "XMP-iptcExt:OrganisationInImageName"
+#  "XMP-iptcExt:PersonInImage"
+#  "XMP-iptcExt:PersonInImageCvTermCvId"
+#  "XMP-iptcExt:PersonInImageCvTermId"
+#  "XMP-iptcExt:PersonInImageCvTermName"
+#  "XMP-iptcExt:PersonInImageCvTermRefinedAbout"
+#  "XMP-iptcExt:PersonInImageDescription"
+#  "XMP-iptcExt:PersonInImageId"
+#  "XMP-iptcExt:PersonInImageName"
+#  "XMP-iptcExt:ProductInImageDescription"
+#  "XMP-iptcExt:ProductInImageGTIN"
+#  "XMP-iptcExt:ProductInImageProductId"
+#  "XMP-iptcExt:ProductInImageName"
+#  "XMP-iptcExt:RegistryEntryRole"
+#  "XMP-iptcExt:RegistryItemID"
+#  "XMP-iptcExt:RegistryOrganisationID"
+#  "XMP-dc:Description"
+#  "XMP-photoshop:AuthorsPosition"
+#  "XMP-photoshop:CaptionWriter"
+#  "XMP-photoshop:City"
+#  "XMP-photoshop:Country"
+#  "XMP-photoshop:DateCreated"
+#  "XMP-photoshop:Headline"
+#  "XMP-photoshop:Instructions"
+#  "XMP-photoshop:State"
+#  "XMP-photoshop:TransmissionReference"
+#  "XMP-plus:CopyrightOwnerID"
+#  "XMP-plus:CopyrightOwnerName"
+#  "XMP-plus:ImageCreatorID"
+#  "XMP-plus:ImageCreatorName"
+#  "XMP-plus:ImageCreatorImageID"
+#  "XMP-plus:ImageSupplierID"
+#  "XMP-plus:ImageSupplierName"
+#  "XMP-plus:ImageSupplierImageID"
+#  "XMP-plus:LicensorCity"
+#  "XMP-plus:LicensorCountry"
+#  "XMP-plus:LicensorEmail"
+#  "XMP-plus:LicensorExtendedAddress"
+#  "XMP-plus:LicensorID"
+#  "XMP-plus:LicensorPostalCode"
+#  "XMP-plus:LicensorRegion"
+#  "XMP-plus:LicensorStreetAddress"
+#  "XMP-plus:LicensorTelephone1"
+#  "XMP-plus:LicensorTelephone2"
+#  "XMP-plus:LicensorTelephoneType1"
+#  "XMP-plus:LicensorTelephoneType2"
+#  "XMP-plus:MinorModelAgeDisclosure"
+#  "XMP-plus:ModelReleaseID"
+#  "XMP-plus:ModelReleaseStatus"
+#  "XMP-plus:OtherConstraints"
+#  "XMP-plus:PropertyReleaseID"
+#  "XMP-plus:PropertyReleaseStatus"
+#  "XMP-xmp:Rating"
