@@ -216,7 +216,8 @@ export function scoreClass(score: number): string {
 
 const COUNTRY_NAMES: Record<string, string> = {
   AR: 'Argentina', AT: 'Austria', AU: 'Australia', BD: 'Bangladesh', BE: 'Belgium',
-  BG: 'Bulgaria', BR: 'Brazil', CA: 'Canada', CH: 'Switzerland', CN: 'China',
+  BG: 'Bulgaria', BR: 'Brazil', CA: 'Canada', CH: 'Switzerland', CL: 'Chile',
+  CN: 'China', CO: 'Colombia',
   CY: 'Cyprus', CZ: 'Czechia', DE: 'Germany', DK: 'Denmark', EE: 'Estonia',
   EG: 'Egypt', ES: 'Spain', FI: 'Finland', FJ: 'Fiji', FR: 'France',
   GB: 'United Kingdom', GR: 'Greece', HK: 'Hong Kong', HR: 'Croatia',
