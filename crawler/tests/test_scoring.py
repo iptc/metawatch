@@ -12,7 +12,7 @@ def test_four_cs_are_the_scored_fields():
     # Lock the methodology: only the Four Cs of news photo provenance
     # contribute to the score. Tracked fields are recorded but worth 0.
     assert {label for label, _, _ in SCORED_FIELDS} == {
-        "Creator", "CopyrightNotice", "CaptionAbstract", "CreditLine",
+        "Creator", "Copyright", "CaptionDescription", "CreditLine",
     }
     # Equal weights summing to 100.
     assert TOTAL_WEIGHT == 100

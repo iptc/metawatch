@@ -1,0 +1,80 @@
+# Country code → display name for every alpha-2 code that appears in
+# config/publishers/*.yaml. Used by the static site to render human-friendly
+# country labels. Editing here is the supported way to add a new label —
+# export_for_site.py mirrors this file into site/src/data/latest/countries_names.json
+# at every run.
+
+names:
+  AE: United Arab Emirates
+  AR: Argentina
+  AT: Austria
+  AU: Australia
+  BD: Bangladesh
+  BE: Belgium
+  BG: Bulgaria
+  BR: Brazil
+  CA: Canada
+  CH: Switzerland
+  CL: Chile
+  CN: China
+  CO: Colombia
+  CY: Cyprus
+  CZ: Czechia
+  DE: Germany
+  DK: Denmark
+  EE: Estonia
+  EG: Egypt
+  ES: Spain
+  FI: Finland
+  FJ: Fiji
+  FR: France
+  GB: United Kingdom
+  GH: Ghana
+  GR: Greece
+  HK: Hong Kong
+  HR: Croatia
+  HU: Hungary
+  ID: Indonesia
+  IE: Ireland
+  IL: Israel
+  IN: India
+  IT: Italy
+  JM: Jamaica
+  JP: Japan
+  KE: Kenya
+  KR: South Korea
+  LT: Lithuania
+  LU: Luxembourg
+  LV: Latvia
+  MA: Morocco
+  MT: Malta
+  MX: Mexico
+  MY: Malaysia
+  NG: Nigeria
+  NL: Netherlands
+  NO: Norway
+  NZ: New Zealand
+  PE: Peru
+  PH: Philippines
+  PK: Pakistan
+  PL: Poland
+  PT: Portugal
+  QA: Qatar
+  RO: Romania
+  RU: Russia
+  SA: Saudi Arabia
+  SE: Sweden
+  SG: Singapore
+  SI: Slovenia
+  SK: Slovakia
+  SV: El Salvador
+  TH: Thailand
+  TR: Türkiye
+  TW: Taiwan
+  UA: Ukraine
+  US: United States
+  VE: Venezuela
+  VN: Vietnam
+  ZA: South Africa
+  ZM: Zambia
+  ZW: Zimbabwe

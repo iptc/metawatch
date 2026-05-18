@@ -20,6 +20,7 @@ import historyJson from '../data/latest/history.json';
 import historyBySiteJson from '../data/latest/history_by_site.json';
 import historyByCountryJson from '../data/latest/history_by_country.json';
 import runsIndexJson from '../data/latest/runs_index.json';
+import countryNamesJson from '../data/latest/countries_names.json';
 
 export interface Summary {
   run_id: string | null;
@@ -214,23 +215,12 @@ export function scoreClass(score: number): string {
   return '';
 }
 
-const COUNTRY_NAMES: Record<string, string> = {
-  AR: 'Argentina', AT: 'Austria', AU: 'Australia', BD: 'Bangladesh', BE: 'Belgium',
-  BG: 'Bulgaria', BR: 'Brazil', CA: 'Canada', CH: 'Switzerland', CL: 'Chile',
-  CN: 'China', CO: 'Colombia',
-  CY: 'Cyprus', CZ: 'Czechia', DE: 'Germany', DK: 'Denmark', EE: 'Estonia',
-  EG: 'Egypt', ES: 'Spain', FI: 'Finland', FJ: 'Fiji', FR: 'France',
-  GB: 'United Kingdom', GR: 'Greece', HK: 'Hong Kong', HR: 'Croatia',
-  HU: 'Hungary', ID: 'Indonesia', IE: 'Ireland', IL: 'Israel', IN: 'India',
-  IT: 'Italy', JM: 'Jamaica', JP: 'Japan', KE: 'Kenya',
-  KO: 'South Korea', KR: 'South Korea', LT: 'Lithuania', LU: 'Luxembourg',
-  LV: 'Latvia', MT: 'Malta', MX: 'Mexico', MY: 'Malaysia',
-  NG: 'Nigeria', NL: 'Netherlands', NO: 'Norway', NZ: 'New Zealand', PE: 'Peru',
-  PH: 'Philippines', PL: 'Poland', PT: 'Portugal', RO: 'Romania', RU: 'Russia',
-  SE: 'Sweden', SG: 'Singapore', SI: 'Slovenia', SK: 'Slovakia', SV: 'El Salvador',
-  TH: 'Thailand', TR: 'Türkiye', TW: 'Taiwan', UA: 'Ukraine', US: 'United States',
-  VE: 'Venezuela', VN: 'Vietnam', ZA: 'South Africa', ZM: 'Zambia', ZW: 'Zimbabwe',
-};
+// Country-code → display name. Comes from config/countries.yaml via
+// export_for_site.py; editing the YAML and re-exporting is the supported
+// way to add a label. The fallback to `cc` is for any country that has
+// publishers but isn't (yet) in the config — the UI will at least show
+// the code rather than crashing.
+const COUNTRY_NAMES = countryNamesJson as Record<string, string>;
 
 export function countryName(cc: string): string {
   return COUNTRY_NAMES[cc] ?? cc;

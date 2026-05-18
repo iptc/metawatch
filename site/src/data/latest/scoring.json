@@ -6,28 +6,34 @@
         "By-line",
         "Creator",
         "Artist",
-        "XMP:Creator",
-        "IPTC:By-line"
+        "XMP-dc:Creator",
+        "IPTC:By-line",
+        "IFD0:Artist",
+        "XMP-plus:ImageCreator"
       ],
       "weight": 25
     },
     {
-      "label": "CopyrightNotice",
+      "label": "Copyright",
       "aliases": [
         "CopyrightNotice",
         "Rights",
         "Copyright",
-        "XMP:Rights"
+        "XMP-dc:Rights",
+        "IPTC:CopyrightNotice",
+        "IFD0:Copyright",
+        "XMP-plus:CopyrightOwner"
       ],
       "weight": 25
     },
     {
-      "label": "CaptionAbstract",
+      "label": "CaptionDescription",
       "aliases": [
         "Caption-Abstract",
         "Description",
         "ImageDescription",
-        "XMP:Description"
+        "XMP:Description",
+        "XMP-dc:Description"
       ],
       "weight": 25
     },
@@ -35,33 +41,53 @@
       "label": "CreditLine",
       "aliases": [
         "Credit",
-        "XMP:Credit"
+        "XMP:Credit",
+        "XMP-photoshop:Credit"
       ],
       "weight": 25
     }
   ],
   "tracked_fields": [
     {
-      "label": "Source",
+      "label": "AIPromptInformation",
       "aliases": [
-        "Source",
-        "XMP:Source"
+        "AIPromptInformation",
+        "XMP-iptcExt:AIPromptInformation"
       ]
     },
     {
-      "label": "ObjectName",
+      "label": "AIPromptWriterName",
       "aliases": [
-        "ObjectName",
-        "Title",
-        "XMP:Title"
+        "AIPromptWriterName",
+        "XMP-iptcExt:AIPromptWriterName"
       ]
     },
     {
-      "label": "Keywords",
+      "label": "AISystemUsed",
       "aliases": [
-        "Keywords",
-        "Subject",
-        "XMP:Subject"
+        "AISystemUsed",
+        "XMP-iptcExt:AISystemUsed"
+      ]
+    },
+    {
+      "label": "AISystemVersionUsed",
+      "aliases": [
+        "AISystemVersionUsed",
+        "XMP-iptcExt:AISystemVersionUsed"
+      ]
+    },
+    {
+      "label": "AltTextAccessibility",
+      "aliases": [
+        "AltTextAccessibility",
+        "XMP-iptcCore:AltTextAccessibility"
+      ]
+    },
+    {
+      "label": "DataMining",
+      "aliases": [
+        "DataMining",
+        "XMP-plus:DataMining"
       ]
     },
     {
@@ -74,19 +100,41 @@
       ]
     },
     {
-      "label": "LocationCreated",
+      "label": "DigitalSourceType",
       "aliases": [
-        "City",
-        "Country-PrimaryLocationName",
-        "LocationCreatedCity",
-        "XMP-iptcExt:LocationCreated"
+        "DigitalSourceType",
+        "XMP-iptcExt:DigitalSourceType"
       ]
     },
     {
-      "label": "WebStatement",
+      "label": "ExtendedDescriptionAccessibility",
       "aliases": [
-        "WebStatement",
-        "XMP:WebStatement"
+        "ExtDescrAccessibility",
+        "XMP-iptcCore:ExtDescrAccessibility"
+      ]
+    },
+    {
+      "label": "Genre",
+      "aliases": [
+        "XMP-iptcCore:IntellectualGenre",
+        "XMP-iptcExt:GenreCvTerm",
+        "XMP-iptcExt:GenreCvTermId",
+        "XMP-iptcExt:GenreCvTermName"
+      ]
+    },
+    {
+      "label": "Keywords",
+      "aliases": [
+        "Keywords",
+        "Subject",
+        "XMP:Subject",
+        "XMP-dc:Subject"
+      ]
+    },
+    {
+      "label": "LicensorName",
+      "aliases": [
+        "XMP-plus:LicensorName"
       ]
     },
     {
@@ -95,6 +143,59 @@
         "LicensorURL",
         "Licensor",
         "XMP-plus:LicensorURL"
+      ]
+    },
+    {
+      "label": "LocationCreated",
+      "aliases": [
+        "City",
+        "CountryCode",
+        "Country-PrimaryLocationName",
+        "Location",
+        "XMP-iptcCore:Location",
+        "IPTC:Sub-location",
+        "LocationCreatedCity",
+        "XMP-iptcExt:LocationCreated"
+      ]
+    },
+    {
+      "label": "LocationShown",
+      "aliases": [
+        "LocationShownCity",
+        "XMP-iptcExt:LocationShown"
+      ]
+    },
+    {
+      "label": "ObjectName",
+      "aliases": [
+        "ObjectName",
+        "Title",
+        "XMP:Title",
+        "XMP-dc:Title"
+      ]
+    },
+    {
+      "label": "Source",
+      "aliases": [
+        "Source",
+        "XMP:Source",
+        "XMP-photoshop:Source"
+      ]
+    },
+    {
+      "label": "UsageTerms",
+      "aliases": [
+        "UsageTerms",
+        "XMP:UsageTerms",
+        "XMP-xmpRights:UsageTerms"
+      ]
+    },
+    {
+      "label": "WebStatement",
+      "aliases": [
+        "WebStatement",
+        "XMP:WebStatement",
+        "XMP-xmpRights:WebStatement"
       ]
     }
   ],

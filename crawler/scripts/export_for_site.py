@@ -12,6 +12,7 @@ Output:
     c2pa.json           # C2PA presence breakdown, by signer / outcome / site
     dst.json            # DigitalSourceType breakdown, buckets + raw URIs
     scoring.json        # mirror of config/scoring.yaml for the methodology page
+    countries_names.json # mirror of config/countries.yaml for display labels
 
 Usage:
     python scripts/export_for_site.py [--runs-dir ../data/runs] [--out ../site/src/data]
@@ -32,6 +33,14 @@ from pmd_crawler.dst import short_term as _dst_short_term
 from pmd_crawler.scoring import ALL_FIELDS, SCORED_FIELDS, TOTAL_WEIGHT, TRACKED_FIELDS
 
 DST_VOCAB_PATH = Path(__file__).resolve().parents[2] / "config" / "dst_vocab.yaml"
+COUNTRIES_CONFIG_PATH = Path(__file__).resolve().parents[2] / "config" / "countries.yaml"
+
+
+def load_country_names() -> dict[str, str]:
+    if not COUNTRIES_CONFIG_PATH.exists():
+        return {}
+    data = yaml.safe_load(COUNTRIES_CONFIG_PATH.read_text()) or {}
+    return dict(data.get("names") or {})
 
 
 def load_dst_buckets() -> dict[str, str]:
@@ -98,6 +107,12 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
     )
 
     (out_dir / "summary.json").write_text(json.dumps(summary, indent=2))
+
+    # Mirror config/countries.yaml so the site can render country labels from
+    # the same source the crawler config uses.
+    (out_dir / "countries_names.json").write_text(
+        json.dumps(load_country_names(), indent=2)
+    )
 
     # Mirror config/scoring.yaml into JSON so the static site can render the
     # methodology table from the same source of truth the crawler uses.

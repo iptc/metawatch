@@ -6,9 +6,9 @@ sites:
   homepage: https://fijisun.com.fj/
   category: newspaper
   language_primary: en
-  notes: Needs manual feed triage 2026-05-12 (RSS dead, no replacement found).
+  notes: No RSS or sitemap available 2026-05-18; robots.txt unreachable. Marked inactive.
   suggested_by: BQ
-  active: true
+  active: false
   discovery:
     strategy: sitemap
     sitemap_urls: []

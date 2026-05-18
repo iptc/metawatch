@@ -31,18 +31,18 @@
     "present": 278,
     "total": 4379,
     "pct": 6.3,
-    "weight": 25,
-    "weight_pct": 25.0,
-    "scored": true
+    "weight": 0,
+    "weight_pct": 0.0,
+    "scored": false
   },
   {
     "field": "CaptionAbstract",
     "present": 224,
     "total": 4379,
     "pct": 5.1,
-    "weight": 25,
-    "weight_pct": 25.0,
-    "scored": true
+    "weight": 0,
+    "weight_pct": 0.0,
+    "scored": false
   },
   {
     "field": "ObjectName",

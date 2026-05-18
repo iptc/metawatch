@@ -133,25 +133,6 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
-- id: itb-berlin
-  name: ITB Berlin
-  url: https://news.itb.com/
-  homepage: https://news.itb.com/
-  category: newspaper
-  language_primary: en
-  notes: ''
-  suggested_by: MS ??
-  active: true
-  discovery:
-    strategy: sitemap
-    sitemap_urls: []
-    picture_sitemap_url: null
-    rss_urls:
-    - https://itb-berlin-news.com/feed/
-    js_required: false
-  sample:
-    max_articles: 20
-    window_days: 30
 - id: munich-now
   name: Munich NOW
   url: http://munichnow.com/
@@ -393,24 +374,6 @@ sites:
     picture_sitemap_url: null
     rss_urls:
     - https://www.heise.de/rss/heise-atom.xml
-    js_required: false
-  sample:
-    max_articles: 20
-    window_days: 30
-- id: epa
-  name: European Pressphoto Agency (epa)
-  url: https://www.epa.eu/
-  homepage: https://www.epa.eu/
-  category: news-agency
-  language_primary: en
-  notes: ''
-  suggested_by: BQ (IPTC member)
-  active: true
-  discovery:
-    strategy: sitemap
-    sitemap_urls: []
-    picture_sitemap_url: null
-    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

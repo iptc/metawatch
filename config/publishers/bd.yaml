@@ -12,7 +12,7 @@ sites:
   discovery:
     strategy: sitemap
     sitemap_urls:
-    - https://bdnews24.com/sitemap.xml
+    - https://bdnews24.com/news_sitemap.xml
     picture_sitemap_url: null
     rss_urls: []
     js_required: false

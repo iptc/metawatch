@@ -38,24 +38,6 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
-- id: n-pszabads-g
-  name: Népszabadság
-  url: http://nol.hu/
-  homepage: http://nol.hu/
-  category: newspaper
-  language_primary: en
-  notes: Needs manual feed triage 2026-05-12 (RSS dead, no replacement found).
-  suggested_by: BQ
-  active: true
-  discovery:
-    strategy: sitemap
-    sitemap_urls: []
-    picture_sitemap_url: null
-    rss_urls: []
-    js_required: false
-  sample:
-    max_articles: 20
-    window_days: 30
 - id: n-pszava
   name: Népszava
   url: https://nepszava.hu/

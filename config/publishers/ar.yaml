@@ -38,22 +38,3 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
-- id: pagina-12
-  name: Pagina 12
-  url: https://www.pagina12.com.ar/
-  homepage: https://www.pagina12.com.ar/
-  category: newspaper
-  language_primary: en
-  notes: ''
-  suggested_by: BQ
-  active: true
-  discovery:
-    strategy: sitemap
-    sitemap_urls:
-    - https://www.pagina12.com.ar/arc/outboundfeeds/breakingnews-sitemap.xml
-    picture_sitemap_url: null
-    rss_urls: []
-    js_required: false
-  sample:
-    max_articles: 20
-    window_days: 30
