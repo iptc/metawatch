@@ -37,10 +37,29 @@ COUNTRIES_CONFIG_PATH = Path(__file__).resolve().parents[2] / "config" / "countr
 
 
 def load_country_names() -> dict[str, str]:
+    """Return alpha-2 → display name from config/countries.yaml.
+
+    Guards against the YAML 1.1 "Norway problem": unquoted ``NO`` parses as
+    the boolean False, ``ON`` as True. Re-stringify any boolean keys before
+    returning, and warn so a missing-quotes mistake doesn't ship silently.
+    """
+    import sys
+
     if not COUNTRIES_CONFIG_PATH.exists():
         return {}
     data = yaml.safe_load(COUNTRIES_CONFIG_PATH.read_text()) or {}
-    return dict(data.get("names") or {})
+    raw = data.get("names") or {}
+    fixed: dict[str, str] = {}
+    for k, v in raw.items():
+        if k is False:
+            print("WARN: country code 'NO' came through as YAML False; please quote it.", file=sys.stderr)
+            fixed["NO"] = str(v)
+        elif k is True:
+            print("WARN: country code 'ON' came through as YAML True; please quote it.", file=sys.stderr)
+            fixed["ON"] = str(v)
+        else:
+            fixed[str(k)] = str(v)
+    return fixed
 
 
 def load_dst_buckets() -> dict[str, str]:

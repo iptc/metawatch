@@ -3,6 +3,10 @@
 # country labels. Editing here is the supported way to add a new label —
 # export_for_site.py mirrors this file into site/src/data/latest/countries_names.json
 # at every run.
+#
+# Note: PyYAML defaults to YAML 1.1 where unquoted "NO" is the boolean false
+# (the "Norway problem"). Quote any code whose string form is a YAML boolean —
+# specifically NO and ON.
 
 names:
   AE: United Arab Emirates
@@ -52,7 +56,7 @@ names:
   MY: Malaysia
   NG: Nigeria
   NL: Netherlands
-  NO: Norway
+  "NO": Norway
   NZ: New Zealand
   PE: Peru
   PH: Philippines
