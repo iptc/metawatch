@@ -1,7 +1,16 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import TimeSeriesChart from '../../components/TimeSeriesChart.astro';
-import { getSites, getSiteHistory, scoreClass, countryName, categoryLabel } from '../../lib/data';
+import {
+  getSites,
+  getSiteHistory,
+  getSiteFieldStats,
+  getSiteFieldHistory,
+  getScoring,
+  scoreClass,
+  countryName,
+  categoryLabel,
+} from '../../lib/data';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
@@ -12,6 +21,13 @@ export function getStaticPaths() {
 
 const { site } = Astro.props;
 const history = getSiteHistory(site.site_id);
+const fieldStats = getSiteFieldStats(site.site_id);
+const fieldHistory = getSiteFieldHistory(site.site_id);
+const scoring = getScoring();
+const scoredFieldLabels = scoring.scored_fields.map(f => f.label);
+
+// Strip trailing slash for display.
+const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
 ---
 <Layout title={site.site_name}>
   <p><a href={`${base}/sites/`}>← All sites</a></p>
@@ -20,6 +36,12 @@ const history = getSiteHistory(site.site_id);
     <a href={`${base}/countries/${site.country.toLowerCase()}/`}>{countryName(site.country)}</a> ·
     <span class={`pill ${site.category}`}>{categoryLabel(site.category)}</span> ·
     Discovery: <code>{site.discovery_strategy}</code>
+    {site.url && (
+      <>
+        {" · "}
+        <a href={site.url} target="_blank" rel="noopener">{displayUrl} ↗</a>
+      </>
+    )}
   </p>
 
   <div class="card-row">
@@ -49,6 +71,79 @@ const history = getSiteHistory(site.site_id);
     </section>
   )}
 
+  {fieldStats.length > 0 && (
+    <section>
+      <h2>Field presence</h2>
+      <p>
+        Population rate of each IPTC field on this site's sampled images.
+        The four <strong>scored</strong> fields determine the headline score;
+        tracked fields are recorded but don't affect it.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th class="num">Present</th>
+            <th class="num">Total</th>
+            <th class="num">Population</th>
+          </tr>
+        </thead>
+        <tbody>
+          {fieldStats.map(f => (
+            <tr>
+              <td><code>{f.field}</code></td>
+              <td>
+                {f.scored
+                  ? <span class="badge scored">scored</span>
+                  : <span class="badge tracked">tracked</span>}
+              </td>
+              <td class="num">{f.present}</td>
+              <td class="num">{f.total}</td>
+              <td class="num">
+                {f.pct}%
+                <span class="bar" aria-hidden="true">
+                  <span style={`width:${f.pct}%`}></span>
+                </span>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+  )}
+
+  {scoredFieldLabels.some(l => (fieldHistory[l] || []).length >= 2) && (
+    <section>
+      <h2>Four Cs over time</h2>
+      <p>One mini-chart per scored field, showing this site's population rate over crawl runs.</p>
+      <div class="four-cs">
+        {scoredFieldLabels.map(label => {
+          const series = fieldHistory[label] || [];
+          return (
+            <div class="four-cs-cell">
+              <h3>{label}</h3>
+              {series.length >= 2 ? (
+                <TimeSeriesChart
+                  points={series}
+                  yLabel="%"
+                  yMax={100}
+                  format={(n: number) => `${n.toFixed(0)}%`}
+                />
+              ) : series.length === 1 ? (
+                <p style="color:var(--iptc-muted)">
+                  Only one run so far — <strong>{series[0].y.toFixed(1)}%</strong> on {series[0].x.slice(0,10)}.
+                </p>
+              ) : (
+                <p style="color:var(--iptc-muted)">No data.</p>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  )}
+
   <h2>CDN distribution</h2>
   <p>Where this site's images are served from. CDN image-optimization features can strip metadata in transit.</p>
   <table>
@@ -63,6 +158,62 @@ const history = getSiteHistory(site.site_id);
   <h2>Crawl details</h2>
   <div class="card">
     <div><strong>Discovery strategy:</strong> <code>{site.discovery_strategy}</code></div>
-    {site.sitemap_url_used && <div><strong>Sitemap used:</strong> <a href={site.sitemap_url_used}><code>{site.sitemap_url_used}</code></a></div>}
+    {site.sitemap_url_used && (
+      <div>
+        <strong>Source URL:</strong>
+        {" "}
+        <a href={site.sitemap_url_used} target="_blank" rel="noopener"><code>{site.sitemap_url_used}</code></a>
+      </div>
+    )}
   </div>
 </Layout>
+
+<style>
+  .badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .badge.scored {
+    background: var(--iptc-green, #6db33f);
+    color: white;
+  }
+  .badge.tracked {
+    background: var(--iptc-bar-bg, #eaecef);
+    color: var(--iptc-muted, #6b7280);
+  }
+  .bar {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+    width: 100px;
+    height: 6px;
+    background: var(--iptc-bar-bg, #eaecef);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .bar > span {
+    display: block;
+    height: 100%;
+    background: var(--iptc-green, #6db33f);
+  }
+  .four-cs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+  .four-cs-cell {
+    border: 1px solid var(--iptc-bar-bg, #eaecef);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+  }
+  .four-cs-cell h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+  }
+</style>

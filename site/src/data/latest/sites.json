@@ -2,6 +2,7 @@
   {
     "site_id": "taz",
     "site_name": "taz",
+    "url": "http://www.taz.de/",
     "country": "DE",
     "category": "newspaper",
     "status": "ok",
@@ -18,6 +19,7 @@
   {
     "site_id": "s-ddeutsche-zeitung",
     "site_name": "S\u00fcddeutsche Zeitung",
+    "url": "http://www.sueddeutsche.de/",
     "country": "DE",
     "category": "newspaper",
     "status": "ok",
@@ -34,6 +36,7 @@
   {
     "site_id": "ap",
     "site_name": "Associated Press",
+    "url": "https://apnews.com/",
     "country": "US",
     "category": "news-agency",
     "status": "ok",
@@ -50,6 +53,7 @@
   {
     "site_id": "pbs-newshour",
     "site_name": "PBS NewsHour",
+    "url": "https://www.pbs.org/newshour/",
     "country": "US",
     "category": "broadcaster",
     "status": "ok",
@@ -66,6 +70,7 @@
   {
     "site_id": "npr",
     "site_name": "NPR",
+    "url": "https://www.npr.org/",
     "country": "US",
     "category": "broadcaster",
     "status": "ok",
@@ -82,6 +87,7 @@
   {
     "site_id": "le-parisien",
     "site_name": "Le Parisien",
+    "url": "https://www.leparisien.fr/",
     "country": "FR",
     "category": "newspaper",
     "status": "ok",
@@ -98,6 +104,7 @@
   {
     "site_id": "liberation",
     "site_name": "Liberation",
+    "url": "https://www.liberation.fr/",
     "country": "FR",
     "category": "newspaper",
     "status": "ok",
@@ -114,6 +121,7 @@
   {
     "site_id": "the-japan-times",
     "site_name": "The Japan Times",
+    "url": "https://www.japantimes.co.jp/",
     "country": "JP",
     "category": "newspaper",
     "status": "ok",
@@ -130,6 +138,7 @@
   {
     "site_id": "spectator",
     "site_name": "Spectator",
+    "url": "https://spectator.com/",
     "country": "GB",
     "category": "newspaper",
     "status": "ok",
@@ -146,6 +155,7 @@
   {
     "site_id": "spiegel-online-german",
     "site_name": "Spiegel Online (German)",
+    "url": "https://www.spiegel.de",
     "country": "DE",
     "category": "newspaper",
     "status": "ok",
@@ -162,6 +172,7 @@
   {
     "site_id": "aftenposten",
     "site_name": "Aftenposten",
+    "url": "https://www.aftenposten.no/",
     "country": "NO",
     "category": "newspaper",
     "status": "ok",
@@ -179,6 +190,7 @@
   {
     "site_id": "japan-today",
     "site_name": "Japan Today",
+    "url": "https://japantoday.com/",
     "country": "JP",
     "category": "newspaper",
     "status": "ok",
@@ -196,6 +208,7 @@
   {
     "site_id": "financial-times",
     "site_name": "Financial Times",
+    "url": "https://www.ft.com/",
     "country": "GB",
     "category": "newspaper",
     "status": "ok",
@@ -212,6 +225,7 @@
   {
     "site_id": "les-echos",
     "site_name": "Les Echos",
+    "url": "https://www.lesechos.fr/",
     "country": "FR",
     "category": "newspaper",
     "status": "ok",
@@ -228,6 +242,7 @@
   {
     "site_id": "der-standard",
     "site_name": "Der Standard",
+    "url": "https://derstandard.at",
     "country": "AT",
     "category": "broadcaster",
     "status": "ok",
@@ -244,6 +259,7 @@
   {
     "site_id": "focus-online",
     "site_name": "FOCUS Online",
+    "url": "http://www.focus.de/",
     "country": "DE",
     "category": "newspaper",
     "status": "ok",
@@ -260,6 +276,7 @@
   {
     "site_id": "vg",
     "site_name": "VG",
+    "url": "https://www.vg.no/",
     "country": "NO",
     "category": "newspaper",
     "status": "ok",
@@ -277,6 +294,7 @@
   {
     "site_id": "usa-today",
     "site_name": "USA Today",
+    "url": "https://www.usatoday.com/",
     "country": "US",
     "category": "newspaper",
     "status": "ok",
@@ -293,6 +311,7 @@
   {
     "site_id": "svenska-dagbladet",
     "site_name": "Svenska Dagbladet",
+    "url": "https://www.svd.se/",
     "country": "SE",
     "category": "newspaper",
     "status": "ok",
@@ -310,6 +329,7 @@
   {
     "site_id": "aftonbladet",
     "site_name": "Aftonbladet",
+    "url": "https://www.aftonbladet.se/",
     "country": "SE",
     "category": "newspaper",
     "status": "ok",
@@ -327,6 +347,7 @@
   {
     "site_id": "500px-iso",
     "site_name": "500px ISO",
+    "url": "https://iso.500px.com/",
     "country": "CA",
     "category": "newspaper",
     "status": "ok",
@@ -343,6 +364,7 @@
   {
     "site_id": "le-figaro",
     "site_name": "Le Figaro",
+    "url": "http://www.lefigaro.fr/",
     "country": "FR",
     "category": "newspaper",
     "status": "ok",
@@ -359,6 +381,7 @@
   {
     "site_id": "24ur",
     "site_name": "24ur",
+    "url": "https://www.24ur.com/",
     "country": "SI",
     "category": "newspaper",
     "status": "ok",
@@ -375,6 +398,7 @@
   {
     "site_id": "jornal-de-neg-cios",
     "site_name": "Jornal de Neg\u00f3cios",
+    "url": "https://www.jornaldenegocios.pt/",
     "country": "PT",
     "category": "newspaper",
     "status": "ok",
@@ -391,6 +415,7 @@
   {
     "site_id": "the-west-australian",
     "site_name": "The West Australian",
+    "url": "https://thewest.com.au/",
     "country": "AU",
     "category": "newspaper",
     "status": "ok",
@@ -407,6 +432,7 @@
   {
     "site_id": "frankfurter-allgemeine",
     "site_name": "Frankfurter Allgemeine",
+    "url": "http://www.faz.net/",
     "country": "DE",
     "category": "broadcaster",
     "status": "ok",
@@ -423,6 +449,7 @@
   {
     "site_id": "correio-da-manh",
     "site_name": "Correio da Manh\u00e3",
+    "url": "https://www.cmjornal.pt/",
     "country": "PT",
     "category": "newspaper",
     "status": "ok",
@@ -439,6 +466,7 @@
   {
     "site_id": "spiegel-online-international",
     "site_name": "Spiegel Online International",
+    "url": "https://www.spiegel.de",
     "country": "DE",
     "category": "newspaper",
     "status": "ok",
@@ -455,6 +483,7 @@
   {
     "site_id": "kleine-zeitung",
     "site_name": "Kleine Zeitung",
+    "url": "https://www.kleinezeitung.at/",
     "country": "AT",
     "category": "newspaper",
     "status": "ok",
@@ -471,6 +500,7 @@
   {
     "site_id": "blikk",
     "site_name": "Blikk",
+    "url": "http://www.blikk.hu/",
     "country": "HU",
     "category": "newspaper",
     "status": "ok",
@@ -487,6 +517,7 @@
   {
     "site_id": "cyprus-mail",
     "site_name": "Cyprus Mail",
+    "url": "http://cyprus-mail.com/",
     "country": "CY",
     "category": "newspaper",
     "status": "ok",
@@ -503,6 +534,7 @@
   {
     "site_id": "apa",
     "site_name": "Austria Presse Agentur (APA)",
+    "url": "https://science.apa.at/",
     "country": "AT",
     "category": "news-agency",
     "status": "ok",
@@ -519,6 +551,7 @@
   {
     "site_id": "dpa",
     "site_name": "Deutsche Presse-Agentur (dpa)",
+    "url": "https://www.dpa.com/de",
     "country": "DE",
     "category": "news-agency",
     "status": "ok",
@@ -535,6 +568,7 @@
   {
     "site_id": "rappler",
     "site_name": "Rappler",
+    "url": "https://www.rappler.com/",
     "country": "PH",
     "category": "online",
     "status": "ok",
@@ -551,6 +585,7 @@
   {
     "site_id": "observer-com",
     "site_name": "Observer.com",
+    "url": "http://www.observer.com/",
     "country": "US",
     "category": "newspaper",
     "status": "ok",
@@ -567,6 +602,7 @@
   {
     "site_id": "die-presse",
     "site_name": "Die Presse",
+    "url": "http://diepresse.com/",
     "country": "AT",
     "category": "newspaper",
     "status": "ok",
@@ -583,6 +619,7 @@
   {
     "site_id": "ctv-news",
     "site_name": "CTV News",
+    "url": "https://www.ctvnews.ca/",
     "country": "CA",
     "category": "broadcaster",
     "status": "ok",
@@ -599,6 +636,7 @@
   {
     "site_id": "the-week",
     "site_name": "The Week",
+    "url": "https://theweek.com/uk",
     "country": "GB",
     "category": "newspaper",
     "status": "ok",
@@ -615,6 +653,7 @@
   {
     "site_id": "l-internaute",
     "site_name": "L'Internaute",
+    "url": "https://www.linternaute.com/",
     "country": "FR",
     "category": "newspaper",
     "status": "ok",
@@ -631,6 +670,7 @@
   {
     "site_id": "city-am",
     "site_name": "City AM",
+    "url": "http://www.cityam.com/",
     "country": "GB",
     "category": "newspaper",
     "status": "ok",
@@ -648,6 +688,7 @@
   {
     "site_id": "munich-now",
     "site_name": "Munich NOW",
+    "url": "http://munichnow.com/",
     "country": "DE",
     "category": "newspaper",
     "status": "ok",
@@ -664,6 +705,7 @@
   {
     "site_id": "novi-list",
     "site_name": "Novi list",
+    "url": "https://www.novilist.hr/",
     "country": "HR",
     "category": "newspaper",
     "status": "ok",
@@ -680,6 +722,7 @@
   {
     "site_id": "propublica",
     "site_name": "ProPublica",
+    "url": "https://www.propublica.org/",
     "country": "US",
     "category": "online",
     "status": "ok",
@@ -696,6 +739,7 @@
   {
     "site_id": "rtve",
     "site_name": "RTVE",
+    "url": "https://www.rtve.es/noticias/",
     "country": "ES",
     "category": "broadcaster",
     "status": "ok",
@@ -712,6 +756,7 @@
   {
     "site_id": "o-globo",
     "site_name": "O Globo",
+    "url": "https://oglobo.globo.com/",
     "country": "BR",
     "category": "newspaper",
     "status": "ok",
@@ -728,6 +773,7 @@
   {
     "site_id": "il-messaggero",
     "site_name": "Il Messaggero",
+    "url": "https://ilmessaggero.it",
     "country": "IT",
     "category": "newspaper",
     "status": "ok",
@@ -744,6 +790,7 @@
   {
     "site_id": "evening-standard",
     "site_name": "Evening Standard",
+    "url": "https://www.standard.co.uk/",
     "country": "GB",
     "category": "broadcaster",
     "status": "ok",
@@ -760,6 +807,7 @@
   {
     "site_id": "kathimerini-gr",
     "site_name": "\u0397 \u039a\u03b1\u03b8\u03b7\u03bc\u03b5\u03c1\u03b9\u03bd\u03ae",
+    "url": "http://www.kathimerini.gr/rss",
     "country": "GR",
     "category": "newspaper",
     "status": "ok",
@@ -776,6 +824,7 @@
   {
     "site_id": "al-jazeera-english",
     "site_name": "Al Jazeera English",
+    "url": "https://www.aljazeera.com/",
     "country": "QA",
     "category": "broadcaster",
     "status": "ok",
@@ -792,6 +841,7 @@
   {
     "site_id": "the-atlantic",
     "site_name": "The Atlantic",
+    "url": "https://www.theatlantic.com/",
     "country": "US",
     "category": "magazine",
     "status": "ok",
@@ -808,6 +858,7 @@
   {
     "site_id": "the-local",
     "site_name": "The Local",
+    "url": "http://www.thelocal.de/",
     "country": "DE",
     "category": "newspaper",
     "status": "ok",
@@ -824,6 +875,7 @@
   {
     "site_id": "siolnet",
     "site_name": "SiolNET",
+    "url": "https://siol.net/",
     "country": "SI",
     "category": "newspaper",
     "status": "ok",
@@ -840,6 +892,7 @@
   {
     "site_id": "philippine-daily-inquirer",
     "site_name": "Philippine Daily Inquirer",
+    "url": "https://newsinfo.inquirer.net/",
     "country": "PH",
     "category": "newspaper",
     "status": "ok",
@@ -856,6 +909,7 @@
   {
     "site_id": "i",
     "site_name": "i",
+    "url": "https://inews.co.uk/",
     "country": "GB",
     "category": "newspaper",
     "status": "ok",
@@ -872,6 +926,7 @@
   {
     "site_id": "indian-express",
     "site_name": "Indian Express",
+    "url": "https://indianexpress.com/",
     "country": "IN",
     "category": "newspaper",
     "status": "ok",
@@ -888,6 +943,7 @@
   {
     "site_id": "livedoor-news",
     "site_name": "Livedoor News",
+    "url": "http://news.livedoor.com/",
     "country": "JP",
     "category": "newspaper",
     "status": "ok",
@@ -904,6 +960,7 @@
   {
     "site_id": "mail-guardian",
     "site_name": "Mail & Guardian",
+    "url": "https://mg.co.za/",
     "country": "ZA",
     "category": "broadcaster",
     "status": "ok",
@@ -920,6 +977,7 @@
   {
     "site_id": "hespress",
     "site_name": "Hespress",
+    "url": "https://www.hespress.com/",
     "country": "MA",
     "category": "online",
     "status": "ok",
@@ -936,6 +994,7 @@
   {
     "site_id": "g1",
     "site_name": "G1 (Globo)",
+    "url": "https://g1.globo.com/",
     "country": "BR",
     "category": "online",
     "status": "ok",
@@ -952,6 +1011,7 @@
   {
     "site_id": "rzeczpospolita",
     "site_name": "Rzeczpospolita",
+    "url": "https://www.rp.pl/",
     "country": "PL",
     "category": "newspaper",
     "status": "ok",
@@ -968,6 +1028,7 @@
   {
     "site_id": "tanea-gr",
     "site_name": "\u03a4\u03b1 \u039d\u03ad\u03b1",
+    "url": "https://www.tanea.gr/",
     "country": "GR",
     "category": "newspaper",
     "status": "ok",
@@ -984,6 +1045,7 @@
   {
     "site_id": "clarin",
     "site_name": "Clarin",
+    "url": "https://www.clarin.com/",
     "country": "AR",
     "category": "newspaper",
     "status": "ok",
@@ -1001,6 +1063,7 @@
   {
     "site_id": "khaleej-times",
     "site_name": "Khaleej Times",
+    "url": "https://www.khaleejtimes.com/",
     "country": "AE",
     "category": "newspaper",
     "status": "ok",
@@ -1017,6 +1080,7 @@
   {
     "site_id": "heute",
     "site_name": "Heute",
+    "url": "https://www.heute.at/",
     "country": "AT",
     "category": "newspaper",
     "status": "ok",
@@ -1033,6 +1097,7 @@
   {
     "site_id": "the-national",
     "site_name": "The National",
+    "url": "https://www.thenationalnews.com/",
     "country": "AE",
     "category": "newspaper",
     "status": "ok",
@@ -1049,6 +1114,7 @@
   {
     "site_id": "gulf-news",
     "site_name": "Gulf News",
+    "url": "https://gulfnews.com/",
     "country": "AE",
     "category": "newspaper",
     "status": "ok",
@@ -1065,6 +1131,7 @@
   {
     "site_id": "la-naci-n",
     "site_name": "La Naci\u00f3n",
+    "url": "https://www.lanacion.com.ar/",
     "country": "AR",
     "category": "newspaper",
     "status": "ok",
@@ -1081,6 +1148,7 @@
   {
     "site_id": "adelaide-advertiser",
     "site_name": "Adelaide Advertiser",
+    "url": "https://www.adelaidenow.com.au/",
     "country": "AU",
     "category": "newspaper",
     "status": "robots_disallow",
@@ -1095,6 +1163,7 @@
   {
     "site_id": "courier-mail",
     "site_name": "Courier-Mail",
+    "url": "https://www.couriermail.com.au/",
     "country": "AU",
     "category": "newspaper",
     "status": "robots_disallow",
@@ -1109,6 +1178,7 @@
   {
     "site_id": "daily-telegraph",
     "site_name": "Daily Telegraph",
+    "url": "https://www.dailytelegraph.com.au/",
     "country": "AU",
     "category": "newspaper",
     "status": "robots_disallow",
@@ -1123,6 +1193,7 @@
   {
     "site_id": "herald-sun",
     "site_name": "Herald Sun",
+    "url": "https://www.heraldsun.com.au/",
     "country": "AU",
     "category": "newspaper",
     "status": "robots_disallow",
@@ -1137,6 +1208,7 @@
   {
     "site_id": "neue-vorarlberger-tageszeitung-neue",
     "site_name": "Neue Vorarlberger Tageszeitung (NEUE)",
+    "url": "https://www.neue.at/",
     "country": "AT",
     "category": "newspaper",
     "status": "ok",
@@ -1153,6 +1225,7 @@
   {
     "site_id": "the-australian",
     "site_name": "The Australian",
+    "url": "https://www.theaustralian.com.au/",
     "country": "AU",
     "category": "newspaper",
     "status": "robots_disallow",
@@ -1167,6 +1240,7 @@
   {
     "site_id": "orf-nachrichten-news",
     "site_name": "ORF Nachrichten/News",
+    "url": "https://orf.at",
     "country": "AT",
     "category": "newspaper",
     "status": "ok",
@@ -1183,6 +1257,7 @@
   {
     "site_id": "news-com-au",
     "site_name": "news.com.au",
+    "url": "https://www.news.com.au/",
     "country": "AU",
     "category": "online",
     "status": "robots_disallow",
@@ -1197,6 +1272,7 @@
   {
     "site_id": "kurier",
     "site_name": "Kurier",
+    "url": "https://kurier.at/",
     "country": "AT",
     "category": "newspaper",
     "status": "ok",
@@ -1213,6 +1289,7 @@
   {
     "site_id": "abc-news-australia",
     "site_name": "ABC News Australia",
+    "url": "https://www.abc.net.au/news/",
     "country": "AU",
     "category": "broadcaster",
     "status": "ok",
@@ -1229,6 +1306,7 @@
   {
     "site_id": "bdnews24",
     "site_name": "BDNews24",
+    "url": "https://bdnews24.com/",
     "country": "BD",
     "category": "newspaper",
     "status": "no_articles_found",
@@ -1243,6 +1321,7 @@
   {
     "site_id": "kronen-zeitung",
     "site_name": "Kronen Zeitung",
+    "url": "https://www.krone.at/",
     "country": "AT",
     "category": "newspaper",
     "status": "ok",
@@ -1259,6 +1338,7 @@
   {
     "site_id": "sydney-morning-herald",
     "site_name": "Sydney Morning Herald",
+    "url": "https://www.smh.com.au/",
     "country": "AU",
     "category": "newspaper",
     "status": "ok",
@@ -1275,6 +1355,7 @@
   {
     "site_id": "the-daily-star",
     "site_name": "The Daily Star (Bangladesh)",
+    "url": "https://www.thedailystar.net/",
     "country": "BD",
     "category": "newspaper",
     "status": "ok",
@@ -1291,6 +1372,7 @@
   {
     "site_id": "the-age",
     "site_name": "The Age",
+    "url": "https://www.theage.com.au/",
     "country": "AU",
     "category": "newspaper",
     "status": "ok",
@@ -1307,6 +1389,7 @@
   {
     "site_id": "trud-bg",
     "site_name": "\u0414\u043d\u0435\u0432\u0435\u043d \u0422\u0440\u0443\u0434",
+    "url": "https://trud.bg/",
     "country": "BG",
     "category": "newspaper",
     "status": "no_articles_found",
@@ -1321,6 +1404,7 @@
   {
     "site_id": "de-standaard",
     "site_name": "De Standaard",
+    "url": "http://www.standaard.be",
     "country": "BE",
     "category": "broadcaster",
     "status": "ok",
@@ -1335,6 +1419,7 @@
   {
     "site_id": "het-nieuwsblad",
     "site_name": "Het Nieuwsblad",
+    "url": "https://www.nieuwsblad.be/",
     "country": "BE",
     "category": "newspaper",
     "status": "ok",
@@ -1349,6 +1434,7 @@
   {
     "site_id": "the-conversation-au",
     "site_name": "The Conversation (AU)",
+    "url": "https://theconversation.com/au",
     "country": "AU",
     "category": "online",
     "status": "ok",
@@ -1365,6 +1451,7 @@
   {
     "site_id": "le-soir",
     "site_name": "Le Soir",
+    "url": "https://www.lesoir.be/",
     "country": "BE",
     "category": "newspaper",
     "status": "ok",
@@ -1381,6 +1468,7 @@
   {
     "site_id": "rio-times",
     "site_name": "Rio Times",
+    "url": "https://riotimesonline.com/",
     "country": "BR",
     "category": "newspaper",
     "status": "ok",
@@ -1397,6 +1485,7 @@
   {
     "site_id": "24",
     "site_name": "24 \u0447\u0430\u0441\u0430",
+    "url": "https://www.24chasa.bg/",
     "country": "BG",
     "category": "newspaper",
     "status": "ok",
@@ -1413,6 +1502,7 @@
   {
     "site_id": "correio",
     "site_name": "Correio",
+    "url": "https://www.correio24horas.com.br/",
     "country": "BR",
     "category": "newspaper",
     "status": "ok",
@@ -1429,6 +1519,7 @@
   {
     "site_id": "dnevnik-bg",
     "site_name": "\u0414\u043d\u0435\u0432\u043d\u0438\u043a",
+    "url": "https://www.dnevnik.bg/",
     "country": "BG",
     "category": "newspaper",
     "status": "ok",
@@ -1445,6 +1536,7 @@
   {
     "site_id": "infobae",
     "site_name": "Infobae",
+    "url": "https://www.infobae.com/",
     "country": "BR",
     "category": "newspaper",
     "status": "ok",
@@ -1461,6 +1553,7 @@
   {
     "site_id": "folha-de-s-paulo",
     "site_name": "Folha de S.Paulo",
+    "url": "https://www.folha.uol.com.br/",
     "country": "BR",
     "category": "newspaper",
     "status": "ok",
@@ -1477,6 +1570,7 @@
   {
     "site_id": "uol",
     "site_name": "UOL",
+    "url": "https://www.uol.com.br/",
     "country": "BR",
     "category": "online",
     "status": "ok",
@@ -1495,6 +1589,7 @@
   {
     "site_id": "cbc-news",
     "site_name": "CBC News",
+    "url": "https://www.cbc.ca/news",
     "country": "CA",
     "category": "newspaper",
     "status": "ok",
@@ -1511,6 +1606,7 @@
   {
     "site_id": "estadao",
     "site_name": "Estado de S\u00e3o Paulo",
+    "url": "https://www.estadao.com.br/",
     "country": "BR",
     "category": "newspaper",
     "status": "ok",
@@ -1527,6 +1623,7 @@
   {
     "site_id": "radio-canada-fr",
     "site_name": "Radio Canada FR",
+    "url": "https://ici.radio-canada.ca/",
     "country": "CA",
     "category": "newspaper",
     "status": "ok",
@@ -1543,6 +1640,7 @@
   {
     "site_id": "la-presse",
     "site_name": "La Presse",
+    "url": "https://www.lapresse.ca/",
     "country": "CA",
     "category": "online",
     "status": "ok",
@@ -1559,6 +1657,7 @@
   {
     "site_id": "national-post",
     "site_name": "National Post",
+    "url": "https://nationalpost.com/",
     "country": "CA",
     "category": "newspaper",
     "status": "ok",
@@ -1575,6 +1674,7 @@
   {
     "site_id": "toronto-star",
     "site_name": "Toronto Star",
+    "url": "https://www.thestar.com/",
     "country": "CA",
     "category": "newspaper",
     "status": "ok",
@@ -1591,6 +1691,7 @@
   {
     "site_id": "globe-and-mail",
     "site_name": "The Globe and Mail",
+    "url": "https://www.theglobeandmail.com/",
     "country": "CA",
     "category": "newspaper",
     "status": "ok",
@@ -1607,6 +1708,7 @@
   {
     "site_id": "emol",
     "site_name": "Emol",
+    "url": "https://www.emol.com/",
     "country": "CL",
     "category": "online",
     "status": "no_articles_found",
@@ -1621,6 +1723,7 @@
   {
     "site_id": "china-daily-english",
     "site_name": "China Daily (English)",
+    "url": "http://www.chinadaily.com.cn/",
     "country": "CN",
     "category": "newspaper",
     "status": "no_articles_found",
@@ -1635,6 +1738,7 @@
   {
     "site_id": "blick",
     "site_name": "Blick",
+    "url": "https://blick.ch",
     "country": "CH",
     "category": "newspaper",
     "status": "ok",
@@ -1651,6 +1755,7 @@
   {
     "site_id": "neue-z-rcher-zeitung",
     "site_name": "Neue Z\u00fcrcher Zeitung",
+    "url": "https://www.nzz.ch",
     "country": "CH",
     "category": "newspaper",
     "status": "ok",
@@ -1667,6 +1772,7 @@
   {
     "site_id": "la-tercera",
     "site_name": "La Tercera",
+    "url": "https://www.latercera.com/",
     "country": "CL",
     "category": "newspaper",
     "status": "ok",
@@ -1683,6 +1789,7 @@
   {
     "site_id": "xinhua",
     "site_name": "Xinhua News Agency (English)",
+    "url": "https://english.news.cn/",
     "country": "CN",
     "category": "news-agency",
     "status": "no_articles_found",
@@ -1697,6 +1804,7 @@
   {
     "site_id": "biobiochile",
     "site_name": "BioBioChile",
+    "url": "https://www.biobiochile.cl/",
     "country": "CL",
     "category": "online",
     "status": "ok",
@@ -1713,6 +1821,7 @@
   {
     "site_id": "people-s-daily-english",
     "site_name": "People's Daily (English)",
+    "url": "http://en.people.cn/",
     "country": "CN",
     "category": "newspaper",
     "status": "ok",
@@ -1729,6 +1838,7 @@
   {
     "site_id": "el-tiempo",
     "site_name": "El Tiempo",
+    "url": "https://www.eltiempo.com/",
     "country": "CO",
     "category": "newspaper",
     "status": "ok",
@@ -1745,6 +1855,7 @@
   {
     "site_id": "keystone-sda",
     "site_name": "Keystone-SDA",
+    "url": "https://www.keystone-sda.ch/",
     "country": "CH",
     "category": "news-agency",
     "status": "ok",
@@ -1761,6 +1872,7 @@
   {
     "site_id": "semana",
     "site_name": "Semana",
+    "url": "https://www.semana.com/",
     "country": "CO",
     "category": "magazine",
     "status": "ok",
@@ -1777,6 +1889,7 @@
   {
     "site_id": "visual-china-group",
     "site_name": "Visual China Group",
+    "url": "https://www.vcg.com/",
     "country": "CN",
     "category": "news-agency",
     "status": "ok",
@@ -1791,6 +1904,7 @@
   {
     "site_id": "politis",
     "site_name": "Politis",
+    "url": "https://politis.com.cy/",
     "country": "CY",
     "category": "newspaper",
     "status": "ok",
@@ -1807,6 +1921,7 @@
   {
     "site_id": "phileleftheros",
     "site_name": "Phileleftheros",
+    "url": "http://www.philenews.com/",
     "country": "CY",
     "category": "newspaper",
     "status": "ok",
@@ -1823,6 +1938,7 @@
   {
     "site_id": "aha",
     "site_name": "Aha!",
+    "url": "https://www.ahaonline.cz/",
     "country": "CZ",
     "category": "newspaper",
     "status": "ok",
@@ -1839,6 +1955,7 @@
   {
     "site_id": "blesk-cz",
     "site_name": "Blesk.cz",
+    "url": "https://www.blesk.cz/",
     "country": "CZ",
     "category": "newspaper",
     "status": "ok",
@@ -1855,6 +1972,7 @@
   {
     "site_id": "hospod-sk-noviny",
     "site_name": "Hospod\u00e1\u0159sk\u00e9 noviny",
+    "url": "https://hn.cz/",
     "country": "CZ",
     "category": "newspaper",
     "status": "ok",
@@ -1871,6 +1989,7 @@
   {
     "site_id": "bild",
     "site_name": "Bild",
+    "url": "https://www.bild.de/",
     "country": "DE",
     "category": "newspaper",
     "status": "ok",
@@ -1887,6 +2006,7 @@
   {
     "site_id": "prague-daily-monitor",
     "site_name": "Prague Daily Monitor",
+    "url": "http://praguemonitor.com/",
     "country": "CZ",
     "category": "newspaper",
     "status": "ok",
@@ -1903,6 +2023,7 @@
   {
     "site_id": "mlad-fronta-dnes-mf-dnes",
     "site_name": "Mlad\u00e1 fronta DNES (MF DNES)",
+    "url": "https://www.idnes.cz",
     "country": "CZ",
     "category": "newspaper",
     "status": "ok",
@@ -1919,6 +2040,7 @@
   {
     "site_id": "lidov-noviny",
     "site_name": "Lidov\u00e9 noviny",
+    "url": "https://www.lidovky.cz/",
     "country": "CZ",
     "category": "newspaper",
     "status": "ok",
@@ -1935,6 +2057,7 @@
   {
     "site_id": "deutsche-welle",
     "site_name": "Deutsche Welle",
+    "url": "https://www.dw.com/",
     "country": "DE",
     "category": "newspaper",
     "status": "ok",
@@ -1951,6 +2074,7 @@
   {
     "site_id": "die-welt",
     "site_name": "Die Welt",
+    "url": "http://www.welt.de/",
     "country": "DE",
     "category": "newspaper",
     "status": "ok",
@@ -1967,6 +2091,7 @@
   {
     "site_id": "die-zeit",
     "site_name": "Die Zeit",
+    "url": "https://www.zeit.de",
     "country": "DE",
     "category": "newspaper",
     "status": "ok",
@@ -1983,6 +2108,7 @@
   {
     "site_id": "south-china-morning-post-english",
     "site_name": "South China Morning Post (English)",
+    "url": "https://www.scmp.com/",
     "country": "CN",
     "category": "newspaper",
     "status": "ok",
@@ -1999,6 +2125,7 @@
   {
     "site_id": "frankfurter-rundschau",
     "site_name": "Frankfurter Rundschau",
+    "url": "http://www.fr.de/",
     "country": "DE",
     "category": "broadcaster",
     "status": "ok",
@@ -2015,6 +2142,7 @@
   {
     "site_id": "stern-de",
     "site_name": "stern.de",
+    "url": "http://www.stern.de/",
     "country": "DE",
     "category": "newspaper",
     "status": "ok",
@@ -2031,6 +2159,7 @@
   {
     "site_id": "tagesschau-de",
     "site_name": "tagesschau.de",
+    "url": "https://www.tagesschau.de",
     "country": "DE",
     "category": "newspaper",
     "status": "ok",
@@ -2047,6 +2176,7 @@
   {
     "site_id": "n-tv",
     "site_name": "n-tv",
+    "url": "https://www.n-tv.de/",
     "country": "DE",
     "category": "broadcaster",
     "status": "ok",
@@ -2063,6 +2193,7 @@
   {
     "site_id": "zdf-heute",
     "site_name": "ZDF Heute",
+    "url": "https://www.zdfheute.de/",
     "country": "DE",
     "category": "broadcaster",
     "status": "ok",
@@ -2079,6 +2210,7 @@
   {
     "site_id": "berlingske",
     "site_name": "Berlingske",
+    "url": "https://www.berlingske.dk/",
     "country": "DK",
     "category": "newspaper",
     "status": "ok",
@@ -2095,6 +2227,7 @@
   {
     "site_id": "rtl-news",
     "site_name": "RTL News",
+    "url": "https://www.rtl.de/cms/news.html",
     "country": "DE",
     "category": "broadcaster",
     "status": "ok",
@@ -2111,6 +2244,7 @@
   {
     "site_id": "bt",
     "site_name": "BT",
+    "url": "https://www.bt.dk/",
     "country": "DK",
     "category": "newspaper",
     "status": "ok",
@@ -2127,6 +2261,7 @@
   {
     "site_id": "heise-online",
     "site_name": "Heise Online",
+    "url": "https://www.heise.de/",
     "country": "DE",
     "category": "online",
     "status": "ok",
@@ -2143,6 +2278,7 @@
   {
     "site_id": "ekstra-bladet",
     "site_name": "Ekstra Bladet",
+    "url": "https://ekstrabladet.dk/",
     "country": "DK",
     "category": "newspaper",
     "status": "ok",
@@ -2159,6 +2295,7 @@
   {
     "site_id": "wdr",
     "site_name": "Westdeutscher Rundfunk (WDR)",
+    "url": "https://www1.wdr.de/nachrichten/",
     "country": "DE",
     "category": "broadcaster",
     "status": "ok",
@@ -2175,6 +2312,7 @@
   {
     "site_id": "politiken",
     "site_name": "Politiken",
+    "url": "http://politiken.dk",
     "country": "DK",
     "category": "newspaper",
     "status": "ok",
@@ -2191,6 +2329,7 @@
   {
     "site_id": "htuleht",
     "site_name": "\u00d5htuleht",
+    "url": "https://www.ohtuleht.ee/",
     "country": "EE",
     "category": "newspaper",
     "status": "ok",
@@ -2207,6 +2346,7 @@
   {
     "site_id": "delfi",
     "site_name": "Delfi",
+    "url": "https://www.delfi.ee/",
     "country": "EE",
     "category": "newspaper",
     "status": "ok",
@@ -2223,6 +2363,7 @@
   {
     "site_id": "err",
     "site_name": "ERR",
+    "url": "https://www.err.ee/",
     "country": "EE",
     "category": "newspaper",
     "status": "ok",
@@ -2239,6 +2380,7 @@
   {
     "site_id": "al-masry-al-yyoum",
     "site_name": "Al Masry al Yyoum",
+    "url": "https://www.almasryalyoum.com/",
     "country": "EG",
     "category": "newspaper",
     "status": "ok",
@@ -2256,6 +2398,7 @@
   {
     "site_id": "rip-ev",
     "site_name": "\u00c4rip\u00e4ev",
+    "url": "https://www.aripaev.ee/",
     "country": "EE",
     "category": "newspaper",
     "status": "ok",
@@ -2272,6 +2415,7 @@
   {
     "site_id": "el-balad",
     "site_name": "El Balad",
+    "url": "https://www.elbalad.news/",
     "country": "EG",
     "category": "newspaper",
     "status": "ok",
@@ -2288,6 +2432,7 @@
   {
     "site_id": "abc",
     "site_name": "ABC",
+    "url": "https://www.abc.es/",
     "country": "ES",
     "category": "newspaper",
     "status": "ok",
@@ -2304,6 +2449,7 @@
   {
     "site_id": "el-pais",
     "site_name": "El Pais",
+    "url": "https://elpais.com/",
     "country": "ES",
     "category": "newspaper",
     "status": "ok",
@@ -2320,6 +2466,7 @@
   {
     "site_id": "el-correo",
     "site_name": "El Correo",
+    "url": "https://www.elcorreo.com/",
     "country": "ES",
     "category": "newspaper",
     "status": "ok",
@@ -2336,6 +2483,7 @@
   {
     "site_id": "el-mundo",
     "site_name": "El Mundo",
+    "url": "https://www.elmundo.es/",
     "country": "ES",
     "category": "newspaper",
     "status": "ok",
@@ -2352,6 +2500,7 @@
   {
     "site_id": "efe",
     "site_name": "Agencia EFE",
+    "url": "https://efe.com/",
     "country": "ES",
     "category": "news-agency",
     "status": "no_articles_found",
@@ -2366,6 +2515,7 @@
   {
     "site_id": "see-news-english",
     "site_name": "See News (English)",
+    "url": "https://see.news/",
     "country": "EG",
     "category": "newspaper",
     "status": "ok",
@@ -2382,6 +2532,7 @@
   {
     "site_id": "la-raz-n",
     "site_name": "La Raz\u00f3n",
+    "url": "https://www.larazon.es/",
     "country": "ES",
     "category": "newspaper",
     "status": "ok",
@@ -2398,6 +2549,7 @@
   {
     "site_id": "abc-es",
     "site_name": "ABC.es",
+    "url": "https://www.abc.es/",
     "country": "ES",
     "category": "newspaper",
     "status": "ok",
@@ -2414,6 +2566,7 @@
   {
     "site_id": "helsingin-sanomat",
     "site_name": "Helsingin Sanomat",
+    "url": "https://www.hs.fi/",
     "country": "FI",
     "category": "newspaper",
     "status": "ok",
@@ -2430,6 +2583,7 @@
   {
     "site_id": "ilta-sanomat",
     "site_name": "Ilta-Sanomat",
+    "url": "https://www.is.fi/",
     "country": "FI",
     "category": "newspaper",
     "status": "ok",
@@ -2446,6 +2600,7 @@
   {
     "site_id": "iltalehti",
     "site_name": "Iltalehti",
+    "url": "https://www.iltalehti.fi/",
     "country": "FI",
     "category": "newspaper",
     "status": "ok",
@@ -2462,6 +2617,7 @@
   {
     "site_id": "la-vanguardia",
     "site_name": "La Vanguardia",
+    "url": "https://www.lavanguardia.com/",
     "country": "ES",
     "category": "broadcaster",
     "status": "ok",
@@ -2478,6 +2634,7 @@
   {
     "site_id": "yle",
     "site_name": "Yle (Finnish Broadcasting Company)",
+    "url": "https://yle.fi/",
     "country": "FI",
     "category": "broadcaster",
     "status": "ok",
@@ -2494,6 +2651,7 @@
   {
     "site_id": "la-vanguardia-es",
     "site_name": "La Vanguardia",
+    "url": "https://www.lavanguardia.com/",
     "country": "ES",
     "category": "newspaper",
     "status": "ok",
@@ -2510,6 +2668,7 @@
   {
     "site_id": "euronews",
     "site_name": "Euronews",
+    "url": "http://www.euronews.com/",
     "country": "FR",
     "category": "newspaper",
     "status": "ok",
@@ -2526,6 +2685,7 @@
   {
     "site_id": "le-monde",
     "site_name": "Le Monde",
+    "url": "https://www.lemonde.fr/",
     "country": "FR",
     "category": "newspaper",
     "status": "ok",
@@ -2540,6 +2700,7 @@
   {
     "site_id": "france24",
     "site_name": "France24",
+    "url": "https://www.france24.com/fr/",
     "country": "FR",
     "category": "newspaper",
     "status": "ok",
@@ -2556,6 +2717,7 @@
   {
     "site_id": "20minutes",
     "site_name": "20minutes",
+    "url": "https://www.20minutes.fr/",
     "country": "FR",
     "category": "newspaper",
     "status": "ok",
@@ -2572,6 +2734,7 @@
   {
     "site_id": "ouest-france",
     "site_name": "Ouest-France",
+    "url": "https://www.ouest-france.fr/",
     "country": "FR",
     "category": "newspaper",
     "status": "robots_disallow",
@@ -2586,6 +2749,7 @@
   {
     "site_id": "le-point",
     "site_name": "Le Point",
+    "url": "https://www.lepoint.fr/",
     "country": "FR",
     "category": "magazine",
     "status": "robots_disallow",
@@ -2600,6 +2764,7 @@
   {
     "site_id": "postimees",
     "site_name": "Postimees",
+    "url": "https://www.postimees.ee/",
     "country": "EE",
     "category": "newspaper",
     "status": "ok",
@@ -2616,6 +2781,7 @@
   {
     "site_id": "afp-english",
     "site_name": "Agence France-Presse (English)",
+    "url": "https://www.afp.com/en",
     "country": "FR",
     "category": "news-agency",
     "status": "ok",
@@ -2633,6 +2799,7 @@
   {
     "site_id": "l-express",
     "site_name": "L'Express",
+    "url": "https://www.lexpress.fr/",
     "country": "FR",
     "category": "magazine",
     "status": "ok",
@@ -2649,6 +2816,7 @@
   {
     "site_id": "bbc-news",
     "site_name": "BBC News",
+    "url": "https://www.bbc.com",
     "country": "GB",
     "category": "broadcaster",
     "status": "ok",
@@ -2665,6 +2833,7 @@
   {
     "site_id": "france-televisions",
     "site_name": "France T\u00e9l\u00e9visions (franceinfo)",
+    "url": "https://www.francetvinfo.fr/",
     "country": "FR",
     "category": "broadcaster",
     "status": "ok",
@@ -2681,6 +2850,7 @@
   {
     "site_id": "daily-express",
     "site_name": "Daily Express",
+    "url": "https://www.express.co.uk/",
     "country": "GB",
     "category": "newspaper",
     "status": "ok",
@@ -2697,6 +2867,7 @@
   {
     "site_id": "iptc",
     "site_name": "IPTC",
+    "url": "https://iptc.org/",
     "country": "GB",
     "category": "other",
     "status": "ok",
@@ -2713,6 +2884,7 @@
   {
     "site_id": "new-statesman",
     "site_name": "New Statesman",
+    "url": "https://www.newstatesman.com/",
     "country": "GB",
     "category": "newspaper",
     "status": "no_articles_found",
@@ -2727,6 +2899,7 @@
   {
     "site_id": "reuters",
     "site_name": "Reuters Top News",
+    "url": "https://www.reuters.com/",
     "country": "GB",
     "category": "news-agency",
     "status": "robots_disallow",
@@ -2741,6 +2914,7 @@
   {
     "site_id": "channel-4-news",
     "site_name": "Channel 4 News",
+    "url": "https://www.channel4.com/news/",
     "country": "GB",
     "category": "newspaper",
     "status": "ok",
@@ -2757,6 +2931,7 @@
   {
     "site_id": "huffington-post-uk",
     "site_name": "Huffington Post UK",
+    "url": "https://www.huffingtonpost.co.uk/",
     "country": "GB",
     "category": "newspaper",
     "status": "ok",
@@ -2773,6 +2948,7 @@
   {
     "site_id": "daily-mail-mail-on-sunday",
     "site_name": "Daily Mail / Mail on Sunday",
+    "url": "http://www.dailymail.co.uk/",
     "country": "GB",
     "category": "newspaper",
     "status": "ok",
@@ -2789,6 +2965,7 @@
   {
     "site_id": "the-sun",
     "site_name": "The Sun",
+    "url": "https://www.thesun.co.uk/",
     "country": "GB",
     "category": "newspaper",
     "status": "robots_disallow",
@@ -2803,6 +2980,7 @@
   {
     "site_id": "the-economist",
     "site_name": "The Economist",
+    "url": "https://www.economist.com/",
     "country": "GB",
     "category": "newspaper",
     "status": "ok",
@@ -2817,6 +2995,7 @@
   {
     "site_id": "the-scotsman",
     "site_name": "The Scotsman",
+    "url": "https://www.scotsman.com/",
     "country": "GB",
     "category": "newspaper",
     "status": "ok",
@@ -2831,6 +3010,7 @@
   {
     "site_id": "metro",
     "site_name": "Metro",
+    "url": "https://metro.co.uk/",
     "country": "GB",
     "category": "newspaper",
     "status": "ok",
@@ -2847,6 +3027,7 @@
   {
     "site_id": "the-times",
     "site_name": "The Times",
+    "url": "https://www.thetimes.com/",
     "country": "GB",
     "category": "newspaper",
     "status": "robots_disallow",
@@ -2861,6 +3042,7 @@
   {
     "site_id": "sky-news",
     "site_name": "Sky News",
+    "url": "https://news.sky.com/",
     "country": "GB",
     "category": "broadcaster",
     "status": "ok",
@@ -2875,6 +3057,7 @@
   {
     "site_id": "pa-media",
     "site_name": "PA Media",
+    "url": "https://pamediagroup.com/",
     "country": "GB",
     "category": "news-agency",
     "status": "ok",
@@ -2891,6 +3074,7 @@
   {
     "site_id": "daily-graphic",
     "site_name": "Daily Graphic",
+    "url": "https://www.graphic.com.gh/",
     "country": "GH",
     "category": "newspaper",
     "status": "no_articles_found",
@@ -2905,6 +3089,7 @@
   {
     "site_id": "the-independent",
     "site_name": "The Independent",
+    "url": "http://www.independent.co.uk/",
     "country": "GB",
     "category": "newspaper",
     "status": "ok",
@@ -2921,6 +3106,7 @@
   {
     "site_id": "the-guardian",
     "site_name": "The Guardian",
+    "url": "https://www.theguardian.com/",
     "country": "GB",
     "category": "broadcaster",
     "status": "ok",
@@ -2937,6 +3123,7 @@
   {
     "site_id": "avgi-gr",
     "site_name": "\u0397 \u0391\u03c5\u03b3\u03ae",
+    "url": "http://www.avgi.gr/",
     "country": "GR",
     "category": "newspaper",
     "status": "ok",
@@ -2951,6 +3138,7 @@
   {
     "site_id": "itv-news",
     "site_name": "ITV News",
+    "url": "https://www.itv.com/news/",
     "country": "GB",
     "category": "broadcaster",
     "status": "ok",
@@ -2967,6 +3155,7 @@
   {
     "site_id": "the-telegraph",
     "site_name": "The Telegraph",
+    "url": "https://www.telegraph.co.uk/",
     "country": "GB",
     "category": "newspaper",
     "status": "ok",
@@ -2983,6 +3172,7 @@
   {
     "site_id": "myjoyonline",
     "site_name": "MyJoyOnline",
+    "url": "https://www.myjoyonline.com/",
     "country": "GH",
     "category": "online",
     "status": "ok",
@@ -2999,6 +3189,7 @@
   {
     "site_id": "n-pszava",
     "site_name": "N\u00e9pszava",
+    "url": "https://nepszava.hu/",
     "country": "HU",
     "category": "newspaper",
     "status": "no_articles_found",
@@ -3013,6 +3204,7 @@
   {
     "site_id": "index",
     "site_name": "Index",
+    "url": "https://www.index.hr/",
     "country": "HR",
     "category": "newspaper",
     "status": "ok",
@@ -3029,6 +3221,7 @@
   {
     "site_id": "24sata",
     "site_name": "24sata",
+    "url": "https://www.24sata.hr/",
     "country": "HR",
     "category": "newspaper",
     "status": "ok",
@@ -3045,6 +3238,7 @@
   {
     "site_id": "irish-sun",
     "site_name": "Irish Sun",
+    "url": "https://www.irishsun.com/",
     "country": "IE",
     "category": "newspaper",
     "status": "no_articles_found",
@@ -3059,6 +3253,7 @@
   {
     "site_id": "jutarnji-list",
     "site_name": "Jutarnji list",
+    "url": "https://www.jutarnji.hr/",
     "country": "HR",
     "category": "newspaper",
     "status": "ok",
@@ -3075,6 +3270,7 @@
   {
     "site_id": "independent",
     "site_name": "Independent",
+    "url": "https://www.independent.ie/",
     "country": "IE",
     "category": "newspaper",
     "status": "ok",
@@ -3091,6 +3287,7 @@
   {
     "site_id": "times-of-israel",
     "site_name": "The Times of Israel",
+    "url": "https://www.timesofisrael.com/",
     "country": "IL",
     "category": "newspaper",
     "status": "ok",
@@ -3107,6 +3304,7 @@
   {
     "site_id": "magyar-nemzet",
     "site_name": "Magyar Nemzet",
+    "url": "https://magyarnemzet.hu/",
     "country": "HU",
     "category": "newspaper",
     "status": "ok",
@@ -3123,6 +3321,7 @@
   {
     "site_id": "haaretz",
     "site_name": "Haaretz",
+    "url": "https://www.haaretz.com/",
     "country": "IL",
     "category": "newspaper",
     "status": "ok",
@@ -3139,6 +3338,7 @@
   {
     "site_id": "jerusalem-post",
     "site_name": "The Jerusalem Post",
+    "url": "https://www.jpost.com/",
     "country": "IL",
     "category": "newspaper",
     "status": "ok",
@@ -3155,6 +3355,7 @@
   {
     "site_id": "irish-times",
     "site_name": "Irish Times",
+    "url": "https://www.irishtimes.com/",
     "country": "IE",
     "category": "newspaper",
     "status": "ok",
@@ -3171,6 +3372,7 @@
   {
     "site_id": "antara-news",
     "site_name": "Antara News",
+    "url": "https://www.antaranews.com/",
     "country": "ID",
     "category": "newspaper",
     "status": "ok",
@@ -3188,6 +3390,7 @@
   {
     "site_id": "amar-ujala",
     "site_name": "Amar Ujala",
+    "url": "https://www.amarujala.com/",
     "country": "IN",
     "category": "newspaper",
     "status": "ok",
@@ -3204,6 +3407,7 @@
   {
     "site_id": "dainik-jagran",
     "site_name": "Dainik Jagran",
+    "url": "https://www.jagran.com/",
     "country": "IN",
     "category": "newspaper",
     "status": "ok",
@@ -3220,6 +3424,7 @@
   {
     "site_id": "hindustan-times",
     "site_name": "Hindustan Times",
+    "url": "https://www.hindustantimes.com/",
     "country": "IN",
     "category": "newspaper",
     "status": "ok",
@@ -3236,6 +3441,7 @@
   {
     "site_id": "the-daily-mirror-sunday-mirror",
     "site_name": "The Daily Mirror / Sunday Mirror",
+    "url": "https://www.mirror.co.uk/",
     "country": "GB",
     "category": "newspaper",
     "status": "ok",
@@ -3252,6 +3458,7 @@
   {
     "site_id": "the-print",
     "site_name": "ThePrint",
+    "url": "https://theprint.in/",
     "country": "IN",
     "category": "online",
     "status": "no_articles_found",
@@ -3266,6 +3473,7 @@
   {
     "site_id": "the-wire-india",
     "site_name": "The Wire",
+    "url": "https://thewire.in/",
     "country": "IN",
     "category": "online",
     "status": "no_articles_found",
@@ -3280,6 +3488,7 @@
   {
     "site_id": "ndtv",
     "site_name": "NDTV",
+    "url": "https://www.ndtv.com/top-stories",
     "country": "IN",
     "category": "newspaper",
     "status": "ok",
@@ -3296,6 +3505,7 @@
   {
     "site_id": "the-hindu",
     "site_name": "The Hindu",
+    "url": "https://www.thehindu.com/",
     "country": "IN",
     "category": "newspaper",
     "status": "ok",
@@ -3312,6 +3522,7 @@
   {
     "site_id": "news18",
     "site_name": "News18",
+    "url": "https://www.news18.com/",
     "country": "IN",
     "category": "newspaper",
     "status": "ok",
@@ -3328,6 +3539,7 @@
   {
     "site_id": "corriere-della-sera",
     "site_name": "Corriere della Sera",
+    "url": "http://corriere.it/",
     "country": "IT",
     "category": "newspaper",
     "status": "ok",
@@ -3344,6 +3556,7 @@
   {
     "site_id": "times-of-india",
     "site_name": "Times of India",
+    "url": "https://timesofindia.indiatimes.com/",
     "country": "IN",
     "category": "newspaper",
     "status": "ok",
@@ -3360,6 +3573,7 @@
   {
     "site_id": "dainik-bhaskar",
     "site_name": "Dainik Bhaskar",
+    "url": "https://www.bhaskar.com/",
     "country": "IN",
     "category": "newspaper",
     "status": "ok",
@@ -3376,6 +3590,7 @@
   {
     "site_id": "scroll-in",
     "site_name": "Scroll.in",
+    "url": "https://scroll.in/",
     "country": "IN",
     "category": "online",
     "status": "ok",
@@ -3392,6 +3607,7 @@
   {
     "site_id": "rai-news",
     "site_name": "RAI News",
+    "url": "http://www.rainews.it/",
     "country": "IT",
     "category": "broadcaster",
     "status": "ok",
@@ -3406,6 +3622,7 @@
   {
     "site_id": "la-repubblica",
     "site_name": "La Repubblica",
+    "url": "http://www.repubblica.it",
     "country": "IT",
     "category": "newspaper",
     "status": "ok",
@@ -3422,6 +3639,7 @@
   {
     "site_id": "ansa",
     "site_name": "ANSA",
+    "url": "https://ansa.it",
     "country": "IT",
     "category": "news-agency",
     "status": "ok",
@@ -3438,6 +3656,7 @@
   {
     "site_id": "la-stampa",
     "site_name": "La Stampa",
+    "url": "https://lastampa.it",
     "country": "IT",
     "category": "newspaper",
     "status": "ok",
@@ -3454,6 +3673,7 @@
   {
     "site_id": "la-stampa-it",
     "site_name": "La Stampa",
+    "url": "https://www.lastampa.it/",
     "country": "IT",
     "category": "newspaper",
     "status": "ok",
@@ -3470,6 +3690,7 @@
   {
     "site_id": "asahi-shimbun",
     "site_name": "Asahi Shimbun (\u671d\u65e5\u65b0\u805e)",
+    "url": "https://www.asahi.com/",
     "country": "JP",
     "category": "newspaper",
     "status": "ok",
@@ -3487,6 +3708,7 @@
   {
     "site_id": "japan-industry-news",
     "site_name": "Japan Industry News",
+    "url": "https://www.japanindustrynews.com/",
     "country": "JP",
     "category": "newspaper",
     "status": "ok",
@@ -3503,6 +3725,7 @@
   {
     "site_id": "nhk-news-web",
     "site_name": "NHK News Web",
+    "url": "https://www.nhk.or.jp/",
     "country": "JP",
     "category": "newspaper",
     "status": "ok",
@@ -3519,6 +3742,7 @@
   {
     "site_id": "iza",
     "site_name": "Iza",
+    "url": "https://www.iza.ne.jp/",
     "country": "JP",
     "category": "newspaper",
     "status": "ok",
@@ -3535,6 +3759,7 @@
   {
     "site_id": "news-on-japan",
     "site_name": "News On Japan",
+    "url": "http://www.newsonjapan.com/",
     "country": "JP",
     "category": "newspaper",
     "status": "ok",
@@ -3551,6 +3776,7 @@
   {
     "site_id": "the-tokyo-reporter",
     "site_name": "The Tokyo Reporter",
+    "url": "http://www.tokyoreporter.com/",
     "country": "JP",
     "category": "broadcaster",
     "status": "no_articles_found",
@@ -3565,6 +3791,7 @@
   {
     "site_id": "mainichi-shimbun",
     "site_name": "Mainichi Shimbun (\u6bce\u65e5\u65b0\u805e)",
+    "url": "https://mainichi.jp/",
     "country": "JP",
     "category": "newspaper",
     "status": "ok",
@@ -3581,6 +3808,7 @@
   {
     "site_id": "nikkei-shimbun",
     "site_name": "Nikkei Shimbun (\u65e5\u672c\u7d4c\u6e08\u65b0\u805e)",
+    "url": "https://www.nikkei.com/",
     "country": "JP",
     "category": "newspaper",
     "status": "ok",
@@ -3597,6 +3825,7 @@
   {
     "site_id": "nhk-world-english",
     "site_name": "NHK World English",
+    "url": "https://www3.nhk.or.jp/nhkworld/",
     "country": "JP",
     "category": "broadcaster",
     "status": "no_articles_found",
@@ -3611,6 +3840,7 @@
   {
     "site_id": "kyodo-news-english",
     "site_name": "Kyodo News (English)",
+    "url": "https://english.kyodonews.net/",
     "country": "JP",
     "category": "news-agency",
     "status": "ok",
@@ -3627,6 +3857,7 @@
   {
     "site_id": "rocketnews24",
     "site_name": "RocketNews24",
+    "url": "https://rocketnews24.com/",
     "country": "JP",
     "category": "newspaper",
     "status": "ok",
@@ -3643,6 +3874,7 @@
   {
     "site_id": "sankei-shimbun",
     "site_name": "Sankei Shimbun (\u7523\u7d4c\u65b0\u805e)",
+    "url": "https://www.sankei.com/",
     "country": "JP",
     "category": "newspaper",
     "status": "ok",
@@ -3659,6 +3891,7 @@
   {
     "site_id": "jiji-press",
     "site_name": "Jiji Press",
+    "url": "https://www.jiji.com/",
     "country": "JP",
     "category": "news-agency",
     "status": "ok",
@@ -3675,6 +3908,7 @@
   {
     "site_id": "joongang-ilbo",
     "site_name": "JoongAng Ilbo",
+    "url": "https://www.joins.com/",
     "country": "KR",
     "category": "newspaper",
     "status": "no_articles_found",
@@ -3689,6 +3923,7 @@
   {
     "site_id": "kyodo-news-japanese",
     "site_name": "Kyodo News (\u65e5\u672c\u8a9e)",
+    "url": "https://www.kyodo.co.jp/",
     "country": "JP",
     "category": "news-agency",
     "status": "ok",
@@ -3706,6 +3941,7 @@
   {
     "site_id": "yomiuri-shimbun",
     "site_name": "Yomiuri Shimbun (\u8aad\u58f2\u65b0\u805e)",
+    "url": "https://www.yomiuri.co.jp/",
     "country": "JP",
     "category": "newspaper",
     "status": "ok",
@@ -3722,6 +3958,7 @@
   {
     "site_id": "zakzak",
     "site_name": "zakzak",
+    "url": "http://www.zakzak.co.jp/",
     "country": "JP",
     "category": "newspaper",
     "status": "ok",
@@ -3738,6 +3975,7 @@
   {
     "site_id": "chosun-ilbo",
     "site_name": "Chosun Ilbo",
+    "url": "https://www.chosun.com/",
     "country": "KR",
     "category": "newspaper",
     "status": "ok",
@@ -3754,6 +3992,7 @@
   {
     "site_id": "the-standard",
     "site_name": "The Standard",
+    "url": "https://www.standardmedia.co.ke/",
     "country": "KE",
     "category": "broadcaster",
     "status": "ok",
@@ -3770,6 +4009,7 @@
   {
     "site_id": "yahoo-news-japan",
     "site_name": "Yahoo! News Japan",
+    "url": "https://news.yahoo.co.jp/",
     "country": "JP",
     "category": "newspaper",
     "status": "ok",
@@ -3786,6 +4026,7 @@
   {
     "site_id": "korea-times",
     "site_name": "The Korea Times",
+    "url": "https://www.koreatimes.co.kr/",
     "country": "KR",
     "category": "newspaper",
     "status": "ok",
@@ -3802,6 +4043,7 @@
   {
     "site_id": "luxemburger-wort",
     "site_name": "Luxemburger Wort",
+    "url": "https://www.wort.lu/de",
     "country": "LU",
     "category": "newspaper",
     "status": "ok",
@@ -3816,6 +4058,7 @@
   {
     "site_id": "15min",
     "site_name": "15min",
+    "url": "https://www.15min.lt/",
     "country": "LT",
     "category": "newspaper",
     "status": "ok",
@@ -3832,6 +4075,7 @@
   {
     "site_id": "verslo-inios",
     "site_name": "Verslo \u017einios",
+    "url": "https://www.vz.lt/",
     "country": "LT",
     "category": "newspaper",
     "status": "ok",
@@ -3848,6 +4092,7 @@
   {
     "site_id": "lietuvos-rytas",
     "site_name": "Lietuvos rytas",
+    "url": "https://www.lrytas.lt/",
     "country": "LT",
     "category": "newspaper",
     "status": "ok",
@@ -3864,6 +4109,7 @@
   {
     "site_id": "yonhap",
     "site_name": "Yonhap News Agency",
+    "url": "https://en.yna.co.kr/",
     "country": "KR",
     "category": "news-agency",
     "status": "ok",
@@ -3880,6 +4126,7 @@
   {
     "site_id": "malta-today",
     "site_name": "Malta Today",
+    "url": "https://www.maltatoday.com.mt/",
     "country": "MT",
     "category": "newspaper",
     "status": "no_articles_found",
@@ -3894,6 +4141,7 @@
   {
     "site_id": "the-malta-independent",
     "site_name": "The Malta Independent",
+    "url": "http://www.independent.com.mt/",
     "country": "MT",
     "category": "newspaper",
     "status": "no_articles_found",
@@ -3908,6 +4156,7 @@
   {
     "site_id": "baltic-times",
     "site_name": "Baltic Times",
+    "url": "https://www.baltictimes.com/",
     "country": "LV",
     "category": "newspaper",
     "status": "ok",
@@ -3922,6 +4171,7 @@
   {
     "site_id": "diario",
     "site_name": "Diario",
+    "url": "https://diario.mx/",
     "country": "MX",
     "category": "newspaper",
     "status": "robots_disallow",
@@ -3936,6 +4186,7 @@
   {
     "site_id": "el-debate",
     "site_name": "El Debate",
+    "url": "https://www.debate.com.mx/",
     "country": "MX",
     "category": "newspaper",
     "status": "robots_disallow",
@@ -3950,6 +4201,7 @@
   {
     "site_id": "korea-herald",
     "site_name": "The Korea Herald",
+    "url": "https://www.koreaherald.com/",
     "country": "KR",
     "category": "newspaper",
     "status": "ok",
@@ -3966,6 +4218,7 @@
   {
     "site_id": "le-quotidien",
     "site_name": "Le Quotidien",
+    "url": "http://www.lequotidien.lu/",
     "country": "LU",
     "category": "newspaper",
     "status": "ok",
@@ -3982,6 +4235,7 @@
   {
     "site_id": "times-of-malta",
     "site_name": "Times of Malta",
+    "url": "https://www.timesofmalta.com/",
     "country": "MT",
     "category": "newspaper",
     "status": "ok",
@@ -3998,6 +4252,7 @@
   {
     "site_id": "soptas",
     "site_name": "Soptas",
+    "url": "https://www.sopitas.com/",
     "country": "MX",
     "category": "newspaper",
     "status": "ok",
@@ -4014,6 +4269,7 @@
   {
     "site_id": "the-nation",
     "site_name": "The Nation",
+    "url": "https://thenationonlineng.net/",
     "country": "NG",
     "category": "newspaper",
     "status": "no_articles_found",
@@ -4028,6 +4284,7 @@
   {
     "site_id": "diena",
     "site_name": "Diena",
+    "url": "https://www.diena.lv/",
     "country": "LV",
     "category": "newspaper",
     "status": "ok",
@@ -4044,6 +4301,7 @@
   {
     "site_id": "tageblatt",
     "site_name": "Tageblatt",
+    "url": "http://www.tageblatt.lu/",
     "country": "LU",
     "category": "newspaper",
     "status": "ok",
@@ -4060,6 +4318,7 @@
   {
     "site_id": "ir",
     "site_name": "ir",
+    "url": "https://ir.lv/",
     "country": "LV",
     "category": "newspaper",
     "status": "ok",
@@ -4076,6 +4335,7 @@
   {
     "site_id": "de-telegraaf",
     "site_name": "De Telegraaf",
+    "url": "https://www.telegraaf.nl/",
     "country": "NL",
     "category": "newspaper",
     "status": "ok",
@@ -4090,6 +4350,7 @@
   {
     "site_id": "the-star",
     "site_name": "The Star",
+    "url": "https://www.thestar.com.my/",
     "country": "MY",
     "category": "newspaper",
     "status": "ok",
@@ -4106,6 +4367,7 @@
   {
     "site_id": "el-universal-spanish",
     "site_name": "El Universal (Spanish)",
+    "url": "https://www.eluniversal.com.mx/",
     "country": "MX",
     "category": "newspaper",
     "status": "ok",
@@ -4122,6 +4384,7 @@
   {
     "site_id": "nettavisen",
     "site_name": "Nettavisen",
+    "url": "https://www.nettavisen.no/",
     "country": "NO",
     "category": "newspaper",
     "status": "no_articles_found",
@@ -4136,6 +4399,7 @@
   {
     "site_id": "el-sol-de-mexico",
     "site_name": "El Sol de Mexico",
+    "url": "https://oem.com.mx/elsoldemexico/",
     "country": "MX",
     "category": "newspaper",
     "status": "ok",
@@ -4152,6 +4416,7 @@
   {
     "site_id": "de-volkskrant",
     "site_name": "de Volkskrant",
+    "url": "https://www.volkskrant.nl/",
     "country": "NL",
     "category": "newspaper",
     "status": "ok",
@@ -4168,6 +4433,7 @@
   {
     "site_id": "nederlands-dagblad",
     "site_name": "Nederlands Dagblad",
+    "url": "https://www.nd.nl/",
     "country": "NL",
     "category": "newspaper",
     "status": "ok",
@@ -4184,6 +4450,7 @@
   {
     "site_id": "ntb",
     "site_name": "Norsk Telegrambyr\u00e5 (NTB)",
+    "url": "https://www.ntb.no/",
     "country": "NO",
     "category": "news-agency",
     "status": "ok",
@@ -4198,6 +4465,7 @@
   {
     "site_id": "trouw",
     "site_name": "Trouw",
+    "url": "https://www.trouw.nl/",
     "country": "NL",
     "category": "newspaper",
     "status": "ok",
@@ -4214,6 +4482,7 @@
   {
     "site_id": "rnz",
     "site_name": "Radio New Zealand (RNZ)",
+    "url": "https://www.rnz.co.nz/",
     "country": "NZ",
     "category": "broadcaster",
     "status": "no_articles_found",
@@ -4228,6 +4497,7 @@
   {
     "site_id": "nrk",
     "site_name": "NRK",
+    "url": "https://www.nrk.no/",
     "country": "NO",
     "category": "newspaper",
     "status": "ok",
@@ -4244,6 +4514,7 @@
   {
     "site_id": "manila-bulletin",
     "site_name": "Manila Bulletin",
+    "url": "https://mb.com.ph/",
     "country": "PH",
     "category": "newspaper",
     "status": "no_articles_found",
@@ -4258,6 +4529,7 @@
   {
     "site_id": "stuff-co-nz",
     "site_name": "Stuff.co.nz",
+    "url": "https://www.stuff.co.nz/",
     "country": "NZ",
     "category": "newspaper",
     "status": "ok",
@@ -4272,6 +4544,7 @@
   {
     "site_id": "dagbladet",
     "site_name": "Dagbladet",
+    "url": "https://www.dagbladet.no/",
     "country": "NO",
     "category": "newspaper",
     "status": "ok",
@@ -4289,6 +4562,7 @@
   {
     "site_id": "dawn",
     "site_name": "Dawn",
+    "url": "https://www.dawn.com/",
     "country": "PK",
     "category": "newspaper",
     "status": "ok",
@@ -4303,6 +4577,7 @@
   {
     "site_id": "tv2",
     "site_name": "TV2",
+    "url": "https://www.tv2.no/",
     "country": "NO",
     "category": "newspaper",
     "status": "ok",
@@ -4319,6 +4594,7 @@
   {
     "site_id": "abs-cbn-news",
     "site_name": "ABS-CBN News",
+    "url": "https://news.abs-cbn.com/",
     "country": "PH",
     "category": "broadcaster",
     "status": "ok",
@@ -4335,6 +4611,7 @@
   {
     "site_id": "geo-news",
     "site_name": "Geo News",
+    "url": "https://www.geo.tv/",
     "country": "PK",
     "category": "broadcaster",
     "status": "ok",
@@ -4351,6 +4628,7 @@
   {
     "site_id": "new-zealand-herald",
     "site_name": "New Zealand Herald",
+    "url": "https://www.nzherald.co.nz/",
     "country": "NZ",
     "category": "newspaper",
     "status": "ok",
@@ -4367,6 +4645,7 @@
   {
     "site_id": "new-telegraph",
     "site_name": "New Telegraph",
+    "url": "https://www.newtelegraphng.com/",
     "country": "NG",
     "category": "newspaper",
     "status": "ok",
@@ -4384,6 +4663,7 @@
   {
     "site_id": "jornal-de-not-cias",
     "site_name": "Jornal de Not\u00edcias",
+    "url": "https://www.jn.pt/",
     "country": "PT",
     "category": "newspaper",
     "status": "no_articles_found",
@@ -4398,6 +4678,7 @@
   {
     "site_id": "gazeta-wyborcza",
     "site_name": "Gazeta Wyborcza",
+    "url": "http://wyborcza.pl",
     "country": "PL",
     "category": "newspaper",
     "status": "ok",
@@ -4412,6 +4693,7 @@
   {
     "site_id": "the-news-pakistan",
     "site_name": "The News International",
+    "url": "https://www.thenews.com.pk/",
     "country": "PK",
     "category": "newspaper",
     "status": "ok",
@@ -4428,6 +4710,7 @@
   {
     "site_id": "lusa",
     "site_name": "Lusa Ag\u00eancia de Not\u00edcias de Portugal",
+    "url": "https://www.lusa.pt/",
     "country": "PT",
     "category": "news-agency",
     "status": "no_articles_found",
@@ -4442,6 +4725,7 @@
   {
     "site_id": "fakt",
     "site_name": "Fakt",
+    "url": "https://www.fakt.pl/",
     "country": "PL",
     "category": "newspaper",
     "status": "ok",
@@ -4458,6 +4742,7 @@
   {
     "site_id": "qna",
     "site_name": "Qatar News Agency (QNA)",
+    "url": "https://www.qna.org.qa/en/Home",
     "country": "QA",
     "category": "news-agency",
     "status": "no_articles_found",
@@ -4472,6 +4757,7 @@
   {
     "site_id": "p-blico",
     "site_name": "P\u00fablico",
+    "url": "https://www.publico.pt/",
     "country": "PT",
     "category": "newspaper",
     "status": "ok",
@@ -4488,6 +4774,7 @@
   {
     "site_id": "gazeta-pl",
     "site_name": "Gazeta.PL",
+    "url": "https://www.gazeta.pl/",
     "country": "PL",
     "category": "newspaper",
     "status": "ok",
@@ -4504,6 +4791,7 @@
   {
     "site_id": "o-a-oriano-oriental",
     "site_name": "O A\u00e7oriano Oriental",
+    "url": "https://www.acorianooriental.pt/",
     "country": "PT",
     "category": "newspaper",
     "status": "ok",
@@ -4520,6 +4808,7 @@
   {
     "site_id": "tass-english",
     "site_name": "TASS (English)",
+    "url": "http://tass.com/",
     "country": "RU",
     "category": "news-agency",
     "status": "no_articles_found",
@@ -4534,6 +4823,7 @@
   {
     "site_id": "tass-russian",
     "site_name": "TASS (Russian)",
+    "url": "http://tass.ru/",
     "country": "RU",
     "category": "news-agency",
     "status": "no_articles_found",
@@ -4548,6 +4838,7 @@
   {
     "site_id": "adevarul",
     "site_name": "Adevarul",
+    "url": "https://adevarul.ro/",
     "country": "RO",
     "category": "newspaper",
     "status": "ok",
@@ -4564,6 +4855,7 @@
   {
     "site_id": "stirile-pro-tv",
     "site_name": "Stirile Pro TV",
+    "url": "https://www.stirileprotv.ro/",
     "country": "RO",
     "category": "newspaper",
     "status": "ok",
@@ -4580,6 +4872,7 @@
   {
     "site_id": "realitatea",
     "site_name": "Realitatea",
+    "url": "https://www.realitatea.net/",
     "country": "RO",
     "category": "newspaper",
     "status": "ok",
@@ -4596,6 +4889,7 @@
   {
     "site_id": "tt",
     "site_name": "TT Nyhetsbyr\u00e5n",
+    "url": "https://tt.se/",
     "country": "SE",
     "category": "news-agency",
     "status": "no_articles_found",
@@ -4610,6 +4904,7 @@
   {
     "site_id": "rt",
     "site_name": "RT",
+    "url": "https://www.rt.com/news/",
     "country": "RU",
     "category": "newspaper",
     "status": "ok",
@@ -4626,6 +4921,7 @@
   {
     "site_id": "expressen",
     "site_name": "Expressen",
+    "url": "https://www.expressen.se/",
     "country": "SE",
     "category": "newspaper",
     "status": "ok",
@@ -4642,6 +4938,7 @@
   {
     "site_id": "dagens-nyheter",
     "site_name": "Dagens Nyheter",
+    "url": "https://www.dn.se/",
     "country": "SE",
     "category": "newspaper",
     "status": "ok",
@@ -4658,6 +4955,7 @@
   {
     "site_id": "the-straits-times-print",
     "site_name": "The Straits Times Print",
+    "url": "https://www.straitstimes.com/",
     "country": "SG",
     "category": "broadcaster",
     "status": "ok",
@@ -4674,6 +4972,7 @@
   {
     "site_id": "sta",
     "site_name": "Slovenska tiskovna agencija (STA)",
+    "url": "https://english.sta.si/",
     "country": "SI",
     "category": "news-agency",
     "status": "no_articles_found",
@@ -4688,6 +4987,7 @@
   {
     "site_id": "svt-nyheter",
     "site_name": "SVT Nyheter",
+    "url": "https://www.svt.se/",
     "country": "SE",
     "category": "newspaper",
     "status": "ok",
@@ -4704,6 +5004,7 @@
   {
     "site_id": "aktuality-sk",
     "site_name": "aktuality.sk",
+    "url": "https://www.aktuality.sk/",
     "country": "SK",
     "category": "newspaper",
     "status": "ok",
@@ -4720,6 +5021,7 @@
   {
     "site_id": "rtv-slo",
     "site_name": "RTV SLO",
+    "url": "https://www.rtvslo.si/",
     "country": "SI",
     "category": "broadcaster",
     "status": "ok",
@@ -4736,6 +5038,7 @@
   {
     "site_id": "nov-as",
     "site_name": "Nov\u00fd \u010cas",
+    "url": "https://www.cas.sk/",
     "country": "SK",
     "category": "newspaper",
     "status": "ok",
@@ -4752,6 +5055,7 @@
   {
     "site_id": "bangkok-post-english",
     "site_name": "Bangkok Post (English)",
+    "url": "https://www.bangkokpost.com/",
     "country": "TH",
     "category": "newspaper",
     "status": "ok",
@@ -4768,6 +5072,7 @@
   {
     "site_id": "arab-news",
     "site_name": "Arab News",
+    "url": "https://www.arabnews.com/",
     "country": "SA",
     "category": "newspaper",
     "status": "ok",
@@ -4784,6 +5089,7 @@
   {
     "site_id": "topky",
     "site_name": "Topky",
+    "url": "https://www.topky.sk/",
     "country": "SK",
     "category": "newspaper",
     "status": "ok",
@@ -4800,6 +5106,7 @@
   {
     "site_id": "cumhuriyet",
     "site_name": "Cumhuriyet",
+    "url": "https://www.cumhuriyet.com.tr/",
     "country": "TR",
     "category": "newspaper",
     "status": "ok",
@@ -4816,6 +5123,7 @@
   {
     "site_id": "h-rriyet",
     "site_name": "H\u00fcrriyet",
+    "url": "https://www.hurriyet.com.tr/",
     "country": "TR",
     "category": "newspaper",
     "status": "ok",
@@ -4832,6 +5140,7 @@
   {
     "site_id": "daily-sabah",
     "site_name": "Daily Sabah",
+    "url": "https://www.dailysabah.com/",
     "country": "TR",
     "category": "newspaper",
     "status": "ok",
@@ -4848,6 +5157,7 @@
   {
     "site_id": "saudi-gazette",
     "site_name": "Saudi Gazette",
+    "url": "https://saudigazette.com.sa/",
     "country": "SA",
     "category": "newspaper",
     "status": "ok",
@@ -4864,6 +5174,7 @@
   {
     "site_id": "kyiv-independent",
     "site_name": "The Kyiv Independent",
+    "url": "https://kyivindependent.com/",
     "country": "UA",
     "category": "online",
     "status": "ok",
@@ -4880,6 +5191,7 @@
   {
     "site_id": "ukrainska-pravda-english",
     "site_name": "Ukrainska Pravda (English)",
+    "url": "https://www.pravda.com.ua/eng/",
     "country": "UA",
     "category": "online",
     "status": "ok",
@@ -4896,6 +5208,7 @@
   {
     "site_id": "cnn",
     "site_name": "CNN",
+    "url": "https://edition.cnn.com/",
     "country": "US",
     "category": "broadcaster",
     "status": "ok",
@@ -4912,6 +5225,7 @@
   {
     "site_id": "united-daily-news",
     "site_name": "\u5373\u6642/\u5a1b\u6a02 (United Daily News)",
+    "url": "https://udn.com/",
     "country": "TW",
     "category": "newspaper",
     "status": "ok",
@@ -4928,6 +5242,7 @@
   {
     "site_id": "buzzfeed",
     "site_name": "Buzzfeed",
+    "url": "https://www.buzzfeed.com/",
     "country": "US",
     "category": "newspaper",
     "status": "ok",
@@ -4944,6 +5259,7 @@
   {
     "site_id": "cnbc",
     "site_name": "CNBC",
+    "url": "https://www.cnbc.com/",
     "country": "US",
     "category": "broadcaster",
     "status": "ok",
@@ -4960,6 +5276,7 @@
   {
     "site_id": "huffington-post",
     "site_name": "Huffington Post",
+    "url": "https://www.huffpost.com/",
     "country": "US",
     "category": "newspaper",
     "status": "ok",
@@ -4977,6 +5294,7 @@
   {
     "site_id": "tamil-murasu",
     "site_name": "Tamil Murasu",
+    "url": "https://www.tamilmurasu.com.sg/",
     "country": "SG",
     "category": "newspaper",
     "status": "ok",
@@ -4993,6 +5311,7 @@
   {
     "site_id": "chicago-tribune",
     "site_name": "Chicago Tribune",
+    "url": "https://www.chicagotribune.com/",
     "country": "US",
     "category": "newspaper",
     "status": "ok",
@@ -5009,6 +5328,7 @@
   {
     "site_id": "forbes",
     "site_name": "Forbes",
+    "url": "https://www.forbes.com/",
     "country": "US",
     "category": "newspaper",
     "status": "ok",
@@ -5025,6 +5345,7 @@
   {
     "site_id": "fox-news",
     "site_name": "Fox News",
+    "url": "http://www.foxnews.com/",
     "country": "US",
     "category": "newspaper",
     "status": "ok",
@@ -5041,6 +5362,7 @@
   {
     "site_id": "washington-post",
     "site_name": "Washington Post",
+    "url": "https://www.washingtonpost.com/",
     "country": "US",
     "category": "newspaper",
     "status": "ok",
@@ -5057,6 +5379,7 @@
   {
     "site_id": "new-york-post",
     "site_name": "New York Post",
+    "url": "https://nypost.com/",
     "country": "US",
     "category": "newspaper",
     "status": "ok",
@@ -5073,6 +5396,7 @@
   {
     "site_id": "quartz",
     "site_name": "Quartz",
+    "url": "https://qz.com/",
     "country": "US",
     "category": "newspaper",
     "status": "ok",
@@ -5087,6 +5411,7 @@
   {
     "site_id": "wall-street-journal",
     "site_name": "The Wall Street Journal",
+    "url": "https://www.wsj.com/",
     "country": "US",
     "category": "newspaper",
     "status": "robots_disallow",
@@ -5101,6 +5426,7 @@
   {
     "site_id": "ny-times",
     "site_name": "NY Times",
+    "url": "https://www.nytimes.com/",
     "country": "US",
     "category": "newspaper",
     "status": "ok",
@@ -5115,6 +5441,7 @@
   {
     "site_id": "yahoo-news",
     "site_name": "Yahoo! News",
+    "url": "https://news.yahoo.com/rss/",
     "country": "US",
     "category": "newspaper",
     "status": "ok",
@@ -5131,6 +5458,7 @@
   {
     "site_id": "bloomberg",
     "site_name": "Bloomberg",
+    "url": "https://www.bloomberg.com/",
     "country": "US",
     "category": "news-agency",
     "status": "ok",
@@ -5145,6 +5473,7 @@
   {
     "site_id": "china-post-english",
     "site_name": "China Post (English)",
+    "url": "https://chinapost.nownews.com/",
     "country": "TW",
     "category": "newspaper",
     "status": "unreachable",
@@ -5159,6 +5488,7 @@
   {
     "site_id": "politico",
     "site_name": "Politico",
+    "url": "https://www.politico.com/",
     "country": "US",
     "category": "online",
     "status": "ok",
@@ -5173,6 +5503,7 @@
   {
     "site_id": "getty-images-editorial",
     "site_name": "Getty Images (Editorial)",
+    "url": "https://www.gettyimages.com/editorial-images",
     "country": "US",
     "category": "news-agency",
     "status": "no_articles_found",
@@ -5187,6 +5518,7 @@
   {
     "site_id": "viet-nam-news-english",
     "site_name": "Viet Nam News (English)",
+    "url": "https://vietnamnews.vn/",
     "country": "VN",
     "category": "newspaper",
     "status": "ok",
@@ -5203,6 +5535,7 @@
   {
     "site_id": "axios",
     "site_name": "Axios",
+    "url": "https://www.axios.com/",
     "country": "US",
     "category": "online",
     "status": "ok",
@@ -5219,6 +5552,7 @@
   {
     "site_id": "vox",
     "site_name": "Vox",
+    "url": "https://www.vox.com/",
     "country": "US",
     "category": "online",
     "status": "ok",
@@ -5235,6 +5569,7 @@
   {
     "site_id": "voice-of-america",
     "site_name": "Voice of America",
+    "url": "https://www.voanews.com/",
     "country": "US",
     "category": "broadcaster",
     "status": "ok",
@@ -5251,6 +5586,7 @@
   {
     "site_id": "news24",
     "site_name": "News24",
+    "url": "https://www.news24.com/",
     "country": "ZA",
     "category": "newspaper",
     "status": "ok",
@@ -5267,6 +5603,7 @@
   {
     "site_id": "wired",
     "site_name": "Wired",
+    "url": "https://www.wired.com/",
     "country": "US",
     "category": "magazine",
     "status": "ok",
@@ -5283,6 +5620,7 @@
   {
     "site_id": "times-live",
     "site_name": "Times Live",
+    "url": "https://www.timeslive.co.za/",
     "country": "ZA",
     "category": "newspaper",
     "status": "ok",

@@ -21,6 +21,8 @@ import historyBySiteJson from '../data/latest/history_by_site.json';
 import historyByCountryJson from '../data/latest/history_by_country.json';
 import runsIndexJson from '../data/latest/runs_index.json';
 import countryNamesJson from '../data/latest/countries_names.json';
+import fieldsBySiteJson from '../data/latest/fields_by_site.json';
+import historyFieldsBySiteJson from '../data/latest/history_fields_by_site.json';
 
 export interface Summary {
   run_id: string | null;
@@ -83,6 +85,7 @@ export interface Country {
 export interface Site {
   site_id: string;
   site_name: string;
+  url: string;
   country: string;
   category: string;
   status: string;
@@ -93,6 +96,14 @@ export interface Site {
   mean_iptc_score: number;
   pct_with_iptc: number;
   cdn_breakdown: Record<string, number>;
+}
+
+export interface SiteFieldStat {
+  field: string;
+  present: number;
+  total: number;
+  pct: number;
+  scored: boolean;
 }
 
 export interface FieldStat {
@@ -207,6 +218,14 @@ export function getSiteHistory(siteId: string): SeriesPoint[] {
 
 export function getCountryHistory(cc: string): SeriesPoint[] {
   return ((historyByCountryJson as Record<string, SeriesPoint[]>)[cc]) ?? [];
+}
+
+export function getSiteFieldStats(siteId: string): SiteFieldStat[] {
+  return ((fieldsBySiteJson as Record<string, SiteFieldStat[]>)[siteId]) ?? [];
+}
+
+export function getSiteFieldHistory(siteId: string): Record<string, SeriesPoint[]> {
+  return ((historyFieldsBySiteJson as Record<string, Record<string, SeriesPoint[]>>)[siteId]) ?? {};
 }
 
 export function scoreClass(score: number): string {

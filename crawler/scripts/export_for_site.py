@@ -34,6 +34,23 @@ from pmd_crawler.scoring import ALL_FIELDS, SCORED_FIELDS, TOTAL_WEIGHT, TRACKED
 
 DST_VOCAB_PATH = Path(__file__).resolve().parents[2] / "config" / "dst_vocab.yaml"
 COUNTRIES_CONFIG_PATH = Path(__file__).resolve().parents[2] / "config" / "countries.yaml"
+PUBLISHERS_DIR = Path(__file__).resolve().parents[2] / "config" / "publishers"
+
+
+def load_publisher_urls() -> dict[str, str]:
+    """Return site_id → homepage URL from config/publishers/*.yaml."""
+    out: dict[str, str] = {}
+    if not PUBLISHERS_DIR.exists():
+        return out
+    for p in sorted(PUBLISHERS_DIR.glob("*.yaml")):
+        if p.name.startswith("_"):
+            continue
+        data = yaml.safe_load(p.read_text()) or {}
+        for site in data.get("sites", []) or []:
+            sid = site.get("id")
+            if sid:
+                out[sid] = site.get("homepage") or site.get("url") or ""
+    return out
 
 
 def load_country_names() -> dict[str, str]:
@@ -169,6 +186,7 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
     for img in images:
         images_by_site[img["site_id"]].append(img)
 
+    publisher_urls = load_publisher_urls()
     sites_out = []
     for s in sites:
         site_imgs = images_by_site.get(s["site_id"], [])
@@ -176,6 +194,7 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         sites_out.append({
             "site_id": s["site_id"],
             "site_name": s["site_name"],
+            "url": publisher_urls.get(s["site_id"], ""),
             "country": s["country"],
             "category": s["category"],
             "status": s["status"],
@@ -195,6 +214,43 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
 
     weight_for = {label: weight for label, _aliases, weight in ALL_FIELDS}
     scored_labels = {label for label, _aliases, _w in SCORED_FIELDS}
+
+    # Per-site field aggregates for the publisher detail pages. Join
+    # metadata_fields → images on image_url_hash to get site_id.
+    site_by_hash = {i["image_url_hash"]: i["site_id"] for i in images}
+    site_field_agg: dict[str, dict[str, dict[str, int]]] = defaultdict(
+        lambda: defaultdict(lambda: {"present": 0, "total": 0})
+    )
+    for f in fields:
+        sid = site_by_hash.get(f["image_url_hash"])
+        if sid is None:
+            continue
+        bucket = site_field_agg[sid][f["field_name"]]
+        bucket["total"] += 1
+        if f["has_value"]:
+            bucket["present"] += 1
+    fields_by_site_out: dict[str, list[dict]] = {}
+    for sid, per_field in site_field_agg.items():
+        rows = []
+        for name, data in per_field.items():
+            total = data["total"]
+            rows.append({
+                "field": name,
+                "present": data["present"],
+                "total": total,
+                "pct": round(100.0 * data["present"] / total, 1) if total else 0.0,
+                "scored": name in scored_labels,
+            })
+        # Stable order: scored fields first (in their canonical order from
+        # SCORED_FIELDS), then tracked fields alphabetically.
+        scored_order = {label: i for i, (label, _, _) in enumerate(SCORED_FIELDS)}
+        rows.sort(key=lambda r: (0 if r["scored"] else 1,
+                                 scored_order.get(r["field"], 99),
+                                 r["field"]))
+        fields_by_site_out[sid] = rows
+    (out_dir / "fields_by_site.json").write_text(
+        json.dumps(fields_by_site_out, indent=2)
+    )
 
     field_agg: dict[str, dict] = defaultdict(lambda: {"present": 0, "total": 0})
     for f in fields:
@@ -339,6 +395,11 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
     history = []
     history_by_site: dict[str, list[dict]] = defaultdict(list)
     history_by_country: dict[str, list[dict]] = defaultdict(list)
+    # Per-site per-scored-field time series. Restricted to the Four Cs to keep
+    # the JSON small enough to ship inline with the Astro build.
+    history_fields_by_site: dict[str, dict[str, list[dict]]] = defaultdict(
+        lambda: defaultdict(list)
+    )
     for d in sorted(all_runs):
         rs = read(d / "runs.parquet")
         if not rs:
@@ -352,8 +413,10 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         valid_image_count = 0
         c2pa_outcome_counts: dict[str, int] = defaultdict(int)
         imgs_path = d / "images.parquet"
+        run_images: list[dict] = []
         if imgs_path.exists():
-            for r in read(imgs_path):
+            run_images = read(imgs_path)
+            for r in run_images:
                 if r["http_status"] != 200:
                     continue
                 valid_image_count += 1
@@ -394,12 +457,42 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
                 "x": run_started, "y": round(mean(vals), 2),
             })
 
+        # Per-site per-Four-C series. Join this run's metadata_fields with
+        # images on image_url_hash to get site_id, then aggregate per
+        # (site_id, field_name) for scored fields only.
+        fields_path = d / "metadata_fields.parquet"
+        if fields_path.exists() and run_images:
+            run_site_by_hash = {i["image_url_hash"]: i["site_id"] for i in run_images}
+            agg: dict[tuple[str, str], dict[str, int]] = defaultdict(
+                lambda: {"present": 0, "total": 0}
+            )
+            for f in read(fields_path):
+                if f["field_name"] not in scored_labels:
+                    continue
+                sid = run_site_by_hash.get(f["image_url_hash"])
+                if sid is None:
+                    continue
+                cell = agg[(sid, f["field_name"])]
+                cell["total"] += 1
+                if f["has_value"]:
+                    cell["present"] += 1
+            for (sid, field_name), cell in agg.items():
+                if cell["total"] == 0:
+                    continue
+                history_fields_by_site[sid][field_name].append({
+                    "x": run_started,
+                    "y": round(100.0 * cell["present"] / cell["total"], 1),
+                })
+
     (out_dir / "history.json").write_text(json.dumps(history, indent=2))
     (out_dir / "history_by_site.json").write_text(
         json.dumps(dict(history_by_site), indent=2)
     )
     (out_dir / "history_by_country.json").write_text(
         json.dumps(dict(history_by_country), indent=2)
+    )
+    (out_dir / "history_fields_by_site.json").write_text(
+        json.dumps({sid: dict(per_field) for sid, per_field in history_fields_by_site.items()}, indent=2)
     )
 
     # Per-run manifest for the public /dataset/ page.
