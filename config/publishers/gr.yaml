@@ -1,6 +1,6 @@
 country: GR
 sites:
-- id: site
+- id: avgi-gr
   name: Η Αυγή
   url: http://www.avgi.gr/
   homepage: http://www.avgi.gr/
@@ -19,7 +19,7 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
-- id: site-2
+- id: kathimerini-gr
   name: Η Καθημερινή
   url: http://www.kathimerini.gr/rss
   homepage: http://www.kathimerini.gr/rss
@@ -38,7 +38,7 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
-- id: site-3
+- id: tanea-gr
   name: Τα Νέα
   url: https://www.tanea.gr/
   homepage: https://www.tanea.gr/
