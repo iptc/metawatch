@@ -11,6 +11,7 @@ Output:
     runs_index.json     # one entry per run with file manifest (for dataset page)
     c2pa.json           # C2PA presence breakdown, by signer / outcome / site
     dst.json            # DigitalSourceType breakdown, buckets + raw URIs
+    scoring.json        # mirror of config/scoring.yaml for the methodology page
 
 Usage:
     python scripts/export_for_site.py [--runs-dir ../data/runs] [--out ../site/src/data]
@@ -28,6 +29,7 @@ import pyarrow.parquet as pq
 import yaml
 
 from pmd_crawler.dst import short_term as _dst_short_term
+from pmd_crawler.scoring import FIELD_WEIGHTS, TOTAL_WEIGHT
 
 DST_VOCAB_PATH = Path(__file__).resolve().parents[2] / "config" / "dst_vocab.yaml"
 
@@ -97,6 +99,17 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
 
     (out_dir / "summary.json").write_text(json.dumps(summary, indent=2))
 
+    # Mirror config/scoring.yaml into JSON so the static site can render the
+    # methodology table from the same source of truth the crawler uses.
+    scoring_out = {
+        "fields": [
+            {"label": label, "aliases": list(aliases), "weight": weight}
+            for label, aliases, weight in FIELD_WEIGHTS
+        ],
+        "total_weight": TOTAL_WEIGHT,
+    }
+    (out_dir / "scoring.json").write_text(json.dumps(scoring_out, indent=2))
+
     countries_agg: dict[str, dict] = defaultdict(lambda: {"sites": [], "scores": []})
     for s in sites:
         cc = s["country"]
@@ -142,7 +155,6 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
     sites_out.sort(key=lambda x: x["mean_iptc_score"], reverse=True)
     (out_dir / "sites.json").write_text(json.dumps(sites_out, indent=2))
 
-    from pmd_crawler.scoring import FIELD_WEIGHTS, TOTAL_WEIGHT
     weight_for = {label: weight for label, _aliases, weight in FIELD_WEIGHTS}
 
     field_agg: dict[str, dict] = defaultdict(lambda: {"present": 0, "total": 0})

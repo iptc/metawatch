@@ -1,8 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getSummary } from '../lib/data';
+import { getSummary, getScoring } from '../lib/data';
 
 const summary = getSummary();
+const scoring = getScoring();
 // Version-less URL — the iptc.org server redirects to the latest published spec.
 const SPEC = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadata';
 ---
@@ -36,22 +37,34 @@ const SPEC = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadat
 
   <h2>The score</h2>
   <p>
-    For every image we sample, we check 11 weighted fields drawn from
+    For every image we sample, we check {scoring.fields.length} weighted fields drawn from
     <a href={SPEC} target="_blank" rel="noopener">IPTC&nbsp;IIM and IPTC&nbsp;XMP</a>. A field
     counts as present if it appears in either family with a non-empty value. The image's score
-    is the sum of weights for fields present, expressed as a percentage of the maximum (100).
-    A site's score is the mean across all images we sampled for it; a country's score is the
-    equal-weighted mean across that country's sites.
+    is the sum of weights for fields present, expressed as a percentage of the maximum
+    ({scoring.total_weight}). A site's score is the mean across all images we sampled for it;
+    a country's score is the equal-weighted mean across that country's sites.
   </p>
   <p>
-    The weighted fields are: Creator&nbsp;(15), CopyrightNotice&nbsp;(15),
-    CaptionAbstract&nbsp;(15), CreditLine&nbsp;(10), DateCreated&nbsp;(10),
-    LocationCreated&nbsp;(10), Source&nbsp;(5), ObjectName&nbsp;(5), Keywords&nbsp;(5),
-    WebStatement&nbsp;(5), LicensorURL&nbsp;(5).
-    Weights total 100. See
+    The weighted fields are listed below. See
     <a href="/fields/">the per-field breakdown</a> for current population rates and links to
     each field in the IPTC standard.
   </p>
+  <table>
+    <thead>
+      <tr><th>Field</th><th class="num">Weight</th></tr>
+    </thead>
+    <tbody>
+      {scoring.fields.map(f => (
+        <tr>
+          <td><code>{f.label}</code></td>
+          <td class="num">{f.weight}</td>
+        </tr>
+      ))}
+    </tbody>
+    <tfoot>
+      <tr><th>Total</th><th class="num">{scoring.total_weight}</th></tr>
+    </tfoot>
+  </table>
 
   <h2>How a site is sampled</h2>
   <p>

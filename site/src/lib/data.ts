@@ -15,6 +15,7 @@ import fieldsJson from '../data/latest/fields.json';
 import cdnJson from '../data/latest/cdn.json';
 import c2paJson from '../data/latest/c2pa.json';
 import dstJson from '../data/latest/dst.json';
+import scoringJson from '../data/latest/scoring.json';
 import historyJson from '../data/latest/history.json';
 import historyBySiteJson from '../data/latest/history_by_site.json';
 import historyByCountryJson from '../data/latest/history_by_country.json';
@@ -167,6 +168,20 @@ export function getC2pa(): C2paData {
 
 export function getDst(): DstData {
   return dstJson as DstData;
+}
+
+export interface ScoringField {
+  label: string;
+  aliases: string[];
+  weight: number;
+}
+export interface ScoringConfig {
+  fields: ScoringField[];
+  total_weight: number;
+}
+
+export function getScoring(): ScoringConfig {
+  return scoringJson as ScoringConfig;
 }
 
 export function getHistory(): HistoryPoint[] {

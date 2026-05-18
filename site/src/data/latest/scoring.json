@@ -1,0 +1,107 @@
+{
+  "fields": [
+    {
+      "label": "Creator",
+      "aliases": [
+        "By-line",
+        "Creator",
+        "Artist",
+        "XMP:Creator",
+        "IPTC:By-line"
+      ],
+      "weight": 15
+    },
+    {
+      "label": "CopyrightNotice",
+      "aliases": [
+        "CopyrightNotice",
+        "Rights",
+        "Copyright",
+        "XMP:Rights"
+      ],
+      "weight": 15
+    },
+    {
+      "label": "CaptionAbstract",
+      "aliases": [
+        "Caption-Abstract",
+        "Description",
+        "ImageDescription",
+        "XMP:Description"
+      ],
+      "weight": 15
+    },
+    {
+      "label": "CreditLine",
+      "aliases": [
+        "Credit",
+        "XMP:Credit"
+      ],
+      "weight": 10
+    },
+    {
+      "label": "Source",
+      "aliases": [
+        "Source",
+        "XMP:Source"
+      ],
+      "weight": 5
+    },
+    {
+      "label": "ObjectName",
+      "aliases": [
+        "ObjectName",
+        "Title",
+        "XMP:Title"
+      ],
+      "weight": 5
+    },
+    {
+      "label": "Keywords",
+      "aliases": [
+        "Keywords",
+        "Subject",
+        "XMP:Subject"
+      ],
+      "weight": 5
+    },
+    {
+      "label": "DateCreated",
+      "aliases": [
+        "DateCreated",
+        "CreateDate",
+        "DateTimeOriginal",
+        "XMP:DateCreated"
+      ],
+      "weight": 10
+    },
+    {
+      "label": "LocationCreated",
+      "aliases": [
+        "City",
+        "Country-PrimaryLocationName",
+        "LocationCreatedCity",
+        "XMP-iptcExt:LocationCreated"
+      ],
+      "weight": 10
+    },
+    {
+      "label": "WebStatement",
+      "aliases": [
+        "WebStatement",
+        "XMP:WebStatement"
+      ],
+      "weight": 5
+    },
+    {
+      "label": "LicensorURL",
+      "aliases": [
+        "LicensorURL",
+        "Licensor",
+        "XMP-plus:LicensorURL"
+      ],
+      "weight": 5
+    }
+  ],
+  "total_weight": 100
+}
