@@ -1,25 +1,37 @@
 """Per-image IPTC score (see SPEC.md §9).
 
 A field is scored present if it appears in EITHER IPTC-IIM or XMP.
+
+The scoring rules live in config/scoring.yaml so they can be tuned without
+a code change. ``FIELD_WEIGHTS`` and ``TOTAL_WEIGHT`` here are populated
+at import time from that file.
 """
 
 from __future__ import annotations
 
-FIELD_WEIGHTS: list[tuple[str, list[str], int]] = [
-    # (label, exiftool tag aliases (case-insensitive), weight)
-    ("Creator", ["By-line", "Creator", "Artist", "XMP:Creator", "IPTC:By-line"], 15),
-    ("CopyrightNotice", ["CopyrightNotice", "Rights", "Copyright", "XMP:Rights"], 15),
-    ("CaptionAbstract", ["Caption-Abstract", "Description", "ImageDescription", "XMP:Description"], 15),
-    ("CreditLine", ["Credit", "XMP:Credit"], 10),
-    ("Source", ["Source", "XMP:Source"], 5),
-    ("ObjectName", ["ObjectName", "Title", "XMP:Title"], 5),
-    ("Keywords", ["Keywords", "Subject", "XMP:Subject"], 5),
-    ("DateCreated", ["DateCreated", "CreateDate", "DateTimeOriginal", "XMP:DateCreated"], 10),
-    ("LocationCreated", ["City", "Country-PrimaryLocationName", "LocationCreatedCity", "XMP-iptcExt:LocationCreated"], 10),
-    ("WebStatement", ["WebStatement", "XMP:WebStatement"], 5),
-    ("LicensorURL", ["LicensorURL", "Licensor", "XMP-plus:LicensorURL"], 5),
-]
+from pathlib import Path
 
+import yaml
+
+SCORING_CONFIG_PATH = Path(__file__).resolve().parents[3] / "config" / "scoring.yaml"
+
+
+def _load_field_weights(path: Path) -> list[tuple[str, list[str], int]]:
+    """Read config/scoring.yaml into the (label, aliases, weight) tuple form
+    the rest of the module expects.
+
+    Raises FileNotFoundError or KeyError if the file is missing or malformed
+    — the crawler can't run without scoring rules, so failing loudly is
+    correct.
+    """
+    data = yaml.safe_load(path.read_text())
+    out: list[tuple[str, list[str], int]] = []
+    for entry in data["fields"]:
+        out.append((entry["label"], list(entry["aliases"]), int(entry["weight"])))
+    return out
+
+
+FIELD_WEIGHTS: list[tuple[str, list[str], int]] = _load_field_weights(SCORING_CONFIG_PATH)
 TOTAL_WEIGHT = sum(w for _, _, w in FIELD_WEIGHTS)
 
 

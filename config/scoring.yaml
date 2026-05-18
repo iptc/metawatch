@@ -1,0 +1,56 @@
+# Metawatch IPTC scoring rules.
+#
+# Each `field` here contributes a fixed weight to a per-image score. An image's
+# score is sum(weights of fields present) / sum(all weights) × 100, rounded to
+# two decimal places. A field counts as present if any of its `aliases` appears
+# in the image's ExifTool tag set with a non-empty value, in either the IPTC
+# (IIM) group or the XMP group.
+#
+# Editing this file is the supported way to change the scoring rules. The raw
+# per-image data in images.parquet records every field's presence
+# independently, so re-running crawler/scripts/export_for_site.py rebuckets
+# historical data without a re-crawl. (TOTAL_WEIGHT is recomputed at import
+# time, so weights don't have to add to 100.)
+#
+# Each entry:
+#   label:   stable identifier — matches the column name in metadata_fields
+#            and the keys in fields.json.
+#   weight:  integer weight in the score.
+#   aliases: list of ExifTool tag names that count as this field. Aliases
+#            without a "Group:" prefix are matched in any group (the crawler
+#            checks both "Name" and "*:Name"). Case-insensitive.
+
+fields:
+  - label: Creator
+    weight: 15
+    aliases: [By-line, Creator, Artist, "XMP:Creator", "IPTC:By-line"]
+  - label: CopyrightNotice
+    weight: 15
+    aliases: [CopyrightNotice, Rights, Copyright, "XMP:Rights"]
+  - label: CaptionAbstract
+    weight: 15
+    aliases: [Caption-Abstract, Description, ImageDescription, "XMP:Description"]
+  - label: CreditLine
+    weight: 10
+    aliases: [Credit, "XMP:Credit"]
+  - label: Source
+    weight: 5
+    aliases: [Source, "XMP:Source"]
+  - label: ObjectName
+    weight: 5
+    aliases: [ObjectName, Title, "XMP:Title"]
+  - label: Keywords
+    weight: 5
+    aliases: [Keywords, Subject, "XMP:Subject"]
+  - label: DateCreated
+    weight: 10
+    aliases: [DateCreated, CreateDate, DateTimeOriginal, "XMP:DateCreated"]
+  - label: LocationCreated
+    weight: 10
+    aliases: [City, Country-PrimaryLocationName, LocationCreatedCity, "XMP-iptcExt:LocationCreated"]
+  - label: WebStatement
+    weight: 5
+    aliases: [WebStatement, "XMP:WebStatement"]
+  - label: LicensorURL
+    weight: 5
+    aliases: [LicensorURL, Licensor, "XMP-plus:LicensorURL"]
