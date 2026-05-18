@@ -34,8 +34,7 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
   <h1>{site.site_name}</h1>
   <p class="lede">
     <a href={`${base}/countries/${site.country.toLowerCase()}/`}>{countryName(site.country)}</a> ·
-    <span class={`pill ${site.category}`}>{categoryLabel(site.category)}</span> ·
-    Discovery: <code>{site.discovery_strategy}</code>
+    <span class={`pill ${site.category}`}>{categoryLabel(site.category)}</span>
     {site.url && (
       <>
         {" · "}
