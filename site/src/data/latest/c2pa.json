@@ -1,11 +1,11 @@
 {
-  "image_count_total": 4454,
-  "image_count_with_c2pa": 4,
-  "pct_with_c2pa": 0.09,
+  "image_count_total": 20,
+  "image_count_with_c2pa": 0,
+  "pct_with_c2pa": 0.0,
   "by_outcome": [
     {
       "outcome": "valid",
-      "images": 4
+      "images": 0
     },
     {
       "outcome": "modified",
@@ -24,44 +24,7 @@
       "images": 0
     }
   ],
-  "by_signer": [
-    {
-      "signer": "International Press Telecommunications Council",
-      "images": 2
-    },
-    {
-      "signer": "Adobe Inc.",
-      "images": 1
-    },
-    {
-      "signer": "Canva",
-      "images": 1
-    }
-  ],
-  "by_validation_state": [
-    {
-      "state": "Valid",
-      "images": 4
-    }
-  ],
-  "top_sites": [
-    {
-      "site_id": "iptc",
-      "site_name": "IPTC",
-      "country": "GB",
-      "images_with_c2pa": 2
-    },
-    {
-      "site_id": "blikk",
-      "site_name": "Blikk",
-      "country": "HU",
-      "images_with_c2pa": 1
-    },
-    {
-      "site_id": "le-quotidien",
-      "site_name": "Le Quotidien",
-      "country": "LU",
-      "images_with_c2pa": 1
-    }
-  ]
+  "by_signer": [],
+  "by_validation_state": [],
+  "top_sites": []
 }
