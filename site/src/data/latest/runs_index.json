@@ -1,8 +1,8 @@
 [
   {
-    "run_id": "2026-05-19T103151Z",
-    "started_at": "2026-05-19T10:31:51.818878+00:00",
-    "ended_at": "2026-05-19T10:32:44.802272+00:00",
+    "run_id": "2026-05-19T104414Z",
+    "started_at": "2026-05-19T10:44:14.817173+00:00",
+    "ended_at": "2026-05-19T10:45:11.213850+00:00",
     "site_count_attempted": 1,
     "site_count_succeeded": 1,
     "image_count": 20,
@@ -10,7 +10,7 @@
     "files": [
       {
         "name": "articles.parquet",
-        "size_bytes": 31810
+        "size_bytes": 31811
       },
       {
         "name": "images.parquet",
