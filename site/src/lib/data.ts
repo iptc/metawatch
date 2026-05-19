@@ -263,13 +263,24 @@ export interface SampleRow {
   image_url?: string;
   image_http_status?: number | null;
   iptc_score?: number;
+  has_exif?: boolean;
   has_iptc_iim?: boolean;
   has_iptc_xmp?: boolean;
   has_c2pa?: boolean;
+  c2pa_signer?: string | null;
+  c2pa_validation_status?: string | null;
   cdn_provider?: string;
+  cdn_optimizer_active?: string | null;
+  mime_type?: string | null;
   width?: number | null;
   height?: number | null;
-  scored_presence?: Record<string, boolean>;
+  file_size_bytes?: number | null;
+  dst_iptc?: string | null;
+  dst_c2pa?: string[];
+  /** Field labels (from scoring.yaml) that ARE present on this image.
+   * Anything absent from this list is missing — the page diffs against the
+   * full ScoringConfig.scored_fields + tracked_fields lists. */
+  present_fields?: string[];
 }
 
 export function getSiteSamples(siteId: string): SampleRow[] {

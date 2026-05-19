@@ -31,6 +31,7 @@ const dst = getSiteDst(site.site_id);
 const samples = getSiteSamples(site.site_id);
 const scoring = getScoring();
 const scoredFieldLabels = scoring.scored_fields.map(f => f.label);
+const trackedFieldLabels = scoring.tracked_fields.map(f => f.label);
 // Short labels for the Four-Cs check columns so the table stays narrow.
 const shortLabel: Record<string, string> = {
   Creator: 'Cr',
@@ -38,6 +39,13 @@ const shortLabel: Record<string, string> = {
   CaptionDescription: 'Ca',
   CreditLine: 'Cl',
 };
+
+function fmtBytes(n: number | null | undefined): string {
+  if (n == null) return '—';
+  if (n < 1024) return `${n} B`;
+  if (n < 1024 * 1024) return `${(n / 1024).toFixed(1)} KB`;
+  return `${(n / (1024 * 1024)).toFixed(2)} MB`;
+}
 
 // Strip trailing slash for display.
 const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
@@ -136,7 +144,7 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
       <table class="samples">
         <thead>
           <tr>
-            <th>#</th>
+            <th></th>
             <th>Image</th>
             <th>Article</th>
             <th class="num">Score</th>
@@ -148,46 +156,133 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
           </tr>
         </thead>
         <tbody>
-          {samples.map((s, i) => (
-            <tr>
-              <td class="num">{i + 1}</td>
-              <td>
-                {s.image_url && s.image_http_status === 200
-                  ? <a href={s.image_url} target="_blank" rel="noopener">
-                      <img src={s.image_url} alt="" class="thumb"
-                           loading="lazy" decoding="async" />
-                    </a>
-                  : <span style="color:var(--iptc-muted)">—</span>}
-              </td>
-              <td class="article-cell">
-                <a href={s.article_url} target="_blank" rel="noopener">
-                  {s.title || s.article_url}
-                </a>
-                {s.publication_date && (
-                  <div class="article-date">{s.publication_date.slice(0, 10)}</div>
-                )}
-              </td>
-              <td class="num">
-                {s.iptc_score !== undefined
-                  ? <span class={`score-pill ${scoreClass(s.iptc_score)}`}>{s.iptc_score.toFixed(0)}</span>
-                  : '—'}
-              </td>
-              {scoredFieldLabels.map(l => {
-                const present = s.scored_presence?.[l];
-                return (
-                  <td class="num" aria-label={present ? `${l}: present` : `${l}: missing`}>
-                    {present
-                      ? <span class="check">✓</span>
-                      : <span class="cross">·</span>}
+          {samples.map((s, i) => {
+            const present = s.present_fields ?? [];
+            const presentSet = new Set(present);
+            const detailId = `sample-${i}`;
+            return (
+              <>
+                <tr>
+                  <td class="num">
+                    <button class="samples-toggle"
+                            aria-controls={detailId}
+                            aria-expanded="false"
+                            aria-label={`Show metadata details for row ${i + 1}`}>
+                      <span class="caret" aria-hidden="true">▸</span> {i + 1}
+                    </button>
                   </td>
-                );
-              })}
-              <td class="num">{s.has_c2pa ? <span class="check">✓</span> : <span class="cross">·</span>}</td>
-              <td>{s.cdn_provider ?? '—'}</td>
-            </tr>
-          ))}
+                  <td>
+                    {s.image_url && s.image_http_status === 200
+                      ? <a href={s.image_url} target="_blank" rel="noopener">
+                          <img src={s.image_url} alt="" class="thumb"
+                               loading="lazy" decoding="async" />
+                        </a>
+                      : <span style="color:var(--iptc-muted)">—</span>}
+                  </td>
+                  <td class="article-cell">
+                    <a href={s.article_url} target="_blank" rel="noopener">
+                      {s.title || s.article_url}
+                    </a>
+                    {s.publication_date && (
+                      <div class="article-date">{s.publication_date.slice(0, 10)}</div>
+                    )}
+                  </td>
+                  <td class="num">
+                    {s.iptc_score !== undefined
+                      ? <span class={`score-pill ${scoreClass(s.iptc_score)}`}>{s.iptc_score.toFixed(0)}</span>
+                      : '—'}
+                  </td>
+                  {scoredFieldLabels.map(l => (
+                    <td class="num" aria-label={presentSet.has(l) ? `${l}: present` : `${l}: missing`}>
+                      {presentSet.has(l)
+                        ? <span class="check">✓</span>
+                        : <span class="cross">·</span>}
+                    </td>
+                  ))}
+                  <td class="num">{s.has_c2pa ? <span class="check">✓</span> : <span class="cross">·</span>}</td>
+                  <td>{s.cdn_provider ?? '—'}</td>
+                </tr>
+                <tr id={detailId} class="detail-row" hidden>
+                  <td colspan={5 + scoredFieldLabels.length + 2}>
+                    <div class="detail-grid">
+                      <div>
+                        <h4>Scored fields</h4>
+                        <ul class="field-list">
+                          {scoredFieldLabels.map(l => (
+                            <li class={presentSet.has(l) ? 'present' : 'missing'}>
+                              <span class="mark" aria-hidden="true">{presentSet.has(l) ? '✓' : '·'}</span>
+                              <code>{l}</code>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <h4>Tracked fields</h4>
+                        <ul class="field-list">
+                          {trackedFieldLabels.map(l => (
+                            <li class={presentSet.has(l) ? 'present' : 'missing'}>
+                              <span class="mark" aria-hidden="true">{presentSet.has(l) ? '✓' : '·'}</span>
+                              <code>{l}</code>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <h4>Image</h4>
+                        <dl class="image-facts">
+                          <dt>MIME</dt><dd><code>{s.mime_type ?? '—'}</code></dd>
+                          <dt>Dimensions</dt><dd>{s.width != null && s.height != null ? `${s.width} × ${s.height}` : '—'}</dd>
+                          <dt>File size</dt><dd>{fmtBytes(s.file_size_bytes)}</dd>
+                          <dt>EXIF</dt><dd>{s.has_exif ? 'present' : '—'}</dd>
+                          <dt>IPTC-IIM</dt><dd>{s.has_iptc_iim ? 'present' : '—'}</dd>
+                          <dt>IPTC-XMP</dt><dd>{s.has_iptc_xmp ? 'present' : '—'}</dd>
+                          <dt>CDN</dt><dd>
+                            {s.cdn_provider ?? '—'}
+                            {s.cdn_optimizer_active && s.cdn_optimizer_active !== 'unknown' && (
+                              <> · optimiser: <code>{s.cdn_optimizer_active}</code></>
+                            )}
+                          </dd>
+                          {s.has_c2pa && (
+                            <>
+                              <dt>C2PA signer</dt><dd><code>{s.c2pa_signer ?? '—'}</code></dd>
+                              <dt>C2PA state</dt><dd><code>{s.c2pa_validation_status ?? '—'}</code></dd>
+                            </>
+                          )}
+                          {s.dst_iptc && (
+                            <><dt>DST (XMP)</dt><dd><a href={s.dst_iptc} target="_blank" rel="noopener"><code>{s.dst_iptc}</code></a></dd></>
+                          )}
+                          {s.dst_c2pa && s.dst_c2pa.length > 0 && (
+                            <><dt>DST (C2PA)</dt><dd>
+                              {s.dst_c2pa.map((uri, j) => (
+                                <div><a href={uri} target="_blank" rel="noopener"><code>{uri}</code></a></div>
+                              ))}
+                            </dd></>
+                          )}
+                        </dl>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </>
+            );
+          })}
         </tbody>
       </table>
+      <script>
+        document.querySelectorAll('.samples-toggle').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const id = btn.getAttribute('aria-controls');
+            if (!id) return;
+            const row = document.getElementById(id);
+            if (!row) return;
+            const expanded = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            (row as HTMLElement).hidden = expanded;
+            const caret = btn.querySelector('.caret');
+            if (caret) caret.textContent = expanded ? '▸' : '▾';
+          });
+        });
+      </script>
     </section>
   )}
 
@@ -376,6 +471,77 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
   table.samples th,
   table.samples td {
     padding: 0.5rem 0.6rem;
+  }
+  .samples-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    color: inherit;
+    font: inherit;
+    text-align: right;
+  }
+  .samples-toggle .caret {
+    display: inline-block;
+    width: 0.9em;
+    color: var(--iptc-muted, #6b7280);
+  }
+  .samples-toggle:hover .caret {
+    color: var(--iptc-green, #6db33f);
+  }
+  tr.detail-row > td {
+    background: var(--iptc-surface, #fafafb);
+    border-top: none;
+    padding: 1rem 1.25rem;
+  }
+  .detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  .detail-grid h4 {
+    margin: 0 0 0.5rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--iptc-muted, #6b7280);
+  }
+  .field-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .field-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.1rem 0;
+    font-size: 0.85rem;
+  }
+  .field-list li.present .mark {
+    color: var(--iptc-green, #6db33f);
+    font-weight: 700;
+  }
+  .field-list li.missing {
+    color: var(--iptc-muted, #6b7280);
+  }
+  .field-list li.missing .mark {
+    color: var(--iptc-border, #d1d5db);
+  }
+  dl.image-facts {
+    margin: 0;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.25rem 0.75rem;
+    font-size: 0.85rem;
+  }
+  dl.image-facts dt {
+    color: var(--iptc-muted, #6b7280);
+  }
+  dl.image-facts dd {
+    margin: 0;
+    overflow-wrap: anywhere;
   }
   .thumb {
     width: 96px;

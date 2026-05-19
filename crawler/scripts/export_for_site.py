@@ -469,12 +469,12 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         # only need the first one we see per article_url_hash.
         images_by_article.setdefault(img["article_url_hash"], img)
 
-    # Per-image scored-field presence map for the row's check-mark cells.
-    presence_by_image: dict[str, dict[str, bool]] = defaultdict(dict)
-    scored_labels = {label for label, _, _ in SCORED_FIELDS}
+    # Per-image field-presence map. Stored as a set of "label" → True so the
+    # exported list is compact (only fields that ARE present are listed).
+    presence_by_image: dict[str, set[str]] = defaultdict(set)
     for f in fields:
-        if f["field_name"] in scored_labels:
-            presence_by_image[f["image_url_hash"]][f["field_name"]] = bool(f["has_value"])
+        if f["has_value"]:
+            presence_by_image[f["image_url_hash"]].add(f["field_name"])
 
     samples_by_site: dict[str, list[dict]] = defaultdict(list)
     for art in articles:
@@ -487,21 +487,29 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
             "article_http_status": art.get("http_status"),
         }
         if img is not None:
-            scored_presence = presence_by_image.get(img["image_url_hash"], {})
+            present_fields = sorted(presence_by_image.get(img["image_url_hash"], set()))
             row.update({
                 "image_url": img["image_url"],
                 "image_http_status": img.get("http_status"),
                 "iptc_score": img.get("iptc_score") or 0.0,
+                "has_exif": bool(img.get("has_exif")),
                 "has_iptc_iim": bool(img.get("has_iptc_iim")),
                 "has_iptc_xmp": bool(img.get("has_iptc_xmp")),
                 "has_c2pa": bool(img.get("has_c2pa")),
+                "c2pa_signer": img.get("c2pa_manifest_signer"),
+                "c2pa_validation_status": img.get("c2pa_validation_status"),
                 "cdn_provider": img.get("cdn_provider") or "unknown",
+                "cdn_optimizer_active": img.get("cdn_optimizer_active"),
+                "mime_type": img.get("mime_type"),
                 "width": img.get("width"),
                 "height": img.get("height"),
-                # Four Cs presence flags. False means "we know it's missing",
-                # absent means "we didn't record an entry for it" (the image
-                # never reached the fields-recording stage).
-                "scored_presence": {label: scored_presence.get(label, False) for label in scored_labels},
+                "file_size_bytes": img.get("file_size_bytes"),
+                "dst_iptc": img.get("dst_iptc"),
+                "dst_c2pa": list(img.get("dst_c2pa") or []),
+                # Compact: only fields that ARE present are listed. The full
+                # set (scored + tracked) comes from scoring.yaml; anything
+                # absent from this list is missing for this image.
+                "present_fields": present_fields,
             })
         samples_by_site[art["site_id"]].append(row)
 
