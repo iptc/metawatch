@@ -23,6 +23,8 @@ import runsIndexJson from '../data/latest/runs_index.json';
 import countryNamesJson from '../data/latest/countries_names.json';
 import fieldsBySiteJson from '../data/latest/fields_by_site.json';
 import historyFieldsBySiteJson from '../data/latest/history_fields_by_site.json';
+import c2paBySiteJson from '../data/latest/c2pa_by_site.json';
+import dstBySiteJson from '../data/latest/dst_by_site.json';
 
 export interface Summary {
   run_id: string | null;
@@ -226,6 +228,30 @@ export function getSiteFieldStats(siteId: string): SiteFieldStat[] {
 
 export function getSiteFieldHistory(siteId: string): Record<string, SeriesPoint[]> {
   return ((historyFieldsBySiteJson as Record<string, Record<string, SeriesPoint[]>>)[siteId]) ?? {};
+}
+
+export interface SiteC2paData {
+  image_count_with_c2pa: number;
+  by_outcome: { outcome: C2paOutcome; images: number }[];
+  by_signer: { signer: string; images: number }[];
+  by_validation_state: { state: string; images: number }[];
+}
+
+export function getSiteC2pa(siteId: string): SiteC2paData | null {
+  return (c2paBySiteJson as Record<string, SiteC2paData>)[siteId] ?? null;
+}
+
+export interface SiteDstData {
+  images_with_dst_iptc: number;
+  images_with_dst_c2pa: number;
+  by_bucket_iptc: DstBucketRow[];
+  by_bucket_c2pa: DstBucketRow[];
+  by_uri_iptc: DstUriRow[];
+  by_uri_c2pa: DstUriRow[];
+}
+
+export function getSiteDst(siteId: string): SiteDstData | null {
+  return (dstBySiteJson as Record<string, SiteDstData>)[siteId] ?? null;
 }
 
 export function scoreClass(score: number): string {

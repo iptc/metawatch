@@ -341,6 +341,39 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
     }
     (out_dir / "c2pa.json").write_text(json.dumps(c2pa_out, indent=2))
 
+    # Per-site C2PA breakdown for the publisher detail pages. Only sites
+    # with at least one C2PA-bearing image get an entry.
+    per_site_c2pa: dict[str, dict] = {}
+    for sid in sites_with_c2pa:
+        site_imgs = [img for img in c2pa_images if img["site_id"] == sid]
+        s_signer: dict[str, int] = defaultdict(int)
+        s_state: dict[str, int] = defaultdict(int)
+        s_bucket: dict[str, int] = defaultdict(int)
+        for img in site_imgs:
+            s_signer[img.get("c2pa_manifest_signer") or "(unknown signer)"] += 1
+            s_state[img.get("c2pa_validation_status") or "(unknown state)"] += 1
+            s_bucket[_classify_c2pa(
+                img.get("c2pa_validation_status"),
+                list(img.get("c2pa_failure_codes") or []),
+            )] += 1
+        per_site_c2pa[sid] = {
+            "image_count_with_c2pa": len(site_imgs),
+            "by_outcome": [
+                {"outcome": b, "images": s_bucket.get(b, 0)}
+                for b in ("valid", "modified", "expired", "untrusted_issuer", "other_invalid")
+                if s_bucket.get(b, 0) > 0
+            ],
+            "by_signer": [
+                {"signer": k, "images": v}
+                for k, v in sorted(s_signer.items(), key=lambda x: -x[1])
+            ],
+            "by_validation_state": [
+                {"state": k, "images": v}
+                for k, v in sorted(s_state.items(), key=lambda x: -x[1])
+            ],
+        }
+    (out_dir / "c2pa_by_site.json").write_text(json.dumps(per_site_c2pa, indent=2))
+
     # DigitalSourceType — per-bucket counts from both XMP and C2PA, plus a
     # raw URI breakdown. Buckets come from config/dst_vocab.yaml (editable,
     # so re-bucketing doesn't require a re-crawl).
@@ -351,18 +384,34 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
     by_uri_c2pa: dict[str, int] = defaultdict(int)
     images_with_dst_iptc = 0
     images_with_dst_c2pa = 0
+    # Per-site tallies, populated alongside the global ones.
+    site_dst: dict[str, dict] = defaultdict(lambda: {
+        "images_with_dst_iptc": 0,
+        "images_with_dst_c2pa": 0,
+        "by_bucket_iptc": defaultdict(int),
+        "by_bucket_c2pa": defaultdict(int),
+        "by_uri_iptc": defaultdict(int),
+        "by_uri_c2pa": defaultdict(int),
+    })
     for img in images:
         if img.get("http_status") != 200:
             continue
+        sid = img["site_id"]
         dst_iptc = img.get("dst_iptc")
         if dst_iptc:
             images_with_dst_iptc += 1
             by_uri_iptc[dst_iptc] += 1
             by_bucket_iptc[bucket_for_dst(dst_iptc, dst_vocab)] += 1
+            site_dst[sid]["images_with_dst_iptc"] += 1
+            site_dst[sid]["by_uri_iptc"][dst_iptc] += 1
+            site_dst[sid]["by_bucket_iptc"][bucket_for_dst(dst_iptc, dst_vocab)] += 1
         for uri in (img.get("dst_c2pa") or []):
             images_with_dst_c2pa += 1  # counts every occurrence; an image with N C2PA DSTs contributes N
             by_uri_c2pa[uri] += 1
             by_bucket_c2pa[bucket_for_dst(uri, dst_vocab)] += 1
+            site_dst[sid]["images_with_dst_c2pa"] += 1
+            site_dst[sid]["by_uri_c2pa"][uri] += 1
+            site_dst[sid]["by_bucket_c2pa"][bucket_for_dst(uri, dst_vocab)] += 1
 
     def _ordered_buckets(d: dict[str, int]) -> list[dict]:
         return [
@@ -391,6 +440,21 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         "by_uri_c2pa": _ordered_uris(by_uri_c2pa),
     }
     (out_dir / "dst.json").write_text(json.dumps(dst_out, indent=2))
+
+    # Per-site DST breakdown for publisher detail pages.
+    dst_by_site_out: dict[str, dict] = {}
+    for sid, agg in site_dst.items():
+        if not (agg["images_with_dst_iptc"] or agg["images_with_dst_c2pa"]):
+            continue
+        dst_by_site_out[sid] = {
+            "images_with_dst_iptc": agg["images_with_dst_iptc"],
+            "images_with_dst_c2pa": agg["images_with_dst_c2pa"],
+            "by_bucket_iptc": _ordered_buckets(agg["by_bucket_iptc"]),
+            "by_bucket_c2pa": _ordered_buckets(agg["by_bucket_c2pa"]),
+            "by_uri_iptc": _ordered_uris(agg["by_uri_iptc"]),
+            "by_uri_c2pa": _ordered_uris(agg["by_uri_c2pa"]),
+        }
+    (out_dir / "dst_by_site.json").write_text(json.dumps(dst_by_site_out, indent=2))
 
     history = []
     history_by_site: dict[str, list[dict]] = defaultdict(list)

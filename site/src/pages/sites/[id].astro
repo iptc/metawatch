@@ -6,6 +6,8 @@ import {
   getSiteHistory,
   getSiteFieldStats,
   getSiteFieldHistory,
+  getSiteC2pa,
+  getSiteDst,
   getScoring,
   scoreClass,
   countryName,
@@ -23,6 +25,8 @@ const { site } = Astro.props;
 const history = getSiteHistory(site.site_id);
 const fieldStats = getSiteFieldStats(site.site_id);
 const fieldHistory = getSiteFieldHistory(site.site_id);
+const c2pa = getSiteC2pa(site.site_id);
+const dst = getSiteDst(site.site_id);
 const scoring = getScoring();
 const scoredFieldLabels = scoring.scored_fields.map(f => f.label);
 
@@ -143,6 +147,97 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
     </section>
   )}
 
+  {c2pa && (
+    <section>
+      <h2>C2PA on this site</h2>
+      <p>
+        {c2pa.image_count_with_c2pa} image{c2pa.image_count_with_c2pa === 1 ? '' : 's'}
+        carried a <a href="/c2pa/">C2PA</a> manifest in this run. See the
+        <a href="/c2pa/">project-wide C2PA page</a> for what each outcome means.
+      </p>
+      <div class="grid-2">
+        <div>
+          <h3>Outcomes</h3>
+          <table>
+            <thead><tr><th>Outcome</th><th class="num">Images</th></tr></thead>
+            <tbody>
+              {c2pa.by_outcome.map(b => (
+                <tr><td><code>{b.outcome}</code></td><td class="num">{b.images}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3>Signer</h3>
+          <table>
+            <thead><tr><th>Issuer</th><th class="num">Images</th></tr></thead>
+            <tbody>
+              {c2pa.by_signer.map(s => (
+                <tr><td><code>{s.signer}</code></td><td class="num">{s.images}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {dst && (
+    <section>
+      <h2>Digital source type</h2>
+      <p>
+        {dst.images_with_dst_iptc > 0 && (
+          <>
+            {dst.images_with_dst_iptc} image{dst.images_with_dst_iptc === 1 ? '' : 's'} declared a
+            DigitalSourceType in XMP.{" "}
+          </>
+        )}
+        {dst.images_with_dst_c2pa > 0 && (
+          <>
+            {dst.images_with_dst_c2pa} declared one inside a C2PA <code>c2pa.actions</code> assertion.{" "}
+          </>
+        )}
+        See the <a href="/dst/">project-wide source-type page</a> for what the buckets mean.
+      </p>
+      <div class="grid-2">
+        {dst.by_uri_iptc.length > 0 && (
+          <div>
+            <h3>From IPTC XMP</h3>
+            <table>
+              <thead><tr><th>Term</th><th>Bucket</th><th class="num">Images</th></tr></thead>
+              <tbody>
+                {dst.by_uri_iptc.map(r => (
+                  <tr>
+                    <td><code>{r.term ?? '(unparseable)'}</code></td>
+                    <td>{r.bucket}</td>
+                    <td class="num">{r.images}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+        {dst.by_uri_c2pa.length > 0 && (
+          <div>
+            <h3>From C2PA actions</h3>
+            <table>
+              <thead><tr><th>Term</th><th>Bucket</th><th class="num">Occurrences</th></tr></thead>
+              <tbody>
+                {dst.by_uri_c2pa.map(r => (
+                  <tr>
+                    <td><code>{r.term ?? '(unparseable)'}</code></td>
+                    <td>{r.bucket}</td>
+                    <td class="num">{r.images}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+    </section>
+  )}
+
   <h2>CDN distribution</h2>
   <p>Where this site's images are served from. CDN image-optimization features can strip metadata in transit.</p>
   <table>
@@ -199,6 +294,16 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
     display: block;
     height: 100%;
     background: var(--iptc-green, #6db33f);
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    align-items: start;
+  }
+  .grid-2 h3 {
+    margin-top: 0.25rem;
+    font-size: 1rem;
   }
   .four-cs {
     display: grid;
