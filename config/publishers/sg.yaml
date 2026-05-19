@@ -38,3 +38,60 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: channel-news-asia
+  name: Channel News Asia
+  url: https://www.channelnewsasia.com/
+  homepage: https://www.channelnewsasia.com/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.channelnewsasia.com/api/v1/rss-outbound-feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: singapore-business-review
+  name: Singapore Business Review
+  url: https://sbr.com.sg/news
+  homepage: https://sbr.com.sg/news
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://sbr.com.sg/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: mothership-sg
+  name: Mothership.sg
+  url: https://mothership.sg/
+  homepage: https://mothership.sg/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://mothership.sg/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
