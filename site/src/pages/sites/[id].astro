@@ -268,17 +268,17 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
           })}
         </tbody>
       </table>
-      <script>
-        document.querySelectorAll('.samples-toggle').forEach((btn) => {
-          btn.addEventListener('click', () => {
-            const id = btn.getAttribute('aria-controls');
+      <script is:inline>
+        document.querySelectorAll('.samples-toggle').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var id = btn.getAttribute('aria-controls');
             if (!id) return;
-            const row = document.getElementById(id);
+            var row = document.getElementById(id);
             if (!row) return;
-            const expanded = btn.getAttribute('aria-expanded') === 'true';
+            var expanded = btn.getAttribute('aria-expanded') === 'true';
             btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-            (row as HTMLElement).hidden = expanded;
-            const caret = btn.querySelector('.caret');
+            row.hidden = expanded;
+            var caret = btn.querySelector('.caret');
             if (caret) caret.textContent = expanded ? '▸' : '▾';
           });
         });
