@@ -1,15 +1,15 @@
 {
-  "image_count_total": 4454,
+  "image_count_total": 4399,
   "image_count_with_c2pa": 4,
   "pct_with_c2pa": 0.09,
   "by_outcome": [
     {
       "outcome": "valid",
-      "images": 4
+      "images": 2
     },
     {
       "outcome": "modified",
-      "images": 0
+      "images": 2
     },
     {
       "outcome": "expired",
@@ -34,14 +34,18 @@
       "images": 1
     },
     {
-      "signer": "Canva",
+      "signer": "Google LLC",
       "images": 1
     }
   ],
   "by_validation_state": [
     {
       "state": "Valid",
-      "images": 4
+      "images": 2
+    },
+    {
+      "state": "Invalid",
+      "images": 2
     }
   ],
   "top_sites": [
@@ -58,9 +62,9 @@
       "images_with_c2pa": 1
     },
     {
-      "site_id": "le-quotidien",
-      "site_name": "Le Quotidien",
-      "country": "LU",
+      "site_id": "il-messaggero",
+      "site_name": "Il Messaggero",
+      "country": "IT",
       "images_with_c2pa": 1
     }
   ]

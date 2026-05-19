@@ -24,7 +24,7 @@
     "image_count_with_c2pa": 1,
     "by_outcome": [
       {
-        "outcome": "valid",
+        "outcome": "modified",
         "images": 1
       }
     ],
@@ -36,28 +36,28 @@
     ],
     "by_validation_state": [
       {
-        "state": "Valid",
+        "state": "Invalid",
         "images": 1
       }
     ]
   },
-  "le-quotidien": {
+  "il-messaggero": {
     "image_count_with_c2pa": 1,
     "by_outcome": [
       {
-        "outcome": "valid",
+        "outcome": "modified",
         "images": 1
       }
     ],
     "by_signer": [
       {
-        "signer": "Canva",
+        "signer": "Google LLC",
         "images": 1
       }
     ],
     "by_validation_state": [
       {
-        "state": "Valid",
+        "state": "Invalid",
         "images": 1
       }
     ]

@@ -1,24 +1,24 @@
 [
   {
-    "run_id": "2026-05-19T104414Z",
-    "started_at": "2026-05-19T10:44:14.817173+00:00",
-    "ended_at": "2026-05-19T10:45:11.213850+00:00",
-    "site_count_attempted": 1,
-    "site_count_succeeded": 1,
-    "image_count": 20,
+    "run_id": "2026-05-19T115436Z",
+    "started_at": "2026-05-19T11:54:36.932899+00:00",
+    "ended_at": "2026-05-19T12:36:19.144335+00:00",
+    "site_count_attempted": 341,
+    "site_count_succeeded": 294,
+    "image_count": 4399,
     "directory": "2026-05-19",
     "files": [
       {
         "name": "articles.parquet",
-        "size_bytes": 31811
+        "size_bytes": 3903199
       },
       {
         "name": "images.parquet",
-        "size_bytes": 26288
+        "size_bytes": 590658
       },
       {
         "name": "metadata_fields.parquet",
-        "size_bytes": 2678
+        "size_bytes": 106017
       },
       {
         "name": "runs.parquet",
@@ -26,224 +26,7 @@
       },
       {
         "name": "sites.parquet",
-        "size_bytes": 4139
-      }
-    ]
-  },
-  {
-    "run_id": "2026-05-18T115026Z",
-    "started_at": "2026-05-18T11:50:26.626080+00:00",
-    "ended_at": "2026-05-18T12:27:59.360360+00:00",
-    "site_count_attempted": 338,
-    "site_count_succeeded": 294,
-    "image_count": 4454,
-    "directory": "2026-05-18",
-    "files": [
-      {
-        "name": "articles.parquet",
-        "size_bytes": 3822433
-      },
-      {
-        "name": "images.parquet",
-        "size_bytes": 417936
-      },
-      {
-        "name": "metadata_fields.parquet",
-        "size_bytes": 107327
-      },
-      {
-        "name": "runs.parquet",
-        "size_bytes": 3231
-      },
-      {
-        "name": "sites.parquet",
-        "size_bytes": 21363
-      }
-    ]
-  },
-  {
-    "run_id": "2026-05-17T200230Z",
-    "started_at": "2026-05-17T20:02:30.970262+00:00",
-    "ended_at": "2026-05-17T20:33:56.150527+00:00",
-    "site_count_attempted": 254,
-    "site_count_succeeded": 224,
-    "image_count": 3218,
-    "directory": "2026-05-17",
-    "files": [
-      {
-        "name": "articles.parquet",
-        "size_bytes": 2737280
-      },
-      {
-        "name": "images.parquet",
-        "size_bytes": 296099
-      },
-      {
-        "name": "metadata_fields.parquet",
-        "size_bytes": 76454
-      },
-      {
-        "name": "runs.parquet",
-        "size_bytes": 3231
-      },
-      {
-        "name": "sites.parquet",
-        "size_bytes": 17367
-      }
-    ]
-  },
-  {
-    "run_id": "2026-05-15T074655Z",
-    "started_at": "2026-05-15T07:46:55.892933+00:00",
-    "ended_at": "2026-05-15T08:17:42.044803+00:00",
-    "site_count_attempted": 254,
-    "site_count_succeeded": 223,
-    "image_count": 3213,
-    "directory": "2026-05-15",
-    "files": [
-      {
-        "name": "articles.parquet",
-        "size_bytes": 2828316
-      },
-      {
-        "name": "images.parquet",
-        "size_bytes": 298402
-      },
-      {
-        "name": "metadata_fields.parquet",
-        "size_bytes": 76527
-      },
-      {
-        "name": "runs.parquet",
-        "size_bytes": 3231
-      },
-      {
-        "name": "sites.parquet",
-        "size_bytes": 17219
-      }
-    ]
-  },
-  {
-    "run_id": "2026-05-14T212928Z",
-    "started_at": "2026-05-14T21:29:28.512124+00:00",
-    "ended_at": "2026-05-14T22:00:33.704047+00:00",
-    "site_count_attempted": 253,
-    "site_count_succeeded": 223,
-    "image_count": 3246,
-    "directory": "2026-05-14",
-    "files": [
-      {
-        "name": "articles.parquet",
-        "size_bytes": 2800982
-      },
-      {
-        "name": "images.parquet",
-        "size_bytes": 300480
-      },
-      {
-        "name": "metadata_fields.parquet",
-        "size_bytes": 77083
-      },
-      {
-        "name": "runs.parquet",
-        "size_bytes": 3231
-      },
-      {
-        "name": "sites.parquet",
-        "size_bytes": 17255
-      }
-    ]
-  },
-  {
-    "run_id": "2026-05-13T133512Z",
-    "started_at": "2026-05-13T13:35:12.978931+00:00",
-    "ended_at": "2026-05-13T14:03:34.855929+00:00",
-    "site_count_attempted": 253,
-    "site_count_succeeded": 222,
-    "image_count": 3245,
-    "directory": "2026-05-13",
-    "files": [
-      {
-        "name": "articles.parquet",
-        "size_bytes": 2745275
-      },
-      {
-        "name": "images.parquet",
-        "size_bytes": 303063
-      },
-      {
-        "name": "metadata_fields.parquet",
-        "size_bytes": 77076
-      },
-      {
-        "name": "runs.parquet",
-        "size_bytes": 3231
-      },
-      {
-        "name": "sites.parquet",
-        "size_bytes": 17294
-      }
-    ]
-  },
-  {
-    "run_id": "2026-05-12T210316Z",
-    "started_at": "2026-05-12T21:03:16.998133+00:00",
-    "ended_at": "2026-05-12T21:27:59.740594+00:00",
-    "site_count_attempted": 253,
-    "site_count_succeeded": 159,
-    "image_count": 2639,
-    "directory": "2026-05-12",
-    "files": [
-      {
-        "name": "articles.parquet",
-        "size_bytes": 1276885
-      },
-      {
-        "name": "images.parquet",
-        "size_bytes": 251903
-      },
-      {
-        "name": "metadata_fields.parquet",
-        "size_bytes": 62649
-      },
-      {
-        "name": "runs.parquet",
-        "size_bytes": 3231
-      },
-      {
-        "name": "sites.parquet",
-        "size_bytes": 16213
-      }
-    ]
-  },
-  {
-    "run_id": "2026-05-11T205109Z",
-    "started_at": "2026-05-11T20:51:09.127340+00:00",
-    "ended_at": "2026-05-11T20:52:07.186316+00:00",
-    "site_count_attempted": 5,
-    "site_count_succeeded": 5,
-    "image_count": 88,
-    "directory": "2026-05-11-smoke",
-    "files": [
-      {
-        "name": "articles.parquet",
-        "size_bytes": 32199
-      },
-      {
-        "name": "images.parquet",
-        "size_bytes": 16382
-      },
-      {
-        "name": "metadata_fields.parquet",
-        "size_bytes": 3951
-      },
-      {
-        "name": "runs.parquet",
-        "size_bytes": 3231
-      },
-      {
-        "name": "sites.parquet",
-        "size_bytes": 4573
+        "size_bytes": 21457
       }
     ]
   }
