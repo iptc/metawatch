@@ -107,6 +107,30 @@ def families_present(exif_tags: dict[str, object]) -> tuple[bool, bool, bool]:
     return has_exif, has_iptc_iim, has_xmp
 
 
+def iptc_xmp_subset(exif_tags: dict[str, object]) -> dict[str, object]:
+    """Filter an exiftool tag dict down to keys in the IPTC: or XMP* groups,
+    dropping empty values and a couple of structural noise tags. Used to
+    record the raw key/value metadata we picked up for each image, so the
+    per-image detail panel on /sites/<id>/ can show actual content rather
+    than just presence flags.
+    """
+    NOISE = {
+        "IPTC:ApplicationRecordVersion",
+        "XMP:About",
+        "XMP:NSURIs",
+    }
+    out: dict[str, object] = {}
+    for k, v in exif_tags.items():
+        if k in NOISE:
+            continue
+        if not (k.startswith("IPTC:") or k.startswith("XMP")):
+            continue
+        if not _truthy(v):
+            continue
+        out[k] = v
+    return out
+
+
 def _has_substantive_iptc(exif_tags: dict[str, object]) -> bool:
     lower = {k.lower(): v for k, v in exif_tags.items() if k.startswith("IPTC:")}
     if not lower:

@@ -4,6 +4,7 @@ from pmd_crawler.scoring import (
     TOTAL_WEIGHT,
     TRACKED_FIELDS,
     families_present,
+    iptc_xmp_subset,
     score_image,
 )
 
@@ -105,6 +106,46 @@ def test_partial_score_from_some_cs():
 def test_empty_string_value_is_not_present():
     tags = {"IPTC:By-line": "   "}
     assert families_present(tags)[1] is False
+
+
+def test_iptc_xmp_subset_keeps_iptc_and_xmp_only():
+    tags = {
+        "SourceFile": "/tmp/foo.jpg",
+        "File:FileSize": 12345,
+        "EXIF:Make": "Canon",
+        "IPTC:By-line": "Jane Doe",
+        "XMP:Creator": "Jane Doe",
+        "XMP-iptcExt:DigitalSourceType": "http://cv.iptc.org/...",
+    }
+    out = iptc_xmp_subset(tags)
+    assert set(out.keys()) == {"IPTC:By-line", "XMP:Creator", "XMP-iptcExt:DigitalSourceType"}
+
+
+def test_iptc_xmp_subset_drops_empty_values():
+    tags = {
+        "IPTC:By-line": "Jane Doe",
+        "IPTC:CopyrightNotice": "",
+        "XMP:Description": "   ",
+        "XMP:Keywords": [],
+    }
+    assert iptc_xmp_subset(tags) == {"IPTC:By-line": "Jane Doe"}
+
+
+def test_iptc_xmp_subset_drops_structural_noise():
+    tags = {
+        "IPTC:ApplicationRecordVersion": 4,
+        "IPTC:By-line": "Jane Doe",
+    }
+    assert iptc_xmp_subset(tags) == {"IPTC:By-line": "Jane Doe"}
+
+
+def test_iptc_xmp_subset_keeps_list_and_int_values():
+    tags = {
+        "IPTC:Keywords": ["news", "politics"],
+        "XMP:Rating": 5,
+    }
+    out = iptc_xmp_subset(tags)
+    assert out == {"IPTC:Keywords": ["news", "politics"], "XMP:Rating": 5}
 
 
 def test_xmp_dst_alone_counts_as_xmp_present():

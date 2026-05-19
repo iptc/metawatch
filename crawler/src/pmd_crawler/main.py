@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+import json
 import random
 from datetime import UTC, datetime
 from pathlib import Path
@@ -31,6 +32,7 @@ from .output import (
     SiteRow,
     write_run,
 )
+from .scoring import iptc_xmp_subset
 
 console = Console()
 
@@ -330,6 +332,7 @@ async def _crawl_site(
                 await asyncio.sleep(delay + random.uniform(0, DEFAULT_REQ_JITTER))
                 img = await fetch_and_analyse(client, img_url, exif_pool)
 
+            kept_tags = iptc_xmp_subset(img.raw_tags) if img.raw_tags else {}
             image_row = ImageRow(
                 run_id=run_id, site_id=site.id,
                 article_url_hash=_sha1_of(cand.url),
@@ -347,6 +350,7 @@ async def _crawl_site(
                 cdn_optimizer_active=img.cdn_optimizer_active,
                 metadata_field_count=img.metadata_field_count,
                 iptc_score=img.iptc_score,
+                iptc_xmp_tags_json=json.dumps(kept_tags, default=str, sort_keys=True) if kept_tags else None,
             )
             images.append(image_row)
             if img.http_status == 200:

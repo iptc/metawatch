@@ -31,7 +31,6 @@ const dst = getSiteDst(site.site_id);
 const samples = getSiteSamples(site.site_id);
 const scoring = getScoring();
 const scoredFieldLabels = scoring.scored_fields.map(f => f.label);
-const trackedFieldLabels = scoring.tracked_fields.map(f => f.label);
 // Short labels for the Four-Cs check columns so the table stays narrow.
 const shortLabel: Record<string, string> = {
   Creator: 'Cr',
@@ -45,6 +44,15 @@ function fmtBytes(n: number | null | undefined): string {
   if (n < 1024) return `${n} B`;
   if (n < 1024 * 1024) return `${(n / 1024).toFixed(1)} KB`;
   return `${(n / (1024 * 1024)).toFixed(2)} MB`;
+}
+
+function fmtTagValue(v: unknown): string {
+  if (v == null) return '';
+  if (Array.isArray(v)) return v.map(x => fmtTagValue(x)).join(', ');
+  if (typeof v === 'object') {
+    try { return JSON.stringify(v); } catch { return String(v); }
+  }
+  return String(v);
 }
 
 // Strip trailing slash for display.
@@ -205,27 +213,22 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
                 <tr id={detailId} class="detail-row" hidden>
                   <td colspan={5 + scoredFieldLabels.length + 2}>
                     <div class="detail-grid">
-                      <div>
-                        <h4>Scored fields</h4>
-                        <ul class="field-list">
-                          {scoredFieldLabels.map(l => (
-                            <li class={presentSet.has(l) ? 'present' : 'missing'}>
-                              <span class="mark" aria-hidden="true">{presentSet.has(l) ? '✓' : '·'}</span>
-                              <code>{l}</code>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div>
-                        <h4>Tracked fields</h4>
-                        <ul class="field-list">
-                          {trackedFieldLabels.map(l => (
-                            <li class={presentSet.has(l) ? 'present' : 'missing'}>
-                              <span class="mark" aria-hidden="true">{presentSet.has(l) ? '✓' : '·'}</span>
-                              <code>{l}</code>
-                            </li>
-                          ))}
-                        </ul>
+                      <div class="metadata-block">
+                        <h4>Embedded metadata (IPTC + XMP)</h4>
+                        {s.metadata && Object.keys(s.metadata).length > 0 ? (
+                          <table class="metadata-kv">
+                            <tbody>
+                              {Object.entries(s.metadata).sort(([a], [b]) => a.localeCompare(b)).map(([k, v]) => (
+                                <tr>
+                                  <th><code>{k}</code></th>
+                                  <td>{fmtTagValue(v)}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        ) : (
+                          <p style="color:var(--iptc-muted)">No IPTC or XMP tags were extracted from this image.</p>
+                        )}
                       </div>
                       <div>
                         <h4>Image</h4>
@@ -253,7 +256,7 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
                           )}
                           {s.dst_c2pa && s.dst_c2pa.length > 0 && (
                             <><dt>DST (C2PA)</dt><dd>
-                              {s.dst_c2pa.map((uri, j) => (
+                              {s.dst_c2pa.map((uri) => (
                                 <div><a href={uri} target="_blank" rel="noopener"><code>{uri}</code></a></div>
                               ))}
                             </dd></>
@@ -497,8 +500,11 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
   }
   .detail-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: minmax(0, 2fr) minmax(220px, 1fr);
     gap: 1.5rem;
+  }
+  @media (max-width: 760px) {
+    .detail-grid { grid-template-columns: 1fr; }
   }
   .detail-grid h4 {
     margin: 0 0 0.5rem;
@@ -507,27 +513,31 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
     letter-spacing: 0.05em;
     color: var(--iptc-muted, #6b7280);
   }
-  .field-list {
-    list-style: none;
-    padding: 0;
+  .metadata-block {
+    min-width: 0;
+  }
+  table.metadata-kv {
     margin: 0;
-  }
-  .field-list li {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.1rem 0;
     font-size: 0.85rem;
+    table-layout: auto;
   }
-  .field-list li.present .mark {
-    color: var(--iptc-green, #6db33f);
-    font-weight: 700;
+  table.metadata-kv th,
+  table.metadata-kv td {
+    padding: 0.25rem 0.6rem;
+    vertical-align: top;
+    border-bottom: 1px solid var(--iptc-border, #eaecef);
+    text-transform: none;
+    letter-spacing: normal;
+    background: transparent;
   }
-  .field-list li.missing {
+  table.metadata-kv th {
+    text-align: left;
+    font-weight: 500;
     color: var(--iptc-muted, #6b7280);
+    white-space: nowrap;
   }
-  .field-list li.missing .mark {
-    color: var(--iptc-border, #d1d5db);
+  table.metadata-kv td {
+    overflow-wrap: anywhere;
   }
   dl.image-facts {
     margin: 0;

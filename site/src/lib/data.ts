@@ -281,6 +281,10 @@ export interface SampleRow {
    * Anything absent from this list is missing — the page diffs against the
    * full ScoringConfig.scored_fields + tracked_fields lists. */
   present_fields?: string[];
+  /** Raw exiftool key/value pairs from the IPTC + XMP groups for this image.
+   * Values may be strings, numbers, or lists; the page stringifies them for
+   * display. {} when the image carried nothing. */
+  metadata?: Record<string, unknown>;
 }
 
 export function getSiteSamples(siteId: string): SampleRow[] {

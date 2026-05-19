@@ -92,6 +92,7 @@ class ImageRow:
     c2pa_failure_codes: list[str] = field(default_factory=list)
     dst_iptc: str | None = None
     dst_c2pa: list[str] = field(default_factory=list)
+    iptc_xmp_tags_json: str | None = None  # JSON-encoded filtered tag dict, see scoring.iptc_xmp_subset
 
     @property
     def image_url_hash(self) -> str:
@@ -196,6 +197,7 @@ def _write_images(path: Path, rows: list[ImageRow]) -> None:
         "c2pa_failure_codes": [r.c2pa_failure_codes for r in rows],
         "dst_iptc": [r.dst_iptc for r in rows],
         "dst_c2pa": [r.dst_c2pa for r in rows],
+        "iptc_xmp_tags_json": [r.iptc_xmp_tags_json for r in rows],
         "cdn_provider": [r.cdn_provider for r in rows],
         "cdn_optimizer_active": [r.cdn_optimizer_active for r in rows],
         "metadata_field_count": [r.metadata_field_count for r in rows],

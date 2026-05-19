@@ -488,6 +488,11 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         }
         if img is not None:
             present_fields = sorted(presence_by_image.get(img["image_url_hash"], set()))
+            tags_json = img.get("iptc_xmp_tags_json")
+            try:
+                metadata = json.loads(tags_json) if tags_json else {}
+            except (TypeError, ValueError):
+                metadata = {}
             row.update({
                 "image_url": img["image_url"],
                 "image_http_status": img.get("http_status"),
@@ -510,6 +515,9 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
                 # set (scored + tracked) comes from scoring.yaml; anything
                 # absent from this list is missing for this image.
                 "present_fields": present_fields,
+                # Raw exiftool key/value pairs from the IPTC + XMP groups
+                # for this image. Empty {} when the image carried nothing.
+                "metadata": metadata,
             })
         samples_by_site[art["site_id"]].append(row)
 
