@@ -63,7 +63,7 @@ function pct(n: number, of: number): string {
       </p>
       {data.by_bucket_iptc.length === 0
         ? <p style="color:var(--iptc-muted)">No XMP-sourced DST values in this run.</p>
-        : <table>
+        : <table class="sortable">
             <thead><tr><th>Bucket</th><th class="num">Images</th><th class="num">Share of DST-declaring</th></tr></thead>
             <tbody>
               {data.by_bucket_iptc.map(b => (
@@ -86,7 +86,7 @@ function pct(n: number, of: number): string {
       </p>
       {data.by_bucket_c2pa.length === 0
         ? <p style="color:var(--iptc-muted)">No C2PA-sourced DST values in this run.</p>
-        : <table>
+        : <table class="sortable">
             <thead><tr><th>Bucket</th><th class="num">Occurrences</th></tr></thead>
             <tbody>
               {data.by_bucket_c2pa.map(b => (
@@ -103,7 +103,7 @@ function pct(n: number, of: number): string {
       <p>The exact URIs we saw — useful for spotting buckets we haven't mapped yet.</p>
       {data.by_uri_iptc.length === 0
         ? <p style="color:var(--iptc-muted)">No XMP-sourced DST values in this run.</p>
-        : <table>
+        : <table class="sortable">
             <thead><tr><th>Term</th><th>Bucket</th><th class="num">Images</th><th>URI</th></tr></thead>
             <tbody>
               {data.by_uri_iptc.map(r => (
@@ -121,7 +121,7 @@ function pct(n: number, of: number): string {
       {data.by_uri_c2pa.length > 0 && (
         <>
           <h2>Raw C2PA values</h2>
-          <table>
+          <table class="sortable">
             <thead><tr><th>Term</th><th>Bucket</th><th class="num">Occurrences</th><th>URI</th></tr></thead>
             <tbody>
               {data.by_uri_c2pa.map(r => (

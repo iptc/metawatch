@@ -15,7 +15,7 @@ const total = cdn.by_provider.reduce((acc, x) => acc + x.images, 0);
   </p>
 
   <h2>CDN distribution</h2>
-  <table>
+  <table class="sortable">
     <thead><tr><th>Provider</th><th class="num">Images</th><th class="num">Share</th><th class="num">% with metadata stripped</th></tr></thead>
     <tbody>
       {cdn.by_provider.map(r => (

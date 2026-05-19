@@ -55,5 +55,71 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         </div>
       </div>
     </footer>
+    <script is:inline>
+      // Click-to-sort for any <table class="sortable">. Column type
+      // (numeric vs string) is auto-detected from the first 10 rows.
+      // Re-clicking a header toggles asc ↔ desc. Headers marked
+      // data-nosort="true" are skipped.
+      (function () {
+        function detectNumeric(rows, colIdx) {
+          var n = 0, total = 0;
+          for (var i = 0; i < Math.min(rows.length, 10); i++) {
+            var cell = rows[i].cells[colIdx];
+            var t = (cell && cell.textContent || '').trim();
+            if (!t || t === '—' || t === '-') continue;
+            total++;
+            if (!isNaN(parseFloat(t.replace(/[,%\s]/g, '')))) n++;
+          }
+          return total > 0 && n / total >= 0.75;
+        }
+        function extractCell(td, isNum) {
+          var t = ((td && td.textContent) || '').trim();
+          if (!t || t === '—' || t === '-') return isNum ? -Infinity : '';
+          if (isNum) {
+            var v = parseFloat(t.replace(/[,%\s]/g, ''));
+            return isNaN(v) ? -Infinity : v;
+          }
+          return t.toLowerCase();
+        }
+        function sortByColumn(table, colIdx, th) {
+          var tbody = table.querySelector('tbody');
+          if (!tbody) return;
+          var rows = Array.prototype.slice.call(tbody.rows);
+          var dir = th.classList.contains('sort-asc') ? 'desc' : 'asc';
+          var headers = table.querySelectorAll('thead th');
+          for (var i = 0; i < headers.length; i++) {
+            headers[i].classList.remove('sort-asc', 'sort-desc');
+          }
+          th.classList.add(dir === 'asc' ? 'sort-asc' : 'sort-desc');
+          var isNum = detectNumeric(rows, colIdx);
+          rows.sort(function (a, b) {
+            var av = extractCell(a.cells[colIdx], isNum);
+            var bv = extractCell(b.cells[colIdx], isNum);
+            if (av === bv) return 0;
+            if (dir === 'asc') return av < bv ? -1 : 1;
+            return av < bv ? 1 : -1;
+          });
+          for (var j = 0; j < rows.length; j++) tbody.appendChild(rows[j]);
+        }
+        function makeSortable(table) {
+          var headers = table.querySelectorAll('thead th');
+          for (var i = 0; i < headers.length; i++) (function (th, idx) {
+            if (th.dataset && th.dataset.nosort === 'true') return;
+            th.classList.add('sortable-col');
+            th.setAttribute('tabindex', '0');
+            th.setAttribute('role', 'button');
+            function act(e) {
+              if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') return;
+              if (e.preventDefault) e.preventDefault();
+              sortByColumn(table, idx, th);
+            }
+            th.addEventListener('click', act);
+            th.addEventListener('keydown', act);
+          })(headers[i], i);
+        }
+        var tables = document.querySelectorAll('table.sortable');
+        for (var k = 0; k < tables.length; k++) makeSortable(tables[k]);
+      })();
+    </script>
   </body>
 </html>

@@ -77,7 +77,7 @@ const c2paPctPoints = history.map(h => ({
         each image we find into one of these outcomes so the headline number
         stays honest:
       </p>
-      <table>
+      <table class="sortable">
         <thead>
           <tr><th>Outcome</th><th>Meaning</th><th class="num">Images</th></tr>
         </thead>
@@ -105,7 +105,7 @@ const c2paPctPoints = history.map(h => ({
 
       <h2>Top signers</h2>
       <p>Issuers of the certificates used to sign the manifests we found.</p>
-      <table>
+      <table class="sortable">
         <thead><tr><th>Signer / Issuer</th><th class="num">Images</th></tr></thead>
         <tbody>
           {data.by_signer.map(s => (
@@ -123,7 +123,7 @@ const c2paPctPoints = history.map(h => ({
         <a href="https://github.com/contentauth/c2pa-rs" target="_blank" rel="noopener"> c2pa-rs library</a>
         before bucketing — useful if you want to drill into a specific failure mode.
       </p>
-      <table>
+      <table class="sortable">
         <thead><tr><th>State</th><th class="num">Images</th></tr></thead>
         <tbody>
           {data.by_validation_state.map(v => (
@@ -136,7 +136,7 @@ const c2paPctPoints = history.map(h => ({
       </table>
 
       <h2>Top sites by C2PA images</h2>
-      <table>
+      <table class="sortable">
         <thead><tr><th>Site</th><th>Country</th><th class="num">Images with C2PA</th></tr></thead>
         <tbody>
           {data.top_sites.slice(0, 25).map(s => (

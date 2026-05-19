@@ -153,6 +153,21 @@ th {
 tbody tr:hover { background: #fbfcfc; }
 td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 
+th.sortable-col {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+th.sortable-col:hover { background: #eef1f3; }
+th.sortable-col:focus { outline: 2px solid var(--iptc-navy); outline-offset: -2px; }
+th.sortable-col::after {
+  content: " \2195";
+  opacity: 0.25;
+  font-size: 0.8em;
+}
+th.sortable-col.sort-asc::after { content: " \25B2"; opacity: 0.8; }
+th.sortable-col.sort-desc::after { content: " \25BC"; opacity: 0.8; }
+
 .score-bar {
   display: inline-block;
   height: 8px;

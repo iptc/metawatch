@@ -9,7 +9,7 @@ const countries = getCountries();
   <h1>Countries</h1>
   <p class="lede">Per-country mean is the average across the country's sites (equal-weighted per site, regardless of how many images each site contributed).</p>
 
-  <table>
+  <table class="sortable">
     <thead><tr><th>Country</th><th class="num">Sites</th><th class="num">Mean score</th></tr></thead>
     <tbody>
       {countries.map(c => (

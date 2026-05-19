@@ -107,7 +107,7 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
         The four <strong>scored</strong> fields determine the headline score;
         tracked fields are recorded but don't affect it.
       </p>
-      <table>
+      <table class="sortable">
         <thead>
           <tr>
             <th>Field</th>
@@ -342,7 +342,7 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
       <div class="grid-2">
         <div>
           <h3>Outcomes</h3>
-          <table>
+          <table class="sortable">
             <thead><tr><th>Outcome</th><th class="num">Images</th></tr></thead>
             <tbody>
               {c2pa.by_outcome.map(b => (
@@ -353,7 +353,7 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
         </div>
         <div>
           <h3>Signer</h3>
-          <table>
+          <table class="sortable">
             <thead><tr><th>Issuer</th><th class="num">Images</th></tr></thead>
             <tbody>
               {c2pa.by_signer.map(s => (
@@ -387,7 +387,7 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
         {dst.by_uri_iptc.length > 0 && (
           <div>
             <h3>From IPTC XMP</h3>
-            <table>
+            <table class="sortable">
               <thead><tr><th>Term</th><th>Bucket</th><th class="num">Images</th></tr></thead>
               <tbody>
                 {dst.by_uri_iptc.map(r => (
@@ -404,7 +404,7 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
         {dst.by_uri_c2pa.length > 0 && (
           <div>
             <h3>From C2PA actions</h3>
-            <table>
+            <table class="sortable">
               <thead><tr><th>Term</th><th>Bucket</th><th class="num">Occurrences</th></tr></thead>
               <tbody>
                 {dst.by_uri_c2pa.map(r => (
@@ -424,7 +424,7 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
 
   <h2>CDN distribution</h2>
   <p>Where this site's images are served from. CDN image-optimization features can strip metadata in transit.</p>
-  <table>
+  <table class="sortable">
     <thead><tr><th>Provider</th><th class="num">Images</th></tr></thead>
     <tbody>
       {Object.entries(site.cdn_breakdown).sort((a,b) => b[1] - a[1]).map(([k, v]) => (
