@@ -94,6 +94,22 @@ def score_image(exif_tags: dict[str, object]) -> tuple[float, list[tuple[str, bo
     return score, presence
 
 
+# Family-1 group prefixes ExifTool uses for what's conceptually "EXIF data"
+# when invoked with -G1. With the older -G we just saw "EXIF:", but -G1
+# breaks it down by physical container.
+_EXIF_GROUP_PREFIXES = (
+    "EXIF:",        # -G fallback for code paths or test fixtures still using flat -G
+    "IFD0:",        # main image directory
+    "IFD1:",        # thumbnail directory
+    "ExifIFD:",     # EXIF subdirectory
+    "GPS:",
+    "InteropIFD:",
+    "MakerNotes:",
+    "PrintIM:",
+    "SubIFD:",
+)
+
+
 def families_present(exif_tags: dict[str, object]) -> tuple[bool, bool, bool]:
     """Return (has_exif, has_iptc_iim, has_xmp).
 
@@ -101,7 +117,7 @@ def families_present(exif_tags: dict[str, object]) -> tuple[bool, bool, bool]:
     present under the IPTC: group with a non-empty value. Bare structural tags
     like IPTC:ApplicationRecordVersion don't qualify.
     """
-    has_exif = any(k.startswith("EXIF:") for k in exif_tags)
+    has_exif = any(k.startswith(_EXIF_GROUP_PREFIXES) for k in exif_tags)
     has_xmp = any(k.startswith("XMP") for k in exif_tags)
     has_iptc_iim = _has_substantive_iptc(exif_tags)
     return has_exif, has_iptc_iim, has_xmp

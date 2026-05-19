@@ -108,6 +108,40 @@ def test_empty_string_value_is_not_present():
     assert families_present(tags)[1] is False
 
 
+def test_has_exif_recognises_family1_groups():
+    # With ExifTool's -G1, EXIF data appears under IFD0:, ExifIFD:, GPS:, etc.
+    # has_exif must recognise all of those, not just the flat "EXIF:" prefix.
+    for prefix in ("IFD0:", "ExifIFD:", "GPS:", "IFD1:", "MakerNotes:"):
+        tags = {prefix + "Anything": "value"}
+        assert families_present(tags)[0] is True, f"expected has_exif True for {prefix}"
+
+
+def test_has_exif_still_works_for_flat_exif_prefix():
+    # Older fixtures / -G mode should keep working.
+    tags = {"EXIF:Make": "Canon"}
+    assert families_present(tags)[0] is True
+
+
+def test_iptc_xmp_subset_handles_namespaced_xmp_groups():
+    # With -G1, XMP keys carry their RDF namespace as part of the family-1
+    # group: XMP-dc:Creator, XMP-iptcExt:Event, etc. All must survive the
+    # filter (they start with "XMP").
+    tags = {
+        "XMP-dc:Creator": "Jane Doe",
+        "XMP-iptcExt:Event": "Press conference",
+        "XMP-photoshop:Credit": "Wire Service",
+        "XMP-plus:LicensorURL": "https://example.com",
+        "IFD0:Make": "Canon",  # should be excluded
+    }
+    out = iptc_xmp_subset(tags)
+    assert out == {
+        "XMP-dc:Creator": "Jane Doe",
+        "XMP-iptcExt:Event": "Press conference",
+        "XMP-photoshop:Credit": "Wire Service",
+        "XMP-plus:LicensorURL": "https://example.com",
+    }
+
+
 def test_iptc_xmp_subset_keeps_iptc_and_xmp_only():
     tags = {
         "SourceFile": "/tmp/foo.jpg",

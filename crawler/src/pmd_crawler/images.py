@@ -233,7 +233,12 @@ class ExifPool:
         async with self._lock:
             data = await asyncio.get_running_loop().run_in_executor(
                 None,
-                lambda: self._helper.get_metadata(str(path), params=["-G", "-n"]),  # type: ignore[union-attr]
+                # -G1 (family-1 group prefix): produces "XMP-dc:Creator" /
+                # "XMP-iptcExt:DigitalSourceType" / "IFD0:Artist" etc. instead
+                # of the flat -G "XMP:Creator". Far more informative for the
+                # per-image metadata table and matches the namespace-qualified
+                # aliases in scoring.yaml.
+                lambda: self._helper.get_metadata(str(path), params=["-G1", "-n"]),  # type: ignore[union-attr]
             )
         if not data:
             return {}
