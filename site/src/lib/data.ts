@@ -25,6 +25,7 @@ import fieldsBySiteJson from '../data/latest/fields_by_site.json';
 import historyFieldsBySiteJson from '../data/latest/history_fields_by_site.json';
 import c2paBySiteJson from '../data/latest/c2pa_by_site.json';
 import dstBySiteJson from '../data/latest/dst_by_site.json';
+import samplesBySiteJson from '../data/latest/samples_by_site.json';
 
 export interface Summary {
   run_id: string | null;
@@ -252,6 +253,27 @@ export interface SiteDstData {
 
 export function getSiteDst(siteId: string): SiteDstData | null {
   return (dstBySiteJson as Record<string, SiteDstData>)[siteId] ?? null;
+}
+
+export interface SampleRow {
+  article_url: string;
+  title: string | null;
+  publication_date: string | null;
+  article_http_status: number | null;
+  image_url?: string;
+  image_http_status?: number | null;
+  iptc_score?: number;
+  has_iptc_iim?: boolean;
+  has_iptc_xmp?: boolean;
+  has_c2pa?: boolean;
+  cdn_provider?: string;
+  width?: number | null;
+  height?: number | null;
+  scored_presence?: Record<string, boolean>;
+}
+
+export function getSiteSamples(siteId: string): SampleRow[] {
+  return ((samplesBySiteJson as Record<string, SampleRow[]>)[siteId]) ?? [];
 }
 
 export function scoreClass(score: number): string {

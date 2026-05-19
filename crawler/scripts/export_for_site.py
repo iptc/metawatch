@@ -21,6 +21,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from collections import defaultdict
 from pathlib import Path
@@ -118,6 +119,7 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
 
     runs = read(run_dir / "runs.parquet")
     sites = read(run_dir / "sites.parquet")
+    articles = read(run_dir / "articles.parquet")
     images = read(run_dir / "images.parquet")
     fields = read(run_dir / "metadata_fields.parquet")
 
@@ -455,6 +457,64 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
             "by_uri_c2pa": _ordered_uris(agg["by_uri_c2pa"]),
         }
     (out_dir / "dst_by_site.json").write_text(json.dumps(dst_by_site_out, indent=2))
+
+    # Per-site sample articles + their lead images, for the publisher pages.
+    # One row per article, up to 20, newest-first. Joins articles ↔ images
+    # via sha1(article_url) = article_url_hash, and articles ↔ metadata_fields
+    # via that-same image's image_url_hash to assemble the Four-Cs presence
+    # checks for the row.
+    images_by_article: dict[str, dict] = {}
+    for img in images:
+        # Each article was matched 1:1 to a lead image at crawl time, so we
+        # only need the first one we see per article_url_hash.
+        images_by_article.setdefault(img["article_url_hash"], img)
+
+    # Per-image scored-field presence map for the row's check-mark cells.
+    presence_by_image: dict[str, dict[str, bool]] = defaultdict(dict)
+    scored_labels = {label for label, _, _ in SCORED_FIELDS}
+    for f in fields:
+        if f["field_name"] in scored_labels:
+            presence_by_image[f["image_url_hash"]][f["field_name"]] = bool(f["has_value"])
+
+    samples_by_site: dict[str, list[dict]] = defaultdict(list)
+    for art in articles:
+        art_hash = hashlib.sha1(art["article_url"].encode()).hexdigest()
+        img = images_by_article.get(art_hash)
+        row = {
+            "article_url": art["article_url"],
+            "title": art.get("title"),
+            "publication_date": fmt_dt(art.get("publication_date")),
+            "article_http_status": art.get("http_status"),
+        }
+        if img is not None:
+            scored_presence = presence_by_image.get(img["image_url_hash"], {})
+            row.update({
+                "image_url": img["image_url"],
+                "image_http_status": img.get("http_status"),
+                "iptc_score": img.get("iptc_score") or 0.0,
+                "has_iptc_iim": bool(img.get("has_iptc_iim")),
+                "has_iptc_xmp": bool(img.get("has_iptc_xmp")),
+                "has_c2pa": bool(img.get("has_c2pa")),
+                "cdn_provider": img.get("cdn_provider") or "unknown",
+                "width": img.get("width"),
+                "height": img.get("height"),
+                # Four Cs presence flags. False means "we know it's missing",
+                # absent means "we didn't record an entry for it" (the image
+                # never reached the fields-recording stage).
+                "scored_presence": {label: scored_presence.get(label, False) for label in scored_labels},
+            })
+        samples_by_site[art["site_id"]].append(row)
+
+    # Sort by publication_date desc (newest first), cap at 20 per site.
+    for sid, rows in samples_by_site.items():
+        rows.sort(key=lambda r: r.get("publication_date") or "", reverse=True)
+        samples_by_site[sid] = rows[:20]
+    # Written compactly: this file is large (sample URLs add up) and is
+    # machine-consumed by the Astro build. The pretty pyarrow data is still
+    # available under data/runs/<date>/ for anyone reading it by hand.
+    (out_dir / "samples_by_site.json").write_text(
+        json.dumps(dict(samples_by_site), separators=(",", ":"))
+    )
 
     history = []
     history_by_site: dict[str, list[dict]] = defaultdict(list)

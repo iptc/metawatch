@@ -8,6 +8,7 @@ import {
   getSiteFieldHistory,
   getSiteC2pa,
   getSiteDst,
+  getSiteSamples,
   getScoring,
   scoreClass,
   countryName,
@@ -27,8 +28,16 @@ const fieldStats = getSiteFieldStats(site.site_id);
 const fieldHistory = getSiteFieldHistory(site.site_id);
 const c2pa = getSiteC2pa(site.site_id);
 const dst = getSiteDst(site.site_id);
+const samples = getSiteSamples(site.site_id);
 const scoring = getScoring();
 const scoredFieldLabels = scoring.scored_fields.map(f => f.label);
+// Short labels for the Four-Cs check columns so the table stays narrow.
+const shortLabel: Record<string, string> = {
+  Creator: 'Cr',
+  Copyright: 'Co',
+  CaptionDescription: 'Ca',
+  CreditLine: 'Cl',
+};
 
 // Strip trailing slash for display.
 const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
@@ -109,6 +118,72 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
                   <span style={`width:${f.pct}%`}></span>
                 </span>
               </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+  )}
+
+  {samples.length > 0 && (
+    <section>
+      <h2>This run's sample</h2>
+      <p>
+        The articles we picked up from {site.site_name}'s feed in this run,
+        plus the lead image we extracted from each. Thumbnails load lazily as
+        you scroll. Click an article or image to open it directly.
+      </p>
+      <table class="samples">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Image</th>
+            <th>Article</th>
+            <th class="num">Score</th>
+            {scoredFieldLabels.map(l => (
+              <th class="num" title={l}>{shortLabel[l] ?? l}</th>
+            ))}
+            <th class="num">C2PA</th>
+            <th>CDN</th>
+          </tr>
+        </thead>
+        <tbody>
+          {samples.map((s, i) => (
+            <tr>
+              <td class="num">{i + 1}</td>
+              <td>
+                {s.image_url && s.image_http_status === 200
+                  ? <a href={s.image_url} target="_blank" rel="noopener">
+                      <img src={s.image_url} alt="" class="thumb"
+                           loading="lazy" decoding="async" />
+                    </a>
+                  : <span style="color:var(--iptc-muted)">—</span>}
+              </td>
+              <td class="article-cell">
+                <a href={s.article_url} target="_blank" rel="noopener">
+                  {s.title || s.article_url}
+                </a>
+                {s.publication_date && (
+                  <div class="article-date">{s.publication_date.slice(0, 10)}</div>
+                )}
+              </td>
+              <td class="num">
+                {s.iptc_score !== undefined
+                  ? <span class={`score-pill ${scoreClass(s.iptc_score)}`}>{s.iptc_score.toFixed(0)}</span>
+                  : '—'}
+              </td>
+              {scoredFieldLabels.map(l => {
+                const present = s.scored_presence?.[l];
+                return (
+                  <td class="num" aria-label={present ? `${l}: present` : `${l}: missing`}>
+                    {present
+                      ? <span class="check">✓</span>
+                      : <span class="cross">·</span>}
+                  </td>
+                );
+              })}
+              <td class="num">{s.has_c2pa ? <span class="check">✓</span> : <span class="cross">·</span>}</td>
+              <td>{s.cdn_provider ?? '—'}</td>
             </tr>
           ))}
         </tbody>
@@ -294,6 +369,54 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
     display: block;
     height: 100%;
     background: var(--iptc-green, #6db33f);
+  }
+  table.samples {
+    font-size: 0.9rem;
+  }
+  table.samples th,
+  table.samples td {
+    padding: 0.5rem 0.6rem;
+  }
+  .thumb {
+    width: 96px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+    background: var(--iptc-bar-bg, #eaecef);
+  }
+  .article-cell {
+    max-width: 28ch;
+    overflow-wrap: anywhere;
+  }
+  .article-date {
+    color: var(--iptc-muted, #6b7280);
+    font-size: 0.8rem;
+    margin-top: 2px;
+  }
+  .score-pill {
+    display: inline-block;
+    min-width: 2.5em;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-weight: 600;
+    background: var(--iptc-green, #6db33f);
+    color: white;
+  }
+  .score-pill.low {
+    background: var(--iptc-bar-bg, #eaecef);
+    color: var(--iptc-muted, #6b7280);
+  }
+  .score-pill.mid {
+    background: #f59e0b;
+    color: white;
+  }
+  .check {
+    color: var(--iptc-green, #6db33f);
+    font-weight: 700;
+  }
+  .cross {
+    color: var(--iptc-bar-bg-strong, #d1d5db);
   }
   .grid-2 {
     display: grid;

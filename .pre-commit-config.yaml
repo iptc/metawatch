@@ -24,4 +24,6 @@ repos:
         exclude: ^config/publishers/.*\.yaml$  # validated by full JSON-Schema check in CI
       - id: check-merge-conflict
       - id: check-added-large-files
-        args: ["--maxkb=2000"]
+        # 5 MB ceiling so site/src/data/latest/samples_by_site.json fits
+        # (per-site article + thumbnail URLs inlined for the Astro build).
+        args: ["--maxkb=5000"]
