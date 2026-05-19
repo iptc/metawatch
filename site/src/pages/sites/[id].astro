@@ -170,7 +170,7 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
             const detailId = `sample-${i}`;
             return (
               <>
-                <tr>
+                <tr class="summary-row" data-detail={detailId}>
                   <td class="num">
                     <button class="samples-toggle"
                             aria-controls={detailId}
@@ -181,10 +181,8 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
                   </td>
                   <td>
                     {s.image_url && s.image_http_status === 200
-                      ? <a href={s.image_url} target="_blank" rel="noopener">
-                          <img src={s.image_url} alt="" class="thumb"
-                               loading="lazy" decoding="async" />
-                        </a>
+                      ? <img src={s.image_url} alt="" class="thumb"
+                             loading="lazy" decoding="async" />
                       : <span style="color:var(--iptc-muted)">—</span>}
                   </td>
                   <td class="article-cell">
@@ -272,17 +270,30 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
         </tbody>
       </table>
       <script is:inline>
+        function toggleSample(btn) {
+          var id = btn.getAttribute('aria-controls');
+          if (!id) return;
+          var row = document.getElementById(id);
+          if (!row) return;
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          row.hidden = expanded;
+          var caret = btn.querySelector('.caret');
+          if (caret) caret.textContent = expanded ? '▸' : '▾';
+        }
+        // The toggle button itself.
         document.querySelectorAll('.samples-toggle').forEach(function (btn) {
-          btn.addEventListener('click', function () {
-            var id = btn.getAttribute('aria-controls');
-            if (!id) return;
-            var row = document.getElementById(id);
-            if (!row) return;
-            var expanded = btn.getAttribute('aria-expanded') === 'true';
-            btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-            row.hidden = expanded;
-            var caret = btn.querySelector('.caret');
-            if (caret) caret.textContent = expanded ? '▸' : '▾';
+          btn.addEventListener('click', function () { toggleSample(btn); });
+        });
+        // Clicking anywhere on the row toggles too — except on the article
+        // link (default navigation should happen) or the button (which has
+        // its own handler; we'd otherwise double-toggle).
+        document.querySelectorAll('tr.summary-row').forEach(function (row) {
+          row.addEventListener('click', function (e) {
+            var target = e.target;
+            if (target && target.closest && target.closest('a, button')) return;
+            var btn = row.querySelector('.samples-toggle');
+            if (btn) toggleSample(btn);
           });
         });
       </script>
@@ -474,6 +485,15 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
   table.samples th,
   table.samples td {
     padding: 0.5rem 0.6rem;
+  }
+  tr.summary-row {
+    cursor: pointer;
+  }
+  tr.summary-row:hover {
+    background: var(--iptc-surface, #fafafb);
+  }
+  tr.summary-row a {
+    cursor: pointer;
   }
   .samples-toggle {
     background: none;

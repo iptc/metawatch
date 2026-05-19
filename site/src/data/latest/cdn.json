@@ -1,13 +1,48 @@
 {
   "providers": {
-    "cloudfront": 20
+    "cloudflare": 1071,
+    "fastly": 619,
+    "akamai": 1150,
+    "cloudfront": 700,
+    "none": 893,
+    "bunny": 16
   },
   "by_provider": [
     {
+      "provider": "akamai",
+      "images": 1150,
+      "stripped": 960,
+      "pct_stripped": 83.5
+    },
+    {
+      "provider": "cloudflare",
+      "images": 1071,
+      "stripped": 1007,
+      "pct_stripped": 94.0
+    },
+    {
+      "provider": "none",
+      "images": 893,
+      "stripped": 775,
+      "pct_stripped": 86.8
+    },
+    {
       "provider": "cloudfront",
-      "images": 20,
-      "stripped": 2,
-      "pct_stripped": 10.0
+      "images": 700,
+      "stripped": 602,
+      "pct_stripped": 86.0
+    },
+    {
+      "provider": "fastly",
+      "images": 619,
+      "stripped": 594,
+      "pct_stripped": 96.0
+    },
+    {
+      "provider": "bunny",
+      "images": 16,
+      "stripped": 16,
+      "pct_stripped": 100.0
     }
   ]
 }

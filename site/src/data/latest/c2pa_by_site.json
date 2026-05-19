@@ -1,1 +1,65 @@
-{}
+{
+  "iptc": {
+    "image_count_with_c2pa": 2,
+    "by_outcome": [
+      {
+        "outcome": "valid",
+        "images": 2
+      }
+    ],
+    "by_signer": [
+      {
+        "signer": "International Press Telecommunications Council",
+        "images": 2
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Valid",
+        "images": 2
+      }
+    ]
+  },
+  "blikk": {
+    "image_count_with_c2pa": 1,
+    "by_outcome": [
+      {
+        "outcome": "valid",
+        "images": 1
+      }
+    ],
+    "by_signer": [
+      {
+        "signer": "Adobe Inc.",
+        "images": 1
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Valid",
+        "images": 1
+      }
+    ]
+  },
+  "le-quotidien": {
+    "image_count_with_c2pa": 1,
+    "by_outcome": [
+      {
+        "outcome": "valid",
+        "images": 1
+      }
+    ],
+    "by_signer": [
+      {
+        "signer": "Canva",
+        "images": 1
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Valid",
+        "images": 1
+      }
+    ]
+  }
+}
