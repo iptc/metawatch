@@ -187,7 +187,7 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
                   </td>
                   <td class="article-cell">
                     <a href={s.article_url} target="_blank" rel="noopener">
-                      {s.title || s.article_url}
+                      {s.title || s.article_url} ↗
                     </a>
                     {s.publication_date && (
                       <div class="article-date">{s.publication_date.slice(0, 10)}</div>
