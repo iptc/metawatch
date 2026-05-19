@@ -61,4 +61,24 @@ jobs:
           fi
           DATE=$(date -u +%Y-%m-%d)
           git commit -m "Crawl run $DATE"
-          git push
+
+          # Race-safe push. The crawl takes 30–60 minutes; in that window a
+          # human commit can land on main. Rebase onto the latest main and
+          # retry. On conflict, prefer our just-generated files (-X ours) —
+          # the crawl's output is the newer, authoritative state for the
+          # paths we touch (data/runs/<today>/ and site/src/data/latest/).
+          for attempt in 1 2 3 4 5; do
+            if git push; then
+              exit 0
+            fi
+            echo "Push attempt $attempt rejected; fetching and rebasing..."
+            git fetch origin main
+            if ! git rebase -X ours origin/main; then
+              echo "Rebase failed; aborting and bailing."
+              git rebase --abort || true
+              exit 1
+            fi
+            sleep $((attempt * 3))
+          done
+          echo "Giving up after 5 push attempts."
+          exit 1
