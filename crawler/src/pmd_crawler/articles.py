@@ -200,11 +200,31 @@ def _images_from_jsonld(raw: str) -> list[str]:
     return out
 
 
+def _type_set(t: object) -> set[str]:
+    """Normalise a JSON-LD @type (str | list | missing) into a set of strings."""
+    if isinstance(t, str):
+        return {t}
+    if isinstance(t, list):
+        return {x for x in t if isinstance(x, str)}
+    return set()
+
+
+def _is_article_type(t: str) -> bool:
+    """True for schema.org Article, NewsArticle, or any NewsArticle subtype.
+
+    schema.org defines several NewsArticle subtypes — AnalysisNewsArticle,
+    AskPublicNewsArticle, BackgroundNewsArticle, OpinionNewsArticle,
+    ReportageNewsArticle, ReviewNewsArticle — all of which carry the same
+    lead-image semantics. Rather than enumerate them, we accept anything
+    ending in "NewsArticle" so future subtypes work without a code change.
+    """
+    return t == "Article" or t.endswith("NewsArticle")
+
+
 def _walk_jsonld_for_images(node: object, out: list[str]) -> None:
     if isinstance(node, dict):
-        t = node.get("@type")
-        types = {t} if isinstance(t, str) else set(t) if isinstance(t, list) else set()
-        if types & {"NewsArticle", "Article", "ImageObject"}:
+        types = _type_set(node.get("@type"))
+        if "ImageObject" in types or any(_is_article_type(x) for x in types):
             img = node.get("image")
             _collect_image_field(img, out)
         for v in node.values():
@@ -335,23 +355,25 @@ def _extract_news_article_jsonld(parser: HTMLParser) -> str | None:
             data = json.loads(text)
         except (json.JSONDecodeError, ValueError):
             continue
-        if _has_type(data, {"NewsArticle", "Article"}):
+        if _has_article_type(data):
             return text
     return None
 
 
-def _has_type(node: object, types: set[str]) -> bool:
+def _has_article_type(node: object) -> bool:
+    """Recursively test whether any node declares an article @type.
+
+    Matches Article, NewsArticle, and any *NewsArticle subtype (see
+    _is_article_type).
+    """
     if isinstance(node, dict):
-        t = node.get("@type")
-        if isinstance(t, str) and t in types:
-            return True
-        if isinstance(t, list) and any(x in types for x in t):
+        if any(_is_article_type(x) for x in _type_set(node.get("@type"))):
             return True
         for v in node.values():
-            if _has_type(v, types):
+            if _has_article_type(v):
                 return True
     elif isinstance(node, list):
         for v in node:
-            if _has_type(v, types):
+            if _has_article_type(v):
                 return True
     return False

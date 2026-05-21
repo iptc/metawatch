@@ -46,6 +46,33 @@ def test_jsonld_unknown_type_returns_no_images():
     assert _images_from_jsonld(raw) == []
 
 
+def test_jsonld_news_article_subtypes_are_recognised():
+    # schema.org NewsArticle subtypes carry the same lead-image semantics;
+    # anything ending in "NewsArticle" should be accepted.
+    for subtype in (
+        "AnalysisNewsArticle",
+        "AskPublicNewsArticle",
+        "BackgroundNewsArticle",
+        "OpinionNewsArticle",
+        "ReportageNewsArticle",
+        "ReviewNewsArticle",
+    ):
+        raw = json.dumps({"@type": subtype, "image": "https://x/y.jpg"})
+        assert _images_from_jsonld(raw) == ["https://x/y.jpg"], subtype
+
+
+def test_jsonld_subtype_in_type_list_is_recognised():
+    raw = json.dumps({"@type": ["OpinionNewsArticle", "Article"], "image": "https://x/y.jpg"})
+    assert _images_from_jsonld(raw) == ["https://x/y.jpg"]
+
+
+def test_jsonld_type_merely_containing_article_is_not_matched():
+    # Guard the suffix rule: "SocialMediaPosting" or a bogus "NewsArticleList"
+    # should not slip through. We only accept exact Article or *NewsArticle.
+    raw = json.dumps({"@type": "NewsArticleList", "image": "https://x/y.jpg"})
+    assert _images_from_jsonld(raw) == []
+
+
 def test_jsonld_image_as_object():
     raw = json.dumps({"@type": "NewsArticle", "image": {"url": "https://x/y.jpg"}})
     assert _images_from_jsonld(raw) == ["https://x/y.jpg"]
