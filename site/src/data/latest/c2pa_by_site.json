@@ -1,30 +1,51 @@
 {
   "iptc": {
-    "image_count_with_c2pa": 2,
+    "image_count_with_c2pa": 3,
     "by_outcome": [
       {
         "outcome": "valid",
-        "images": 2
+        "images": 3
       }
     ],
     "by_signer": [
       {
         "signer": "International Press Telecommunications Council",
-        "images": 2
+        "images": 3
       }
     ],
     "by_validation_state": [
       {
         "state": "Valid",
-        "images": 2
+        "images": 3
       }
     ]
   },
-  "blikk": {
+  "myjoyonline": {
     "image_count_with_c2pa": 1,
     "by_outcome": [
       {
-        "outcome": "modified",
+        "outcome": "valid",
+        "images": 1
+      }
+    ],
+    "by_signer": [
+      {
+        "signer": "OpenAI OpCo, LLC",
+        "images": 1
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Valid",
+        "images": 1
+      }
+    ]
+  },
+  "rappler": {
+    "image_count_with_c2pa": 1,
+    "by_outcome": [
+      {
+        "outcome": "valid",
         "images": 1
       }
     ],
@@ -36,28 +57,7 @@
     ],
     "by_validation_state": [
       {
-        "state": "Invalid",
-        "images": 1
-      }
-    ]
-  },
-  "il-messaggero": {
-    "image_count_with_c2pa": 1,
-    "by_outcome": [
-      {
-        "outcome": "modified",
-        "images": 1
-      }
-    ],
-    "by_signer": [
-      {
-        "signer": "Google LLC",
-        "images": 1
-      }
-    ],
-    "by_validation_state": [
-      {
-        "state": "Invalid",
+        "state": "Valid",
         "images": 1
       }
     ]

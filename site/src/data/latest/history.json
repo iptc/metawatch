@@ -11,5 +11,17 @@
       "valid": 2,
       "modified": 2
     }
+  },
+  {
+    "run_id": "2026-05-21T114939Z",
+    "started_at": "2026-05-21T11:49:39.082432+00:00",
+    "site_count": 295,
+    "image_count": 4399,
+    "mean_score": 6.69,
+    "images_with_c2pa": 5,
+    "pct_with_c2pa": 0.114,
+    "c2pa_outcomes": {
+      "valid": 5
+    }
   }
 ]

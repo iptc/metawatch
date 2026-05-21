@@ -1,15 +1,15 @@
 {
   "image_count_total": 4399,
-  "image_count_with_c2pa": 4,
-  "pct_with_c2pa": 0.09,
+  "image_count_with_c2pa": 5,
+  "pct_with_c2pa": 0.11,
   "by_outcome": [
     {
       "outcome": "valid",
-      "images": 2
+      "images": 5
     },
     {
       "outcome": "modified",
-      "images": 2
+      "images": 0
     },
     {
       "outcome": "expired",
@@ -27,25 +27,21 @@
   "by_signer": [
     {
       "signer": "International Press Telecommunications Council",
-      "images": 2
+      "images": 3
     },
     {
-      "signer": "Adobe Inc.",
+      "signer": "OpenAI OpCo, LLC",
       "images": 1
     },
     {
-      "signer": "Google LLC",
+      "signer": "Adobe Inc.",
       "images": 1
     }
   ],
   "by_validation_state": [
     {
       "state": "Valid",
-      "images": 2
-    },
-    {
-      "state": "Invalid",
-      "images": 2
+      "images": 5
     }
   ],
   "top_sites": [
@@ -53,18 +49,18 @@
       "site_id": "iptc",
       "site_name": "IPTC",
       "country": "GB",
-      "images_with_c2pa": 2
+      "images_with_c2pa": 3
     },
     {
-      "site_id": "blikk",
-      "site_name": "Blikk",
-      "country": "HU",
+      "site_id": "myjoyonline",
+      "site_name": "MyJoyOnline",
+      "country": "GH",
       "images_with_c2pa": 1
     },
     {
-      "site_id": "il-messaggero",
-      "site_name": "Il Messaggero",
-      "country": "IT",
+      "site_id": "rappler",
+      "site_name": "Rappler",
+      "country": "PH",
       "images_with_c2pa": 1
     }
   ]
