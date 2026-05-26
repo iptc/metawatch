@@ -35,3 +35,62 @@ def test_guess_rss_urls_covers_common_paths():
     assert "https://example.com/feed" in urls
     assert "https://example.com/rss.xml" in urls
     assert "https://example.com/atom.xml" in urls
+
+
+# ─── RSS image extraction ──────────────────────────────────────────────────
+
+from pmd_crawler.discovery import _images_from_rss_entry  # noqa: E402
+
+
+def test_images_from_media_content():
+    entry = {
+        "media_content": [
+            {"url": "https://cdn.example.com/lead.jpg", "type": "image/jpeg"},
+        ],
+    }
+    assert _images_from_rss_entry(entry) == ["https://cdn.example.com/lead.jpg"]
+
+
+def test_images_from_media_content_no_type_assumed_image():
+    # De Standaard / Het Nieuwsblad's RSS gives a bare media:content with a
+    # url and no type — feedparser surfaces it as just {"url": ...}.
+    entry = {"media_content": [{"url": "https://cdn.example.com/lead.jpg"}]}
+    assert _images_from_rss_entry(entry) == ["https://cdn.example.com/lead.jpg"]
+
+
+def test_images_from_enclosure_image_type():
+    entry = {
+        "enclosures": [
+            {"href": "https://cdn.example.com/lead.jpg", "type": "image/jpeg"},
+        ],
+    }
+    assert _images_from_rss_entry(entry) == ["https://cdn.example.com/lead.jpg"]
+
+
+def test_images_skip_non_image_enclosures():
+    entry = {
+        "enclosures": [
+            {"href": "https://cdn.example.com/podcast.mp3", "type": "audio/mpeg"},
+            {"href": "https://cdn.example.com/video.mp4", "type": "video/mp4"},
+        ],
+    }
+    assert _images_from_rss_entry(entry) == []
+
+
+def test_images_dedupe_across_sources():
+    entry = {
+        "media_content": [{"url": "https://cdn.example.com/lead.jpg"}],
+        "enclosures": [
+            {"href": "https://cdn.example.com/lead.jpg", "type": "image/jpeg"},
+        ],
+    }
+    assert _images_from_rss_entry(entry) == ["https://cdn.example.com/lead.jpg"]
+
+
+def test_images_from_media_thumbnail():
+    entry = {"media_thumbnail": [{"url": "https://cdn.example.com/thumb.jpg"}]}
+    assert _images_from_rss_entry(entry) == ["https://cdn.example.com/thumb.jpg"]
+
+
+def test_images_empty_entry():
+    assert _images_from_rss_entry({}) == []

@@ -313,7 +313,11 @@ async def fetch_rss_articles(
                 title=entry.get("title"),
                 language=None,
                 keywords=[],
-                image_urls_from_sitemap=[],
+                # RSS commonly carries the lead image inline via Media RSS or
+                # enclosures. Picking it up here lets us still measure the
+                # image when the article HTML itself is WAF-blocked from the
+                # crawl runner — fetch_article will fall back to this list.
+                image_urls_from_sitemap=_images_from_rss_entry(entry),
             )
         )
     out.sort(
@@ -333,6 +337,48 @@ def _entry_datetime(entry) -> datetime | None:
             except (TypeError, ValueError):
                 continue
     return None
+
+
+def _images_from_rss_entry(entry) -> list[str]:
+    """Collect lead-image URLs declared in an RSS/Atom entry.
+
+    Handles Media RSS (``media:content``, ``media:thumbnail``) and standard
+    ``<enclosure>`` elements. Filters enclosures to image MIME types so we
+    don't pick up audio/video. Order preserves the feed's order and
+    deduplicates.
+    """
+    out: list[str] = []
+
+    for item in entry.get("media_content") or []:
+        url = item.get("url")
+        if not url:
+            continue
+        medium = item.get("medium")
+        mtype = (item.get("type") or "").lower()
+        # media:content omits medium/type sometimes; assume image if neither
+        # is set, otherwise require an image hint.
+        if medium not in (None, "", "image") and not mtype.startswith("image"):
+            continue
+        out.append(url)
+
+    for item in entry.get("media_thumbnail") or []:
+        url = item.get("url")
+        if url:
+            out.append(url)
+
+    for item in entry.get("enclosures") or []:
+        url = item.get("href") or item.get("url")
+        mtype = (item.get("type") or "").lower()
+        if url and mtype.startswith("image"):
+            out.append(url)
+
+    seen: set[str] = set()
+    deduped: list[str] = []
+    for url in out:
+        if url not in seen:
+            seen.add(url)
+            deduped.append(url)
+    return deduped
 
 
 async def discover_rss_links_from_homepage(
