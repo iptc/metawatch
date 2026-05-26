@@ -1,15 +1,15 @@
 {
-  "run_id": "2026-05-26T144629Z",
-  "started_at": "2026-05-26T14:46:29.037590+00:00",
-  "ended_at": "2026-05-26T15:28:32.267049+00:00",
-  "site_count_attempted": 341,
-  "site_count_succeeded": 295,
+  "run_id": "2026-05-26T212340Z",
+  "started_at": "2026-05-26T21:23:40.831287+00:00",
+  "ended_at": "2026-05-26T22:04:55.941355+00:00",
+  "site_count_attempted": 339,
+  "site_count_succeeded": 290,
   "site_count_robots_blocked": 14,
-  "article_count": 5263,
-  "image_count": 4429,
-  "global_mean_score": 6.78,
-  "images_with_iptc": 486,
-  "images_with_c2pa": 5,
+  "article_count": 5107,
+  "image_count": 4625,
+  "global_mean_score": 6.8,
+  "images_with_iptc": 509,
+  "images_with_c2pa": 6,
   "pct_with_iptc": 11.0,
-  "pct_with_c2pa": 0.11
+  "pct_with_c2pa": 0.13
 }

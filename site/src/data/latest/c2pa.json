@@ -1,7 +1,7 @@
 {
-  "image_count_total": 4429,
-  "image_count_with_c2pa": 5,
-  "pct_with_c2pa": 0.11,
+  "image_count_total": 4625,
+  "image_count_with_c2pa": 6,
+  "pct_with_c2pa": 0.13,
   "by_outcome": [
     {
       "outcome": "valid",
@@ -9,7 +9,7 @@
     },
     {
       "outcome": "modified",
-      "images": 0
+      "images": 1
     },
     {
       "outcome": "expired",
@@ -30,6 +30,10 @@
       "images": 3
     },
     {
+      "signer": "Adobe Inc.",
+      "images": 1
+    },
+    {
       "signer": "OpenAI OpCo, LLC",
       "images": 1
     },
@@ -42,6 +46,10 @@
     {
       "state": "Valid",
       "images": 5
+    },
+    {
+      "state": "Invalid",
+      "images": 1
     }
   ],
   "top_sites": [
@@ -50,6 +58,12 @@
       "site_name": "IPTC",
       "country": "GB",
       "images_with_c2pa": 3
+    },
+    {
+      "site_id": "taz",
+      "site_name": "taz",
+      "country": "DE",
+      "images_with_c2pa": 1
     },
     {
       "site_id": "spectator",

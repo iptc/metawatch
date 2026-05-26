@@ -1,4 +1,25 @@
 {
+  "taz": {
+    "image_count_with_c2pa": 1,
+    "by_outcome": [
+      {
+        "outcome": "modified",
+        "images": 1
+      }
+    ],
+    "by_signer": [
+      {
+        "signer": "Adobe Inc.",
+        "images": 1
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Invalid",
+        "images": 1
+      }
+    ]
+  },
   "iptc": {
     "image_count_with_c2pa": 3,
     "by_outcome": [
