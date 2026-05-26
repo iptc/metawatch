@@ -1,5 +1,5 @@
 {
-  "liberation": {
+  "kleine-zeitung": {
     "images_with_dst_iptc": 1,
     "images_with_dst_c2pa": 0,
     "by_bucket_iptc": [
@@ -19,7 +19,27 @@
     ],
     "by_uri_c2pa": []
   },
-  "blikk": {
+  "spectator": {
+    "images_with_dst_iptc": 0,
+    "images_with_dst_c2pa": 1,
+    "by_bucket_iptc": [],
+    "by_bucket_c2pa": [
+      {
+        "bucket": "AI-generated",
+        "images": 1
+      }
+    ],
+    "by_uri_iptc": [],
+    "by_uri_c2pa": [
+      {
+        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+        "term": "trainedAlgorithmicMedia",
+        "bucket": "AI-generated",
+        "images": 1
+      }
+    ]
+  },
+  "mail-guardian": {
     "images_with_dst_iptc": 0,
     "images_with_dst_c2pa": 1,
     "by_bucket_iptc": [],

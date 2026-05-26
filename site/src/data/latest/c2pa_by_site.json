@@ -20,7 +20,7 @@
       }
     ]
   },
-  "blikk": {
+  "spectator": {
     "image_count_with_c2pa": 1,
     "by_outcome": [
       {
@@ -30,7 +30,28 @@
     ],
     "by_signer": [
       {
-        "signer": "Adobe Inc.",
+        "signer": "OpenAI OpCo, LLC",
+        "images": 1
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Valid",
+        "images": 1
+      }
+    ]
+  },
+  "mail-guardian": {
+    "image_count_with_c2pa": 1,
+    "by_outcome": [
+      {
+        "outcome": "valid",
+        "images": 1
+      }
+    ],
+    "by_signer": [
+      {
+        "signer": "Canva",
         "images": 1
       }
     ],

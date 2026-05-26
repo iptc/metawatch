@@ -1,11 +1,11 @@
 {
-  "image_count_total": 4424,
-  "image_count_with_c2pa": 4,
-  "pct_with_c2pa": 0.09,
+  "image_count_total": 4429,
+  "image_count_with_c2pa": 5,
+  "pct_with_c2pa": 0.11,
   "by_outcome": [
     {
       "outcome": "valid",
-      "images": 4
+      "images": 5
     },
     {
       "outcome": "modified",
@@ -30,14 +30,18 @@
       "images": 3
     },
     {
-      "signer": "Adobe Inc.",
+      "signer": "OpenAI OpCo, LLC",
+      "images": 1
+    },
+    {
+      "signer": "Canva",
       "images": 1
     }
   ],
   "by_validation_state": [
     {
       "state": "Valid",
-      "images": 4
+      "images": 5
     }
   ],
   "top_sites": [
@@ -48,9 +52,15 @@
       "images_with_c2pa": 3
     },
     {
-      "site_id": "blikk",
-      "site_name": "Blikk",
-      "country": "HU",
+      "site_id": "spectator",
+      "site_name": "Spectator",
+      "country": "GB",
+      "images_with_c2pa": 1
+    },
+    {
+      "site_id": "mail-guardian",
+      "site_name": "Mail & Guardian",
+      "country": "ZA",
       "images_with_c2pa": 1
     }
   ]

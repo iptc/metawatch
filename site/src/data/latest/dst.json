@@ -1,8 +1,8 @@
 {
-  "image_count_total": 4424,
-  "image_count_valid": 4418,
+  "image_count_total": 4429,
+  "image_count_valid": 4419,
   "images_with_dst_iptc": 1,
-  "images_with_dst_c2pa": 1,
+  "images_with_dst_c2pa": 2,
   "pct_with_dst_iptc": 0.02,
   "by_bucket_iptc": [
     {
@@ -11,6 +11,10 @@
     }
   ],
   "by_bucket_c2pa": [
+    {
+      "bucket": "AI-generated",
+      "images": 1
+    },
     {
       "bucket": "Edited with Generative AI",
       "images": 1
@@ -25,6 +29,12 @@
     }
   ],
   "by_uri_c2pa": [
+    {
+      "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+      "term": "trainedAlgorithmicMedia",
+      "bucket": "AI-generated",
+      "images": 1
+    },
     {
       "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/compositeWithTrainedAlgorithmicMedia",
       "term": "compositeWithTrainedAlgorithmicMedia",
