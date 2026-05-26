@@ -106,9 +106,11 @@ def _domain_of(url: str) -> str:
     return (urlparse(url).hostname or "").lower()
 
 
+
+
 async def _smoke_async(site: config.Site) -> None:
     async with httpx.AsyncClient(headers=DEFAULT_HEADERS) as client:
-        robots, sitemap_url, strategy, articles = await discovery.discover(client, site)
+        robots, sitemap_url, strategy, articles, _disc_err = await discovery.discover(client, site)
     console.print(f"[bold]{site.name}[/bold] ({site.id}) — {site.country}")
     console.print(f"  robots.txt fetched: {robots.fetched}  allowed: {robots.allowed_at_root}")
     console.print(f"  robots sitemaps: {len(robots.sitemap_urls)}  chosen: {sitemap_url}  strategy: {strategy}")
@@ -242,7 +244,7 @@ async def _crawl_site(
     run_id: str,
     domain_locks: dict[str, asyncio.Lock],
 ) -> dict:
-    robots, sitemap_url, strategy, candidates = await discovery.discover(client, site)
+    robots, sitemap_url, strategy, candidates, disc_err = await discovery.discover(client, site)
     robots_url = f"{site.url.rstrip('/')}/robots.txt"
 
     if not robots.allowed_at_root:
@@ -258,7 +260,7 @@ async def _crawl_site(
         }
 
     if not candidates:
-        status = "unreachable" if strategy == "unreachable" else "no_articles_found"
+        status = discovery.status_for_empty_discovery(strategy, disc_err)
         return {
             "site": SiteRow(
                 run_id=run_id, site_id=site.id, site_name=site.name,

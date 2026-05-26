@@ -85,8 +85,10 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
     <div class="card">
       <strong>Status: {site.status}.</strong>
       {site.status === 'robots_disallow' && <span> The site's robots.txt disallows our crawler.</span>}
-      {site.status === 'no_articles_found' && <span> Discovery succeeded but no articles were found in the sample window.</span>}
-      {site.status === 'unreachable' && <span> Every feed and sitemap we tried failed at the network layer — usually a CDN or WAF rejecting our requests.</span>}
+      {site.status === 'no_articles_found' && <span> The feed or sitemap was fetched cleanly but had no articles inside our sample window.</span>}
+      {site.status === 'discovery_blocked' && <span> The feed or sitemap returned an HTTP error (typically 4xx) — usually a CDN or WAF refusing the crawl runner's IP. Often resolvable from a different egress; the source itself is fine.</span>}
+      {site.status === 'discovery_parse_error' && <span> The feed or sitemap responded but the body wasn't valid XML/RSS — often a WAF challenge page served with a 200.</span>}
+      {site.status === 'unreachable' && <span> Every feed and sitemap we tried failed at the network layer (DNS, connection, TLS, or timeout).</span>}
       {site.status === 'timeout' && <span> The site took longer than 5 minutes to crawl and was cut off.</span>}
       {site.status === 'error' && <span> An unexpected error occurred during the crawl.</span>}
     </div>

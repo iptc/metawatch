@@ -425,10 +425,39 @@ async def discover_rss_links_from_homepage(
     return out
 
 
+def status_for_empty_discovery(strategy: str, discovery_error: str | None) -> str:
+    """Pick a site status when discovery returned zero article candidates.
+
+    Distinguishes "the source actively refused us" (HTTP 4xx, parse error)
+    from "the source was reachable but had no articles in window". Both
+    used to collapse to ``no_articles_found``, which sounds like a
+    crawler bug when in fact the source itself is blocking or broken.
+    """
+    if strategy == "unreachable":
+        return "unreachable"
+    if discovery_error == "http_error":
+        return "discovery_blocked"
+    if discovery_error == "parse_error":
+        return "discovery_parse_error"
+    if discovery_error == "network_error":
+        # Upstream usually already classified these as "unreachable", but
+        # handle the lingering case too.
+        return "unreachable"
+    return "no_articles_found"
+
+
 async def discover(
     client: httpx.AsyncClient, site: Site
-) -> tuple[RobotsDecision, str | None, str, list[ArticleCandidate]]:
-    """Run the full discovery pipeline. Returns (robots, source_url, strategy, articles).
+) -> tuple[RobotsDecision, str | None, str, list[ArticleCandidate], str | None]:
+    """Run the full discovery pipeline.
+
+    Returns (robots, source_url, strategy, articles, discovery_error).
+
+    discovery_error is the error kind from the last attempted source when
+    no articles were harvested — one of "http_error", "parse_error",
+    "network_error", or None. Lets callers distinguish "the source 4xx'd"
+    from "the source was reachable but had no candidates in window",
+    which look identical to the user otherwise.
 
     Source priority — first to yield >=1 article wins:
       1. config:rss          — RSS URL(s) configured in the site YAML
@@ -437,19 +466,21 @@ async def discover(
     """
     robots = await fetch_robots(client, site)
     if not robots.allowed_at_root:
-        return robots, None, "robots_disallow", []
+        return robots, None, "robots_disallow", [], None
 
     window_days = site.sample.window_days
     max_articles = site.sample.max_articles
 
     attempts = 0
     network_errors = 0
+    last_err: str | None = None
 
     for url in site.discovery.rss_urls:
         attempts += 1
         articles, err = await fetch_rss_articles(client, url, window_days, max_articles)
         if articles:
-            return robots, url, "config:rss", articles
+            return robots, url, "config:rss", articles, None
+        last_err = err
         if err == "network_error":
             network_errors += 1
 
@@ -457,7 +488,8 @@ async def discover(
         attempts += 1
         articles, err = await fetch_rss_articles(client, url, window_days, max_articles)
         if articles:
-            return robots, url, "html:rss_link", articles
+            return robots, url, "html:rss_link", articles, None
+        last_err = err
         if err == "network_error":
             network_errors += 1
 
@@ -465,7 +497,8 @@ async def discover(
         attempts += 1
         articles, err = await fetch_rss_articles(client, url, window_days, max_articles)
         if articles:
-            return robots, url, "guess:rss", articles
+            return robots, url, "guess:rss", articles, None
+        last_err = err
         if err == "network_error":
             network_errors += 1
 
@@ -476,15 +509,18 @@ async def discover(
         # No sitemap to try. If every RSS attempt was a network error, the
         # publisher is effectively unreachable from here.
         if attempts > 0 and network_errors == attempts:
-            return robots, None, "unreachable", []
-        return robots, None, strategy, []
+            return robots, None, "unreachable", [], last_err
+        return robots, None, strategy, [], last_err
 
     attempts += 1
     articles, err = await fetch_sitemap_articles(
         client, site, sitemap_url, window_days, max_articles
     )
+    if articles:
+        return robots, sitemap_url, strategy, articles, None
+    last_err = err
     if err == "network_error":
         network_errors += 1
-    if not articles and attempts > 0 and network_errors == attempts:
-        return robots, sitemap_url, "unreachable", []
-    return robots, sitemap_url, strategy, articles
+    if attempts > 0 and network_errors == attempts:
+        return robots, sitemap_url, "unreachable", [], last_err
+    return robots, sitemap_url, strategy, [], last_err
