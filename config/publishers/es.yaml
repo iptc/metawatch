@@ -63,15 +63,15 @@ sites:
   homepage: https://elpais.com/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: 'Article HTML 403s from cloud egress; the Media RSS portada feed carries media:content for every entry, used as the image fallback.'
   suggested_by: MS
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - http://ep00.epimg.net/rss/internacional/portada.xml
+    - https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada
     js_required: false
   sample:
     max_articles: 20
