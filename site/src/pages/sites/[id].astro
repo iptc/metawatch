@@ -113,7 +113,6 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
             <th>Field</th>
             <th>Type</th>
             <th class="num">Present</th>
-            <th class="num">Total</th>
             <th class="num">Population</th>
           </tr>
         </thead>
@@ -127,7 +126,6 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
                   : <span class="badge tracked">tracked</span>}
               </td>
               <td class="num">{f.present}</td>
-              <td class="num">{f.total}</td>
               <td class="num">
                 {f.pct}%
                 <span class="bar" aria-hidden="true">
