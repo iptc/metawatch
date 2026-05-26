@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import gzip
+import re
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from urllib.parse import urljoin, urlparse
@@ -371,6 +372,24 @@ def _images_from_rss_entry(entry) -> list[str]:
         mtype = (item.get("type") or "").lower()
         if url and mtype.startswith("image"):
             out.append(url)
+
+    # Last resort: parse <img src=…> from content:encoded / description HTML.
+    # Some feeds (Neue.at) carry images inline rather than via Media RSS or
+    # enclosures. Skips data: URIs and SVGs to avoid sparklines/spacers.
+    html_blobs: list[str] = []
+    for c in entry.get("content") or []:
+        v = c.get("value") if isinstance(c, dict) else None
+        if v:
+            html_blobs.append(v)
+    if entry.get("summary"):
+        html_blobs.append(entry["summary"])
+    for html in html_blobs:
+        for src in re.findall(r'<img[^>]+src=["\']([^"\']+)["\']', html, flags=re.I):
+            s = src.strip()
+            sl = s.lower()
+            if not s or sl.startswith("data:") or sl.endswith(".svg"):
+                continue
+            out.append(s)
 
     seen: set[str] = set()
     deduped: list[str] = []

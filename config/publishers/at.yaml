@@ -120,14 +120,15 @@ sites:
   homepage: https://www.neue.at/
   category: newspaper
   language_primary: en
-  notes: Needs manual feed triage 2026-05-12 (RSS dead, no replacement found).
+  notes: 'Main site has no public feed; the epaper companion feed carries article HTML with inline <img> in content:encoded.'
   suggested_by: BQ
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
-    rss_urls: []
+    rss_urls:
+    - https://epaper.neue.at/feed
     js_required: false
   sample:
     max_articles: 20

@@ -94,3 +94,48 @@ def test_images_from_media_thumbnail():
 
 def test_images_empty_entry():
     assert _images_from_rss_entry({}) == []
+
+
+def test_images_from_content_encoded_img_tag():
+    # Neue.at-style: no Media RSS / enclosures; image lives inline in
+    # <content:encoded>, which feedparser surfaces on entry.content.
+    entry = {
+        "content": [
+            {"type": "text/html", "value": (
+                "<p>Some intro text.</p>"
+                "<img src=\"https://cdn.example.com/article-lead.jpg\" alt=\"x\">"
+                "<p>More body.</p>"
+            )},
+        ],
+    }
+    assert _images_from_rss_entry(entry) == [
+        "https://cdn.example.com/article-lead.jpg"
+    ]
+
+
+def test_images_from_summary_when_no_content():
+    entry = {"summary": '<img src="https://cdn.example.com/hero.jpg">More text.'}
+    assert _images_from_rss_entry(entry) == ["https://cdn.example.com/hero.jpg"]
+
+
+def test_images_inline_skip_data_uri_and_svg():
+    entry = {
+        "content": [{"value": (
+            '<img src="data:image/png;base64,iVBORw0...">'
+            '<img src="https://cdn.example.com/spacer.svg">'
+            '<img src="https://cdn.example.com/real.jpg">'
+        )}],
+    }
+    assert _images_from_rss_entry(entry) == ["https://cdn.example.com/real.jpg"]
+
+
+def test_media_content_wins_over_inline_img():
+    # When both are present, the Media RSS image comes first.
+    entry = {
+        "media_content": [{"url": "https://cdn.example.com/media.jpg"}],
+        "content": [{"value": '<img src="https://cdn.example.com/inline.jpg">'}],
+    }
+    assert _images_from_rss_entry(entry) == [
+        "https://cdn.example.com/media.jpg",
+        "https://cdn.example.com/inline.jpg",
+    ]
