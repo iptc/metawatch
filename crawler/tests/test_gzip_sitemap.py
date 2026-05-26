@@ -86,3 +86,35 @@ def test_sitemap_with_utf8_bom_parses():
     )
     assert err is None
     assert len(candidates) == 2
+
+
+LASTMOD_SITEMAP_XML = b"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://example.com/older</loc>
+    <lastmod>2026-05-03T11:52:27+02:00</lastmod>
+  </url>
+  <url>
+    <loc>https://example.com/newer</loc>
+    <lastmod>2026-05-26T05:00:00+02:00</lastmod>
+  </url>
+  <url>
+    <loc>https://example.com/no-date</loc>
+  </url>
+</urlset>
+"""
+
+
+def test_lastmod_used_as_publication_date_fallback():
+    # When <news:publication_date> is missing, fall back to <lastmod> so the
+    # downstream sort surfaces the most recent URLs (e.g. Heute.at).
+    client = _fake_client(LASTMOD_SITEMAP_XML)
+    candidates, err = asyncio.run(
+        _walk_sitemap(client, "https://example.com/sitemap.xml", depth=0)
+    )
+    assert err is None
+    by_url = {c.url: c.publication_date for c in candidates}
+    assert by_url["https://example.com/older"] is not None
+    assert by_url["https://example.com/newer"] is not None
+    assert by_url["https://example.com/no-date"] is None
+    assert by_url["https://example.com/newer"] > by_url["https://example.com/older"]

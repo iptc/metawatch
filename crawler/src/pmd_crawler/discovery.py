@@ -235,6 +235,14 @@ def _parse_urlset(root: etree._Element) -> list[ArticleCandidate]:
             if kw_el is not None and kw_el.text:
                 keywords = [k.strip() for k in kw_el.text.split(",") if k.strip()]
 
+        # Fall back to <lastmod> when the entry has no news:publication_date.
+        # Without this, sites like Heute (lastmod-only sitemaps, ascending file
+        # order) sort all candidates to datetime.min and we take the oldest N.
+        if pub_date is None:
+            lastmod_el = url_el.find("sm:lastmod", SITEMAP_NS)
+            if lastmod_el is not None and lastmod_el.text:
+                pub_date = _parse_iso_date(lastmod_el.text.strip())
+
         image_urls: list[str] = []
         for img_el in url_el.findall("image:image/image:loc", SITEMAP_NS):
             if img_el.text:
