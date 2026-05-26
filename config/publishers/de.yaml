@@ -291,9 +291,9 @@ sites:
   homepage: https://www.dpa.com/de
   category: news-agency
   language_primary: de
-  notes: ''
+  notes: 'No public daily news feed — dpa.com is the corporate portal; the actual wire is B2B (dpa-newsroom, auth-only). Disabled 2026-05-27.'
   suggested_by: BQ
-  active: true
+  active: false
   discovery:
     strategy: sitemap
     sitemap_urls: []
