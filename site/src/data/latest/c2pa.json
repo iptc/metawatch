@@ -1,11 +1,11 @@
 {
-  "image_count_total": 4399,
-  "image_count_with_c2pa": 5,
-  "pct_with_c2pa": 0.11,
+  "image_count_total": 4424,
+  "image_count_with_c2pa": 4,
+  "pct_with_c2pa": 0.09,
   "by_outcome": [
     {
       "outcome": "valid",
-      "images": 5
+      "images": 4
     },
     {
       "outcome": "modified",
@@ -30,10 +30,6 @@
       "images": 3
     },
     {
-      "signer": "OpenAI OpCo, LLC",
-      "images": 1
-    },
-    {
       "signer": "Adobe Inc.",
       "images": 1
     }
@@ -41,7 +37,7 @@
   "by_validation_state": [
     {
       "state": "Valid",
-      "images": 5
+      "images": 4
     }
   ],
   "top_sites": [
@@ -52,15 +48,9 @@
       "images_with_c2pa": 3
     },
     {
-      "site_id": "myjoyonline",
-      "site_name": "MyJoyOnline",
-      "country": "GH",
-      "images_with_c2pa": 1
-    },
-    {
-      "site_id": "rappler",
-      "site_name": "Rappler",
-      "country": "PH",
+      "site_id": "blikk",
+      "site_name": "Blikk",
+      "country": "HU",
       "images_with_c2pa": 1
     }
   ]

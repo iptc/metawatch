@@ -1,5 +1,36 @@
 [
   {
+    "run_id": "2026-05-26T064803Z",
+    "started_at": "2026-05-26T06:48:03.159844+00:00",
+    "ended_at": "2026-05-26T07:27:25.637510+00:00",
+    "site_count_attempted": 341,
+    "site_count_succeeded": 295,
+    "image_count": 4424,
+    "directory": "2026-05-26",
+    "files": [
+      {
+        "name": "articles.parquet",
+        "size_bytes": 4091173
+      },
+      {
+        "name": "images.parquet",
+        "size_bytes": 589944
+      },
+      {
+        "name": "metadata_fields.parquet",
+        "size_bytes": 106480
+      },
+      {
+        "name": "runs.parquet",
+        "size_bytes": 3231
+      },
+      {
+        "name": "sites.parquet",
+        "size_bytes": 21560
+      }
+    ]
+  },
+  {
     "run_id": "2026-05-21T114939Z",
     "started_at": "2026-05-21T11:49:39.082432+00:00",
     "ended_at": "2026-05-21T12:32:30.926545+00:00",

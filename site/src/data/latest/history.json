@@ -23,5 +23,17 @@
     "c2pa_outcomes": {
       "valid": 5
     }
+  },
+  {
+    "run_id": "2026-05-26T064803Z",
+    "started_at": "2026-05-26T06:48:03.159844+00:00",
+    "site_count": 295,
+    "image_count": 4424,
+    "mean_score": 6.67,
+    "images_with_c2pa": 4,
+    "pct_with_c2pa": 0.091,
+    "c2pa_outcomes": {
+      "valid": 4
+    }
   }
 ]
