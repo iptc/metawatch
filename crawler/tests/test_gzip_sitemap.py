@@ -66,3 +66,23 @@ def test_http_error_propagates():
     )
     assert candidates == []
     assert err == "http_error"
+
+
+def test_sitemap_with_leading_newline_parses():
+    # Some publishers (e.g. The Nation, Nigeria) ship a stray newline before
+    # the XML declaration, which lxml otherwise rejects.
+    client = _fake_client(b"\n" + SITEMAP_XML)
+    candidates, err = asyncio.run(
+        _walk_sitemap(client, "https://example.com/sitemap.xml", depth=0)
+    )
+    assert err is None
+    assert len(candidates) == 2
+
+
+def test_sitemap_with_utf8_bom_parses():
+    client = _fake_client(b"\xef\xbb\xbf" + SITEMAP_XML)
+    candidates, err = asyncio.run(
+        _walk_sitemap(client, "https://example.com/sitemap.xml", depth=0)
+    )
+    assert err is None
+    assert len(candidates) == 2

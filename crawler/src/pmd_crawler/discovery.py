@@ -181,6 +181,12 @@ async def _walk_sitemap(
         except OSError:
             return [], "parse_error"
 
+    # A surprising number of sitemaps ship a stray leading newline, BOM, or
+    # other whitespace before the XML declaration. lxml rejects that with
+    # "XML declaration allowed only at the start of the document", so strip
+    # leading whitespace/BOM before parsing (e.g. The Nation, Nigeria).
+    body = body.lstrip(b"\xef\xbb\xbf \t\r\n")
+
     try:
         root = etree.fromstring(body)
     except etree.XMLSyntaxError:
