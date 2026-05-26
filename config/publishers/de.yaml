@@ -185,7 +185,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - http://www.spiegel.de/schlagzeilen/index.rss
+    - https://www.spiegel.de/index.rss
     js_required: false
   sample:
     max_articles: 20

@@ -120,15 +120,15 @@ sites:
   homepage: https://www.ft.com/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: 'The /?format=rss feed is unreliable; the news sitemap is the canonical source.'
   suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.ft.com/sitemaps/news.xml
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.ft.com/?format=rss&edition=uk
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

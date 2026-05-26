@@ -44,13 +44,13 @@ sites:
   homepage: https://www.heute.at/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: 'sitemap_13 holds the most recent articles; index has 16 children and the walk caps at 10. URLs lack news:publication_date, so we sort by <lastmod>.'
   suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
     sitemap_urls:
-    - https://www.heute.at/sitemap/sitemap.xml
+    - https://www.heute.at/sitemap/sitemap_13.xml
     picture_sitemap_url: null
     rss_urls: []
     js_required: false
