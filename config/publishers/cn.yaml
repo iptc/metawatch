@@ -81,14 +81,15 @@ sites:
   homepage: https://english.news.cn/
   category: news-agency
   language_primary: en
-  notes: ''
+  notes: 'english.news.cn exposes no feed/sitemap; the legacy xinhuanet.com English RSS still updates.'
   suggested_by: BQ (IPTC member)
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
-    rss_urls: []
+    rss_urls:
+    - http://www.xinhuanet.com/english/rss/worldrss.xml
     js_required: false
   sample:
     max_articles: 20

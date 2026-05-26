@@ -44,13 +44,13 @@ sites:
   homepage: https://www.timesofmalta.com/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: 'Point straight at sitemap_latest.xml; the index walk caps at 10 children and can miss the recent set.'
   suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
     sitemap_urls:
-    - https://timesofmalta.com/sitemap_index.xml
+    - https://timesofmalta.com/sitemap_latest.xml
     picture_sitemap_url: null
     rss_urls: []
     js_required: false

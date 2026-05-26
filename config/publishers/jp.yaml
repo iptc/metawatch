@@ -249,19 +249,19 @@ sites:
     window_days: 30
 - id: the-tokyo-reporter
   name: The Tokyo Reporter
-  url: http://www.tokyoreporter.com/
-  homepage: http://www.tokyoreporter.com/
+  url: https://www.tokyoreporter.com/
+  homepage: https://www.tokyoreporter.com/
   category: broadcaster
   language_primary: en
-  notes: ''
+  notes: 'WordPress feed; use https directly to skip the http->https redirect.'
   suggested_by: BQ
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - http://www.tokyoreporter.com/feed/
+    - https://www.tokyoreporter.com/feed/
     js_required: false
   sample:
     max_articles: 20

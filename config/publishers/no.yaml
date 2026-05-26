@@ -44,14 +44,15 @@ sites:
   homepage: https://www.nettavisen.no/
   category: newspaper
   language_primary: en
-  notes: Needs manual feed triage 2026-05-12 (RSS dead, no replacement found).
+  notes: 'Standard /rss is an HTML page; the working feed is /service/rich-rss.'
   suggested_by: TH
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
-    rss_urls: []
+    rss_urls:
+    - https://www.nettavisen.no/service/rich-rss
     js_required: false
   sample:
     max_articles: 20
