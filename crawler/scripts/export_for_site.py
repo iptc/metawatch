@@ -458,6 +458,195 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         }
     (out_dir / "dst_by_site.json").write_text(json.dumps(dst_by_site_out, indent=2))
 
+    # ─── AI-policy / opt-out aggregations ────────────────────────────────────
+    # Inputs: SiteRow optout fields + robots_analysis.parquet (per-(site,UA))
+    # + ImageRow noai_tokens / cawg_training_mining_json.
+    #
+    # Denominator rules:
+    #  * Site-wide signals (tdmrep, ai.txt, RSL, trust.txt, robots-AI matrix):
+    #    only sites where the optout probes actually ran. That's every site
+    #    EXCEPT statuses timeout/error/unreachable — those bail before the
+    #    probe step and would otherwise inflate "no" counts.
+    #  * Image-level signals (noai, CAWG, IPTC PLUS:DataMining): only images
+    #    we successfully fetched (http_status == 200).
+    robots_rows = read(run_dir / "robots_analysis.parquet")
+    probed_sites = [s for s in sites if s["status"] not in ("timeout", "error", "unreachable")]
+    n_probed = len(probed_sites)
+    ok_imgs = [i for i in images if i["http_status"] == 200]
+    n_imgs = len(ok_imgs)
+
+    def _pct(num: int, den: int) -> float:
+        return round(100.0 * num / den, 1) if den else 0.0
+
+    sites_with_tdmrep = sum(1 for s in probed_sites if s["has_tdmrep"])
+    sites_with_ai_txt = sum(1 for s in probed_sites if s["has_ai_txt"])
+    sites_with_rsl = sum(1 for s in probed_sites if s["has_rsl"])
+    sites_with_trust_dta_no = sum(
+        1 for s in probed_sites
+        if s["has_trust_txt"] and (s["trust_txt_datatraining"] or "").lower() == "no"
+    )
+    sites_blocking_any_ai = sum(1 for s in probed_sites if s["ai_bots_blocked_count"] > 0)
+
+    images_with_noai = sum(1 for i in ok_imgs if i.get("noai_tokens"))
+    images_with_cawg = sum(1 for i in ok_imgs if i.get("cawg_training_mining_json"))
+    # IPTC PLUS:DataMining presence comes from metadata_fields.parquet (already
+    # extracted per image). One row per (image, field, has_value); count
+    # distinct image_url_hashes where field_name == "DataMining" and has_value.
+    dm_image_hashes = {
+        f["image_url_hash"] for f in fields
+        if f["field_name"] == "DataMining" and f["has_value"]
+    }
+    images_with_iptc_datamining = len(dm_image_hashes)
+
+    signals_out = [
+        {
+            "key": "robots-ai", "scope": "site",
+            "label": "robots.txt — any AI bot blocked",
+            "note": "Blocks at least one known AI/scraper UA",
+            "num": sites_blocking_any_ai, "denom": n_probed,
+            "pct": _pct(sites_blocking_any_ai, n_probed),
+        },
+        {
+            "key": "tdmrep", "scope": "site",
+            "label": "/.well-known/tdmrep.json",
+            "note": "TDM Reservation Protocol (EU DSM Art. 4)",
+            "num": sites_with_tdmrep, "denom": n_probed,
+            "pct": _pct(sites_with_tdmrep, n_probed),
+        },
+        {
+            "key": "rsl", "scope": "site",
+            "label": "RSL — License: in robots.txt",
+            "note": "Really Simple Licensing (rslstandard.org)",
+            "num": sites_with_rsl, "denom": n_probed,
+            "pct": _pct(sites_with_rsl, n_probed),
+        },
+        {
+            "key": "ai-txt", "scope": "site",
+            "label": "/ai.txt",
+            "note": "Spawning AI consent proposal",
+            "num": sites_with_ai_txt, "denom": n_probed,
+            "pct": _pct(sites_with_ai_txt, n_probed),
+        },
+        {
+            "key": "trust-txt-dta", "scope": "site",
+            "label": "trust.txt — datatrainingallowed=no",
+            "note": "JournalList trust.txt opt-out directive",
+            "num": sites_with_trust_dta_no, "denom": n_probed,
+            "pct": _pct(sites_with_trust_dta_no, n_probed),
+        },
+        {
+            "key": "noai-meta", "scope": "image",
+            "label": "noai / noimageai headers",
+            "note": "X-Robots-Tag or <meta name=\"robots\">",
+            "num": images_with_noai, "denom": n_imgs,
+            "pct": _pct(images_with_noai, n_imgs),
+        },
+        {
+            "key": "iptc-datamining", "scope": "image",
+            "label": "IPTC PLUS:DataMining",
+            "note": "XMP-plus:DataMining controlled vocabulary",
+            "num": images_with_iptc_datamining, "denom": n_imgs,
+            "pct": _pct(images_with_iptc_datamining, n_imgs),
+        },
+        {
+            "key": "cawg-training-mining", "scope": "image",
+            "label": "CAWG training-and-data-mining",
+            "note": "Assertion inside a C2PA manifest",
+            "num": images_with_cawg, "denom": n_imgs,
+            "pct": _pct(images_with_cawg, n_imgs),
+        },
+    ]
+
+    # Per-UA block-rate matrix. Group rows by user_agent; count "disallowed".
+    ua_groups: dict[str, dict] = {}
+    sites_in_matrix: set[str] = set()
+    for r in robots_rows:
+        sites_in_matrix.add(r["site_id"])
+        slot = ua_groups.setdefault(r["user_agent"], {
+            "ua": r["user_agent"], "operator": r["operator"],
+            "blocked": 0, "total": 0,
+        })
+        slot["total"] += 1
+        if r["status"] == "disallowed":
+            slot["blocked"] += 1
+    bots_out = [
+        {
+            "ua": g["ua"], "operator": g["operator"],
+            "blocked": g["blocked"], "total": g["total"],
+            "pct_blocked": _pct(g["blocked"], g["total"]),
+        }
+        for g in ua_groups.values()
+    ]
+    bots_out.sort(key=lambda x: (-x["pct_blocked"], x["ua"].lower()))
+
+    # Distribution of "how many UAs each site blocks".
+    blocked_by_site: dict[str, int] = {sid: 0 for sid in sites_in_matrix}
+    for r in robots_rows:
+        if r["status"] == "disallowed":
+            blocked_by_site[r["site_id"]] += 1
+    # Bucket boundaries chosen to give a readable five-bar histogram.
+    n_uas = max((g["total"] for g in ua_groups.values()), default=0)
+    buckets = [(0, 0), (1, 5), (6, 10), (11, 20), (21, n_uas)]
+    bucket_out = []
+    for lo, hi in buckets:
+        if hi < lo:
+            continue
+        count = sum(1 for n in blocked_by_site.values() if lo <= n <= hi)
+        label = "0 (no AI blocks)" if lo == 0 and hi == 0 else (
+            f"{lo}" if lo == hi else f"{lo}–{hi}"
+        )
+        bucket_out.append({
+            "range": label, "lo": lo, "hi": hi,
+            "count": count, "pct": _pct(count, len(sites_in_matrix)),
+        })
+
+    # Signal convergence — when a site uses signal A, do they also use B?
+    by_site = {s["site_id"]: s for s in probed_sites}
+    def _frac(predicate_a, predicate_b) -> tuple[int, int, float]:
+        a_sites = [sid for sid, s in by_site.items() if predicate_a(s)]
+        if not a_sites:
+            return 0, 0, 0.0
+        both = sum(1 for sid in a_sites if predicate_b(by_site[sid]))
+        return both, len(a_sites), _pct(both, len(a_sites))
+
+    # Look up which sites block specific UAs.
+    site_blocks: dict[str, set[str]] = {}
+    for r in robots_rows:
+        if r["status"] == "disallowed":
+            site_blocks.setdefault(r["site_id"], set()).add(r["user_agent"])
+
+    def _blocks(ua: str):
+        return lambda s, ua=ua: ua in site_blocks.get(s["site_id"], set())
+
+    convergence_out = []
+    for a_label, a_pred, b_label, b_pred in [
+        ("blocks GPTBot",   _blocks("GPTBot"),
+         "blocks ClaudeBot", _blocks("ClaudeBot")),
+        ("blocks GPTBot",   _blocks("GPTBot"),
+         "has tdmrep.json",  lambda s: s["has_tdmrep"]),
+        ("has tdmrep.json", lambda s: s["has_tdmrep"],
+         "blocks ≥1 AI UA", lambda s: s["ai_bots_blocked_count"] > 0),
+        ("has ai.txt",      lambda s: s["has_ai_txt"],
+         "has tdmrep.json",  lambda s: s["has_tdmrep"]),
+        ("has RSL License", lambda s: s["has_rsl"],
+         "blocks ≥1 AI UA", lambda s: s["ai_bots_blocked_count"] > 0),
+    ]:
+        both, denom, pct = _frac(a_pred, b_pred)
+        convergence_out.append({
+            "a": a_label, "b": b_label,
+            "a_count": denom, "both": both, "pct": pct,
+        })
+
+    ai_policy_out = {
+        "n_sites": n_probed,
+        "n_images": n_imgs,
+        "signals": signals_out,
+        "ai_bots": bots_out,
+        "block_buckets": bucket_out,
+        "convergence": convergence_out,
+    }
+    (out_dir / "ai_policy.json").write_text(json.dumps(ai_policy_out, indent=2))
+
     # Per-site sample articles + their lead images, for the publisher pages.
     # One row per article, up to 20, newest-first. Joins articles ↔ images
     # via sha1(article_url) = article_url_hash, and articles ↔ metadata_fields

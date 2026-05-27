@@ -1,0 +1,224 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getAiPolicy } from '../../lib/data';
+
+const data = getAiPolicy();
+
+function bar(pct: number, max = 100) {
+  const w = Math.min(100, (pct / Math.max(max, 1)) * 100);
+  return `width:${w.toFixed(1)}%`;
+}
+---
+<Layout title="AI opt-out signals">
+  <h1>AI opt-out signals</h1>
+
+  <p class="lede">
+    Publishers have at least eight independent technical mechanisms for signalling that they do not
+    want their images and articles used to train generative-AI models. They sit at different layers
+    (site-wide files, HTTP headers, embedded image metadata) and were proposed by different bodies
+    over a short period — so adoption is uneven and the signals do not always agree. Article 4 of
+    the EU DSM Directive requires opt-outs to be expressed in a <em>machine-readable</em> form;
+    this page measures which of the candidate machine-readable forms publishers actually use.
+  </p>
+
+  <p class="lede-meta">
+    Based on the most recent crawl: <strong>{data.n_sites}</strong> publishers probed,
+    <strong>{data.n_images.toLocaleString()}</strong> images analysed.
+  </p>
+
+  <h2>Adoption snapshot</h2>
+  <div class="signal-grid">
+    {data.signals.map(s => (
+      <div class={`signal-card scope-${s.scope}`}>
+        <div class="scope-pill">{s.scope === 'site' ? 'per site' : 'per image'}</div>
+        <div class="pct">{s.pct.toFixed(1)}%</div>
+        <div class="label">{s.label}</div>
+        <div class="note">{s.note}</div>
+        <div class="frac">{s.num.toLocaleString()} of {s.denom.toLocaleString()}</div>
+      </div>
+    ))}
+  </div>
+
+  <h2>robots.txt — AI bot block matrix</h2>
+  <p>
+    For each known AI/scraper user-agent, the share of crawled sites whose <code>robots.txt</code>
+    disallows that UA at the root. List is versioned in <code>known_uas.yaml</code>; we welcome
+    pull requests adding bots we have missed.
+  </p>
+  <table class="sortable">
+    <thead><tr>
+      <th>User-agent</th>
+      <th>Operator</th>
+      <th class="num">% sites blocking</th>
+      <th data-nosort="true">&nbsp;</th>
+    </tr></thead>
+    <tbody>
+      {data.ai_bots.map(b => (
+        <tr>
+          <td><code>{b.ua}</code></td>
+          <td>{b.operator}</td>
+          <td class="num">{b.pct_blocked.toFixed(1)}%</td>
+          <td class="barcell"><span class="bar" style={bar(b.pct_blocked)}></span></td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <h2>How many AI UAs does each site block?</h2>
+  <p>
+    A site can block zero, one, or many of the {data.ai_bots.length} tracked AI UAs. The distribution
+    reveals whether publishers are picking individual bots to refuse or applying a blanket policy.
+  </p>
+  <table class="sortable">
+    <thead><tr>
+      <th>UAs blocked</th>
+      <th class="num">Sites</th>
+      <th class="num">% of sites</th>
+      <th data-nosort="true">&nbsp;</th>
+    </tr></thead>
+    <tbody>
+      {data.block_buckets.map(b => (
+        <tr>
+          <td>{b.range}</td>
+          <td class="num">{b.count}</td>
+          <td class="num">{b.pct.toFixed(1)}%</td>
+          <td class="barcell"><span class="bar" style={bar(b.pct, 50)}></span></td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <h2>Image-level signals</h2>
+  <p>
+    Three of the eight mechanisms live <em>inside</em> the image file (or its HTTP response),
+    not on a site-wide file. They travel with the image when it is copied or shared.
+  </p>
+  <ul class="image-signals">
+    <li>
+      <strong>IPTC PLUS:DataMining</strong> — a controlled-vocabulary value in the XMP-plus
+      namespace expressing whether data mining is permitted. We parse this from every image
+      we fetch.
+    </li>
+    <li>
+      <strong>CAWG training-and-data-mining assertion</strong> — a structured assertion inside a
+      C2PA manifest declaring training/mining permissions. Spec at <a
+      href="https://cawg.io/training-and-data-mining/1.1/" target="_blank" rel="noopener">
+      cawg.io</a>.
+    </li>
+    <li>
+      <strong>noai / noimageai directives</strong> — informal but in-the-wild; expressed via
+      <code>X-Robots-Tag</code> response headers on the image, or <code>&lt;meta name="robots"&gt;</code>
+      on the host article page. Originated in DeviantArt's 2022 policy; not standardised.
+    </li>
+  </ul>
+
+  <h2>Do the signals agree?</h2>
+  <p>
+    A site that takes AI opt-out seriously might use several mechanisms together. In practice the
+    overlap is patchy — partly because the signals serve different audiences (robots.txt for
+    crawlers, TDMRep for the EU legal framework, IPTC PLUS:DataMining for downstream image
+    consumers).
+  </p>
+  <table>
+    <thead><tr>
+      <th>If a site…</th>
+      <th>…does it also…</th>
+      <th class="num">% overlap</th>
+      <th class="num">N</th>
+    </tr></thead>
+    <tbody>
+      {data.convergence.map(c => (
+        <tr>
+          <td>{c.a}</td>
+          <td>{c.b}</td>
+          <td class="num">{c.a_count ? c.pct.toFixed(0) + '%' : '—'}</td>
+          <td class="num">{c.a_count}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <h2>What we measure (methodology)</h2>
+  <ul class="methodology">
+    <li><strong>robots.txt</strong>: fetched once per run, parsed with <code>protego</code>.
+      For each tracked UA we record <code>allowed</code> or <code>disallowed</code> at the site
+      root.</li>
+    <li><strong>tdmrep.json</strong>: HTTP probe of <code>/.well-known/tdmrep.json</code>; recorded
+      as present + saved verbatim. Parsing of TDM-policy URLs and the <code>tdm-reservation</code>
+      flag is planned.</li>
+    <li><strong>ai.txt</strong>: HTTP probe of <code>/ai.txt</code>; presence flag only at first.</li>
+    <li><strong>RSL</strong>: scan robots.txt for a <code>License:</code> directive linking to an
+      RSL XML file (<a href="https://rslstandard.org/guide/robots-txt" target="_blank"
+      rel="noopener">spec</a>). Presence flag and the licence URL; we will not parse the XML at
+      first.</li>
+    <li><strong>trust.txt</strong>: HTTP probe of <code>/.well-known/trust.txt</code> and
+      <code>/trust.txt</code>; parse for the <code>datatrainingallowed=no</code> directive.
+      Presence flag and the directive value are recorded.</li>
+    <li><strong>noai/noimageai</strong>: scanned in HTTP response headers (image and host article)
+      and in the host article's <code>&lt;meta name="robots"&gt;</code>.</li>
+    <li><strong>IPTC PLUS:DataMining</strong>: already extracted via ExifTool on every image.</li>
+    <li><strong>CAWG training-and-data-mining</strong>: parsed from C2PA manifest assertions when
+      label matches <code>cawg.training-mining</code> or <code>cawg.training-and-data-mining</code>.</li>
+  </ul>
+</Layout>
+
+<style>
+  .lede-meta { color: var(--iptc-muted, #6b7280); font-size: 0.95rem; margin: -0.5rem 0 1.5rem; }
+  .signal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0 2rem;
+  }
+  .signal-card {
+    border: 1px solid var(--iptc-border, #e5e7eb);
+    border-radius: 8px;
+    padding: 1rem;
+    background: white;
+    position: relative;
+  }
+  .signal-card.scope-site { border-left: 4px solid var(--iptc-navy, #234976); }
+  .signal-card.scope-image { border-left: 4px solid var(--iptc-green, #6db33f); }
+  .scope-pill {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--iptc-muted, #6b7280);
+    margin-bottom: 0.4rem;
+  }
+  .signal-card .pct {
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: var(--iptc-navy, #234976);
+    line-height: 1;
+  }
+  .signal-card .label {
+    font-weight: 600;
+    margin-top: 0.4rem;
+    font-size: 0.95rem;
+  }
+  .signal-card .note {
+    color: var(--iptc-muted, #6b7280);
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+  }
+  .signal-card .frac {
+    color: var(--iptc-muted, #6b7280);
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .barcell {
+    width: 30%;
+    min-width: 100px;
+  }
+  .bar {
+    display: inline-block;
+    height: 10px;
+    background: var(--iptc-green, #6db33f);
+    border-radius: 2px;
+  }
+  ul.image-signals li, ul.methodology li {
+    margin-bottom: 0.6rem;
+  }
+</style>

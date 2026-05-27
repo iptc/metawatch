@@ -12,7 +12,7 @@ import c2pa
 import exiftool
 import httpx
 
-from . import cdn, scoring
+from . import cdn, optout, scoring
 from . import dst as dst_mod
 
 MAX_IMAGE_BYTES = 20 * 1024 * 1024  # 20 MB
@@ -42,6 +42,11 @@ class ImageResult:
     iptc_score: float = 0.0
     per_field_presence: list[tuple[str, bool]] = field(default_factory=list)
     raw_tags: dict[str, object] = field(default_factory=dict)
+    # AI-opt-out signals (Phase 3): noai/noimageai tokens harvested from this
+    # image's X-Robots-Tag response header; CAWG training-and-data-mining
+    # assertion data dict (or None) if present in the C2PA manifest.
+    noai_tokens: list[str] = field(default_factory=list)
+    cawg_training_mining: dict | None = None
 
 
 async def fetch_and_analyse(
@@ -55,6 +60,15 @@ async def fetch_and_analyse(
         async with client.stream("GET", image_url, timeout=15.0, follow_redirects=True) as r:
             result.http_status = r.status_code
             result.mime_type = r.headers.get("content-type", "").split(";")[0].strip() or None
+            # Collect noai/noimageai tokens from the image's X-Robots-Tag header
+            # (image-level AI opt-out signal). Header may repeat — sum across all.
+            xrt_values = r.headers.get_list("x-robots-tag") if hasattr(r.headers, "get_list") else [
+                v for k, v in r.headers.items() if k.lower() == "x-robots-tag"
+            ]
+            for hv in xrt_values:
+                for tok in optout.scan_robots_directives(hv):
+                    if tok not in result.noai_tokens:
+                        result.noai_tokens.append(tok)
             content_length = r.headers.get("content-length")
             if content_length and content_length.isdigit() and int(content_length) > MAX_IMAGE_BYTES:
                 cdn_info = cdn.detect(image_url, dict(r.headers))
@@ -97,7 +111,7 @@ async def fetch_and_analyse(
     # c2pa-rs binding is blocking. Any error means "no manifest" — there are many
     # legitimate ways for that to happen (wrong format, truncated file, etc.).
     try:
-        c2pa_present, c2pa_signer, c2pa_state, c2pa_failures, c2pa_dst = (
+        c2pa_present, c2pa_signer, c2pa_state, c2pa_failures, c2pa_dst, c2pa_cawg = (
             await asyncio.get_running_loop().run_in_executor(None, _detect_c2pa, tmp_path)
         )
         result.has_c2pa = c2pa_present
@@ -105,6 +119,7 @@ async def fetch_and_analyse(
         result.c2pa_validation_status = c2pa_state
         result.c2pa_failure_codes = c2pa_failures
         result.dst_c2pa = c2pa_dst
+        result.cawg_training_mining = c2pa_cawg
     except Exception:
         pass
 
@@ -134,8 +149,8 @@ async def fetch_and_analyse(
 
 def _detect_c2pa(
     path: Path,
-) -> tuple[bool, str | None, str | None, list[str], list[str]]:
-    """Return (has_c2pa, signer_issuer, validation_state, failure_codes, dst_uris).
+) -> tuple[bool, str | None, str | None, list[str], list[str], dict | None]:
+    """Return (has_c2pa, signer_issuer, validation_state, failure_codes, dst_uris, cawg_training_mining).
 
     Detection is presence-first: the c2pa-rs Python binding raises
     ``ManifestNotFound`` when no JUMBF manifest is embedded, and various
@@ -153,7 +168,7 @@ def _detect_c2pa(
     try:
         reader = c2pa.Reader(str(path))
     except Exception:
-        return False, None, None, [], []
+        return False, None, None, [], [], None
     try:
         state = reader.get_validation_state()
         manifest = reader.get_active_manifest()
@@ -171,9 +186,10 @@ def _detect_c2pa(
         except Exception:
             pass
         dst_uris = dst_mod.extract_dst_from_c2pa_manifest(manifest)
-        return True, signer, str(state) if state is not None else None, failure_codes, dst_uris
+        cawg = optout.extract_cawg_training_mining(manifest) if isinstance(manifest, dict) else None
+        return True, signer, str(state) if state is not None else None, failure_codes, dst_uris, cawg
     except Exception:
-        return True, None, None, [], []
+        return True, None, None, [], [], None
 
 
 def _suffix_for(mime: str | None) -> str:

@@ -2,7 +2,10 @@
 
 Schemas mirror SPEC.md §7. Phase 1 writes:
   runs, sites, articles, images, metadata_fields.
-Phase 3 will add: robots_analysis.
+Phase 3 adds:
+  robots_analysis (one row per (site, tracked-AI-UA)), plus AI-opt-out
+  presence columns on SiteRow (tdmrep, ai.txt, RSL, trust.txt) and
+  image-level signal columns on ImageRow (noai/noimageai, CAWG).
 """
 
 from __future__ import annotations
@@ -47,6 +50,16 @@ class SiteRow:
     articles_sampled: int
     images_analysed: int
     mean_iptc_score: float
+    # AI opt-out site-wide signal flags (Phase 3). All default to False/None
+    # so existing call sites that don't yet populate them stay valid; the
+    # crawler always sets them when the optout probes run.
+    has_tdmrep: bool = False
+    has_ai_txt: bool = False
+    has_rsl: bool = False
+    rsl_license_urls: list[str] = field(default_factory=list)
+    has_trust_txt: bool = False
+    trust_txt_datatraining: str | None = None  # e.g. "no", "yes" — None when directive absent
+    ai_bots_blocked_count: int = 0  # how many tracked UAs the robots.txt disallows at root
 
 
 @dataclass
@@ -93,10 +106,26 @@ class ImageRow:
     dst_iptc: str | None = None
     dst_c2pa: list[str] = field(default_factory=list)
     iptc_xmp_tags_json: str | None = None  # JSON-encoded filtered tag dict, see scoring.iptc_xmp_subset
+    # AI opt-out image-level signals (Phase 3). `noai_tokens` collects
+    # noai/noimageai/noml seen in either the image's X-Robots-Tag header or
+    # the host article's <meta name="robots">. `cawg_training_mining_json`
+    # is the JSON-serialised assertion data dict when present.
+    noai_tokens: list[str] = field(default_factory=list)
+    cawg_training_mining_json: str | None = None
 
     @property
     def image_url_hash(self) -> str:
         return _sha1(self.image_url)
+
+
+@dataclass
+class RobotsAnalysisRow:
+    """One row per (site, tracked AI UA). See SPEC.md §7."""
+    run_id: str
+    site_id: str
+    user_agent: str
+    operator: str
+    status: str  # "allowed" | "disallowed"
 
 
 @dataclass
@@ -115,6 +144,7 @@ class RunOutput:
     articles: list[ArticleRow] = field(default_factory=list)
     images: list[ImageRow] = field(default_factory=list)
     metadata_fields: list[MetadataFieldRow] = field(default_factory=list)
+    robots_analysis: list[RobotsAnalysisRow] = field(default_factory=list)
 
 
 def write_run(out_dir: Path, run_output: RunOutput) -> None:
@@ -124,6 +154,7 @@ def write_run(out_dir: Path, run_output: RunOutput) -> None:
     _write_articles(out_dir / "articles.parquet", run_output.articles)
     _write_images(out_dir / "images.parquet", run_output.images)
     _write_metadata_fields(out_dir / "metadata_fields.parquet", run_output.metadata_fields)
+    _write_robots_analysis(out_dir / "robots_analysis.parquet", run_output.robots_analysis)
 
 
 def _write_runs(path: Path, rows: list[RunRow]) -> None:
@@ -155,6 +186,13 @@ def _write_sites(path: Path, rows: list[SiteRow]) -> None:
         "articles_sampled": [r.articles_sampled for r in rows],
         "images_analysed": [r.images_analysed for r in rows],
         "mean_iptc_score": [r.mean_iptc_score for r in rows],
+        "has_tdmrep": [r.has_tdmrep for r in rows],
+        "has_ai_txt": [r.has_ai_txt for r in rows],
+        "has_rsl": [r.has_rsl for r in rows],
+        "rsl_license_urls": [r.rsl_license_urls for r in rows],
+        "has_trust_txt": [r.has_trust_txt for r in rows],
+        "trust_txt_datatraining": [r.trust_txt_datatraining for r in rows],
+        "ai_bots_blocked_count": [r.ai_bots_blocked_count for r in rows],
     })
     pq.write_table(table, path, compression="zstd")
 
@@ -202,6 +240,8 @@ def _write_images(path: Path, rows: list[ImageRow]) -> None:
         "cdn_optimizer_active": [r.cdn_optimizer_active for r in rows],
         "metadata_field_count": [r.metadata_field_count for r in rows],
         "iptc_score": [r.iptc_score for r in rows],
+        "noai_tokens": [r.noai_tokens for r in rows],
+        "cawg_training_mining_json": [r.cawg_training_mining_json for r in rows],
     })
     pq.write_table(table, path, compression="zstd")
 
@@ -213,5 +253,16 @@ def _write_metadata_fields(path: Path, rows: list[MetadataFieldRow]) -> None:
         "family": [r.family for r in rows],
         "field_name": [r.field_name for r in rows],
         "has_value": [r.has_value for r in rows],
+    })
+    pq.write_table(table, path, compression="zstd")
+
+
+def _write_robots_analysis(path: Path, rows: list[RobotsAnalysisRow]) -> None:
+    table = pa.table({
+        "run_id": [r.run_id for r in rows],
+        "site_id": [r.site_id for r in rows],
+        "user_agent": [r.user_agent for r in rows],
+        "operator": [r.operator for r in rows],
+        "status": [r.status for r in rows],
     })
     pq.write_table(table, path, compression="zstd")

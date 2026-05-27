@@ -23,10 +23,12 @@ from rich.progress import (
 from . import DEFAULT_HEADERS, __version__, config, discovery
 from .articles import fetch_article
 from .images import ExifPool, fetch_and_analyse
+from .optout import probe_site_optouts
 from .output import (
     ArticleRow,
     ImageRow,
     MetadataFieldRow,
+    RobotsAnalysisRow,
     RunOutput,
     RunRow,
     SiteRow,
@@ -127,6 +129,7 @@ async def _run_async(sites: list[config.Site], output_dir: Path, concurrency: in
     article_rows: list[ArticleRow] = []
     image_rows: list[ImageRow] = []
     field_rows: list[MetadataFieldRow] = []
+    robots_rows: list[RobotsAnalysisRow] = []
 
     succeeded = 0
     blocked = 0
@@ -187,11 +190,16 @@ async def _run_async(sites: list[config.Site], output_dir: Path, concurrency: in
                         )
                     )
                     return
+                # NOTE: timeout/error paths skip optout probes — we never got a
+                # chance to fetch robots.txt cleanly. SiteRow.has_* stays at the
+                # dataclass defaults (False/None/0); aggregations should exclude
+                # these statuses from denominator. See export_for_site.
 
                 site_rows.append(site_result["site"])
                 article_rows.extend(site_result["articles"])
                 image_rows.extend(site_result["images"])
                 field_rows.extend(site_result["fields"])
+                robots_rows.extend(site_result["robots_analysis"])
 
                 row = site_result["site"]
                 if row.status == "robots_disallow":
@@ -230,7 +238,7 @@ async def _run_async(sites: list[config.Site], output_dir: Path, concurrency: in
         image_count=len(image_rows),
     )
 
-    write_run(output_dir, RunOutput(run, site_rows, article_rows, image_rows, field_rows))
+    write_run(output_dir, RunOutput(run, site_rows, article_rows, image_rows, field_rows, robots_rows))
     console.print(
         f"[green]Done.[/green] {len(sites)} sites, {len(article_rows)} articles, "
         f"{len(image_rows)} images. Output: {output_dir}"
@@ -247,29 +255,43 @@ async def _crawl_site(
     robots, sitemap_url, strategy, candidates, disc_err = await discovery.discover(client, site)
     robots_url = f"{site.url.rstrip('/')}/robots.txt"
 
+    # AI-opt-out probes (robots-AI matrix, RSL, tdmrep, ai.txt, trust.txt).
+    # We run these for every site that *responded* to robots.txt, even if
+    # robots later disallowed our crawler — the opt-out posture is still
+    # interesting and the probes are cheap. For sites we couldn't reach at
+    # all, signals stay at their dataclass defaults (False / None / 0).
+    optout_signals = await probe_site_optouts(client, site.url, robots.text)
+    robots_analysis = _build_robots_analysis_rows(run_id, site.id, optout_signals)
+
+    def _site_row(status: str, sitemap: str | None, articles: int, images: int, score: float) -> SiteRow:
+        return SiteRow(
+            run_id=run_id, site_id=site.id, site_name=site.name,
+            country=site.country, category=site.category,
+            status=status, robots_url=robots_url,
+            sitemap_url_used=sitemap, discovery_strategy=strategy,
+            articles_sampled=articles, images_analysed=images, mean_iptc_score=score,
+            has_tdmrep=optout_signals.has_tdmrep,
+            has_ai_txt=optout_signals.has_ai_txt,
+            has_rsl=optout_signals.has_rsl,
+            rsl_license_urls=list(optout_signals.rsl_license_urls),
+            has_trust_txt=optout_signals.has_trust_txt,
+            trust_txt_datatraining=optout_signals.trust_txt_datatraining,
+            ai_bots_blocked_count=optout_signals.robots_ai.blocked_count,
+        )
+
     if not robots.allowed_at_root:
         return {
-            "site": SiteRow(
-                run_id=run_id, site_id=site.id, site_name=site.name,
-                country=site.country, category=site.category,
-                status="robots_disallow", robots_url=robots_url,
-                sitemap_url_used=None, discovery_strategy=strategy,
-                articles_sampled=0, images_analysed=0, mean_iptc_score=0.0,
-            ),
+            "site": _site_row("robots_disallow", None, 0, 0, 0.0),
             "articles": [], "images": [], "fields": [],
+            "robots_analysis": robots_analysis,
         }
 
     if not candidates:
         status = discovery.status_for_empty_discovery(strategy, disc_err)
         return {
-            "site": SiteRow(
-                run_id=run_id, site_id=site.id, site_name=site.name,
-                country=site.country, category=site.category,
-                status=status, robots_url=robots_url,
-                sitemap_url_used=sitemap_url, discovery_strategy=strategy,
-                articles_sampled=0, images_analysed=0, mean_iptc_score=0.0,
-            ),
+            "site": _site_row(status, sitemap_url, 0, 0, 0.0),
             "articles": [], "images": [], "fields": [],
+            "robots_analysis": robots_analysis,
         }
 
     domain = _domain_of(site.url)
@@ -335,6 +357,13 @@ async def _crawl_site(
                 img = await fetch_and_analyse(client, img_url, exif_pool)
 
             kept_tags = iptc_xmp_subset(img.raw_tags) if img.raw_tags else {}
+            # Combine noai tokens seen on the article (X-Robots-Tag, <meta robots>)
+            # with those seen on the image response itself. Either is a valid
+            # opt-out signal for this image.
+            merged_noai: list[str] = []
+            for tok in (*art.noai_tokens, *img.noai_tokens):
+                if tok not in merged_noai:
+                    merged_noai.append(tok)
             image_row = ImageRow(
                 run_id=run_id, site_id=site.id,
                 article_url_hash=_sha1_of(cand.url),
@@ -353,6 +382,11 @@ async def _crawl_site(
                 metadata_field_count=img.metadata_field_count,
                 iptc_score=img.iptc_score,
                 iptc_xmp_tags_json=json.dumps(kept_tags, default=str, sort_keys=True) if kept_tags else None,
+                noai_tokens=merged_noai,
+                cawg_training_mining_json=(
+                    json.dumps(img.cawg_training_mining, default=str, sort_keys=True)
+                    if img.cawg_training_mining is not None else None
+                ),
             )
             images.append(image_row)
             if img.http_status == 200:
@@ -372,29 +406,29 @@ async def _crawl_site(
     if bailed_unreachable and not articles:
         # All attempted articles failed to fetch — treat as unreachable rather than ok-with-zero.
         return {
-            "site": SiteRow(
-                run_id=run_id, site_id=site.id, site_name=site.name,
-                country=site.country, category=site.category,
-                status="unreachable", robots_url=robots_url,
-                sitemap_url_used=sitemap_url, discovery_strategy=strategy,
-                articles_sampled=0, images_analysed=0, mean_iptc_score=0.0,
-            ),
+            "site": _site_row("unreachable", sitemap_url, 0, 0, 0.0),
             "articles": [], "images": [], "fields": [],
+            "robots_analysis": robots_analysis,
         }
 
     return {
-        "site": SiteRow(
-            run_id=run_id, site_id=site.id, site_name=site.name,
-            country=site.country, category=site.category,
-            status="ok", robots_url=robots_url,
-            sitemap_url_used=sitemap_url, discovery_strategy=strategy,
-            articles_sampled=len(articles), images_analysed=len(images),
-            mean_iptc_score=mean_score,
-        ),
+        "site": _site_row("ok", sitemap_url, len(articles), len(images), mean_score),
         "articles": articles,
         "images": images,
         "fields": fields,
+        "robots_analysis": robots_analysis,
     }
+
+
+def _build_robots_analysis_rows(run_id: str, site_id: str, signals) -> list[RobotsAnalysisRow]:
+    """Project the per-UA Protego verdicts into one RobotsAnalysisRow per UA."""
+    return [
+        RobotsAnalysisRow(
+            run_id=run_id, site_id=site_id,
+            user_agent=v.ua, operator=v.operator, status=v.status,
+        )
+        for v in signals.robots_ai.per_ua
+    ]
 
 
 def _family_for(label: str) -> str:

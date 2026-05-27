@@ -1,0 +1,40 @@
+# Known AI / scraper user-agents tracked for the robots.txt AI-opt-out matrix.
+# Sourced from SPEC.md §8. Each entry pairs a user-agent token (as it appears
+# in robots.txt User-agent: lines) with an operator label, used for grouping
+# on the /ai-policy/ page.
+#
+# Adding bots: please keep alphabetical within operator. The UA token is what
+# we test against robots.txt with Protego; the operator label is display-only.
+uas:
+  - { ua: AI2Bot,                       operator: AI2 }
+  - { ua: Amazonbot,                    operator: Amazon }
+  - { ua: anthropic-ai,                 operator: Anthropic }
+  - { ua: Claude-User,                  operator: Anthropic }
+  - { ua: Claude-Web,                   operator: Anthropic }
+  - { ua: ClaudeBot,                    operator: Anthropic }
+  - { ua: Applebot-Extended,            operator: Apple }
+  - { ua: Bytespider,                   operator: ByteDance }
+  - { ua: cohere-ai,                    operator: Cohere }
+  - { ua: cohere-training-data-crawler, operator: Cohere }
+  - { ua: CCBot,                        operator: Common Crawl }
+  - { ua: DeepSeekBot,                  operator: DeepSeek }
+  - { ua: Diffbot,                      operator: Diffbot }
+  - { ua: Feedfetcher-Google,           operator: Google }
+  - { ua: Gemini-Deep-Research,         operator: Google }
+  - { ua: Google-Extended,              operator: Google }
+  - { ua: GoogleOther,                  operator: Google }
+  - { ua: PanguBot,                     operator: Huawei }
+  - { ua: archive.org_bot,              operator: Internet Archive }
+  - { ua: ia_archiver,                  operator: Internet Archive }
+  - { ua: FacebookBot,                  operator: Meta }
+  - { ua: Meta-ExternalAgent,           operator: Meta }
+  - { ua: Meta-ExternalFetcher,         operator: Meta }
+  - { ua: MistralAI-User,               operator: Mistral }
+  - { ua: ChatGPT-User,                 operator: OpenAI }
+  - { ua: GPTBot,                       operator: OpenAI }
+  - { ua: OAI-SearchBot,                operator: OpenAI }
+  - { ua: img2dataset,                  operator: Open-source scraper }
+  - { ua: PerplexityBot,                operator: Perplexity }
+  - { ua: Timpibot,                     operator: Timpi }
+  - { ua: Grok,                         operator: xAI }
+  - { ua: YouBot,                       operator: You.com }

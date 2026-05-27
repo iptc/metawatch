@@ -26,6 +26,7 @@ import historyFieldsBySiteJson from '../data/latest/history_fields_by_site.json'
 import c2paBySiteJson from '../data/latest/c2pa_by_site.json';
 import dstBySiteJson from '../data/latest/dst_by_site.json';
 import samplesBySiteJson from '../data/latest/samples_by_site.json';
+import aiPolicyJson from '../data/latest/ai_policy.json';
 
 export interface Summary {
   run_id: string | null;
@@ -186,6 +187,53 @@ export function getC2pa(): C2paData {
 
 export function getDst(): DstData {
   return dstJson as DstData;
+}
+
+export interface AiPolicySignal {
+  key: string;
+  scope: 'site' | 'image';
+  label: string;
+  note: string;
+  num: number;
+  denom: number;
+  pct: number;
+}
+
+export interface AiPolicyBot {
+  ua: string;
+  operator: string;
+  blocked: number;
+  total: number;
+  pct_blocked: number;
+}
+
+export interface AiPolicyBucket {
+  range: string;
+  lo: number;
+  hi: number;
+  count: number;
+  pct: number;
+}
+
+export interface AiPolicyConvergence {
+  a: string;
+  b: string;
+  a_count: number;
+  both: number;
+  pct: number;
+}
+
+export interface AiPolicyData {
+  n_sites: number;
+  n_images: number;
+  signals: AiPolicySignal[];
+  ai_bots: AiPolicyBot[];
+  block_buckets: AiPolicyBucket[];
+  convergence: AiPolicyConvergence[];
+}
+
+export function getAiPolicy(): AiPolicyData {
+  return aiPolicyJson as AiPolicyData;
 }
 
 export interface ScoredField {

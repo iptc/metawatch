@@ -30,6 +30,7 @@ import httpx
 from selectolax.parser import HTMLParser, Node
 
 from .discovery import ArticleCandidate
+from .optout import scan_robots_directives
 
 MIN_DIM = 200
 
@@ -54,6 +55,14 @@ class ArticleResult:
     http_status: int
     image_urls: list[str]
     jsonld_news_article: str | None  # raw JSON string, may be empty
+    # noai/noimageai/noml tokens harvested from the article's HTTP response
+    # X-Robots-Tag header and any <meta name="robots"> on the page. Treated
+    # as opt-out signals attached to every image on this article.
+    noai_tokens: list[str] = None  # type: ignore[assignment]  # init in __post_init__
+
+    def __post_init__(self) -> None:
+        if self.noai_tokens is None:
+            self.noai_tokens = []
 
 
 async def fetch_article(
@@ -80,7 +89,34 @@ async def fetch_article(
     )
     main_image = _extract_main_image(parser, base_url, sitemap_image)
     jsonld = _extract_news_article_jsonld(parser)
-    return ArticleResult(candidate, r.status_code, [main_image] if main_image else [], jsonld)
+    noai = _collect_noai_tokens(r, parser)
+    return ArticleResult(
+        candidate, r.status_code, [main_image] if main_image else [], jsonld, noai
+    )
+
+
+def _collect_noai_tokens(r: httpx.Response, parser: HTMLParser) -> list[str]:
+    """Gather noai/noimageai tokens from response headers and <meta robots>."""
+    tokens: list[str] = []
+    seen: set[str] = set()
+
+    def _add(values: list[str]) -> None:
+        for t in values:
+            if t not in seen:
+                seen.add(t)
+                tokens.append(t)
+
+    # httpx exposes repeated headers via `get_list`; older versions need a manual walk.
+    header_values = r.headers.get_list("x-robots-tag") if hasattr(r.headers, "get_list") else [
+        v for k, v in r.headers.items() if k.lower() == "x-robots-tag"
+    ]
+    for hv in header_values:
+        _add(scan_robots_directives(hv))
+
+    for m in parser.css('meta[name="robots"], meta[name="ROBOTS"]'):
+        _add(scan_robots_directives(m.attributes.get("content")))
+
+    return tokens
 
 
 # ─── Top-level extractor ────────────────────────────────────────────────────
