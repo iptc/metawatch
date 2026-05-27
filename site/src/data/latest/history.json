@@ -5,6 +5,8 @@
     "site_count": 294,
     "image_count": 4399,
     "mean_score": 6.92,
+    "images_with_iptc": 508,
+    "pct_with_iptc": 11.6,
     "images_with_c2pa": 4,
     "pct_with_c2pa": 0.091,
     "c2pa_outcomes": {
@@ -18,6 +20,8 @@
     "site_count": 295,
     "image_count": 4399,
     "mean_score": 6.69,
+    "images_with_iptc": 492,
+    "pct_with_iptc": 11.2,
     "images_with_c2pa": 5,
     "pct_with_c2pa": 0.114,
     "c2pa_outcomes": {
@@ -30,6 +34,8 @@
     "site_count": 290,
     "image_count": 4625,
     "mean_score": 6.8,
+    "images_with_iptc": 509,
+    "pct_with_iptc": 11.1,
     "images_with_c2pa": 6,
     "pct_with_c2pa": 0.131,
     "c2pa_outcomes": {

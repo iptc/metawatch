@@ -550,6 +550,7 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         # Per-run aggregates from per-image rows
         scores = []
         c2pa_count = 0
+        iptc_count = 0
         valid_image_count = 0
         c2pa_outcome_counts: dict[str, int] = defaultdict(int)
         imgs_path = d / "images.parquet"
@@ -561,6 +562,8 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
                     continue
                 valid_image_count += 1
                 scores.append(r["iptc_score"])
+                if r.get("has_iptc_iim") or r.get("has_iptc_xmp"):
+                    iptc_count += 1
                 if r.get("has_c2pa"):
                     c2pa_count += 1
                     bucket = _classify_c2pa(
@@ -574,6 +577,11 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
             "site_count": run["site_count_succeeded"],
             "image_count": run["image_count"],
             "mean_score": round(mean(scores), 2) if scores else 0.0,
+            "images_with_iptc": iptc_count,
+            "pct_with_iptc": (
+                round(100.0 * iptc_count / valid_image_count, 1)
+                if valid_image_count else 0.0
+            ),
             "images_with_c2pa": c2pa_count,
             "pct_with_c2pa": (
                 round(100.0 * c2pa_count / valid_image_count, 3)

@@ -14,6 +14,7 @@ const top10Countries = countries.slice(0, 10);
 const runDate = summary.started_at ? new Date(summary.started_at).toISOString().slice(0, 10) : 'no run yet';
 
 const scorePoints = history.map(h => ({ x: h.started_at, y: h.mean_score }));
+const iptcPoints = history.map(h => ({ x: h.started_at, y: h.pct_with_iptc }));
 ---
 <Layout title="Overview">
   <h1>Metawatch</h1>
@@ -43,20 +44,53 @@ const scorePoints = history.map(h => ({ x: h.started_at, y: h.mean_score }));
 
   {history.length >= 2 && (
     <section>
-      <h2>Mean IPTC score over time</h2>
+      <h2>Trends across runs</h2>
       <p>
-        Each point is one crawl run. The chart auto-rescales when runs are added
-        or pruned; see the <a href={`${base}/dataset/`}>dataset page</a> for the
-        underlying parquet files.
+        Each point is one crawl run. See the
+        <a href={`${base}/dataset/`}> dataset page</a> for the underlying
+        parquet files.
       </p>
-      <TimeSeriesChart
-        points={scorePoints}
-        yLabel="Mean IPTC score (0–100)"
-        yMax={100}
-        format={(n: number) => n.toFixed(1)}
-      />
+      <div class="chart-grid">
+        <div class="chart-cell">
+          <h3>Mean IPTC score</h3>
+          <TimeSeriesChart
+            points={scorePoints}
+            yLabel="Score (0–100)"
+            yMax={100}
+            format={(n: number) => n.toFixed(1)}
+          />
+        </div>
+        <div class="chart-cell">
+          <h3>% of images with any IPTC</h3>
+          <TimeSeriesChart
+            points={iptcPoints}
+            yLabel="% with IPTC"
+            yMax={100}
+            format={(n: number) => `${n.toFixed(1)}%`}
+          />
+        </div>
+      </div>
     </section>
   )}
+
+  <style>
+    .chart-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    }
+    .chart-cell {
+      background: var(--iptc-surface);
+      border: 1px solid var(--iptc-border);
+      border-radius: 6px;
+      padding: 0.75rem 1rem 1rem;
+    }
+    .chart-cell h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1rem;
+      color: var(--iptc-navy);
+    }
+  </style>
 
   <h2>Top sites</h2>
   <p>Ranked by mean IPTC score across all sampled images in the latest crawl.</p>
