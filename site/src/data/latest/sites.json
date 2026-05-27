@@ -1,22 +1,5 @@
 [
   {
-    "site_id": "ap",
-    "site_name": "Associated Press",
-    "url": "https://apnews.com/",
-    "country": "US",
-    "category": "news-agency",
-    "status": "ok",
-    "discovery_strategy": "config:sitemap",
-    "sitemap_url_used": "https://apnews.com/news-sitemap-content.xml",
-    "articles_sampled": 10,
-    "images_analysed": 10,
-    "mean_iptc_score": 97.5,
-    "pct_with_iptc": 100.0,
-    "cdn_breakdown": {
-      "cloudflare": 10
-    }
-  },
-  {
     "site_id": "taz",
     "site_name": "taz",
     "url": "http://www.taz.de/",
@@ -34,6 +17,23 @@
     }
   },
   {
+    "site_id": "ap",
+    "site_name": "Associated Press",
+    "url": "https://apnews.com/",
+    "country": "US",
+    "category": "news-agency",
+    "status": "ok",
+    "discovery_strategy": "config:sitemap",
+    "sitemap_url_used": "https://apnews.com/news-sitemap-content.xml",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 87.5,
+    "pct_with_iptc": 90.0,
+    "cdn_breakdown": {
+      "cloudflare": 10
+    }
+  },
+  {
     "site_id": "s-ddeutsche-zeitung",
     "site_name": "S\u00fcddeutsche Zeitung",
     "url": "http://www.sueddeutsche.de/",
@@ -44,27 +44,10 @@
     "sitemap_url_used": "http://rss.sueddeutsche.de/rss/Topthemen",
     "articles_sampled": 15,
     "images_analysed": 15,
-    "mean_iptc_score": 85.0,
+    "mean_iptc_score": 86.67,
     "pct_with_iptc": 93.3,
     "cdn_breakdown": {
       "cloudfront": 15
-    }
-  },
-  {
-    "site_id": "the-japan-times",
-    "site_name": "The Japan Times",
-    "url": "https://www.japantimes.co.jp/",
-    "country": "JP",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.japantimes.co.jp/feed",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 80.0,
-    "pct_with_iptc": 95.0,
-    "cdn_breakdown": {
-      "cloudflare": 20
     }
   },
   {
@@ -78,27 +61,27 @@
     "sitemap_url_used": "https://www.pbs.org/newshour/feeds/rss/headlines",
     "articles_sampled": 20,
     "images_analysed": 20,
-    "mean_iptc_score": 76.25,
-    "pct_with_iptc": 95.0,
+    "mean_iptc_score": 83.75,
+    "pct_with_iptc": 100.0,
     "cdn_breakdown": {
       "cloudfront": 20
     }
   },
   {
-    "site_id": "spectator",
-    "site_name": "Spectator",
-    "url": "https://spectator.com/",
-    "country": "GB",
+    "site_id": "the-japan-times",
+    "site_name": "The Japan Times",
+    "url": "https://www.japantimes.co.jp/",
+    "country": "JP",
     "category": "newspaper",
     "status": "ok",
-    "discovery_strategy": "config:sitemap",
-    "sitemap_url_used": "https://spectator.com/news-sitemap.xml",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.japantimes.co.jp/feed",
     "articles_sampled": 20,
     "images_analysed": 20,
-    "mean_iptc_score": 71.25,
-    "pct_with_iptc": 75.0,
+    "mean_iptc_score": 78.75,
+    "pct_with_iptc": 95.0,
     "cdn_breakdown": {
-      "none": 20
+      "cloudflare": 20
     }
   },
   {
@@ -112,131 +95,11 @@
     "sitemap_url_used": "https://rss.politico.com/politics-news.xml",
     "articles_sampled": 20,
     "images_analysed": 19,
-    "mean_iptc_score": 69.74,
-    "pct_with_iptc": 73.7,
+    "mean_iptc_score": 73.68,
+    "pct_with_iptc": 78.9,
     "cdn_breakdown": {
       "cloudflare": 17,
       "cloudfront": 2
-    }
-  },
-  {
-    "site_id": "spiegel-online-german",
-    "site_name": "Spiegel Online (German)",
-    "url": "https://www.spiegel.de",
-    "country": "DE",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.spiegel.de/index.rss",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 65.0,
-    "pct_with_iptc": 100.0,
-    "cdn_breakdown": {
-      "akamai": 20
-    }
-  },
-  {
-    "site_id": "npr",
-    "site_name": "NPR",
-    "url": "https://www.npr.org/",
-    "country": "US",
-    "category": "broadcaster",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://feeds.npr.org/1001/rss.xml",
-    "articles_sampled": 10,
-    "images_analysed": 10,
-    "mean_iptc_score": 65.0,
-    "pct_with_iptc": 90.0,
-    "cdn_breakdown": {
-      "fastly": 1,
-      "cloudfront": 9
-    }
-  },
-  {
-    "site_id": "les-echos",
-    "site_name": "Les Echos",
-    "url": "https://www.lesechos.fr/",
-    "country": "FR",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "robots:news_sitemap",
-    "sitemap_url_used": "https://www.lesechos.fr/sitemap_news.xml",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 61.25,
-    "pct_with_iptc": 80.0,
-    "cdn_breakdown": {
-      "akamai": 20
-    }
-  },
-  {
-    "site_id": "usa-today",
-    "site_name": "USA Today",
-    "url": "https://www.usatoday.com/",
-    "country": "US",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "robots:news_sitemap",
-    "sitemap_url_used": "https://www.usatoday.com/news-sitemap.xml",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 60.0,
-    "pct_with_iptc": 90.0,
-    "cdn_breakdown": {
-      "fastly": 20
-    }
-  },
-  {
-    "site_id": "cyprus-mail",
-    "site_name": "Cyprus Mail",
-    "url": "http://cyprus-mail.com/",
-    "country": "CY",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "http://cyprus-mail.com/feed/",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 58.75,
-    "pct_with_iptc": 85.0,
-    "cdn_breakdown": {
-      "cloudflare": 20
-    }
-  },
-  {
-    "site_id": "500px-iso",
-    "site_name": "500px ISO",
-    "url": "https://iso.500px.com/",
-    "country": "CA",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://iso.500px.com/feed/",
-    "articles_sampled": 9,
-    "images_analysed": 9,
-    "mean_iptc_score": 55.56,
-    "pct_with_iptc": 55.6,
-    "cdn_breakdown": {
-      "cloudfront": 9
-    }
-  },
-  {
-    "site_id": "blikk",
-    "site_name": "Blikk",
-    "url": "http://www.blikk.hu/",
-    "country": "HU",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "http://www.blikk.hu/rss",
-    "articles_sampled": 15,
-    "images_analysed": 15,
-    "mean_iptc_score": 55.0,
-    "pct_with_iptc": 80.0,
-    "cdn_breakdown": {
-      "cloudfront": 15
     }
   },
   {
@@ -250,45 +113,79 @@
     "sitemap_url_used": "https://www.liberation.fr/arc/outboundfeeds/sitemap_news.xml?outputType=xml",
     "articles_sampled": 20,
     "images_analysed": 20,
-    "mean_iptc_score": 51.25,
-    "pct_with_iptc": 60.0,
+    "mean_iptc_score": 68.42,
+    "pct_with_iptc": 84.2,
+    "cdn_breakdown": {
+      "akamai": 19
+    }
+  },
+  {
+    "site_id": "blikk",
+    "site_name": "Blikk",
+    "url": "http://www.blikk.hu/",
+    "country": "HU",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "http://www.blikk.hu/rss",
+    "articles_sampled": 15,
+    "images_analysed": 15,
+    "mean_iptc_score": 65.0,
+    "pct_with_iptc": 93.3,
+    "cdn_breakdown": {
+      "cloudfront": 15
+    }
+  },
+  {
+    "site_id": "les-echos",
+    "site_name": "Les Echos",
+    "url": "https://www.lesechos.fr/",
+    "country": "FR",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://www.lesechos.fr/sitemap_news.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 63.75,
+    "pct_with_iptc": 80.0,
     "cdn_breakdown": {
       "akamai": 20
     }
   },
   {
-    "site_id": "aftenposten",
-    "site_name": "Aftenposten",
-    "url": "https://www.aftenposten.no/",
-    "country": "NO",
+    "site_id": "500px-iso",
+    "site_name": "500px ISO",
+    "url": "https://iso.500px.com/",
+    "country": "CA",
     "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.aftenposten.no/rss/",
-    "articles_sampled": 20,
-    "images_analysed": 18,
-    "mean_iptc_score": 50.0,
-    "pct_with_iptc": 83.3,
+    "sitemap_url_used": "https://iso.500px.com/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 60.0,
+    "pct_with_iptc": 60.0,
     "cdn_breakdown": {
-      "akamai": 17,
-      "cloudfront": 1
+      "cloudfront": 10
     }
   },
   {
-    "site_id": "aftonbladet",
-    "site_name": "Aftonbladet",
-    "url": "https://www.aftonbladet.se/",
-    "country": "SE",
-    "category": "newspaper",
+    "site_id": "npr",
+    "site_name": "NPR",
+    "url": "https://www.npr.org/",
+    "country": "US",
+    "category": "broadcaster",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "http://www.aftonbladet.se/rss.xml",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 46.25,
-    "pct_with_iptc": 75.0,
+    "sitemap_url_used": "https://feeds.npr.org/1001/rss.xml",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 57.5,
+    "pct_with_iptc": 70.0,
     "cdn_breakdown": {
-      "cloudfront": 20
+      "cloudfront": 9,
+      "fastly": 1
     }
   },
   {
@@ -302,63 +199,27 @@
     "sitemap_url_used": "https://www.lemonde.fr/rss/une.xml",
     "articles_sampled": 16,
     "images_analysed": 16,
-    "mean_iptc_score": 45.31,
+    "mean_iptc_score": 56.25,
     "pct_with_iptc": 87.5,
     "cdn_breakdown": {
       "fastly": 16
     }
   },
   {
-    "site_id": "der-standard",
-    "site_name": "Der Standard",
-    "url": "https://derstandard.at",
-    "country": "AT",
-    "category": "broadcaster",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.derstandard.at/rss",
-    "articles_sampled": 20,
-    "images_analysed": 18,
-    "mean_iptc_score": 44.44,
-    "pct_with_iptc": 72.2,
-    "cdn_breakdown": {
-      "akamai": 18
-    }
-  },
-  {
-    "site_id": "svenska-dagbladet",
-    "site_name": "Svenska Dagbladet",
-    "url": "https://www.svd.se/",
-    "country": "SE",
+    "site_id": "cyprus-mail",
+    "site_name": "Cyprus Mail",
+    "url": "http://cyprus-mail.com/",
+    "country": "CY",
     "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.svd.se/feed/articles.rss",
+    "sitemap_url_used": "http://cyprus-mail.com/feed/",
     "articles_sampled": 20,
-    "images_analysed": 17,
-    "mean_iptc_score": 42.65,
-    "pct_with_iptc": 76.5,
+    "images_analysed": 20,
+    "mean_iptc_score": 53.75,
+    "pct_with_iptc": 80.0,
     "cdn_breakdown": {
-      "fastly": 1,
-      "akamai": 16
-    }
-  },
-  {
-    "site_id": "vg",
-    "site_name": "VG",
-    "url": "https://www.vg.no/",
-    "country": "NO",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.vg.no/rss/feed/?format=rss",
-    "articles_sampled": 10,
-    "images_analysed": 9,
-    "mean_iptc_score": 41.67,
-    "pct_with_iptc": 55.6,
-    "cdn_breakdown": {
-      "akamai": 8,
-      "cloudfront": 1
+      "cloudflare": 20
     }
   },
   {
@@ -372,8 +233,197 @@
     "sitemap_url_used": "http://www.lefigaro.fr/rss/figaro_actualites.xml",
     "articles_sampled": 20,
     "images_analysed": 20,
-    "mean_iptc_score": 37.5,
+    "mean_iptc_score": 53.75,
+    "pct_with_iptc": 90.0,
+    "cdn_breakdown": {
+      "akamai": 20
+    }
+  },
+  {
+    "site_id": "spiegel-online-german",
+    "site_name": "Spiegel Online (German)",
+    "url": "https://www.spiegel.de",
+    "country": "DE",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.spiegel.de/index.rss",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 52.5,
     "pct_with_iptc": 95.0,
+    "cdn_breakdown": {
+      "akamai": 20
+    }
+  },
+  {
+    "site_id": "svenska-dagbladet",
+    "site_name": "Svenska Dagbladet",
+    "url": "https://www.svd.se/",
+    "country": "SE",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.svd.se/feed/articles.rss",
+    "articles_sampled": 20,
+    "images_analysed": 15,
+    "mean_iptc_score": 50.0,
+    "pct_with_iptc": 80.0,
+    "cdn_breakdown": {
+      "fastly": 1,
+      "akamai": 14
+    }
+  },
+  {
+    "site_id": "spectator",
+    "site_name": "Spectator",
+    "url": "https://spectator.com/",
+    "country": "GB",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:sitemap",
+    "sitemap_url_used": "https://spectator.com/news-sitemap.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 48.75,
+    "pct_with_iptc": 60.0,
+    "cdn_breakdown": {
+      "none": 20
+    }
+  },
+  {
+    "site_id": "aftenposten",
+    "site_name": "Aftenposten",
+    "url": "https://www.aftenposten.no/",
+    "country": "NO",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.aftenposten.no/rss/",
+    "articles_sampled": 20,
+    "images_analysed": 19,
+    "mean_iptc_score": 48.68,
+    "pct_with_iptc": 78.9,
+    "cdn_breakdown": {
+      "akamai": 19
+    }
+  },
+  {
+    "site_id": "der-standard",
+    "site_name": "Der Standard",
+    "url": "https://derstandard.at",
+    "country": "AT",
+    "category": "broadcaster",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.derstandard.at/rss",
+    "articles_sampled": 20,
+    "images_analysed": 18,
+    "mean_iptc_score": 45.83,
+    "pct_with_iptc": 83.3,
+    "cdn_breakdown": {
+      "akamai": 18
+    }
+  },
+  {
+    "site_id": "the-west-australian",
+    "site_name": "The West Australian",
+    "url": "https://thewest.com.au/",
+    "country": "AU",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://thewest.com.au/rss",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 45.0,
+    "pct_with_iptc": 60.0,
+    "cdn_breakdown": {
+      "cloudfront": 20
+    }
+  },
+  {
+    "site_id": "usa-today",
+    "site_name": "USA Today",
+    "url": "https://www.usatoday.com/",
+    "country": "US",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://www.usatoday.com/news-sitemap.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 43.75,
+    "pct_with_iptc": 90.0,
+    "cdn_breakdown": {
+      "fastly": 20
+    }
+  },
+  {
+    "site_id": "aftonbladet",
+    "site_name": "Aftonbladet",
+    "url": "https://www.aftonbladet.se/",
+    "country": "SE",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "http://www.aftonbladet.se/rss.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 41.25,
+    "pct_with_iptc": 70.0,
+    "cdn_breakdown": {
+      "cloudfront": 19,
+      "akamai": 1
+    }
+  },
+  {
+    "site_id": "focus-online",
+    "site_name": "FOCUS Online",
+    "url": "http://www.focus.de/",
+    "country": "DE",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://rss.focus.de/",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 40.0,
+    "pct_with_iptc": 50.0,
+    "cdn_breakdown": {
+      "akamai": 20
+    }
+  },
+  {
+    "site_id": "vg",
+    "site_name": "VG",
+    "url": "https://www.vg.no/",
+    "country": "NO",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.vg.no/rss/feed/?format=rss",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 37.5,
+    "pct_with_iptc": 60.0,
+    "cdn_breakdown": {
+      "akamai": 10
+    }
+  },
+  {
+    "site_id": "frankfurter-allgemeine",
+    "site_name": "Frankfurter Allgemeine",
+    "url": "http://www.faz.net/",
+    "country": "DE",
+    "category": "broadcaster",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "http://www.faz.net/rss/aktuell/",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 32.5,
+    "pct_with_iptc": 75.0,
     "cdn_breakdown": {
       "akamai": 20
     }
@@ -389,146 +439,27 @@
     "sitemap_url_used": "https://www.24ur.com/rss",
     "articles_sampled": 20,
     "images_analysed": 20,
-    "mean_iptc_score": 36.25,
-    "pct_with_iptc": 60.0,
+    "mean_iptc_score": 32.5,
+    "pct_with_iptc": 55.0,
     "cdn_breakdown": {
       "fastly": 20
     }
   },
   {
-    "site_id": "jornal-de-neg-cios",
-    "site_name": "Jornal de Neg\u00f3cios",
-    "url": "https://www.jornaldenegocios.pt/",
-    "country": "PT",
-    "category": "newspaper",
+    "site_id": "rappler",
+    "site_name": "Rappler",
+    "url": "https://www.rappler.com/",
+    "country": "PH",
+    "category": "online",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.jornaldenegocios.pt/rss/",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 35.0,
-    "pct_with_iptc": 80.0,
-    "cdn_breakdown": {
-      "none": 20
-    }
-  },
-  {
-    "site_id": "yahoo-news",
-    "site_name": "Yahoo! News",
-    "url": "https://news.yahoo.com/rss/",
-    "country": "US",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://news.yahoo.com/rss/",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 33.75,
-    "pct_with_iptc": 40.0,
-    "cdn_breakdown": {
-      "none": 20
-    }
-  },
-  {
-    "site_id": "i",
-    "site_name": "i",
-    "url": "https://inews.co.uk/",
-    "country": "GB",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://inews.co.uk/feed/",
+    "sitemap_url_used": "https://www.rappler.com/feed/",
     "articles_sampled": 10,
     "images_analysed": 10,
-    "mean_iptc_score": 30.0,
-    "pct_with_iptc": 30.0,
+    "mean_iptc_score": 27.78,
+    "pct_with_iptc": 33.3,
     "cdn_breakdown": {
-      "none": 10
-    }
-  },
-  {
-    "site_id": "observer-com",
-    "site_name": "Observer.com",
-    "url": "http://www.observer.com/",
-    "country": "US",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "http://observer.com/feed/",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 27.5,
-    "pct_with_iptc": 45.0,
-    "cdn_breakdown": {
-      "none": 20
-    }
-  },
-  {
-    "site_id": "frankfurter-allgemeine",
-    "site_name": "Frankfurter Allgemeine",
-    "url": "http://www.faz.net/",
-    "country": "DE",
-    "category": "broadcaster",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "http://www.faz.net/rss/aktuell/",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 23.75,
-    "pct_with_iptc": 70.0,
-    "cdn_breakdown": {
-      "akamai": 20
-    }
-  },
-  {
-    "site_id": "the-west-australian",
-    "site_name": "The West Australian",
-    "url": "https://thewest.com.au/",
-    "country": "AU",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://thewest.com.au/rss",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 20.0,
-    "pct_with_iptc": 20.0,
-    "cdn_breakdown": {
-      "cloudfront": 20
-    }
-  },
-  {
-    "site_id": "kleine-zeitung",
-    "site_name": "Kleine Zeitung",
-    "url": "https://www.kleinezeitung.at/",
-    "country": "AT",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.kleinezeitung.at/rss/nachrichten_stmk",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 17.5,
-    "pct_with_iptc": 25.0,
-    "cdn_breakdown": {
-      "none": 20
-    }
-  },
-  {
-    "site_id": "focus-online",
-    "site_name": "FOCUS Online",
-    "url": "http://www.focus.de/",
-    "country": "DE",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://rss.focus.de/",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 17.5,
-    "pct_with_iptc": 50.0,
-    "cdn_breakdown": {
-      "akamai": 20
+      "none": 9
     }
   },
   {
@@ -542,25 +473,8 @@
     "sitemap_url_used": "https://www.linternaute.com/rss/",
     "articles_sampled": 20,
     "images_analysed": 20,
-    "mean_iptc_score": 16.25,
-    "pct_with_iptc": 35.0,
-    "cdn_breakdown": {
-      "akamai": 20
-    }
-  },
-  {
-    "site_id": "ctv-news",
-    "site_name": "CTV News",
-    "url": "https://www.ctvnews.ca/",
-    "country": "CA",
-    "category": "broadcaster",
-    "status": "ok",
-    "discovery_strategy": "config:sitemap",
-    "sitemap_url_used": "https://www.ctvnews.ca/arc/outboundfeeds/sitemap-index/",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 15.0,
-    "pct_with_iptc": 20.0,
+    "mean_iptc_score": 27.5,
+    "pct_with_iptc": 60.0,
     "cdn_breakdown": {
       "akamai": 20
     }
@@ -576,10 +490,62 @@
     "sitemap_url_used": "https://www.tanea.gr/feed/",
     "articles_sampled": 20,
     "images_analysed": 20,
-    "mean_iptc_score": 15.0,
-    "pct_with_iptc": 15.0,
+    "mean_iptc_score": 21.25,
+    "pct_with_iptc": 25.0,
     "cdn_breakdown": {
       "fastly": 20
+    }
+  },
+  {
+    "site_id": "die-presse",
+    "site_name": "Die Presse",
+    "url": "http://diepresse.com/",
+    "country": "AT",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.diepresse.com/rss//",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 18.75,
+    "pct_with_iptc": 30.0,
+    "cdn_breakdown": {
+      "none": 19,
+      "akamai": 1
+    }
+  },
+  {
+    "site_id": "yahoo-news",
+    "site_name": "Yahoo! News",
+    "url": "https://news.yahoo.com/rss/",
+    "country": "US",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://news.yahoo.com/rss/",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 17.5,
+    "pct_with_iptc": 25.0,
+    "cdn_breakdown": {
+      "none": 20
+    }
+  },
+  {
+    "site_id": "jornal-de-neg-cios",
+    "site_name": "Jornal de Neg\u00f3cios",
+    "url": "https://www.jornaldenegocios.pt/",
+    "country": "PT",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.jornaldenegocios.pt/rss/",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 16.25,
+    "pct_with_iptc": 65.0,
+    "cdn_breakdown": {
+      "none": 20
     }
   },
   {
@@ -594,60 +560,26 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 15.0,
-    "pct_with_iptc": 15.0,
+    "pct_with_iptc": 35.0,
     "cdn_breakdown": {
       "none": 20
     }
   },
   {
-    "site_id": "die-presse",
-    "site_name": "Die Presse",
-    "url": "http://diepresse.com/",
-    "country": "AT",
+    "site_id": "observer-com",
+    "site_name": "Observer.com",
+    "url": "http://www.observer.com/",
+    "country": "US",
     "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.diepresse.com/rss//",
+    "sitemap_url_used": "http://observer.com/feed/",
     "articles_sampled": 20,
     "images_analysed": 20,
-    "mean_iptc_score": 13.75,
-    "pct_with_iptc": 25.0,
+    "mean_iptc_score": 14.47,
+    "pct_with_iptc": 52.6,
     "cdn_breakdown": {
-      "none": 20
-    }
-  },
-  {
-    "site_id": "o-globo",
-    "site_name": "O Globo",
-    "url": "https://oglobo.globo.com/",
-    "country": "BR",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "html:rss_link",
-    "sitemap_url_used": "https://oglobo.globo.com/rss/oglobo",
-    "articles_sampled": 20,
-    "images_analysed": 18,
-    "mean_iptc_score": 12.5,
-    "pct_with_iptc": 5.6,
-    "cdn_breakdown": {
-      "none": 18
-    }
-  },
-  {
-    "site_id": "novi-list",
-    "site_name": "Novi list",
-    "url": "https://www.novilist.hr/",
-    "country": "HR",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.novilist.hr/feed/",
-    "articles_sampled": 10,
-    "images_analysed": 10,
-    "mean_iptc_score": 12.5,
-    "pct_with_iptc": 20.0,
-    "cdn_breakdown": {
-      "cloudflare": 10
+      "none": 19
     }
   },
   {
@@ -662,26 +594,43 @@
     "articles_sampled": 10,
     "images_analysed": 10,
     "mean_iptc_score": 12.5,
-    "pct_with_iptc": 37.5,
+    "pct_with_iptc": 33.3,
     "cdn_breakdown": {
-      "none": 8
+      "none": 6
     }
   },
   {
-    "site_id": "mail-guardian",
-    "site_name": "Mail & Guardian",
-    "url": "https://mg.co.za/",
-    "country": "ZA",
-    "category": "broadcaster",
+    "site_id": "kleine-zeitung",
+    "site_name": "Kleine Zeitung",
+    "url": "https://www.kleinezeitung.at/",
+    "country": "AT",
+    "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://mg.co.za/feed/",
-    "articles_sampled": 10,
-    "images_analysed": 10,
-    "mean_iptc_score": 12.5,
-    "pct_with_iptc": 30.0,
+    "sitemap_url_used": "https://www.kleinezeitung.at/rss/nachrichten_stmk",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 11.25,
+    "pct_with_iptc": 15.0,
     "cdn_breakdown": {
-      "cloudflare": 10
+      "none": 20
+    }
+  },
+  {
+    "site_id": "ctv-news",
+    "site_name": "CTV News",
+    "url": "https://www.ctvnews.ca/",
+    "country": "CA",
+    "category": "broadcaster",
+    "status": "ok",
+    "discovery_strategy": "config:sitemap",
+    "sitemap_url_used": "https://www.ctvnews.ca/arc/outboundfeeds/sitemap-index/",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 11.25,
+    "pct_with_iptc": 20.0,
+    "cdn_breakdown": {
+      "akamai": 20
     }
   },
   {
@@ -719,20 +668,21 @@
     }
   },
   {
-    "site_id": "rio-times",
-    "site_name": "Rio Times",
-    "url": "https://riotimesonline.com/",
-    "country": "BR",
+    "site_id": "city-am",
+    "site_name": "City AM",
+    "url": "http://www.cityam.com/",
+    "country": "GB",
     "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://riotimesonline.com/feed",
-    "articles_sampled": 10,
-    "images_analysed": 10,
+    "sitemap_url_used": "http://www.cityam.com/feeds/main.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
     "mean_iptc_score": 10.0,
-    "pct_with_iptc": 20.0,
+    "pct_with_iptc": 25.0,
     "cdn_breakdown": {
-      "cloudflare": 10
+      "akamai": 8,
+      "none": 12
     }
   },
   {
@@ -746,25 +696,8 @@
     "sitemap_url_used": "http://www.philenews.com/feed",
     "articles_sampled": 20,
     "images_analysed": 20,
-    "mean_iptc_score": 10.0,
+    "mean_iptc_score": 8.75,
     "pct_with_iptc": 15.0,
-    "cdn_breakdown": {
-      "cloudflare": 20
-    }
-  },
-  {
-    "site_id": "the-scotsman",
-    "site_name": "The Scotsman",
-    "url": "https://www.scotsman.com/",
-    "country": "GB",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.scotsman.com/rss",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 7.5,
-    "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "cloudflare": 20
     }
@@ -787,20 +720,122 @@
     }
   },
   {
-    "site_id": "times-of-israel",
-    "site_name": "The Times of Israel",
-    "url": "https://www.timesofisrael.com/",
-    "country": "IL",
+    "site_id": "o-globo",
+    "site_name": "O Globo",
+    "url": "https://oglobo.globo.com/",
+    "country": "BR",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "html:rss_link",
+    "sitemap_url_used": "https://oglobo.globo.com/rss/oglobo",
+    "articles_sampled": 20,
+    "images_analysed": 18,
+    "mean_iptc_score": 5.56,
+    "pct_with_iptc": 5.6,
+    "cdn_breakdown": {
+      "none": 18
+    }
+  },
+  {
+    "site_id": "the-scotsman",
+    "site_name": "The Scotsman",
+    "url": "https://www.scotsman.com/",
+    "country": "GB",
     "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.timesofisrael.com/feed/",
-    "articles_sampled": 15,
-    "images_analysed": 15,
-    "mean_iptc_score": 6.67,
+    "sitemap_url_used": "https://www.scotsman.com/rss",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 5.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "cloudflare": 15
+      "cloudflare": 20
+    }
+  },
+  {
+    "site_id": "il-messaggero",
+    "site_name": "Il Messaggero",
+    "url": "https://ilmessaggero.it",
+    "country": "IT",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.ilmessaggero.it/?sez=XML&p=search&args[box]=Home&limit=20&layout=rss",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 5.0,
+    "pct_with_iptc": 5.0,
+    "cdn_breakdown": {
+      "fastly": 20
+    }
+  },
+  {
+    "site_id": "new-zealand-herald",
+    "site_name": "New Zealand Herald",
+    "url": "https://www.nzherald.co.nz/",
+    "country": "NZ",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:sitemap",
+    "sitemap_url_used": "https://www.nzherald.co.nz/arc/outboundfeeds/sitemap-index/?outputType=xml&_website=nzh",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 5.0,
+    "pct_with_iptc": 5.0,
+    "cdn_breakdown": {
+      "akamai": 20
+    }
+  },
+  {
+    "site_id": "al-jazeera-english",
+    "site_name": "Al Jazeera English",
+    "url": "https://www.aljazeera.com/",
+    "country": "QA",
+    "category": "broadcaster",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.aljazeera.com/xml/rss/all.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 5.0,
+    "pct_with_iptc": 10.0,
+    "cdn_breakdown": {
+      "akamai": 20
+    }
+  },
+  {
+    "site_id": "kathimerini-gr",
+    "site_name": "\u0397 \u039a\u03b1\u03b8\u03b7\u03bc\u03b5\u03c1\u03b9\u03bd\u03ae",
+    "url": "http://www.kathimerini.gr/rss",
+    "country": "GR",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://www.kathimerini.gr/infeeds/googlenews/nx-googlenews-feed.xml",
+    "articles_sampled": 20,
+    "images_analysed": 17,
+    "mean_iptc_score": 4.41,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 17
+    }
+  },
+  {
+    "site_id": "hespress",
+    "site_name": "Hespress",
+    "url": "https://www.hespress.com/",
+    "country": "MA",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.hespress.com/feed",
+    "articles_sampled": 12,
+    "images_analysed": 12,
+    "mean_iptc_score": 4.17,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 12
     }
   },
   {
@@ -814,78 +849,44 @@
     "sitemap_url_used": "https://www.standard.co.uk/rss",
     "articles_sampled": 20,
     "images_analysed": 20,
-    "mean_iptc_score": 6.25,
+    "mean_iptc_score": 3.75,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "cloudflare": 20
     }
   },
   {
-    "site_id": "p-blico",
-    "site_name": "P\u00fablico",
-    "url": "https://www.publico.pt/",
-    "country": "PT",
+    "site_id": "times-of-israel",
+    "site_name": "The Times of Israel",
+    "url": "https://www.timesofisrael.com/",
+    "country": "IL",
     "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://feeds.feedburner.com/PublicoRSS",
-    "articles_sampled": 10,
-    "images_analysed": 10,
-    "mean_iptc_score": 5.0,
-    "pct_with_iptc": 10.0,
-    "cdn_breakdown": {
-      "cloudfront": 10
-    }
-  },
-  {
-    "site_id": "rtve",
-    "site_name": "RTVE",
-    "url": "https://www.rtve.es/noticias/",
-    "country": "ES",
-    "category": "broadcaster",
-    "status": "ok",
-    "discovery_strategy": "robots:news_sitemap",
-    "sitemap_url_used": "https://www.rtve.es/sitemaps/sitemaps-news.xml",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 3.75,
+    "sitemap_url_used": "https://www.timesofisrael.com/feed/",
+    "articles_sampled": 15,
+    "images_analysed": 15,
+    "mean_iptc_score": 3.33,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "fastly": 20
+      "cloudflare": 15
     }
   },
   {
-    "site_id": "kathimerini-gr",
-    "site_name": "\u0397 \u039a\u03b1\u03b8\u03b7\u03bc\u03b5\u03c1\u03b9\u03bd\u03ae",
-    "url": "http://www.kathimerini.gr/rss",
-    "country": "GR",
+    "site_id": "rzeczpospolita",
+    "site_name": "Rzeczpospolita",
+    "url": "https://www.rp.pl/",
+    "country": "PL",
     "category": "newspaper",
     "status": "ok",
-    "discovery_strategy": "robots:news_sitemap",
-    "sitemap_url_used": "https://www.kathimerini.gr/infeeds/googlenews/nx-googlenews-feed.xml",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.rp.pl/rss_main",
     "articles_sampled": 20,
     "images_analysed": 19,
     "mean_iptc_score": 2.63,
-    "pct_with_iptc": 0.0,
+    "pct_with_iptc": 5.3,
     "cdn_breakdown": {
       "cloudflare": 19
-    }
-  },
-  {
-    "site_id": "myjoyonline",
-    "site_name": "MyJoyOnline",
-    "url": "https://www.myjoyonline.com/",
-    "country": "GH",
-    "category": "online",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.myjoyonline.com/feed/",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 2.5,
-    "pct_with_iptc": 20.0,
-    "cdn_breakdown": {
-      "none": 20
     }
   },
   {
@@ -906,54 +907,37 @@
     }
   },
   {
-    "site_id": "the-atlantic",
-    "site_name": "The Atlantic",
-    "url": "https://www.theatlantic.com/",
-    "country": "US",
-    "category": "magazine",
+    "site_id": "mail-guardian",
+    "site_name": "Mail & Guardian",
+    "url": "https://mg.co.za/",
+    "country": "ZA",
+    "category": "broadcaster",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.theatlantic.com/feed/all/",
-    "articles_sampled": 20,
-    "images_analysed": 20,
+    "sitemap_url_used": "https://mg.co.za/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
     "mean_iptc_score": 2.5,
-    "pct_with_iptc": 0.0,
+    "pct_with_iptc": 40.0,
     "cdn_breakdown": {
-      "fastly": 20
+      "cloudflare": 10
     }
   },
   {
-    "site_id": "rzeczpospolita",
-    "site_name": "Rzeczpospolita",
-    "url": "https://www.rp.pl/",
-    "country": "PL",
-    "category": "newspaper",
+    "site_id": "rtve",
+    "site_name": "RTVE",
+    "url": "https://www.rtve.es/noticias/",
+    "country": "ES",
+    "category": "broadcaster",
     "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.rp.pl/rss_main",
-    "articles_sampled": 20,
-    "images_analysed": 17,
-    "mean_iptc_score": 1.47,
-    "pct_with_iptc": 5.9,
-    "cdn_breakdown": {
-      "cloudflare": 17
-    }
-  },
-  {
-    "site_id": "el-balad",
-    "site_name": "El Balad",
-    "url": "https://www.elbalad.news/",
-    "country": "EG",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.elbalad.news/rss.aspx",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://www.rtve.es/sitemaps/sitemaps-news.xml",
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 1.25,
-    "pct_with_iptc": 5.0,
+    "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "cloudflare": 20
+      "fastly": 20
     }
   },
   {
@@ -974,20 +958,37 @@
     }
   },
   {
-    "site_id": "al-jazeera-english",
-    "site_name": "Al Jazeera English",
-    "url": "https://www.aljazeera.com/",
-    "country": "QA",
-    "category": "broadcaster",
+    "site_id": "adevarul",
+    "site_name": "Adevarul",
+    "url": "https://adevarul.ro/",
+    "country": "RO",
+    "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.aljazeera.com/xml/rss/all.xml",
+    "sitemap_url_used": "https://adevarul.ro/rss/",
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 1.25,
     "pct_with_iptc": 5.0,
     "cdn_breakdown": {
-      "akamai": 20
+      "cloudfront": 20
+    }
+  },
+  {
+    "site_id": "the-atlantic",
+    "site_name": "The Atlantic",
+    "url": "https://www.theatlantic.com/",
+    "country": "US",
+    "category": "magazine",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.theatlantic.com/feed/all/",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 1.25,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "fastly": 20
     }
   },
   {
@@ -1004,8 +1005,8 @@
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "cloudflare": 7,
-      "fastly": 3
+      "cloudflare": 9,
+      "fastly": 1
     }
   },
   {
@@ -1017,12 +1018,12 @@
     "status": "ok",
     "discovery_strategy": "guess:rss",
     "sitemap_url_used": "https://gulfnews.com/feed",
-    "articles_sampled": 13,
-    "images_analysed": 13,
+    "articles_sampled": 11,
+    "images_analysed": 11,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "cloudfront": 13
+      "cloudfront": 11
     }
   },
   {
@@ -1043,23 +1044,6 @@
     }
   },
   {
-    "site_id": "la-naci-n",
-    "site_name": "La Naci\u00f3n",
-    "url": "https://www.lanacion.com.ar/",
-    "country": "AR",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "http://contenidos.lanacion.com.ar/herramientas/rss-origen=2",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "akamai": 20
-    }
-  },
-  {
     "site_id": "heute",
     "site_name": "Heute",
     "url": "https://www.heute.at/",
@@ -1074,6 +1058,23 @@
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "fastly": 20
+    }
+  },
+  {
+    "site_id": "la-naci-n",
+    "site_name": "La Naci\u00f3n",
+    "url": "https://www.lanacion.com.ar/",
+    "country": "AR",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "http://contenidos.lanacion.com.ar/herramientas/rss-origen=2",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "akamai": 20
     }
   },
   {
@@ -1103,11 +1104,11 @@
     "discovery_strategy": "config:rss",
     "sitemap_url_used": "https://epaper.neue.at/feed",
     "articles_sampled": 10,
-    "images_analysed": 3,
+    "images_analysed": 2,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 33.3,
+    "pct_with_iptc": 50.0,
     "cdn_breakdown": {
-      "none": 3
+      "none": 2
     }
   },
   {
@@ -1156,21 +1157,6 @@
     "cdn_breakdown": {}
   },
   {
-    "site_id": "herald-sun",
-    "site_name": "Herald Sun",
-    "url": "https://www.heraldsun.com.au/",
-    "country": "AU",
-    "category": "newspaper",
-    "status": "robots_disallow",
-    "discovery_strategy": "robots_disallow",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "apa",
     "site_name": "Austria Presse Agentur (APA)",
     "url": "https://science.apa.at/",
@@ -1197,13 +1183,27 @@
     "discovery_strategy": "config:rss",
     "sitemap_url_used": "https://kurier.at/xml/rss",
     "articles_sampled": 20,
-    "images_analysed": 20,
+    "images_analysed": 19,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "none": 1,
       "cloudflare": 19
     }
+  },
+  {
+    "site_id": "herald-sun",
+    "site_name": "Herald Sun",
+    "url": "https://www.heraldsun.com.au/",
+    "country": "AU",
+    "category": "newspaper",
+    "status": "robots_disallow",
+    "discovery_strategy": "robots_disallow",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
   },
   {
     "site_id": "the-australian",
@@ -1236,29 +1236,12 @@
     "cdn_breakdown": {}
   },
   {
-    "site_id": "orf-nachrichten-news",
-    "site_name": "ORF Nachrichten/News",
-    "url": "https://orf.at",
-    "country": "AT",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://rss.orf.at/news.xml",
-    "articles_sampled": 20,
-    "images_analysed": 5,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "none": 5
-    }
-  },
-  {
     "site_id": "bdnews24",
     "site_name": "BDNews24",
     "url": "https://bdnews24.com/",
     "country": "BD",
     "category": "newspaper",
-    "status": "no_articles_found",
+    "status": "discovery_blocked",
     "discovery_strategy": "config:sitemap",
     "sitemap_url_used": "https://bdnews24.com/news_sitemap.xml",
     "articles_sampled": 0,
@@ -1268,20 +1251,20 @@
     "cdn_breakdown": {}
   },
   {
-    "site_id": "abc-news-australia",
-    "site_name": "ABC News Australia",
-    "url": "https://www.abc.net.au/news/",
-    "country": "AU",
-    "category": "broadcaster",
+    "site_id": "orf-nachrichten-news",
+    "site_name": "ORF Nachrichten/News",
+    "url": "https://orf.at",
+    "country": "AT",
+    "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.abc.net.au/news/feed/51120/rss.xml",
+    "sitemap_url_used": "https://rss.orf.at/news.xml",
     "articles_sampled": 20,
-    "images_analysed": 20,
+    "images_analysed": 4,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "akamai": 20
+      "none": 4
     }
   },
   {
@@ -1319,6 +1302,23 @@
     }
   },
   {
+    "site_id": "abc-news-australia",
+    "site_name": "ABC News Australia",
+    "url": "https://www.abc.net.au/news/",
+    "country": "AU",
+    "category": "broadcaster",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.abc.net.au/news/feed/51120/rss.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "akamai": 20
+    }
+  },
+  {
     "site_id": "sydney-morning-herald",
     "site_name": "Sydney Morning Herald",
     "url": "https://www.smh.com.au/",
@@ -1336,21 +1336,6 @@
     }
   },
   {
-    "site_id": "trud-bg",
-    "site_name": "\u0414\u043d\u0435\u0432\u0435\u043d \u0422\u0440\u0443\u0434",
-    "url": "https://trud.bg/",
-    "country": "BG",
-    "category": "newspaper",
-    "status": "no_articles_found",
-    "discovery_strategy": "no_sitemap",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "the-age",
     "site_name": "The Age",
     "url": "https://www.theage.com.au/",
@@ -1366,6 +1351,21 @@
     "cdn_breakdown": {
       "fastly": 20
     }
+  },
+  {
+    "site_id": "trud-bg",
+    "site_name": "\u0414\u043d\u0435\u0432\u0435\u043d \u0422\u0440\u0443\u0434",
+    "url": "https://trud.bg/",
+    "country": "BG",
+    "category": "newspaper",
+    "status": "discovery_blocked",
+    "discovery_strategy": "no_sitemap",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
   },
   {
     "site_id": "the-conversation-au",
@@ -1411,11 +1411,11 @@
     "discovery_strategy": "guess:rss",
     "sitemap_url_used": "http://www.standaard.be/rss",
     "articles_sampled": 20,
-    "images_analysed": 19,
+    "images_analysed": 20,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "cloudflare": 19
+      "cloudflare": 20
     }
   },
   {
@@ -1470,6 +1470,40 @@
     }
   },
   {
+    "site_id": "rio-times",
+    "site_name": "Rio Times",
+    "url": "https://riotimesonline.com/",
+    "country": "BR",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://riotimesonline.com/feed",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 10
+    }
+  },
+  {
+    "site_id": "correio",
+    "site_name": "Correio",
+    "url": "https://www.correio24horas.com.br/",
+    "country": "BR",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://www.correio24horas.com.br/0000/01/news-sitemap.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 20
+    }
+  },
+  {
     "site_id": "infobae",
     "site_name": "Infobae",
     "url": "https://www.infobae.com/",
@@ -1504,23 +1538,6 @@
     }
   },
   {
-    "site_id": "correio",
-    "site_name": "Correio",
-    "url": "https://www.correio24horas.com.br/",
-    "country": "BR",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "robots:news_sitemap",
-    "sitemap_url_used": "https://www.correio24horas.com.br/0000/01/news-sitemap.xml",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "cloudflare": 20
-    }
-  },
-  {
     "site_id": "uol",
     "site_name": "UOL",
     "url": "https://www.uol.com.br/",
@@ -1530,12 +1547,12 @@
     "discovery_strategy": "config:rss",
     "sitemap_url_used": "https://rss.uol.com.br/feed/noticias.xml",
     "articles_sampled": 15,
-    "images_analysed": 11,
+    "images_analysed": 10,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "cloudfront": 10,
-      "cloudflare": 1
+      "cloudfront": 8,
+      "cloudflare": 2
     }
   },
   {
@@ -1564,12 +1581,29 @@
     "status": "ok",
     "discovery_strategy": "config:rss",
     "sitemap_url_used": "https://www.cbc.ca/cmlink/rss-topstories",
-    "articles_sampled": 17,
-    "images_analysed": 17,
+    "articles_sampled": 16,
+    "images_analysed": 16,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "akamai": 17
+      "akamai": 16
+    }
+  },
+  {
+    "site_id": "radio-canada-fr",
+    "site_name": "Radio Canada FR",
+    "url": "https://ici.radio-canada.ca/",
+    "country": "CA",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://ici.radio-canada.ca/rss/4159",
+    "articles_sampled": 20,
+    "images_analysed": 19,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "akamai": 19
     }
   },
   {
@@ -1587,40 +1621,6 @@
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "cloudfront": 10
-    }
-  },
-  {
-    "site_id": "radio-canada-fr",
-    "site_name": "Radio Canada FR",
-    "url": "https://ici.radio-canada.ca/",
-    "country": "CA",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://ici.radio-canada.ca/rss/4159",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "akamai": 20
-    }
-  },
-  {
-    "site_id": "toronto-star",
-    "site_name": "Toronto Star",
-    "url": "https://www.thestar.com/",
-    "country": "CA",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "robots:first_sitemap",
-    "sitemap_url_used": "https://www.thestar.com/sitemap.xml",
-    "articles_sampled": 20,
-    "images_analysed": 11,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "cloudflare": 11
     }
   },
   {
@@ -1655,6 +1655,23 @@
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "akamai": 20
+    }
+  },
+  {
+    "site_id": "toronto-star",
+    "site_name": "Toronto Star",
+    "url": "https://www.thestar.com/",
+    "country": "CA",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "robots:first_sitemap",
+    "sitemap_url_used": "https://www.thestar.com/sitemap.xml",
+    "articles_sampled": 20,
+    "images_analysed": 17,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 17
     }
   },
   {
@@ -1705,23 +1722,6 @@
     "cdn_breakdown": {}
   },
   {
-    "site_id": "blick",
-    "site_name": "Blick",
-    "url": "https://blick.ch",
-    "country": "CH",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.blick.ch/news/rss",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "akamai": 20
-    }
-  },
-  {
     "site_id": "neue-z-rcher-zeitung",
     "site_name": "Neue Z\u00fcrcher Zeitung",
     "url": "https://www.nzz.ch",
@@ -1756,12 +1756,29 @@
     }
   },
   {
+    "site_id": "blick",
+    "site_name": "Blick",
+    "url": "https://blick.ch",
+    "country": "CH",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.blick.ch/news/rss",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "akamai": 20
+    }
+  },
+  {
     "site_id": "xinhua",
     "site_name": "Xinhua News Agency (English)",
     "url": "https://english.news.cn/",
     "country": "CN",
     "category": "news-agency",
-    "status": "no_articles_found",
+    "status": "discovery_blocked",
     "discovery_strategy": "no_sitemap",
     "sitemap_url_used": null,
     "articles_sampled": 0,
@@ -1782,7 +1799,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 65.0,
+    "pct_with_iptc": 60.0,
     "cdn_breakdown": {
       "fastly": 20
     }
@@ -1903,23 +1920,6 @@
     }
   },
   {
-    "site_id": "blesk-cz",
-    "site_name": "Blesk.cz",
-    "url": "https://www.blesk.cz/",
-    "country": "CZ",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.blesk.cz/rss",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "fastly": 20
-    }
-  },
-  {
     "site_id": "hospod-sk-noviny",
     "site_name": "Hospod\u00e1\u0159sk\u00e9 noviny",
     "url": "https://hn.cz/",
@@ -1937,6 +1937,23 @@
     }
   },
   {
+    "site_id": "blesk-cz",
+    "site_name": "Blesk.cz",
+    "url": "https://www.blesk.cz/",
+    "country": "CZ",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.blesk.cz/rss",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "fastly": 20
+    }
+  },
+  {
     "site_id": "bild",
     "site_name": "Bild",
     "url": "https://www.bild.de/",
@@ -1950,7 +1967,7 @@
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "akamai": 19
+      "akamai": 20
     }
   },
   {
@@ -1971,6 +1988,23 @@
     }
   },
   {
+    "site_id": "mlad-fronta-dnes-mf-dnes",
+    "site_name": "Mlad\u00e1 fronta DNES (MF DNES)",
+    "url": "https://www.idnes.cz",
+    "country": "CZ",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://servis.idnes.cz/rss.aspx",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 20
+    }
+  },
+  {
     "site_id": "die-zeit",
     "site_name": "Die Zeit",
     "url": "https://www.zeit.de",
@@ -1988,14 +2022,14 @@
     }
   },
   {
-    "site_id": "mlad-fronta-dnes-mf-dnes",
-    "site_name": "Mlad\u00e1 fronta DNES (MF DNES)",
-    "url": "https://www.idnes.cz",
+    "site_id": "lidov-noviny",
+    "site_name": "Lidov\u00e9 noviny",
+    "url": "https://www.lidovky.cz/",
     "country": "CZ",
     "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://servis.idnes.cz/rss.aspx",
+    "sitemap_url_used": "https://servis.lidovky.cz/rss.aspx",
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 0.0,
@@ -2019,23 +2053,6 @@
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "akamai": 20
-    }
-  },
-  {
-    "site_id": "lidov-noviny",
-    "site_name": "Lidov\u00e9 noviny",
-    "url": "https://www.lidovky.cz/",
-    "country": "CZ",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://servis.lidovky.cz/rss.aspx",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "none": 20
     }
   },
   {
@@ -2090,23 +2107,6 @@
     }
   },
   {
-    "site_id": "the-local",
-    "site_name": "The Local",
-    "url": "http://www.thelocal.de/",
-    "country": "DE",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.thelocal.de/feeds/rss.php",
-    "articles_sampled": 15,
-    "images_analysed": 15,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "none": 15
-    }
-  },
-  {
     "site_id": "n-tv",
     "site_name": "n-tv",
     "url": "https://www.n-tv.de/",
@@ -2141,6 +2141,23 @@
     }
   },
   {
+    "site_id": "the-local",
+    "site_name": "The Local",
+    "url": "http://www.thelocal.de/",
+    "country": "DE",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.thelocal.de/feeds/rss.php",
+    "articles_sampled": 18,
+    "images_analysed": 18,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 18
+    }
+  },
+  {
     "site_id": "zdf-heute",
     "site_name": "ZDF Heute",
     "url": "https://www.zdfheute.de/",
@@ -2158,23 +2175,6 @@
     }
   },
   {
-    "site_id": "berlingske",
-    "site_name": "Berlingske",
-    "url": "https://www.berlingske.dk/",
-    "country": "DK",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.berlingske.dk/content/rss",
-    "articles_sampled": 10,
-    "images_analysed": 8,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "cloudflare": 8
-    }
-  },
-  {
     "site_id": "rtl-news",
     "site_name": "RTL News",
     "url": "https://www.rtl.de/cms/news.html",
@@ -2184,11 +2184,28 @@
     "discovery_strategy": "robots:news_sitemap",
     "sitemap_url_used": "https://www.rtl.de/sitemap-news.xml",
     "articles_sampled": 20,
-    "images_analysed": 20,
+    "images_analysed": 19,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "cloudfront": 20
+      "cloudfront": 19
+    }
+  },
+  {
+    "site_id": "berlingske",
+    "site_name": "Berlingske",
+    "url": "https://www.berlingske.dk/",
+    "country": "DK",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.berlingske.dk/content/rss",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 10
     }
   },
   {
@@ -2227,23 +2244,6 @@
     }
   },
   {
-    "site_id": "ekstra-bladet",
-    "site_name": "Ekstra Bladet",
-    "url": "https://ekstrabladet.dk/",
-    "country": "DK",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://ekstrabladet.dk/rssfeed/all/",
-    "articles_sampled": 10,
-    "images_analysed": 9,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "fastly": 9
-    }
-  },
-  {
     "site_id": "wdr",
     "site_name": "Westdeutscher Rundfunk (WDR)",
     "url": "https://www1.wdr.de/nachrichten/",
@@ -2253,28 +2253,28 @@
     "discovery_strategy": "config:rss",
     "sitemap_url_used": "https://www1.wdr.de/uebersicht-100.feed",
     "articles_sampled": 20,
-    "images_analysed": 20,
+    "images_analysed": 19,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "akamai": 20
+      "akamai": 19
     }
   },
   {
-    "site_id": "politiken",
-    "site_name": "Politiken",
-    "url": "http://politiken.dk",
+    "site_id": "ekstra-bladet",
+    "site_name": "Ekstra Bladet",
+    "url": "https://ekstrabladet.dk/",
     "country": "DK",
     "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "http://politiken.dk/rss/tophistorier.rss",
-    "articles_sampled": 20,
-    "images_analysed": 20,
+    "sitemap_url_used": "https://ekstrabladet.dk/rssfeed/all/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "none": 20
+      "fastly": 10
     }
   },
   {
@@ -2292,6 +2292,23 @@
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "cloudflare": 20
+    }
+  },
+  {
+    "site_id": "politiken",
+    "site_name": "Politiken",
+    "url": "http://politiken.dk",
+    "country": "DK",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "http://politiken.dk/rss/tophistorier.rss",
+    "articles_sampled": 20,
+    "images_analysed": 18,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 18
     }
   },
   {
@@ -2321,6 +2338,40 @@
     "discovery_strategy": "config:rss",
     "sitemap_url_used": "https://www.almasryalyoum.com/rss/rssfeeds",
     "articles_sampled": 20,
+    "images_analysed": 19,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 19
+    }
+  },
+  {
+    "site_id": "err",
+    "site_name": "ERR",
+    "url": "https://www.err.ee/",
+    "country": "EE",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.err.ee/rss",
+    "articles_sampled": 20,
+    "images_analysed": 18,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 18
+    }
+  },
+  {
+    "site_id": "el-balad",
+    "site_name": "El Balad",
+    "url": "https://www.elbalad.news/",
+    "country": "EG",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.elbalad.news/rss.aspx",
+    "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
@@ -2346,23 +2397,6 @@
     }
   },
   {
-    "site_id": "err",
-    "site_name": "ERR",
-    "url": "https://www.err.ee/",
-    "country": "EE",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.err.ee/rss",
-    "articles_sampled": 20,
-    "images_analysed": 19,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "cloudflare": 19
-    }
-  },
-  {
     "site_id": "abc",
     "site_name": "ABC",
     "url": "https://www.abc.es/",
@@ -2372,12 +2406,28 @@
     "discovery_strategy": "html:rss_link",
     "sitemap_url_used": "https://www.abc.es/rss/2.0/portada/",
     "articles_sampled": 20,
-    "images_analysed": 19,
+    "images_analysed": 20,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 15.8,
+    "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "fastly": 16,
-      "bunny": 3
+      "fastly": 20
+    }
+  },
+  {
+    "site_id": "el-correo",
+    "site_name": "El Correo",
+    "url": "https://www.elcorreo.com/",
+    "country": "ES",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.elcorreo.com/rss/2.0/portada",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "fastly": 20
     }
   },
   {
@@ -2395,23 +2445,6 @@
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "none": 20
-    }
-  },
-  {
-    "site_id": "la-raz-n",
-    "site_name": "La Raz\u00f3n",
-    "url": "https://www.larazon.es/",
-    "country": "ES",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.larazon.es/?outputType=xml",
-    "articles_sampled": 15,
-    "images_analysed": 15,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "fastly": 15
     }
   },
   {
@@ -2437,7 +2470,7 @@
     "url": "https://efe.com/",
     "country": "ES",
     "category": "news-agency",
-    "status": "no_articles_found",
+    "status": "discovery_blocked",
     "discovery_strategy": "config:sitemap",
     "sitemap_url_used": "https://efe.com/news-sitemap.xml",
     "articles_sampled": 0,
@@ -2447,20 +2480,20 @@
     "cdn_breakdown": {}
   },
   {
-    "site_id": "el-correo",
-    "site_name": "El Correo",
-    "url": "https://www.elcorreo.com/",
+    "site_id": "la-raz-n",
+    "site_name": "La Raz\u00f3n",
+    "url": "https://www.larazon.es/",
     "country": "ES",
     "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.elcorreo.com/rss/2.0/portada",
-    "articles_sampled": 20,
-    "images_analysed": 20,
+    "sitemap_url_used": "https://www.larazon.es/?outputType=xml",
+    "articles_sampled": 15,
+    "images_analysed": 15,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "fastly": 20
+      "fastly": 15
     }
   },
   {
@@ -2490,12 +2523,28 @@
     "discovery_strategy": "html:rss_link",
     "sitemap_url_used": "https://www.abc.es/rss/2.0/portada/",
     "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "fastly": 20
+    }
+  },
+  {
+    "site_id": "iltalehti",
+    "site_name": "Iltalehti",
+    "url": "https://www.iltalehti.fi/",
+    "country": "FI",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.iltalehti.fi/rss/uutiset.xml",
+    "articles_sampled": 19,
     "images_analysed": 19,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 15.8,
+    "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "fastly": 16,
-      "bunny": 3
+      "cloudfront": 19
     }
   },
   {
@@ -2516,40 +2565,6 @@
     }
   },
   {
-    "site_id": "ilta-sanomat",
-    "site_name": "Ilta-Sanomat",
-    "url": "https://www.is.fi/",
-    "country": "FI",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.is.fi/rss/tuoreimmat.xml",
-    "articles_sampled": 20,
-    "images_analysed": 19,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 5.3,
-    "cdn_breakdown": {
-      "cloudfront": 19
-    }
-  },
-  {
-    "site_id": "iltalehti",
-    "site_name": "Iltalehti",
-    "url": "https://www.iltalehti.fi/",
-    "country": "FI",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.iltalehti.fi/rss/uutiset.xml",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "cloudfront": 20
-    }
-  },
-  {
     "site_id": "helsingin-sanomat",
     "site_name": "Helsingin Sanomat",
     "url": "https://www.hs.fi/",
@@ -2558,6 +2573,23 @@
     "status": "ok",
     "discovery_strategy": "config:rss",
     "sitemap_url_used": "https://www.hs.fi/rss/tuoreimmat.xml",
+    "articles_sampled": 20,
+    "images_analysed": 18,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudfront": 18
+    }
+  },
+  {
+    "site_id": "ilta-sanomat",
+    "site_name": "Ilta-Sanomat",
+    "url": "https://www.is.fi/",
+    "country": "FI",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.is.fi/rss/tuoreimmat.xml",
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 0.0,
@@ -2584,23 +2616,6 @@
     }
   },
   {
-    "site_id": "yle",
-    "site_name": "Yle (Finnish Broadcasting Company)",
-    "url": "https://yle.fi/",
-    "country": "FI",
-    "category": "broadcaster",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://feeds.yle.fi/uutiset/v1/majorHeadlines/YLE_UUTISET.rss",
-    "articles_sampled": 14,
-    "images_analysed": 14,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "cloudfront": 14
-    }
-  },
-  {
     "site_id": "euronews",
     "site_name": "Euronews",
     "url": "http://www.euronews.com/",
@@ -2610,6 +2625,23 @@
     "discovery_strategy": "config:rss",
     "sitemap_url_used": "http://feeds.feedburner.com/euronews/en/home/",
     "articles_sampled": 20,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudfront": 10
+    }
+  },
+  {
+    "site_id": "yle",
+    "site_name": "Yle (Finnish Broadcasting Company)",
+    "url": "https://yle.fi/",
+    "country": "FI",
+    "category": "broadcaster",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://feeds.yle.fi/uutiset/v1/majorHeadlines/YLE_UUTISET.rss",
+    "articles_sampled": 16,
     "images_analysed": 16,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
@@ -2652,20 +2684,20 @@
     }
   },
   {
-    "site_id": "afp-english",
-    "site_name": "Agence France-Presse (English)",
-    "url": "https://www.afp.com/en",
+    "site_id": "france24",
+    "site_name": "France24",
+    "url": "https://www.france24.com/fr/",
     "country": "FR",
-    "category": "news-agency",
+    "category": "newspaper",
     "status": "ok",
-    "discovery_strategy": "guess:sitemap",
-    "sitemap_url_used": "https://www.afp.com/en/sitemap.xml",
-    "articles_sampled": 2,
-    "images_analysed": 1,
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.france24.com/fr/france/rss",
+    "articles_sampled": 20,
+    "images_analysed": 20,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "akamai": 1
+      "akamai": 20
     }
   },
   {
@@ -2684,20 +2716,20 @@
     "cdn_breakdown": {}
   },
   {
-    "site_id": "france24",
-    "site_name": "France24",
-    "url": "https://www.france24.com/fr/",
+    "site_id": "afp-english",
+    "site_name": "Agence France-Presse (English)",
+    "url": "https://www.afp.com/en",
     "country": "FR",
-    "category": "newspaper",
+    "category": "news-agency",
     "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.france24.com/fr/france/rss",
-    "articles_sampled": 20,
-    "images_analysed": 20,
+    "discovery_strategy": "guess:sitemap",
+    "sitemap_url_used": "https://www.afp.com/en/sitemap.xml",
+    "articles_sampled": 2,
+    "images_analysed": 1,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "akamai": 20
+      "akamai": 1
     }
   },
   {
@@ -2757,46 +2789,11 @@
     "discovery_strategy": "config:rss",
     "sitemap_url_used": "http://feeds.bbci.co.uk/news/uk/rss.xml",
     "articles_sampled": 20,
-    "images_analysed": 20,
+    "images_analysed": 18,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "akamai": 20
-    }
-  },
-  {
-    "site_id": "city-am",
-    "site_name": "City AM",
-    "url": "http://www.cityam.com/",
-    "country": "GB",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "http://www.cityam.com/feeds/main.xml",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 15.0,
-    "cdn_breakdown": {
-      "none": 16,
-      "akamai": 4
-    }
-  },
-  {
-    "site_id": "channel-4-news",
-    "site_name": "Channel 4 News",
-    "url": "https://www.channel4.com/news/",
-    "country": "GB",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.channel4.com/news/feed",
-    "articles_sampled": 15,
-    "images_analysed": 15,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "none": 15
+      "akamai": 18
     }
   },
   {
@@ -2817,6 +2814,23 @@
     }
   },
   {
+    "site_id": "l-express",
+    "site_name": "L'Express",
+    "url": "https://www.lexpress.fr/",
+    "country": "FR",
+    "category": "magazine",
+    "status": "ok",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://www.lexpress.fr/arc/outboundfeeds/sitemap-news.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "akamai": 20
+    }
+  },
+  {
     "site_id": "iptc",
     "site_name": "IPTC",
     "url": "https://iptc.org/",
@@ -2825,13 +2839,28 @@
     "status": "ok",
     "discovery_strategy": "config:rss",
     "sitemap_url_used": "https://iptc.org/feed/",
-    "articles_sampled": 3,
-    "images_analysed": 3,
+    "articles_sampled": 2,
+    "images_analysed": 2,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 66.7,
+    "pct_with_iptc": 100.0,
     "cdn_breakdown": {
-      "cloudfront": 3
+      "cloudfront": 2
     }
+  },
+  {
+    "site_id": "financial-times",
+    "site_name": "Financial Times",
+    "url": "https://www.ft.com/",
+    "country": "GB",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:sitemap",
+    "sitemap_url_used": "https://www.ft.com/sitemaps/news.xml",
+    "articles_sampled": 20,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
   },
   {
     "site_id": "new-statesman",
@@ -2839,7 +2868,7 @@
     "url": "https://www.newstatesman.com/",
     "country": "GB",
     "category": "newspaper",
-    "status": "no_articles_found",
+    "status": "discovery_blocked",
     "discovery_strategy": "no_sitemap",
     "sitemap_url_used": null,
     "articles_sampled": 0,
@@ -2864,36 +2893,21 @@
     "cdn_breakdown": {}
   },
   {
-    "site_id": "l-express",
-    "site_name": "L'Express",
-    "url": "https://www.lexpress.fr/",
-    "country": "FR",
-    "category": "magazine",
-    "status": "ok",
-    "discovery_strategy": "robots:news_sitemap",
-    "sitemap_url_used": "https://www.lexpress.fr/arc/outboundfeeds/sitemap-news.xml",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "akamai": 20
-    }
-  },
-  {
-    "site_id": "financial-times",
-    "site_name": "Financial Times",
-    "url": "https://www.ft.com/",
+    "site_id": "i",
+    "site_name": "i",
+    "url": "https://inews.co.uk/",
     "country": "GB",
     "category": "newspaper",
     "status": "ok",
-    "discovery_strategy": "config:sitemap",
-    "sitemap_url_used": "https://www.ft.com/sitemaps/news.xml",
-    "articles_sampled": 20,
-    "images_analysed": 0,
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://inews.co.uk/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
+    "pct_with_iptc": 10.0,
+    "cdn_breakdown": {
+      "none": 10
+    }
   },
   {
     "site_id": "daily-mail-mail-on-sunday",
@@ -2913,34 +2927,21 @@
     }
   },
   {
-    "site_id": "the-economist",
-    "site_name": "The Economist",
-    "url": "https://www.economist.com/",
+    "site_id": "channel-4-news",
+    "site_name": "Channel 4 News",
+    "url": "https://www.channel4.com/news/",
     "country": "GB",
     "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.economist.com/rss/the_world_this_week_rss.xml",
-    "articles_sampled": 16,
-    "images_analysed": 0,
+    "sitemap_url_used": "https://www.channel4.com/news/feed",
+    "articles_sampled": 15,
+    "images_analysed": 15,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
-    "site_id": "the-sun",
-    "site_name": "The Sun",
-    "url": "https://www.thesun.co.uk/",
-    "country": "GB",
-    "category": "newspaper",
-    "status": "robots_disallow",
-    "discovery_strategy": "robots_disallow",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
+    "cdn_breakdown": {
+      "none": 15
+    }
   },
   {
     "site_id": "huffington-post-uk",
@@ -2958,6 +2959,36 @@
     "cdn_breakdown": {
       "fastly": 20
     }
+  },
+  {
+    "site_id": "the-sun",
+    "site_name": "The Sun",
+    "url": "https://www.thesun.co.uk/",
+    "country": "GB",
+    "category": "newspaper",
+    "status": "robots_disallow",
+    "discovery_strategy": "robots_disallow",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "the-economist",
+    "site_name": "The Economist",
+    "url": "https://www.economist.com/",
+    "country": "GB",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.economist.com/rss/the_world_this_week_rss.xml",
+    "articles_sampled": 16,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
   },
   {
     "site_id": "metro",
@@ -3009,23 +3040,6 @@
     "cdn_breakdown": {}
   },
   {
-    "site_id": "pa-media",
-    "site_name": "PA Media",
-    "url": "https://pamediagroup.com/",
-    "country": "GB",
-    "category": "news-agency",
-    "status": "ok",
-    "discovery_strategy": "html:rss_link",
-    "sitemap_url_used": "https://pamediagroup.com/feed/",
-    "articles_sampled": 2,
-    "images_analysed": 2,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "cloudflare": 2
-    }
-  },
-  {
     "site_id": "the-independent",
     "site_name": "The Independent",
     "url": "http://www.independent.co.uk/",
@@ -3043,12 +3057,29 @@
     }
   },
   {
+    "site_id": "pa-media",
+    "site_name": "PA Media",
+    "url": "https://pamediagroup.com/",
+    "country": "GB",
+    "category": "news-agency",
+    "status": "ok",
+    "discovery_strategy": "html:rss_link",
+    "sitemap_url_used": "https://pamediagroup.com/feed/",
+    "articles_sampled": 2,
+    "images_analysed": 2,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 2
+    }
+  },
+  {
     "site_id": "daily-graphic",
     "site_name": "Daily Graphic",
     "url": "https://www.graphic.com.gh/",
     "country": "GH",
     "category": "newspaper",
-    "status": "no_articles_found",
+    "status": "discovery_blocked",
     "discovery_strategy": "robots:news_sitemap",
     "sitemap_url_used": "https://www.graphic.com.gh/component/jmap/sitemap/gnews?format=gnews",
     "articles_sampled": 0,
@@ -3066,12 +3097,12 @@
     "status": "ok",
     "discovery_strategy": "config:rss",
     "sitemap_url_used": "https://feeds.skynews.com/feeds/rss/home.xml",
-    "articles_sampled": 8,
-    "images_analysed": 8,
+    "articles_sampled": 10,
+    "images_analysed": 10,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "akamai": 8
+      "akamai": 10
     }
   },
   {
@@ -3084,11 +3115,11 @@
     "discovery_strategy": "config:rss",
     "sitemap_url_used": "http://www.theweek.co.uk/feeds/all",
     "articles_sampled": 20,
-    "images_analysed": 19,
+    "images_analysed": 20,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 15.8,
+    "pct_with_iptc": 15.0,
     "cdn_breakdown": {
-      "cloudfront": 19
+      "cloudfront": 20
     }
   },
   {
@@ -3141,12 +3172,46 @@
     }
   },
   {
+    "site_id": "myjoyonline",
+    "site_name": "MyJoyOnline",
+    "url": "https://www.myjoyonline.com/",
+    "country": "GH",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.myjoyonline.com/feed/",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 20
+    }
+  },
+  {
+    "site_id": "novi-list",
+    "site_name": "Novi list",
+    "url": "https://www.novilist.hr/",
+    "country": "HR",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.novilist.hr/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 10
+    }
+  },
+  {
     "site_id": "n-pszava",
     "site_name": "N\u00e9pszava",
     "url": "https://nepszava.hu/",
     "country": "HU",
     "category": "newspaper",
-    "status": "no_articles_found",
+    "status": "discovery_blocked",
     "discovery_strategy": "no_sitemap",
     "sitemap_url_used": null,
     "articles_sampled": 0,
@@ -3154,6 +3219,23 @@
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {}
+  },
+  {
+    "site_id": "24sata",
+    "site_name": "24sata",
+    "url": "https://www.24sata.hr/",
+    "country": "HR",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.24sata.hr/feeds/aktualno.xml",
+    "articles_sampled": 18,
+    "images_analysed": 18,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 18
+    }
   },
   {
     "site_id": "index",
@@ -3173,6 +3255,21 @@
     }
   },
   {
+    "site_id": "irish-sun",
+    "site_name": "Irish Sun",
+    "url": "https://www.irishsun.com/",
+    "country": "IE",
+    "category": "newspaper",
+    "status": "discovery_blocked",
+    "discovery_strategy": "no_sitemap",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
     "site_id": "jutarnji-list",
     "site_name": "Jutarnji list",
     "url": "https://www.jutarnji.hr/",
@@ -3190,35 +3287,21 @@
     }
   },
   {
-    "site_id": "irish-sun",
-    "site_name": "Irish Sun",
-    "url": "https://www.irishsun.com/",
-    "country": "IE",
-    "category": "newspaper",
-    "status": "no_articles_found",
-    "discovery_strategy": "no_sitemap",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
-    "site_id": "24sata",
-    "site_name": "24sata",
-    "url": "https://www.24sata.hr/",
-    "country": "HR",
+    "site_id": "antara-news",
+    "site_name": "Antara News",
+    "url": "https://www.antaranews.com/",
+    "country": "ID",
     "category": "newspaper",
     "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.24sata.hr/feeds/aktualno.xml",
-    "articles_sampled": 19,
-    "images_analysed": 19,
+    "discovery_strategy": "guess:rss",
+    "sitemap_url_used": "https://www.antaranews.com/feed",
+    "articles_sampled": 20,
+    "images_analysed": 20,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "none": 19
+      "none": 3,
+      "bunny": 17
     }
   },
   {
@@ -3230,23 +3313,6 @@
     "status": "ok",
     "discovery_strategy": "config:rss",
     "sitemap_url_used": "https://www.independent.ie/rss/",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "cloudflare": 20
-    }
-  },
-  {
-    "site_id": "magyar-nemzet",
-    "site_name": "Magyar Nemzet",
-    "url": "https://magyarnemzet.hu/",
-    "country": "HU",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://magyarnemzet.hu/feed/",
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 0.0,
@@ -3273,14 +3339,14 @@
     }
   },
   {
-    "site_id": "jerusalem-post",
-    "site_name": "The Jerusalem Post",
-    "url": "https://www.jpost.com/",
-    "country": "IL",
+    "site_id": "magyar-nemzet",
+    "site_name": "Magyar Nemzet",
+    "url": "https://magyarnemzet.hu/",
+    "country": "HU",
     "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.jpost.com/rss/rssfeedsfrontpage.aspx",
+    "sitemap_url_used": "https://magyarnemzet.hu/feed/",
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 0.0,
@@ -3307,6 +3373,23 @@
     }
   },
   {
+    "site_id": "jerusalem-post",
+    "site_name": "The Jerusalem Post",
+    "url": "https://www.jpost.com/",
+    "country": "IL",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.jpost.com/rss/rssfeedsfrontpage.aspx",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 20
+    }
+  },
+  {
     "site_id": "irish-times",
     "site_name": "Irish Times",
     "url": "https://www.irishtimes.com/",
@@ -3321,23 +3404,6 @@
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "akamai": 20
-    }
-  },
-  {
-    "site_id": "dainik-jagran",
-    "site_name": "Dainik Jagran",
-    "url": "https://www.jagran.com/",
-    "country": "IN",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "http://rss.jagran.com/rss/news/national.xml",
-    "articles_sampled": 10,
-    "images_analysed": 10,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "cloudfront": 10
     }
   },
   {
@@ -3358,6 +3424,23 @@
     }
   },
   {
+    "site_id": "dainik-jagran",
+    "site_name": "Dainik Jagran",
+    "url": "https://www.jagran.com/",
+    "country": "IN",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "http://rss.jagran.com/rss/news/national.xml",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudfront": 10
+    }
+  },
+  {
     "site_id": "hindustan-times",
     "site_name": "Hindustan Times",
     "url": "https://www.hindustantimes.com/",
@@ -3375,23 +3458,6 @@
     }
   },
   {
-    "site_id": "the-hindu",
-    "site_name": "The Hindu",
-    "url": "https://www.thehindu.com/",
-    "country": "IN",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.thehindu.com/feeder/default.rss",
-    "articles_sampled": 20,
-    "images_analysed": 12,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "cloudflare": 12
-    }
-  },
-  {
     "site_id": "indian-express",
     "site_name": "Indian Express",
     "url": "https://indianexpress.com/",
@@ -3403,7 +3469,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 15.0,
+    "pct_with_iptc": 5.0,
     "cdn_breakdown": {
       "akamai": 20
     }
@@ -3414,7 +3480,7 @@
     "url": "https://thewire.in/",
     "country": "IN",
     "category": "online",
-    "status": "no_articles_found",
+    "status": "discovery_parse_error",
     "discovery_strategy": "guess:sitemap",
     "sitemap_url_used": "https://thewire.in/sitemap-news.xml",
     "articles_sampled": 0,
@@ -3424,20 +3490,20 @@
     "cdn_breakdown": {}
   },
   {
-    "site_id": "news18",
-    "site_name": "News18",
-    "url": "https://www.news18.com/",
+    "site_id": "the-hindu",
+    "site_name": "The Hindu",
+    "url": "https://www.thehindu.com/",
     "country": "IN",
     "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.news18.com/rss/latest.xml",
+    "sitemap_url_used": "https://www.thehindu.com/feeder/default.rss",
     "articles_sampled": 20,
-    "images_analysed": 13,
+    "images_analysed": 15,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 7.7,
+    "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "none": 13
+      "cloudflare": 15
     }
   },
   {
@@ -3450,29 +3516,11 @@
     "discovery_strategy": "config:rss",
     "sitemap_url_used": "https://feeds.feedburner.com/ndtvnews-top-stories",
     "articles_sampled": 20,
-    "images_analysed": 19,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "akamai": 19
-    }
-  },
-  {
-    "site_id": "antara-news",
-    "site_name": "Antara News",
-    "url": "https://www.antaranews.com/",
-    "country": "ID",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "guess:rss",
-    "sitemap_url_used": "https://www.antaranews.com/feed",
-    "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
+    "pct_with_iptc": 5.0,
     "cdn_breakdown": {
-      "bunny": 16,
-      "none": 4
+      "akamai": 20
     }
   },
   {
@@ -3487,26 +3535,43 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 30.0,
+    "pct_with_iptc": 20.0,
     "cdn_breakdown": {
       "cloudfront": 20
     }
   },
   {
-    "site_id": "times-of-india",
-    "site_name": "Times of India",
-    "url": "https://timesofindia.indiatimes.com/",
+    "site_id": "news18",
+    "site_name": "News18",
+    "url": "https://www.news18.com/",
     "country": "IN",
     "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://timesofindia.indiatimes.com/rssfeedstopstories.cms",
+    "sitemap_url_used": "https://www.news18.com/rss/latest.xml",
     "articles_sampled": 20,
-    "images_analysed": 20,
+    "images_analysed": 12,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 16.7,
+    "cdn_breakdown": {
+      "none": 12
+    }
+  },
+  {
+    "site_id": "corriere-della-sera",
+    "site_name": "Corriere della Sera",
+    "url": "http://corriere.it/",
+    "country": "IT",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://www.corriere.it/salute/il-medico-risponde/news/sitemap.xml",
+    "articles_sampled": 1,
+    "images_analysed": 1,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "akamai": 20
+      "cloudfront": 1
     }
   },
   {
@@ -3527,20 +3592,37 @@
     }
   },
   {
-    "site_id": "corriere-della-sera",
-    "site_name": "Corriere della Sera",
-    "url": "http://corriere.it/",
-    "country": "IT",
+    "site_id": "times-of-india",
+    "site_name": "Times of India",
+    "url": "https://timesofindia.indiatimes.com/",
+    "country": "IN",
     "category": "newspaper",
     "status": "ok",
-    "discovery_strategy": "robots:news_sitemap",
-    "sitemap_url_used": "https://www.corriere.it/salute/il-medico-risponde/news/sitemap.xml",
-    "articles_sampled": 9,
-    "images_analysed": 5,
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://timesofindia.indiatimes.com/rssfeedstopstories.cms",
+    "articles_sampled": 20,
+    "images_analysed": 20,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "cloudfront": 5
+      "akamai": 20
+    }
+  },
+  {
+    "site_id": "the-print",
+    "site_name": "ThePrint",
+    "url": "https://theprint.in/",
+    "country": "IN",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://theprint.in/googlenews.xml",
+    "articles_sampled": 20,
+    "images_analysed": 9,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudfront": 9
     }
   },
   {
@@ -3559,37 +3641,38 @@
     "cdn_breakdown": {}
   },
   {
-    "site_id": "the-print",
-    "site_name": "ThePrint",
-    "url": "https://theprint.in/",
-    "country": "IN",
-    "category": "online",
-    "status": "ok",
-    "discovery_strategy": "robots:news_sitemap",
-    "sitemap_url_used": "https://theprint.in/googlenews.xml",
-    "articles_sampled": 20,
-    "images_analysed": 8,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "cloudfront": 8
-    }
-  },
-  {
-    "site_id": "il-messaggero",
-    "site_name": "Il Messaggero",
-    "url": "https://ilmessaggero.it",
-    "country": "IT",
+    "site_id": "asahi-shimbun",
+    "site_name": "Asahi Shimbun (\u671d\u65e5\u65b0\u805e)",
+    "url": "https://www.asahi.com/",
+    "country": "JP",
     "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.ilmessaggero.it/?sez=XML&p=search&args[box]=Home&limit=20&layout=rss",
+    "sitemap_url_used": "http://rss.asahi.com/rss/asahi/newsheadlines.rdf",
+    "articles_sampled": 20,
+    "images_analysed": 19,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudfront": 18,
+      "none": 1
+    }
+  },
+  {
+    "site_id": "ansa",
+    "site_name": "ANSA",
+    "url": "https://ansa.it",
+    "country": "IT",
+    "category": "news-agency",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "http://www.ansa.it/sito/ansait_rss.xml",
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "fastly": 20
+      "none": 20
     }
   },
   {
@@ -3644,40 +3727,6 @@
     }
   },
   {
-    "site_id": "ansa",
-    "site_name": "ANSA",
-    "url": "https://ansa.it",
-    "country": "IT",
-    "category": "news-agency",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "http://www.ansa.it/sito/ansait_rss.xml",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "none": 20
-    }
-  },
-  {
-    "site_id": "asahi-shimbun",
-    "site_name": "Asahi Shimbun (\u671d\u65e5\u65b0\u805e)",
-    "url": "https://www.asahi.com/",
-    "country": "JP",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "http://rss.asahi.com/rss/asahi/newsheadlines.rdf",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "cloudfront": 20
-    }
-  },
-  {
     "site_id": "japan-industry-news",
     "site_name": "Japan Industry News",
     "url": "https://www.japanindustrynews.com/",
@@ -3721,11 +3770,11 @@
     "discovery_strategy": "config:sitemap",
     "sitemap_url_used": "https://www.iza.ne.jp/feeds/sitemapindex-category/?outputType=xml",
     "articles_sampled": 20,
-    "images_analysed": 20,
+    "images_analysed": 18,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "akamai": 20
+      "akamai": 18
     }
   },
   {
@@ -3759,7 +3808,7 @@
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "none": 20
+      "none": 19
     }
   },
   {
@@ -3768,7 +3817,7 @@
     "url": "https://www.tokyoreporter.com/",
     "country": "JP",
     "category": "broadcaster",
-    "status": "no_articles_found",
+    "status": "discovery_blocked",
     "discovery_strategy": "robots:first_sitemap",
     "sitemap_url_used": "https://www.tokyoreporter.com/sitemap.xml",
     "articles_sampled": 0,
@@ -3787,11 +3836,28 @@
     "discovery_strategy": "config:rss",
     "sitemap_url_used": "https://mainichi.jp/rss/etc/mainichi-flash.rss",
     "articles_sampled": 20,
-    "images_analysed": 19,
+    "images_analysed": 20,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "cloudfront": 19
+      "cloudfront": 20
+    }
+  },
+  {
+    "site_id": "rocketnews24",
+    "site_name": "RocketNews24",
+    "url": "https://rocketnews24.com/",
+    "country": "JP",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "http://feeds.rocketnews24.com/rocketnews24/en",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 20
     }
   },
   {
@@ -3812,29 +3878,12 @@
     }
   },
   {
-    "site_id": "rocketnews24",
-    "site_name": "RocketNews24",
-    "url": "https://rocketnews24.com/",
-    "country": "JP",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "http://feeds.rocketnews24.com/rocketnews24/en",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 5.0,
-    "cdn_breakdown": {
-      "none": 20
-    }
-  },
-  {
     "site_id": "nhk-world-english",
     "site_name": "NHK World English",
     "url": "https://www3.nhk.or.jp/nhkworld/",
     "country": "JP",
     "category": "broadcaster",
-    "status": "no_articles_found",
+    "status": "discovery_blocked",
     "discovery_strategy": "robots:news_sitemap",
     "sitemap_url_used": "https://www3.nhk.or.jp/news/sitemap-news-index.xml",
     "articles_sampled": 0,
@@ -3861,20 +3910,20 @@
     }
   },
   {
-    "site_id": "yomiuri-shimbun",
-    "site_name": "Yomiuri Shimbun (\u8aad\u58f2\u65b0\u805e)",
-    "url": "https://www.yomiuri.co.jp/",
+    "site_id": "sankei-shimbun",
+    "site_name": "Sankei Shimbun (\u7523\u7d4c\u65b0\u805e)",
+    "url": "https://www.sankei.com/",
     "country": "JP",
     "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://assets.wor.jp/rss/rdf/yomiuri/latestnews.rdf",
+    "sitemap_url_used": "https://assets.wor.jp/rss/rdf/sankei/flash.rdf",
     "articles_sampled": 20,
-    "images_analysed": 8,
+    "images_analysed": 15,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
+    "pct_with_iptc": 6.7,
     "cdn_breakdown": {
-      "fastly": 8
+      "akamai": 15
     }
   },
   {
@@ -3887,28 +3936,11 @@
     "discovery_strategy": "html:rss_link",
     "sitemap_url_used": "https://www.jiji.com/rss/ranking.rdf",
     "articles_sampled": 10,
-    "images_analysed": 7,
+    "images_analysed": 10,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "akamai": 7
-    }
-  },
-  {
-    "site_id": "sankei-shimbun",
-    "site_name": "Sankei Shimbun (\u7523\u7d4c\u65b0\u805e)",
-    "url": "https://www.sankei.com/",
-    "country": "JP",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://assets.wor.jp/rss/rdf/sankei/flash.rdf",
-    "articles_sampled": 20,
-    "images_analysed": 17,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 5.9,
-    "cdn_breakdown": {
-      "akamai": 17
+      "akamai": 10
     }
   },
   {
@@ -3917,7 +3949,7 @@
     "url": "https://www.joins.com/",
     "country": "KR",
     "category": "newspaper",
-    "status": "no_articles_found",
+    "status": "discovery_parse_error",
     "discovery_strategy": "guess:sitemap",
     "sitemap_url_used": "https://www.joins.com/sitemap-news.xml",
     "articles_sampled": 0,
@@ -3936,45 +3968,29 @@
     "discovery_strategy": "html:rss_link",
     "sitemap_url_used": "https://www.kyodo.co.jp/feed/",
     "articles_sampled": 10,
-    "images_analysed": 10,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "cloudfront": 10
-    }
-  },
-  {
-    "site_id": "korea-times",
-    "site_name": "The Korea Times",
-    "url": "https://www.koreatimes.co.kr/",
-    "country": "KR",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "html:rss_link",
-    "sitemap_url_used": "https://feed.koreatimes.co.kr/k/allnews.xml",
-    "articles_sampled": 9,
     "images_analysed": 9,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "cloudfront": 9
+      "cloudfront": 8,
+      "none": 1
     }
   },
   {
-    "site_id": "zakzak",
-    "site_name": "zakzak",
-    "url": "http://www.zakzak.co.jp/",
+    "site_id": "yomiuri-shimbun",
+    "site_name": "Yomiuri Shimbun (\u8aad\u58f2\u65b0\u805e)",
+    "url": "https://www.yomiuri.co.jp/",
     "country": "JP",
     "category": "newspaper",
     "status": "ok",
-    "discovery_strategy": "config:sitemap",
-    "sitemap_url_used": "https://www.zakzak.co.jp/feeds/sitemapindex-category/?outputType=xml",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://assets.wor.jp/rss/rdf/yomiuri/latestnews.rdf",
     "articles_sampled": 20,
-    "images_analysed": 18,
+    "images_analysed": 20,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "akamai": 18
+      "fastly": 20
     }
   },
   {
@@ -4012,6 +4028,40 @@
     }
   },
   {
+    "site_id": "korea-times",
+    "site_name": "The Korea Times",
+    "url": "https://www.koreatimes.co.kr/",
+    "country": "KR",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "html:rss_link",
+    "sitemap_url_used": "https://feed.koreatimes.co.kr/k/allnews.xml",
+    "articles_sampled": 9,
+    "images_analysed": 9,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudfront": 9
+    }
+  },
+  {
+    "site_id": "zakzak",
+    "site_name": "zakzak",
+    "url": "http://www.zakzak.co.jp/",
+    "country": "JP",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:sitemap",
+    "sitemap_url_used": "https://www.zakzak.co.jp/feeds/sitemapindex-category/?outputType=xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "akamai": 20
+    }
+  },
+  {
     "site_id": "chosun-ilbo",
     "site_name": "Chosun Ilbo",
     "url": "https://www.chosun.com/",
@@ -4021,28 +4071,11 @@
     "discovery_strategy": "robots:news_sitemap",
     "sitemap_url_used": "https://www.chosun.com/arc/outboundfeeds/news-sitemap/?outputType=xml",
     "articles_sampled": 20,
-    "images_analysed": 11,
+    "images_analysed": 15,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "akamai": 11
-    }
-  },
-  {
-    "site_id": "korea-herald",
-    "site_name": "The Korea Herald",
-    "url": "https://www.koreaherald.com/",
-    "country": "KR",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "html:rss_link",
-    "sitemap_url_used": "https://www.koreaherald.com/rss/newsAll",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "none": 20
+      "akamai": 14
     }
   },
   {
@@ -4055,11 +4088,11 @@
     "discovery_strategy": "config:rss",
     "sitemap_url_used": "https://en.yna.co.kr/RSS/news.xml",
     "articles_sampled": 20,
-    "images_analysed": 19,
+    "images_analysed": 14,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "none": 19
+      "none": 14
     }
   },
   {
@@ -4076,6 +4109,23 @@
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {}
+  },
+  {
+    "site_id": "korea-herald",
+    "site_name": "The Korea Herald",
+    "url": "https://www.koreaherald.com/",
+    "country": "KR",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "html:rss_link",
+    "sitemap_url_used": "https://www.koreaherald.com/rss/newsAll",
+    "articles_sampled": 20,
+    "images_analysed": 19,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 19
+    }
   },
   {
     "site_id": "verslo-inios",
@@ -4095,14 +4145,14 @@
     }
   },
   {
-    "site_id": "luxemburger-wort",
-    "site_name": "Luxemburger Wort",
-    "url": "https://www.wort.lu/de",
-    "country": "LU",
+    "site_id": "lietuvos-rytas",
+    "site_name": "Lietuvos rytas",
+    "url": "https://www.lrytas.lt/",
+    "country": "LT",
     "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "guess:rss",
-    "sitemap_url_used": "https://www.wort.lu/de/rss",
+    "sitemap_url_used": "https://www.lrytas.lt/rss",
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 0.0,
@@ -4110,38 +4160,6 @@
     "cdn_breakdown": {
       "cloudflare": 20
     }
-  },
-  {
-    "site_id": "15min",
-    "site_name": "15min",
-    "url": "https://www.15min.lt/",
-    "country": "LT",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.15min.lt/rss",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "none": 20
-    }
-  },
-  {
-    "site_id": "malta-today",
-    "site_name": "Malta Today",
-    "url": "https://www.maltatoday.com.mt/",
-    "country": "MT",
-    "category": "newspaper",
-    "status": "no_articles_found",
-    "discovery_strategy": "no_sitemap",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
   },
   {
     "site_id": "baltic-times",
@@ -4159,12 +4177,44 @@
     "cdn_breakdown": {}
   },
   {
+    "site_id": "malta-today",
+    "site_name": "Malta Today",
+    "url": "https://www.maltatoday.com.mt/",
+    "country": "MT",
+    "category": "newspaper",
+    "status": "discovery_blocked",
+    "discovery_strategy": "no_sitemap",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "luxemburger-wort",
+    "site_name": "Luxemburger Wort",
+    "url": "https://www.wort.lu/de",
+    "country": "LU",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "guess:rss",
+    "sitemap_url_used": "https://www.wort.lu/de/rss",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 20
+    }
+  },
+  {
     "site_id": "the-malta-independent",
     "site_name": "The Malta Independent",
     "url": "http://www.independent.com.mt/",
     "country": "MT",
     "category": "newspaper",
-    "status": "no_articles_found",
+    "status": "discovery_blocked",
     "discovery_strategy": "no_sitemap",
     "sitemap_url_used": null,
     "articles_sampled": 0,
@@ -4179,7 +4229,7 @@
     "url": "https://www.timesofmalta.com/",
     "country": "MT",
     "category": "newspaper",
-    "status": "no_articles_found",
+    "status": "discovery_blocked",
     "discovery_strategy": "config:sitemap",
     "sitemap_url_used": "https://timesofmalta.com/sitemap_latest.xml",
     "articles_sampled": 0,
@@ -4219,36 +4269,21 @@
     "cdn_breakdown": {}
   },
   {
-    "site_id": "lietuvos-rytas",
-    "site_name": "Lietuvos rytas",
-    "url": "https://www.lrytas.lt/",
+    "site_id": "15min",
+    "site_name": "15min",
+    "url": "https://www.15min.lt/",
     "country": "LT",
     "category": "newspaper",
     "status": "ok",
-    "discovery_strategy": "guess:rss",
-    "sitemap_url_used": "https://www.lrytas.lt/rss",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.15min.lt/rss",
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "cloudflare": 20
+      "none": 20
     }
-  },
-  {
-    "site_id": "japan-today",
-    "site_name": "Japan Today",
-    "url": "https://japantoday.com/",
-    "country": "JP",
-    "category": "newspaper",
-    "status": "unreachable",
-    "discovery_strategy": "unreachable",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
   },
   {
     "site_id": "le-quotidien",
@@ -4268,38 +4303,6 @@
     }
   },
   {
-    "site_id": "hespress",
-    "site_name": "Hespress",
-    "url": "https://www.hespress.com/",
-    "country": "MA",
-    "category": "online",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.hespress.com/feed",
-    "articles_sampled": 12,
-    "images_analysed": 12,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "cloudflare": 12
-    }
-  },
-  {
-    "site_id": "the-nation",
-    "site_name": "The Nation",
-    "url": "https://thenationonlineng.net/",
-    "country": "NG",
-    "category": "newspaper",
-    "status": "no_articles_found",
-    "discovery_strategy": "robots:first_sitemap",
-    "sitemap_url_used": "https://thenationonlineng.net/sitemap_index.xml",
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "soptas",
     "site_name": "Soptas",
     "url": "https://www.sopitas.com/",
@@ -4311,26 +4314,56 @@
     "articles_sampled": 10,
     "images_analysed": 10,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 70.0,
+    "pct_with_iptc": 50.0,
     "cdn_breakdown": {
       "none": 10
     }
   },
   {
-    "site_id": "diena",
-    "site_name": "Diena",
-    "url": "https://www.diena.lv/",
+    "site_id": "the-nation",
+    "site_name": "The Nation",
+    "url": "https://thenationonlineng.net/",
+    "country": "NG",
+    "category": "newspaper",
+    "status": "discovery_blocked",
+    "discovery_strategy": "robots:first_sitemap",
+    "sitemap_url_used": "https://thenationonlineng.net/sitemap_index.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "japan-today",
+    "site_name": "Japan Today",
+    "url": "https://japantoday.com/",
+    "country": "JP",
+    "category": "newspaper",
+    "status": "timeout",
+    "discovery_strategy": "timeout",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "ir",
+    "site_name": "ir",
+    "url": "https://ir.lv/",
     "country": "LV",
     "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.diena.lv/rss/",
+    "sitemap_url_used": "https://ir.lv/rss",
     "articles_sampled": 20,
-    "images_analysed": 20,
+    "images_analysed": 18,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "cloudflare": 20
+      "cloudflare": 18
     }
   },
   {
@@ -4351,20 +4384,20 @@
     }
   },
   {
-    "site_id": "ir",
-    "site_name": "ir",
-    "url": "https://ir.lv/",
+    "site_id": "diena",
+    "site_name": "Diena",
+    "url": "https://www.diena.lv/",
     "country": "LV",
     "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://ir.lv/rss",
+    "sitemap_url_used": "https://www.diena.lv/rss/",
     "articles_sampled": 20,
-    "images_analysed": 18,
+    "images_analysed": 20,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "cloudflare": 18
+      "cloudflare": 20
     }
   },
   {
@@ -4419,21 +4452,6 @@
     }
   },
   {
-    "site_id": "new-telegraph",
-    "site_name": "New Telegraph",
-    "url": "https://www.newtelegraphng.com/",
-    "country": "NG",
-    "category": "newspaper",
-    "status": "no_articles_found",
-    "discovery_strategy": "config:sitemap",
-    "sitemap_url_used": "https://newtelegraphng.com/sitemap_index.xml",
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "de-volkskrant",
     "site_name": "de Volkskrant",
     "url": "https://www.volkskrant.nl/",
@@ -4449,6 +4467,21 @@
     "cdn_breakdown": {
       "akamai": 20
     }
+  },
+  {
+    "site_id": "new-telegraph",
+    "site_name": "New Telegraph",
+    "url": "https://www.newtelegraphng.com/",
+    "country": "NG",
+    "category": "newspaper",
+    "status": "no_articles_found",
+    "discovery_strategy": "config:sitemap",
+    "sitemap_url_used": "https://newtelegraphng.com/sitemap_index.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
   },
   {
     "site_id": "nederlands-dagblad",
@@ -4492,11 +4525,11 @@
     "discovery_strategy": "config:rss",
     "sitemap_url_used": "https://www.trouw.nl/home/rss.xml",
     "articles_sampled": 20,
-    "images_analysed": 20,
+    "images_analysed": 19,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "akamai": 20
+      "akamai": 19
     }
   },
   {
@@ -4505,7 +4538,7 @@
     "url": "https://www.rnz.co.nz/",
     "country": "NZ",
     "category": "broadcaster",
-    "status": "no_articles_found",
+    "status": "discovery_blocked",
     "discovery_strategy": "no_sitemap",
     "sitemap_url_used": null,
     "articles_sampled": 0,
@@ -4524,27 +4557,12 @@
     "discovery_strategy": "config:rss",
     "sitemap_url_used": "https://www.nettavisen.no/service/rich-rss",
     "articles_sampled": 15,
-    "images_analysed": 15,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 6.7,
-    "cdn_breakdown": {
-      "none": 15
-    }
-  },
-  {
-    "site_id": "manila-bulletin",
-    "site_name": "Manila Bulletin",
-    "url": "https://mb.com.ph/",
-    "country": "PH",
-    "category": "newspaper",
-    "status": "no_articles_found",
-    "discovery_strategy": "no_sitemap",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
+    "images_analysed": 14,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
+    "cdn_breakdown": {
+      "none": 14
+    }
   },
   {
     "site_id": "nrk",
@@ -4556,40 +4574,23 @@
     "discovery_strategy": "config:rss",
     "sitemap_url_used": "https://www.nrk.no/toppsaker.rss",
     "articles_sampled": 20,
-    "images_analysed": 16,
+    "images_analysed": 18,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "akamai": 16
+      "akamai": 18
     }
   },
   {
-    "site_id": "rappler",
-    "site_name": "Rappler",
-    "url": "https://www.rappler.com/",
+    "site_id": "manila-bulletin",
+    "site_name": "Manila Bulletin",
+    "url": "https://mb.com.ph/",
     "country": "PH",
-    "category": "online",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.rappler.com/feed/",
-    "articles_sampled": 10,
-    "images_analysed": 10,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "none": 10
-    }
-  },
-  {
-    "site_id": "dawn",
-    "site_name": "Dawn",
-    "url": "https://www.dawn.com/",
-    "country": "PK",
     "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "robots:first_sitemap",
-    "sitemap_url_used": "https://www.dawn.com/feeds/sitemap",
-    "articles_sampled": 20,
+    "status": "discovery_blocked",
+    "discovery_strategy": "no_sitemap",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
     "images_analysed": 0,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
@@ -4613,6 +4614,21 @@
     }
   },
   {
+    "site_id": "dawn",
+    "site_name": "Dawn",
+    "url": "https://www.dawn.com/",
+    "country": "PK",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "robots:first_sitemap",
+    "sitemap_url_used": "https://www.dawn.com/feeds/sitemap",
+    "articles_sampled": 20,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
     "site_id": "dagbladet",
     "site_name": "Dagbladet",
     "url": "https://www.dagbladet.no/",
@@ -4622,11 +4638,11 @@
     "discovery_strategy": "config:rss",
     "sitemap_url_used": "https://www.dagbladet.no/rss/",
     "articles_sampled": 20,
-    "images_analysed": 20,
+    "images_analysed": 19,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "cloudflare": 20
+      "cloudflare": 19
     }
   },
   {
@@ -4644,23 +4660,6 @@
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "fastly": 20
-    }
-  },
-  {
-    "site_id": "new-zealand-herald",
-    "site_name": "New Zealand Herald",
-    "url": "https://www.nzherald.co.nz/",
-    "country": "NZ",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:sitemap",
-    "sitemap_url_used": "https://www.nzherald.co.nz/arc/outboundfeeds/sitemap-index/?outputType=xml&_website=nzh",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "akamai": 20
     }
   },
   {
@@ -4701,7 +4700,7 @@
     "url": "https://www.jn.pt/",
     "country": "PT",
     "category": "newspaper",
-    "status": "no_articles_found",
+    "status": "discovery_blocked",
     "discovery_strategy": "no_sitemap",
     "sitemap_url_used": null,
     "articles_sampled": 0,
@@ -4709,23 +4708,6 @@
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {}
-  },
-  {
-    "site_id": "geo-news",
-    "site_name": "Geo News",
-    "url": "https://www.geo.tv/",
-    "country": "PK",
-    "category": "broadcaster",
-    "status": "ok",
-    "discovery_strategy": "robots:news_sitemap",
-    "sitemap_url_used": "https://www.geo.tv/assets/uploads/google_news_latest.xml",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "cloudflare": 20
-    }
   },
   {
     "site_id": "the-news-pakistan",
@@ -4745,12 +4727,29 @@
     }
   },
   {
+    "site_id": "geo-news",
+    "site_name": "Geo News",
+    "url": "https://www.geo.tv/",
+    "country": "PK",
+    "category": "broadcaster",
+    "status": "ok",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://www.geo.tv/assets/uploads/google_news_latest.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 20
+    }
+  },
+  {
     "site_id": "lusa",
     "site_name": "Lusa Ag\u00eancia de Not\u00edcias de Portugal",
     "url": "https://www.lusa.pt/",
     "country": "PT",
     "category": "news-agency",
-    "status": "no_articles_found",
+    "status": "discovery_parse_error",
     "discovery_strategy": "guess:sitemap",
     "sitemap_url_used": "https://www.lusa.pt/sitemap-news.xml",
     "articles_sampled": 0,
@@ -4782,7 +4781,7 @@
     "url": "https://www.qna.org.qa/en/Home",
     "country": "QA",
     "category": "news-agency",
-    "status": "no_articles_found",
+    "status": "discovery_blocked",
     "discovery_strategy": "no_sitemap",
     "sitemap_url_used": null,
     "articles_sampled": 0,
@@ -4801,27 +4800,29 @@
     "discovery_strategy": "config:rss",
     "sitemap_url_used": "https://wiadomosci.gazeta.pl/pub/rss/wiadomosci.htm",
     "articles_sampled": 20,
-    "images_analysed": 20,
+    "images_analysed": 19,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "none": 20
+      "none": 19
     }
   },
   {
-    "site_id": "tass-english",
-    "site_name": "TASS (English)",
-    "url": "http://tass.com/",
-    "country": "RU",
-    "category": "news-agency",
-    "status": "no_articles_found",
-    "discovery_strategy": "no_sitemap",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
+    "site_id": "p-blico",
+    "site_name": "P\u00fablico",
+    "url": "https://www.publico.pt/",
+    "country": "PT",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://feeds.feedburner.com/PublicoRSS",
+    "articles_sampled": 10,
+    "images_analysed": 10,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
+    "cdn_breakdown": {
+      "cloudfront": 10
+    }
   },
   {
     "site_id": "o-a-oriano-oriental",
@@ -4841,12 +4842,12 @@
     }
   },
   {
-    "site_id": "tass-russian",
-    "site_name": "TASS (Russian)",
-    "url": "http://tass.ru/",
+    "site_id": "tass-english",
+    "site_name": "TASS (English)",
+    "url": "http://tass.com/",
     "country": "RU",
     "category": "news-agency",
-    "status": "no_articles_found",
+    "status": "discovery_blocked",
     "discovery_strategy": "no_sitemap",
     "sitemap_url_used": null,
     "articles_sampled": 0,
@@ -4856,20 +4857,35 @@
     "cdn_breakdown": {}
   },
   {
-    "site_id": "adevarul",
-    "site_name": "Adevarul",
-    "url": "https://adevarul.ro/",
+    "site_id": "tass-russian",
+    "site_name": "TASS (Russian)",
+    "url": "http://tass.ru/",
+    "country": "RU",
+    "category": "news-agency",
+    "status": "discovery_blocked",
+    "discovery_strategy": "no_sitemap",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "realitatea",
+    "site_name": "Realitatea",
+    "url": "https://www.realitatea.net/",
     "country": "RO",
     "category": "newspaper",
     "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://adevarul.ro/rss/",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://www.realitatea.net/access/share/sitemaps/news.xml",
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "cloudfront": 20
+      "cloudflare": 20
     }
   },
   {
@@ -4890,20 +4906,20 @@
     }
   },
   {
-    "site_id": "realitatea",
-    "site_name": "Realitatea",
-    "url": "https://www.realitatea.net/",
-    "country": "RO",
+    "site_id": "expressen",
+    "site_name": "Expressen",
+    "url": "https://www.expressen.se/",
+    "country": "SE",
     "category": "newspaper",
     "status": "ok",
-    "discovery_strategy": "robots:news_sitemap",
-    "sitemap_url_used": "https://www.realitatea.net/access/share/sitemaps/news.xml",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://feeds.expressen.se/nyheter/",
     "articles_sampled": 20,
-    "images_analysed": 20,
+    "images_analysed": 14,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "cloudflare": 20
+      "fastly": 14
     }
   },
   {
@@ -4971,20 +4987,20 @@
     }
   },
   {
-    "site_id": "expressen",
-    "site_name": "Expressen",
-    "url": "https://www.expressen.se/",
+    "site_id": "svt-nyheter",
+    "site_name": "SVT Nyheter",
+    "url": "https://www.svt.se/",
     "country": "SE",
     "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://feeds.expressen.se/nyheter/",
+    "sitemap_url_used": "https://www.svt.se/rss.xml",
     "articles_sampled": 20,
-    "images_analysed": 14,
+    "images_analysed": 15,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "fastly": 14
+      "akamai": 15
     }
   },
   {
@@ -5001,23 +5017,6 @@
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {}
-  },
-  {
-    "site_id": "svt-nyheter",
-    "site_name": "SVT Nyheter",
-    "url": "https://www.svt.se/",
-    "country": "SE",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.svt.se/rss.xml",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "akamai": 20
-    }
   },
   {
     "site_id": "mothership-sg",
@@ -5042,7 +5041,7 @@
     "url": "https://english.sta.si/",
     "country": "SI",
     "category": "news-agency",
-    "status": "no_articles_found",
+    "status": "discovery_blocked",
     "discovery_strategy": "no_sitemap",
     "sitemap_url_used": null,
     "articles_sampled": 0,
@@ -5120,20 +5119,20 @@
     }
   },
   {
-    "site_id": "saudi-gazette",
-    "site_name": "Saudi Gazette",
-    "url": "https://saudigazette.com.sa/",
-    "country": "SA",
+    "site_id": "topky",
+    "site_name": "Topky",
+    "url": "https://www.topky.sk/",
+    "country": "SK",
     "category": "newspaper",
     "status": "ok",
-    "discovery_strategy": "robots:news_sitemap",
-    "sitemap_url_used": "https://saudigazette.com.sa/sitemaps/news_sitemap.xml",
-    "articles_sampled": 12,
-    "images_analysed": 12,
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.topky.sk/rss/8/Topky/",
+    "articles_sampled": 20,
+    "images_analysed": 20,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "cloudflare": 12
+      "none": 20
     }
   },
   {
@@ -5154,20 +5153,20 @@
     }
   },
   {
-    "site_id": "topky",
-    "site_name": "Topky",
-    "url": "https://www.topky.sk/",
-    "country": "SK",
+    "site_id": "saudi-gazette",
+    "site_name": "Saudi Gazette",
+    "url": "https://saudigazette.com.sa/",
+    "country": "SA",
     "category": "newspaper",
     "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.topky.sk/rss/8/Topky/",
-    "articles_sampled": 20,
-    "images_analysed": 20,
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://saudigazette.com.sa/sitemaps/news_sitemap.xml",
+    "articles_sampled": 12,
+    "images_analysed": 12,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "none": 20
+      "cloudflare": 12
     }
   },
   {
@@ -5216,7 +5215,7 @@
     "articles_sampled": 15,
     "images_analysed": 15,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 13.3,
+    "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "cloudflare": 15
     }
@@ -5239,20 +5238,20 @@
     }
   },
   {
-    "site_id": "tamil-murasu",
-    "site_name": "Tamil Murasu",
-    "url": "https://www.tamilmurasu.com.sg/",
-    "country": "SG",
-    "category": "newspaper",
+    "site_id": "cnn",
+    "site_name": "CNN",
+    "url": "https://edition.cnn.com/",
+    "country": "US",
+    "category": "broadcaster",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.tamilmurasu.com.sg/rss.xml",
-    "articles_sampled": 12,
-    "images_analysed": 12,
+    "sitemap_url_used": "http://rss.cnn.com/rss/edition.rss",
+    "articles_sampled": 4,
+    "images_analysed": 4,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "cloudfront": 12
+      "fastly": 4
     }
   },
   {
@@ -5273,36 +5272,21 @@
     }
   },
   {
-    "site_id": "cnn",
-    "site_name": "CNN",
-    "url": "https://edition.cnn.com/",
-    "country": "US",
-    "category": "broadcaster",
+    "site_id": "tamil-murasu",
+    "site_name": "Tamil Murasu",
+    "url": "https://www.tamilmurasu.com.sg/",
+    "country": "SG",
+    "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "http://rss.cnn.com/rss/edition.rss",
-    "articles_sampled": 4,
-    "images_analysed": 4,
+    "sitemap_url_used": "https://www.tamilmurasu.com.sg/rss.xml",
+    "articles_sampled": 12,
+    "images_analysed": 12,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "fastly": 4
+      "cloudfront": 12
     }
-  },
-  {
-    "site_id": "huffington-post",
-    "site_name": "Huffington Post",
-    "url": "https://www.huffpost.com/",
-    "country": "US",
-    "category": "newspaper",
-    "status": "no_articles_found",
-    "discovery_strategy": "config:sitemap",
-    "sitemap_url_used": "https://www.huffpost.com/static-assets/isolated/huffpostsitemapgeneratorjob-prod-public/us/sitemaps/sitemap-v1.xml",
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
   },
   {
     "site_id": "channel-news-asia",
@@ -5320,6 +5304,21 @@
     "cdn_breakdown": {
       "cloudflare": 12
     }
+  },
+  {
+    "site_id": "huffington-post",
+    "site_name": "Huffington Post",
+    "url": "https://www.huffpost.com/",
+    "country": "US",
+    "category": "newspaper",
+    "status": "no_articles_found",
+    "discovery_strategy": "config:sitemap",
+    "sitemap_url_used": "https://www.huffpost.com/static-assets/isolated/huffpostsitemapgeneratorjob-prod-public/us/sitemaps/sitemap-v1.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
   },
   {
     "site_id": "buzzfeed",
@@ -5348,11 +5347,11 @@
     "discovery_strategy": "robots:first_sitemap",
     "sitemap_url_used": "https://www.chicagotribune.com/sitemap.xml",
     "articles_sampled": 20,
-    "images_analysed": 20,
+    "images_analysed": 19,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "none": 20
+      "none": 19
     }
   },
   {
@@ -5373,6 +5372,24 @@
     }
   },
   {
+    "site_id": "forbes",
+    "site_name": "Forbes",
+    "url": "https://www.forbes.com/",
+    "country": "US",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://www.forbes.com/news_sitemap.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "fastly": 19,
+      "cloudflare": 1
+    }
+  },
+  {
     "site_id": "fox-news",
     "site_name": "Fox News",
     "url": "http://www.foxnews.com/",
@@ -5382,11 +5399,11 @@
     "discovery_strategy": "config:rss",
     "sitemap_url_used": "http://feeds.foxnews.com/foxnews/latest",
     "articles_sampled": 20,
-    "images_analysed": 20,
+    "images_analysed": 19,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "fastly": 20
+      "fastly": 19
     }
   },
   {
@@ -5395,15 +5412,30 @@
     "url": "https://www.washingtonpost.com/",
     "country": "US",
     "category": "newspaper",
+    "status": "discovery_parse_error",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://www.washingtonpost.com/sitemaps/news-sitemap.xml.gz",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "ny-times",
+    "site_name": "NY Times",
+    "url": "https://www.nytimes.com/",
+    "country": "US",
+    "category": "newspaper",
     "status": "ok",
     "discovery_strategy": "config:rss",
-    "sitemap_url_used": "http://feeds.washingtonpost.com/rss/national",
-    "articles_sampled": 1,
-    "images_analysed": 1,
+    "sitemap_url_used": "http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+    "articles_sampled": 20,
+    "images_analysed": 18,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
-      "akamai": 1
+      "fastly": 18
     }
   },
   {
@@ -5424,41 +5456,6 @@
     }
   },
   {
-    "site_id": "ny-times",
-    "site_name": "NY Times",
-    "url": "https://www.nytimes.com/",
-    "country": "US",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "fastly": 20
-    }
-  },
-  {
-    "site_id": "forbes",
-    "site_name": "Forbes",
-    "url": "https://www.forbes.com/",
-    "country": "US",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "robots:news_sitemap",
-    "sitemap_url_used": "https://www.forbes.com/news_sitemap.xml",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "fastly": 18,
-      "cloudflare": 2
-    }
-  },
-  {
     "site_id": "wall-street-journal",
     "site_name": "The Wall Street Journal",
     "url": "https://www.wsj.com/",
@@ -5466,21 +5463,6 @@
     "category": "newspaper",
     "status": "robots_disallow",
     "discovery_strategy": "robots_disallow",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
-    "site_id": "china-post-english",
-    "site_name": "China Post (English)",
-    "url": "https://chinapost.nownews.com/",
-    "country": "TW",
-    "category": "newspaper",
-    "status": "unreachable",
-    "discovery_strategy": "unreachable",
     "sitemap_url_used": null,
     "articles_sampled": 0,
     "images_analysed": 0,
@@ -5519,21 +5501,19 @@
     "cdn_breakdown": {}
   },
   {
-    "site_id": "axios",
-    "site_name": "Axios",
-    "url": "https://www.axios.com/",
-    "country": "US",
-    "category": "online",
-    "status": "ok",
-    "discovery_strategy": "robots:first_sitemap",
-    "sitemap_url_used": "https://www.axios.com/sitemap.xml",
-    "articles_sampled": 20,
-    "images_analysed": 14,
+    "site_id": "china-post-english",
+    "site_name": "China Post (English)",
+    "url": "https://chinapost.nownews.com/",
+    "country": "TW",
+    "category": "newspaper",
+    "status": "unreachable",
+    "discovery_strategy": "unreachable",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "cloudflare": 14
-    }
+    "cdn_breakdown": {}
   },
   {
     "site_id": "getty-images-editorial",
@@ -5541,7 +5521,7 @@
     "url": "https://www.gettyimages.com/editorial-images",
     "country": "US",
     "category": "news-agency",
-    "status": "no_articles_found",
+    "status": "discovery_blocked",
     "discovery_strategy": "no_sitemap",
     "sitemap_url_used": null,
     "articles_sampled": 0,
@@ -5568,23 +5548,6 @@
     }
   },
   {
-    "site_id": "vox",
-    "site_name": "Vox",
-    "url": "https://www.vox.com/",
-    "country": "US",
-    "category": "online",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.vox.com/rss/index.xml",
-    "articles_sampled": 10,
-    "images_analysed": 10,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "none": 10
-    }
-  },
-  {
     "site_id": "voice-of-america",
     "site_name": "Voice of America",
     "url": "https://www.voanews.com/",
@@ -5602,6 +5565,55 @@
     }
   },
   {
+    "site_id": "axios",
+    "site_name": "Axios",
+    "url": "https://www.axios.com/",
+    "country": "US",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "robots:first_sitemap",
+    "sitemap_url_used": "https://www.axios.com/sitemap.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 20
+    }
+  },
+  {
+    "site_id": "vox",
+    "site_name": "Vox",
+    "url": "https://www.vox.com/",
+    "country": "US",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.vox.com/rss/index.xml",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 10
+    }
+  },
+  {
+    "site_id": "news24",
+    "site_name": "News24",
+    "url": "https://www.news24.com/",
+    "country": "ZA",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://feeds.24.com/articles/News24/TopStories/rss",
+    "articles_sampled": 18,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
     "site_id": "wired",
     "site_name": "Wired",
     "url": "https://www.wired.com/",
@@ -5616,23 +5628,6 @@
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "cloudfront": 20
-    }
-  },
-  {
-    "site_id": "news24",
-    "site_name": "News24",
-    "url": "https://www.news24.com/",
-    "country": "ZA",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://feeds.24.com/articles/News24/TopStories/rss",
-    "articles_sampled": 20,
-    "images_analysed": 11,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "cloudflare": 11
     }
   },
   {

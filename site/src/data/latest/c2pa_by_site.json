@@ -1,5 +1,26 @@
 {
-  "taz": {
+  "iptc": {
+    "image_count_with_c2pa": 2,
+    "by_outcome": [
+      {
+        "outcome": "valid",
+        "images": 2
+      }
+    ],
+    "by_signer": [
+      {
+        "signer": "International Press Telecommunications Council",
+        "images": 2
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Valid",
+        "images": 2
+      }
+    ]
+  },
+  "il-messaggero": {
     "image_count_with_c2pa": 1,
     "by_outcome": [
       {
@@ -9,55 +30,13 @@
     ],
     "by_signer": [
       {
-        "signer": "Adobe Inc.",
+        "signer": "Google LLC",
         "images": 1
       }
     ],
     "by_validation_state": [
       {
         "state": "Invalid",
-        "images": 1
-      }
-    ]
-  },
-  "iptc": {
-    "image_count_with_c2pa": 3,
-    "by_outcome": [
-      {
-        "outcome": "valid",
-        "images": 3
-      }
-    ],
-    "by_signer": [
-      {
-        "signer": "International Press Telecommunications Council",
-        "images": 3
-      }
-    ],
-    "by_validation_state": [
-      {
-        "state": "Valid",
-        "images": 3
-      }
-    ]
-  },
-  "spectator": {
-    "image_count_with_c2pa": 1,
-    "by_outcome": [
-      {
-        "outcome": "valid",
-        "images": 1
-      }
-    ],
-    "by_signer": [
-      {
-        "signer": "OpenAI OpCo, LLC",
-        "images": 1
-      }
-    ],
-    "by_validation_state": [
-      {
-        "state": "Valid",
         "images": 1
       }
     ]
@@ -72,7 +51,7 @@
     ],
     "by_signer": [
       {
-        "signer": "Canva",
+        "signer": "OpenAI OpCo, LLC",
         "images": 1
       }
     ],

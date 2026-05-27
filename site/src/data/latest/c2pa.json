@@ -1,11 +1,11 @@
 {
-  "image_count_total": 4625,
-  "image_count_with_c2pa": 6,
-  "pct_with_c2pa": 0.13,
+  "image_count_total": 4613,
+  "image_count_with_c2pa": 4,
+  "pct_with_c2pa": 0.09,
   "by_outcome": [
     {
       "outcome": "valid",
-      "images": 5
+      "images": 3
     },
     {
       "outcome": "modified",
@@ -27,25 +27,21 @@
   "by_signer": [
     {
       "signer": "International Press Telecommunications Council",
-      "images": 3
+      "images": 2
     },
     {
-      "signer": "Adobe Inc.",
+      "signer": "Google LLC",
       "images": 1
     },
     {
       "signer": "OpenAI OpCo, LLC",
-      "images": 1
-    },
-    {
-      "signer": "Canva",
       "images": 1
     }
   ],
   "by_validation_state": [
     {
       "state": "Valid",
-      "images": 5
+      "images": 3
     },
     {
       "state": "Invalid",
@@ -57,18 +53,12 @@
       "site_id": "iptc",
       "site_name": "IPTC",
       "country": "GB",
-      "images_with_c2pa": 3
+      "images_with_c2pa": 2
     },
     {
-      "site_id": "taz",
-      "site_name": "taz",
-      "country": "DE",
-      "images_with_c2pa": 1
-    },
-    {
-      "site_id": "spectator",
-      "site_name": "Spectator",
-      "country": "GB",
+      "site_id": "il-messaggero",
+      "site_name": "Il Messaggero",
+      "country": "IT",
       "images_with_c2pa": 1
     },
     {
