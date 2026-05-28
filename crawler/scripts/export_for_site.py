@@ -637,6 +637,95 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
             "a_count": denom, "both": both, "pct": pct,
         })
 
+    # Per-signal site/image lists for the drill-down pages
+    # (/ai-policy/<signal>/). Each entry is the minimum the page needs to
+    # render a row: site identity + a signal-specific `extra` payload (URL,
+    # value, count, etc.).
+    site_meta = {s["site_id"]: s for s in probed_sites}
+
+    def _site_basic(sid: str) -> dict:
+        s = site_meta.get(sid, {})
+        return {
+            "site_id": sid,
+            "site_name": s.get("site_name", sid),
+            "country": s.get("country", ""),
+        }
+
+    # Site-level signals: read straight off SiteRow.
+    tdmrep_sites = [
+        {**_site_basic(s["site_id"]),
+         "url": s["site_name"] and f"{s['robots_url'].rsplit('/', 1)[0]}/.well-known/tdmrep.json"}
+        for s in probed_sites if s["has_tdmrep"]
+    ]
+    ai_txt_sites = [
+        {**_site_basic(s["site_id"]),
+         "url": f"{s['robots_url'].rsplit('/', 1)[0]}/ai.txt"}
+        for s in probed_sites if s["has_ai_txt"]
+    ]
+    rsl_sites = [
+        {**_site_basic(s["site_id"]),
+         "license_urls": list(s["rsl_license_urls"] or [])}
+        for s in probed_sites if s["has_rsl"]
+    ]
+    trust_dta_sites = [
+        {**_site_basic(s["site_id"]),
+         "value": s["trust_txt_datatraining"]}
+        for s in probed_sites
+        if s["has_trust_txt"] and (s["trust_txt_datatraining"] or "").lower() == "no"
+    ]
+    # robots-ai: sites that block ≥1 UA, sorted by block count desc.
+    robots_ai_sites = sorted(
+        [
+            {**_site_basic(s["site_id"]),
+             "blocked_count": s["ai_bots_blocked_count"],
+             "blocked_uas": sorted(site_blocks.get(s["site_id"], set()))}
+            for s in probed_sites if s["ai_bots_blocked_count"] > 0
+        ],
+        key=lambda x: (-x["blocked_count"], x["site_name"].lower()),
+    )
+
+    # Image-level signals: aggregate to per-site counts (how many images
+    # on each site carried the signal). image_url_hash → site mapping comes
+    # from the images table itself.
+    site_by_image_hash: dict[str, str] = {i["image_url_hash"]: i["site_id"] for i in ok_imgs}
+
+    def _by_site_image_signal(pred) -> list[dict]:
+        per_site: dict[str, int] = {}
+        for i in ok_imgs:
+            if pred(i):
+                per_site[i["site_id"]] = per_site.get(i["site_id"], 0) + 1
+        return sorted(
+            [{**_site_basic(sid), "images": n} for sid, n in per_site.items()],
+            key=lambda x: (-x["images"], x["site_name"].lower()),
+        )
+
+    # IPTC PLUS:DataMining is per-image-field, so we project the metadata_fields
+    # rows down to site via the image hash → site_id map.
+    dm_per_site: dict[str, int] = {}
+    for f in fields:
+        if f["field_name"] == "DataMining" and f["has_value"]:
+            sid = site_by_image_hash.get(f["image_url_hash"])
+            if sid:
+                dm_per_site[sid] = dm_per_site.get(sid, 0) + 1
+    datamining_sites = sorted(
+        [{**_site_basic(sid), "images": n} for sid, n in dm_per_site.items()],
+        key=lambda x: (-x["images"], x["site_name"].lower()),
+    )
+
+    noai_sites = _by_site_image_signal(lambda i: bool(i.get("noai_tokens")))
+    cawg_sites = _by_site_image_signal(lambda i: bool(i.get("cawg_training_mining_json")))
+
+    by_signal = {
+        "robots-ai": robots_ai_sites,
+        "tdmrep": tdmrep_sites,
+        "rsl": rsl_sites,
+        "ai-txt": ai_txt_sites,
+        "trust-txt-dta": trust_dta_sites,
+        "noai-meta": noai_sites,
+        "iptc-datamining": datamining_sites,
+        "cawg-training-mining": cawg_sites,
+    }
+
     ai_policy_out = {
         "n_sites": n_probed,
         "n_images": n_imgs,
@@ -644,6 +733,7 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         "ai_bots": bots_out,
         "block_buckets": bucket_out,
         "convergence": convergence_out,
+        "by_signal": by_signal,
     }
     (out_dir / "ai_policy.json").write_text(json.dumps(ai_policy_out, indent=2))
 

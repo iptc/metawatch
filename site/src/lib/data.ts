@@ -230,6 +230,9 @@ export interface AiPolicyData {
   ai_bots: AiPolicyBot[];
   block_buckets: AiPolicyBucket[];
   convergence: AiPolicyConvergence[];
+  // Per-signal list of sites carrying that signal. Schema varies per signal —
+  // see /ai-policy/[signal].astro for the per-key column choice.
+  by_signal: Record<string, Array<{ site_id: string; site_name: string; country: string } & Record<string, unknown>>>;
 }
 
 export function getAiPolicy(): AiPolicyData {

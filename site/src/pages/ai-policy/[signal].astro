@@ -1,0 +1,134 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getAiPolicy, countryName } from '../../lib/data';
+
+export async function getStaticPaths() {
+  const data = getAiPolicy();
+  return data.signals.map(s => ({ params: { signal: s.key }, props: { signalKey: s.key } }));
+}
+
+const { signalKey } = Astro.props;
+const data = getAiPolicy();
+const signal = data.signals.find(s => s.key === signalKey)!;
+const rows = (data.by_signal as Record<string, any[]>)[signalKey] ?? [];
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Per-signal narrative copy + table-column choice. Kept here rather than in
+// the JSON because it's editorial, not data — the workshop framing for each
+// mechanism is different (EU policy / DeviantArt / IPTC PLUS spec / etc.).
+const COPY: Record<string, { blurb: string; columns: ('count' | 'value' | 'uas' | 'url' | 'rsl' | 'images')[] }> = {
+  'robots-ai': {
+    blurb: `Sites whose <code>robots.txt</code> disallows at least one of the ${data.ai_bots.length} tracked AI/scraper user-agents at the site root. The "UAs blocked" column shows how many — see the per-row list for which.`,
+    columns: ['count', 'uas'],
+  },
+  'tdmrep': {
+    blurb: `Sites publishing <code>/.well-known/tdmrep.json</code> — the TDM Reservation Protocol, the file format aligned with Article 4 of the EU DSM Directive for machine-readable opt-out reservations.`,
+    columns: ['url'],
+  },
+  'rsl': {
+    blurb: `Sites whose <code>robots.txt</code> carries a <code>License:</code> directive pointing at a Really Simple Licensing (RSL) XML file. <a href="https://rslstandard.org/" target="_blank" rel="noopener">rslstandard.org</a>.`,
+    columns: ['rsl'],
+  },
+  'ai-txt': {
+    blurb: `Sites serving <code>/ai.txt</code>, the AI-training consent file proposed by Spawning. Presence only — we do not yet parse the per-content-type rules inside.`,
+    columns: ['url'],
+  },
+  'trust-txt-dta': {
+    blurb: `Sites whose <code>trust.txt</code> contains the <code>datatrainingallowed=no</code> directive. <code>trust.txt</code> is JournalList's identity file for journalism; the data-training extension is widely understood among trust.txt adopters.`,
+    columns: ['value'],
+  },
+  'noai-meta': {
+    blurb: `Sites carrying <code>noai</code> / <code>noimageai</code> / <code>noml</code> tokens in an <code>X-Robots-Tag</code> response header or a <code>&lt;meta name="robots"&gt;</code> tag on the article page. Image count is how many sampled images on the site were affected.`,
+    columns: ['images'],
+  },
+  'iptc-datamining': {
+    blurb: `Sites whose images carry the <code>PLUS:DataMining</code> XMP field — the IPTC PLUS controlled-vocabulary expression of data-mining permissions. Image count is how many sampled images on the site declared the field.`,
+    columns: ['images'],
+  },
+  'cawg-training-mining': {
+    blurb: `Sites whose images include a CAWG <code>training-and-data-mining</code> assertion inside a C2PA manifest. Spec: <a href="https://cawg.io/training-and-data-mining/1.1/" target="_blank" rel="noopener">cawg.io</a>.`,
+    columns: ['images'],
+  },
+};
+
+const copy = COPY[signalKey] ?? { blurb: '', columns: ['count'] };
+---
+<Layout title={`AI opt-out · ${signal.label}`}>
+  <p class="breadcrumb"><a href={`${base}/ai-policy/`}>← AI opt-out signals</a></p>
+  <h1>{signal.label}</h1>
+  <p class="lede">
+    <span class={`scope-tag scope-${signal.scope}`}>{signal.scope === 'site' ? 'per site' : 'per image'}</span>
+    {' '}
+    <strong>{signal.pct.toFixed(1)}%</strong>
+    {' — '}
+    {signal.num.toLocaleString()} of {signal.denom.toLocaleString()}
+    {signal.scope === 'site' ? ' publishers' : ' images'}.
+  </p>
+  <p set:html={copy.blurb}></p>
+
+  {rows.length === 0 ? (
+    <p style="color:var(--iptc-muted);font-style:italic">No publishers in the current crawl carry this signal.</p>
+  ) : (
+    <table class="sortable">
+      <thead><tr>
+        <th>Publisher</th>
+        <th>Country</th>
+        {copy.columns.includes('count') && <th class="num">UAs blocked</th>}
+        {copy.columns.includes('uas') && <th>Blocked UAs</th>}
+        {copy.columns.includes('url') && <th>File</th>}
+        {copy.columns.includes('rsl') && <th>Licence XML</th>}
+        {copy.columns.includes('value') && <th>Value</th>}
+        {copy.columns.includes('images') && <th class="num">Images</th>}
+      </tr></thead>
+      <tbody>
+        {rows.map((r: any) => (
+          <tr>
+            <td><a href={`${base}/sites/${r.site_id}/`}>{r.site_name}</a></td>
+            <td>{countryName(r.country)} <span class="cc">({r.country})</span></td>
+            {copy.columns.includes('count') && <td class="num">{r.blocked_count}</td>}
+            {copy.columns.includes('uas') && (
+              <td class="uas">
+                {(r.blocked_uas as string[]).map((u, i) => (
+                  <>{i > 0 && ', '}<code>{u}</code></>
+                ))}
+              </td>
+            )}
+            {copy.columns.includes('url') && (
+              <td><a href={r.url} target="_blank" rel="noopener" class="extlink">{r.url}</a></td>
+            )}
+            {copy.columns.includes('rsl') && (
+              <td>
+                {(r.license_urls as string[]).map((u, i) => (
+                  <><a href={u} target="_blank" rel="noopener" class="extlink">{u}</a>{i < r.license_urls.length - 1 && <br/>}</>
+                ))}
+              </td>
+            )}
+            {copy.columns.includes('value') && <td><code>datatrainingallowed={r.value}</code></td>}
+            {copy.columns.includes('images') && <td class="num">{r.images}</td>}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  )}
+</Layout>
+
+<style>
+  .breadcrumb { color: var(--iptc-muted, #6b7280); margin-bottom: 0.5rem; font-size: 0.95rem; }
+  .breadcrumb a { color: inherit; }
+  .scope-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: white;
+    padding: 0.1em 0.5em;
+    border-radius: 4px;
+    vertical-align: 0.1em;
+  }
+  .scope-tag.scope-site { background: var(--iptc-navy, #234976); }
+  .scope-tag.scope-image { background: var(--iptc-green, #6db33f); }
+  td.uas code { font-size: 0.8rem; color: var(--iptc-muted, #6b7280); }
+  td.uas { font-size: 0.85rem; }
+  .cc { color: var(--iptc-muted, #6b7280); }
+  .extlink { word-break: break-all; font-family: ui-monospace, monospace; font-size: 0.85rem; }
+</style>
