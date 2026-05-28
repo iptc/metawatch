@@ -1,24 +1,24 @@
 {
   "n_sites": 337,
-  "n_images": 4573,
+  "n_images": 4561,
   "signals": [
     {
       "key": "robots-ai",
       "scope": "site",
       "label": "robots.txt \u2014 any AI bot blocked",
       "note": "Blocks at least one known AI/scraper UA",
-      "num": 207,
+      "num": 206,
       "denom": 337,
-      "pct": 61.4
+      "pct": 61.1
     },
     {
       "key": "tdmrep",
       "scope": "site",
       "label": "/.well-known/tdmrep.json",
       "note": "TDM Reservation Protocol (EU DSM Art. 4)",
-      "num": 21,
+      "num": 7,
       "denom": 337,
-      "pct": 6.2
+      "pct": 2.1
     },
     {
       "key": "rsl",
@@ -34,9 +34,9 @@
       "scope": "site",
       "label": "/ai.txt",
       "note": "Spawning AI consent proposal",
-      "num": 26,
+      "num": 3,
       "denom": 337,
-      "pct": 7.7
+      "pct": 0.9
     },
     {
       "key": "trust-txt-dta",
@@ -52,9 +52,9 @@
       "scope": "image",
       "label": "noai / noimageai headers",
       "note": "X-Robots-Tag or <meta name=\"robots\">",
-      "num": 2,
-      "denom": 4573,
-      "pct": 0.0
+      "num": 3,
+      "denom": 4561,
+      "pct": 0.1
     },
     {
       "key": "iptc-datamining",
@@ -62,7 +62,7 @@
       "label": "IPTC PLUS:DataMining",
       "note": "XMP-plus:DataMining controlled vocabulary",
       "num": 31,
-      "denom": 4573,
+      "denom": 4561,
       "pct": 0.7
     },
     {
@@ -71,7 +71,7 @@
       "label": "CAWG training-and-data-mining",
       "note": "Assertion inside a C2PA manifest",
       "num": 2,
-      "denom": 4573,
+      "denom": 4561,
       "pct": 0.0
     }
   ],
@@ -79,16 +79,16 @@
     {
       "ua": "CCBot",
       "operator": "Common Crawl",
-      "blocked": 176,
+      "blocked": 175,
       "total": 338,
-      "pct_blocked": 52.1
+      "pct_blocked": 51.8
     },
     {
       "ua": "GPTBot",
       "operator": "OpenAI",
-      "blocked": 166,
+      "blocked": 165,
       "total": 338,
-      "pct_blocked": 49.1
+      "pct_blocked": 48.8
     },
     {
       "ua": "Bytespider",
@@ -100,23 +100,23 @@
     {
       "ua": "ClaudeBot",
       "operator": "Anthropic",
-      "blocked": 156,
+      "blocked": 155,
       "total": 338,
-      "pct_blocked": 46.2
+      "pct_blocked": 45.9
     },
     {
       "ua": "anthropic-ai",
       "operator": "Anthropic",
-      "blocked": 151,
+      "blocked": 150,
       "total": 338,
-      "pct_blocked": 44.7
+      "pct_blocked": 44.4
     },
     {
       "ua": "PerplexityBot",
       "operator": "Perplexity",
-      "blocked": 149,
+      "blocked": 148,
       "total": 338,
-      "pct_blocked": 44.1
+      "pct_blocked": 43.8
     },
     {
       "ua": "Google-Extended",
@@ -135,9 +135,9 @@
     {
       "ua": "Claude-Web",
       "operator": "Anthropic",
-      "blocked": 132,
+      "blocked": 131,
       "total": 338,
-      "pct_blocked": 39.1
+      "pct_blocked": 38.8
     },
     {
       "ua": "Amazonbot",
@@ -163,9 +163,9 @@
     {
       "ua": "Applebot-Extended",
       "operator": "Apple",
-      "blocked": 117,
+      "blocked": 116,
       "total": 338,
-      "pct_blocked": 34.6
+      "pct_blocked": 34.3
     },
     {
       "ua": "Meta-ExternalAgent",
@@ -191,16 +191,16 @@
     {
       "ua": "YouBot",
       "operator": "You.com",
-      "blocked": 96,
+      "blocked": 95,
       "total": 338,
-      "pct_blocked": 28.4
+      "pct_blocked": 28.1
     },
     {
       "ua": "OAI-SearchBot",
       "operator": "OpenAI",
-      "blocked": 94,
+      "blocked": 93,
       "total": 338,
-      "pct_blocked": 27.8
+      "pct_blocked": 27.5
     },
     {
       "ua": "Timpibot",
@@ -245,18 +245,18 @@
       "pct_blocked": 16.6
     },
     {
-      "ua": "ia_archiver",
-      "operator": "Internet Archive",
-      "blocked": 52,
-      "total": 338,
-      "pct_blocked": 15.4
-    },
-    {
       "ua": "img2dataset",
       "operator": "Open-source scraper",
       "blocked": 52,
       "total": 338,
       "pct_blocked": 15.4
+    },
+    {
+      "ua": "ia_archiver",
+      "operator": "Internet Archive",
+      "blocked": 51,
+      "total": 338,
+      "pct_blocked": 15.1
     },
     {
       "ua": "DeepSeekBot",
@@ -306,8 +306,8 @@
       "range": "0 (no AI blocks)",
       "lo": 0,
       "hi": 0,
-      "count": 131,
-      "pct": 38.8
+      "count": 132,
+      "pct": 39.1
     },
     {
       "range": "1\u20135",
@@ -320,8 +320,8 @@
       "range": "6\u201310",
       "lo": 6,
       "hi": 10,
-      "count": 23,
-      "pct": 6.8
+      "count": 22,
+      "pct": 6.5
     },
     {
       "range": "11\u201320",
@@ -342,30 +342,30 @@
     {
       "a": "blocks GPTBot",
       "b": "blocks ClaudeBot",
-      "a_count": 166,
-      "both": 131,
-      "pct": 78.9
+      "a_count": 165,
+      "both": 130,
+      "pct": 78.8
     },
     {
       "a": "blocks GPTBot",
       "b": "has tdmrep.json",
-      "a_count": 166,
-      "both": 8,
-      "pct": 4.8
+      "a_count": 165,
+      "both": 6,
+      "pct": 3.6
     },
     {
       "a": "has tdmrep.json",
       "b": "blocks \u22651 AI UA",
-      "a_count": 21,
-      "both": 9,
-      "pct": 42.9
+      "a_count": 7,
+      "both": 6,
+      "pct": 85.7
     },
     {
       "a": "has ai.txt",
       "b": "has tdmrep.json",
-      "a_count": 26,
-      "both": 13,
-      "pct": 50.0
+      "a_count": 3,
+      "both": 0,
+      "pct": 0.0
     },
     {
       "a": "has RSL License",
@@ -4348,24 +4348,6 @@
         ]
       },
       {
-        "site_id": "daily-express",
-        "site_name": "Daily Express",
-        "country": "GB",
-        "blocked_count": 10,
-        "blocked_uas": [
-          "Applebot-Extended",
-          "CCBot",
-          "Claude-Web",
-          "ClaudeBot",
-          "GPTBot",
-          "OAI-SearchBot",
-          "PerplexityBot",
-          "YouBot",
-          "anthropic-ai",
-          "ia_archiver"
-        ]
-      },
-      {
         "site_id": "el-mundo",
         "site_name": "El Mundo",
         "country": "ES",
@@ -5106,22 +5088,10 @@
     ],
     "tdmrep": [
       {
-        "site_id": "phileleftheros",
-        "site_name": "Phileleftheros",
-        "country": "CY",
-        "url": "http://www.philenews.com/.well-known/tdmrep.json"
-      },
-      {
         "site_id": "ouest-france",
         "site_name": "Ouest-France",
         "country": "FR",
         "url": "https://www.ouest-france.fr/.well-known/tdmrep.json"
-      },
-      {
-        "site_id": "le-monde",
-        "site_name": "Le Monde",
-        "country": "FR",
-        "url": "https://www.lemonde.fr/.well-known/tdmrep.json"
       },
       {
         "site_id": "le-point",
@@ -5130,10 +5100,10 @@
         "url": "https://www.lepoint.fr/.well-known/tdmrep.json"
       },
       {
-        "site_id": "le-figaro",
-        "site_name": "Le Figaro",
+        "site_id": "france24",
+        "site_name": "France24",
         "country": "FR",
-        "url": "http://www.lefigaro.fr/.well-known/tdmrep.json"
+        "url": "https://www.france24.com/fr/.well-known/tdmrep.json"
       },
       {
         "site_id": "le-parisien",
@@ -5142,88 +5112,16 @@
         "url": "https://www.leparisien.fr/.well-known/tdmrep.json"
       },
       {
-        "site_id": "city-am",
-        "site_name": "City AM",
-        "country": "GB",
-        "url": "http://www.cityam.com/.well-known/tdmrep.json"
+        "site_id": "le-figaro",
+        "site_name": "Le Figaro",
+        "country": "FR",
+        "url": "http://www.lefigaro.fr/.well-known/tdmrep.json"
       },
       {
         "site_id": "iptc",
         "site_name": "IPTC",
         "country": "GB",
         "url": "https://iptc.org/.well-known/tdmrep.json"
-      },
-      {
-        "site_id": "the-wire-india",
-        "site_name": "The Wire",
-        "country": "IN",
-        "url": "https://thewire.in/.well-known/tdmrep.json"
-      },
-      {
-        "site_id": "the-japan-times",
-        "site_name": "The Japan Times",
-        "country": "JP",
-        "url": "https://www.japantimes.co.jp/.well-known/tdmrep.json"
-      },
-      {
-        "site_id": "joongang-ilbo",
-        "site_name": "JoongAng Ilbo",
-        "country": "KR",
-        "url": "https://www.joins.com/.well-known/tdmrep.json"
-      },
-      {
-        "site_id": "baltic-times",
-        "site_name": "Baltic Times",
-        "country": "LV",
-        "url": "https://www.baltictimes.com/.well-known/tdmrep.json"
-      },
-      {
-        "site_id": "diario",
-        "site_name": "Diario",
-        "country": "MX",
-        "url": "https://diario.mx/.well-known/tdmrep.json"
-      },
-      {
-        "site_id": "le-quotidien",
-        "site_name": "Le Quotidien",
-        "country": "LU",
-        "url": "http://www.lequotidien.lu/.well-known/tdmrep.json"
-      },
-      {
-        "site_id": "diena",
-        "site_name": "Diena",
-        "country": "LV",
-        "url": "https://www.diena.lv/.well-known/tdmrep.json"
-      },
-      {
-        "site_id": "stuff-co-nz",
-        "site_name": "Stuff.co.nz",
-        "country": "NZ",
-        "url": "https://www.stuff.co.nz/.well-known/tdmrep.json"
-      },
-      {
-        "site_id": "philippine-daily-inquirer",
-        "site_name": "Philippine Daily Inquirer",
-        "country": "PH",
-        "url": "https://newsinfo.inquirer.net/.well-known/tdmrep.json"
-      },
-      {
-        "site_id": "the-news-pakistan",
-        "site_name": "The News International",
-        "country": "PK",
-        "url": "https://www.thenews.com.pk/.well-known/tdmrep.json"
-      },
-      {
-        "site_id": "geo-news",
-        "site_name": "Geo News",
-        "country": "PK",
-        "url": "https://www.geo.tv/.well-known/tdmrep.json"
-      },
-      {
-        "site_id": "the-straits-times-print",
-        "site_name": "The Straits Times Print",
-        "country": "SG",
-        "url": "https://www.straitstimes.com/.well-known/tdmrep.json"
       },
       {
         "site_id": "chicago-tribune",
@@ -5252,40 +5150,10 @@
     ],
     "ai-txt": [
       {
-        "site_id": "der-standard",
-        "site_name": "Der Standard",
-        "country": "AT",
-        "url": "https://derstandard.at/ai.txt"
-      },
-      {
-        "site_id": "die-presse",
-        "site_name": "Die Presse",
-        "country": "AT",
-        "url": "http://diepresse.com/ai.txt"
-      },
-      {
         "site_id": "rio-times",
         "site_name": "Rio Times",
         "country": "BR",
         "url": "https://riotimesonline.com/ai.txt"
-      },
-      {
-        "site_id": "china-daily-english",
-        "site_name": "China Daily (English)",
-        "country": "CN",
-        "url": "http://www.chinadaily.com.cn/ai.txt"
-      },
-      {
-        "site_id": "phileleftheros",
-        "site_name": "Phileleftheros",
-        "country": "CY",
-        "url": "http://www.philenews.com/ai.txt"
-      },
-      {
-        "site_id": "s-ddeutsche-zeitung",
-        "site_name": "S\u00fcddeutsche Zeitung",
-        "country": "DE",
-        "url": "http://www.sueddeutsche.de/ai.txt"
       },
       {
         "site_id": "ekstra-bladet",
@@ -5298,114 +5166,6 @@
         "site_name": "Politiken",
         "country": "DK",
         "url": "http://politiken.dk/ai.txt"
-      },
-      {
-        "site_id": "err",
-        "site_name": "ERR",
-        "country": "EE",
-        "url": "https://www.err.ee/ai.txt"
-      },
-      {
-        "site_id": "le-monde",
-        "site_name": "Le Monde",
-        "country": "FR",
-        "url": "https://www.lemonde.fr/ai.txt"
-      },
-      {
-        "site_id": "daily-mail-mail-on-sunday",
-        "site_name": "Daily Mail / Mail on Sunday",
-        "country": "GB",
-        "url": "http://www.dailymail.co.uk/ai.txt"
-      },
-      {
-        "site_id": "the-wire-india",
-        "site_name": "The Wire",
-        "country": "IN",
-        "url": "https://thewire.in/ai.txt"
-      },
-      {
-        "site_id": "japan-industry-news",
-        "site_name": "Japan Industry News",
-        "country": "JP",
-        "url": "https://www.japanindustrynews.com/ai.txt"
-      },
-      {
-        "site_id": "the-japan-times",
-        "site_name": "The Japan Times",
-        "country": "JP",
-        "url": "https://www.japantimes.co.jp/ai.txt"
-      },
-      {
-        "site_id": "joongang-ilbo",
-        "site_name": "JoongAng Ilbo",
-        "country": "KR",
-        "url": "https://www.joins.com/ai.txt"
-      },
-      {
-        "site_id": "baltic-times",
-        "site_name": "Baltic Times",
-        "country": "LV",
-        "url": "https://www.baltictimes.com/ai.txt"
-      },
-      {
-        "site_id": "diario",
-        "site_name": "Diario",
-        "country": "MX",
-        "url": "https://diario.mx/ai.txt"
-      },
-      {
-        "site_id": "le-quotidien",
-        "site_name": "Le Quotidien",
-        "country": "LU",
-        "url": "http://www.lequotidien.lu/ai.txt"
-      },
-      {
-        "site_id": "diena",
-        "site_name": "Diena",
-        "country": "LV",
-        "url": "https://www.diena.lv/ai.txt"
-      },
-      {
-        "site_id": "stuff-co-nz",
-        "site_name": "Stuff.co.nz",
-        "country": "NZ",
-        "url": "https://www.stuff.co.nz/ai.txt"
-      },
-      {
-        "site_id": "philippine-daily-inquirer",
-        "site_name": "Philippine Daily Inquirer",
-        "country": "PH",
-        "url": "https://newsinfo.inquirer.net/ai.txt"
-      },
-      {
-        "site_id": "abs-cbn-news",
-        "site_name": "ABS-CBN News",
-        "country": "PH",
-        "url": "https://news.abs-cbn.com/ai.txt"
-      },
-      {
-        "site_id": "geo-news",
-        "site_name": "Geo News",
-        "country": "PK",
-        "url": "https://www.geo.tv/ai.txt"
-      },
-      {
-        "site_id": "tt",
-        "site_name": "TT Nyhetsbyr\u00e5n",
-        "country": "SE",
-        "url": "https://tt.se/ai.txt"
-      },
-      {
-        "site_id": "the-straits-times-print",
-        "site_name": "The Straits Times Print",
-        "country": "SG",
-        "url": "https://www.straitstimes.com/ai.txt"
-      },
-      {
-        "site_id": "tamil-murasu",
-        "site_name": "Tamil Murasu",
-        "country": "SG",
-        "url": "https://www.tamilmurasu.com.sg/ai.txt"
       }
     ],
     "trust-txt-dta": [
@@ -5427,7 +5187,7 @@
         "site_id": "livedoor-news",
         "site_name": "Livedoor News",
         "country": "JP",
-        "images": 2
+        "images": 3
       }
     ],
     "iptc-datamining": [
@@ -5438,22 +5198,22 @@
         "images": 8
       },
       {
-        "site_id": "spectator",
-        "site_name": "Spectator",
-        "country": "GB",
-        "images": 7
-      },
-      {
         "site_id": "blikk",
         "site_name": "Blikk",
         "country": "HU",
         "images": 5
       },
       {
-        "site_id": "focus-online",
-        "site_name": "FOCUS Online",
-        "country": "DE",
-        "images": 3
+        "site_id": "liberation",
+        "site_name": "Liberation",
+        "country": "FR",
+        "images": 4
+      },
+      {
+        "site_id": "the-japan-times",
+        "site_name": "The Japan Times",
+        "country": "JP",
+        "images": 4
       },
       {
         "site_id": "npr",
@@ -5462,16 +5222,34 @@
         "images": 3
       },
       {
-        "site_id": "city-am",
-        "site_name": "City AM",
+        "site_id": "spectator",
+        "site_name": "Spectator",
         "country": "GB",
         "images": 2
       },
       {
-        "site_id": "the-japan-times",
-        "site_name": "The Japan Times",
-        "country": "JP",
-        "images": 2
+        "site_id": "city-am",
+        "site_name": "City AM",
+        "country": "GB",
+        "images": 1
+      },
+      {
+        "site_id": "cyprus-mail",
+        "site_name": "Cyprus Mail",
+        "country": "CY",
+        "images": 1
+      },
+      {
+        "site_id": "die-presse",
+        "site_name": "Die Presse",
+        "country": "AT",
+        "images": 1
+      },
+      {
+        "site_id": "focus-online",
+        "site_name": "FOCUS Online",
+        "country": "DE",
+        "images": 1
       },
       {
         "site_id": "propublica",

@@ -20,23 +20,23 @@
       }
     ]
   },
-  "il-messaggero": {
+  "metro": {
     "image_count_with_c2pa": 1,
     "by_outcome": [
       {
-        "outcome": "modified",
+        "outcome": "valid",
         "images": 1
       }
     ],
     "by_signer": [
       {
-        "signer": "Google LLC",
+        "signer": "Canva",
         "images": 1
       }
     ],
     "by_validation_state": [
       {
-        "state": "Invalid",
+        "state": "Valid",
         "images": 1
       }
     ]
