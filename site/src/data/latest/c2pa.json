@@ -1,7 +1,7 @@
 {
-  "image_count_total": 4596,
-  "image_count_with_c2pa": 4,
-  "pct_with_c2pa": 0.09,
+  "image_count_total": 4595,
+  "image_count_with_c2pa": 5,
+  "pct_with_c2pa": 0.11,
   "by_outcome": [
     {
       "outcome": "valid",
@@ -9,7 +9,7 @@
     },
     {
       "outcome": "modified",
-      "images": 0
+      "images": 1
     },
     {
       "outcome": "expired",
@@ -26,15 +26,15 @@
   ],
   "by_signer": [
     {
+      "signer": "OpenAI OpCo, LLC",
+      "images": 2
+    },
+    {
       "signer": "International Press Telecommunications Council",
       "images": 2
     },
     {
-      "signer": "Canva",
-      "images": 1
-    },
-    {
-      "signer": "OpenAI OpCo, LLC",
+      "signer": "Adobe Inc.",
       "images": 1
     }
   ],
@@ -42,6 +42,10 @@
     {
       "state": "Valid",
       "images": 4
+    },
+    {
+      "state": "Invalid",
+      "images": 1
     }
   ],
   "top_sites": [
@@ -52,8 +56,14 @@
       "images_with_c2pa": 2
     },
     {
-      "site_id": "metro",
-      "site_name": "Metro",
+      "site_id": "cyprus-mail",
+      "site_name": "Cyprus Mail",
+      "country": "CY",
+      "images_with_c2pa": 1
+    },
+    {
+      "site_id": "city-am",
+      "site_name": "City AM",
       "country": "GB",
       "images_with_c2pa": 1
     },

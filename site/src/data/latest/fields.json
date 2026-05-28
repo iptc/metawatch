@@ -1,53 +1,53 @@
 [
   {
     "field": "Creator",
-    "present": 344,
-    "total": 4524,
-    "pct": 7.6,
-    "weight": 25,
-    "weight_pct": 25.0,
-    "scored": true
-  },
-  {
-    "field": "Copyright",
-    "present": 293,
-    "total": 4524,
-    "pct": 6.5,
+    "present": 369,
+    "total": 4516,
+    "pct": 8.2,
     "weight": 25,
     "weight_pct": 25.0,
     "scored": true
   },
   {
     "field": "CreditLine",
-    "present": 287,
-    "total": 4524,
-    "pct": 6.3,
+    "present": 298,
+    "total": 4516,
+    "pct": 6.6,
+    "weight": 25,
+    "weight_pct": 25.0,
+    "scored": true
+  },
+  {
+    "field": "Copyright",
+    "present": 296,
+    "total": 4516,
+    "pct": 6.6,
     "weight": 25,
     "weight_pct": 25.0,
     "scored": true
   },
   {
     "field": "DateCreated",
-    "present": 279,
-    "total": 4524,
-    "pct": 6.2,
+    "present": 268,
+    "total": 4516,
+    "pct": 5.9,
     "weight": 0,
     "weight_pct": 0.0,
     "scored": false
   },
   {
     "field": "ObjectName",
-    "present": 240,
-    "total": 4524,
-    "pct": 5.3,
+    "present": 242,
+    "total": 4516,
+    "pct": 5.4,
     "weight": 0,
     "weight_pct": 0.0,
     "scored": false
   },
   {
     "field": "CaptionDescription",
-    "present": 217,
-    "total": 4524,
+    "present": 219,
+    "total": 4516,
     "pct": 4.8,
     "weight": 25,
     "weight_pct": 25.0,
@@ -55,63 +55,63 @@
   },
   {
     "field": "Source",
-    "present": 182,
-    "total": 4524,
-    "pct": 4.0,
+    "present": 194,
+    "total": 4516,
+    "pct": 4.3,
     "weight": 0,
     "weight_pct": 0.0,
     "scored": false
   },
   {
     "field": "LocationCreated",
-    "present": 162,
-    "total": 4524,
-    "pct": 3.6,
+    "present": 168,
+    "total": 4516,
+    "pct": 3.7,
     "weight": 0,
     "weight_pct": 0.0,
     "scored": false
   },
   {
     "field": "Keywords",
-    "present": 128,
-    "total": 4524,
-    "pct": 2.8,
+    "present": 136,
+    "total": 4516,
+    "pct": 3.0,
     "weight": 0,
     "weight_pct": 0.0,
     "scored": false
   },
   {
     "field": "WebStatement",
-    "present": 89,
-    "total": 4524,
-    "pct": 2.0,
+    "present": 81,
+    "total": 4516,
+    "pct": 1.8,
     "weight": 0,
     "weight_pct": 0.0,
     "scored": false
   },
   {
     "field": "LicensorURL",
-    "present": 58,
-    "total": 4524,
-    "pct": 1.3,
-    "weight": 0,
-    "weight_pct": 0.0,
-    "scored": false
-  },
-  {
-    "field": "DataMining",
-    "present": 31,
-    "total": 4524,
-    "pct": 0.7,
+    "present": 53,
+    "total": 4516,
+    "pct": 1.2,
     "weight": 0,
     "weight_pct": 0.0,
     "scored": false
   },
   {
     "field": "UsageTerms",
-    "present": 29,
-    "total": 4524,
-    "pct": 0.6,
+    "present": 40,
+    "total": 4516,
+    "pct": 0.9,
+    "weight": 0,
+    "weight_pct": 0.0,
+    "scored": false
+  },
+  {
+    "field": "DataMining",
+    "present": 30,
+    "total": 4516,
+    "pct": 0.7,
     "weight": 0,
     "weight_pct": 0.0,
     "scored": false
@@ -119,16 +119,7 @@
   {
     "field": "DigitalSourceType",
     "present": 2,
-    "total": 4524,
-    "pct": 0.0,
-    "weight": 0,
-    "weight_pct": 0.0,
-    "scored": false
-  },
-  {
-    "field": "LocationShown",
-    "present": 1,
-    "total": 4524,
+    "total": 4516,
     "pct": 0.0,
     "weight": 0,
     "weight_pct": 0.0,
@@ -137,7 +128,7 @@
   {
     "field": "AIPromptInformation",
     "present": 0,
-    "total": 4524,
+    "total": 4516,
     "pct": 0.0,
     "weight": 0,
     "weight_pct": 0.0,
@@ -146,7 +137,7 @@
   {
     "field": "AIPromptWriterName",
     "present": 0,
-    "total": 4524,
+    "total": 4516,
     "pct": 0.0,
     "weight": 0,
     "weight_pct": 0.0,
@@ -155,7 +146,7 @@
   {
     "field": "AISystemUsed",
     "present": 0,
-    "total": 4524,
+    "total": 4516,
     "pct": 0.0,
     "weight": 0,
     "weight_pct": 0.0,
@@ -164,7 +155,7 @@
   {
     "field": "AISystemVersionUsed",
     "present": 0,
-    "total": 4524,
+    "total": 4516,
     "pct": 0.0,
     "weight": 0,
     "weight_pct": 0.0,
@@ -173,7 +164,7 @@
   {
     "field": "AltTextAccessibility",
     "present": 0,
-    "total": 4524,
+    "total": 4516,
     "pct": 0.0,
     "weight": 0,
     "weight_pct": 0.0,
@@ -182,7 +173,7 @@
   {
     "field": "ExtendedDescriptionAccessibility",
     "present": 0,
-    "total": 4524,
+    "total": 4516,
     "pct": 0.0,
     "weight": 0,
     "weight_pct": 0.0,
@@ -191,7 +182,7 @@
   {
     "field": "Genre",
     "present": 0,
-    "total": 4524,
+    "total": 4516,
     "pct": 0.0,
     "weight": 0,
     "weight_pct": 0.0,
@@ -200,7 +191,16 @@
   {
     "field": "LicensorName",
     "present": 0,
-    "total": 4524,
+    "total": 4516,
+    "pct": 0.0,
+    "weight": 0,
+    "weight_pct": 0.0,
+    "scored": false
+  },
+  {
+    "field": "LocationShown",
+    "present": 0,
+    "total": 4516,
     "pct": 0.0,
     "weight": 0,
     "weight_pct": 0.0,
