@@ -267,8 +267,8 @@ sites:
     window_days: 30
 - id: yahoo-news
   name: Yahoo! News
-  url: https://news.yahoo.com/rss/
-  homepage: https://news.yahoo.com/rss/
+  url: https://news.yahoo.com/
+  homepage: https://news.yahoo.com/
   category: newspaper
   language_primary: en
   notes: ''
