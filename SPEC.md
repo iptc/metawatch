@@ -315,6 +315,10 @@ One Parquet file per logical table per run, written to `data/runs/{YYYY-MM-DD}/`
 | articles_sampled | int | |
 | images_analysed | int | |
 | has_news_media_org_jsonld | bool | Phase 3 |
+| has_content_signals | bool | Phase 3 — Cloudflare `Content-Signal:` directive present in robots.txt |
+| content_signal_ai_train | string | Phase 3 — `yes`/`no`/null |
+| content_signal_ai_input | string | Phase 3 — `yes`/`no`/null |
+| content_signal_search | string | Phase 3 — `yes`/`no`/null |
 | has_tdmrep | bool | Phase 3 |
 | has_trust_txt | bool | Phase 3 |
 | has_ai_txt | bool | Phase 3 |

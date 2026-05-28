@@ -55,6 +55,19 @@ KNOWN_UAS: list[TrackedUA] = _load_known_uas()
 # RSL spec: https://rslstandard.org/guide/robots-txt
 _RSL_LINE_RE = re.compile(r"^\s*License\s*:\s*(\S+)", re.IGNORECASE | re.MULTILINE)
 
+# Match `Content-Signal: ...` lines (Cloudflare Content Signals).
+# Spec: https://contentsignals.org/ — line value is a comma-separated list of
+# `<signal>=<yes|no>` pairs, where <signal> ∈ {search, ai-input, ai-train}.
+# The line may be scoped to a preceding User-agent group; we parse it
+# text-wide rather than per-UA at this stage (mirroring how we treat RSL),
+# because the headline question is presence + the publisher's stated stance.
+_CONTENT_SIGNAL_LINE_RE = re.compile(
+    r"^\s*Content-Signal\s*:\s*(.+)$", re.IGNORECASE | re.MULTILINE
+)
+# Recognised signal names from the Content Signals spec. Anything else we see
+# on a line is preserved but doesn't get its own dashboard column.
+_CONTENT_SIGNAL_KNOWN = ("search", "ai-input", "ai-train")
+
 
 @dataclass
 class AiBotVerdict:
@@ -68,6 +81,11 @@ class RobotsAiAnalysis:
     """Result of running each tracked UA through the robots.txt at site root."""
     per_ua: list[AiBotVerdict] = field(default_factory=list)
     rsl_license_urls: list[str] = field(default_factory=list)
+    # Cloudflare Content Signals — merged signal→value (last-wins across all
+    # Content-Signal lines in the file). Keys are the lower-case signal names
+    # (e.g. "ai-train"); values are the literal directive value as-written
+    # (e.g. "no" / "yes"), lower-cased and stripped.
+    content_signals: dict[str, str] = field(default_factory=dict)
 
     @property
     def blocked_count(self) -> int:
@@ -76,6 +94,10 @@ class RobotsAiAnalysis:
     @property
     def has_rsl(self) -> bool:
         return bool(self.rsl_license_urls)
+
+    @property
+    def has_content_signals(self) -> bool:
+        return bool(self.content_signals)
 
 
 def analyse_robots_for_ai(robots_text: str, site_url: str) -> RobotsAiAnalysis:
@@ -107,7 +129,32 @@ def analyse_robots_for_ai(robots_text: str, site_url: str) -> RobotsAiAnalysis:
         )
 
     out.rsl_license_urls = [m.group(1).strip() for m in _RSL_LINE_RE.finditer(robots_text)]
+    out.content_signals = _parse_content_signals(robots_text)
     return out
+
+
+def _parse_content_signals(robots_text: str) -> dict[str, str]:
+    """Extract Cloudflare Content-Signal directives from robots.txt.
+
+    Returns a merged ``{signal: value}`` dict across every ``Content-Signal:``
+    line found. Conflicts resolve last-line-wins; ordering matches the spec's
+    "later directive overrides earlier" convention. Unknown signal names are
+    preserved so a future spec extension doesn't silently drop data.
+    """
+    merged: dict[str, str] = {}
+    for line_match in _CONTENT_SIGNAL_LINE_RE.finditer(robots_text):
+        body = line_match.group(1)
+        # Strip trailing inline comments; robots.txt allows `# comment` on any line.
+        body = body.split("#", 1)[0]
+        for pair in body.split(","):
+            if "=" not in pair:
+                continue
+            name, _, value = pair.partition("=")
+            name = name.strip().lower()
+            value = value.strip().lower()
+            if name and value:
+                merged[name] = value
+    return merged
 
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -136,6 +183,10 @@ class SiteOptoutSignals:
     # RSL — populated from robots.txt analysis, mirrored here for convenience
     has_rsl: bool = False
     rsl_license_urls: list[str] = field(default_factory=list)
+    # Cloudflare Content Signals — also lifted from robots.txt analysis.
+    # Spec: https://contentsignals.org/
+    has_content_signals: bool = False
+    content_signals: dict[str, str] = field(default_factory=dict)
     # robots.txt AI-bot matrix
     robots_ai: RobotsAiAnalysis = field(default_factory=RobotsAiAnalysis)
 
@@ -215,6 +266,8 @@ async def probe_site_optouts(
     out.robots_ai = analyse_robots_for_ai(robots_text, site_url)
     out.has_rsl = out.robots_ai.has_rsl
     out.rsl_license_urls = out.robots_ai.rsl_license_urls
+    out.has_content_signals = out.robots_ai.has_content_signals
+    out.content_signals = dict(out.robots_ai.content_signals)
 
     root = site_root(site_url)
 

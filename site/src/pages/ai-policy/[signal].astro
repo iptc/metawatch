@@ -16,7 +16,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 // Per-signal narrative copy + table-column choice. Kept here rather than in
 // the JSON because it's editorial, not data — the workshop framing for each
 // mechanism is different (EU policy / DeviantArt / IPTC PLUS spec / etc.).
-const COPY: Record<string, { blurb: string; columns: ('count' | 'value' | 'uas' | 'url' | 'rsl' | 'images')[] }> = {
+const COPY: Record<string, { blurb: string; columns: ('count' | 'value' | 'uas' | 'url' | 'rsl' | 'images' | 'content-signals')[] }> = {
   'robots-ai': {
     blurb: `Sites whose <code>robots.txt</code> disallows at least one of the ${data.ai_bots.length} tracked AI/scraper user-agents at the site root. The "UAs blocked" column shows how many — see the per-row list for which.`,
     columns: ['count', 'uas'],
@@ -36,6 +36,10 @@ const COPY: Record<string, { blurb: string; columns: ('count' | 'value' | 'uas' 
   'trust-txt-dta': {
     blurb: `Sites whose <code>trust.txt</code> contains the <code>datatrainingallowed=no</code> directive. <code>trust.txt</code> is JournalList's identity file for journalism; the data-training extension is widely understood among trust.txt adopters.`,
     columns: ['value'],
+  },
+  'content-signals': {
+    blurb: `Sites whose <code>robots.txt</code> carries Cloudflare's <code>Content-Signal:</code> directives — a recent proposal at <a href="https://contentsignals.org/" target="_blank" rel="noopener">contentsignals.org</a>. Three independent signals: <code>search</code> (use in search results), <code>ai-input</code> (use as input/RAG context for AI answers), and <code>ai-train</code> (use to train AI models). The columns show each publisher's declared <code>yes</code>/<code>no</code> value for each.`,
+    columns: ['content-signals'],
   },
   'noai-meta': {
     blurb: `Sites carrying <code>noai</code> / <code>noimageai</code> / <code>noml</code> tokens in an <code>X-Robots-Tag</code> response header or a <code>&lt;meta name="robots"&gt;</code> tag on the article page. Image count is how many sampled images on the site were affected.`,
@@ -79,6 +83,11 @@ const copy = COPY[signalKey] ?? { blurb: '', columns: ['count'] };
         {copy.columns.includes('rsl') && <th>Licence XML</th>}
         {copy.columns.includes('value') && <th>Value</th>}
         {copy.columns.includes('images') && <th class="num">Images</th>}
+        {copy.columns.includes('content-signals') && <>
+          <th>search</th>
+          <th>ai-input</th>
+          <th>ai-train</th>
+        </>}
       </tr></thead>
       <tbody>
         {rows.map((r: any) => (
@@ -105,6 +114,11 @@ const copy = COPY[signalKey] ?? { blurb: '', columns: ['count'] };
             )}
             {copy.columns.includes('value') && <td><code>datatrainingallowed={r.value}</code></td>}
             {copy.columns.includes('images') && <td class="num">{r.images}</td>}
+            {copy.columns.includes('content-signals') && <>
+              <td class={`cs cs-${r.search ?? 'absent'}`}>{r.search ?? '—'}</td>
+              <td class={`cs cs-${r.ai_input ?? 'absent'}`}>{r.ai_input ?? '—'}</td>
+              <td class={`cs cs-${r.ai_train ?? 'absent'}`}>{r.ai_train ?? '—'}</td>
+            </>}
           </tr>
         ))}
       </tbody>
@@ -131,4 +145,12 @@ const copy = COPY[signalKey] ?? { blurb: '', columns: ['count'] };
   td.uas { font-size: 0.85rem; }
   .cc { color: var(--iptc-muted, #6b7280); }
   .extlink { word-break: break-all; font-family: ui-monospace, monospace; font-size: 0.85rem; }
+  td.cs {
+    font-family: ui-monospace, monospace;
+    font-size: 0.85rem;
+    text-align: center;
+  }
+  td.cs-no { color: #b91c1c; font-weight: 600; }
+  td.cs-yes { color: var(--iptc-green, #6db33f); }
+  td.cs-absent { color: var(--iptc-muted, #6b7280); }
 </style>

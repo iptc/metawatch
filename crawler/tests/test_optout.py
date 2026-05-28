@@ -88,6 +88,55 @@ def test_rsl_absent_when_no_license_line():
 
 
 # ──────────────────────────────────────────────────────────────────────────────
+# Cloudflare Content Signals (contentsignals.org)
+# ──────────────────────────────────────────────────────────────────────────────
+
+def test_content_signals_single_line_three_signals():
+    robots = """\
+User-agent: *
+Content-Signal: search=yes, ai-input=no, ai-train=no
+"""
+    out = analyse_robots_for_ai(robots, "https://example.com")
+    assert out.has_content_signals is True
+    assert out.content_signals == {"search": "yes", "ai-input": "no", "ai-train": "no"}
+
+
+def test_content_signals_case_insensitive_directive():
+    robots = "content-signal: ai-train=no\n"
+    out = analyse_robots_for_ai(robots, "https://example.com")
+    assert out.content_signals == {"ai-train": "no"}
+
+
+def test_content_signals_multiple_lines_last_wins():
+    # Later directives override earlier ones per the spec's stated convention.
+    robots = """\
+Content-Signal: ai-train=yes
+Content-Signal: ai-train=no, search=yes
+"""
+    out = analyse_robots_for_ai(robots, "https://example.com")
+    assert out.content_signals == {"ai-train": "no", "search": "yes"}
+
+
+def test_content_signals_absent():
+    out = analyse_robots_for_ai("User-agent: *\nDisallow:\n", "https://example.com")
+    assert out.has_content_signals is False
+    assert out.content_signals == {}
+
+
+def test_content_signals_ignores_inline_comment():
+    robots = "Content-Signal: ai-train=no  # please don't train on us\n"
+    out = analyse_robots_for_ai(robots, "https://example.com")
+    assert out.content_signals == {"ai-train": "no"}
+
+
+def test_content_signals_malformed_pair_skipped():
+    # A bare token without `=` is ignored, the rest still parses.
+    robots = "Content-Signal: bogus, ai-train=no\n"
+    out = analyse_robots_for_ai(robots, "https://example.com")
+    assert out.content_signals == {"ai-train": "no"}
+
+
+# ──────────────────────────────────────────────────────────────────────────────
 # noai / noimageai token scanning
 # ──────────────────────────────────────────────────────────────────────────────
 

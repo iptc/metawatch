@@ -14,7 +14,7 @@ function bar(pct: number, max = 100) {
   <h1>AI opt-out signals</h1>
 
   <p class="lede">
-    Publishers have at least eight independent technical mechanisms for signalling that they do not
+    Publishers have at least nine independent technical mechanisms for signalling that they do not
     want their images and articles used to train generative-AI models. They sit at different layers
     (site-wide files, HTTP headers, embedded image metadata) and were proposed by different bodies
     over a short period — so adoption is uneven and the signals do not always agree. Article 4 of
@@ -152,6 +152,13 @@ function bar(pct: number, max = 100) {
       RSL XML file (<a href="https://rslstandard.org/guide/robots-txt" target="_blank"
       rel="noopener">spec</a>). Presence flag and the licence URL; we will not parse the XML at
       first.</li>
+    <li><strong>Content-Signal</strong>: scan robots.txt for Cloudflare
+      <code>Content-Signal:</code> directives (<a href="https://contentsignals.org/"
+      target="_blank" rel="noopener">contentsignals.org</a>). Each line is a
+      comma-separated list of <code>&lt;signal&gt;=yes|no</code> pairs where
+      <code>&lt;signal&gt;</code> is one of <code>search</code>, <code>ai-input</code>,
+      <code>ai-train</code>; merged across lines with last-wins. We record the
+      presence flag plus each signal's value.</li>
     <li><strong>trust.txt</strong>: HTTP probe of <code>/.well-known/trust.txt</code> and
       <code>/trust.txt</code>; parse for the <code>datatrainingallowed=no</code> directive.
       Presence flag and the directive value are recorded.</li>

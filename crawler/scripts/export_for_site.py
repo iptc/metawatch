@@ -486,6 +486,12 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         if s["has_trust_txt"] and (s["trust_txt_datatraining"] or "").lower() == "no"
     )
     sites_blocking_any_ai = sum(1 for s in probed_sites if s["ai_bots_blocked_count"] > 0)
+    # Content Signals headline metric: sites that emit any Content-Signal:
+    # directive at all. (The per-signal values — ai-train=no etc. — show up
+    # on the drill-down page.) The probe records the presence flag even when
+    # only `search=yes` is asserted, because the publisher has nonetheless
+    # adopted the mechanism.
+    sites_with_content_signals = sum(1 for s in probed_sites if s.get("has_content_signals"))
 
     images_with_noai = sum(1 for i in ok_imgs if i.get("noai_tokens"))
     images_with_cawg = sum(1 for i in ok_imgs if i.get("cawg_training_mining_json"))
@@ -526,6 +532,13 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
             "note": "Spawning AI consent proposal",
             "num": sites_with_ai_txt, "denom": n_probed,
             "pct": _pct(sites_with_ai_txt, n_probed),
+        },
+        {
+            "key": "content-signals", "scope": "site",
+            "label": "robots.txt — Content-Signal",
+            "note": "Cloudflare Content Signals (contentsignals.org)",
+            "num": sites_with_content_signals, "denom": n_probed,
+            "pct": _pct(sites_with_content_signals, n_probed),
         },
         {
             "key": "trust-txt-dta", "scope": "site",
@@ -673,6 +686,21 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         for s in probed_sites
         if s["has_trust_txt"] and (s["trust_txt_datatraining"] or "").lower() == "no"
     ]
+    # Content-Signals drill-down: one row per site with its three known
+    # signal values. Sort so publishers opting out of AI-training appear first.
+    def _cs_sort_key(s: dict) -> tuple:
+        ai_train = (s.get("content_signal_ai_train") or "").lower()
+        return (0 if ai_train == "no" else 1, s.get("site_name", "").lower())
+    content_signals_sites = sorted(
+        [
+            {**_site_basic(s["site_id"]),
+             "ai_train": s.get("content_signal_ai_train"),
+             "ai_input": s.get("content_signal_ai_input"),
+             "search": s.get("content_signal_search")}
+            for s in probed_sites if s.get("has_content_signals")
+        ],
+        key=_cs_sort_key,
+    )
     # robots-ai: sites that block ≥1 UA, sorted by block count desc.
     robots_ai_sites = sorted(
         [
@@ -721,6 +749,7 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         "rsl": rsl_sites,
         "ai-txt": ai_txt_sites,
         "trust-txt-dta": trust_dta_sites,
+        "content-signals": content_signals_sites,
         "noai-meta": noai_sites,
         "iptc-datamining": datamining_sites,
         "cawg-training-mining": cawg_sites,

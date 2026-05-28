@@ -60,6 +60,13 @@ class SiteRow:
     has_trust_txt: bool = False
     trust_txt_datatraining: str | None = None  # e.g. "no", "yes" — None when directive absent
     ai_bots_blocked_count: int = 0  # how many tracked UAs the robots.txt disallows at root
+    # Cloudflare Content Signals (contentsignals.org) — three known signals
+    # are split into their own columns for easy querying. None means the
+    # directive was not present in any Content-Signal: line in robots.txt.
+    has_content_signals: bool = False
+    content_signal_ai_train: str | None = None  # "no" / "yes" / None
+    content_signal_ai_input: str | None = None
+    content_signal_search: str | None = None
 
 
 @dataclass
@@ -193,6 +200,10 @@ def _write_sites(path: Path, rows: list[SiteRow]) -> None:
         "has_trust_txt": [r.has_trust_txt for r in rows],
         "trust_txt_datatraining": [r.trust_txt_datatraining for r in rows],
         "ai_bots_blocked_count": [r.ai_bots_blocked_count for r in rows],
+        "has_content_signals": [r.has_content_signals for r in rows],
+        "content_signal_ai_train": [r.content_signal_ai_train for r in rows],
+        "content_signal_ai_input": [r.content_signal_ai_input for r in rows],
+        "content_signal_search": [r.content_signal_search for r in rows],
     })
     pq.write_table(table, path, compression="zstd")
 

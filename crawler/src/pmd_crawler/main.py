@@ -277,6 +277,10 @@ async def _crawl_site(
             has_trust_txt=optout_signals.has_trust_txt,
             trust_txt_datatraining=optout_signals.trust_txt_datatraining,
             ai_bots_blocked_count=optout_signals.robots_ai.blocked_count,
+            has_content_signals=optout_signals.has_content_signals,
+            content_signal_ai_train=optout_signals.content_signals.get("ai-train"),
+            content_signal_ai_input=optout_signals.content_signals.get("ai-input"),
+            content_signal_search=optout_signals.content_signals.get("search"),
         )
 
     if not robots.allowed_at_root:
