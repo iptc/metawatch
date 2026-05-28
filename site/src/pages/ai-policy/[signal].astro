@@ -16,7 +16,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 // Per-signal narrative copy + table-column choice. Kept here rather than in
 // the JSON because it's editorial, not data — the workshop framing for each
 // mechanism is different (EU policy / DeviantArt / IPTC PLUS spec / etc.).
-const COPY: Record<string, { blurb: string; columns: ('count' | 'value' | 'uas' | 'url' | 'rsl' | 'images' | 'content-signals')[] }> = {
+const COPY: Record<string, { blurb: string; columns: ('count' | 'value' | 'uas' | 'url' | 'rsl' | 'images' | 'content-signals' | 'articles')[] }> = {
   'robots-ai': {
     blurb: `Sites whose <code>robots.txt</code> disallows at least one of the ${data.ai_bots.length} tracked AI/scraper user-agents at the site root. The "UAs blocked" column shows how many — see the per-row list for which.`,
     columns: ['count', 'uas'],
@@ -24,6 +24,10 @@ const COPY: Record<string, { blurb: string; columns: ('count' | 'value' | 'uas' 
   'tdmrep': {
     blurb: `Sites publishing <code>/.well-known/tdmrep.json</code> — the TDM Reservation Protocol, the file format aligned with Article 4 of the EU DSM Directive for machine-readable opt-out reservations.`,
     columns: ['url'],
+  },
+  'tdmrep-meta': {
+    blurb: `Sites where at least one sampled article carried a <code>&lt;meta name="tdm-reservation" content="1"&gt;</code> tag in its HTML head — the per-page alternative to the site-wide <code>/.well-known/tdmrep.json</code> file. The count shows how many of the sampled articles on the site carried the tag.`,
+    columns: ['articles'],
   },
   'rsl': {
     blurb: `Sites whose <code>robots.txt</code> carries a <code>License:</code> directive pointing at a Really Simple Licensing (RSL) XML file. <a href="https://rslstandard.org/" target="_blank" rel="noopener">rslstandard.org</a>.`,
@@ -83,6 +87,7 @@ const copy = COPY[signalKey] ?? { blurb: '', columns: ['count'] };
         {copy.columns.includes('rsl') && <th>Licence XML</th>}
         {copy.columns.includes('value') && <th>Value</th>}
         {copy.columns.includes('images') && <th class="num">Images</th>}
+        {copy.columns.includes('articles') && <th class="num">Articles with tag</th>}
         {copy.columns.includes('content-signals') && <>
           <th>search</th>
           <th>ai-input</th>
@@ -114,6 +119,7 @@ const copy = COPY[signalKey] ?? { blurb: '', columns: ['count'] };
             )}
             {copy.columns.includes('value') && <td><code>datatrainingallowed={r.value}</code></td>}
             {copy.columns.includes('images') && <td class="num">{r.images}</td>}
+            {copy.columns.includes('articles') && <td class="num">{r.articles}{r.articles_total ? ` / ${r.articles_total}` : ''}</td>}
             {copy.columns.includes('content-signals') && <>
               <td class={`cs cs-${r.search ?? 'absent'}`}>{r.search ?? '—'}</td>
               <td class={`cs cs-${r.ai_input ?? 'absent'}`}>{r.ai_input ?? '—'}</td>

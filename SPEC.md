@@ -351,6 +351,7 @@ One Parquet file per logical table per run, written to `data/runs/{YYYY-MM-DD}/`
 | jsonld_news_article | string (JSON) |
 | http_status | int |
 | fetched_at | timestamp |
+| tdm_reservation | int | Phase 3 — value of `<meta name="tdm-reservation">`; 0/1/null |
 
 ### `images.parquet` (1 row per image)
 
@@ -401,11 +402,14 @@ Long format. Lets us answer "which specific fields are most/least populated."
 
 ## 8. Tracked AI/scraper UAs (Phase 3)
 
-Fixed list, evaluated against each site's `robots.txt`:
+Fixed list, evaluated against each site's `robots.txt`. Primary source is
+Appendix A of the [IPTC Generative AI Opt-Out Best Practice Recommendations
+v2.0](https://iptc.org/std/guidelines/data-mining-opt-out/IPTC-Generative-AI-Opt-Out-Best-Practices-v2.0.pdf),
+with a handful of additions for operators the IPTC list doesn't yet cover
+(DeepSeek, Mistral, xAI, etc.). 60+ UAs as of the current version.
 
-`AI2Bot`, `Amazonbot`, `anthropic-ai`, `Applebot-Extended`, `archive.org_bot`, `Bytespider`, `CCBot`, `ChatGPT-User`, `Claude-User`, `Claude-Web`, `ClaudeBot`, `cohere-ai`, `cohere-training-data-crawler`, `DeepSeekBot`, `Diffbot`, `FacebookBot`, `Feedfetcher-Google`, `Gemini-Deep-Research`, `Google-Extended`, `GoogleOther`, `GPTBot`, `Grok`, `ia_archiver`, `img2dataset`, `Meta-ExternalAgent`, `Meta-ExternalFetcher`, `MistralAI-User`, `OAI-SearchBot`, `PanguBot`, `PerplexityBot`, `Timpibot`, `YouBot`.
-
-This list is versioned in `crawler/src/pmd_crawler/known_uas.yaml` and updated as the landscape evolves.
+The authoritative list is versioned in `crawler/src/pmd_crawler/known_uas.yaml`
+and updated as the landscape evolves.
 
 ## 9. Scoring
 

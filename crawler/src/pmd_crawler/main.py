@@ -349,6 +349,7 @@ async def _crawl_site(
                 language=cand.language, keywords=cand.keywords,
                 jsonld_news_article=art.jsonld_news_article,
                 http_status=art.http_status, fetched_at=datetime.now(UTC),
+                tdm_reservation=art.tdm_reservation,
             )
         )
 

@@ -15,10 +15,17 @@ from pmd_crawler.optout import (
 # ──────────────────────────────────────────────────────────────────────────────
 
 def test_known_uas_loaded():
-    # SPEC §8 lists 32 UAs; the YAML should match.
-    assert len(KNOWN_UAS) == 32
+    # YAML is sourced from Appendix A of the IPTC Generative AI Opt-Out Best
+    # Practice Recommendations v2.0 plus a few additions from SPEC.md §8.
+    # The exact count drifts as new bots appear; assert a sensible floor.
+    assert len(KNOWN_UAS) >= 60
     ua_names = {u.ua for u in KNOWN_UAS}
-    for required in ("GPTBot", "ClaudeBot", "Google-Extended", "CCBot", "PerplexityBot"):
+    # Spot-check a mix: OpenAI/Anthropic/Google trainers, Common Crawl,
+    # plus a couple of less obvious entries straight from the PDF appendix.
+    for required in (
+        "GPTBot", "ClaudeBot", "Google-Extended", "CCBot", "PerplexityBot",
+        "bingbot", "Bytespider", "Claude-SearchBot", "BLEXBot",
+    ):
         assert required in ua_names
 
 
@@ -143,6 +150,12 @@ def test_content_signals_malformed_pair_skipped():
 def test_scan_robots_directives_finds_noai():
     assert scan_robots_directives("noai") == ["noai"]
     assert scan_robots_directives("noai, noimageai") == ["noai", "noimageai"]
+
+
+def test_scan_robots_directives_finds_iptc_recommended_combo():
+    # IPTC AI Opt-Out Best Practices v2.0 Rec 3 recommends this exact combo.
+    tokens = scan_robots_directives("noarchive,nosnippet,noai,noimageai")
+    assert set(tokens) == {"noarchive", "nosnippet", "noai", "noimageai"}
 
 
 def test_scan_robots_directives_ignores_unrelated_tokens():

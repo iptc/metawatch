@@ -10,6 +10,7 @@ from selectolax.parser import HTMLParser
 from pmd_crawler.articles import (
     MIN_DIM,
     _extract_main_image,
+    _extract_tdm_reservation,
     _from_dom_walk,
     _from_itemprop_image,
     _from_jsonld,
@@ -321,3 +322,37 @@ def test_img_best_candidate_uses_data_src_when_src_is_placeholder():
     )
     img = html.css_first("img")
     assert _img_best_candidate(img) == ("https://x/real.jpg", 800)
+
+
+# ─── TDMRep per-page meta tag ───────────────────────────────────────────────
+
+
+def test_tdm_reservation_value_1():
+    html = HTMLParser('<head><meta name="tdm-reservation" content="1"></head>')
+    assert _extract_tdm_reservation(html) == 1
+
+
+def test_tdm_reservation_value_0():
+    html = HTMLParser('<head><meta name="tdm-reservation" content="0"></head>')
+    assert _extract_tdm_reservation(html) == 0
+
+
+def test_tdm_reservation_absent_returns_none():
+    html = HTMLParser('<head><meta name="robots" content="noai"></head>')
+    assert _extract_tdm_reservation(html) is None
+
+
+def test_tdm_reservation_tolerates_whitespace_and_quotes():
+    html = HTMLParser('<head><meta name="tdm-reservation" content=" 1 "></head>')
+    assert _extract_tdm_reservation(html) == 1
+
+
+def test_tdm_reservation_invalid_value_returns_none():
+    # Spec only defines 0 and 1; anything else we treat as absent.
+    html = HTMLParser('<head><meta name="tdm-reservation" content="reserved"></head>')
+    assert _extract_tdm_reservation(html) is None
+
+
+def test_tdm_reservation_uppercase_name_accepted():
+    html = HTMLParser('<head><meta name="TDM-Reservation" content="1"></head>')
+    assert _extract_tdm_reservation(html) == 1

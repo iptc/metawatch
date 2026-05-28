@@ -14,12 +14,22 @@ function bar(pct: number, max = 100) {
   <h1>AI opt-out signals</h1>
 
   <p class="lede">
-    Publishers have at least nine independent technical mechanisms for signalling that they do not
+    Publishers have at least ten independent technical mechanisms for signalling that they do not
     want their images and articles used to train generative-AI models. They sit at different layers
     (site-wide files, HTTP headers, embedded image metadata) and were proposed by different bodies
     over a short period — so adoption is uneven and the signals do not always agree. Article 4 of
     the EU DSM Directive requires opt-outs to be expressed in a <em>machine-readable</em> form;
     this page measures which of the candidate machine-readable forms publishers actually use.
+  </p>
+
+  <p class="lede">
+    The IPTC's <a
+      href="https://iptc.org/std/guidelines/data-mining-opt-out/IPTC-Generative-AI-Opt-Out-Best-Practices-v2.0.pdf"
+      target="_blank" rel="noopener">Generative AI Opt-Out Best Practice Recommendations
+      (v2.0, March 2026)</a> sets out the thirteen techniques the IPTC currently recommends to
+    publishers wishing to express a data-mining opt-out. Most are measured here; the remainder
+    (plain-language rights statements, per-page TDMRep meta tags, firewall-level blocking, and
+    opt-outs embedded in epub/PDF) are noted in the methodology section below.
   </p>
 
   <p class="lede-meta">
@@ -147,6 +157,10 @@ function bar(pct: number, max = 100) {
     <li><strong>tdmrep.json</strong>: HTTP probe of <code>/.well-known/tdmrep.json</code>; recorded
       as present + saved verbatim. Parsing of TDM-policy URLs and the <code>tdm-reservation</code>
       flag is planned.</li>
+    <li><strong>TDMRep per-page meta</strong>: each sampled article's HTML head is scanned for
+      <code>&lt;meta name="tdm-reservation" content="1"&gt;</code>. A site is flagged when at least
+      one of its sampled articles carries the tag (a site can publish per-page TDMRep without
+      having a site-wide <code>tdmrep.json</code>, and vice versa).</li>
     <li><strong>ai.txt</strong>: HTTP probe of <code>/ai.txt</code>; presence flag only at first.</li>
     <li><strong>RSL</strong>: scan robots.txt for a <code>License:</code> directive linking to an
       RSL XML file (<a href="https://rslstandard.org/guide/robots-txt" target="_blank"
@@ -162,8 +176,13 @@ function bar(pct: number, max = 100) {
     <li><strong>trust.txt</strong>: HTTP probe of <code>/.well-known/trust.txt</code> and
       <code>/trust.txt</code>; parse for the <code>datatrainingallowed=no</code> directive.
       Presence flag and the directive value are recorded.</li>
-    <li><strong>noai/noimageai</strong>: scanned in HTTP response headers (image and host article)
-      and in the host article's <code>&lt;meta name="robots"&gt;</code>.</li>
+    <li><strong>noai/noimageai/noarchive/nosnippet</strong>: scanned in HTTP response headers
+      (image and host article) and in the host article's <code>&lt;meta name="robots"&gt;</code>.
+      The IPTC best-practices document (Rec 3) treats this combo as the recommended way to
+      block content from generative-AI crawlers while still allowing search; we flag any of the
+      four tokens. (Note: <code>noarchive</code> and <code>nosnippet</code> predate AI and are
+      overloaded with classic search-snippet meaning; presence here means "page uses an
+      IPTC-recommended AI-opt-out token", not "definitely intended as AI opt-out".)</li>
     <li><strong>IPTC PLUS:DataMining</strong>: already extracted via ExifTool on every image.</li>
     <li><strong>CAWG training-and-data-mining</strong>: parsed from C2PA manifest assertions when
       label matches <code>cawg.training-mining</code> or <code>cawg.training-and-data-mining</code>.</li>

@@ -305,11 +305,20 @@ async def probe_site_optouts(
 # Image / article level helpers (used by images.py / articles.py)
 # ──────────────────────────────────────────────────────────────────────────────
 
-# noai/noimageai/noml: informal but in-the-wild AI-opt-out directives expressed
-# via X-Robots-Tag response headers or <meta name="robots"> tags. Token list
-# kept conservative — we only count tokens that are unambiguously about AI
-# training; generic `noindex`/`nofollow` are not opt-outs in this sense.
-_AI_ROBOTS_TOKENS = ("noai", "noimageai", "noml")
+# AI-relevant robots directives expressed via X-Robots-Tag response headers or
+# <meta name="robots"> tags. Two flavours:
+#
+#   * AI-specific (unambiguous): `noai`, `noimageai`, `noml` — originated with
+#     DeviantArt's 2022 policy.
+#   * Cache/snippet directives that the IPTC Generative AI Opt-Out Best
+#     Practices (v2.0, Rec 3) elevates to AI-opt-out status: `noarchive`
+#     (interpreted by Bing/Copilot as no-AI-training) and `nosnippet` (per
+#     Google's docs, also blocks use in AI Overviews/AI Mode). These overlap
+#     with their classic search-snippet meaning, so a hit means "page uses a
+#     directive the IPTC recommends for AI opt-out", not "definitely intended
+#     as AI opt-out". Plain `noindex`/`nofollow` are still excluded as too
+#     generic.
+_AI_ROBOTS_TOKENS = ("noai", "noimageai", "noml", "noarchive", "nosnippet")
 
 
 def scan_robots_directives(value: str | None) -> list[str]:

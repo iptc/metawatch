@@ -81,6 +81,9 @@ class ArticleRow:
     jsonld_news_article: str | None
     http_status: int
     fetched_at: datetime
+    # Per-page TDMRep declaration: 0/1 from <meta name="tdm-reservation">,
+    # None when the tag is absent.
+    tdm_reservation: int | None = None
 
     @property
     def article_url_hash(self) -> str:
@@ -221,6 +224,7 @@ def _write_articles(path: Path, rows: list[ArticleRow]) -> None:
         "jsonld_news_article": [r.jsonld_news_article for r in rows],
         "http_status": [r.http_status for r in rows],
         "fetched_at": [r.fetched_at for r in rows],
+        "tdm_reservation": [r.tdm_reservation for r in rows],
     })
     pq.write_table(table, path, compression="zstd")
 

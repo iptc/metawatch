@@ -59,6 +59,13 @@ class ArticleResult:
     # X-Robots-Tag header and any <meta name="robots"> on the page. Treated
     # as opt-out signals attached to every image on this article.
     noai_tokens: list[str] = None  # type: ignore[assignment]  # init in __post_init__
+    # Per-page TDMRep declaration: <meta name="tdm-reservation" content="1">.
+    # Parsed as int per the W3C TDMRep spec — 1 = reserved, 0 = unreserved;
+    # None when the meta tag is absent. The per-page mechanism is one of two
+    # ways the IPTC opt-out best-practices doc recommends for TDMRep, the
+    # other being the site-wide /.well-known/tdmrep.json file (already probed
+    # in optout.py).
+    tdm_reservation: int | None = None
 
     def __post_init__(self) -> None:
         if self.noai_tokens is None:
@@ -90,9 +97,25 @@ async def fetch_article(
     main_image = _extract_main_image(parser, base_url, sitemap_image)
     jsonld = _extract_news_article_jsonld(parser)
     noai = _collect_noai_tokens(r, parser)
+    tdm_reservation = _extract_tdm_reservation(parser)
     return ArticleResult(
-        candidate, r.status_code, [main_image] if main_image else [], jsonld, noai
+        candidate, r.status_code, [main_image] if main_image else [], jsonld, noai,
+        tdm_reservation=tdm_reservation,
     )
+
+
+def _extract_tdm_reservation(parser: HTMLParser) -> int | None:
+    """Read the W3C TDMRep per-page meta tag, if present.
+
+    Spec: ``<meta name="tdm-reservation" content="0|1">``. Returns the int
+    value, or None when the tag is absent or unparseable. We tolerate the
+    rare publishers who wrap the value in quotes/whitespace.
+    """
+    for m in parser.css('meta[name="tdm-reservation"], meta[name="TDM-Reservation"]'):
+        raw = (m.attributes.get("content") or "").strip().strip('"').strip("'")
+        if raw in ("0", "1"):
+            return int(raw)
+    return None
 
 
 def _collect_noai_tokens(r: httpx.Response, parser: HTMLParser) -> list[str]:

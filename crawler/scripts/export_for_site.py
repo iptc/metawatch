@@ -493,6 +493,23 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
     # adopted the mechanism.
     sites_with_content_signals = sum(1 for s in probed_sites if s.get("has_content_signals"))
 
+    # Per-page TDMRep meta tag: aggregate from the articles table up to site
+    # level. A site is flagged if any sampled article carried
+    # <meta name="tdm-reservation" content="1">. The per-article count is
+    # carried into the drill-down list so publishers can see how consistently
+    # the tag appears across their sampled articles.
+    probed_site_ids = {s["site_id"] for s in probed_sites}
+    articles_reserved_by_site: dict[str, int] = {}
+    articles_total_by_site: dict[str, int] = {}
+    for a in articles:
+        sid = a["site_id"]
+        if sid not in probed_site_ids:
+            continue
+        articles_total_by_site[sid] = articles_total_by_site.get(sid, 0) + 1
+        if a.get("tdm_reservation") == 1:
+            articles_reserved_by_site[sid] = articles_reserved_by_site.get(sid, 0) + 1
+    sites_with_tdmrep_meta = len(articles_reserved_by_site)
+
     images_with_noai = sum(1 for i in ok_imgs if i.get("noai_tokens"))
     images_with_cawg = sum(1 for i in ok_imgs if i.get("cawg_training_mining_json"))
     # IPTC PLUS:DataMining presence comes from metadata_fields.parquet (already
@@ -518,6 +535,13 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
             "note": "TDM Reservation Protocol (EU DSM Art. 4)",
             "num": sites_with_tdmrep, "denom": n_probed,
             "pct": _pct(sites_with_tdmrep, n_probed),
+        },
+        {
+            "key": "tdmrep-meta", "scope": "site",
+            "label": "TDMRep — per-page <meta>",
+            "note": "<meta name=\"tdm-reservation\" content=\"1\"> on ≥1 article",
+            "num": sites_with_tdmrep_meta, "denom": n_probed,
+            "pct": _pct(sites_with_tdmrep_meta, n_probed),
         },
         {
             "key": "rsl", "scope": "site",
@@ -686,6 +710,18 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         for s in probed_sites
         if s["has_trust_txt"] and (s["trust_txt_datatraining"] or "").lower() == "no"
     ]
+    # TDMRep per-page meta drill-down: site + how many of its sampled
+    # articles carry tdm-reservation=1, sorted by that count descending.
+    tdmrep_meta_sites = sorted(
+        [
+            {**_site_basic(sid),
+             "articles": n,
+             "articles_total": articles_total_by_site.get(sid, 0)}
+            for sid, n in articles_reserved_by_site.items()
+        ],
+        key=lambda x: (-x["articles"], x["site_name"].lower()),
+    )
+
     # Content-Signals drill-down: one row per site with its three known
     # signal values. Sort so publishers opting out of AI-training appear first.
     def _cs_sort_key(s: dict) -> tuple:
@@ -746,6 +782,7 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
     by_signal = {
         "robots-ai": robots_ai_sites,
         "tdmrep": tdmrep_sites,
+        "tdmrep-meta": tdmrep_meta_sites,
         "rsl": rsl_sites,
         "ai-txt": ai_txt_sites,
         "trust-txt-dta": trust_dta_sites,

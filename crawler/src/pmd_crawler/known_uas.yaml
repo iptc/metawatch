@@ -1,40 +1,77 @@
 # Known AI / scraper user-agents tracked for the robots.txt AI-opt-out matrix.
-# Sourced from SPEC.md §8. Each entry pairs a user-agent token (as it appears
-# in robots.txt User-agent: lines) with an operator label, used for grouping
-# on the /ai-policy/ page.
+# Sourced primarily from Appendix A of the IPTC Generative AI Opt-Out Best
+# Practice Recommendations v2.0 (2026-03), with a handful of additions from
+# SPEC.md §8 that the IPTC list doesn't include yet (DeepSeek, Gemini deep
+# research, Mistral, xAI Grok, etc.).
+#
+# Each entry pairs a user-agent token (as it appears in robots.txt User-agent:
+# lines) with an operator label, used for grouping on the /ai-policy/ page.
+# RFC 9309 makes UA matching case-insensitive, so we deliberately do not
+# duplicate lowercase variants (e.g. meta-externalagent vs Meta-ExternalAgent).
 #
 # Adding bots: please keep alphabetical within operator. The UA token is what
 # we test against robots.txt with Protego; the operator label is display-only.
 uas:
   - { ua: AI2Bot,                       operator: AI2 }
+  - { ua: AliyunSecBot,                 operator: Alibaba Cloud }
   - { ua: Amazonbot,                    operator: Amazon }
   - { ua: anthropic-ai,                 operator: Anthropic }
+  - { ua: Claude-SearchBot,             operator: Anthropic }
   - { ua: Claude-User,                  operator: Anthropic }
   - { ua: Claude-Web,                   operator: Anthropic }
   - { ua: ClaudeBot,                    operator: Anthropic }
   - { ua: Applebot-Extended,            operator: Apple }
+  - { ua: AudigentAdBot,                operator: Audigent }
+  - { ua: AwarioRssBot,                 operator: Awario }
+  - { ua: AwarioSmartBot,               operator: Awario }
+  - { ua: magpie-crawler,               operator: Brandwatch }
   - { ua: Bytespider,                   operator: ByteDance }
   - { ua: cohere-ai,                    operator: Cohere }
   - { ua: cohere-training-data-crawler, operator: Cohere }
   - { ua: CCBot,                        operator: Common Crawl }
+  - { ua: DataForSeoBot,                operator: DataForSEO }
   - { ua: DeepSeekBot,                  operator: DeepSeek }
   - { ua: Diffbot,                      operator: Diffbot }
+  - { ua: DuckAssistBot,                operator: DuckDuckGo }
+  - { ua: EchoboxBot,                   operator: Echobox }
   - { ua: Feedfetcher-Google,           operator: Google }
   - { ua: Gemini-Deep-Research,         operator: Google }
+  - { ua: Google-CloudVertexBot,        operator: Google }
   - { ua: Google-Extended,              operator: Google }
   - { ua: GoogleOther,                  operator: Google }
   - { ua: PanguBot,                     operator: Huawei }
+  - { ua: ImagesiftBot,                 operator: ImageSift }
   - { ua: archive.org_bot,              operator: Internet Archive }
   - { ua: ia_archiver,                  operator: Internet Archive }
+  - { ua: Jetslide,                     operator: Jetslide }
   - { ua: FacebookBot,                  operator: Meta }
   - { ua: Meta-ExternalAgent,           operator: Meta }
   - { ua: Meta-ExternalFetcher,         operator: Meta }
+  - { ua: bingbot,                      operator: Microsoft }
   - { ua: MistralAI-User,               operator: Mistral }
+  - { ua: MyCentralAIScraperBot,        operator: MyCentral }
+  - { ua: NewsNow,                      operator: NewsNow }
+  - { ua: news-please,                  operator: news-please (open-source) }
   - { ua: ChatGPT-User,                 operator: OpenAI }
   - { ua: GPTBot,                       operator: OpenAI }
   - { ua: OAI-SearchBot,                operator: OpenAI }
   - { ua: img2dataset,                  operator: Open-source scraper }
+  - { ua: Scrapy,                       operator: Open-source scraper }
+  - { ua: peer39_crawler,               operator: Peer39 }
   - { ua: PerplexityBot,                operator: Perplexity }
+  - { ua: Perplexity-User,              operator: Perplexity }
+  - { ua: Poseidon Research Crawler,    operator: Poseidon Research }
+  - { ua: quillbot.com,                 operator: QuillBot }
+  - { ua: Quora-Bot,                    operator: Quora }
+  - { ua: SeekrBot,                     operator: Seekr }
+  - { ua: SeznamHomepageCrawler,        operator: Seznam }
+  - { ua: TaraGroup Intelligent Bot,    operator: TaraGroup }
   - { ua: Timpibot,                     operator: Timpi }
+  - { ua: TurnitinBot,                  operator: Turnitin }
+  - { ua: ViennaTinyBot,                operator: Vienna Tiny }
+  - { ua: BLEXBot,                      operator: WebMeUp }
+  - { ua: FriendlyCrawler,              operator: Webis }
+  - { ua: omgili,                       operator: Webhose }
+  - { ua: omgilibot,                    operator: Webhose }
   - { ua: Grok,                         operator: xAI }
   - { ua: YouBot,                       operator: You.com }
