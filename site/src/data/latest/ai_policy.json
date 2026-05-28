@@ -16,9 +16,9 @@
       "scope": "site",
       "label": "/.well-known/tdmrep.json",
       "note": "TDM Reservation Protocol (EU DSM Art. 4)",
-      "num": 22,
+      "num": 21,
       "denom": 337,
-      "pct": 6.5
+      "pct": 6.2
     },
     {
       "key": "rsl",
@@ -34,9 +34,9 @@
       "scope": "site",
       "label": "/ai.txt",
       "note": "Spawning AI consent proposal",
-      "num": 27,
+      "num": 26,
       "denom": 337,
-      "pct": 8.0
+      "pct": 7.7
     },
     {
       "key": "trust-txt-dta",
@@ -350,22 +350,22 @@
       "a": "blocks GPTBot",
       "b": "has tdmrep.json",
       "a_count": 166,
-      "both": 9,
-      "pct": 5.4
+      "both": 8,
+      "pct": 4.8
     },
     {
       "a": "has tdmrep.json",
       "b": "blocks \u22651 AI UA",
-      "a_count": 22,
-      "both": 10,
-      "pct": 45.5
+      "a_count": 21,
+      "both": 9,
+      "pct": 42.9
     },
     {
       "a": "has ai.txt",
       "b": "has tdmrep.json",
-      "a_count": 27,
-      "both": 14,
-      "pct": 51.9
+      "a_count": 26,
+      "both": 13,
+      "pct": 50.0
     },
     {
       "a": "has RSL License",
@@ -5230,12 +5230,6 @@
         "site_name": "Chicago Tribune",
         "country": "US",
         "url": "https://www.chicagotribune.com/.well-known/tdmrep.json"
-      },
-      {
-        "site_id": "yahoo-news",
-        "site_name": "Yahoo! News",
-        "country": "US",
-        "url": "https://news.yahoo.com/rss/.well-known/tdmrep.json"
       }
     ],
     "rsl": [
@@ -5412,12 +5406,6 @@
         "site_name": "Tamil Murasu",
         "country": "SG",
         "url": "https://www.tamilmurasu.com.sg/ai.txt"
-      },
-      {
-        "site_id": "yahoo-news",
-        "site_name": "Yahoo! News",
-        "country": "US",
-        "url": "https://news.yahoo.com/rss/ai.txt"
       }
     ],
     "trust-txt-dta": [

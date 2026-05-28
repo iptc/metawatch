@@ -6,6 +6,7 @@ from pmd_crawler.optout import (
     analyse_robots_for_ai,
     extract_cawg_training_mining,
     scan_robots_directives,
+    site_root,
 )
 
 
@@ -152,3 +153,27 @@ def test_cawg_assertion_empty_manifest():
     assert extract_cawg_training_mining(None) is None
     assert extract_cawg_training_mining({}) is None
     assert extract_cawg_training_mining({"assertions": []}) is None
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# site_root — host-level URL construction for well-known probes
+# ──────────────────────────────────────────────────────────────────────────────
+
+def test_site_root_strips_path():
+    # The bug this guards against: a configured RSS-feed URL like
+    # https://news.yahoo.com/rss/ would otherwise lead to
+    # https://news.yahoo.com/rss/.well-known/tdmrep.json, which on permissive
+    # hosts (Yahoo serves any /rss/* as the RSS feed) returns a misleading 200.
+    assert site_root("https://news.yahoo.com/rss/") == "https://news.yahoo.com/"
+
+
+def test_site_root_handles_no_trailing_slash():
+    assert site_root("https://example.com") == "https://example.com/"
+
+
+def test_site_root_strips_query_and_fragment():
+    assert site_root("https://example.com/path?q=1#frag") == "https://example.com/"
+
+
+def test_site_root_preserves_port():
+    assert site_root("https://example.com:8443/x/") == "https://example.com:8443/"

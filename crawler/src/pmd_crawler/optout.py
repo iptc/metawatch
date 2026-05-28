@@ -16,10 +16,11 @@ inline in articles.py / images.py and surfaced on the ImageRow.
 
 from __future__ import annotations
 
+import json as _json
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import urlparse, urlunparse
 
 import httpx
 import yaml
@@ -139,29 +140,61 @@ class SiteOptoutSignals:
     robots_ai: RobotsAiAnalysis = field(default_factory=RobotsAiAnalysis)
 
 
-async def _probe_exists(client: httpx.AsyncClient, url: str) -> bool:
-    """Return True if a GET on `url` succeeds with 2xx and a non-empty body.
+def site_root(site_url: str) -> str:
+    """Return the scheme+host(+port) of a URL with a trailing slash, no path.
 
-    We use GET rather than HEAD because some misconfigured servers reject HEAD
-    or strip the body byte count; a small GET is more reliable. Body size is
-    capped implicitly by the per-request timeout — these files are spec'd to
-    be tiny, so any large response is treated as non-conformant by the caller.
+    Required because the probed files (tdmrep.json, ai.txt, trust.txt) are all
+    host-level resources per their specs — RFC 8615 for /.well-known/. A naive
+    urljoin against a configured site URL like ``https://news.yahoo.com/rss/``
+    would build ``https://news.yahoo.com/rss/.well-known/tdmrep.json``, which
+    not only points at the wrong place but on permissive servers (Yahoo's
+    /rss/ catch-all routes everything to the RSS feed) returns a misleading
+    200. Always strip the path.
+    """
+    p = urlparse(site_url)
+    return urlunparse((p.scheme, p.netloc, "/", "", "", ""))
+
+
+async def _probe_well_known(
+    client: httpx.AsyncClient, url: str, *, expect: str,
+) -> tuple[bool, str | None]:
+    """Probe a well-known URL with a content-type sanity check.
+
+    ``expect`` is "json" or "text". Returns (matched, text-or-none).
+
+    The content-type check is needed because many servers respond 200 for
+    unknown paths — single-page apps return the index HTML, catch-all
+    rewrites (Yahoo's /rss/* → RSS feed) return whatever happened to be
+    there. We reject HTML responses outright; for tdmrep.json we additionally
+    require the body to parse as JSON.
     """
     try:
         r = await client.get(url, timeout=10.0, follow_redirects=True)
     except Exception:
-        return False
-    return 200 <= r.status_code < 300 and bool(r.content)
-
-
-async def _fetch_text(client: httpx.AsyncClient, url: str) -> str | None:
-    try:
-        r = await client.get(url, timeout=10.0, follow_redirects=True)
-    except Exception:
-        return None
+        return False, None
     if not (200 <= r.status_code < 300) or not r.content:
-        return None
-    return r.text
+        return False, None
+    ctype = (r.headers.get("content-type") or "").split(";")[0].strip().lower()
+    if ctype.startswith("text/html") or ctype.endswith("/xml") or ctype.endswith("+xml"):
+        return False, None
+    if expect == "json":
+        # Some servers return application/json or text/plain or even
+        # application/octet-stream for .json files. Don't gate on content-type
+        # alone — try to parse. If the body isn't JSON, it isn't tdmrep.json.
+        try:
+            _json.loads(r.text)
+        except (ValueError, _json.JSONDecodeError):
+            return False, None
+    else:
+        # text-expecting probes (ai.txt, trust.txt). Require a text/* MIME
+        # or an obvious key=value/line-oriented body. Reject when the body
+        # smells like HTML even with a permissive content-type.
+        if ctype and not ctype.startswith("text/"):
+            return False, None
+        head = r.text.lstrip()[:200].lower()
+        if head.startswith("<!doctype") or head.startswith("<html") or head.startswith("<?xml"):
+            return False, None
+    return True, r.text
 
 
 async def probe_site_optouts(
@@ -183,26 +216,27 @@ async def probe_site_optouts(
     out.has_rsl = out.robots_ai.has_rsl
     out.rsl_license_urls = out.robots_ai.rsl_license_urls
 
+    root = site_root(site_url)
+
     # tdmrep — TDM Reservation Protocol. Lives at /.well-known/tdmrep.json.
-    tdmrep_url = urljoin(site_url.rstrip("/") + "/", ".well-known/tdmrep.json")
-    if await _probe_exists(client, tdmrep_url):
+    tdmrep_url = root + ".well-known/tdmrep.json"
+    matched, _ = await _probe_well_known(client, tdmrep_url, expect="json")
+    if matched:
         out.has_tdmrep = True
         out.tdmrep_url = tdmrep_url
 
     # ai.txt — Spawning's proposal. Lives at /ai.txt.
-    ai_txt_url = urljoin(site_url.rstrip("/") + "/", "ai.txt")
-    if await _probe_exists(client, ai_txt_url):
+    ai_txt_url = root + "ai.txt"
+    matched, _ = await _probe_well_known(client, ai_txt_url, expect="text")
+    if matched:
         out.has_ai_txt = True
         out.ai_txt_url = ai_txt_url
 
     # trust.txt — JournalList's site-identity file. Spec allows either
     # /.well-known/trust.txt (recommended) or /trust.txt (legacy). Try both.
-    for candidate in (
-        urljoin(site_url.rstrip("/") + "/", ".well-known/trust.txt"),
-        urljoin(site_url.rstrip("/") + "/", "trust.txt"),
-    ):
-        text = await _fetch_text(client, candidate)
-        if text is None:
+    for candidate in (root + ".well-known/trust.txt", root + "trust.txt"):
+        matched, text = await _probe_well_known(client, candidate, expect="text")
+        if not matched or text is None:
             continue
         out.has_trust_txt = True
         out.trust_txt_url = candidate
