@@ -4,6 +4,7 @@ import { getSummary, getScoring } from '../lib/data';
 
 const summary = getSummary();
 const scoring = getScoring();
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 // Version-less URL — the iptc.org server redirects to the latest published spec.
 const SPEC = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadata';
 ---
@@ -144,12 +145,13 @@ const SPEC = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadat
 
   <h2>Data and source code</h2>
   <p>
-    The full dataset (Parquet) is in the
-    <a href="https://github.com/iptc/metawatch">project repository</a> under
-    <code>data/runs/</code> and is licensed
-    <a href="https://creativecommons.org/licenses/by/4.0/">CC&nbsp;BY&nbsp;4.0</a>. The crawler
-    source code is MIT-licensed. Citations and academic use are welcome — please credit "IPTC
-    Metawatch" with a link back.
+    Every run's full Parquet output is published under <code>data/runs/</code> in the
+    <a href="https://github.com/iptc/metawatch">project repository</a>. The
+    <a href={`${base}/dataset/`}>Dataset page</a> lists every run with file sizes, direct
+    download links, and a quick-start Python snippet. The data is licensed
+    <a href="https://creativecommons.org/licenses/by/4.0/">CC&nbsp;BY&nbsp;4.0</a>; the
+    crawler source code is MIT-licensed. Citations and academic use are welcome — please
+    credit "IPTC Metawatch" with a link back.
   </p>
 
   <h2>For publishers</h2>

@@ -61,8 +61,8 @@ const COPY: Record<string, { blurb: string; columns: ('count' | 'value' | 'uas' 
 
 const copy = COPY[signalKey] ?? { blurb: '', columns: ['count'] };
 ---
-<Layout title={`AI opt-out · ${signal.label}`}>
-  <p class="breadcrumb"><a href={`${base}/ai-policy/`}>← AI opt-out signals</a></p>
+<Layout title={`AI prefs · ${signal.label}`}>
+  <p class="breadcrumb"><a href={`${base}/ai-policy/`}>← AI preferences and opt-out signals</a></p>
   <h1>{signal.label}</h1>
   <p class="lede">
     <span class={`scope-tag scope-${signal.scope}`}>{signal.scope === 'site' ? 'per site' : 'per image'}</span>
