@@ -474,23 +474,6 @@
     "sitemap_url_used": "https://www.jornaldenegocios.pt/rss/",
     "articles_sampled": 20,
     "images_analysed": 20,
-    "mean_iptc_score": 25.0,
-    "pct_with_iptc": 60.0,
-    "cdn_breakdown": {
-      "none": 20
-    }
-  },
-  {
-    "site_id": "yahoo-news",
-    "site_name": "Yahoo! News",
-    "url": "https://news.yahoo.com/",
-    "country": "US",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://news.yahoo.com/rss/",
-    "articles_sampled": 20,
-    "images_analysed": 20,
     "mean_iptc_score": 23.75,
     "pct_with_iptc": 55.0,
     "cdn_breakdown": {
