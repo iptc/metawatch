@@ -25,9 +25,9 @@
       "scope": "site",
       "label": "TDMRep \u2014 per-page <meta>",
       "note": "<meta name=\"tdm-reservation\" content=\"1\"> on \u22651 article",
-      "num": 7,
+      "num": 0,
       "denom": 337,
-      "pct": 2.1
+      "pct": 0.0
     },
     {
       "key": "rsl",
@@ -52,9 +52,9 @@
       "scope": "site",
       "label": "robots.txt \u2014 Content-Signal",
       "note": "Cloudflare Content Signals (contentsignals.org)",
-      "num": 6,
+      "num": 0,
       "denom": 337,
-      "pct": 1.8
+      "pct": 0.0
     },
     {
       "key": "trust-txt-dta",
@@ -67,30 +67,30 @@
     },
     {
       "key": "noai-meta",
-      "scope": "image",
-      "label": "noai / noimageai headers",
-      "note": "X-Robots-Tag or <meta name=\"robots\">",
-      "num": 1179,
-      "denom": 4555,
-      "pct": 25.9
+      "scope": "site",
+      "label": "noai / noimageai / noarchive / nosnippet",
+      "note": "On X-Robots-Tag header or <meta name=\"robots\"> of \u22651 sampled image",
+      "num": 1,
+      "denom": 337,
+      "pct": 0.3
     },
     {
       "key": "iptc-datamining",
-      "scope": "image",
+      "scope": "site",
       "label": "IPTC PLUS:DataMining",
-      "note": "XMP-plus:DataMining controlled vocabulary",
-      "num": 30,
-      "denom": 4555,
-      "pct": 0.7
+      "note": "XMP-plus:DataMining on \u22651 sampled image",
+      "num": 11,
+      "denom": 337,
+      "pct": 3.3
     },
     {
       "key": "cawg-training-mining",
-      "scope": "image",
-      "label": "CAWG training-and-data-mining",
-      "note": "Assertion inside a C2PA manifest",
-      "num": 2,
-      "denom": 4555,
-      "pct": 0.0
+      "scope": "site",
+      "label": "CAWG Training and Data Mining Assertion",
+      "note": "cawg.training-mining assertion in \u22651 sampled image's C2PA manifest",
+      "num": 1,
+      "denom": 337,
+      "pct": 0.3
     }
   ],
   "ai_bots": [
@@ -6926,57 +6926,7 @@
         "url": "https://www.chicagotribune.com/.well-known/tdmrep.json"
       }
     ],
-    "tdmrep-meta": [
-      {
-        "site_id": "chicago-tribune",
-        "site_name": "Chicago Tribune",
-        "country": "US",
-        "articles": 20,
-        "articles_total": 20
-      },
-      {
-        "site_id": "die-presse",
-        "site_name": "Die Presse",
-        "country": "AT",
-        "articles": 20,
-        "articles_total": 20
-      },
-      {
-        "site_id": "frankfurter-allgemeine",
-        "site_name": "Frankfurter Allgemeine",
-        "country": "DE",
-        "articles": 20,
-        "articles_total": 20
-      },
-      {
-        "site_id": "l-express",
-        "site_name": "L'Express",
-        "country": "FR",
-        "articles": 20,
-        "articles_total": 20
-      },
-      {
-        "site_id": "les-echos",
-        "site_name": "Les Echos",
-        "country": "FR",
-        "articles": 20,
-        "articles_total": 20
-      },
-      {
-        "site_id": "le-soir",
-        "site_name": "Le Soir",
-        "country": "BE",
-        "articles": 9,
-        "articles_total": 10
-      },
-      {
-        "site_id": "corriere-della-sera",
-        "site_name": "Corriere della Sera",
-        "country": "IT",
-        "articles": 2,
-        "articles_total": 2
-      }
-    ],
+    "tdmrep-meta": [],
     "rsl": [
       {
         "site_id": "bild",
@@ -7029,56 +6979,7 @@
         "value": "no"
       }
     ],
-    "content-signals": [
-      {
-        "site_id": "dagbladet",
-        "site_name": "Dagbladet",
-        "country": "NO",
-        "ai_train": "no",
-        "ai_input": "no",
-        "search": "yes"
-      },
-      {
-        "site_id": "new-telegraph",
-        "site_name": "New Telegraph",
-        "country": "NG",
-        "ai_train": "no",
-        "ai_input": null,
-        "search": "yes"
-      },
-      {
-        "site_id": "svt-nyheter",
-        "site_name": "SVT Nyheter",
-        "country": "SE",
-        "ai_train": "no",
-        "ai_input": "yes",
-        "search": "yes"
-      },
-      {
-        "site_id": "the-atlantic",
-        "site_name": "The Atlantic",
-        "country": "US",
-        "ai_train": "no",
-        "ai_input": "no",
-        "search": "yes"
-      },
-      {
-        "site_id": "the-daily-star",
-        "site_name": "The Daily Star (Bangladesh)",
-        "country": "BD",
-        "ai_train": "no",
-        "ai_input": null,
-        "search": "yes"
-      },
-      {
-        "site_id": "rip-ev",
-        "site_name": "\u00c4rip\u00e4ev",
-        "country": "EE",
-        "ai_train": "no",
-        "ai_input": null,
-        "search": "yes"
-      }
-    ],
+    "content-signals": [],
     "noai-meta": [
       {
         "site_id": "bild",

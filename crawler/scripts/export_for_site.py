@@ -510,16 +510,27 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
             articles_reserved_by_site[sid] = articles_reserved_by_site.get(sid, 0) + 1
     sites_with_tdmrep_meta = len(articles_reserved_by_site)
 
-    images_with_noai = sum(1 for i in ok_imgs if i.get("noai_tokens"))
-    images_with_cawg = sum(1 for i in ok_imgs if i.get("cawg_training_mining_json"))
-    # IPTC PLUS:DataMining presence comes from metadata_fields.parquet (already
-    # extracted per image). One row per (image, field, has_value); count
-    # distinct image_url_hashes where field_name == "DataMining" and has_value.
-    dm_image_hashes = {
-        f["image_url_hash"] for f in fields
-        if f["field_name"] == "DataMining" and f["has_value"]
+    # Image-level signals are reported at site granularity ("% of probed sites
+    # where ≥1 sampled image carried the signal") rather than image granularity
+    # ("% of all sampled images"). Rationale: a single image with the field
+    # demonstrates that the publisher *can* express the signal at all, which is
+    # what the dashboard is measuring. Per-image percentages are dominated by
+    # how many images each site happens to publish and dilute the signal.
+    site_by_image_hash: dict[str, str] = {i["image_url_hash"]: i["site_id"] for i in ok_imgs}
+
+    sites_with_noai = {i["site_id"] for i in ok_imgs if i.get("noai_tokens")}
+    sites_with_cawg = {i["site_id"] for i in ok_imgs if i.get("cawg_training_mining_json")}
+    # IPTC PLUS:DataMining presence comes from metadata_fields.parquet (one row
+    # per (image, field, has_value)). Project image_url_hash → site_id via the
+    # ok_imgs map; some metadata rows belong to non-200 image fetches and must
+    # be dropped to keep the denominator honest.
+    sites_with_iptc_datamining = {
+        site_by_image_hash[f["image_url_hash"]]
+        for f in fields
+        if f["field_name"] == "DataMining"
+        and f["has_value"]
+        and f["image_url_hash"] in site_by_image_hash
     }
-    images_with_iptc_datamining = len(dm_image_hashes)
 
     signals_out = [
         {
@@ -572,25 +583,25 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
             "pct": _pct(sites_with_trust_dta_no, n_probed),
         },
         {
-            "key": "noai-meta", "scope": "image",
-            "label": "noai / noimageai headers",
-            "note": "X-Robots-Tag or <meta name=\"robots\">",
-            "num": images_with_noai, "denom": n_imgs,
-            "pct": _pct(images_with_noai, n_imgs),
+            "key": "noai-meta", "scope": "site",
+            "label": "noai / noimageai / noarchive / nosnippet",
+            "note": "On X-Robots-Tag header or <meta name=\"robots\"> of ≥1 sampled image",
+            "num": len(sites_with_noai), "denom": n_probed,
+            "pct": _pct(len(sites_with_noai), n_probed),
         },
         {
-            "key": "iptc-datamining", "scope": "image",
+            "key": "iptc-datamining", "scope": "site",
             "label": "IPTC PLUS:DataMining",
-            "note": "XMP-plus:DataMining controlled vocabulary",
-            "num": images_with_iptc_datamining, "denom": n_imgs,
-            "pct": _pct(images_with_iptc_datamining, n_imgs),
+            "note": "XMP-plus:DataMining on ≥1 sampled image",
+            "num": len(sites_with_iptc_datamining), "denom": n_probed,
+            "pct": _pct(len(sites_with_iptc_datamining), n_probed),
         },
         {
-            "key": "cawg-training-mining", "scope": "image",
-            "label": "CAWG training-and-data-mining",
-            "note": "Assertion inside a C2PA manifest",
-            "num": images_with_cawg, "denom": n_imgs,
-            "pct": _pct(images_with_cawg, n_imgs),
+            "key": "cawg-training-mining", "scope": "site",
+            "label": "CAWG Training and Data Mining Assertion",
+            "note": "cawg.training-mining assertion in ≥1 sampled image's C2PA manifest",
+            "num": len(sites_with_cawg), "denom": n_probed,
+            "pct": _pct(len(sites_with_cawg), n_probed),
         },
     ]
 
@@ -748,10 +759,10 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         key=lambda x: (-x["blocked_count"], x["site_name"].lower()),
     )
 
-    # Image-level signals: aggregate to per-site counts (how many images
-    # on each site carried the signal). image_url_hash → site mapping comes
-    # from the images table itself.
-    site_by_image_hash: dict[str, str] = {i["image_url_hash"]: i["site_id"] for i in ok_imgs}
+    # Image-level signals: aggregate to per-site counts (how many sampled
+    # images on each site carried the signal). site_by_image_hash is built
+    # earlier (around the signal aggregation block) — reused here for the
+    # IPTC PLUS:DataMining lookup further down.
 
     def _by_site_image_signal(pred) -> list[dict]:
         per_site: dict[str, int] = {}

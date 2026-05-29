@@ -7,7 +7,7 @@ mechanisms tracked on the /ai-policy/ page:
                 robots.txt RSL `License:` directive, /.well-known/trust.txt
                 (datatrainingallowed=).
   Image-level - noai/noimageai in HTTP response headers or article <meta robots>,
-                CAWG training-and-data-mining assertion in C2PA manifests, and
+                CAWG Training and Data Mining Assertion in C2PA manifests, and
                 the IPTC PLUS:DataMining XMP field (already extracted upstream).
 
 This module owns the site-wide signals only. Image-level signals are detected
@@ -344,15 +344,17 @@ def scan_robots_directives(value: str | None) -> list[str]:
     return found
 
 
-# CAWG training-and-data-mining assertion in a C2PA manifest.
-# Spec: https://cawg.io/training-and-data-mining/1.1/
-# Assertion label is `cawg.training-mining` (some early implementations use
-# `cawg.training-and-data-mining`; we match both prefixes).
+# CAWG Training and Data Mining Assertion in a C2PA manifest.
+# Spec: https://cawg.io/training-and-data-mining/1.1/ (the URL slug is the
+# only context in which the "training-and-data-mining" phrasing is correct;
+# the assertion name proper is "Training and Data Mining" and its label is
+# `cawg.training-mining`). Some early implementations used the legacy label
+# `cawg.training-and-data-mining`; we match both prefixes.
 _CAWG_ASSERTION_LABEL_PREFIXES = ("cawg.training-mining", "cawg.training-and-data-mining")
 
 
 def extract_cawg_training_mining(manifest: dict | None) -> dict | None:
-    """Return the data dict of a CAWG training-and-data-mining assertion, if present.
+    """Return the data dict of a CAWG Training and Data Mining Assertion, if present.
 
     Returns None when no such assertion exists in the active manifest. Returns
     the raw `data` dict otherwise so the caller can record both presence and

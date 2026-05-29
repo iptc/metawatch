@@ -43,8 +43,8 @@ class ImageResult:
     per_field_presence: list[tuple[str, bool]] = field(default_factory=list)
     raw_tags: dict[str, object] = field(default_factory=dict)
     # AI-opt-out signals (Phase 3): noai/noimageai tokens harvested from this
-    # image's X-Robots-Tag response header; CAWG training-and-data-mining
-    # assertion data dict (or None) if present in the C2PA manifest.
+    # image's X-Robots-Tag response header; CAWG Training and Data Mining
+    # Assertion data dict (or None) if present in the C2PA manifest.
     noai_tokens: list[str] = field(default_factory=list)
     cawg_training_mining: dict | None = None
 

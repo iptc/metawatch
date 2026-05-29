@@ -54,7 +54,7 @@ const COPY: Record<string, { blurb: string; columns: ('count' | 'value' | 'uas' 
     columns: ['images'],
   },
   'cawg-training-mining': {
-    blurb: `Sites whose images include a CAWG <code>training-and-data-mining</code> assertion inside a C2PA manifest. Spec: <a href="https://cawg.io/training-and-data-mining/1.1/" target="_blank" rel="noopener">cawg.io</a>.`,
+    blurb: `Sites whose images include a <a href="https://cawg.io/training-and-data-mining/1.1/" target="_blank" rel="noopener">CAWG Training and Data Mining Assertion</a> (label <code>cawg.training-mining</code>) inside a C2PA manifest. The assertion can declare that training is <em>allowed</em>, <em>constrained</em>, or <em>not allowed</em> — presence here means the publisher has expressed any of these in machine-readable form.`,
     columns: ['images'],
   },
 };
