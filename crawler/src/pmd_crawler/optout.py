@@ -306,18 +306,20 @@ async def probe_site_optouts(
 # ──────────────────────────────────────────────────────────────────────────────
 
 # AI-relevant robots directives expressed via X-Robots-Tag response headers or
-# <meta name="robots"> tags. Two flavours:
+# <meta name="robots"> tags. Two flavours, kept in a single tracked-token set
+# here; downstream consumers (export_for_site.py) partition them into separate
+# signals so the headline AI-opt-out figure isn't conflated with cache control:
 #
 #   * AI-specific (unambiguous): `noai`, `noimageai`, `noml` — originated with
 #     DeviantArt's 2022 policy.
 #   * Cache/snippet directives that the IPTC Generative AI Opt-Out Best
-#     Practices (v2.0, Rec 3) elevates to AI-opt-out status: `noarchive`
-#     (interpreted by Bing/Copilot as no-AI-training) and `nosnippet` (per
-#     Google's docs, also blocks use in AI Overviews/AI Mode). These overlap
-#     with their classic search-snippet meaning, so a hit means "page uses a
-#     directive the IPTC recommends for AI opt-out", not "definitely intended
-#     as AI opt-out". Plain `noindex`/`nofollow` are still excluded as too
-#     generic.
+#     Practices (v2.0, Rec 3) elevates to AI-opt-out status by single-vendor
+#     interpretation: `noarchive` (Bing/Copilot honour it as no-AI-training)
+#     and `nosnippet` (Google honours it for AI Overviews / AI Mode). Both
+#     predate AI by decades and are widely set for cache reasons unrelated to
+#     AI intent, so the export tracks them under a separate signal key.
+#
+# Plain `noindex`/`nofollow` are still excluded as too generic.
 _AI_ROBOTS_TOKENS = ("noai", "noimageai", "noml", "noarchive", "nosnippet")
 
 

@@ -46,7 +46,11 @@ const COPY: Record<string, { blurb: string; columns: ('count' | 'value' | 'uas' 
     columns: ['content-signals'],
   },
   'noai-meta': {
-    blurb: `Sites carrying <code>noai</code> / <code>noimageai</code> / <code>noml</code> tokens in an <code>X-Robots-Tag</code> response header or a <code>&lt;meta name="robots"&gt;</code> tag on the article page. Image count is how many sampled images on the site were affected.`,
+    blurb: `Sites carrying <code>noai</code>, <code>noimageai</code>, or <code>noml</code> tokens in an <code>X-Robots-Tag</code> response header or a <code>&lt;meta name="robots"&gt;</code> tag on the article page. These are the AI-specific directives originated by DeviantArt's 2022 policy — unambiguous AI-opt-out intent. Image count is how many sampled images on the site carried the tokens.`,
+    columns: ['images'],
+  },
+  'noarchive-meta': {
+    blurb: `Sites carrying <code>noarchive</code> or <code>nosnippet</code> tokens in an <code>X-Robots-Tag</code> response header or a <code>&lt;meta name="robots"&gt;</code> tag. Both are classic search-snippet directives, but single vendors have post-hoc reinterpreted them as AI-opt-out signals: <code>noarchive</code> by <a href="https://www.bing.com/webmasters/help/which-robots-metatags-does-bing-support-5198d240" target="_blank" rel="noopener">Bing/Copilot</a>, <code>nosnippet</code> by <a href="https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag" target="_blank" rel="noopener">Google</a> (also blocks use in AI Overviews / AI Mode). Many publishers set these for cache-control reasons unrelated to AI, so presence here is an AI-implicated signal, not necessarily AI intent.`,
     columns: ['images'],
   },
   'iptc-datamining': {

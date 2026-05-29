@@ -518,7 +518,23 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
     # how many images each site happens to publish and dilute the signal.
     site_by_image_hash: dict[str, str] = {i["image_url_hash"]: i["site_id"] for i in ok_imgs}
 
-    sites_with_noai = {i["site_id"] for i in ok_imgs if i.get("noai_tokens")}
+    # noai/noimageai/noml are AI-specific tokens — coined by DeviantArt in 2022
+    # specifically as AI-opt-out directives. noarchive/nosnippet are classic
+    # search-snippet directives that single vendors (Bing/Copilot, Google
+    # respectively) have post-hoc reinterpreted to also block AI use. Mixing
+    # the two in a single headline dilutes the signal: a site setting
+    # noarchive for cache-control reasons looks identical to one expressing
+    # AI intent. Report them as two independent signals.
+    _AI_SPECIFIC = {"noai", "noimageai", "noml"}
+    _AI_IMPLICATED = {"noarchive", "nosnippet"}
+    sites_with_noai = {
+        i["site_id"] for i in ok_imgs
+        if set(i.get("noai_tokens") or ()) & _AI_SPECIFIC
+    }
+    sites_with_noarchive = {
+        i["site_id"] for i in ok_imgs
+        if set(i.get("noai_tokens") or ()) & _AI_IMPLICATED
+    }
     sites_with_cawg = {i["site_id"] for i in ok_imgs if i.get("cawg_training_mining_json")}
     # IPTC PLUS:DataMining presence comes from metadata_fields.parquet (one row
     # per (image, field, has_value)). Project image_url_hash → site_id via the
@@ -584,10 +600,17 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         },
         {
             "key": "noai-meta", "scope": "site",
-            "label": "noai / noimageai / noarchive / nosnippet",
-            "note": "On X-Robots-Tag header or <meta name=\"robots\"> of ≥1 sampled image",
+            "label": "noai / noimageai meta robots",
+            "note": "AI-specific tokens on X-Robots-Tag or <meta name=\"robots\">",
             "num": len(sites_with_noai), "denom": n_probed,
             "pct": _pct(len(sites_with_noai), n_probed),
+        },
+        {
+            "key": "noarchive-meta", "scope": "site",
+            "label": "noarchive / nosnippet meta robots",
+            "note": "Honoured as AI-opt-out by Bing/Copilot (noarchive) and Google (nosnippet)",
+            "num": len(sites_with_noarchive), "denom": n_probed,
+            "pct": _pct(len(sites_with_noarchive), n_probed),
         },
         {
             "key": "iptc-datamining", "scope": "site",
@@ -787,7 +810,12 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         key=lambda x: (-x["images"], x["site_name"].lower()),
     )
 
-    noai_sites = _by_site_image_signal(lambda i: bool(i.get("noai_tokens")))
+    noai_sites = _by_site_image_signal(
+        lambda i: bool(set(i.get("noai_tokens") or ()) & _AI_SPECIFIC)
+    )
+    noarchive_sites = _by_site_image_signal(
+        lambda i: bool(set(i.get("noai_tokens") or ()) & _AI_IMPLICATED)
+    )
     cawg_sites = _by_site_image_signal(lambda i: bool(i.get("cawg_training_mining_json")))
 
     by_signal = {
@@ -799,6 +827,7 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         "trust-txt-dta": trust_dta_sites,
         "content-signals": content_signals_sites,
         "noai-meta": noai_sites,
+        "noarchive-meta": noarchive_sites,
         "iptc-datamining": datamining_sites,
         "cawg-training-mining": cawg_sites,
     }

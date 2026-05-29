@@ -178,13 +178,20 @@ function bar(pct: number, max = 100) {
     <li><strong>trust.txt</strong>: HTTP probe of <code>/.well-known/trust.txt</code> and
       <code>/trust.txt</code>; parse for the <code>datatrainingallowed=no</code> directive.
       Presence flag and the directive value are recorded.</li>
-    <li><strong>noai/noimageai/noarchive/nosnippet</strong>: scanned in HTTP response headers
+    <li><strong>noai / noimageai meta robots</strong>: scanned in HTTP response headers
       (image and host article) and in the host article's <code>&lt;meta name="robots"&gt;</code>.
-      The IPTC best-practices document (Rec 3) treats this combo as the recommended way to
-      block content from generative-AI crawlers while still allowing search; we flag any of the
-      four tokens. (Note: <code>noarchive</code> and <code>nosnippet</code> predate AI and are
-      overloaded with classic search-snippet meaning; presence here means "page uses an
-      IPTC-recommended AI-opt-out token", not "definitely intended as AI opt-out".)</li>
+      The <code>noai</code>, <code>noimageai</code>, and <code>noml</code> tokens were coined by
+      DeviantArt's 2022 policy specifically as AI-opt-out directives — unambiguous in intent.</li>
+    <li><strong>noarchive / nosnippet meta robots</strong>: scanned in the same places. Both
+      predate AI by decades as classic search-snippet directives, but single vendors have
+      reinterpreted them as AI-opt-out signals: <code>noarchive</code> is honoured by
+      Bing/Copilot, <code>nosnippet</code> by Google (per
+      <a href="https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag"
+        target="_blank" rel="noopener">Google's documentation</a>, applies to AI Overviews and
+      AI Mode). The IPTC best-practices document recommends combining them with the noai /
+      noimageai tokens; we track them as a separate signal so the headline AI-opt-out figure
+      isn't dominated by cache-control settings that publishers may not have intended as AI
+      opt-outs at all.</li>
     <li><strong>IPTC PLUS:DataMining</strong>: already extracted via ExifTool on every image.</li>
     <li><strong>CAWG Training and Data Mining Assertion</strong>: parsed from C2PA manifest
       assertions when label matches <code>cawg.training-mining</code> (or the legacy

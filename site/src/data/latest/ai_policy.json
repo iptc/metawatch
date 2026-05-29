@@ -68,11 +68,20 @@
     {
       "key": "noai-meta",
       "scope": "site",
-      "label": "noai / noimageai / noarchive / nosnippet",
-      "note": "On X-Robots-Tag header or <meta name=\"robots\"> of \u22651 sampled image",
-      "num": 75,
+      "label": "noai / noimageai meta robots",
+      "note": "AI-specific tokens on X-Robots-Tag or <meta name=\"robots\">",
+      "num": 1,
       "denom": 337,
-      "pct": 22.3
+      "pct": 0.3
+    },
+    {
+      "key": "noarchive-meta",
+      "scope": "site",
+      "label": "noarchive / nosnippet meta robots",
+      "note": "Honoured as AI-opt-out by Bing/Copilot (noarchive) and Google (nosnippet)",
+      "num": 74,
+      "denom": 337,
+      "pct": 22.0
     },
     {
       "key": "iptc-datamining",
@@ -7081,6 +7090,14 @@
     ],
     "noai-meta": [
       {
+        "site_id": "livedoor-news",
+        "site_name": "Livedoor News",
+        "country": "JP",
+        "images": 2
+      }
+    ],
+    "noarchive-meta": [
+      {
         "site_id": "bild",
         "site_name": "Bild",
         "country": "DE",
@@ -7498,12 +7515,6 @@
         "site_id": "die-welt",
         "site_name": "Die Welt",
         "country": "DE",
-        "images": 2
-      },
-      {
-        "site_id": "livedoor-news",
-        "site_name": "Livedoor News",
-        "country": "JP",
         "images": 2
       },
       {
