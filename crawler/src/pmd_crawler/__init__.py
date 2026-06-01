@@ -8,8 +8,18 @@ USER_AGENT = "Metawatch/2.0"
 CONTACT_EMAIL = "metadata-crawler@iptc.org"
 CONTACT_URL = "https://metawatch.iptc.org"
 
+# Two WAF lessons folded into one minimal header set:
+#   * CBC blocks User-Agent strings with parenthesised RFC-9110 comments,
+#     so the contact info can't go inside `User-Agent: Metawatch/2.0
+#     (+https://metawatch.iptc.org)` — it would 403.
+#   * TASS blocks any request carrying an unfamiliar `X-*` header whose
+#     value looks like a URL (presumably scored as a bot/spam signal).
+#     We previously sent `X-Contact: https://metawatch.iptc.org` and got
+#     403'd. Removed.
+# What survives is RFC-standard only: User-Agent for identity, From for
+# admin contact. Admins receiving a hit from "metadata-crawler@iptc.org"
+# can find the project by searching the email.
 DEFAULT_HEADERS = {
     "User-Agent": USER_AGENT,
     "From": CONTACT_EMAIL,
-    "X-Contact": CONTACT_URL,
 }
