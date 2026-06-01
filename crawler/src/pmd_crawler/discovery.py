@@ -576,6 +576,20 @@ async def discover(
     network_errors = 0
     last_err: str | None = None
 
+    # If the publisher YAML names any explicit source (RSS feeds, sitemaps,
+    # or a picture sitemap), honour those and skip the discovery-aid
+    # guessing steps — the homepage RSS-link scan and the 7-path RSS
+    # guessing. For Gazeta-style sitemap-only sites this used to add ~14
+    # wasted HTTP requests + ~21s of retry backoff per crawl, all of
+    # which 404'd into HTML decoys. AI-prefs probing is unaffected: it
+    # never reads the homepage, only host-level well-known files
+    # (tdmrep.json, ai.txt, trust.txt) plus robots.txt.
+    has_explicit_source = bool(
+        site.discovery.rss_urls
+        or site.discovery.sitemap_urls
+        or site.discovery.picture_sitemap_url
+    )
+
     for url in site.discovery.rss_urls:
         attempts += 1
         articles, err = await fetch_rss_articles(client, url, window_days, max_articles)
@@ -585,26 +599,27 @@ async def discover(
         if err == "network_error":
             network_errors += 1
 
-    for url in await discover_rss_links_from_homepage(client, site.homepage or site.url):
-        attempts += 1
-        articles, err = await fetch_rss_articles(client, url, window_days, max_articles)
-        if articles:
-            return robots, url, "html:rss_link", articles, None
-        last_err = err
-        if err == "network_error":
-            network_errors += 1
+    if not has_explicit_source:
+        for url in await discover_rss_links_from_homepage(client, site.homepage or site.url):
+            attempts += 1
+            articles, err = await fetch_rss_articles(client, url, window_days, max_articles)
+            if articles:
+                return robots, url, "html:rss_link", articles, None
+            last_err = err
+            if err == "network_error":
+                network_errors += 1
 
-    for url in _guess_rss_urls(site.homepage or site.url):
-        attempts += 1
-        articles, err = await fetch_rss_articles(client, url, window_days, max_articles)
-        if articles:
-            return robots, url, "guess:rss", articles, None
-        last_err = err
-        if err == "network_error":
-            network_errors += 1
+        for url in _guess_rss_urls(site.homepage or site.url):
+            attempts += 1
+            articles, err = await fetch_rss_articles(client, url, window_days, max_articles)
+            if articles:
+                return robots, url, "guess:rss", articles, None
+            last_err = err
+            if err == "network_error":
+                network_errors += 1
 
     sitemap_url, strategy = pick_sitemap(robots.sitemap_urls, site)
-    if not sitemap_url:
+    if not sitemap_url and not has_explicit_source:
         sitemap_url, strategy = await _try_guessed_sitemaps(client, site)
     if not sitemap_url:
         # No sitemap to try. If every RSS attempt was a network error, the
