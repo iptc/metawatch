@@ -576,19 +576,32 @@ async def discover(
     network_errors = 0
     last_err: str | None = None
 
-    # If the publisher YAML names any explicit source (RSS feeds, sitemaps,
-    # or a picture sitemap), honour those and skip the discovery-aid
-    # guessing steps — the homepage RSS-link scan and the 7-path RSS
-    # guessing. For Gazeta-style sitemap-only sites this used to add ~14
-    # wasted HTTP requests + ~21s of retry backoff per crawl, all of
-    # which 404'd into HTML decoys. AI-prefs probing is unaffected: it
-    # never reads the homepage, only host-level well-known files
-    # (tdmrep.json, ai.txt, trust.txt) plus robots.txt.
-    has_explicit_source = bool(
-        site.discovery.rss_urls
-        or site.discovery.sitemap_urls
-        or site.discovery.picture_sitemap_url
+    # Two flavours of "the publisher told us where to look":
+    #
+    #   rss_configured     — discovery.rss_urls is set. Use the homepage
+    #                        <link rel="alternate"> scan as a fallback if
+    #                        the configured URL goes stale (this saved us
+    #                        when kyivindependent.com moved their feed
+    #                        from /rss/ to /news-archive/rss/ and the
+    #                        homepage <link> still pointed at the right
+    #                        place). One extra HTTP request, much higher
+    #                        signal-to-noise than blind guessing.
+    #
+    #   sitemap_configured — discovery.sitemap_urls or picture_sitemap_url
+    #                        is set. RSS scanning is wasted: the publisher
+    #                        has explicitly named a sitemap, scanning the
+    #                        homepage for non-existent RSS feeds is the
+    #                        14-wasted-requests Gazeta case.
+    #
+    # Blind guessing (the 7 hardcoded RSS paths, the 7 hardcoded sitemap
+    # paths) only runs when neither flag is set — for sites with no
+    # explicit configuration at all, where guessing is genuinely useful
+    # as discovery aid.
+    rss_configured = bool(site.discovery.rss_urls)
+    sitemap_configured = bool(
+        site.discovery.sitemap_urls or site.discovery.picture_sitemap_url
     )
+    has_explicit_source = rss_configured or sitemap_configured
 
     for url in site.discovery.rss_urls:
         attempts += 1
@@ -599,7 +612,10 @@ async def discover(
         if err == "network_error":
             network_errors += 1
 
-    if not has_explicit_source:
+    # Homepage <link rel="alternate"> scan: useful when the publisher has
+    # RSS configured but the configured URL has gone stale, OR when no
+    # source is configured at all.
+    if rss_configured or not has_explicit_source:
         for url in await discover_rss_links_from_homepage(client, site.homepage or site.url):
             attempts += 1
             articles, err = await fetch_rss_articles(client, url, window_days, max_articles)
@@ -609,6 +625,8 @@ async def discover(
             if err == "network_error":
                 network_errors += 1
 
+    # Blind path guessing: only when the publisher has named nothing at all.
+    if not has_explicit_source:
         for url in _guess_rss_urls(site.homepage or site.url):
             attempts += 1
             articles, err = await fetch_rss_articles(client, url, window_days, max_articles)

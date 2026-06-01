@@ -14,7 +14,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://kyivindependent.com/rss/
+    - https://kyivindependent.com/news-archive/rss/
     js_required: false
   sample:
     max_articles: 20
