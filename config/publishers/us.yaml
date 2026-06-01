@@ -139,15 +139,18 @@ sites:
   homepage: https://www.huffpost.com/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: 'HuffPost gates the general site-wide news feed behind a password,
+    so we use the public chaski.huffpost.com per-vertical feeds instead.
+    World-news is the broadest one available.'
   suggested_by: BQ
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls:
     - https://www.huffpost.com/static-assets/isolated/huffpostsitemapgeneratorjob-prod-public/us/sitemaps/sitemap-v1.xml
     picture_sitemap_url: null
-    rss_urls: []
+    rss_urls:
+    - https://chaski.huffpost.com/us/auto/vertical/world-news
     js_required: false
   sample:
     max_articles: 20
