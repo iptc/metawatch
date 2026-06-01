@@ -1,0 +1,20 @@
+country: SN
+sites:
+- id: le-soleil-sn
+  name: Le Soleil (Sénégal)
+  url: https://lesoleil.sn/
+  homepage: https://lesoleil.sn/
+  category: newspaper
+  language_primary: fr
+  notes: ''
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://lesoleil.sn/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

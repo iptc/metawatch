@@ -18,3 +18,21 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: jakarta-post
+  name: The Jakarta Post
+  url: https://www.thejakartapost.com/
+  homepage: https://www.thejakartapost.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.thejakartapost.com/sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

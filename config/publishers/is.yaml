@@ -1,0 +1,20 @@
+country: IS
+sites:
+- id: mbl-is
+  name: Morgunblaðið (mbl.is)
+  url: https://www.mbl.is/
+  homepage: https://www.mbl.is/
+  category: newspaper
+  language_primary: is
+  notes: ''
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.mbl.is/feeds/fp/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

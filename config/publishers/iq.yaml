@@ -1,0 +1,20 @@
+country: IQ
+sites:
+- id: rudaw
+  name: Rudaw
+  url: https://www.rudaw.net/english
+  homepage: https://www.rudaw.net/english
+  category: online
+  language_primary: en
+  notes: ''
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.rudaw.net/sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

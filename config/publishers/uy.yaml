@@ -1,0 +1,20 @@
+country: UY
+sites:
+- id: el-pais-uy
+  name: El País (Uruguay)
+  url: https://www.elpais.com.uy/
+  homepage: https://www.elpais.com.uy/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.elpais.com.uy/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

@@ -1,0 +1,20 @@
+country: PE
+sites:
+- id: rpp-pe
+  name: RPP Noticias
+  url: https://rpp.pe/
+  homepage: https://rpp.pe/
+  category: broadcaster
+  language_primary: es
+  notes: ''
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://rpp.pe/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

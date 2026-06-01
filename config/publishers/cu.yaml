@@ -1,0 +1,20 @@
+country: CU
+sites:
+- id: granma-en
+  name: Granma (English)
+  url: https://en.granma.cu/
+  homepage: https://en.granma.cu/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://en.granma.cu/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

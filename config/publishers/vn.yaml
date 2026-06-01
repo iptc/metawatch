@@ -19,3 +19,21 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: vnexpress-en
+  name: VnExpress (English)
+  url: https://e.vnexpress.net/
+  homepage: https://e.vnexpress.net/
+  category: online
+  language_primary: en
+  notes: ''
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://e.vnexpress.net/rss/news.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

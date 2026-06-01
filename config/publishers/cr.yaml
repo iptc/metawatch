@@ -1,0 +1,20 @@
+country: CR
+sites:
+- id: tico-times
+  name: The Tico Times
+  url: https://ticotimes.net/
+  homepage: https://ticotimes.net/
+  category: online
+  language_primary: en
+  notes: ''
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://ticotimes.net/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

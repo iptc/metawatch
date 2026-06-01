@@ -1,0 +1,20 @@
+country: IR
+sites:
+- id: tehran-times
+  name: Tehran Times
+  url: https://www.tehrantimes.com/
+  homepage: https://www.tehrantimes.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.tehrantimes.com/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

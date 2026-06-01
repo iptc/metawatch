@@ -19,3 +19,21 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: khaosod-english
+  name: Khaosod English
+  url: https://www.khaosodenglish.com/
+  homepage: https://www.khaosodenglish.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.khaosodenglish.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

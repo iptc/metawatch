@@ -22,6 +22,8 @@ names:
   CL: Chile
   CN: China
   CO: Colombia
+  CR: Costa Rica
+  CU: Cuba
   CY: Cyprus
   CZ: Czechia
   DE: Germany
@@ -42,11 +44,15 @@ names:
   IE: Ireland
   IL: Israel
   IN: India
+  IQ: Iraq
+  IR: Iran
+  IS: Iceland
   IT: Italy
   JM: Jamaica
   JP: Japan
   KE: Kenya
   KR: South Korea
+  KZ: Kazakhstan
   LT: Lithuania
   LU: Luxembourg
   LV: Latvia
@@ -56,7 +62,8 @@ names:
   MY: Malaysia
   NG: Nigeria
   NL: Netherlands
-  "NO": Norway
+  'NO': Norway
+  NP: Nepal
   NZ: New Zealand
   PE: Peru
   PH: Philippines
@@ -65,18 +72,21 @@ names:
   PT: Portugal
   QA: Qatar
   RO: Romania
+  RS: Serbia
   RU: Russia
   SA: Saudi Arabia
   SE: Sweden
   SG: Singapore
   SI: Slovenia
   SK: Slovakia
+  SN: Senegal
   SV: El Salvador
   TH: Thailand
   TR: Türkiye
   TW: Taiwan
   UA: Ukraine
   US: United States
+  UY: Uruguay
   VE: Venezuela
   VN: Vietnam
   ZA: South Africa
