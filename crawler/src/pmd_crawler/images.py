@@ -235,7 +235,18 @@ class ExifPool:
         self._lock = asyncio.Lock()
 
     async def __aenter__(self) -> ExifPool:
-        self._helper = exiftool.ExifToolHelper()
+        # `-G1` is the family-1 group prefix (e.g. XMP-dc:, XMP-iptcExt:,
+        # IFD0:) and is far more informative than the flat `-G` family-0
+        # prefix (XMP:, EXIF:). MUST be passed via common_args at construction
+        # — ExifToolHelper's default common_args is `["-G", "-n"]`, which is
+        # baked into the persistent exiftool process at startup. Passing
+        # `params=["-G1"]` per call doesn't override it: exiftool resolves
+        # `-G ... -G1` to combined output (XMP:XMP-dc:Description) only when
+        # both stick, and in pyexiftool's persistent-mode invocation the
+        # startup `-G` wins on its own, producing `XMP:` keys with no
+        # family-1 information at all. `-n` disables print conversion
+        # (numeric values preserved as numbers).
+        self._helper = exiftool.ExifToolHelper(common_args=["-G1", "-n"])
         self._helper.run()
         return self
 
@@ -249,12 +260,10 @@ class ExifPool:
         async with self._lock:
             data = await asyncio.get_running_loop().run_in_executor(
                 None,
-                # -G1 (family-1 group prefix): produces "XMP-dc:Creator" /
-                # "XMP-iptcExt:DigitalSourceType" / "IFD0:Artist" etc. instead
-                # of the flat -G "XMP:Creator". Far more informative for the
-                # per-image metadata table and matches the namespace-qualified
-                # aliases in scoring.yaml.
-                lambda: self._helper.get_metadata(str(path), params=["-G1", "-n"]),  # type: ignore[union-attr]
+                # Group/print-conversion flags are set on the persistent
+                # exiftool process via common_args in __aenter__ — see the
+                # comment there for why per-call `params` would not work.
+                lambda: self._helper.get_metadata(str(path)),  # type: ignore[union-attr]
             )
         if not data:
             return {}
