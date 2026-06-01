@@ -37,3 +37,60 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: ukrinform-english
+  name: Ukrinform (English)
+  url: https://www.ukrinform.net/
+  homepage: https://www.ukrinform.net/
+  category: news-agency
+  language_primary: en
+  notes: ''
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.ukrinform.net/sitemap/last.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: ukrinform-ukrainian
+  name: Ukrinform (Ukrainian)
+  url: https://www.ukrinform.ua/
+  homepage: https://www.ukrinform.ua/
+  category: news-agency
+  language_primary: uk
+  notes: ''
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.ukrinform.ua/sitemap/last.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: unian
+  name: UNIAN
+  url: https://www.unian.net/
+  homepage: https://www.unian.net/
+  # The configured feed (news_rus.rss) is the Russian-language edition served
+  # under unian.net; UNIAN also runs a Ukrainian edition at unian.ua. Switch
+  # the URL / feed if the Ukrainian edition is preferred.
+  category: news-agency
+  language_primary: ru
+  notes: ''
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://rss.unian.net/site/news_rus.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
