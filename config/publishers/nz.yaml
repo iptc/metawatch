@@ -52,7 +52,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.rnz.co.nz/rss/national.xml
+    - https://www.rnz.co.nz/rss/news.xml
     js_required: false
   sample:
     max_articles: 20
