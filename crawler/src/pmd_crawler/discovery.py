@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import asyncio
 import gzip
 import re
 from dataclasses import dataclass
@@ -12,10 +13,18 @@ import feedparser
 import httpx
 from lxml import etree
 from protego import Protego
+from rich.console import Console
 from selectolax.parser import HTMLParser
 
 from . import USER_AGENT
 from .config import Site
+
+_console = Console(stderr=True)
+
+# Single retry on transient feed-fetch errors. Three seconds is long enough
+# that a momentary Fastly/Cloudflare rate-limit, origin hiccup, or DNS blip
+# usually clears, and short enough not to dominate the per-site budget.
+_RSS_RETRY_BACKOFF_S = 3.0
 
 SITEMAP_NS = {
     "sm": "http://www.sitemaps.org/schemas/sitemap/0.9",
@@ -304,26 +313,73 @@ async def fetch_rss_articles(
     window_days: int,
     max_articles: int,
 ) -> tuple[list[ArticleCandidate], str | None]:
-    """Fetch and parse an RSS/Atom feed.
+    """Fetch and parse an RSS/Atom feed, with one retry on transient failure.
 
     Returns (articles, error_kind). error_kind is one of:
       None             — fetched and parsed successfully
       "network_error"  — DNS/connection/timeout/TLS failure (publisher unreachable)
       "http_error"     — got a response, status >= 400 (e.g. 403 from a WAF)
       "parse_error"    — got 2xx but body wasn't a parseable feed
+
+    A single retry runs on network_error and http_error after a small
+    backoff. Brief Fastly/Cloudflare blips on bot-aware feeds (e.g. a
+    momentary 429 or a Fastly origin error that clears in seconds) used
+    to permanently misclassify the publisher as ``discovery_blocked`` for
+    the whole month-long crawl interval; the retry rescues those without
+    bloating the per-site budget. ``parse_error`` is not retried — a
+    server returning HTML or malformed XML once will do the same on
+    retry, and the response usually carries useful diagnostic info that
+    we want to log immediately.
     """
+    articles, err = await _fetch_rss_once(client, feed_url, window_days, max_articles)
+    if err in ("network_error", "http_error"):
+        await asyncio.sleep(_RSS_RETRY_BACKOFF_S)
+        articles, err = await _fetch_rss_once(
+            client, feed_url, window_days, max_articles, attempt=2,
+        )
+    return articles, err
+
+
+async def _fetch_rss_once(
+    client: httpx.AsyncClient,
+    feed_url: str,
+    window_days: int,
+    max_articles: int,
+    *,
+    attempt: int = 1,
+) -> tuple[list[ArticleCandidate], str | None]:
+    """One HTTP attempt at fetching ``feed_url`` and parsing it as RSS/Atom.
+
+    Failure paths log the response status / content-type / body preview so
+    we can diagnose ``discovery_blocked`` events post-hoc — without that
+    detail, all WAF-related rejections look identical in the parquet row
+    even though "blocked 403" and "rate-limited 429" want different fixes.
+    """
+    tag = f"[yellow]rss attempt {attempt}[/yellow]" if attempt > 1 else "[yellow]rss[/yellow]"
     try:
         r = await client.get(feed_url, timeout=20.0, follow_redirects=True)
-    except (httpx.NetworkError, httpx.TimeoutException):
+    except (httpx.NetworkError, httpx.TimeoutException) as e:
+        _console.print(f"  {tag} network_error {feed_url}  {type(e).__name__}: {str(e)[:80]}")
         return [], "network_error"
-    except Exception:
+    except Exception as e:
+        _console.print(f"  {tag} network_error {feed_url}  {type(e).__name__}: {str(e)[:80]}")
         return [], "network_error"
     if r.status_code >= 400:
+        ct = (r.headers.get("content-type") or "").split(";")[0].strip()
+        snippet = r.text[:120].replace("\n", " ").replace("\r", "")
+        _console.print(f"  {tag} http {r.status_code} {feed_url}  ct={ct!r}  body={snippet!r}")
         return [], "http_error"
     if not r.content:
+        _console.print(f"  {tag} parse_error {feed_url}  (empty body, status {r.status_code})")
         return [], "parse_error"
     parsed = feedparser.parse(r.content)
     if parsed.bozo and not parsed.entries:
+        ct = (r.headers.get("content-type") or "").split(";")[0].strip()
+        snippet = r.text[:120].replace("\n", " ").replace("\r", "")
+        bozo = getattr(parsed, "bozo_exception", None)
+        _console.print(
+            f"  {tag} parse_error {feed_url}  ct={ct!r}  bozo={type(bozo).__name__ if bozo else '?'}  body={snippet!r}"
+        )
         return [], "parse_error"
 
     cutoff = datetime.now(UTC) - timedelta(days=window_days)
