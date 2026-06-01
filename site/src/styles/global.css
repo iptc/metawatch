@@ -184,13 +184,20 @@ th.sortable-col.sort-desc::after { content: " \25BC"; opacity: 0.8; }
 .score-bar {
   display: inline-block;
   height: 8px;
-  width: 80px;
+  width: 64px;
   background: var(--iptc-border);
   border-radius: 4px;
   overflow: hidden;
   vertical-align: middle;
   margin-right: 6px;
 }
+/* Score cells contain an inline-block bar followed by the numeric label,
+   e.g. "[====] 98.8". On narrow viewports the cell was wrapping the label
+   onto a second row, doubling the row height of every site row. Force the
+   bar + number to stay on one line. The bar already has a fixed width
+   (64px) and the number is short, so the cell will simply demand a slightly
+   wider column rather than wrap. */
+td:has(> .score-bar) { white-space: nowrap; }
 .score-bar > span {
   display: block;
   height: 100%;
