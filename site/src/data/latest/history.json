@@ -74,13 +74,13 @@
     }
   },
   {
-    "run_id": "2026-06-01T140336Z",
-    "started_at": "2026-06-01T14:03:36.405688+00:00",
-    "site_count": 294,
-    "image_count": 4611,
-    "mean_score": 6.59,
-    "images_with_iptc": 506,
-    "pct_with_iptc": 10.8,
+    "run_id": "2026-06-01T211956Z",
+    "started_at": "2026-06-01T21:19:56.784478+00:00",
+    "site_count": 298,
+    "image_count": 4720,
+    "mean_score": 6.85,
+    "images_with_iptc": 520,
+    "pct_with_iptc": 11.1,
     "images_with_c2pa": 2,
     "pct_with_c2pa": 0.043,
     "c2pa_outcomes": {
