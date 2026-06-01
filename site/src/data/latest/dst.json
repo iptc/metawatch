@@ -1,45 +1,11 @@
 {
   "image_count_total": 4595,
-  "image_count_valid": 4555,
-  "images_with_dst_iptc": 2,
-  "images_with_dst_c2pa": 3,
-  "pct_with_dst_iptc": 0.04,
-  "by_bucket_iptc": [
-    {
-      "bucket": "Other",
-      "images": 2
-    }
-  ],
-  "by_bucket_c2pa": [
-    {
-      "bucket": "AI-generated",
-      "images": 2
-    },
-    {
-      "bucket": "Edited with Generative AI",
-      "images": 1
-    }
-  ],
-  "by_uri_iptc": [
-    {
-      "uri": "nil",
-      "term": "nil",
-      "bucket": "Other",
-      "images": 2
-    }
-  ],
-  "by_uri_c2pa": [
-    {
-      "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
-      "term": "trainedAlgorithmicMedia",
-      "bucket": "AI-generated",
-      "images": 2
-    },
-    {
-      "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/compositeWithTrainedAlgorithmicMedia",
-      "term": "compositeWithTrainedAlgorithmicMedia",
-      "bucket": "Edited with Generative AI",
-      "images": 1
-    }
-  ]
+  "image_count_valid": 4568,
+  "images_with_dst_iptc": 0,
+  "images_with_dst_c2pa": 0,
+  "pct_with_dst_iptc": 0.0,
+  "by_bucket_iptc": [],
+  "by_bucket_c2pa": [],
+  "by_uri_iptc": [],
+  "by_uri_c2pa": []
 }

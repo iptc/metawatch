@@ -1,25 +1,4 @@
 {
-  "cyprus-mail": {
-    "image_count_with_c2pa": 1,
-    "by_outcome": [
-      {
-        "outcome": "valid",
-        "images": 1
-      }
-    ],
-    "by_signer": [
-      {
-        "signer": "OpenAI OpCo, LLC",
-        "images": 1
-      }
-    ],
-    "by_validation_state": [
-      {
-        "state": "Valid",
-        "images": 1
-      }
-    ]
-  },
   "iptc": {
     "image_count_with_c2pa": 2,
     "by_outcome": [
@@ -38,48 +17,6 @@
       {
         "state": "Valid",
         "images": 2
-      }
-    ]
-  },
-  "city-am": {
-    "image_count_with_c2pa": 1,
-    "by_outcome": [
-      {
-        "outcome": "modified",
-        "images": 1
-      }
-    ],
-    "by_signer": [
-      {
-        "signer": "Adobe Inc.",
-        "images": 1
-      }
-    ],
-    "by_validation_state": [
-      {
-        "state": "Invalid",
-        "images": 1
-      }
-    ]
-  },
-  "mail-guardian": {
-    "image_count_with_c2pa": 1,
-    "by_outcome": [
-      {
-        "outcome": "valid",
-        "images": 1
-      }
-    ],
-    "by_signer": [
-      {
-        "signer": "OpenAI OpCo, LLC",
-        "images": 1
-      }
-    ],
-    "by_validation_state": [
-      {
-        "state": "Valid",
-        "images": 1
       }
     ]
   }
