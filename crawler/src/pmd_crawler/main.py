@@ -23,7 +23,7 @@ from rich.progress import (
 from . import DEFAULT_HEADERS, __version__, config, discovery
 from .articles import fetch_article
 from .images import ExifPool, fetch_and_analyse
-from .optout import probe_site_optouts
+from .optout import SiteOptoutSignals, probe_site_optouts
 from .output import (
     ArticleRow,
     ImageRow,
@@ -256,14 +256,48 @@ async def _crawl_site(
     robots_url = f"{site.url.rstrip('/')}/robots.txt"
 
     # AI-opt-out probes (robots-AI matrix, RSL, tdmrep, ai.txt, trust.txt).
-    # We run these for every site that *responded* to robots.txt, even if
-    # robots later disallowed our crawler — the opt-out posture is still
-    # interesting and the probes are cheap. For sites we couldn't reach at
-    # all, signals stay at their dataclass defaults (False / None / 0).
-    optout_signals = await probe_site_optouts(client, site.url, robots.text)
-    robots_analysis = _build_robots_analysis_rows(run_id, site.id, optout_signals)
+    # We run these for every site we could reach in any meaningful way,
+    # even ones that disallowed our crawler — the opt-out posture is still
+    # interesting and the probes are cheap.
+    #
+    # Order matters: discover() fetches robots up-front for sitemap-path
+    # sites (it needs the Sitemap: lines), but for RSS-path sites it skips
+    # robots entirely to dodge cascade-blocking WAFs (e.g. tass.ru returns
+    # 403 on /robots.txt and then locks the IP out of every subsequent
+    # request for ~60s). In the RSS case we still want robots.txt for the
+    # AI-prefs signals, so do a best-effort fetch AFTER the article loop —
+    # by then we've already got everything else we need from the site,
+    # so a residual WAF block costs us nothing.
+    optout_signals: SiteOptoutSignals | None = None
+    robots_analysis: list[RobotsAnalysisRow] = []
+
+    async def _ensure_optouts() -> None:
+        """Lazily probe AI-prefs, fetching robots.txt now if it wasn't earlier."""
+        nonlocal optout_signals, robots_analysis
+        if optout_signals is not None:
+            return
+        if robots.fetched:
+            robots_text = robots.text
+        else:
+            # Deferred robots fetch. May 4xx / time out (e.g. WAF-blocked) —
+            # treat any failure as empty text and let probe_site_optouts
+            # compute permissive defaults from there.
+            try:
+                r = await client.get(robots_url, timeout=15.0, follow_redirects=True)
+                robots_text = r.text if r.status_code < 400 else ""
+            except Exception:
+                robots_text = ""
+        optout_signals = await probe_site_optouts(client, site.url, robots_text)
+        robots_analysis = _build_robots_analysis_rows(run_id, site.id, optout_signals)
+
+    # If discover() already fetched robots, compute optouts now — no benefit
+    # to deferring, and it lets the early-return paths use the same closure
+    # without per-path re-checks.
+    if robots.fetched:
+        await _ensure_optouts()
 
     def _site_row(status: str, sitemap: str | None, articles: int, images: int, score: float) -> SiteRow:
+        assert optout_signals is not None, "_site_row called before _ensure_optouts()"
         return SiteRow(
             run_id=run_id, site_id=site.id, site_name=site.name,
             country=site.country, category=site.category,
@@ -284,6 +318,8 @@ async def _crawl_site(
         )
 
     if not robots.allowed_at_root:
+        # robots.fetched is True here (RSS-path synthetic robots is always
+        # allowed_at_root=True), so _ensure_optouts has already run.
         return {
             "site": _site_row("robots_disallow", None, 0, 0, 0.0),
             "articles": [], "images": [], "fields": [],
@@ -292,6 +328,7 @@ async def _crawl_site(
 
     if not candidates:
         status = discovery.status_for_empty_discovery(strategy, disc_err)
+        await _ensure_optouts()
         return {
             "site": _site_row(status, sitemap_url, 0, 0, 0.0),
             "articles": [], "images": [], "fields": [],
@@ -407,6 +444,12 @@ async def _crawl_site(
                 )
 
     mean_score = round(sum(image_scores) / len(image_scores), 2) if image_scores else 0.0
+
+    # Make sure AI-prefs are computed before we exit. For sitemap-path sites
+    # this is a no-op (already done up front); for RSS-path sites it's where
+    # the deferred robots.txt fetch happens, deliberately AFTER the article
+    # loop so any cascade-blocking WAFs can't disrupt the article fetches.
+    await _ensure_optouts()
 
     if bailed_unreachable and not articles:
         # All attempted articles failed to fetch — treat as unreachable rather than ok-with-zero.
