@@ -207,6 +207,10 @@ th.sortable-col.sort-desc::after { content: " \25BC"; opacity: 0.8; }
   background: var(--iptc-surface);
   color: var(--iptc-navy);
   border: 1px solid var(--iptc-border);
+  /* Pill labels like "news agency" contain a space and were wrapping to
+     two lines in narrow table columns. The 999px radius then turned the
+     wrapped capsule into a fat oval. Force single-line. */
+  white-space: nowrap;
 }
 .pill.news-agency { background: #eaf3df; border-color: var(--iptc-green); color: var(--iptc-green-dark); }
 .pill.broadcaster { background: #e9eef3; }
