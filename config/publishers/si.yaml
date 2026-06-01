@@ -59,18 +59,19 @@ sites:
     window_days: 30
 - id: sta
   name: Slovenska tiskovna agencija (STA)
-  url: https://english.sta.si/
-  homepage: https://english.sta.si/
+  url: https://www.sta.si/
+  homepage: https://www.sta.si/
   category: news-agency
-  language_primary: en
+  language_primary: sl
   notes: ''
   suggested_by: BQ (IPTC member)
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
-    rss_urls: []
+    rss_urls:
+    - https://www.sta.si/rss-0
     js_required: false
   sample:
     max_articles: 20
