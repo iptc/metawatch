@@ -24,6 +24,12 @@ const iptcPoints = history.map(h => ({ x: h.started_at, y: h.pct_with_iptc }));
     We crawl a curated list of publishers monthly and score the photographs they serve.
   </p>
 
+  <p class="feedback-cta">
+    Got a publisher we should add, a metric we're missing, or a number that looks wrong?
+    <a href="https://forms.gle/Knhr7ZwvMyEL5MNQA" target="_blank" rel="noopener">Tell us via this short form</a>
+    — we read every response.
+  </p>
+
   <div class="card-row">
     <div class="stat"><span class="stat-label">Latest run</span><span class="stat-value">{runDate}</span></div>
     <div class="stat"><span class="stat-label">Sites crawled</span><span class="stat-value">{summary.site_count_succeeded}</span></div>

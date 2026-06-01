@@ -5,6 +5,14 @@ import { getAiPolicy } from '../../lib/data';
 const data = getAiPolicy();
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
+// Sort the headline cards by adoption rate, highest first, so the most-used
+// mechanism gets first-position prominence. Ties (frequent at 0.0% for new
+// signals) fall back to a stable alphabetical-by-label order so the grid
+// doesn't shuffle between runs when nothing has moved.
+const signalsByAdoption = [...data.signals].sort(
+  (a, b) => (b.pct - a.pct) || a.label.localeCompare(b.label)
+);
+
 function bar(pct: number, max = 100) {
   const w = Math.min(100, (pct / Math.max(max, 1)) * 100);
   return `width:${w.toFixed(1)}%`;
@@ -36,20 +44,10 @@ function bar(pct: number, max = 100) {
     Based on the most recent crawl: <strong>{data.n_sites}</strong> publishers probed,
     <strong>{data.n_images.toLocaleString()}</strong> images analysed.
   </p>
-  <p class="lede-meta">
-    The "publishers probed" denominator on this page (<strong>{data.n_sites}</strong>) is wider
-    than the "sites crawled" figure on the homepage. The homepage counts publishers where the
-    crawler completed a full pass through to fetching images. The denominator here also includes
-    publishers whose <code>robots.txt</code> disallowed our user-agent at the root, whose sitemap
-    or feed discovery was blocked, or who returned no articles — because for those publishers we
-    still read <code>robots.txt</code>, probed the well-known files, and so on, so we can
-    legitimately answer "did they express an AI preference". Only publishers we couldn't reach at
-    all (DNS / TCP failures) are excluded.
-  </p>
 
   <h2>Adoption snapshot</h2>
   <div class="signal-grid">
-    {data.signals.map(s => (
+    {signalsByAdoption.map(s => (
       <a href={`${base}/ai-policy/${s.key}/`} class={`signal-card scope-${s.scope}`}>
         <div class="scope-pill">{s.scope === 'site' ? 'per site' : 'per image'}</div>
         <div class="pct">{s.pct.toFixed(1)}%</div>
@@ -162,6 +160,19 @@ function bar(pct: number, max = 100) {
   </table>
 
   <h2>What we measure (methodology)</h2>
+
+  <p>
+    The "publishers probed" denominator on this page (<strong>{data.n_sites}</strong>) is wider
+    than the "Sites crawled" figure on the homepage. The homepage counts publishers where the
+    crawler completed a full pass through to fetching images. The denominator here also includes
+    publishers whose <code>robots.txt</code> disallowed our user-agent at the root, whose sitemap
+    or feed discovery was blocked, or who returned no articles — because for those publishers we
+    still read <code>robots.txt</code>, probed the well-known files, and so on, so we can
+    legitimately answer "did they express an AI preference". Only publishers we couldn't reach at
+    all (DNS / TCP failures) are excluded. Narrowing the denominator to the homepage's figure
+    would drop precisely the publishers most likely to opt out, biasing every percentage upward.
+  </p>
+
   <ul class="methodology">
     <li><strong>robots.txt</strong>: fetched once per run, parsed with <code>protego</code>.
       For each tracked UA we record <code>allowed</code> or <code>disallowed</code> at the site

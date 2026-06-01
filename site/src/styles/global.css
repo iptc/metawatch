@@ -115,6 +115,19 @@ main {
   margin: 1rem 0;
 }
 
+/* Inline call-to-action banner — used on the homepage to nudge readers
+   toward the feedback form. Visually distinct from .lede (which is the
+   page description) and from .card (which is heavier). */
+.feedback-cta {
+  background: var(--iptc-surface);
+  border-left: 3px solid var(--iptc-navy);
+  padding: 0.7rem 1rem;
+  border-radius: 0 4px 4px 0;
+  margin: 1rem 0 1.5rem;
+  font-size: 0.95rem;
+  max-width: 70ch;
+}
+
 .card-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
