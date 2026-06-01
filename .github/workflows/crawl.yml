@@ -11,6 +11,11 @@ on:
       site_id:
         description: "Run a specific site ID (comma-separated). Leave blank for all."
         required: false
+      merge:
+        description: "Merge into today's existing run instead of overwriting it (use with site_id or country to patch a partial re-crawl)."
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -45,6 +50,7 @@ jobs:
           ARGS="--output $OUT"
           if [ -n "${{ inputs.country }}" ]; then ARGS="$ARGS --country ${{ inputs.country }}"; fi
           if [ -n "${{ inputs.site_id }}" ]; then ARGS="$ARGS --site-id ${{ inputs.site_id }}"; fi
+          if [ "${{ inputs.merge }}" = "true" ]; then ARGS="$ARGS --merge"; fi
           .venv/bin/pmd-crawler run $ARGS
 
       - name: Export latest run for static site

@@ -16,6 +16,7 @@ from datetime import datetime
 from pathlib import Path
 
 import pyarrow as pa
+import pyarrow.compute as pc
 import pyarrow.parquet as pq
 
 
@@ -158,17 +159,134 @@ class RunOutput:
 
 
 def write_run(out_dir: Path, run_output: RunOutput) -> None:
+    """Write a full crawl run to ``out_dir``, overwriting any existing files."""
     out_dir.mkdir(parents=True, exist_ok=True)
-    _write_runs(out_dir / "runs.parquet", [run_output.run])
-    _write_sites(out_dir / "sites.parquet", run_output.sites)
-    _write_articles(out_dir / "articles.parquet", run_output.articles)
-    _write_images(out_dir / "images.parquet", run_output.images)
-    _write_metadata_fields(out_dir / "metadata_fields.parquet", run_output.metadata_fields)
-    _write_robots_analysis(out_dir / "robots_analysis.parquet", run_output.robots_analysis)
+    _write_table(out_dir / "runs.parquet", _runs_table([run_output.run]))
+    _write_table(out_dir / "sites.parquet", _sites_table(run_output.sites))
+    _write_table(out_dir / "articles.parquet", _articles_table(run_output.articles))
+    _write_table(out_dir / "images.parquet", _images_table(run_output.images))
+    _write_table(out_dir / "metadata_fields.parquet", _metadata_fields_table(run_output.metadata_fields))
+    _write_table(out_dir / "robots_analysis.parquet", _robots_analysis_table(run_output.robots_analysis))
 
 
-def _write_runs(path: Path, rows: list[RunRow]) -> None:
-    table = pa.table({
+def merge_run(out_dir: Path, run_output: RunOutput) -> None:
+    """Update an existing run directory with the sites in ``run_output``.
+
+    Used for selective re-crawls (``pmd-crawler run --merge --site-id rnz``)
+    so a partial run patches just the affected publishers without losing the
+    rest of the day's data. Behaviour per table:
+
+    * ``runs.parquet`` — left untouched. The merge is a fix-up of the
+      original run, not a new run, so the timestamp / totals / run_id stay
+      as they were. All incoming rows are re-stamped with the original
+      ``run_id`` so they remain consistent with the run header.
+    * ``sites.parquet`` / ``articles.parquet`` / ``images.parquet`` /
+      ``robots_analysis.parquet`` — rows whose ``site_id`` is in the
+      incoming set are dropped, then incoming rows are appended.
+    * ``metadata_fields.parquet`` has no ``site_id``; we drop rows whose
+      ``image_url_hash`` belonged to a now-superseded image on a merged
+      site (those hashes change when the new crawl picks a different
+      lead image), then append incoming rows.
+
+    Falls back to ``write_run`` if ``runs.parquet`` doesn't exist yet —
+    so calling ``merge_run`` on a fresh directory just behaves like the
+    first write, and the workflow can pass ``--merge`` unconditionally
+    without a guard.
+    """
+    runs_path = out_dir / "runs.parquet"
+    if not runs_path.exists():
+        write_run(out_dir, run_output)
+        return
+    existing_runs = pq.read_table(runs_path)
+    if existing_runs.num_rows == 0:
+        write_run(out_dir, run_output)
+        return
+
+    # Adopt the existing run's identity on every incoming row.
+    existing_run_id = existing_runs.column("run_id")[0].as_py()
+    for row in run_output.sites:
+        row.run_id = existing_run_id
+    for row in run_output.articles:
+        row.run_id = existing_run_id
+    for row in run_output.images:
+        row.run_id = existing_run_id
+    for row in run_output.metadata_fields:
+        row.run_id = existing_run_id
+    for row in run_output.robots_analysis:
+        row.run_id = existing_run_id
+
+    site_ids = pa.array(sorted({s.site_id for s in run_output.sites}))
+
+    # Hashes of OLD images on merged sites — needed to filter
+    # metadata_fields, which has no site_id column of its own.
+    images_path = out_dir / "images.parquet"
+    if images_path.exists():
+        existing_images = pq.read_table(images_path)
+        if existing_images.num_rows > 0:
+            on_merged = pc.is_in(existing_images.column("site_id"), value_set=site_ids)
+            old_image_hashes = (
+                existing_images.filter(on_merged).column("image_url_hash").to_pylist()
+            )
+        else:
+            # Empty existing table: pyarrow infers `null` column types for
+            # zero-row writes, and `pc.is_in(null-col, string-array)` raises
+            # ArrowTypeError. Nothing to drop anyway.
+            old_image_hashes = []
+    else:
+        old_image_hashes = []
+
+    _merge_by_column(
+        out_dir / "sites.parquet", "site_id", site_ids, _sites_table(run_output.sites),
+    )
+    _merge_by_column(
+        out_dir / "articles.parquet", "site_id", site_ids,
+        _articles_table(run_output.articles),
+    )
+    _merge_by_column(
+        out_dir / "images.parquet", "site_id", site_ids, _images_table(run_output.images),
+    )
+    _merge_by_column(
+        out_dir / "robots_analysis.parquet", "site_id", site_ids,
+        _robots_analysis_table(run_output.robots_analysis),
+    )
+    _merge_by_column(
+        out_dir / "metadata_fields.parquet", "image_url_hash",
+        pa.array(sorted(set(old_image_hashes))),
+        _metadata_fields_table(run_output.metadata_fields),
+    )
+    # runs.parquet: deliberately untouched.
+
+
+def _merge_by_column(
+    path: Path, drop_column: str, drop_values: pa.Array, new_table: pa.Table,
+) -> None:
+    """Drop rows where ``row[drop_column] ∈ drop_values`` and append ``new_table``."""
+    if path.exists():
+        existing = pq.read_table(path)
+        if existing.num_rows > 0 and len(drop_values) > 0:
+            keep_mask = pc.invert(pc.is_in(existing.column(drop_column), value_set=drop_values))
+            kept = existing.filter(keep_mask)
+        else:
+            kept = existing
+        merged = (
+            pa.concat_tables([kept, new_table])
+            if kept.num_rows > 0
+            else new_table
+        )
+    else:
+        merged = new_table
+    _write_table(path, merged)
+
+
+def _write_table(path: Path, table: pa.Table) -> None:
+    pq.write_table(table, path, compression="zstd")
+
+
+# ─── per-table column builders ──────────────────────────────────────────────
+
+
+def _runs_table(rows: list[RunRow]) -> pa.Table:
+    return pa.table({
         "run_id": [r.run_id for r in rows],
         "started_at": [r.started_at for r in rows],
         "ended_at": [r.ended_at for r in rows],
@@ -179,11 +297,10 @@ def _write_runs(path: Path, rows: list[RunRow]) -> None:
         "article_count": [r.article_count for r in rows],
         "image_count": [r.image_count for r in rows],
     })
-    pq.write_table(table, path, compression="zstd")
 
 
-def _write_sites(path: Path, rows: list[SiteRow]) -> None:
-    table = pa.table({
+def _sites_table(rows: list[SiteRow]) -> pa.Table:
+    return pa.table({
         "run_id": [r.run_id for r in rows],
         "site_id": [r.site_id for r in rows],
         "site_name": [r.site_name for r in rows],
@@ -208,11 +325,10 @@ def _write_sites(path: Path, rows: list[SiteRow]) -> None:
         "content_signal_ai_input": [r.content_signal_ai_input for r in rows],
         "content_signal_search": [r.content_signal_search for r in rows],
     })
-    pq.write_table(table, path, compression="zstd")
 
 
-def _write_articles(path: Path, rows: list[ArticleRow]) -> None:
-    table = pa.table({
+def _articles_table(rows: list[ArticleRow]) -> pa.Table:
+    return pa.table({
         "run_id": [r.run_id for r in rows],
         "site_id": [r.site_id for r in rows],
         "article_url": [r.article_url for r in rows],
@@ -226,11 +342,10 @@ def _write_articles(path: Path, rows: list[ArticleRow]) -> None:
         "fetched_at": [r.fetched_at for r in rows],
         "tdm_reservation": [r.tdm_reservation for r in rows],
     })
-    pq.write_table(table, path, compression="zstd")
 
 
-def _write_images(path: Path, rows: list[ImageRow]) -> None:
-    table = pa.table({
+def _images_table(rows: list[ImageRow]) -> pa.Table:
+    return pa.table({
         "run_id": [r.run_id for r in rows],
         "site_id": [r.site_id for r in rows],
         "article_url_hash": [r.article_url_hash for r in rows],
@@ -258,26 +373,23 @@ def _write_images(path: Path, rows: list[ImageRow]) -> None:
         "noai_tokens": [r.noai_tokens for r in rows],
         "cawg_training_mining_json": [r.cawg_training_mining_json for r in rows],
     })
-    pq.write_table(table, path, compression="zstd")
 
 
-def _write_metadata_fields(path: Path, rows: list[MetadataFieldRow]) -> None:
-    table = pa.table({
+def _metadata_fields_table(rows: list[MetadataFieldRow]) -> pa.Table:
+    return pa.table({
         "run_id": [r.run_id for r in rows],
         "image_url_hash": [r.image_url_hash for r in rows],
         "family": [r.family for r in rows],
         "field_name": [r.field_name for r in rows],
         "has_value": [r.has_value for r in rows],
     })
-    pq.write_table(table, path, compression="zstd")
 
 
-def _write_robots_analysis(path: Path, rows: list[RobotsAnalysisRow]) -> None:
-    table = pa.table({
+def _robots_analysis_table(rows: list[RobotsAnalysisRow]) -> pa.Table:
+    return pa.table({
         "run_id": [r.run_id for r in rows],
         "site_id": [r.site_id for r in rows],
         "user_agent": [r.user_agent for r in rows],
         "operator": [r.operator for r in rows],
         "status": [r.status for r in rows],
     })
-    pq.write_table(table, path, compression="zstd")

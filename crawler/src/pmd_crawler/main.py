@@ -32,6 +32,7 @@ from .output import (
     RunOutput,
     RunRow,
     SiteRow,
+    merge_run,
     write_run,
 )
 from .scoring import iptc_xmp_subset
@@ -57,12 +58,19 @@ def cli() -> None:
 @click.option("--publishers-dir", default=None, type=click.Path(path_type=Path),
               help="Override publishers config directory (defaults to ../config/publishers).")
 @click.option("--concurrency", default=8, show_default=True)
+@click.option(
+    "--merge", "merge", is_flag=True, default=False,
+    help="Merge into an existing run directory instead of overwriting. "
+         "Use with --site-id or --country to patch just the affected publishers "
+         "into today's full crawl without losing the rest.",
+)
 def run(
     output_dir: Path,
     country: str | None,
     site_id: str | None,
     publishers_dir: Path | None,
     concurrency: int,
+    merge: bool,
 ) -> None:
     """Execute a crawl run and write Parquet output."""
     publishers_path = publishers_dir or _default_publishers_dir()
@@ -78,9 +86,10 @@ def run(
     sites = [s for s in sites if _domain_of(s.url) not in optouts]
 
     console.print(f"[bold]Metawatch crawler[/bold] v{__version__}")
-    console.print(f"Selected {len(sites)} sites, output → {output_dir}")
+    mode = "merge into" if merge else "write to"
+    console.print(f"Selected {len(sites)} sites, {mode} → {output_dir}")
 
-    asyncio.run(_run_async(sites, output_dir, concurrency))
+    asyncio.run(_run_async(sites, output_dir, concurrency, merge=merge))
 
 
 @cli.command("smoke-test")
@@ -121,7 +130,9 @@ async def _smoke_async(site: config.Site) -> None:
         console.print(f"    - {a.url}  ({a.publication_date})")
 
 
-async def _run_async(sites: list[config.Site], output_dir: Path, concurrency: int) -> None:
+async def _run_async(
+    sites: list[config.Site], output_dir: Path, concurrency: int, *, merge: bool = False,
+) -> None:
     run_id = datetime.now(UTC).strftime("%Y-%m-%dT%H%M%SZ")
     started = datetime.now(UTC)
 
@@ -238,7 +249,11 @@ async def _run_async(sites: list[config.Site], output_dir: Path, concurrency: in
         image_count=len(image_rows),
     )
 
-    write_run(output_dir, RunOutput(run, site_rows, article_rows, image_rows, field_rows, robots_rows))
+    output = RunOutput(run, site_rows, article_rows, image_rows, field_rows, robots_rows)
+    if merge:
+        merge_run(output_dir, output)
+    else:
+        write_run(output_dir, output)
     console.print(
         f"[green]Done.[/green] {len(sites)} sites, {len(article_rows)} articles, "
         f"{len(image_rows)} images. Output: {output_dir}"
