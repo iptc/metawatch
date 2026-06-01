@@ -86,6 +86,23 @@
     }
   },
   {
+    "site_id": "tass-english",
+    "site_name": "TASS (English)",
+    "url": "http://tass.com/",
+    "country": "RU",
+    "category": "news-agency",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "http://tass.com/rss/v2.xml",
+    "articles_sampled": 20,
+    "images_analysed": 5,
+    "mean_iptc_score": 80.0,
+    "pct_with_iptc": 80.0,
+    "cdn_breakdown": {
+      "none": 5
+    }
+  },
+  {
     "site_id": "pbs-newshour",
     "site_name": "PBS NewsHour",
     "url": "https://www.pbs.org/newshour/",
@@ -219,23 +236,6 @@
     "pct_with_iptc": 75.0,
     "cdn_breakdown": {
       "akamai": 20
-    }
-  },
-  {
-    "site_id": "tass-russian",
-    "site_name": "TASS (Russian)",
-    "url": "http://tass.ru/",
-    "country": "RU",
-    "category": "news-agency",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "http://tass.ru/rss/v2.xml",
-    "articles_sampled": 20,
-    "images_analysed": 6,
-    "mean_iptc_score": 54.17,
-    "pct_with_iptc": 66.7,
-    "cdn_breakdown": {
-      "none": 6
     }
   },
   {
@@ -4884,23 +4884,6 @@
     }
   },
   {
-    "site_id": "tass-english",
-    "site_name": "TASS (English)",
-    "url": "http://tass.com/",
-    "country": "RU",
-    "category": "news-agency",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "http://tass.com/rss/v2.xml",
-    "articles_sampled": 20,
-    "images_analysed": 3,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "none": 3
-    }
-  },
-  {
     "site_id": "stirile-pro-tv",
     "site_name": "Stirile Pro TV",
     "url": "https://www.stirileprotv.ro/",
@@ -4915,23 +4898,6 @@
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "cloudflare": 20
-    }
-  },
-  {
-    "site_id": "rt",
-    "site_name": "RT",
-    "url": "https://www.rt.com/news/",
-    "country": "RU",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.rt.com/rss/news/",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "none": 20
     }
   },
   {
@@ -5699,6 +5665,106 @@
     "status": "ok",
     "discovery_strategy": "guess:rss",
     "sitemap_url_used": "https://www.pravda.com.ua/eng/rss",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 20
+    }
+  },
+  {
+    "site_id": "gazeta",
+    "site_name": "Gazeta.ru",
+    "url": "https://www.gazeta.ru/",
+    "country": "RU",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:sitemap",
+    "sitemap_url_used": "https://www.gazeta.ru/sitemap_news-y.xml",
+    "articles_sampled": 20,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "tass-russian",
+    "site_name": "TASS (Russian)",
+    "url": "http://tass.ru/",
+    "country": "RU",
+    "category": "news-agency",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "http://tass.ru/rss/v2.xml",
+    "articles_sampled": 20,
+    "images_analysed": 6,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 6
+    }
+  },
+  {
+    "site_id": "moscow-times",
+    "site_name": "The Moscow Times",
+    "url": "https://www.themoscowtimes.com/",
+    "country": "RU",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.themoscowtimes.com/rss/news",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 20
+    }
+  },
+  {
+    "site_id": "rt",
+    "site_name": "RT",
+    "url": "https://www.rt.com/news/",
+    "country": "RU",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.rt.com/rss/news/",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 20
+    }
+  },
+  {
+    "site_id": "meduza-english",
+    "site_name": "Meduza (English)",
+    "url": "https://meduza.io/en",
+    "country": "RU",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://meduza.io/rss/en/all",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 20
+    }
+  },
+  {
+    "site_id": "meduza-russian",
+    "site_name": "Meduza (Russian)",
+    "url": "https://meduza.io/",
+    "country": "RU",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://meduza.io/rss/all",
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 0.0,

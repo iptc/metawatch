@@ -1,6 +1,6 @@
 {
-  "n_sites": 340,
-  "n_images": 4606,
+  "n_sites": 344,
+  "n_images": 4668,
   "signals": [
     {
       "key": "robots-ai",
@@ -8,8 +8,8 @@
       "label": "robots.txt \u2014 any AI bot blocked",
       "note": "Blocks at least one known AI/scraper UA",
       "num": 197,
-      "denom": 340,
-      "pct": 57.9
+      "denom": 344,
+      "pct": 57.3
     },
     {
       "key": "tdmrep",
@@ -17,8 +17,8 @@
       "label": "/.well-known/tdmrep.json",
       "note": "TDM Reservation Protocol (EU DSM Art. 4)",
       "num": 7,
-      "denom": 340,
-      "pct": 2.1
+      "denom": 344,
+      "pct": 2.0
     },
     {
       "key": "tdmrep-meta",
@@ -26,8 +26,8 @@
       "label": "TDMRep \u2014 per-page <meta>",
       "note": "<meta name=\"tdm-reservation\" content=\"1\"> on \u22651 article",
       "num": 7,
-      "denom": 340,
-      "pct": 2.1
+      "denom": 344,
+      "pct": 2.0
     },
     {
       "key": "rsl",
@@ -35,7 +35,7 @@
       "label": "RSL \u2014 License: in robots.txt",
       "note": "Really Simple Licensing (rslstandard.org)",
       "num": 2,
-      "denom": 340,
+      "denom": 344,
       "pct": 0.6
     },
     {
@@ -44,7 +44,7 @@
       "label": "/ai.txt",
       "note": "Spawning AI consent proposal",
       "num": 3,
-      "denom": 340,
+      "denom": 344,
       "pct": 0.9
     },
     {
@@ -53,8 +53,8 @@
       "label": "robots.txt \u2014 Content-Signal",
       "note": "Cloudflare Content Signals (contentsignals.org)",
       "num": 6,
-      "denom": 340,
-      "pct": 1.8
+      "denom": 344,
+      "pct": 1.7
     },
     {
       "key": "trust-txt-dta",
@@ -62,7 +62,7 @@
       "label": "trust.txt \u2014 datatrainingallowed=no",
       "note": "JournalList trust.txt opt-out directive",
       "num": 2,
-      "denom": 340,
+      "denom": 344,
       "pct": 0.6
     },
     {
@@ -71,7 +71,7 @@
       "label": "noai / noimageai meta robots",
       "note": "AI-specific tokens on X-Robots-Tag or <meta name=\"robots\">",
       "num": 1,
-      "denom": 340,
+      "denom": 344,
       "pct": 0.3
     },
     {
@@ -80,8 +80,8 @@
       "label": "noarchive / nosnippet meta robots",
       "note": "Honoured as AI-opt-out by Bing/Copilot (noarchive) and Google (nosnippet)",
       "num": 77,
-      "denom": 340,
-      "pct": 22.6
+      "denom": 344,
+      "pct": 22.4
     },
     {
       "key": "iptc-datamining",
@@ -89,7 +89,7 @@
       "label": "IPTC PLUS:DataMining",
       "note": "XMP-plus:DataMining on \u22651 sampled image",
       "num": 11,
-      "denom": 340,
+      "denom": 344,
       "pct": 3.2
     },
     {
@@ -98,7 +98,7 @@
       "label": "CAWG Training and Data Mining Assertion",
       "note": "cawg.training-mining assertion in \u22651 sampled image's C2PA manifest",
       "num": 1,
-      "denom": 340,
+      "denom": 344,
       "pct": 0.3
     }
   ],
@@ -107,441 +107,441 @@
       "ua": "CCBot",
       "operator": "Common Crawl",
       "blocked": 164,
-      "total": 341,
-      "pct_blocked": 48.1
+      "total": 345,
+      "pct_blocked": 47.5
     },
     {
       "ua": "GPTBot",
       "operator": "OpenAI",
       "blocked": 155,
-      "total": 341,
-      "pct_blocked": 45.5
+      "total": 345,
+      "pct_blocked": 44.9
     },
     {
       "ua": "Bytespider",
       "operator": "ByteDance",
       "blocked": 148,
-      "total": 341,
-      "pct_blocked": 43.4
+      "total": 345,
+      "pct_blocked": 42.9
     },
     {
       "ua": "ClaudeBot",
       "operator": "Anthropic",
       "blocked": 145,
-      "total": 341,
-      "pct_blocked": 42.5
+      "total": 345,
+      "pct_blocked": 42.0
     },
     {
       "ua": "anthropic-ai",
       "operator": "Anthropic",
       "blocked": 139,
-      "total": 341,
-      "pct_blocked": 40.8
+      "total": 345,
+      "pct_blocked": 40.3
     },
     {
       "ua": "PerplexityBot",
       "operator": "Perplexity",
       "blocked": 137,
-      "total": 341,
-      "pct_blocked": 40.2
+      "total": 345,
+      "pct_blocked": 39.7
     },
     {
       "ua": "Google-Extended",
       "operator": "Google",
       "blocked": 135,
-      "total": 341,
-      "pct_blocked": 39.6
+      "total": 345,
+      "pct_blocked": 39.1
     },
     {
       "ua": "Claude-Web",
       "operator": "Anthropic",
       "blocked": 121,
-      "total": 341,
-      "pct_blocked": 35.5
+      "total": 345,
+      "pct_blocked": 35.1
     },
     {
       "ua": "cohere-ai",
       "operator": "Cohere",
       "blocked": 121,
-      "total": 341,
-      "pct_blocked": 35.5
+      "total": 345,
+      "pct_blocked": 35.1
     },
     {
       "ua": "omgilibot",
       "operator": "Webhose",
       "blocked": 120,
-      "total": 341,
-      "pct_blocked": 35.2
+      "total": 345,
+      "pct_blocked": 34.8
     },
     {
       "ua": "Diffbot",
       "operator": "Diffbot",
       "blocked": 118,
-      "total": 341,
-      "pct_blocked": 34.6
+      "total": 345,
+      "pct_blocked": 34.2
     },
     {
       "ua": "Amazonbot",
       "operator": "Amazon",
       "blocked": 117,
-      "total": 341,
-      "pct_blocked": 34.3
+      "total": 345,
+      "pct_blocked": 33.9
     },
     {
       "ua": "Applebot-Extended",
       "operator": "Apple",
       "blocked": 114,
-      "total": 341,
-      "pct_blocked": 33.4
+      "total": 345,
+      "pct_blocked": 33.0
     },
     {
       "ua": "ChatGPT-User",
       "operator": "OpenAI",
       "blocked": 111,
-      "total": 341,
-      "pct_blocked": 32.6
+      "total": 345,
+      "pct_blocked": 32.2
     },
     {
       "ua": "omgili",
       "operator": "Webhose",
       "blocked": 110,
-      "total": 341,
-      "pct_blocked": 32.3
+      "total": 345,
+      "pct_blocked": 31.9
     },
     {
       "ua": "Meta-ExternalAgent",
       "operator": "Meta",
       "blocked": 107,
-      "total": 341,
-      "pct_blocked": 31.4
+      "total": 345,
+      "pct_blocked": 31.0
     },
     {
       "ua": "FacebookBot",
       "operator": "Meta",
       "blocked": 101,
-      "total": 341,
-      "pct_blocked": 29.6
+      "total": 345,
+      "pct_blocked": 29.3
     },
     {
       "ua": "Meta-ExternalFetcher",
       "operator": "Meta",
       "blocked": 92,
-      "total": 341,
-      "pct_blocked": 27.0
+      "total": 345,
+      "pct_blocked": 26.7
     },
     {
       "ua": "YouBot",
       "operator": "You.com",
       "blocked": 92,
-      "total": 341,
-      "pct_blocked": 27.0
+      "total": 345,
+      "pct_blocked": 26.7
     },
     {
       "ua": "OAI-SearchBot",
       "operator": "OpenAI",
       "blocked": 90,
-      "total": 341,
-      "pct_blocked": 26.4
+      "total": 345,
+      "pct_blocked": 26.1
     },
     {
       "ua": "Timpibot",
       "operator": "Timpi",
       "blocked": 87,
-      "total": 341,
-      "pct_blocked": 25.5
+      "total": 345,
+      "pct_blocked": 25.2
     },
     {
       "ua": "Scrapy",
       "operator": "Open-source scraper",
       "blocked": 76,
-      "total": 341,
-      "pct_blocked": 22.3
+      "total": 345,
+      "pct_blocked": 22.0
     },
     {
       "ua": "ImagesiftBot",
       "operator": "ImageSift",
       "blocked": 75,
-      "total": 341,
-      "pct_blocked": 22.0
+      "total": 345,
+      "pct_blocked": 21.7
     },
     {
       "ua": "Claude-SearchBot",
       "operator": "Anthropic",
       "blocked": 72,
-      "total": 341,
-      "pct_blocked": 21.1
+      "total": 345,
+      "pct_blocked": 20.9
     },
     {
       "ua": "Perplexity-User",
       "operator": "Perplexity",
       "blocked": 71,
-      "total": 341,
-      "pct_blocked": 20.8
+      "total": 345,
+      "pct_blocked": 20.6
     },
     {
       "ua": "TurnitinBot",
       "operator": "Turnitin",
       "blocked": 69,
-      "total": 341,
-      "pct_blocked": 20.2
+      "total": 345,
+      "pct_blocked": 20.0
     },
     {
       "ua": "Claude-User",
       "operator": "Anthropic",
       "blocked": 68,
-      "total": 341,
-      "pct_blocked": 19.9
+      "total": 345,
+      "pct_blocked": 19.7
     },
     {
       "ua": "magpie-crawler",
       "operator": "Brandwatch",
       "blocked": 67,
-      "total": 341,
-      "pct_blocked": 19.6
+      "total": 345,
+      "pct_blocked": 19.4
     },
     {
       "ua": "DuckAssistBot",
       "operator": "DuckDuckGo",
       "blocked": 66,
-      "total": 341,
-      "pct_blocked": 19.4
+      "total": 345,
+      "pct_blocked": 19.1
     },
     {
       "ua": "cohere-training-data-crawler",
       "operator": "Cohere",
       "blocked": 63,
-      "total": 341,
-      "pct_blocked": 18.5
+      "total": 345,
+      "pct_blocked": 18.3
     },
     {
       "ua": "AI2Bot",
       "operator": "AI2",
       "blocked": 62,
-      "total": 341,
-      "pct_blocked": 18.2
+      "total": 345,
+      "pct_blocked": 18.0
     },
     {
       "ua": "FriendlyCrawler",
       "operator": "Webis",
       "blocked": 60,
-      "total": 341,
-      "pct_blocked": 17.6
+      "total": 345,
+      "pct_blocked": 17.4
     },
     {
       "ua": "PanguBot",
       "operator": "Huawei",
       "blocked": 58,
-      "total": 341,
-      "pct_blocked": 17.0
+      "total": 345,
+      "pct_blocked": 16.8
     },
     {
       "ua": "DataForSeoBot",
       "operator": "DataForSEO",
       "blocked": 55,
-      "total": 341,
-      "pct_blocked": 16.1
+      "total": 345,
+      "pct_blocked": 15.9
     },
     {
       "ua": "MistralAI-User",
       "operator": "Mistral",
       "blocked": 55,
-      "total": 341,
-      "pct_blocked": 16.1
+      "total": 345,
+      "pct_blocked": 15.9
     },
     {
       "ua": "AwarioRssBot",
       "operator": "Awario",
       "blocked": 52,
-      "total": 341,
-      "pct_blocked": 15.2
+      "total": 345,
+      "pct_blocked": 15.1
     },
     {
       "ua": "AwarioSmartBot",
       "operator": "Awario",
       "blocked": 52,
-      "total": 341,
-      "pct_blocked": 15.2
+      "total": 345,
+      "pct_blocked": 15.1
     },
     {
       "ua": "ia_archiver",
       "operator": "Internet Archive",
       "blocked": 52,
-      "total": 341,
-      "pct_blocked": 15.2
+      "total": 345,
+      "pct_blocked": 15.1
     },
     {
       "ua": "img2dataset",
       "operator": "Open-source scraper",
       "blocked": 51,
-      "total": 341,
-      "pct_blocked": 15.0
+      "total": 345,
+      "pct_blocked": 14.8
     },
     {
       "ua": "NewsNow",
       "operator": "NewsNow",
       "blocked": 48,
-      "total": 341,
-      "pct_blocked": 14.1
+      "total": 345,
+      "pct_blocked": 13.9
     },
     {
       "ua": "DeepSeekBot",
       "operator": "DeepSeek",
       "blocked": 47,
-      "total": 341,
-      "pct_blocked": 13.8
+      "total": 345,
+      "pct_blocked": 13.6
     },
     {
       "ua": "Google-CloudVertexBot",
       "operator": "Google",
       "blocked": 46,
-      "total": 341,
-      "pct_blocked": 13.5
+      "total": 345,
+      "pct_blocked": 13.3
     },
     {
       "ua": "BLEXBot",
       "operator": "WebMeUp",
       "blocked": 41,
-      "total": 341,
-      "pct_blocked": 12.0
+      "total": 345,
+      "pct_blocked": 11.9
     },
     {
       "ua": "archive.org_bot",
       "operator": "Internet Archive",
       "blocked": 39,
-      "total": 341,
-      "pct_blocked": 11.4
+      "total": 345,
+      "pct_blocked": 11.3
     },
     {
       "ua": "peer39_crawler",
       "operator": "Peer39",
       "blocked": 39,
-      "total": 341,
-      "pct_blocked": 11.4
+      "total": 345,
+      "pct_blocked": 11.3
     },
     {
       "ua": "SeekrBot",
       "operator": "Seekr",
       "blocked": 38,
-      "total": 341,
-      "pct_blocked": 11.1
+      "total": 345,
+      "pct_blocked": 11.0
     },
     {
       "ua": "news-please",
       "operator": "news-please (open-source)",
       "blocked": 35,
-      "total": 341,
-      "pct_blocked": 10.3
+      "total": 345,
+      "pct_blocked": 10.1
     },
     {
       "ua": "Feedfetcher-Google",
       "operator": "Google",
       "blocked": 32,
-      "total": 341,
-      "pct_blocked": 9.4
+      "total": 345,
+      "pct_blocked": 9.3
     },
     {
       "ua": "Gemini-Deep-Research",
       "operator": "Google",
       "blocked": 32,
-      "total": 341,
-      "pct_blocked": 9.4
+      "total": 345,
+      "pct_blocked": 9.3
     },
     {
       "ua": "Quora-Bot",
       "operator": "Quora",
       "blocked": 30,
-      "total": 341,
-      "pct_blocked": 8.8
+      "total": 345,
+      "pct_blocked": 8.7
     },
     {
       "ua": "MyCentralAIScraperBot",
       "operator": "MyCentral",
       "blocked": 28,
-      "total": 341,
-      "pct_blocked": 8.2
+      "total": 345,
+      "pct_blocked": 8.1
     },
     {
       "ua": "EchoboxBot",
       "operator": "Echobox",
       "blocked": 27,
-      "total": 341,
-      "pct_blocked": 7.9
+      "total": 345,
+      "pct_blocked": 7.8
     },
     {
       "ua": "Poseidon Research Crawler",
       "operator": "Poseidon Research",
       "blocked": 27,
-      "total": 341,
-      "pct_blocked": 7.9
+      "total": 345,
+      "pct_blocked": 7.8
     },
     {
       "ua": "quillbot.com",
       "operator": "QuillBot",
       "blocked": 26,
-      "total": 341,
-      "pct_blocked": 7.6
+      "total": 345,
+      "pct_blocked": 7.5
     },
     {
       "ua": "SeznamHomepageCrawler",
       "operator": "Seznam",
       "blocked": 25,
-      "total": 341,
-      "pct_blocked": 7.3
+      "total": 345,
+      "pct_blocked": 7.2
     },
     {
       "ua": "TaraGroup Intelligent Bot",
       "operator": "TaraGroup",
       "blocked": 25,
-      "total": 341,
-      "pct_blocked": 7.3
+      "total": 345,
+      "pct_blocked": 7.2
     },
     {
       "ua": "AliyunSecBot",
       "operator": "Alibaba Cloud",
       "blocked": 24,
-      "total": 341,
+      "total": 345,
       "pct_blocked": 7.0
     },
     {
       "ua": "Grok",
       "operator": "xAI",
       "blocked": 23,
-      "total": 341,
+      "total": 345,
       "pct_blocked": 6.7
     },
     {
       "ua": "ViennaTinyBot",
       "operator": "Vienna Tiny",
       "blocked": 23,
-      "total": 341,
+      "total": 345,
       "pct_blocked": 6.7
     },
     {
       "ua": "AudigentAdBot",
       "operator": "Audigent",
       "blocked": 22,
-      "total": 341,
-      "pct_blocked": 6.5
+      "total": 345,
+      "pct_blocked": 6.4
     },
     {
       "ua": "Jetslide",
       "operator": "Jetslide",
       "blocked": 21,
-      "total": 341,
-      "pct_blocked": 6.2
+      "total": 345,
+      "pct_blocked": 6.1
     },
     {
       "ua": "GoogleOther",
       "operator": "Google",
       "blocked": 19,
-      "total": 341,
-      "pct_blocked": 5.6
+      "total": 345,
+      "pct_blocked": 5.5
     },
     {
       "ua": "bingbot",
       "operator": "Microsoft",
       "blocked": 2,
-      "total": 341,
+      "total": 345,
       "pct_blocked": 0.6
     }
   ],
@@ -550,36 +550,36 @@
       "range": "0 (no AI blocks)",
       "lo": 0,
       "hi": 0,
-      "count": 144,
-      "pct": 42.2
+      "count": 148,
+      "pct": 42.9
     },
     {
       "range": "1\u20135",
       "lo": 1,
       "hi": 5,
       "count": 34,
-      "pct": 10.0
+      "pct": 9.9
     },
     {
       "range": "6\u201310",
       "lo": 6,
       "hi": 10,
       "count": 19,
-      "pct": 5.6
+      "pct": 5.5
     },
     {
       "range": "11\u201320",
       "lo": 11,
       "hi": 20,
       "count": 46,
-      "pct": 13.5
+      "pct": 13.3
     },
     {
-      "range": "21\u2013341",
+      "range": "21\u2013345",
       "lo": 21,
-      "hi": 341,
+      "hi": 345,
       "count": 98,
-      "pct": 28.7
+      "pct": 28.4
     }
   ],
   "convergence": [

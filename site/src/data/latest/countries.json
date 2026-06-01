@@ -10,11 +10,6 @@
     "mean_score": 20.53
   },
   {
-    "country": "RU",
-    "site_count": 3,
-    "mean_score": 18.06
-  },
-  {
     "country": "DE",
     "site_count": 19,
     "mean_score": 16.91
@@ -38,6 +33,11 @@
     "country": "CY",
     "site_count": 3,
     "mean_score": 14.91
+  },
+  {
+    "country": "RU",
+    "site_count": 7,
+    "mean_score": 11.43
   },
   {
     "country": "CA",

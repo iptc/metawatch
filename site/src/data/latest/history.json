@@ -78,9 +78,9 @@
     "started_at": "2026-06-01T14:03:36.405688+00:00",
     "site_count": 294,
     "image_count": 4611,
-    "mean_score": 6.69,
+    "mean_score": 6.61,
     "images_with_iptc": 506,
-    "pct_with_iptc": 11.0,
+    "pct_with_iptc": 10.8,
     "images_with_c2pa": 2,
     "pct_with_c2pa": 0.043,
     "c2pa_outcomes": {
