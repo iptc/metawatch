@@ -1,10 +1,10 @@
 {
   "providers": {
-    "cloudflare": 1092,
+    "cloudflare": 1097,
     "cloudfront": 728,
     "akamai": 1202,
     "fastly": 673,
-    "none": 850,
+    "none": 886,
     "bunny": 20
   },
   "by_provider": [
@@ -16,15 +16,15 @@
     },
     {
       "provider": "cloudflare",
-      "images": 1092,
-      "stripped": 989,
-      "pct_stripped": 90.6
+      "images": 1097,
+      "stripped": 998,
+      "pct_stripped": 91.0
     },
     {
       "provider": "none",
-      "images": 850,
-      "stripped": 751,
-      "pct_stripped": 88.4
+      "images": 886,
+      "stripped": 774,
+      "pct_stripped": 87.4
     },
     {
       "provider": "cloudfront",

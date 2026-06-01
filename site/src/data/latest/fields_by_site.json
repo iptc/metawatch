@@ -40260,169 +40260,6 @@
       "scored": false
     }
   ],
-  "kyiv-independent": [
-    {
-      "field": "Creator",
-      "present": 0,
-      "total": 15,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "Copyright",
-      "present": 0,
-      "total": 15,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CaptionDescription",
-      "present": 0,
-      "total": 15,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CreditLine",
-      "present": 0,
-      "total": 15,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "AIPromptInformation",
-      "present": 0,
-      "total": 15,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AIPromptWriterName",
-      "present": 0,
-      "total": 15,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemUsed",
-      "present": 0,
-      "total": 15,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemVersionUsed",
-      "present": 0,
-      "total": 15,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AltTextAccessibility",
-      "present": 0,
-      "total": 15,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DataMining",
-      "present": 0,
-      "total": 15,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DateCreated",
-      "present": 0,
-      "total": 15,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DigitalSourceType",
-      "present": 0,
-      "total": 15,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ExtendedDescriptionAccessibility",
-      "present": 0,
-      "total": 15,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Genre",
-      "present": 0,
-      "total": 15,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Keywords",
-      "present": 0,
-      "total": 15,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorName",
-      "present": 0,
-      "total": 15,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorURL",
-      "present": 0,
-      "total": 15,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationCreated",
-      "present": 0,
-      "total": 15,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationShown",
-      "present": 0,
-      "total": 15,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ObjectName",
-      "present": 0,
-      "total": 15,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Source",
-      "present": 0,
-      "total": 15,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "UsageTerms",
-      "present": 0,
-      "total": 15,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "WebStatement",
-      "present": 0,
-      "total": 15,
-      "pct": 0.0,
-      "scored": false
-    }
-  ],
   "ap": [
     {
       "field": "Creator",
@@ -40582,169 +40419,6 @@
       "field": "WebStatement",
       "present": 0,
       "total": 6,
-      "pct": 0.0,
-      "scored": false
-    }
-  ],
-  "ukrainska-pravda-english": [
-    {
-      "field": "Creator",
-      "present": 0,
-      "total": 20,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "Copyright",
-      "present": 0,
-      "total": 20,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CaptionDescription",
-      "present": 0,
-      "total": 20,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CreditLine",
-      "present": 0,
-      "total": 20,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "AIPromptInformation",
-      "present": 0,
-      "total": 20,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AIPromptWriterName",
-      "present": 0,
-      "total": 20,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemUsed",
-      "present": 0,
-      "total": 20,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemVersionUsed",
-      "present": 0,
-      "total": 20,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AltTextAccessibility",
-      "present": 0,
-      "total": 20,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DataMining",
-      "present": 0,
-      "total": 20,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DateCreated",
-      "present": 0,
-      "total": 20,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DigitalSourceType",
-      "present": 0,
-      "total": 20,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ExtendedDescriptionAccessibility",
-      "present": 0,
-      "total": 20,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Genre",
-      "present": 0,
-      "total": 20,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Keywords",
-      "present": 0,
-      "total": 20,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorName",
-      "present": 0,
-      "total": 20,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorURL",
-      "present": 0,
-      "total": 20,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationCreated",
-      "present": 0,
-      "total": 20,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationShown",
-      "present": 0,
-      "total": 20,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ObjectName",
-      "present": 0,
-      "total": 20,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Source",
-      "present": 0,
-      "total": 20,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "UsageTerms",
-      "present": 0,
-      "total": 20,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "WebStatement",
-      "present": 0,
-      "total": 20,
       "pct": 0.0,
       "scored": false
     }
@@ -44657,6 +44331,658 @@
       "field": "WebStatement",
       "present": 0,
       "total": 10,
+      "pct": 0.0,
+      "scored": false
+    }
+  ],
+  "unian": [
+    {
+      "field": "Creator",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "Copyright",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CaptionDescription",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CreditLine",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "AIPromptInformation",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AIPromptWriterName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemUsed",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemVersionUsed",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AltTextAccessibility",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DataMining",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DateCreated",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DigitalSourceType",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ExtendedDescriptionAccessibility",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Genre",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Keywords",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorURL",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationCreated",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationShown",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ObjectName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Source",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "UsageTerms",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "WebStatement",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    }
+  ],
+  "ukrainska-pravda-english": [
+    {
+      "field": "Creator",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "Copyright",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CaptionDescription",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CreditLine",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "AIPromptInformation",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AIPromptWriterName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemUsed",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemVersionUsed",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AltTextAccessibility",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DataMining",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DateCreated",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DigitalSourceType",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ExtendedDescriptionAccessibility",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Genre",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Keywords",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorURL",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationCreated",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationShown",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ObjectName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Source",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "UsageTerms",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "WebStatement",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    }
+  ],
+  "ukrinform-ukrainian": [
+    {
+      "field": "Creator",
+      "present": 2,
+      "total": 17,
+      "pct": 11.8,
+      "scored": true
+    },
+    {
+      "field": "Copyright",
+      "present": 2,
+      "total": 17,
+      "pct": 11.8,
+      "scored": true
+    },
+    {
+      "field": "CaptionDescription",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CreditLine",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "AIPromptInformation",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AIPromptWriterName",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemUsed",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemVersionUsed",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AltTextAccessibility",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DataMining",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DateCreated",
+      "present": 5,
+      "total": 17,
+      "pct": 29.4,
+      "scored": false
+    },
+    {
+      "field": "DigitalSourceType",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ExtendedDescriptionAccessibility",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Genre",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Keywords",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorName",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorURL",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationCreated",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationShown",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ObjectName",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Source",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "UsageTerms",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "WebStatement",
+      "present": 2,
+      "total": 17,
+      "pct": 11.8,
+      "scored": false
+    }
+  ],
+  "ukrinform-english": [
+    {
+      "field": "Creator",
+      "present": 4,
+      "total": 19,
+      "pct": 21.1,
+      "scored": true
+    },
+    {
+      "field": "Copyright",
+      "present": 2,
+      "total": 19,
+      "pct": 10.5,
+      "scored": true
+    },
+    {
+      "field": "CaptionDescription",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CreditLine",
+      "present": 1,
+      "total": 19,
+      "pct": 5.3,
+      "scored": true
+    },
+    {
+      "field": "AIPromptInformation",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AIPromptWriterName",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemUsed",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemVersionUsed",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AltTextAccessibility",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DataMining",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DateCreated",
+      "present": 5,
+      "total": 19,
+      "pct": 26.3,
+      "scored": false
+    },
+    {
+      "field": "DigitalSourceType",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ExtendedDescriptionAccessibility",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Genre",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Keywords",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorName",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorURL",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationCreated",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationShown",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ObjectName",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Source",
+      "present": 1,
+      "total": 19,
+      "pct": 5.3,
+      "scored": false
+    },
+    {
+      "field": "UsageTerms",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "WebStatement",
+      "present": 0,
+      "total": 19,
       "pct": 0.0,
       "scored": false
     }

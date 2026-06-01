@@ -90,6 +90,11 @@
     "mean_score": 3.96
   },
   {
+    "country": "UA",
+    "site_count": 5,
+    "mean_score": 3.77
+  },
+  {
     "country": "AU",
     "site_count": 11,
     "mean_score": 2.05
@@ -311,11 +316,6 @@
   },
   {
     "country": "TW",
-    "site_count": 2,
-    "mean_score": 0.0
-  },
-  {
-    "country": "UA",
     "site_count": 2,
     "mean_score": 0.0
   },

@@ -10,19 +10,19 @@
     "files": [
       {
         "name": "articles.parquet",
-        "size_bytes": 3806257
+        "size_bytes": 3859593
       },
       {
         "name": "images.parquet",
-        "size_bytes": 601815
+        "size_bytes": 626060
       },
       {
         "name": "metadata_fields.parquet",
-        "size_bytes": 110108
+        "size_bytes": 111128
       },
       {
         "name": "robots_analysis.parquet",
-        "size_bytes": 8617
+        "size_bytes": 8642
       },
       {
         "name": "runs.parquet",
@@ -30,7 +30,7 @@
       },
       {
         "name": "sites.parquet",
-        "size_bytes": 25164
+        "size_bytes": 25291
       }
     ]
   },

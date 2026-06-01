@@ -670,6 +670,23 @@
     }
   },
   {
+    "site_id": "ukrinform-english",
+    "site_name": "Ukrinform (English)",
+    "url": "https://www.ukrinform.net/",
+    "country": "UA",
+    "category": "news-agency",
+    "status": "ok",
+    "discovery_strategy": "config:sitemap",
+    "sitemap_url_used": "https://www.ukrinform.net/sitemap/last.xml",
+    "articles_sampled": 20,
+    "images_analysed": 19,
+    "mean_iptc_score": 9.21,
+    "pct_with_iptc": 31.6,
+    "cdn_breakdown": {
+      "none": 19
+    }
+  },
+  {
     "site_id": "ctv-news",
     "site_name": "CTV News",
     "url": "https://www.ctvnews.ca/",
@@ -752,6 +769,23 @@
     "pct_with_iptc": 30.0,
     "cdn_breakdown": {
       "cloudflare": 20
+    }
+  },
+  {
+    "site_id": "ukrinform-ukrainian",
+    "site_name": "Ukrinform (Ukrainian)",
+    "url": "https://www.ukrinform.ua/",
+    "country": "UA",
+    "category": "news-agency",
+    "status": "ok",
+    "discovery_strategy": "config:sitemap",
+    "sitemap_url_used": "https://www.ukrinform.ua/sitemap/last.xml",
+    "articles_sampled": 20,
+    "images_analysed": 18,
+    "mean_iptc_score": 5.88,
+    "pct_with_iptc": 41.2,
+    "cdn_breakdown": {
+      "none": 17
     }
   },
   {
@@ -5250,23 +5284,6 @@
     }
   },
   {
-    "site_id": "kyiv-independent",
-    "site_name": "The Kyiv Independent",
-    "url": "https://kyivindependent.com/",
-    "country": "UA",
-    "category": "online",
-    "status": "ok",
-    "discovery_strategy": "html:rss_link",
-    "sitemap_url_used": "https://kyivindependent.com/news-archive/rss/",
-    "articles_sampled": 15,
-    "images_analysed": 15,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 26.7,
-    "cdn_breakdown": {
-      "cloudflare": 15
-    }
-  },
-  {
     "site_id": "forbes",
     "site_name": "Forbes",
     "url": "https://www.forbes.com/",
@@ -5280,23 +5297,6 @@
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {}
-  },
-  {
-    "site_id": "ukrainska-pravda-english",
-    "site_name": "Ukrainska Pravda (English)",
-    "url": "https://www.pravda.com.ua/eng/",
-    "country": "UA",
-    "category": "online",
-    "status": "ok",
-    "discovery_strategy": "guess:rss",
-    "sitemap_url_used": "https://www.pravda.com.ua/eng/rss",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "cloudflare": 20
-    }
   },
   {
     "site_id": "cnn",
@@ -5657,5 +5657,54 @@
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {}
+  },
+  {
+    "site_id": "kyiv-independent",
+    "site_name": "The Kyiv Independent",
+    "url": "https://kyivindependent.com/",
+    "country": "UA",
+    "category": "online",
+    "status": "discovery_blocked",
+    "discovery_strategy": "fallback_needed",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "unian",
+    "site_name": "UNIAN",
+    "url": "https://www.unian.ua/",
+    "country": "UA",
+    "category": "news-agency",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://rss.unian.net/site/news_ukr.rss",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 20
+    }
+  },
+  {
+    "site_id": "ukrainska-pravda-english",
+    "site_name": "Ukrainska Pravda (English)",
+    "url": "https://www.pravda.com.ua/eng/",
+    "country": "UA",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "guess:rss",
+    "sitemap_url_used": "https://www.pravda.com.ua/eng/rss",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 20
+    }
   }
 ]
