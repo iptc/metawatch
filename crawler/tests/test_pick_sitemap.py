@@ -57,3 +57,48 @@ def test_picture_sitemap_used_only_as_last_resort():
 
 def test_no_sitemaps_at_all():
     assert pick_sitemap([], _site()) == (None, "fallback_needed")
+
+
+# ─── _looks_like_xml_sitemap (SPA catch-all 200 decoy detection) ────────────
+
+
+from pmd_crawler.discovery import _looks_like_xml_sitemap as _xml
+
+
+def test_xml_prologue_accepted():
+    assert _xml('<?xml version="1.0"?>\n<urlset></urlset>', "application/xml")
+
+
+def test_urlset_root_without_prologue_accepted():
+    # Some sitemaps skip the XML declaration. Accept on root-element shape.
+    assert _xml('<urlset xmlns="...">...</urlset>', "text/xml")
+
+
+def test_sitemap_index_accepted():
+    assert _xml('<sitemapindex>...</sitemapindex>', "text/xml")
+
+
+def test_rss_feed_accepted():
+    # Same path is reused for feed probes — RSS / Atom shapes too.
+    assert _xml('<rss version="2.0">', "application/rss+xml")
+    assert _xml('<feed xmlns="http://www.w3.org/2005/Atom">', "application/atom+xml")
+
+
+def test_spa_html_decoy_rejected_even_when_ctype_says_xml():
+    # The exact bug class this guard exists for: SPA returns 200 + HTML,
+    # sometimes with a misleading content-type. The body sniff wins.
+    assert not _xml('<!DOCTYPE html><html>...</html>', "text/xml")
+
+
+def test_html_with_html_ctype_rejected():
+    assert not _xml('<!doctype html><html><body>404</body></html>', "text/html; charset=utf-8")
+
+
+def test_xml_ctype_alone_is_enough_for_non_html_body():
+    # A whitespace-only body with an XML ctype is uncommon but not malicious;
+    # we'd rather try the downstream parse than discard outright.
+    assert _xml('   \n  ', "application/xml")
+
+
+def test_empty_body_with_no_xml_ctype_rejected():
+    assert not _xml('', "")

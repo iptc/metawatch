@@ -116,14 +116,42 @@ def _guess_sitemap_urls(site_url: str) -> list[str]:
     ]
 
 
+def _looks_like_xml_sitemap(body: str, content_type: str) -> bool:
+    """Return True if ``body`` parses as the start of an XML sitemap / feed.
+
+    SPA-style sites commonly answer 200 + HTML for *every* unknown path
+    (their server-side router falls through to the SPA shell). A naive
+    status-only check accepts those decoys as a "found" sitemap; the
+    downstream XML parser then fails and the whole site is misreported as
+    ``discovery_parse_error``. Probing the first ~200 bytes for an XML
+    prologue or sitemap/feed root element is enough to reject the decoys
+    cheaply, and the content-type header gives us a second, weaker check
+    for servers that don't write a literal XML declaration.
+    """
+    head = body.lstrip()[:200].lower()
+    if head.startswith(("<?xml", "<urlset", "<sitemapindex", "<feed", "<rss")):
+        return True
+    if "xml" in content_type.lower() and not head.startswith(("<!doctype", "<html")):
+        return True
+    return False
+
+
 async def _try_guessed_sitemaps(client: httpx.AsyncClient, site: Site) -> tuple[str | None, str]:
+    """Probe well-known sitemap paths until one returns actual XML.
+
+    Uses GET rather than HEAD because the body sniff is what tells us a
+    response is a real sitemap vs an SPA catch-all HTML decoy. Sitemaps are
+    small enough that the extra payload is cheaper than misclassifying.
+    """
     for url in _guess_sitemap_urls(site.url):
         try:
-            r = await client.head(url, timeout=10.0, follow_redirects=True)
-            if r.status_code < 400:
-                return url, "guess:sitemap"
+            r = await client.get(url, timeout=10.0, follow_redirects=True)
         except Exception:
             continue
+        if r.status_code >= 400 or not r.content:
+            continue
+        if _looks_like_xml_sitemap(r.text, r.headers.get("content-type", "")):
+            return url, "guess:sitemap"
     return None, "no_sitemap"
 
 
