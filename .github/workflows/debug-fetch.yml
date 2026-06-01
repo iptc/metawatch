@@ -1,0 +1,46 @@
+# Ad-hoc diagnostic: probe a URL from the GitHub Actions runner with the same
+# headers the crawler uses, and dump the response status / headers / body
+# preview. Use when a publisher's feed mysteriously fails from CI but works
+# from a laptop — usually IP-based WAF blocking that we can confirm here.
+#
+# Run via: gh workflow run debug-fetch.yml -f url=https://example.com/feed.xml
+name: Debug fetch
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "URL to probe with the crawler's UA + headers"
+        required: true
+        default: "https://www.rnz.co.nz/rss/news.xml"
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show runner public IP
+        run: |
+          echo "Runner public IP:"
+          curl -s https://api.ipify.org && echo
+          echo "Reverse lookup:"
+          host "$(curl -s https://api.ipify.org)" || true
+      - name: curl probe with crawler headers
+        run: |
+          set +e
+          URL="${{ github.event.inputs.url }}"
+          echo "=== HEAD ==="
+          curl -sI -L \
+            -H "User-Agent: Metawatch/2.0" \
+            -H "From: metadata-crawler@iptc.org" \
+            --max-time 15 "$URL"
+          echo
+          echo "=== GET (status, content-type, first 500 bytes) ==="
+          OUT=$(mktemp)
+          STATUS=$(curl -s -L \
+            -H "User-Agent: Metawatch/2.0" \
+            -H "From: metadata-crawler@iptc.org" \
+            -o "$OUT" -w "%{http_code} %{content_type}" \
+            --max-time 15 "$URL")
+          echo "  status+ct: $STATUS"
+          echo "  body preview:"
+          head -c 500 "$OUT"
+          echo
