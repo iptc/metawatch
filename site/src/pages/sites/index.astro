@@ -30,4 +30,67 @@ const sites = getSites();
       ))}
     </tbody>
   </table>
+
+  <h2>What each status means</h2>
+  <dl class="status-glossary">
+    <dt><code>ok</code></dt>
+    <dd>The crawler made it all the way through: <code>robots.txt</code> allowed our user-agent,
+      discovery found articles, and we fetched images. The score and percentage columns reflect
+      the sampled images.</dd>
+
+    <dt><code>robots_disallow</code></dt>
+    <dd>The site's <code>robots.txt</code> explicitly disallows the <code>Metawatch/2.0</code>
+      user-agent (or all user-agents) at the site root. We respect this and skip the rest of the
+      crawl, but we still read <code>robots.txt</code> and probe the site-wide AI-preference
+      files, so the publisher still appears in the <a href={`${base}/ai-policy/`}>AI prefs</a>
+      counts.</dd>
+
+    <dt><code>discovery_blocked</code></dt>
+    <dd>The site responded to <code>robots.txt</code> but every attempt to fetch a sitemap or
+      RSS feed returned an HTTP error (typically 403 from a WAF or CDN that distinguishes the
+      site's root from its feed paths). Common with Cloudflare bot-management defaults.</dd>
+
+    <dt><code>discovery_parse_error</code></dt>
+    <dd>A sitemap or feed URL returned HTTP 200 but the body wasn't valid XML / RSS / Atom.
+      Usually means the publisher's URL routing returns the HTML index page for unknown paths
+      (SPA-style catch-all), or the feed is genuinely malformed.</dd>
+
+    <dt><code>no_articles_found</code></dt>
+    <dd>Sitemap or feed was reachable and parsed successfully, but contained no articles within
+      our publication-date sampling window (most recent 30 days). Typical for sites that publish
+      infrequently or whose sitemap only lists section landing pages rather than individual
+      articles.</dd>
+
+    <dt><code>unreachable</code></dt>
+    <dd>We couldn't establish a connection at all — DNS resolution failed, the TCP connection
+      was refused, or the TLS handshake didn't complete. The site may be down, may have
+      relocated, or may be blocking our IP range entirely.</dd>
+
+    <dt><code>timeout</code></dt>
+    <dd>The server accepted our connection but didn't return a complete response within the
+      crawl's per-site time budget. Usually indicates an overloaded origin or a CDN that hangs
+      requests from unfamiliar user-agents.</dd>
+  </dl>
 </Layout>
+
+<style>
+  .status-glossary {
+    margin: 1rem 0 2rem;
+    max-width: 75ch;
+  }
+  .status-glossary dt {
+    margin-top: 1rem;
+    font-weight: 600;
+  }
+  .status-glossary dt code {
+    font-size: 0.95rem;
+    padding: 1px 6px;
+    background: var(--iptc-surface);
+    border: 1px solid var(--iptc-border);
+    border-radius: 3px;
+  }
+  .status-glossary dd {
+    margin: 0.25rem 0 0;
+    color: var(--iptc-muted);
+  }
+</style>
