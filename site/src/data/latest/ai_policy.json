@@ -1,15 +1,15 @@
 {
   "n_sites": 337,
-  "n_images": 4568,
+  "n_images": 4560,
   "signals": [
     {
       "key": "robots-ai",
       "scope": "site",
       "label": "robots.txt \u2014 any AI bot blocked",
       "note": "Blocks at least one known AI/scraper UA",
-      "num": 210,
+      "num": 209,
       "denom": 337,
-      "pct": 62.3
+      "pct": 62.0
     },
     {
       "key": "tdmrep",
@@ -79,18 +79,18 @@
       "scope": "site",
       "label": "noarchive / nosnippet meta robots",
       "note": "Honoured as AI-opt-out by Bing/Copilot (noarchive) and Google (nosnippet)",
-      "num": 78,
+      "num": 74,
       "denom": 337,
-      "pct": 23.1
+      "pct": 22.0
     },
     {
       "key": "iptc-datamining",
       "scope": "site",
       "label": "IPTC PLUS:DataMining",
       "note": "XMP-plus:DataMining on \u22651 sampled image",
-      "num": 7,
+      "num": 9,
       "denom": 337,
-      "pct": 2.1
+      "pct": 2.7
     },
     {
       "key": "cawg-training-mining",
@@ -106,16 +106,16 @@
     {
       "ua": "CCBot",
       "operator": "Common Crawl",
-      "blocked": 176,
+      "blocked": 175,
       "total": 338,
-      "pct_blocked": 52.1
+      "pct_blocked": 51.8
     },
     {
       "ua": "GPTBot",
       "operator": "OpenAI",
-      "blocked": 167,
+      "blocked": 166,
       "total": 338,
-      "pct_blocked": 49.4
+      "pct_blocked": 49.1
     },
     {
       "ua": "Bytespider",
@@ -127,23 +127,23 @@
     {
       "ua": "ClaudeBot",
       "operator": "Anthropic",
-      "blocked": 155,
+      "blocked": 154,
       "total": 338,
-      "pct_blocked": 45.9
+      "pct_blocked": 45.6
     },
     {
       "ua": "anthropic-ai",
       "operator": "Anthropic",
-      "blocked": 151,
+      "blocked": 150,
       "total": 338,
-      "pct_blocked": 44.7
+      "pct_blocked": 44.4
     },
     {
       "ua": "PerplexityBot",
       "operator": "Perplexity",
-      "blocked": 149,
+      "blocked": 148,
       "total": 338,
-      "pct_blocked": 44.1
+      "pct_blocked": 43.8
     },
     {
       "ua": "Google-Extended",
@@ -153,18 +153,18 @@
       "pct_blocked": 42.9
     },
     {
-      "ua": "Claude-Web",
-      "operator": "Anthropic",
-      "blocked": 133,
-      "total": 338,
-      "pct_blocked": 39.3
-    },
-    {
       "ua": "cohere-ai",
       "operator": "Cohere",
       "blocked": 133,
       "total": 338,
       "pct_blocked": 39.3
+    },
+    {
+      "ua": "Claude-Web",
+      "operator": "Anthropic",
+      "blocked": 132,
+      "total": 338,
+      "pct_blocked": 39.1
     },
     {
       "ua": "omgilibot",
@@ -202,18 +202,18 @@
       "pct_blocked": 35.5
     },
     {
-      "ua": "Applebot-Extended",
-      "operator": "Apple",
-      "blocked": 117,
-      "total": 338,
-      "pct_blocked": 34.6
-    },
-    {
       "ua": "Meta-ExternalAgent",
       "operator": "Meta",
       "blocked": 117,
       "total": 338,
       "pct_blocked": 34.6
+    },
+    {
+      "ua": "Applebot-Extended",
+      "operator": "Apple",
+      "blocked": 116,
+      "total": 338,
+      "pct_blocked": 34.3
     },
     {
       "ua": "FacebookBot",
@@ -232,16 +232,16 @@
     {
       "ua": "YouBot",
       "operator": "You.com",
-      "blocked": 98,
+      "blocked": 97,
       "total": 338,
-      "pct_blocked": 29.0
+      "pct_blocked": 28.7
     },
     {
       "ua": "OAI-SearchBot",
       "operator": "OpenAI",
-      "blocked": 96,
+      "blocked": 95,
       "total": 338,
-      "pct_blocked": 28.4
+      "pct_blocked": 28.1
     },
     {
       "ua": "Timpibot",
@@ -386,9 +386,9 @@
     {
       "ua": "ia_archiver",
       "operator": "Internet Archive",
-      "blocked": 52,
+      "blocked": 51,
       "total": 338,
-      "pct_blocked": 15.4
+      "pct_blocked": 15.1
     },
     {
       "ua": "NewsNow",
@@ -550,8 +550,8 @@
       "range": "0 (no AI blocks)",
       "lo": 0,
       "hi": 0,
-      "count": 128,
-      "pct": 37.9
+      "count": 129,
+      "pct": 38.2
     },
     {
       "range": "1\u20135",
@@ -564,8 +564,8 @@
       "range": "6\u201310",
       "lo": 6,
       "hi": 10,
-      "count": 21,
-      "pct": 6.2
+      "count": 20,
+      "pct": 5.9
     },
     {
       "range": "11\u201320",
@@ -586,14 +586,14 @@
     {
       "a": "blocks GPTBot",
       "b": "blocks ClaudeBot",
-      "a_count": 167,
-      "both": 131,
-      "pct": 78.4
+      "a_count": 166,
+      "both": 130,
+      "pct": 78.3
     },
     {
       "a": "blocks GPTBot",
       "b": "has tdmrep.json",
-      "a_count": 167,
+      "a_count": 166,
       "both": 6,
       "pct": 3.6
     },
@@ -6203,24 +6203,6 @@
         ]
       },
       {
-        "site_id": "daily-express",
-        "site_name": "Daily Express",
-        "country": "GB",
-        "blocked_count": 10,
-        "blocked_uas": [
-          "Applebot-Extended",
-          "CCBot",
-          "Claude-Web",
-          "ClaudeBot",
-          "GPTBot",
-          "OAI-SearchBot",
-          "PerplexityBot",
-          "YouBot",
-          "anthropic-ai",
-          "ia_archiver"
-        ]
-      },
-      {
         "site_id": "focus-online",
         "site_name": "FOCUS Online",
         "country": "DE",
@@ -6941,16 +6923,16 @@
         "url": "https://www.france24.com/fr/.well-known/tdmrep.json"
       },
       {
-        "site_id": "le-figaro",
-        "site_name": "Le Figaro",
-        "country": "FR",
-        "url": "http://www.lefigaro.fr/.well-known/tdmrep.json"
-      },
-      {
         "site_id": "le-point",
         "site_name": "Le Point",
         "country": "FR",
         "url": "https://www.lepoint.fr/.well-known/tdmrep.json"
+      },
+      {
+        "site_id": "le-figaro",
+        "site_name": "Le Figaro",
+        "country": "FR",
+        "url": "http://www.lefigaro.fr/.well-known/tdmrep.json"
       },
       {
         "site_id": "le-parisien",
@@ -7011,15 +6993,15 @@
         "site_id": "le-soir",
         "site_name": "Le Soir",
         "country": "BE",
-        "articles": 10,
+        "articles": 9,
         "articles_total": 10
       },
       {
         "site_id": "corriere-della-sera",
         "site_name": "Corriere della Sera",
         "country": "IT",
-        "articles": 1,
-        "articles_total": 1
+        "articles": 5,
+        "articles_total": 5
       }
     ],
     "rsl": [
@@ -7129,10 +7111,16 @@
         "site_id": "livedoor-news",
         "site_name": "Livedoor News",
         "country": "JP",
-        "images": 1
+        "images": 4
       }
     ],
     "noarchive-meta": [
+      {
+        "site_id": "aftonbladet",
+        "site_name": "Aftonbladet",
+        "country": "SE",
+        "images": 20
+      },
       {
         "site_id": "asahi-shimbun",
         "site_name": "Asahi Shimbun (\u671d\u65e5\u65b0\u805e)",
@@ -7176,6 +7164,12 @@
         "images": 20
       },
       {
+        "site_id": "el-correo",
+        "site_name": "El Correo",
+        "country": "ES",
+        "images": 20
+      },
+      {
         "site_id": "france-televisions",
         "site_name": "France T\u00e9l\u00e9visions (franceinfo)",
         "country": "FR",
@@ -7212,12 +7206,6 @@
         "images": 20
       },
       {
-        "site_id": "khaleej-times",
-        "site_name": "Khaleej Times",
-        "country": "AE",
-        "images": 20
-      },
-      {
         "site_id": "la-repubblica",
         "site_name": "La Repubblica",
         "country": "IT",
@@ -7242,12 +7230,6 @@
         "images": 20
       },
       {
-        "site_id": "metro",
-        "site_name": "Metro",
-        "country": "GB",
-        "images": 20
-      },
-      {
         "site_id": "n-tv",
         "site_name": "n-tv",
         "country": "DE",
@@ -7266,9 +7248,21 @@
         "images": 20
       },
       {
+        "site_id": "new-zealand-herald",
+        "site_name": "New Zealand Herald",
+        "country": "NZ",
+        "images": 20
+      },
+      {
         "site_id": "politiken",
         "site_name": "Politiken",
         "country": "DK",
+        "images": 20
+      },
+      {
+        "site_id": "rtl-news",
+        "site_name": "RTL News",
+        "country": "DE",
         "images": 20
       },
       {
@@ -7320,15 +7314,15 @@
         "images": 20
       },
       {
-        "site_id": "usa-today",
-        "site_name": "USA Today",
-        "country": "US",
+        "site_id": "wdr",
+        "site_name": "Westdeutscher Rundfunk (WDR)",
+        "country": "DE",
         "images": 20
       },
       {
-        "site_id": "wired",
-        "site_name": "Wired",
-        "country": "US",
+        "site_id": "yahoo-news-japan",
+        "site_name": "Yahoo! News Japan",
+        "country": "JP",
         "images": 20
       },
       {
@@ -7344,27 +7338,27 @@
         "images": 20
       },
       {
+        "site_id": "aftenposten",
+        "site_name": "Aftenposten",
+        "country": "NO",
+        "images": 19
+      },
+      {
         "site_id": "de-volkskrant",
         "site_name": "de Volkskrant",
         "country": "NL",
         "images": 19
       },
       {
-        "site_id": "el-correo",
-        "site_name": "El Correo",
-        "country": "ES",
+        "site_id": "khaleej-times",
+        "site_name": "Khaleej Times",
+        "country": "AE",
         "images": 19
       },
       {
-        "site_id": "new-zealand-herald",
-        "site_name": "New Zealand Herald",
-        "country": "NZ",
-        "images": 19
-      },
-      {
-        "site_id": "rtl-news",
-        "site_name": "RTL News",
-        "country": "DE",
+        "site_id": "metro",
+        "site_name": "Metro",
+        "country": "GB",
         "images": 19
       },
       {
@@ -7380,32 +7374,38 @@
         "images": 19
       },
       {
-        "site_id": "toronto-star",
-        "site_name": "Toronto Star",
-        "country": "CA",
+        "site_id": "wired",
+        "site_name": "Wired",
+        "country": "US",
         "images": 19
       },
       {
-        "site_id": "yahoo-news-japan",
-        "site_name": "Yahoo! News Japan",
+        "site_id": "zakzak",
+        "site_name": "zakzak",
         "country": "JP",
-        "images": 19
-      },
-      {
-        "site_id": "aftenposten",
-        "site_name": "Aftenposten",
-        "country": "NO",
         "images": 18
       },
       {
-        "site_id": "wdr",
-        "site_name": "Westdeutscher Rundfunk (WDR)",
-        "country": "DE",
-        "images": 18
+        "site_id": "abc",
+        "site_name": "ABC",
+        "country": "ES",
+        "images": 17
       },
       {
-        "site_id": "aftonbladet",
-        "site_name": "Aftonbladet",
+        "site_id": "abc-es",
+        "site_name": "ABC.es",
+        "country": "ES",
+        "images": 17
+      },
+      {
+        "site_id": "expressen",
+        "site_name": "Expressen",
+        "country": "SE",
+        "images": 17
+      },
+      {
+        "site_id": "svenska-dagbladet",
+        "site_name": "Svenska Dagbladet",
         "country": "SE",
         "images": 17
       },
@@ -7413,42 +7413,6 @@
         "site_id": "bbc-news",
         "site_name": "BBC News",
         "country": "GB",
-        "images": 17
-      },
-      {
-        "site_id": "sankei-shimbun",
-        "site_name": "Sankei Shimbun (\u7523\u7d4c\u65b0\u805e)",
-        "country": "JP",
-        "images": 17
-      },
-      {
-        "site_id": "zakzak",
-        "site_name": "zakzak",
-        "country": "JP",
-        "images": 17
-      },
-      {
-        "site_id": "abc",
-        "site_name": "ABC",
-        "country": "ES",
-        "images": 16
-      },
-      {
-        "site_id": "abc-es",
-        "site_name": "ABC.es",
-        "country": "ES",
-        "images": 16
-      },
-      {
-        "site_id": "expressen",
-        "site_name": "Expressen",
-        "country": "SE",
-        "images": 16
-      },
-      {
-        "site_id": "helsingin-sanomat",
-        "site_name": "Helsingin Sanomat",
-        "country": "FI",
         "images": 16
       },
       {
@@ -7458,15 +7422,15 @@
         "images": 15
       },
       {
-        "site_id": "nettavisen",
-        "site_name": "Nettavisen",
-        "country": "NO",
+        "site_id": "helsingin-sanomat",
+        "site_name": "Helsingin Sanomat",
+        "country": "FI",
         "images": 15
       },
       {
-        "site_id": "svenska-dagbladet",
-        "site_name": "Svenska Dagbladet",
-        "country": "SE",
+        "site_id": "sankei-shimbun",
+        "site_name": "Sankei Shimbun (\u7523\u7d4c\u65b0\u805e)",
+        "country": "JP",
         "images": 15
       },
       {
@@ -7476,15 +7440,27 @@
         "images": 15
       },
       {
+        "site_id": "usa-today",
+        "site_name": "USA Today",
+        "country": "US",
+        "images": 15
+      },
+      {
+        "site_id": "nettavisen",
+        "site_name": "Nettavisen",
+        "country": "NO",
+        "images": 14
+      },
+      {
         "site_id": "the-daily-mirror-sunday-mirror",
         "site_name": "The Daily Mirror / Sunday Mirror",
         "country": "GB",
         "images": 12
       },
       {
-        "site_id": "ekstra-bladet",
-        "site_name": "Ekstra Bladet",
-        "country": "DK",
+        "site_id": "ap",
+        "site_name": "Associated Press",
+        "country": "US",
         "images": 10
       },
       {
@@ -7506,34 +7482,34 @@
         "images": 10
       },
       {
+        "site_id": "npr",
+        "site_name": "NPR",
+        "country": "US",
+        "images": 10
+      },
+      {
         "site_id": "p-blico",
         "site_name": "P\u00fablico",
         "country": "PT",
         "images": 10
       },
       {
-        "site_id": "delfi",
-        "site_name": "Delfi",
-        "country": "EE",
+        "site_id": "ekstra-bladet",
+        "site_name": "Ekstra Bladet",
+        "country": "DK",
         "images": 9
       },
       {
         "site_id": "le-soir",
         "site_name": "Le Soir",
         "country": "BE",
-        "images": 9
-      },
-      {
-        "site_id": "npr",
-        "site_name": "NPR",
-        "country": "US",
-        "images": 9
+        "images": 8
       },
       {
         "site_id": "vg",
         "site_name": "VG",
         "country": "NO",
-        "images": 9
+        "images": 8
       },
       {
         "site_id": "nhk-news-web",
@@ -7542,33 +7518,27 @@
         "images": 7
       },
       {
-        "site_id": "ap",
-        "site_name": "Associated Press",
-        "country": "US",
-        "images": 4
-      },
-      {
-        "site_id": "mlad-fronta-dnes-mf-dnes",
-        "site_name": "Mlad\u00e1 fronta DNES (MF DNES)",
-        "country": "CZ",
-        "images": 4
-      },
-      {
-        "site_id": "iza",
-        "site_name": "Iza",
-        "country": "JP",
-        "images": 3
+        "site_id": "die-welt",
+        "site_name": "Die Welt",
+        "country": "DE",
+        "images": 5
       },
       {
         "site_id": "aktuality-sk",
         "site_name": "aktuality.sk",
         "country": "SK",
-        "images": 2
+        "images": 4
       },
       {
         "site_id": "heise-online",
         "site_name": "Heise Online",
         "country": "DE",
+        "images": 3
+      },
+      {
+        "site_id": "mlad-fronta-dnes-mf-dnes",
+        "site_name": "Mlad\u00e1 fronta DNES (MF DNES)",
+        "country": "CZ",
         "images": 2
       },
       {
@@ -7578,26 +7548,14 @@
         "images": 2
       },
       {
-        "site_id": "die-welt",
-        "site_name": "Die Welt",
-        "country": "DE",
-        "images": 1
-      },
-      {
-        "site_id": "lidov-noviny",
-        "site_name": "Lidov\u00e9 noviny",
-        "country": "CZ",
+        "site_id": "delfi",
+        "site_name": "Delfi",
+        "country": "EE",
         "images": 1
       },
       {
         "site_id": "new-york-post",
         "site_name": "New York Post",
-        "country": "US",
-        "images": 1
-      },
-      {
-        "site_id": "washington-post",
-        "site_name": "Washington Post",
         "country": "US",
         "images": 1
       }
@@ -7616,33 +7574,45 @@
         "images": 11
       },
       {
-        "site_id": "blikk",
-        "site_name": "Blikk",
-        "country": "HU",
+        "site_id": "the-japan-times",
+        "site_name": "The Japan Times",
+        "country": "JP",
         "images": 5
       },
       {
         "site_id": "focus-online",
         "site_name": "FOCUS Online",
         "country": "DE",
+        "images": 4
+      },
+      {
+        "site_id": "blikk",
+        "site_name": "Blikk",
+        "country": "HU",
         "images": 3
       },
       {
-        "site_id": "correio-da-manh",
-        "site_name": "Correio da Manh\u00e3",
+        "site_id": "i",
+        "site_name": "i",
+        "country": "GB",
+        "images": 1
+      },
+      {
+        "site_id": "jornal-de-neg-cios",
+        "site_name": "Jornal de Neg\u00f3cios",
         "country": "PT",
+        "images": 1
+      },
+      {
+        "site_id": "npr",
+        "site_name": "NPR",
+        "country": "US",
         "images": 1
       },
       {
         "site_id": "s-ddeutsche-zeitung",
         "site_name": "S\u00fcddeutsche Zeitung",
         "country": "DE",
-        "images": 1
-      },
-      {
-        "site_id": "the-west-australian",
-        "site_name": "The West Australian",
-        "country": "AU",
         "images": 1
       }
     ],

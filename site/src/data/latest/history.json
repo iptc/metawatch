@@ -74,17 +74,17 @@
     }
   },
   {
-    "run_id": "2026-06-01T032014Z",
-    "started_at": "2026-06-01T03:20:14.733697+00:00",
-    "site_count": 289,
-    "image_count": 4595,
-    "mean_score": 6.57,
-    "images_with_iptc": 514,
-    "pct_with_iptc": 11.3,
-    "images_with_c2pa": 2,
-    "pct_with_c2pa": 0.044,
+    "run_id": "2026-06-01T114337Z",
+    "started_at": "2026-06-01T11:43:37.875826+00:00",
+    "site_count": 288,
+    "image_count": 4599,
+    "mean_score": 7.23,
+    "images_with_iptc": 526,
+    "pct_with_iptc": 11.5,
+    "images_with_c2pa": 4,
+    "pct_with_c2pa": 0.088,
     "c2pa_outcomes": {
-      "valid": 2
+      "valid": 4
     }
   }
 ]

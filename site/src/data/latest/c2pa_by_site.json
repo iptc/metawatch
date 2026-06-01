@@ -19,5 +19,47 @@
         "images": 2
       }
     ]
+  },
+  "novi-list": {
+    "image_count_with_c2pa": 1,
+    "by_outcome": [
+      {
+        "outcome": "valid",
+        "images": 1
+      }
+    ],
+    "by_signer": [
+      {
+        "signer": "Canva",
+        "images": 1
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Valid",
+        "images": 1
+      }
+    ]
+  },
+  "indian-express": {
+    "image_count_with_c2pa": 1,
+    "by_outcome": [
+      {
+        "outcome": "valid",
+        "images": 1
+      }
+    ],
+    "by_signer": [
+      {
+        "signer": "Canva",
+        "images": 1
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Valid",
+        "images": 1
+      }
+    ]
   }
 }
