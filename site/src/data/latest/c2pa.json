@@ -1,11 +1,11 @@
 {
-  "image_count_total": 4599,
-  "image_count_with_c2pa": 4,
-  "pct_with_c2pa": 0.09,
+  "image_count_total": 4611,
+  "image_count_with_c2pa": 2,
+  "pct_with_c2pa": 0.04,
   "by_outcome": [
     {
       "outcome": "valid",
-      "images": 4
+      "images": 2
     },
     {
       "outcome": "modified",
@@ -28,16 +28,12 @@
     {
       "signer": "International Press Telecommunications Council",
       "images": 2
-    },
-    {
-      "signer": "Canva",
-      "images": 2
     }
   ],
   "by_validation_state": [
     {
       "state": "Valid",
-      "images": 4
+      "images": 2
     }
   ],
   "top_sites": [
@@ -46,18 +42,6 @@
       "site_name": "IPTC",
       "country": "GB",
       "images_with_c2pa": 2
-    },
-    {
-      "site_id": "novi-list",
-      "site_name": "Novi list",
-      "country": "HR",
-      "images_with_c2pa": 1
-    },
-    {
-      "site_id": "indian-express",
-      "site_name": "Indian Express",
-      "country": "IN",
-      "images_with_c2pa": 1
     }
   ]
 }
