@@ -36,6 +36,16 @@ function bar(pct: number, max = 100) {
     Based on the most recent crawl: <strong>{data.n_sites}</strong> publishers probed,
     <strong>{data.n_images.toLocaleString()}</strong> images analysed.
   </p>
+  <p class="lede-meta">
+    The "publishers probed" denominator on this page (<strong>{data.n_sites}</strong>) is wider
+    than the "sites crawled" figure on the homepage. The homepage counts publishers where the
+    crawler completed a full pass through to fetching images. The denominator here also includes
+    publishers whose <code>robots.txt</code> disallowed our user-agent at the root, whose sitemap
+    or feed discovery was blocked, or who returned no articles — because for those publishers we
+    still read <code>robots.txt</code>, probed the well-known files, and so on, so we can
+    legitimately answer "did they express an AI preference". Only publishers we couldn't reach at
+    all (DNS / TCP failures) are excluded.
+  </p>
 
   <h2>Adoption snapshot</h2>
   <div class="signal-grid">
