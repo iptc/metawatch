@@ -16,6 +16,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 import pyarrow.parquet as pq
+import pyarrow as pa
 
 from pmd_crawler.output import (
     ArticleRow,
@@ -201,6 +202,57 @@ def test_merge_drops_metadata_fields_for_old_images_on_merged_sites(tmp_path: Pa
     # beta's NEW image hash present, with R1 run_id (re-stamped)
     assert by_hash[img_beta_new.image_url_hash]["field_name"] == "Headline"
     assert by_hash[img_beta_new.image_url_hash]["run_id"] == "R1"
+
+
+def test_merge_with_all_none_optional_columns_preserves_existing_schema(tmp_path: Path) -> None:
+    """Regression for production crash on `--country ua --merge`.
+
+    pyarrow infers ``null`` types for columns whose every value is ``None``.
+    If the existing parquet has ``string`` for those columns (from a full
+    crawl that DID have some non-None values), ``pa.concat_tables`` refuses
+    to combine ``string`` with ``null`` and raises ArrowInvalid. ``merge_run``
+    must cast the incoming batch to the existing file's schema first.
+
+    Reproduce: a full crawl with one site that DID have a trust.txt value,
+    then a partial re-crawl whose single site has every optional column at
+    its default (None / empty list).
+    """
+    # First, a full crawl row where the optional columns ARE populated.
+    full_row = _site("R1", "alpha")
+    full_row.trust_txt_datatraining = "no"
+    full_row.rsl_license_urls = ["https://alpha/licence.xml"]
+    full_row.content_signal_ai_train = "no"
+    full_row.has_content_signals = True
+    write_run(tmp_path, RunOutput(
+        run=_run("R1"),
+        sites=[full_row],
+        articles=[], images=[], metadata_fields=[], robots_analysis=[],
+    ))
+
+    # Now a merge whose site has all those optionals at default (None / []).
+    partial_row = _site("R2", "alpha")  # all defaults
+    # Sanity-check that the test really exercises the all-None case.
+    assert partial_row.trust_txt_datatraining is None
+    assert partial_row.rsl_license_urls == []
+    assert partial_row.content_signal_ai_train is None
+    merge_run(tmp_path, RunOutput(
+        run=_run("R2"),
+        sites=[partial_row],
+        articles=[], images=[], metadata_fields=[], robots_analysis=[],
+    ))
+
+    sites = pq.read_table(tmp_path / "sites.parquet")
+    rows = sites.to_pylist()
+    assert len(rows) == 1
+    assert rows[0]["site_id"] == "alpha"
+    assert rows[0]["trust_txt_datatraining"] is None
+    assert rows[0]["rsl_license_urls"] == []
+    # Schema preserved end-to-end: subsequent merges (the real bug surface)
+    # would re-read this file and see consistent types.
+    schema = sites.schema
+    assert schema.field("trust_txt_datatraining").type == pa.string()
+    assert schema.field("content_signal_ai_train").type == pa.string()
+    assert schema.field("rsl_license_urls").type.value_type == pa.string()
 
 
 def test_merge_adds_new_site_not_in_original_run(tmp_path: Path) -> None:

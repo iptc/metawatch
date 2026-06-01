@@ -260,12 +260,25 @@ def merge_run(out_dir: Path, run_output: RunOutput) -> None:
 def _merge_by_column(
     path: Path, drop_column: str, drop_values: pa.Array, new_table: pa.Table,
 ) -> None:
-    """Drop rows where ``row[drop_column] ∈ drop_values`` and append ``new_table``."""
+    """Drop rows where ``row[drop_column] ∈ drop_values`` and append ``new_table``.
+
+    If ``path`` already exists with non-zero rows, ``new_table`` is cast to
+    that file's schema before the concat. Without this, a partial re-crawl
+    where every site happened to have ``None`` in a given column produces
+    a ``null``-typed column in ``new_table``, and ``pa.concat_tables``
+    refuses to combine ``string`` (existing) with ``null`` (new). The cast
+    direction ``null → typed`` always succeeds and preserves the existing
+    parquet file's canonical schema.
+    """
     if path.exists():
         existing = pq.read_table(path)
-        if existing.num_rows > 0 and len(drop_values) > 0:
-            keep_mask = pc.invert(pc.is_in(existing.column(drop_column), value_set=drop_values))
-            kept = existing.filter(keep_mask)
+        if existing.num_rows > 0:
+            new_table = new_table.cast(existing.schema)
+            if len(drop_values) > 0:
+                keep_mask = pc.invert(pc.is_in(existing.column(drop_column), value_set=drop_values))
+                kept = existing.filter(keep_mask)
+            else:
+                kept = existing
         else:
             kept = existing
         merged = (
