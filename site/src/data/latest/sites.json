@@ -5576,21 +5576,6 @@
     "cdn_breakdown": {}
   },
   {
-    "site_id": "kyiv-independent",
-    "site_name": "The Kyiv Independent",
-    "url": "https://kyivindependent.com/",
-    "country": "UA",
-    "category": "online",
-    "status": "discovery_blocked",
-    "discovery_strategy": "fallback_needed",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "unian",
     "site_name": "UNIAN",
     "url": "https://www.unian.ua/",
@@ -5771,6 +5756,23 @@
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "akamai": 20
+    }
+  },
+  {
+    "site_id": "kyiv-independent",
+    "site_name": "The Kyiv Independent",
+    "url": "https://kyivindependent.com/",
+    "country": "UA",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://kyivindependent.com/news-archive/rss/",
+    "articles_sampled": 15,
+    "images_analysed": 15,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 15
     }
   }
 ]
