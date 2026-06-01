@@ -12,10 +12,13 @@ on:
         description: "Run a specific site ID (comma-separated). Leave blank for all."
         required: false
       merge:
-        description: "Merge into today's existing run instead of overwriting it (use with site_id or country to patch a partial re-crawl)."
+        description: "Merge into the target run instead of overwriting it (use with site_id or country to patch a partial re-crawl)."
         required: false
         type: boolean
         default: false
+      run_date:
+        description: "Run directory to write to (YYYY-MM-DD). Leave blank for today's UTC date. Set this to the *original* crawl's date when doing a mid-month merge so the patched rows land in the right monthly snapshot, not a new directory dated today."
+        required: false
 
 permissions:
   contents: write
@@ -45,8 +48,22 @@ jobs:
         env:
           CRAWL_DATE: ${{ steps.date.outputs.date }}
         run: |
-          DATE=$(date -u +%Y-%m-%d)
+          # Determine target date. run_date input wins if set (used for
+          # mid-month --merge re-crawls so they land in the original
+          # monthly directory); otherwise default to today's UTC date.
+          if [ -n "${{ inputs.run_date }}" ]; then
+            DATE="${{ inputs.run_date }}"
+            # Refuse anything that isn't YYYY-MM-DD — prevents accidental
+            # writes to weird paths like "../../etc/passwd" via the input.
+            if ! [[ "$DATE" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+              echo "run_date must be YYYY-MM-DD; got: $DATE"
+              exit 1
+            fi
+          else
+            DATE=$(date -u +%Y-%m-%d)
+          fi
           OUT="data/runs/$DATE"
+          echo "Writing run to $OUT"
           ARGS="--output $OUT"
           if [ -n "${{ inputs.country }}" ]; then ARGS="$ARGS --country ${{ inputs.country }}"; fi
           if [ -n "${{ inputs.site_id }}" ]; then ARGS="$ARGS --site-id ${{ inputs.site_id }}"; fi
@@ -65,8 +82,19 @@ jobs:
             echo "No changes to commit."
             exit 0
           fi
-          DATE=$(date -u +%Y-%m-%d)
-          git commit -m "Crawl run $DATE"
+          # Mirror the date logic from the crawl step so the commit message
+          # reflects the actual run directory written to, not just today.
+          if [ -n "${{ inputs.run_date }}" ]; then
+            DATE="${{ inputs.run_date }}"
+          else
+            DATE=$(date -u +%Y-%m-%d)
+          fi
+          if [ "${{ inputs.merge }}" = "true" ]; then
+            SCOPE="${{ inputs.site_id }}${{ inputs.country }}"
+            git commit -m "Crawl run $DATE (merge: ${SCOPE:-partial})"
+          else
+            git commit -m "Crawl run $DATE"
+          fi
 
           # Race-safe push. The crawl takes 30–60 minutes; in that window a
           # human commit can land on main. Rebase onto the latest main and
