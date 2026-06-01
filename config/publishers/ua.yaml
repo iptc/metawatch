@@ -75,13 +75,10 @@ sites:
     window_days: 30
 - id: unian
   name: UNIAN
-  url: https://www.unian.net/
-  homepage: https://www.unian.net/
-  # The configured feed (news_rus.rss) is the Russian-language edition served
-  # under unian.net; UNIAN also runs a Ukrainian edition at unian.ua. Switch
-  # the URL / feed if the Ukrainian edition is preferred.
+  url: https://www.unian.ua/
+  homepage: https://www.unian.ua/
   category: news-agency
-  language_primary: ru
+  language_primary: uk
   notes: ''
   active: true
   discovery:
@@ -89,7 +86,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://rss.unian.net/site/news_rus.rss
+    - https://rss.unian.net/site/news_ukr.rss
     js_required: false
   sample:
     max_articles: 20
