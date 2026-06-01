@@ -43,7 +43,7 @@ sites:
   url: http://tass.ru/
   homepage: http://tass.ru/
   category: news-agency
-  language_primary: en
+  language_primary: ru
   notes: ''
   suggested_by: BQ
   active: true
