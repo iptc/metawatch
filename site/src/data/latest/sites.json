@@ -4542,21 +4542,6 @@
     }
   },
   {
-    "site_id": "rnz",
-    "site_name": "Radio New Zealand (RNZ)",
-    "url": "https://www.rnz.co.nz/",
-    "country": "NZ",
-    "category": "broadcaster",
-    "status": "discovery_blocked",
-    "discovery_strategy": "no_sitemap",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "nettavisen",
     "site_name": "Nettavisen",
     "url": "https://www.nettavisen.no/",
@@ -4653,23 +4638,6 @@
     }
   },
   {
-    "site_id": "stuff-co-nz",
-    "site_name": "Stuff.co.nz",
-    "url": "https://www.stuff.co.nz/",
-    "country": "NZ",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.stuff.co.nz/rss",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "fastly": 20
-    }
-  },
-  {
     "site_id": "rappler",
     "site_name": "Rappler",
     "url": "https://www.rappler.com/",
@@ -4701,23 +4669,6 @@
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "cloudflare": 20
-    }
-  },
-  {
-    "site_id": "new-zealand-herald",
-    "site_name": "New Zealand Herald",
-    "url": "https://www.nzherald.co.nz/",
-    "country": "NZ",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "config:sitemap",
-    "sitemap_url_used": "https://www.nzherald.co.nz/arc/outboundfeeds/sitemap-index/?outputType=xml&_website=nzh",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "akamai": 20
     }
   },
   {
@@ -5771,6 +5722,55 @@
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "cloudflare": 20
+    }
+  },
+  {
+    "site_id": "rnz",
+    "site_name": "Radio New Zealand (RNZ)",
+    "url": "https://www.rnz.co.nz/",
+    "country": "NZ",
+    "category": "broadcaster",
+    "status": "discovery_blocked",
+    "discovery_strategy": "fallback_needed",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "stuff-co-nz",
+    "site_name": "Stuff.co.nz",
+    "url": "https://www.stuff.co.nz/",
+    "country": "NZ",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.stuff.co.nz/rss",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "fastly": 20
+    }
+  },
+  {
+    "site_id": "new-zealand-herald",
+    "site_name": "New Zealand Herald",
+    "url": "https://www.nzherald.co.nz/",
+    "country": "NZ",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:sitemap",
+    "sitemap_url_used": "https://www.nzherald.co.nz/arc/outboundfeeds/sitemap-index/?outputType=xml&_website=nzh",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "akamai": 20
     }
   }
 ]
