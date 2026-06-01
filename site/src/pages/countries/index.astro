@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import CountryMap from '../../components/CountryMap.astro';
 import { getCountries, scoreClass, countryName } from '../../lib/data';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -7,7 +8,9 @@ const countries = getCountries();
 ---
 <Layout title="Countries">
   <h1>Countries</h1>
-  <p class="lede">Per-country mean is the average across the country's sites (equal-weighted per site, regardless of how many images each site contributed).</p>
+  <p class="lede">Per-country mean is the average across the country's sites (equal-weighted per site, regardless of how many images each site contributed). Hover or tap any coloured country on the map to see its score, click to drill in.</p>
+
+  <CountryMap base={base} />
 
   <table class="sortable">
     <thead><tr><th>Country</th><th class="num">Sites</th><th class="num">Mean score</th></tr></thead>

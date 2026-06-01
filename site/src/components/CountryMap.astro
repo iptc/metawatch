@@ -1,0 +1,266 @@
+---
+// Build-time SVG choropleth of per-country mean IPTC scores.
+//
+// Everything here runs at Astro build time — the output is plain inline
+// SVG with zero runtime JavaScript. Hover tooltips ride on browser-native
+// <title> elements inside each <path>. Each country with crawl data is
+// wrapped in an <a> link to its detail page; countries without data are
+// rendered grey and stay non-interactive.
+//
+// Projection: Equal Earth (Šavrič et al. 2019). It's the modern default for
+// world choropleths — equal-area like Mollweide but with less distortion
+// at the poles and a more familiar shape than Robinson. Built into d3-geo.
+//
+// Colour scale: HSL interpolation between two blues, scored linearly from
+// 0 to the maximum observed score in this run. Anchoring to the observed
+// max (rather than the theoretical 100) keeps the contrast useful while
+// mean scores remain in single digits across most countries.
+import * as d3geo from "d3-geo";
+import { feature } from "topojson-client";
+import type { FeatureCollection, Feature } from "geojson";
+// 110m resolution keeps the inline-SVG payload around 200 KB; 50m balloons
+// it to ~1.5 MB for polygon detail that isn't visible at the page's
+// display width. The trade-off: 110m drops a handful of small states
+// (Malta, Singapore, etc.) below its simplification threshold. We
+// compensate by rendering an explicit dot marker for any country we have
+// data for that wasn't drawn from the topology — see TINY_STATE_CENTROIDS
+// below.
+import world from "world-atlas/countries-110m.json";
+import { numericIdToAlpha2 } from "../lib/iso-numeric";
+import { getCountries, countryName } from "../lib/data";
+
+interface Props {
+  /** Optional base path prefix for country links (e.g. "/metawatch"). */
+  base?: string;
+}
+const { base = "" } = Astro.props;
+
+const countries = getCountries();
+const scoreByCC = new Map(countries.map((c) => [c.country, c.mean_score]));
+const sitesByCC = new Map(countries.map((c) => [c.country, c.site_count]));
+
+// Anchor the colour scale to the observed range (clamped to a minimum of 10
+// so a single high-scoring country doesn't make every other country look
+// indistinguishable from "no data").
+const observedMax = Math.max(10, ...countries.map((c) => c.mean_score));
+
+// Light-blue → dark-blue ramp. Both endpoints chosen to read clearly against
+// the page background; the light end is still distinct from the no-data
+// grey so a low-scoring country doesn't blend into the unmapped territory.
+const RAMP_LIGHT = { h: 207, s: 70, l: 88 }; // ≈ #d6e6f5
+const RAMP_DARK = { h: 215, s: 65, l: 30 }; // ≈ #1c3d6b
+const NO_DATA_FILL = "#e9ecef";
+
+function colourFor(score: number): string {
+  const t = Math.min(1, Math.max(0, score / observedMax));
+  const h = RAMP_LIGHT.h + (RAMP_DARK.h - RAMP_LIGHT.h) * t;
+  const s = RAMP_LIGHT.s + (RAMP_DARK.s - RAMP_LIGHT.s) * t;
+  const l = RAMP_LIGHT.l + (RAMP_DARK.l - RAMP_LIGHT.l) * t;
+  return `hsl(${h.toFixed(1)} ${s.toFixed(1)}% ${l.toFixed(1)}%)`;
+}
+
+// Convert the bundled TopoJSON to GeoJSON. The `as any` cast keeps
+// TypeScript happy across the topojson-client / @types/topojson-client
+// type-version skew without leaking into runtime.
+const geo = feature(
+  world as any,
+  (world as any).objects.countries,
+) as unknown as FeatureCollection;
+
+// Equal Earth fitted to a 960 × 480 canvas. Standard 16:8 ratio scales
+// cleanly inside the page's max-width content column.
+const WIDTH = 960;
+const HEIGHT = 480;
+const projection = d3geo.geoEqualEarth().fitSize([WIDTH, HEIGHT], geo);
+const pathBuilder = d3geo.geoPath(projection);
+
+interface RenderedCountry {
+  cc: string | undefined;
+  d: string;
+  name: string;
+  score: number | undefined;
+  sites: number | undefined;
+}
+
+const rendered: RenderedCountry[] = geo.features
+  .map((f: Feature) => {
+    const cc = numericIdToAlpha2(String(f.id ?? ""));
+    const d = pathBuilder(f);
+    if (!d) return null;
+    return {
+      cc,
+      d,
+      name:
+        (cc && countryName(cc)) ||
+        (f.properties as any)?.name ||
+        cc ||
+        "",
+      score: cc ? scoreByCC.get(cc) : undefined,
+      sites: cc ? sitesByCC.get(cc) : undefined,
+    };
+  })
+  .filter((r): r is RenderedCountry => r !== null);
+
+// Sort so coloured-in countries render LAST (and thus on top in SVG
+// painter's algorithm). This stops a thin slice of a no-data neighbour
+// from overwriting an adjacent coloured country's border.
+rendered.sort((a, b) => Number(a.score !== undefined) - Number(b.score !== undefined));
+
+// ── Tiny states ────────────────────────────────────────────────────────────
+// Countries the 110m simplification doesn't render but for which we have
+// crawl data — drawn as discrete circle markers at their centroids so they
+// don't disappear from the visualisation. Add new entries here whenever
+// the crawl picks up another small state that doesn't appear in the topology.
+const TINY_STATE_CENTROIDS: Record<string, [number, number]> = {
+  MT: [14.4476, 35.9375], // Malta
+  SG: [103.8198, 1.3521], // Singapore
+};
+
+const renderedAlpha2 = new Set(rendered.map((r) => r.cc).filter(Boolean));
+const tinyMarkers = countries
+  .filter((c) => !renderedAlpha2.has(c.country) && TINY_STATE_CENTROIDS[c.country])
+  .map((c) => {
+    const [lon, lat] = TINY_STATE_CENTROIDS[c.country];
+    const projected = projection([lon, lat]);
+    if (!projected) return null;
+    return {
+      cc: c.country,
+      x: projected[0],
+      y: projected[1],
+      score: c.mean_score,
+      sites: c.site_count,
+      name: countryName(c.country) || c.country,
+    };
+  })
+  .filter((m): m is NonNullable<typeof m> => m !== null);
+
+// Legend stops — 5 evenly-spaced samples plus the no-data swatch.
+const legendStops = [0, 0.25, 0.5, 0.75, 1].map((t) => ({
+  pct: t,
+  score: t * observedMax,
+  fill: colourFor(t * observedMax),
+}));
+---
+
+<figure class="country-map">
+  <svg
+    viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+    role="img"
+    aria-label={`World map of mean IPTC scores across ${countries.length} crawled countries`}
+    preserveAspectRatio="xMidYMid meet"
+  >
+    {rendered.map((c) => {
+      const fill = c.score !== undefined ? colourFor(c.score) : NO_DATA_FILL;
+      const tooltip =
+        c.score !== undefined
+          ? `${c.name} — mean score ${c.score.toFixed(1)} (${c.sites} site${c.sites === 1 ? "" : "s"})`
+          : c.name;
+      if (c.cc && c.score !== undefined) {
+        return (
+          <a href={`${base}/countries/${c.cc.toLowerCase()}/`} aria-label={tooltip}>
+            <path d={c.d} fill={fill} class="hit"><title>{tooltip}</title></path>
+          </a>
+        );
+      }
+      return (
+        <path d={c.d} fill={fill} class="nodata"><title>{tooltip}</title></path>
+      );
+    })}
+    {tinyMarkers.map((m) => {
+      const tooltip = `${m.name} — mean score ${m.score.toFixed(1)} (${m.sites} site${m.sites === 1 ? "" : "s"})`;
+      return (
+        <a href={`${base}/countries/${m.cc.toLowerCase()}/`} aria-label={tooltip}>
+          <circle cx={m.x} cy={m.y} r={3.5} fill={colourFor(m.score)} class="tiny-state">
+            <title>{tooltip}</title>
+          </circle>
+        </a>
+      );
+    })}
+  </svg>
+  <figcaption>
+    <div class="legend">
+      <span class="legend-label">Mean IPTC score</span>
+      {legendStops.map((s, i) => (
+        <span class="legend-stop">
+          <span class="swatch" style={`background:${s.fill}`}></span>
+          {i === 0 ? "0" : i === legendStops.length - 1 ? observedMax.toFixed(1) : ""}
+        </span>
+      ))}
+      <span class="legend-stop legend-nodata">
+        <span class="swatch" style={`background:${NO_DATA_FILL}`}></span>
+        no data
+      </span>
+    </div>
+  </figcaption>
+</figure>
+
+<style>
+  .country-map {
+    margin: 0 0 2rem;
+  }
+  .country-map svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: white;
+  }
+  .country-map path {
+    stroke: #ffffff;
+    stroke-width: 0.4;
+    vector-effect: non-scaling-stroke;
+  }
+  .country-map path.hit {
+    cursor: pointer;
+    transition: filter 80ms ease, stroke 80ms ease;
+  }
+  .country-map a:hover path.hit,
+  .country-map a:focus path.hit {
+    stroke: var(--iptc-navy, #234976);
+    stroke-width: 1.5;
+    filter: brightness(0.92);
+  }
+  .country-map path.nodata {
+    cursor: default;
+  }
+  .country-map circle.tiny-state {
+    cursor: pointer;
+    stroke: #ffffff;
+    stroke-width: 1;
+    transition: r 80ms ease, stroke 80ms ease;
+  }
+  .country-map a:hover circle.tiny-state,
+  .country-map a:focus circle.tiny-state {
+    stroke: var(--iptc-navy, #234976);
+    stroke-width: 1.5;
+    r: 5;
+  }
+  .legend {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+    color: var(--iptc-muted, #6b7280);
+    margin-top: 0.5rem;
+  }
+  .legend-label {
+    font-weight: 600;
+    margin-right: 0.3rem;
+  }
+  .legend-stop {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .legend-stop .swatch {
+    display: inline-block;
+    width: 16px;
+    height: 12px;
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .legend-nodata {
+    margin-left: 0.6rem;
+  }
+</style>
