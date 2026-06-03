@@ -484,10 +484,65 @@ def _images_from_rss_entry(entry) -> list[str]:
     return deduped
 
 
+# Anchor text / href hints that a plain <a> in the page body points at a feed.
+_ANCHOR_FEED_TEXTS = ("rss", "feed", "atom")
+_ANCHOR_FEED_PATHS = ("/rss", "/feed", "/newsfeed", "/atom")
+# Hosts that commonly appear in social-share <a> links whose text/href happens
+# to contain "feed" — never a publisher's own feed, so skip them outright.
+_ANCHOR_SKIP_HOSTS = ("twitter.com", "x.com", "facebook.com")
+# Cap on body-anchor candidates: false positives are cheap (the caller fetches
+# and parses each), but a page full of feed-ish links shouldn't flood the queue.
+_MAX_ANCHOR_CANDIDATES = 5
+
+
+def _anchor_feed_candidates(tree: HTMLParser, base_url: str) -> list[str]:
+    """Scan <a> elements for likely feed links, resolved against ``base_url``.
+
+    A fallback for publishers (e.g. The Malta Independent) who link their feed
+    as a plain body anchor — ``<a href="/newsfeed">RSS</a>`` — rather than a
+    proper ``<link rel="alternate">`` in the head. Matches on visible link text
+    or on the href path, skips obvious non-feeds, dedupes, and caps the result.
+    """
+    seen: set[str] = set()
+    out: list[str] = []
+    for node in tree.css("a"):
+        href = node.attributes.get("href")
+        if not href:
+            continue
+        href = href.strip()
+        low = href.lower()
+        if not href or low.startswith(("mailto:", "javascript:", "#", "tel:")):
+            continue
+        absolute = urljoin(base_url, href)
+        host = urlparse(absolute).netloc.lower()
+        if host.startswith("www."):
+            host = host[4:]
+        if host in _ANCHOR_SKIP_HOSTS:
+            continue
+        text = node.text().strip().lower()
+        path = urlparse(absolute).path.lower()
+        text_match = any(t in text for t in _ANCHOR_FEED_TEXTS)
+        href_match = any(p in path for p in _ANCHOR_FEED_PATHS)
+        if not (text_match or href_match):
+            continue
+        if absolute not in seen:
+            seen.add(absolute)
+            out.append(absolute)
+        if len(out) >= _MAX_ANCHOR_CANDIDATES:
+            break
+    return out
+
+
 async def discover_rss_links_from_homepage(
     client: httpx.AsyncClient, homepage: str
 ) -> list[str]:
-    """Return RSS/Atom URLs advertised in <link rel="alternate"> on the homepage."""
+    """Return RSS/Atom URLs advertised on the homepage.
+
+    Primary source is ``<link rel="alternate">`` in the head. If that finds
+    nothing, fall back to scanning body ``<a>`` anchors for feed-like text or
+    hrefs — the caller validates each candidate by fetching it, so the looser
+    anchor heuristic's false positives are cheap.
+    """
     try:
         r = await client.get(homepage, timeout=15.0, follow_redirects=True)
         if r.status_code >= 400 or not r.text:
@@ -506,6 +561,8 @@ async def discover_rss_links_from_homepage(
         if absolute not in seen:
             seen.add(absolute)
             out.append(absolute)
+    if not out:
+        out = _anchor_feed_candidates(tree, str(r.url))
     return out
 
 

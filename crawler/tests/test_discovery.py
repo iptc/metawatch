@@ -1,6 +1,8 @@
 from datetime import UTC, datetime
 
-from pmd_crawler.discovery import _parse_iso_date
+from selectolax.parser import HTMLParser
+
+from pmd_crawler.discovery import _anchor_feed_candidates, _parse_iso_date
 
 
 def test_iso_date_with_z_suffix():
@@ -23,3 +25,30 @@ def test_iso_date_naive_is_promoted_to_utc():
 
 def test_iso_date_invalid_returns_none():
     assert _parse_iso_date("not a date") is None
+
+
+def test_anchor_feed_candidate_matches_text():
+    # The Malta Independent case: feed linked as a plain body anchor whose
+    # visible text is "RSS" rather than a <link rel="alternate"> in the head.
+    html = '<html><body><a href="/newsfeed">RSS</a></body></html>'
+    out = _anchor_feed_candidates(HTMLParser(html), "https://example.com/")
+    assert out == ["https://example.com/newsfeed"]
+
+
+def test_anchor_feed_candidate_matches_href_path():
+    # Anchor text gives no hint, but the href path contains /feed/.
+    html = '<html><body><a href="/feed/">Subscribe</a></body></html>'
+    out = _anchor_feed_candidates(HTMLParser(html), "https://example.com/")
+    assert out == ["https://example.com/feed/"]
+
+
+def test_anchor_feed_candidate_skips_social_share():
+    # A social-share link to Twitter must not be mistaken for a feed even
+    # though its text/href can contain feed-ish substrings.
+    html = (
+        '<html><body>'
+        '<a href="https://twitter.com/intent/tweet?url=x">Share to feed</a>'
+        '</body></html>'
+    )
+    out = _anchor_feed_candidates(HTMLParser(html), "https://example.com/")
+    assert out == []
