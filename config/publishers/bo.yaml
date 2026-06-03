@@ -1,0 +1,61 @@
+country: BO
+sites:
+- id: la-razon-bo
+  name: La Razón (Bolivia)
+  url: https://www.la-razon.com/
+  homepage: https://www.la-razon.com/
+  category: newspaper
+  language_primary: es
+  notes: 'Brand domain la-razon.com redirects to larazon.bo, where the feed lives.'
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://larazon.bo/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: opinion-bo
+  name: Opinión
+  url: https://www.opinion.com.bo/
+  homepage: https://www.opinion.com.bo/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.opinion.com.bo/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: brujula-digital
+  name: Brújula Digital
+  url: https://brujuladigital.net/
+  homepage: https://brujuladigital.net/
+  category: online
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://brujuladigital.net/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

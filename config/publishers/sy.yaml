@@ -1,0 +1,61 @@
+country: SY
+sites:
+- id: enab-baladi-en
+  name: Enab Baladi (English)
+  url: https://english.enabbaladi.net/
+  homepage: https://english.enabbaladi.net/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://english.enabbaladi.net/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: al-watan-sy
+  name: Al-Watan (Syria)
+  url: https://alwatan.sy/
+  homepage: https://alwatan.sy/
+  category: newspaper
+  language_primary: ar
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://alwatan.sy/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: sana-sy
+  name: SANA (Syrian Arab News Agency)
+  url: https://sana.sy/
+  homepage: https://sana.sy/
+  category: news-agency
+  language_primary: ar
+  notes: 'English feed is stale; the Arabic feed is current.'
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://sana.sy/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

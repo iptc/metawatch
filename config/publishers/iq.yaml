@@ -18,3 +18,42 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: iraqi-news
+  name: Iraqi News
+  url: https://www.iraqinews.com/
+  homepage: https://www.iraqinews.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.iraqinews.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: kurdistan24
+  name: Kurdistan 24
+  url: https://www.kurdistan24.net/en
+  homepage: https://www.kurdistan24.net/en
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.kurdistan24.net/en/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

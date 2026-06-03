@@ -1,0 +1,61 @@
+country: VE
+sites:
+- id: el-nacional-ve
+  name: El Nacional
+  url: https://www.elnacional.com/
+  homepage: https://www.elnacional.com/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.elnacional.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: efecto-cocuyo
+  name: Efecto Cocuyo
+  url: https://efectococuyo.com/
+  homepage: https://efectococuyo.com/
+  category: online
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://efectococuyo.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: ultimas-noticias-ve
+  name: Últimas Noticias
+  url: https://ultimasnoticias.com.ve/
+  homepage: https://ultimasnoticias.com.ve/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://ultimasnoticias.com.ve/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

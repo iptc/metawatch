@@ -1,27 +1,9 @@
-country: CR
+country: PY
 sites:
-- id: tico-times
-  name: The Tico Times
-  url: https://ticotimes.net/
-  homepage: https://ticotimes.net/
-  category: online
-  language_primary: en
-  notes: ''
-  active: true
-  discovery:
-    strategy: rss
-    sitemap_urls: []
-    picture_sitemap_url: null
-    rss_urls:
-    - https://ticotimes.net/feed
-    js_required: false
-  sample:
-    max_articles: 20
-    window_days: 30
-- id: la-nacion-cr
-  name: La Nación (Costa Rica)
-  url: https://www.nacion.com/
-  homepage: https://www.nacion.com/
+- id: abc-color
+  name: ABC Color
+  url: https://www.abc.com.py/
+  homepage: https://www.abc.com.py/
   category: newspaper
   language_primary: es
   notes: ''
@@ -32,17 +14,37 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.nacion.com/rss/
+    - https://www.abc.com.py/arc/outboundfeeds/rss/?outputType=xml
     js_required: false
   sample:
     max_articles: 20
     window_days: 30
 
-- id: crhoy
-  name: CRHoy
-  url: https://www.crhoy.com/
-  homepage: https://www.crhoy.com/
-  category: online
+- id: la-nacion-py
+  name: La Nación (Paraguay)
+  url: https://www.lanacion.com.py/
+  homepage: https://www.lanacion.com.py/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.lanacion.com.py/arc/outboundfeeds/rss/?outputType=xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: ultima-hora-py
+  name: Última Hora
+  url: https://www.ultimahora.com/
+  homepage: https://www.ultimahora.com/
+  category: newspaper
   language_primary: es
   notes: ''
   suggested_by: BQ
@@ -50,7 +52,7 @@ sites:
   discovery:
     strategy: sitemap
     sitemap_urls:
-    - https://www.crhoy.com/sitemap.xml
+    - https://www.ultimahora.com/sitemap.xml
     picture_sitemap_url: null
     rss_urls: []
     js_required: false
