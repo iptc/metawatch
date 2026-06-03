@@ -235,7 +235,12 @@ sites:
   homepage: https://www.reuters.com/
   category: news-agency
   language_primary: en
-  notes: ''
+  notes: 'ROBOTS-DISALLOWED — kept active so the disallow is recorded as a
+    signal. reuters.com/robots.txt is `User-agent: * / Disallow: /` (it
+    whitelists named search bots only); Metawatch/2.0 is blocked on every
+    path, including the Arc news-sitemap. Do NOT configure an RSS feed here —
+    that would be the one way to bypass the disallow. The sitemap is live and
+    fresh from US, so it is reachable; we simply choose to honor the block.'
   suggested_by: BQ
   active: true
   discovery:
@@ -481,9 +486,12 @@ sites:
   homepage: https://pamediagroup.com/
   category: news-agency
   language_primary: en
-  notes: ''
+  notes: 'DEACTIVATED — B2B wire agency, no public news to crawl.
+    pamediagroup.com is a corporate site (its sitemap lists pages like
+    locations.kml, not articles). Content is distributed to clients, not
+    published publicly. Revisit only if a public news feed appears.'
   suggested_by: BQ
-  active: true
+  active: false
   discovery:
     strategy: sitemap
     sitemap_urls: []

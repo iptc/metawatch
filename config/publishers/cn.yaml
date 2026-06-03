@@ -6,9 +6,11 @@ sites:
   homepage: http://www.chinadaily.com.cn/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: 'DEACTIVATED (path-to-500 revisit): no RSS/Atom feed found, and the
+    (very large) sitemap is stale, so discovery yields no recent articles.
+    Revisit if a live feed or fresh news-sitemap turns up.'
   suggested_by: BQ
-  active: true
+  active: false
   discovery:
     strategy: sitemap
     sitemap_urls: []
@@ -64,9 +66,12 @@ sites:
   homepage: https://www.vcg.com/
   category: news-agency
   language_primary: zh
-  notes: ''
+  notes: 'DEACTIVATED — stock-image marketplace, not a news destination.
+    vcg.com sells licensed images/video/fonts; no public news articles to
+    sample. Could be interesting via direct photo-metadata sampling (a
+    different approach), but does not fit the article-crawl model.'
   suggested_by: BQ (IPTC member)
-  active: true
+  active: false
   discovery:
     strategy: sitemap
     sitemap_urls: []

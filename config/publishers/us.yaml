@@ -499,9 +499,12 @@ sites:
   homepage: https://www.gettyimages.com/editorial-images
   category: news-agency
   language_primary: en
-  notes: ''
+  notes: 'DEACTIVATED — stock/editorial photo marketplace, not a news
+    destination. gettyimages.com is a photo search/gallery, not article pages
+    with lead images. Could be interesting via direct photo-metadata sampling
+    (a different approach), but does not fit the article-crawl model.'
   suggested_by: BQ (IPTC member)
-  active: true
+  active: false
   discovery:
     strategy: sitemap
     sitemap_urls: []

@@ -120,9 +120,11 @@ sites:
   homepage: https://www.ntb.no/
   category: news-agency
   language_primary: 'no'
-  notes: ''
+  notes: 'DEACTIVATED — B2B wire agency, no public news to crawl. ntb.no is a
+    corporate/product site; news is distributed to subscribers. Revisit only
+    if a public news feed appears.'
   suggested_by: BQ (IPTC member)
-  active: true
+  active: false
   discovery:
     strategy: sitemap
     sitemap_urls: []

@@ -101,9 +101,12 @@ sites:
   homepage: https://tt.se/
   category: news-agency
   language_primary: sv
-  notes: ''
+  notes: 'DEACTIVATED — no public news to crawl. TT is a B2B wire agency; tt.se
+    is a corporate/product site, not a public news destination. Like several
+    pure wire agencies, it has nothing for us to sample. Revisit only if they
+    launch a public news feed.'
   suggested_by: BQ (IPTC member)
-  active: true
+  active: false
   discovery:
     strategy: sitemap
     sitemap_urls: []
