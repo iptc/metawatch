@@ -5,7 +5,7 @@ from __future__ import annotations
 import asyncio
 import gzip
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import UTC, datetime, timedelta
 from urllib.parse import urljoin, urlparse
 
@@ -40,6 +40,20 @@ class RobotsDecision:
     allowed_at_root: bool
     sitemap_urls: list[str]
     crawl_delay: float | None
+    _parser: object | None = field(default=None, compare=False, repr=False)
+
+    def can_fetch(self, url: str) -> bool:
+        """Whether our UA may fetch ``url`` per this robots.txt.
+
+        Fails OPEN: if robots.txt could not be read (``fetched`` is False —
+        e.g. a WAF dropped it), we allow the fetch. We only ever block on a
+        robots.txt we actually read that disallows our UA.
+        """
+        if not self.fetched:
+            return True
+        if self._parser is None:
+            self._parser = Protego.parse(self.text)
+        return self._parser.can_fetch(url, USER_AGENT)
 
 
 @dataclass
@@ -584,25 +598,29 @@ async def discover(
       2. html:rss_link       — RSS URL(s) advertised in homepage <link rel="alternate">
       3. config:sitemap, etc — sitemap chain (config/robots/guessed)
 
-    Publisher-configured RSS feeds bypass the robots.txt check entirely:
-    publishing an RSS feed is an explicit invitation to crawlers, and the
-    publisher's YAML entry effectively grants permission. Skipping robots
-    here also dodges WAFs (e.g. tass.ru) that block ``/robots.txt`` for
-    bot UAs and then cascade-block every subsequent request from the
-    same IP for the next minute — fetching robots first would lock us
-    out of the very feed we were invited to crawl. Trade-off: AI-policy
-    signals from robots.txt (Content-Signal, RSL License, AI-bot matrix)
-    are absent for these sites, since we never read the file. We accept
-    that — getting articles at all is the larger win.
+    Robots policy — we honor robots.txt for EVERY site, including ones with a
+    publisher-configured RSS feed. Metawatch measures robots / AI-policy
+    compliance, so crawling what a readable robots.txt disallows for our UA
+    would undermine the project's own premise. Two safeguards stop this from
+    locking us out of sites we are genuinely allowed to crawl:
+
+      * Fail-open: ``fetch_robots`` / ``RobotsDecision.can_fetch`` allow the
+        fetch when /robots.txt can't be read (some WAFs 403 or drop it), so a
+        publisher who merely hides robots.txt is still crawled.
+      * Feed-first for configured RSS: we fetch the FEED before robots.txt, so
+        a WAF that cascade-blocks the IP after a robots request (e.g. tass.ru)
+        can't cost us the feed we were invited to crawl. We then drop any
+        individual article URLs that the robots.txt we read disallows.
+
+    Sitemap/guess discovery still fetches robots up front (the sitemap URLs
+    come from it). Configured-RSS sites fetch it lazily, after the first feed.
     """
-    if site.discovery.rss_urls:
-        robots = RobotsDecision(
-            fetched=False, text="", allowed_at_root=True,
-            sitemap_urls=[], crawl_delay=None,
-        )
-    else:
+    rss_configured = bool(site.discovery.rss_urls)
+
+    robots: RobotsDecision | None = None
+    if not rss_configured:
         robots = await fetch_robots(client, site)
-        if not robots.allowed_at_root:
+        if robots.fetched and not robots.allowed_at_root:
             return robots, None, "robots_disallow", [], None
 
     window_days = site.sample.window_days
@@ -611,6 +629,23 @@ async def discover(
     attempts = 0
     network_errors = 0
     last_err: str | None = None
+
+    async def _robots_gate(
+        source_url: str, strategy: str, articles: list[ArticleCandidate]
+    ):
+        """Honor robots for freshly discovered articles, fetching robots.txt
+        lazily (feed-first). Returns a discover() result tuple, or None to keep
+        trying other sources when the read robots.txt disallows everything."""
+        nonlocal robots
+        if robots is None:
+            robots = await fetch_robots(client, site)
+        if robots.fetched and not robots.allowed_at_root:
+            return robots, None, "robots_disallow", [], None
+        allowed = [a for a in articles if robots.can_fetch(a.url)]
+        if allowed:
+            return robots, source_url, strategy, allowed, None
+        # A readable robots.txt disallowed every URL the feed offered.
+        return robots, None, "robots_disallow", [], None
 
     # Two flavours of "the publisher told us where to look":
     #
@@ -633,7 +668,6 @@ async def discover(
     # paths) only runs when neither flag is set — for sites with no
     # explicit configuration at all, where guessing is genuinely useful
     # as discovery aid.
-    rss_configured = bool(site.discovery.rss_urls)
     sitemap_configured = bool(
         site.discovery.sitemap_urls or site.discovery.picture_sitemap_url
     )
@@ -643,7 +677,7 @@ async def discover(
         attempts += 1
         articles, err = await fetch_rss_articles(client, url, window_days, max_articles)
         if articles:
-            return robots, url, "config:rss", articles, None
+            return await _robots_gate(url, "config:rss", articles)
         last_err = err
         if err == "network_error":
             network_errors += 1
@@ -656,7 +690,7 @@ async def discover(
             attempts += 1
             articles, err = await fetch_rss_articles(client, url, window_days, max_articles)
             if articles:
-                return robots, url, "html:rss_link", articles, None
+                return await _robots_gate(url, "html:rss_link", articles)
             last_err = err
             if err == "network_error":
                 network_errors += 1
@@ -667,10 +701,18 @@ async def discover(
             attempts += 1
             articles, err = await fetch_rss_articles(client, url, window_days, max_articles)
             if articles:
-                return robots, url, "guess:rss", articles, None
+                return await _robots_gate(url, "guess:rss", articles)
             last_err = err
             if err == "network_error":
                 network_errors += 1
+
+    # RSS-configured sites that found nothing fall through to the sitemap chain;
+    # fetch robots now (feed attempts are already done, so feed-first holds) so
+    # robots.sitemap_urls is available and any root disallow is honored.
+    if robots is None:
+        robots = await fetch_robots(client, site)
+        if robots.fetched and not robots.allowed_at_root:
+            return robots, None, "robots_disallow", [], None
 
     sitemap_url, strategy = pick_sitemap(robots.sitemap_urls, site)
     if not sitemap_url and not has_explicit_source:
@@ -687,7 +729,11 @@ async def discover(
         client, site, sitemap_url, window_days, max_articles
     )
     if articles:
-        return robots, sitemap_url, strategy, articles, None
+        allowed = [a for a in articles if robots.can_fetch(a.url)]
+        if allowed:
+            return robots, sitemap_url, strategy, allowed, None
+        # A readable robots.txt disallowed every URL in the sitemap.
+        return robots, None, "robots_disallow", [], None
     last_err = err
     if err == "network_error":
         network_errors += 1

@@ -60,3 +60,29 @@ def test_is_probable_article_url_keeps_real_articles():
     assert ok("http://www.baltictimes.com/some_story/") is True          # trailing slash
     assert ok("http://www.televideo.rai.it/pub/view.jsp?id=172&p=101") is True  # query string
     assert ok("https://example.com/news/some-story") is True
+
+
+# ─── Robots can_fetch (honored on every path, incl. configured RSS) ──────────
+
+def test_robotsdecision_can_fetch_blocks_when_disallowed():
+    from pmd_crawler.discovery import RobotsDecision
+    rd = RobotsDecision(True, "User-agent: *\nDisallow: /\n", False, [], None)
+    assert rd.can_fetch("https://x.com/") is False
+    assert rd.can_fetch("https://x.com/world/story") is False
+
+
+def test_robotsdecision_can_fetch_fails_open_when_not_fetched():
+    # WAF dropped robots.txt -> we must still crawl (don't penalise hidden robots).
+    from pmd_crawler.discovery import RobotsDecision
+    rd = RobotsDecision(False, "", True, [], None)
+    assert rd.can_fetch("https://x.com/anything") is True
+
+
+def test_robotsdecision_can_fetch_honors_path_level_disallow():
+    # Root allowed but a specific section disallowed (the APA /newsfeed case):
+    # per-URL filtering must drop only the disallowed section.
+    from pmd_crawler.discovery import RobotsDecision
+    rd = RobotsDecision(True, "User-agent: *\nDisallow: /newsfeed/\n", True, [], None)
+    assert rd.can_fetch("https://apa.at/") is True
+    assert rd.can_fetch("https://apa.at/newsfeed/x") is False
+    assert rd.can_fetch("https://apa.at/other/x") is True
