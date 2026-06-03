@@ -101,9 +101,13 @@ sites:
   homepage: http://praguemonitor.com/
   category: newspaper
   language_primary: cs
-  notes: ''
+  notes: 'STALE FEEDS (path-to-500 revisit): the publication is still active,
+    but its machine-readable discovery surfaces are frozen — the RSS feed
+    (/feed) newest entry is Nov 2023, and the sitemap links are stale too — so
+    automated discovery finds no recent articles within the 30-day window.
+    Deactivated until a live feed/sitemap is found (or they fix theirs).'
   suggested_by: BQ
-  active: true
+  active: false
   discovery:
     strategy: sitemap
     sitemap_urls: []

@@ -391,11 +391,11 @@ sites:
   suggested_by: BQ
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.telegraph.co.uk/news/rss.xml
+    - https://www.telegraph.co.uk/rss.xml
     js_required: false
   sample:
     max_articles: 20

@@ -30,7 +30,8 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - http://en.people.cn/sitemap_index.xml
     picture_sitemap_url: null
     rss_urls:
     - http://en.people.cn/rss/China.xml

@@ -29,11 +29,11 @@ sites:
   suggested_by: BQ
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.thedailystar.net/frontpage/rss.xml
+    - https://www.thedailystar.net/rss.xml
     js_required: false
   sample:
     max_articles: 20

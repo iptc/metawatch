@@ -21,11 +21,14 @@ sites:
     window_days: 30
 - id: corriere-della-sera
   name: Corriere della Sera
-  url: http://corriere.it/
-  homepage: http://corriere.it/
+  url: https://www.corriere.it/
+  homepage: https://www.corriere.it/
   category: newspaper
-  language_primary: en
-  notes: ''
+  language_primary: it
+  notes: 'STALE/EMPTY SURFACES (path-to-500 revisit): reachable (200), but the
+    RSS feed /rss/news.xml is frozen (newest entry Jan 2020) and sitemap.xml
+    has no <loc> children. Needs a live feed or news-sitemap (or homepage
+    scraping) before it will yield articles.'
   suggested_by: MS
   active: true
   discovery:
@@ -97,19 +100,20 @@ sites:
     window_days: 30
 - id: rai-news
   name: RAI News
-  url: http://www.rainews.it/
-  homepage: http://www.rainews.it/
+  url: https://www.rainews.it/
+  homepage: https://www.rainews.it/
   category: broadcaster
-  language_primary: en
-  notes: ''
+  language_primary: it
+  notes: 'General/international news RSS. Previously pointed at the Televideo
+    (teletext) feed, which carries text-only pages with no images.'
   suggested_by: MS
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - http://www.servizitelevideo.rai.it/televideo/pub/rss101.xml
+    - https://www.rainews.it/rss/tutti
     js_required: false
   sample:
     max_articles: 20

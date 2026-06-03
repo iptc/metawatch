@@ -43,8 +43,10 @@ sites:
   url: https://www.jn.pt/
   homepage: https://www.jn.pt/
   category: newspaper
-  language_primary: en
-  notes: ''
+  language_primary: pt
+  notes: 'BLOCKED (path-to-500 revisit): WAF returns 403 to the crawler UA on
+    every path, from both UK and US runners — not geo-specific. Needs
+    browser-like headers or another tactic before any feed can be reached.'
   suggested_by: BQ
   active: true
   discovery:

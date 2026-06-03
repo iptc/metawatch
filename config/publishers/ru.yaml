@@ -117,7 +117,10 @@ sites:
   homepage: https://www.gazeta.ru/
   category: online
   language_primary: ru
-  notes: ''
+  notes: 'BLOCKED (path-to-500 revisit): article URLs redirect to an SSO/auth
+    wall (/auth/sso.shtml) returning an empty shell, so no content or image is
+    extracted. Needs a tactic that gets past the auth gate before it will yield
+    data.'
   active: true
   discovery:
     strategy: sitemap

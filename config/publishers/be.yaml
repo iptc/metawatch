@@ -29,11 +29,11 @@ sites:
   suggested_by: BQ
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - http://feeds.nieuwsblad.be/nieuws/snelnieuws
+    - https://www.nieuwsblad.be/rss
     js_required: false
   sample:
     max_articles: 20
@@ -43,17 +43,24 @@ sites:
   url: https://www.lesoir.be/
   homepage: https://www.lesoir.be/
   category: newspaper
-  language_primary: en
-  notes: ''
+  language_primary: fr
+  notes: 'BLOCKED — bot-wall WAF (path-to-500 revisit). Correct feed + news
+    sitemap are known (rss_urls / sitemap_urls below, supplied by BQ), but the
+    WAF returns 403 "Access Denied" to our httpx client even with a browser
+    User-Agent, from both EU and US — works only in a real browser that solves
+    the JS/fingerprint challenge. Needs a headless-browser fetch path
+    (js_required) before these surfaces can be reached; same capability the
+    JS-rendered SPA sites need.'
   suggested_by: BQ
   active: true
   discovery:
-    strategy: sitemap
-    sitemap_urls: []
+    strategy: rss
+    sitemap_urls:
+    - https://www.lesoir.be/sites/default/files/sitemaps/plus_lesoir_be/sitemapnews-0.xml
     picture_sitemap_url: null
     rss_urls:
-    - https://www.lesoir.be/rss/81853/cible_principale_gratuit
-    js_required: false
+    - https://www.lesoir.be/rss2/2/cible_principale
+    js_required: true
   sample:
     max_articles: 20
     window_days: 30
