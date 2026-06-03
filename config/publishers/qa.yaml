@@ -25,9 +25,10 @@ sites:
   homepage: https://www.qna.org.qa/en/Home
   category: news-agency
   language_primary: en
-  notes: ''
+  notes: 'DEACTIVATED — B2B wire agency, no live public feed (BQ). Revisit only
+    if a public news feed appears.'
   suggested_by: BQ (IPTC member)
-  active: true
+  active: false
   discovery:
     strategy: sitemap
     sitemap_urls: []

@@ -10,30 +10,31 @@ sites:
   suggested_by: BQ
   active: true
   discovery:
-    strategy: sitemap
-    sitemap_urls:
-    - https://www.avgi.gr/sitemap.xml
+    strategy: rss
+    sitemap_urls: []
     picture_sitemap_url: null
-    rss_urls: []
+    rss_urls:
+    - http://www.avgi.gr/rss.xml
     js_required: false
   sample:
     max_articles: 20
     window_days: 30
 - id: kathimerini-gr
   name: Η Καθημερινή
-  url: http://www.kathimerini.gr/rss
-  homepage: http://www.kathimerini.gr/rss
+  url: https://www.kathimerini.gr/
+  homepage: https://www.kathimerini.gr/
   category: newspaper
-  language_primary: en
-  notes: ''
+  language_primary: el
+  notes: 'Uses Cloudflare (blocks EU); the Google-News feed (a news-sitemap)
+    returns 200 from the US crawl runner. Images pending US-crawl confirmation.'
   suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.kathimerini.gr/infeeds/googlenews/nx-googlenews-feed.xml
     picture_sitemap_url: null
-    rss_urls:
-    - http://www.kathimerini.gr/rss
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

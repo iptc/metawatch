@@ -143,11 +143,11 @@ sites:
   suggested_by: BQ
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.liberation.fr/rss/latest/
+    - https://www.liberation.fr/arc/outboundfeeds/rss/?outputType=xml
     js_required: false
   sample:
     max_articles: 20
@@ -241,7 +241,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.lepoint.fr/rss.xml
+    - https://www.lepoint.fr/arc/outboundfeeds/rss/?outputType=xml
     js_required: false
   sample:
     max_articles: 20

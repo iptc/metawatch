@@ -44,7 +44,9 @@ sites:
   homepage: https://mb.com.ph/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: 'BLOCKED (path-to-500 revisit): homepage links /rss but it returns an
+    empty page (200 text/html, no feed). Site uses Cloudflare. Needs a working
+    feed/sitemap and likely a browser-capable fetch.'
   suggested_by: BQ
   active: true
   discovery:

@@ -25,7 +25,9 @@ sites:
   homepage: http://www.independent.com.mt/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: 'BLOCKED (path-to-500 revisit): has a real feed at /newsfeed (linked
+    on the homepage as an <a> with text "RSS"), but Cloudflare returns 403 to
+    the crawler from both EU and the US runner. Needs a browser-capable fetch.'
   suggested_by: BQ
   active: true
   discovery:
@@ -44,7 +46,10 @@ sites:
   homepage: https://www.timesofmalta.com/
   category: newspaper
   language_primary: en
-  notes: 'Point straight at sitemap_latest.xml; the index walk caps at 10 children and can miss the recent set.'
+  notes: 'BLOCKED (path-to-500 revisit): sitemap_index.xml is reachable and has
+    fresh articles with images from the EU, but it 403s the US crawl runner
+    (datacenter-IP WAF). Needs a US-allowed fetch path. (Earlier note: point
+    straight at the latest child sitemap; the index walk caps at 10 children.)'
   suggested_by: BQ
   active: true
   discovery:

@@ -25,7 +25,8 @@ sites:
   homepage: https://thenationonlineng.net/
   category: newspaper
   language_primary: en
-  notes: Needs manual feed triage 2026-05-12 (RSS dead, no replacement found).
+  notes: 'BLOCKED (path-to-500 revisit): Cloudflare blocks the crawler. Needs a
+    browser-capable fetch before any feed can be reached.'
   suggested_by: BQ
   active: true
   discovery:

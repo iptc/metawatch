@@ -14,7 +14,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.latercera.com/feed/
+    - https://www.latercera.com/arc/outboundfeeds/rss/?outputType=xml
     js_required: false
   sample:
     max_articles: 20

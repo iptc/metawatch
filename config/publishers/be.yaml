@@ -10,11 +10,11 @@ sites:
   suggested_by: BQ
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - http://www.standaard.be/rss/section/1f2838d4-99ea-49f0-9102-138784c7ea7c
+    - https://www.standaard.be/rss
     js_required: false
   sample:
     max_articles: 20

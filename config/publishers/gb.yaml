@@ -220,7 +220,7 @@ sites:
   suggested_by: BQ
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
@@ -449,7 +449,8 @@ sites:
   homepage: https://www.itv.com/news/
   category: broadcaster
   language_primary: en
-  notes: ''
+  notes: 'BLOCKED (path-to-500 revisit): JS-rendered SPA, no static feed found
+    (homepage times out for the crawler). Needs a headless-browser fetch.'
   suggested_by: BQ
   active: true
   discovery:

@@ -29,11 +29,11 @@ sites:
   suggested_by: BQ
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.wort.lu/rss/de
+    - https://www.wort.lu/rss
     js_required: false
   sample:
     max_articles: 20

@@ -24,8 +24,10 @@ sites:
   url: https://trud.bg/
   homepage: https://trud.bg/
   category: newspaper
-  language_primary: en
-  notes: ''
+  language_primary: bg
+  notes: 'BLOCKED (path-to-500 revisit): has a sitemap at
+    /sitemaps/sitemap_latest.xml, but Cloudflare returns 403 to the crawler
+    from both EU and the US runner. Needs a browser-capable fetch.'
   suggested_by: BQ
   active: true
   discovery:

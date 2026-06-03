@@ -25,7 +25,9 @@ sites:
   homepage: https://www.adelaidenow.com.au/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: 'BLOCKED (path-to-500 revisit): News Corp hard paywall — homepage and
+    news-sitemap 403; sitemap.xml only lists nested date-sitemaps, not articles.
+    Unlikely to yield without paywall handling.'
   suggested_by: BQ
   active: true
   discovery:

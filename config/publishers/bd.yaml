@@ -6,7 +6,9 @@ sites:
   homepage: https://bdnews24.com/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: 'BLOCKED (path-to-500 revisit): sitemap.xml is reachable with articles
+    from the EU, but it 403s the US crawl runner (datacenter-IP WAF). Needs a
+    US-allowed fetch path.'
   suggested_by: BQ
   active: true
   discovery:

@@ -25,7 +25,8 @@ sites:
   homepage: https://www.graphic.com.gh/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: 'NEEDS FEED (path-to-500 revisit): homepage 200 but sitemap.xml lists
+    no article locs and news-sitemap.xml 404s. No usable feed found yet.'
   suggested_by: BQ
   active: true
   discovery:

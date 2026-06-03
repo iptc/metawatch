@@ -271,16 +271,17 @@ sites:
   url: https://news.yahoo.co.jp/
   homepage: https://news.yahoo.co.jp/
   category: newspaper
-  language_primary: en
-  notes: ''
+  language_primary: ja
+  notes: 'Geo-blocks the EU but returns 200 from the US crawl runner. Images
+    pending US-crawl confirmation.'
   suggested_by: BQ
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://news.yahoo.co.jp/pickup/rss.xml
+    - https://news.yahoo.co.jp/rss/topics/top-picks.xml
     js_required: false
   sample:
     max_articles: 20
@@ -334,7 +335,8 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www3.nhk.or.jp/nhkworld/sitemap-news.xml
     picture_sitemap_url: null
     rss_urls: []
     js_required: false

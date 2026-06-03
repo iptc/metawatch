@@ -51,7 +51,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://gulfnews.com/rss
+    - https://gulfnews.com/feed/
     js_required: false
   sample:
     max_articles: 20
