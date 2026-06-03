@@ -168,6 +168,19 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
             const present = s.present_fields ?? [];
             const presentSet = new Set(present);
             const detailId = `sample-${i}`;
+            // Partition the stored tags: IPTC-IIM/XMP vs EXIF/TIFF
+            // (IFD0:*, ExifIFD:*, …). The Four Cs can live in either, and the
+            // scorer credits both, so we show both behind a non-zero score.
+            const metaEntries = Object.entries(s.metadata ?? {});
+            const isIptcXmp = (k) => k.startsWith('IPTC:') || k.startsWith('XMP');
+            const iptcXmpEntries = metaEntries.filter(([k]) => isIptcXmp(k));
+            const exifEntries = metaEntries.filter(([k]) => !isIptcXmp(k));
+            // Score earned purely from EXIF the run didn't store the
+            // values for (images crawled before EXIF evidence was captured):
+            // explain the gap rather than showing an empty box.
+            const exifOnlyUnshown = iptcXmpEntries.length === 0 && exifEntries.length === 0
+              && !s.has_iptc_iim && !s.has_iptc_xmp && s.has_exif
+              && scoredFieldLabels.some(l => presentSet.has(l));
             return (
               <>
                 <tr class="summary-row" data-detail={detailId}>
@@ -212,20 +225,43 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
                   <td colspan={5 + scoredFieldLabels.length + 2}>
                     <div class="detail-grid">
                       <div class="metadata-block">
-                        <h4>Embedded metadata (IPTC + XMP)</h4>
-                        {s.metadata && Object.keys(s.metadata).length > 0 ? (
-                          <table class="metadata-kv">
-                            <tbody>
-                              {Object.entries(s.metadata).sort(([a], [b]) => a.localeCompare(b)).map(([k, v]) => (
-                                <tr>
-                                  <th><code>{k}</code></th>
-                                  <td>{fmtTagValue(v)}</td>
-                                </tr>
-                              ))}
-                            </tbody>
-                          </table>
-                        ) : (
-                          <p style="color:var(--iptc-muted)">No IPTC or XMP tags were extracted from this image.</p>
+                        <h4>Embedded metadata</h4>
+                        {iptcXmpEntries.length > 0 && (
+                          <>
+                            <h5 class="metadata-group">IPTC + XMP</h5>
+                            <table class="metadata-kv">
+                              <tbody>
+                                {iptcXmpEntries.sort(([a], [b]) => a.localeCompare(b)).map(([k, v]) => (
+                                  <tr>
+                                    <th><code>{k}</code></th>
+                                    <td>{fmtTagValue(v)}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </>
+                        )}
+                        {exifEntries.length > 0 && (
+                          <>
+                            <h5 class="metadata-group">EXIF / TIFF</h5>
+                            <table class="metadata-kv">
+                              <tbody>
+                                {exifEntries.sort(([a], [b]) => a.localeCompare(b)).map(([k, v]) => (
+                                  <tr>
+                                    <th><code>{k}</code></th>
+                                    <td>{fmtTagValue(v)}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </>
+                        )}
+                        {iptcXmpEntries.length === 0 && exifEntries.length === 0 && (
+                          exifOnlyUnshown ? (
+                            <p style="color:var(--iptc-muted)">No IPTC or XMP tags. The score comes from copyright/caption fields carried in EXIF/TIFF — values not captured in this run.</p>
+                          ) : (
+                            <p style="color:var(--iptc-muted)">No IPTC, XMP or EXIF metadata was extracted from this image.</p>
+                          )
                         )}
                       </div>
                       <div>
@@ -498,8 +534,8 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
   .samples-toggle {
     background: none;
     border: none;
-    padding: 0;
-    margin: 0;
+    padding: 0.35rem 0.4rem;
+    margin: -0.35rem -0.4rem;
     cursor: pointer;
     color: inherit;
     font: inherit;
@@ -507,11 +543,14 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
   }
   .samples-toggle .caret {
     display: inline-block;
-    width: 0.9em;
-    color: var(--iptc-muted, #6b7280);
+    width: 1.1em;
+    font-size: 1.3rem;
+    line-height: 1;
+    vertical-align: -0.12em;
+    color: var(--iptc-green, #6db33f);
   }
   .samples-toggle:hover .caret {
-    color: var(--iptc-green, #6db33f);
+    color: var(--iptc-green-dark, #4e8a2c);
   }
   tr.detail-row > td {
     background: var(--iptc-surface, #fafafb);
@@ -535,6 +574,17 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
   }
   .metadata-block {
     min-width: 0;
+  }
+  h5.metadata-group {
+    margin: 0.75rem 0 0.25rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--iptc-muted, #6b7280);
+  }
+  h5.metadata-group:first-child {
+    margin-top: 0;
   }
   table.metadata-kv {
     margin: 0;
