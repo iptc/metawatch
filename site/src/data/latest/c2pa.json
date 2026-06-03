@@ -1,15 +1,15 @@
 {
-  "image_count_total": 4720,
-  "image_count_with_c2pa": 2,
-  "pct_with_c2pa": 0.04,
+  "image_count_total": 5315,
+  "image_count_with_c2pa": 5,
+  "pct_with_c2pa": 0.09,
   "by_outcome": [
     {
       "outcome": "valid",
-      "images": 2
+      "images": 3
     },
     {
       "outcome": "modified",
-      "images": 0
+      "images": 1
     },
     {
       "outcome": "expired",
@@ -21,18 +21,34 @@
     },
     {
       "outcome": "other_invalid",
-      "images": 0
+      "images": 1
     }
   ],
   "by_signer": [
     {
       "signer": "International Press Telecommunications Council",
       "images": 2
+    },
+    {
+      "signer": "Adobe Inc.",
+      "images": 1
+    },
+    {
+      "signer": "(unknown signer)",
+      "images": 1
+    },
+    {
+      "signer": "OpenAI OpCo, LLC",
+      "images": 1
     }
   ],
   "by_validation_state": [
     {
       "state": "Valid",
+      "images": 3
+    },
+    {
+      "state": "Invalid",
       "images": 2
     }
   ],
@@ -42,6 +58,24 @@
       "site_name": "IPTC",
       "country": "GB",
       "images_with_c2pa": 2
+    },
+    {
+      "site_id": "crhoy",
+      "site_name": "CRHoy",
+      "country": "CR",
+      "images_with_c2pa": 1
+    },
+    {
+      "site_id": "phileleftheros",
+      "site_name": "Phileleftheros",
+      "country": "CY",
+      "images_with_c2pa": 1
+    },
+    {
+      "site_id": "sana-sy",
+      "site_name": "SANA (Syrian Arab News Agency)",
+      "country": "SY",
+      "images_with_c2pa": 1
     }
   ]
 }

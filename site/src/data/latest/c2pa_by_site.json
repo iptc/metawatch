@@ -1,4 +1,46 @@
 {
+  "crhoy": {
+    "image_count_with_c2pa": 1,
+    "by_outcome": [
+      {
+        "outcome": "valid",
+        "images": 1
+      }
+    ],
+    "by_signer": [
+      {
+        "signer": "Adobe Inc.",
+        "images": 1
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Valid",
+        "images": 1
+      }
+    ]
+  },
+  "phileleftheros": {
+    "image_count_with_c2pa": 1,
+    "by_outcome": [
+      {
+        "outcome": "other_invalid",
+        "images": 1
+      }
+    ],
+    "by_signer": [
+      {
+        "signer": "(unknown signer)",
+        "images": 1
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Invalid",
+        "images": 1
+      }
+    ]
+  },
   "iptc": {
     "image_count_with_c2pa": 2,
     "by_outcome": [
@@ -17,6 +59,27 @@
       {
         "state": "Valid",
         "images": 2
+      }
+    ]
+  },
+  "sana-sy": {
+    "image_count_with_c2pa": 1,
+    "by_outcome": [
+      {
+        "outcome": "modified",
+        "images": 1
+      }
+    ],
+    "by_signer": [
+      {
+        "signer": "OpenAI OpCo, LLC",
+        "images": 1
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Invalid",
+        "images": 1
       }
     ]
   }
