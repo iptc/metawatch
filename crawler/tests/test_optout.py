@@ -178,7 +178,7 @@ def test_scan_robots_directives_none_input():
 
 
 # ──────────────────────────────────────────────────────────────────────────────
-# CAWG training-and-data-mining assertion extraction
+# CAWG Training and Data Mining Assertion extraction
 # ──────────────────────────────────────────────────────────────────────────────
 
 def test_cawg_assertion_present():
@@ -196,10 +196,11 @@ def test_cawg_assertion_present():
     assert result["entries"]["cawg.ai_generative_training"]["use"] == "notAllowed"
 
 
-def test_cawg_assertion_legacy_label():
+def test_cawg_assertion_versioned_label():
+    # The label may carry a version suffix, e.g. cawg.training-mining.v1.
     manifest = {
         "assertions": [
-            {"label": "cawg.training-and-data-mining.v1", "data": {"entries": {}}},
+            {"label": "cawg.training-mining.v1", "data": {"entries": {}}},
         ]
     }
     result = extract_cawg_training_mining(manifest)

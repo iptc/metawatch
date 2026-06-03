@@ -35,7 +35,7 @@ from .output import (
     merge_run,
     write_run,
 )
-from .scoring import iptc_xmp_subset
+from .scoring import stored_evidence_tags
 
 console = Console()
 
@@ -413,7 +413,7 @@ async def _crawl_site(
                 await asyncio.sleep(delay + random.uniform(0, DEFAULT_REQ_JITTER))
                 img = await fetch_and_analyse(client, img_url, exif_pool)
 
-            kept_tags = iptc_xmp_subset(img.raw_tags) if img.raw_tags else {}
+            kept_tags = stored_evidence_tags(img.raw_tags) if img.raw_tags else {}
             # Combine noai tokens seen on the article (X-Robots-Tag, <meta robots>)
             # with those seen on the image response itself. Either is a valid
             # opt-out signal for this image.

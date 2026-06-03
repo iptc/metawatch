@@ -3,9 +3,11 @@ from pmd_crawler.scoring import (
     SCORED_FIELDS,
     TOTAL_WEIGHT,
     TRACKED_FIELDS,
+    evidence_exif_subset,
     families_present,
     iptc_xmp_subset,
     score_image,
+    stored_evidence_tags,
 )
 
 
@@ -188,3 +190,41 @@ def test_xmp_dst_alone_counts_as_xmp_present():
     tags = {"XMP-iptcExt:DigitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/digitalCapture"}
     has_exif, has_iim, has_xmp = families_present(tags)
     assert (has_exif, has_iim, has_xmp) == (False, False, True)
+
+
+def test_evidence_exif_subset_captures_exif_four_cs():
+    # Real-world case (Correio da Manhã / stock photo): copyright + caption
+    # carried only in EXIF/TIFF (IFD0), no IPTC-IIM or XMP at all.
+    tags = {
+        "IFD0:ImageDescription": "Algarve, Portugal",
+        "IFD0:Copyright": "© Michael Malorny",
+        "ExifIFD:DateTimeOriginal": "2020:07:20 11:31:46",
+        "IFD0:Make": "NIKON",  # not a scored/tracked field — excluded
+        "ICC_Profile:ProfileCopyright": "Copyright (c) 1998 HP",  # not an EXIF group
+    }
+    evidence = evidence_exif_subset(tags)
+    assert evidence == {
+        "IFD0:ImageDescription": "Algarve, Portugal",
+        "IFD0:Copyright": "© Michael Malorny",
+        "ExifIFD:DateTimeOriginal": "2020:07:20 11:31:46",
+    }
+    # The score this image earns (50: Copyright + CaptionDescription) is fully
+    # explained by what evidence_exif_subset surfaces.
+    score, _ = score_image(tags)
+    assert score == 50.0
+
+
+def test_stored_evidence_tags_merges_iptc_xmp_and_exif():
+    tags = {
+        "IPTC:By-line": "Jane Doe",
+        "IFD0:Copyright": "© Acme",
+        "IFD0:Make": "Canon",  # excluded — not a scored field
+    }
+    assert stored_evidence_tags(tags) == {
+        "IPTC:By-line": "Jane Doe",
+        "IFD0:Copyright": "© Acme",
+    }
+
+
+def test_evidence_exif_subset_drops_empty_values():
+    assert evidence_exif_subset({"IFD0:Copyright": "", "IFD0:Artist": "  "}) == {}

@@ -147,6 +147,37 @@ def iptc_xmp_subset(exif_tags: dict[str, object]) -> dict[str, object]:
     return out
 
 
+def evidence_exif_subset(exif_tags: dict[str, object]) -> dict[str, object]:
+    """Return EXIF/TIFF-group tags (IFD0, ExifIFD, …) whose name matches a
+    scored or tracked field alias and carries a non-empty value.
+
+    The Four Cs can legitimately live in EXIF/TIFF containers rather than
+    IPTC-IIM or XMP — e.g. ``IFD0:Copyright``, ``IFD0:ImageDescription``,
+    ``IFD0:Artist``. ``score_image`` already credits these (its aliases match in
+    any group), so an image can score without a single IPTC/XMP tag. Capturing
+    them here lets the per-image detail panel show the evidence behind such a
+    score instead of an empty "no IPTC/XMP" box. Mirrors the matching done by
+    ``field_present`` so what we store is exactly what the scorer counted.
+    """
+    alias_names: set[str] = set()
+    for _label, aliases, _w in ALL_FIELDS:
+        for a in aliases:
+            alias_names.add(a.split(":")[-1].lower())  # strip any group qualifier
+    out: dict[str, object] = {}
+    for k, v in exif_tags.items():
+        if not k.startswith(_EXIF_GROUP_PREFIXES):
+            continue
+        if k.split(":")[-1].lower() in alias_names and _truthy(v):
+            out[k] = v
+    return out
+
+
+def stored_evidence_tags(exif_tags: dict[str, object]) -> dict[str, object]:
+    """The tag subset we persist per image for the detail panel: all IPTC/XMP
+    content plus the EXIF/TIFF tags that contributed to the score."""
+    return {**iptc_xmp_subset(exif_tags), **evidence_exif_subset(exif_tags)}
+
+
 def _has_substantive_iptc(exif_tags: dict[str, object]) -> bool:
     lower = {k.lower(): v for k, v in exif_tags.items() if k.startswith("IPTC:")}
     if not lower:

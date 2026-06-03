@@ -116,7 +116,7 @@ class ImageRow:
     c2pa_failure_codes: list[str] = field(default_factory=list)
     dst_iptc: str | None = None
     dst_c2pa: list[str] = field(default_factory=list)
-    iptc_xmp_tags_json: str | None = None  # JSON-encoded filtered tag dict, see scoring.iptc_xmp_subset
+    iptc_xmp_tags_json: str | None = None  # JSON-encoded filtered tag dict, see scoring.stored_evidence_tags (IPTC/XMP + scored EXIF)
     # AI opt-out image-level signals (Phase 3). `noai_tokens` collects
     # noai/noimageai/noml seen in either the image's X-Robots-Tag header or
     # the host article's <meta name="robots">. `cawg_training_mining_json`

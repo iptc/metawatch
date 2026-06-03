@@ -23,3 +23,40 @@ def test_iso_date_naive_is_promoted_to_utc():
 
 def test_iso_date_invalid_returns_none():
     assert _parse_iso_date("not a date") is None
+
+
+def test_clean_title_strips_cdata_wrapper():
+    from pmd_crawler.discovery import _clean_title
+    assert _clean_title("<![CDATA[ Dois mortos nas praias ]]>") == "Dois mortos nas praias"
+
+
+def test_clean_title_preserves_plain_and_inner_quotes():
+    from pmd_crawler.discovery import _clean_title
+    assert _clean_title("Plain headline") == "Plain headline"
+    assert _clean_title('<![CDATA[ Marisa Liz: "uma estranha" ]]>') == 'Marisa Liz: "uma estranha"'
+
+
+def test_clean_title_empty_and_none():
+    from pmd_crawler.discovery import _clean_title
+    assert _clean_title(None) is None
+    assert _clean_title("   ") is None
+    assert _clean_title("<![CDATA[]]>") is None
+
+
+def test_is_probable_article_url_rejects_non_article_extensions():
+    from pmd_crawler.discovery import _is_probable_article_url as ok
+    # Secondary resources that have shown up inside <url><loc> in real sitemaps:
+    assert ok("https://www.vcg.com/sitemap-20260602-1.xml") is False   # Visual China
+    assert ok("https://pamediagroup.com/locations.kml") is False        # PA Media
+    assert ok("https://x/feed.xml.gz") is False
+    assert ok("https://x/photo.JPG") is False                           # case-insensitive
+    assert ok("https://x/report.pdf") is False
+
+
+def test_is_probable_article_url_keeps_real_articles():
+    from pmd_crawler.discovery import _is_probable_article_url as ok
+    assert ok("https://wyborcza.pl/7,75399,32829442,trump.html") is True
+    assert ok("https://www.gazeta.ru/army/news/2026/06/02/28594699.shtml") is True
+    assert ok("http://www.baltictimes.com/some_story/") is True          # trailing slash
+    assert ok("http://www.televideo.rai.it/pub/view.jsp?id=172&p=101") is True  # query string
+    assert ok("https://example.com/news/some-story") is True

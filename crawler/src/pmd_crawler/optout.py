@@ -347,12 +347,10 @@ def scan_robots_directives(value: str | None) -> list[str]:
 
 
 # CAWG Training and Data Mining Assertion in a C2PA manifest.
-# Spec: https://cawg.io/training-and-data-mining/1.1/ (the URL slug is the
-# only context in which the "training-and-data-mining" phrasing is correct;
-# the assertion name proper is "Training and Data Mining" and its label is
-# `cawg.training-mining`). Some early implementations used the legacy label
-# `cawg.training-and-data-mining`; we match both prefixes.
-_CAWG_ASSERTION_LABEL_PREFIXES = ("cawg.training-mining", "cawg.training-and-data-mining")
+# Spec: https://cawg.io/training-and-data-mining/1.1/ — note the URL slug is
+# "training-and-data-mining" but the assertion label proper is
+# `cawg.training-mining` (optionally versioned, e.g. `cawg.training-mining.v1`).
+_CAWG_ASSERTION_LABEL_PREFIX = "cawg.training-mining"
 
 
 def extract_cawg_training_mining(manifest: dict | None) -> dict | None:
@@ -369,7 +367,7 @@ def extract_cawg_training_mining(manifest: dict | None) -> dict | None:
         label = (a or {}).get("label", "")
         if not isinstance(label, str):
             continue
-        if any(label.startswith(p) for p in _CAWG_ASSERTION_LABEL_PREFIXES):
+        if label.startswith(_CAWG_ASSERTION_LABEL_PREFIX):
             data = a.get("data")
             return data if isinstance(data, dict) else {}
     return None

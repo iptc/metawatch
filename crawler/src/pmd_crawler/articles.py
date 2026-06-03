@@ -165,6 +165,10 @@ def _extract_main_image(
     if sitemap_image:
         return sitemap_image
 
+    headline = _from_headline_adjacent(parser, base_url)
+    if headline:
+        return headline
+
     return _from_dom_walk(parser, base_url)
 
 
@@ -221,6 +225,72 @@ def _from_itemprop_image(parser: HTMLParser) -> str | None:
                 src = _img_real_src(inner)
                 if src:
                     return src
+    return None
+
+
+def _nearest_anchor(node: Node) -> Node | None:
+    """Climb up to a handful of ancestors to find an enclosing <a>, if any."""
+    n = node.parent
+    for _ in range(6):
+        if n is None:
+            return None
+        if n.tag == "a":
+            return n
+        n = n.parent
+    return None
+
+
+def _links_to_other_article(anchor: Node | None, base_url: str) -> bool:
+    """True when an enclosing <a> points to a *different* page than this one.
+
+    Old-school layouts (e.g. Baltic Times) place a grid of related-article
+    thumbnails in the same column as the <h1>. Each such thumbnail is wrapped
+    in an <a> linking to another article, so excluding cross-links is what
+    separates the page's own lead image from its neighbours' thumbnails.
+    Self-links, ``#`` anchors, empty/JS hrefs are treated as non-cross-links.
+    """
+    if anchor is None:
+        return False
+    href = (anchor.attributes.get("href") or "").strip()
+    if not href or href == "#" or href.lower().startswith("javascript:"):
+        return False
+    target = urlparse(urljoin(base_url, href)).path.rstrip("/")
+    here = urlparse(base_url).path.rstrip("/")
+    return target != here
+
+
+def _from_headline_adjacent(parser: HTMLParser, base_url: str) -> str | None:
+    """Lead image sitting next to the article's <h1> headline.
+
+    A fallback for pages that carry no og:image / JSON-LD / itemprop image and
+    use a non-semantic (plain ``<div>``) layout the generic DOM walk misses.
+    Starting from the headline, we widen through its ancestors and take the
+    first usable image — skipping placeholders, logos/icons, and thumbnails
+    that are wrapped in a link to a *different* article.
+    """
+    h1 = None
+    for sel in ("article h1", "main h1", "h1"):
+        h1 = parser.css_first(sel)
+        if h1 is not None:
+            break
+    if h1 is None:
+        return None
+
+    node: Node | None = h1
+    for _ in range(5):
+        node = node.parent if node is not None else None
+        if node is None:
+            break
+        for img in node.css("img"):
+            candidate = _img_best_candidate(img)
+            if candidate is None:
+                continue
+            abs_url = urljoin(base_url, candidate[0])
+            if _looks_like_non_lead(abs_url):
+                continue
+            if _links_to_other_article(_nearest_anchor(img), base_url):
+                continue
+            return abs_url
     return None
 
 
@@ -393,7 +463,10 @@ def _looks_like_placeholder(url: str) -> bool:
     if u.startswith("data:"):
         # SVG shimmers and 1px PNG placeholders.
         return True
-    if u.endswith(".svg"):
+    # Check the path, not the raw URL, so a query string doesn't hide the
+    # extension (e.g. ``gift-icon.svg?_dc=123``). SVGs are icons/logos, never
+    # news lead photos.
+    if urlparse(u).path.rstrip("/").endswith(".svg"):
         return True
     return False
 

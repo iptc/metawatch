@@ -247,6 +247,25 @@ async def _walk_sitemap(
     return [], None
 
 
+# File extensions that are never news articles. Some sitemaps list secondary
+# resources (nested sitemaps, KML overlays, feeds, media, documents) inside
+# <url><loc> elements rather than the article pages themselves; without this
+# guard we'd treat e.g. `…/sitemap-1.xml` (Visual China) or `…/locations.kml`
+# (PA Media) as articles, fetch them, and find no image.
+_NON_ARTICLE_EXTENSIONS = (
+    ".xml", ".xml.gz", ".gz", ".kml", ".kmz", ".json", ".rss", ".atom",
+    ".pdf", ".doc", ".docx", ".xls", ".xlsx", ".csv", ".zip",
+    ".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg", ".bmp", ".tif", ".tiff",
+    ".mp4", ".mp3", ".mov", ".avi", ".css", ".js", ".ico",
+)
+
+
+def _is_probable_article_url(url: str) -> bool:
+    """Reject URLs whose path ends in a non-article file extension."""
+    path = urlparse(url).path.lower().rstrip("/")
+    return not path.endswith(_NON_ARTICLE_EXTENSIONS)
+
+
 def _parse_urlset(root: etree._Element) -> list[ArticleCandidate]:
     out: list[ArticleCandidate] = []
     for url_el in root.findall("sm:url", SITEMAP_NS):
@@ -254,6 +273,8 @@ def _parse_urlset(root: etree._Element) -> list[ArticleCandidate]:
         if loc_el is None or not loc_el.text:
             continue
         url = loc_el.text.strip()
+        if not _is_probable_article_url(url):
+            continue
         news_el = url_el.find("news:news", SITEMAP_NS)
         pub_date = None
         title = None
@@ -265,7 +286,7 @@ def _parse_urlset(root: etree._Element) -> list[ArticleCandidate]:
                 pub_date = _parse_iso_date(pub_el.text.strip())
             t_el = news_el.find("news:title", SITEMAP_NS)
             if t_el is not None and t_el.text:
-                title = t_el.text.strip()
+                title = _clean_title(t_el.text)
             lang_el = news_el.find("news:publication/news:language", SITEMAP_NS)
             if lang_el is not None and lang_el.text:
                 language = lang_el.text.strip()
@@ -297,6 +318,21 @@ def _parse_urlset(root: etree._Element) -> list[ArticleCandidate]:
             )
         )
     return out
+
+
+# Some feeds (e.g. Correio da Manhã) wrap <title> text in a CDATA section that
+# feedparser hands back verbatim rather than unwrapping, so the literal
+# "<![CDATA[ ... ]]>" ends up in the title. Strip it defensively.
+_CDATA_RE = re.compile(r"^\s*<!\[CDATA\[(.*?)\]\]>\s*$", re.DOTALL)
+
+
+def _clean_title(title: str | None) -> str | None:
+    if title is None:
+        return None
+    m = _CDATA_RE.match(title)
+    cleaned = m.group(1) if m else title
+    cleaned = cleaned.strip()
+    return cleaned or None
 
 
 def _parse_iso_date(s: str) -> datetime | None:
@@ -386,7 +422,7 @@ async def _fetch_rss_once(
     out: list[ArticleCandidate] = []
     for entry in parsed.entries:
         link = entry.get("link")
-        if not link:
+        if not link or not _is_probable_article_url(link):
             continue
         pub = _entry_datetime(entry)
         if pub is not None and pub < cutoff:
@@ -395,7 +431,7 @@ async def _fetch_rss_once(
             ArticleCandidate(
                 url=link,
                 publication_date=pub,
-                title=entry.get("title"),
+                title=_clean_title(entry.get("title")),
                 language=None,
                 keywords=[],
                 # RSS commonly carries the lead image inline via Media RSS or

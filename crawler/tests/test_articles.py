@@ -19,6 +19,7 @@ from pmd_crawler.articles import (
     _from_twitter_image,
     _images_from_jsonld,
     _img_best_candidate,
+    _from_headline_adjacent,
     _looks_like_non_lead,
     _looks_like_placeholder,
 )
@@ -356,3 +357,70 @@ def test_tdm_reservation_invalid_value_returns_none():
 def test_tdm_reservation_uppercase_name_accepted():
     html = HTMLParser('<head><meta name="TDM-Reservation" content="1"></head>')
     assert _extract_tdm_reservation(html) == 1
+
+
+# ─── Headline-adjacent fallback ──────────────────────────────────────────────
+
+BASE = "https://news.example/story-one/"
+
+
+def test_headline_adjacent_recovers_lead_next_to_h1():
+    # Non-semantic div layout, no og:image — the lead photo sits in the same
+    # column as the <h1> and is not a cross-link. (The Baltic Times pattern.)
+    html = _doc(
+        '<div class="col"><h1>Big story</h1>'
+        '<div class="lead"><a href="#"><img src="https://cdn.example/photos/123_big.jpg"></a></div>'
+        '</div>'
+    )
+    assert _from_headline_adjacent(html, BASE) == "https://cdn.example/photos/123_big.jpg"
+
+
+def test_headline_adjacent_skips_cross_linked_thumbnails():
+    # Related-article thumbnails live in the same column but link elsewhere.
+    html = _doc(
+        '<div class="col"><h1>Brief with no photo</h1>'
+        '<div class="related">'
+        '<a href="/other-story/"><img src="https://cdn.example/photos/999_big.jpg"></a>'
+        '<a href="/third-story/"><img src="https://cdn.example/photos/888_big.jpg"></a>'
+        '</div></div>'
+    )
+    assert _from_headline_adjacent(html, BASE) is None
+
+
+def test_headline_adjacent_allows_self_link():
+    html = _doc(
+        '<div><h1>Self linked lead</h1>'
+        '<a href="/story-one/"><img src="https://cdn.example/photos/55_big.jpg"></a></div>'
+    )
+    assert _from_headline_adjacent(html, BASE) == "https://cdn.example/photos/55_big.jpg"
+
+
+def test_headline_adjacent_skips_svg_icon_with_query():
+    # Regression: gift-icon.svg?_dc=123 must not be picked as a lead.
+    html = _doc(
+        '<div><h1>Story</h1>'
+        '<img src="https://cdn.example/images/gift-icon.svg?_dc=1778693814">'
+        '<a href="#"><img src="https://cdn.example/photos/77_big.jpg"></a></div>'
+    )
+    assert _from_headline_adjacent(html, BASE) == "https://cdn.example/photos/77_big.jpg"
+
+
+def test_headline_adjacent_none_without_h1():
+    html = _doc('<div><img src="https://cdn.example/photos/1_big.jpg"></div>')
+    assert _from_headline_adjacent(html, BASE) is None
+
+
+def test_og_image_still_wins_over_headline_adjacent():
+    html = HTMLParser(
+        '<!doctype html><html><head>'
+        '<meta property="og:image" content="https://cdn.example/og/lead.jpg">'
+        '</head><body><div><h1>Story</h1>'
+        '<a href="#"><img src="https://cdn.example/photos/99_big.jpg"></a>'
+        '</div></body></html>'
+    )
+    assert _extract_main_image(html, BASE) == "https://cdn.example/og/lead.jpg"
+
+
+def test_placeholder_svg_detection_ignores_query_string():
+    assert _looks_like_placeholder("https://x/gift-icon.svg?_dc=123") is True
+    assert _looks_like_placeholder("https://x/photos/real_big.jpg?w=600") is False

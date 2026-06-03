@@ -30,6 +30,7 @@ from statistics import mean
 import pyarrow.parquet as pq
 import yaml
 
+from pmd_crawler.discovery import _clean_title
 from pmd_crawler.dst import short_term as _dst_short_term
 from pmd_crawler.scoring import ALL_FIELDS, SCORED_FIELDS, TOTAL_WEIGHT, TRACKED_FIELDS
 
@@ -867,7 +868,7 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         img = images_by_article.get(art_hash)
         row = {
             "article_url": art["article_url"],
-            "title": art.get("title"),
+            "title": _clean_title(art.get("title")),
             "publication_date": fmt_dt(art.get("publication_date")),
             "article_http_status": art.get("http_status"),
         }
@@ -900,8 +901,11 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
                 # set (scored + tracked) comes from scoring.yaml; anything
                 # absent from this list is missing for this image.
                 "present_fields": present_fields,
-                # Raw exiftool key/value pairs from the IPTC + XMP groups
-                # for this image. Empty {} when the image carried nothing.
+                # Raw exiftool key/value pairs we kept for this image: all
+                # IPTC + XMP content plus the EXIF/TIFF tags (IFD0:*)
+                # that earned score. Empty {} when nothing was carried (or for
+                # runs crawled before EXIF evidence was stored). The panel
+                # partitions these by group prefix for display.
                 "metadata": metadata,
             })
         samples_by_site[art["site_id"]].append(row)
