@@ -31,14 +31,14 @@ const iptcPoints = history.map(h => ({ x: h.started_at, y: h.pct_with_iptc }));
   </p>
 
   <div class="card-row">
-    <div class="stat"><span class="stat-label">Latest run</span><span class="stat-value">{runDate}</span></div>
-    <div class="stat"><span class="stat-label">Sites crawled</span><span class="stat-value">{summary.site_count_succeeded}</span></div>
-    <div class="stat"><span class="stat-label">Countries</span><span class="stat-value">{countries.length}</span></div>
+    <a class="stat" href={`${base}/dataset/`}><span class="stat-label">Latest run</span><span class="stat-value">{runDate}</span></a>
+    <a class="stat" href={`${base}/sites/`}><span class="stat-label">Sites crawled</span><span class="stat-value">{summary.site_count_succeeded}</span></a>
+    <a class="stat" href={`${base}/countries/`}><span class="stat-label">Countries</span><span class="stat-value">{countries.length}</span></a>
     <div class="stat"><span class="stat-label">Images analysed</span><span class="stat-value">{summary.image_count.toLocaleString()}</span></div>
     <div class="stat"><span class="stat-label">Mean IPTC score</span><span class="stat-value">{summary.global_mean_score}</span></div>
-    <div class="stat"><span class="stat-label">% with any IPTC</span><span class="stat-value">{summary.pct_with_iptc}%</span></div>
+    <a class="stat" href={`${base}/fields/`}><span class="stat-label">% with any IPTC</span><span class="stat-value">{summary.pct_with_iptc}%</span></a>
     {summary.pct_with_c2pa > 0 && (
-      <div class="stat"><span class="stat-label">% with C2PA</span><span class="stat-value">{summary.pct_with_c2pa}%</span></div>
+      <a class="stat" href={`${base}/c2pa/`}><span class="stat-label">% with C2PA</span><span class="stat-value">{summary.pct_with_c2pa}%</span></a>
     )}
   </div>
 

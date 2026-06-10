@@ -143,6 +143,18 @@ main {
 }
 .stat .stat-label { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--iptc-muted); }
 .stat .stat-value { display: block; font-size: 1.75rem; font-weight: 800; color: var(--iptc-navy); margin-top: 0.2rem; }
+/* Stat cards that link to a drill-down page. Identical at rest; lift on hover. */
+a.stat {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.12s ease, transform 0.12s ease, border-left-color 0.12s ease;
+}
+a.stat:hover, a.stat:focus-visible {
+  border-left-color: var(--iptc-navy);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
 
 table {
   width: 100%;
