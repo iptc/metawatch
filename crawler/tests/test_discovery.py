@@ -86,3 +86,23 @@ def test_robotsdecision_can_fetch_honors_path_level_disallow():
     assert rd.can_fetch("https://apa.at/") is True
     assert rd.can_fetch("https://apa.at/newsfeed/x") is False
     assert rd.can_fetch("https://apa.at/other/x") is True
+
+
+# ─── tracking-param stripping (canonical URLs + correct robots handling) ─────
+
+def test_strip_tracking_params_removes_ref_and_utm():
+    from pmd_crawler.discovery import strip_tracking_params
+    u = "https://www.smh.com.au/national/story-p605o0.html?ref=rss&utm_medium=rss&utm_source=rss_feed"
+    assert strip_tracking_params(u) == "https://www.smh.com.au/national/story-p605o0.html"
+
+
+def test_strip_tracking_params_keeps_meaningful_query():
+    from pmd_crawler.discovery import strip_tracking_params
+    # ?id=123 identifies the article — must be preserved.
+    u = "https://example.com/view?id=123&utm_source=newsletter"
+    assert strip_tracking_params(u) == "https://example.com/view?id=123"
+
+
+def test_strip_tracking_params_noop_without_query():
+    from pmd_crawler.discovery import strip_tracking_params
+    assert strip_tracking_params("https://example.com/a/b") == "https://example.com/a/b"

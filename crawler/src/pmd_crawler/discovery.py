@@ -7,7 +7,7 @@ import gzip
 import re
 from dataclasses import dataclass, field
 from datetime import UTC, datetime, timedelta
-from urllib.parse import urljoin, urlparse
+from urllib.parse import parse_qsl, urlencode, urljoin, urlparse, urlsplit, urlunsplit
 
 import feedparser
 import httpx
@@ -280,13 +280,41 @@ def _is_probable_article_url(url: str) -> bool:
     return not path.endswith(_NON_ARTICLE_EXTENSIONS)
 
 
+# Marketing / tracking query parameters that publishers append to feed links but
+# that don't identify the article. We strip them so we (a) fetch the canonical
+# URL, and (b) honor robots.txt correctly — several publishers Disallow the
+# tracking-param *variant* (e.g. `Disallow: *?ref=*` at SMH/The Age) while the
+# clean article URL is allowed. Without stripping, every feed item looks blocked.
+_TRACKING_PARAMS = frozenset({
+    "ref", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content",
+    "fbclid", "gclid", "dclid", "gclsrc", "msclkid", "mc_cid", "mc_eid",
+    "ocid", "cmpid", "spm", "icid", "ito", "app", "do",
+})
+
+
+def strip_tracking_params(url: str) -> str:
+    """Remove known marketing/tracking query params, preserving any others.
+
+    Only strips parameters that never identify the article (utm_*, ref, fbclid,
+    …). Parameters a site genuinely needs for routing (e.g. ?id=123) are kept.
+    """
+    parts = urlsplit(url)
+    if not parts.query:
+        return url
+    kept = [
+        (k, v) for k, v in parse_qsl(parts.query, keep_blank_values=True)
+        if k.lower() not in _TRACKING_PARAMS
+    ]
+    return urlunsplit(parts._replace(query=urlencode(kept)))
+
+
 def _parse_urlset(root: etree._Element) -> list[ArticleCandidate]:
     out: list[ArticleCandidate] = []
     for url_el in root.findall("sm:url", SITEMAP_NS):
         loc_el = url_el.find("sm:loc", SITEMAP_NS)
         if loc_el is None or not loc_el.text:
             continue
-        url = loc_el.text.strip()
+        url = strip_tracking_params(loc_el.text.strip())
         if not _is_probable_article_url(url):
             continue
         news_el = url_el.find("news:news", SITEMAP_NS)
@@ -436,6 +464,8 @@ async def _fetch_rss_once(
     out: list[ArticleCandidate] = []
     for entry in parsed.entries:
         link = entry.get("link")
+        if link:
+            link = strip_tracking_params(link)
         if not link or not _is_probable_article_url(link):
             continue
         pub = _entry_datetime(entry)
