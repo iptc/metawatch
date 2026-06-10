@@ -1,19 +1,19 @@
 {
-  "image_count_total": 5315,
-  "image_count_with_c2pa": 5,
-  "pct_with_c2pa": 0.09,
+  "image_count_total": 5396,
+  "image_count_with_c2pa": 6,
+  "pct_with_c2pa": 0.11,
   "by_outcome": [
     {
       "outcome": "valid",
-      "images": 3
+      "images": 5
     },
     {
       "outcome": "modified",
-      "images": 1
+      "images": 0
     },
     {
       "outcome": "expired",
-      "images": 0
+      "images": 1
     },
     {
       "outcome": "untrusted_issuer",
@@ -21,35 +21,31 @@
     },
     {
       "outcome": "other_invalid",
-      "images": 1
+      "images": 0
     }
   ],
   "by_signer": [
+    {
+      "signer": "OpenAI OpCo, LLC",
+      "images": 3
+    },
     {
       "signer": "International Press Telecommunications Council",
       "images": 2
     },
     {
-      "signer": "Adobe Inc.",
-      "images": 1
-    },
-    {
-      "signer": "(unknown signer)",
-      "images": 1
-    },
-    {
-      "signer": "OpenAI OpCo, LLC",
+      "signer": "Canva",
       "images": 1
     }
   ],
   "by_validation_state": [
     {
       "state": "Valid",
-      "images": 3
+      "images": 5
     },
     {
       "state": "Invalid",
-      "images": 2
+      "images": 1
     }
   ],
   "top_sites": [
@@ -60,21 +56,27 @@
       "images_with_c2pa": 2
     },
     {
-      "site_id": "crhoy",
-      "site_name": "CRHoy",
-      "country": "CR",
-      "images_with_c2pa": 1
-    },
-    {
       "site_id": "phileleftheros",
       "site_name": "Phileleftheros",
       "country": "CY",
       "images_with_c2pa": 1
     },
     {
-      "site_id": "sana-sy",
-      "site_name": "SANA (Syrian Arab News Agency)",
-      "country": "SY",
+      "site_id": "tanea-gr",
+      "site_name": "\u03a4\u03b1 \u039d\u03ad\u03b1",
+      "country": "GR",
+      "images_with_c2pa": 1
+    },
+    {
+      "site_id": "premium-times-ng",
+      "site_name": "Premium Times (Nigeria)",
+      "country": "NG",
+      "images_with_c2pa": 1
+    },
+    {
+      "site_id": "mail-guardian",
+      "site_name": "Mail & Guardian",
+      "country": "ZA",
       "images_with_c2pa": 1
     }
   ]
