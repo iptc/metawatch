@@ -33,6 +33,7 @@ const iptcPoints = history.map(h => ({ x: h.started_at, y: h.pct_with_iptc }));
   <div class="card-row">
     <div class="stat"><span class="stat-label">Latest run</span><span class="stat-value">{runDate}</span></div>
     <div class="stat"><span class="stat-label">Sites crawled</span><span class="stat-value">{summary.site_count_succeeded}</span></div>
+    <div class="stat"><span class="stat-label">Countries</span><span class="stat-value">{countries.length}</span></div>
     <div class="stat"><span class="stat-label">Images analysed</span><span class="stat-value">{summary.image_count.toLocaleString()}</span></div>
     <div class="stat"><span class="stat-label">Mean IPTC score</span><span class="stat-value">{summary.global_mean_score}</span></div>
     <div class="stat"><span class="stat-label">% with any IPTC</span><span class="stat-value">{summary.pct_with_iptc}%</span></div>
