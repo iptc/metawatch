@@ -6,9 +6,11 @@ sites:
   homepage: https://chinapost.nownews.com/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: 'DEACTIVATED — dead site. All known domains (chinapost.nownews.com,
+    chinapost.com.tw) ConnectError from both the US runner and a normal EU IP;
+    the English edition appears defunct. Removed from coverage.'
   suggested_by: BQ
-  active: true
+  active: false
   discovery:
     strategy: sitemap
     sitemap_urls: []
