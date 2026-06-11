@@ -52,7 +52,7 @@ sites:
   discovery:
     strategy: sitemap
     sitemap_urls:
-    - https://www.ultimahora.com/sitemap.xml
+    - https://www.ultimahora.com/sitemap-latest.xml
     picture_sitemap_url: null
     rss_urls: []
     js_required: false
