@@ -215,7 +215,11 @@ sites:
   homepage: https://thewire.in/
   category: online
   language_primary: en
-  notes: ''
+  notes: 'BLOCKED — Cloudflare (path-to-500 revisit). Correct feed is
+    https://cms.thewire.in/feed (40 fresh entries with images, found by BQ), but
+    Cloudflare returns a "Just a moment..." challenge to the US crawl runner.
+    Works from a normal browser/EU IP. Needs a browser-capable fetch path
+    (js_required) before it will resolve.'
   suggested_by: BQ
   active: true
   discovery:
@@ -223,8 +227,8 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://thewire.in/rss
-    js_required: false
+    - https://cms.thewire.in/feed
+    js_required: true
   sample:
     max_articles: 20
     window_days: 30
