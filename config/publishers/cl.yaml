@@ -25,9 +25,14 @@ sites:
   homepage: https://www.emol.com/
   category: online
   language_primary: es
-  notes: ''
+  notes: 'DEACTIVATED (path-to-500 revisit): RSS feeds are gone, and the sitemap
+    index (sitemapIndex.xml) is year-ordered with the current year at the END,
+    so the crawler''s first-10-children recursion only reaches 1990s archives.
+    The current-year child sitemaps (sitemap6_2026.xml etc.) reset the
+    connection to the crawler (ReadError x3). No clean, durable way to reach
+    recent stories. Replaced in CL coverage by Cooperativa.'
   suggested_by: BQ
-  active: true
+  active: false
   discovery:
     strategy: sitemap
     sitemap_urls: []
