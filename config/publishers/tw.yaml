@@ -26,7 +26,7 @@ sites:
   url: https://udn.com/
   homepage: https://udn.com/
   category: newspaper
-  language_primary: en
+  language_primary: zh
   notes: ''
   suggested_by: BQ
   active: true
@@ -59,12 +59,12 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
-- id: taipei-times
-  name: Taipei Times
-  url: https://www.taipeitimes.com/
-  homepage: https://www.taipeitimes.com/
-  category: newspaper
-  language_primary: en
+- id: ettoday
+  name: ETtoday (東森新聞雲)
+  url: https://www.ettoday.net/
+  homepage: https://www.ettoday.net/
+  category: online
+  language_primary: zh
   notes: ''
   suggested_by: BQ
   active: true
@@ -73,7 +73,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.taipeitimes.com/xml/index.rss
+    - https://feeds.feedburner.com/ettoday/realtime
     js_required: false
   sample:
     max_articles: 20
