@@ -38,3 +38,22 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: infobae
+  name: Infobae
+  url: https://www.infobae.com/
+  homepage: https://www.infobae.com/
+  category: newspaper
+  language_primary: es
+  notes: 'Argentine publication (pan-Latin-American Spanish-language site).'
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.infobae.com/arc/outboundfeeds/rss/category/america/mundo/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
