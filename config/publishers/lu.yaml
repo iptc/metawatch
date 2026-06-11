@@ -40,16 +40,17 @@ sites:
     window_days: 30
 - id: tageblatt
   name: Tageblatt
-  url: http://www.tageblatt.lu/
-  homepage: http://www.tageblatt.lu/
+  url: https://www.tageblatt.lu/
+  homepage: https://www.tageblatt.lu/
   category: newspaper
-  language_primary: en
-  notes: Needs manual feed triage 2026-05-12 (RSS dead, no replacement found).
+  language_primary: de
+  notes: ''
   suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.tageblatt.lu/Sitemap_Current.xml.gz
     picture_sitemap_url: null
     rss_urls: []
     js_required: false
