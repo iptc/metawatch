@@ -63,7 +63,12 @@ sites:
   homepage: https://japantoday.com/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: 'UNREACHABLE from the US runner (path-to-500 revisit). The configured
+    feed (japantoday.com/feed) is correct and works from a normal/EU IP (30
+    entries, 3/3 images), but the site silently drops connections from the
+    GitHub Actions datacenter IP — curl returns 000 (timeout), hence the
+    "unreachable" status. Network-level block, not robots/HTTP. Kept active so
+    the status is recorded honestly.'
   suggested_by: BQ
   active: true
   discovery:
