@@ -5,7 +5,7 @@ sites:
   url: https://www.asahi.com/
   homepage: https://www.asahi.com/
   category: newspaper
-  language_primary: en
+  language_primary: ja
   notes: ''
   suggested_by: BQ
   active: true
@@ -24,7 +24,7 @@ sites:
   url: https://www.iza.ne.jp/
   homepage: https://www.iza.ne.jp/
   category: newspaper
-  language_primary: en
+  language_primary: ja
   notes: ''
   suggested_by: BQ
   active: true
@@ -105,7 +105,7 @@ sites:
   url: http://news.livedoor.com/
   homepage: http://news.livedoor.com/
   category: newspaper
-  language_primary: en
+  language_primary: ja
   notes: ''
   suggested_by: BQ
   active: true
@@ -124,7 +124,7 @@ sites:
   url: https://mainichi.jp/
   homepage: https://mainichi.jp/
   category: newspaper
-  language_primary: en
+  language_primary: ja
   notes: ''
   suggested_by: BQ
   active: true
@@ -162,7 +162,7 @@ sites:
   url: https://www.nhk.or.jp/
   homepage: https://www.nhk.or.jp/
   category: newspaper
-  language_primary: en
+  language_primary: ja
   notes: ''
   suggested_by: BQ
   active: true
@@ -181,7 +181,7 @@ sites:
   url: https://www.nikkei.com/
   homepage: https://www.nikkei.com/
   category: newspaper
-  language_primary: en
+  language_primary: ja
   notes: ''
   suggested_by: BQ
   active: true
@@ -200,7 +200,7 @@ sites:
   url: https://rocketnews24.com/
   homepage: https://rocketnews24.com/
   category: newspaper
-  language_primary: en
+  language_primary: ja
   notes: ''
   suggested_by: BQ
   active: true
@@ -219,7 +219,7 @@ sites:
   url: https://www.sankei.com/
   homepage: https://www.sankei.com/
   category: newspaper
-  language_primary: en
+  language_primary: ja
   notes: ''
   suggested_by: BQ
   active: true
@@ -296,7 +296,7 @@ sites:
   url: https://www.yomiuri.co.jp/
   homepage: https://www.yomiuri.co.jp/
   category: newspaper
-  language_primary: en
+  language_primary: ja
   notes: ''
   suggested_by: BQ
   active: true
@@ -315,7 +315,7 @@ sites:
   url: http://www.zakzak.co.jp/
   homepage: http://www.zakzak.co.jp/
   category: newspaper
-  language_primary: en
+  language_primary: ja
   notes: ''
   suggested_by: BQ
   active: true

@@ -5,7 +5,7 @@ sites:
   url: https://www.cmjornal.pt/
   homepage: https://www.cmjornal.pt/
   category: newspaper
-  language_primary: en
+  language_primary: pt
   notes: ''
   suggested_by: BQ
   active: true
@@ -24,7 +24,7 @@ sites:
   url: https://www.jornaldenegocios.pt/
   homepage: https://www.jornaldenegocios.pt/
   category: newspaper
-  language_primary: en
+  language_primary: pt
   notes: ''
   suggested_by: BQ
   active: true
@@ -64,7 +64,7 @@ sites:
   url: https://www.acorianooriental.pt/
   homepage: https://www.acorianooriental.pt/
   category: newspaper
-  language_primary: en
+  language_primary: pt
   notes: ''
   suggested_by: BQ
   active: true
@@ -83,7 +83,7 @@ sites:
   url: https://www.publico.pt/
   homepage: https://www.publico.pt/
   category: newspaper
-  language_primary: en
+  language_primary: pt
   notes: ''
   suggested_by: BQ
   active: true

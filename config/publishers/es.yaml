@@ -5,7 +5,7 @@ sites:
   url: https://www.abc.es/
   homepage: https://www.abc.es/
   category: newspaper
-  language_primary: en
+  language_primary: es
   notes: ''
   suggested_by: BQ
   active: true
@@ -24,7 +24,7 @@ sites:
   url: https://www.elcorreo.com/
   homepage: https://www.elcorreo.com/
   category: newspaper
-  language_primary: en
+  language_primary: es
   notes: ''
   suggested_by: BQ
   active: true
@@ -43,7 +43,7 @@ sites:
   url: https://www.elmundo.es/
   homepage: https://www.elmundo.es/
   category: newspaper
-  language_primary: en
+  language_primary: es
   notes: ''
   suggested_by: BQ
   active: true
@@ -62,7 +62,7 @@ sites:
   url: https://elpais.com/
   homepage: https://elpais.com/
   category: newspaper
-  language_primary: en
+  language_primary: es
   notes: 'Article HTML 403s from cloud egress; the Media RSS portada feed carries media:content for every entry, used as the image fallback.'
   suggested_by: MS
   active: true
@@ -81,7 +81,7 @@ sites:
   url: https://www.larazon.es/
   homepage: https://www.larazon.es/
   category: newspaper
-  language_primary: en
+  language_primary: es
   notes: ''
   suggested_by: BQ
   active: true
@@ -100,7 +100,7 @@ sites:
   url: https://www.lavanguardia.com/
   homepage: https://www.lavanguardia.com/
   category: broadcaster
-  language_primary: en
+  language_primary: es
   notes: ''
   suggested_by: BQ
   active: true

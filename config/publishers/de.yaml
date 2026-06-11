@@ -5,7 +5,7 @@ sites:
   url: https://www.bild.de/
   homepage: https://www.bild.de/
   category: newspaper
-  language_primary: en
+  language_primary: de
   notes: ''
   suggested_by: BQ
   active: true
@@ -43,7 +43,7 @@ sites:
   url: http://www.welt.de/
   homepage: http://www.welt.de/
   category: newspaper
-  language_primary: en
+  language_primary: de
   notes: ''
   suggested_by: BQ
   active: true
@@ -62,7 +62,7 @@ sites:
   url: https://www.zeit.de
   homepage: https://www.zeit.de
   category: newspaper
-  language_primary: en
+  language_primary: de
   notes: ''
   suggested_by: BQ
   active: true
@@ -81,7 +81,7 @@ sites:
   url: http://www.focus.de/
   homepage: http://www.focus.de/
   category: newspaper
-  language_primary: en
+  language_primary: de
   notes: ''
   suggested_by: BQ
   active: true
@@ -100,7 +100,7 @@ sites:
   url: http://www.faz.net/
   homepage: http://www.faz.net/
   category: broadcaster
-  language_primary: en
+  language_primary: de
   notes: ''
   suggested_by: BQ
   active: true
@@ -119,7 +119,7 @@ sites:
   url: http://www.fr.de/
   homepage: http://www.fr.de/
   category: broadcaster
-  language_primary: en
+  language_primary: de
   notes: ''
   suggested_by: BQ
   active: true
@@ -157,7 +157,7 @@ sites:
   url: http://www.sueddeutsche.de/
   homepage: http://www.sueddeutsche.de/
   category: newspaper
-  language_primary: en
+  language_primary: de
   notes: ''
   suggested_by: BQ
   active: true
@@ -176,7 +176,7 @@ sites:
   url: https://www.spiegel.de
   homepage: https://www.spiegel.de
   category: newspaper
-  language_primary: en
+  language_primary: de
   notes: ''
   suggested_by: MS
   active: true
@@ -195,7 +195,7 @@ sites:
   url: http://www.stern.de/
   homepage: http://www.stern.de/
   category: newspaper
-  language_primary: en
+  language_primary: de
   notes: ''
   suggested_by: BQ
   active: true
@@ -214,7 +214,7 @@ sites:
   url: https://www.tagesschau.de
   homepage: https://www.tagesschau.de
   category: newspaper
-  language_primary: en
+  language_primary: de
   notes: ''
   suggested_by: BQ
   active: true
@@ -233,7 +233,7 @@ sites:
   url: http://www.taz.de/
   homepage: http://www.taz.de/
   category: newspaper
-  language_primary: en
+  language_primary: de
   notes: ''
   suggested_by: BQ
   active: true
@@ -271,7 +271,7 @@ sites:
   url: https://www.zdfheute.de/
   homepage: https://www.zdfheute.de/
   category: broadcaster
-  language_primary: en
+  language_primary: de
   notes: ''
   suggested_by: BQ
   active: true

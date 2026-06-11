@@ -5,7 +5,7 @@ sites:
   url: https://www.24sata.hr/
   homepage: https://www.24sata.hr/
   category: newspaper
-  language_primary: en
+  language_primary: hr
   notes: ''
   suggested_by: BQ
   active: true
@@ -24,7 +24,7 @@ sites:
   url: https://www.index.hr/
   homepage: https://www.index.hr/
   category: newspaper
-  language_primary: en
+  language_primary: hr
   notes: ''
   suggested_by: BQ
   active: true
@@ -43,7 +43,7 @@ sites:
   url: https://www.jutarnji.hr/
   homepage: https://www.jutarnji.hr/
   category: newspaper
-  language_primary: en
+  language_primary: hr
   notes: Needs manual feed triage 2026-05-12 (RSS dead, no replacement found).
   suggested_by: BQ
   active: true
@@ -61,7 +61,7 @@ sites:
   url: https://www.novilist.hr/
   homepage: https://www.novilist.hr/
   category: newspaper
-  language_primary: en
+  language_primary: hr
   notes: ''
   suggested_by: BQ
   active: true

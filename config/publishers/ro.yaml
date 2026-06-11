@@ -5,7 +5,7 @@ sites:
   url: https://adevarul.ro/
   homepage: https://adevarul.ro/
   category: newspaper
-  language_primary: en
+  language_primary: ro
   notes: ''
   suggested_by: BQ
   active: true
@@ -24,7 +24,7 @@ sites:
   url: https://www.realitatea.net/
   homepage: https://www.realitatea.net/
   category: newspaper
-  language_primary: en
+  language_primary: ro
   notes: ''
   suggested_by: BQ
   active: true
@@ -43,7 +43,7 @@ sites:
   url: https://www.stirileprotv.ro/
   homepage: https://www.stirileprotv.ro/
   category: newspaper
-  language_primary: en
+  language_primary: ro
   notes: ''
   suggested_by: BQ
   active: true

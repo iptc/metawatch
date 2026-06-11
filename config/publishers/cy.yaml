@@ -24,7 +24,7 @@ sites:
   url: http://www.philenews.com/
   homepage: http://www.philenews.com/
   category: newspaper
-  language_primary: en
+  language_primary: el
   notes: ''
   suggested_by: BQ
   active: true
@@ -43,7 +43,7 @@ sites:
   url: https://politis.com.cy/
   homepage: https://politis.com.cy/
   category: newspaper
-  language_primary: en
+  language_primary: el
   notes: ''
   suggested_by: BQ
   active: true

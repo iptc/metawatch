@@ -5,7 +5,7 @@ sites:
   url: https://www.cumhuriyet.com.tr/
   homepage: https://www.cumhuriyet.com.tr/
   category: newspaper
-  language_primary: en
+  language_primary: tr
   notes: ''
   suggested_by: BQ
   active: true
@@ -43,7 +43,7 @@ sites:
   url: https://www.hurriyet.com.tr/
   homepage: https://www.hurriyet.com.tr/
   category: newspaper
-  language_primary: en
+  language_primary: tr
   notes: ''
   suggested_by: BQ
   active: true
@@ -62,7 +62,7 @@ sites:
   url: https://www.aa.com.tr/en
   homepage: https://www.aa.com.tr/en
   category: news-agency
-  language_primary: en
+  language_primary: tr
   notes: ''
   active: true
   discovery:

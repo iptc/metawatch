@@ -24,7 +24,7 @@ sites:
   url: https://www.diena.lv/
   homepage: https://www.diena.lv/
   category: newspaper
-  language_primary: en
+  language_primary: lv
   notes: ''
   suggested_by: BQ
   active: true
@@ -43,7 +43,7 @@ sites:
   url: https://ir.lv/
   homepage: https://ir.lv/
   category: newspaper
-  language_primary: en
+  language_primary: lv
   notes: ''
   suggested_by: BQ
   active: true

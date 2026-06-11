@@ -5,7 +5,7 @@ sites:
   url: https://www.24ur.com/
   homepage: https://www.24ur.com/
   category: newspaper
-  language_primary: en
+  language_primary: sl
   notes: ''
   suggested_by: BQ
   active: true
@@ -24,7 +24,7 @@ sites:
   url: https://www.rtvslo.si/
   homepage: https://www.rtvslo.si/
   category: broadcaster
-  language_primary: en
+  language_primary: sl
   notes: ''
   suggested_by: BQ
   active: true
@@ -43,7 +43,7 @@ sites:
   url: https://siol.net/
   homepage: https://siol.net/
   category: newspaper
-  language_primary: en
+  language_primary: sl
   notes: ''
   suggested_by: BQ
   active: true

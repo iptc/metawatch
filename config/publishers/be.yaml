@@ -5,7 +5,7 @@ sites:
   url: http://www.standaard.be
   homepage: http://www.standaard.be
   category: broadcaster
-  language_primary: en
+  language_primary: nl
   notes: ''
   suggested_by: BQ
   active: true
@@ -24,7 +24,7 @@ sites:
   url: https://www.nieuwsblad.be/
   homepage: https://www.nieuwsblad.be/
   category: newspaper
-  language_primary: en
+  language_primary: nl
   notes: ''
   suggested_by: BQ
   active: true

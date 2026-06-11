@@ -5,7 +5,7 @@ sites:
   url: https://www.antaranews.com/
   homepage: https://www.antaranews.com/
   category: newspaper
-  language_primary: en
+  language_primary: id
   notes: Needs manual feed triage 2026-05-12 (RSS dead, no replacement found).
   suggested_by: BQ
   active: true

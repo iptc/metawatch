@@ -5,7 +5,7 @@ sites:
   url: https://www.aktuality.sk/
   homepage: https://www.aktuality.sk/
   category: newspaper
-  language_primary: en
+  language_primary: sk
   notes: ''
   suggested_by: BQ
   active: true
@@ -24,7 +24,7 @@ sites:
   url: https://www.cas.sk/
   homepage: https://www.cas.sk/
   category: newspaper
-  language_primary: en
+  language_primary: sk
   notes: ''
   suggested_by: BQ
   active: true
@@ -43,7 +43,7 @@ sites:
   url: https://www.topky.sk/
   homepage: https://www.topky.sk/
   category: newspaper
-  language_primary: en
+  language_primary: sk
   notes: ''
   suggested_by: BQ
   active: true

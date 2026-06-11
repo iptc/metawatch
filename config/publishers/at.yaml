@@ -5,7 +5,7 @@ sites:
   url: https://derstandard.at
   homepage: https://derstandard.at
   category: broadcaster
-  language_primary: en
+  language_primary: de
   notes: ''
   suggested_by: MS
   active: true
@@ -24,7 +24,7 @@ sites:
   url: http://diepresse.com/
   homepage: http://diepresse.com/
   category: newspaper
-  language_primary: en
+  language_primary: de
   notes: ''
   suggested_by: BQ
   active: true
@@ -43,7 +43,7 @@ sites:
   url: https://www.heute.at/
   homepage: https://www.heute.at/
   category: newspaper
-  language_primary: en
+  language_primary: de
   notes: 'sitemap_13 holds the most recent articles; index has 16 children and the walk caps at 10. URLs lack news:publication_date, so we sort by <lastmod>.'
   suggested_by: BQ
   active: true
@@ -62,7 +62,7 @@ sites:
   url: https://www.kleinezeitung.at/
   homepage: https://www.kleinezeitung.at/
   category: newspaper
-  language_primary: en
+  language_primary: de
   notes: ''
   suggested_by: BQ
   active: true
@@ -81,7 +81,7 @@ sites:
   url: https://www.krone.at/
   homepage: https://www.krone.at/
   category: newspaper
-  language_primary: en
+  language_primary: de
   notes: ''
   suggested_by: BQ
   active: true
@@ -100,7 +100,7 @@ sites:
   url: https://kurier.at/
   homepage: https://kurier.at/
   category: newspaper
-  language_primary: en
+  language_primary: de
   notes: ''
   suggested_by: BQ
   active: true
@@ -119,7 +119,7 @@ sites:
   url: https://www.neue.at/
   homepage: https://www.neue.at/
   category: newspaper
-  language_primary: en
+  language_primary: de
   notes: 'Main site has no public feed; the epaper companion feed carries article HTML with inline <img> in content:encoded.'
   suggested_by: BQ
   active: true
@@ -138,7 +138,7 @@ sites:
   url: https://orf.at
   homepage: https://orf.at
   category: newspaper
-  language_primary: en
+  language_primary: de
   notes: ''
   suggested_by: MS
   active: true

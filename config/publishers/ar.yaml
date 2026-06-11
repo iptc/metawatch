@@ -5,7 +5,7 @@ sites:
   url: https://www.clarin.com/
   homepage: https://www.clarin.com/
   category: newspaper
-  language_primary: en
+  language_primary: es
   notes: ''
   suggested_by: BQ
   active: true
@@ -24,7 +24,7 @@ sites:
   url: https://www.lanacion.com.ar/
   homepage: https://www.lanacion.com.ar/
   category: newspaper
-  language_primary: en
+  language_primary: es
   notes: ''
   suggested_by: BQ
   active: true

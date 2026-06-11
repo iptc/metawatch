@@ -5,7 +5,7 @@ sites:
   url: https://blick.ch
   homepage: https://blick.ch
   category: newspaper
-  language_primary: en
+  language_primary: de
   notes: ''
   suggested_by: MS
   active: true
@@ -24,7 +24,7 @@ sites:
   url: https://www.nzz.ch
   homepage: https://www.nzz.ch
   category: newspaper
-  language_primary: en
+  language_primary: de
   notes: ''
   suggested_by: MS
   active: true

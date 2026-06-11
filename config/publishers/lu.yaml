@@ -5,7 +5,7 @@ sites:
   url: http://www.lequotidien.lu/
   homepage: http://www.lequotidien.lu/
   category: newspaper
-  language_primary: en
+  language_primary: fr
   notes: ''
   suggested_by: BQ
   active: true
@@ -24,7 +24,7 @@ sites:
   url: https://www.wort.lu/de
   homepage: https://www.wort.lu/de
   category: newspaper
-  language_primary: en
+  language_primary: de
   notes: ''
   suggested_by: BQ
   active: true

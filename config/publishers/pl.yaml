@@ -5,7 +5,7 @@ sites:
   url: https://www.fakt.pl/
   homepage: https://www.fakt.pl/
   category: newspaper
-  language_primary: en
+  language_primary: pl
   notes: ''
   suggested_by: BQ
   active: true
@@ -65,7 +65,7 @@ sites:
   url: https://www.rp.pl/
   homepage: https://www.rp.pl/
   category: newspaper
-  language_primary: en
+  language_primary: pl
   notes: ''
   suggested_by: BQ
   active: true

@@ -5,7 +5,7 @@ sites:
   url: https://www.almasryalyoum.com/
   homepage: https://www.almasryalyoum.com/
   category: newspaper
-  language_primary: en
+  language_primary: ar
   notes: ''
   suggested_by: BQ
   active: true
@@ -24,7 +24,7 @@ sites:
   url: https://www.elbalad.news/
   homepage: https://www.elbalad.news/
   category: newspaper
-  language_primary: en
+  language_primary: ar
   notes: ''
   suggested_by: BQ
   active: true

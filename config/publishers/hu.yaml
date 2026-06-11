@@ -5,7 +5,7 @@ sites:
   url: http://www.blikk.hu/
   homepage: http://www.blikk.hu/
   category: newspaper
-  language_primary: en
+  language_primary: hu
   notes: ''
   suggested_by: BQ
   active: true
@@ -24,7 +24,7 @@ sites:
   url: https://magyarnemzet.hu/
   homepage: https://magyarnemzet.hu/
   category: newspaper
-  language_primary: en
+  language_primary: hu
   notes: ''
   suggested_by: BQ
   active: true
@@ -43,7 +43,7 @@ sites:
   url: https://nepszava.hu/
   homepage: https://nepszava.hu/
   category: newspaper
-  language_primary: en
+  language_primary: hu
   notes: ''
   suggested_by: BQ
   active: true

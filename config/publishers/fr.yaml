@@ -5,7 +5,7 @@ sites:
   url: https://www.20minutes.fr/
   homepage: https://www.20minutes.fr/
   category: newspaper
-  language_primary: en
+  language_primary: fr
   notes: ''
   suggested_by: BQ
   active: true
@@ -43,7 +43,7 @@ sites:
   url: https://www.france24.com/fr/
   homepage: https://www.france24.com/fr/
   category: newspaper
-  language_primary: en
+  language_primary: fr
   notes: ''
   suggested_by: BQ
   active: true
@@ -62,7 +62,7 @@ sites:
   url: https://www.linternaute.com/
   homepage: https://www.linternaute.com/
   category: newspaper
-  language_primary: en
+  language_primary: fr
   notes: ''
   suggested_by: BQ
   active: true
@@ -81,7 +81,7 @@ sites:
   url: http://www.lefigaro.fr/
   homepage: http://www.lefigaro.fr/
   category: newspaper
-  language_primary: en
+  language_primary: fr
   notes: ''
   suggested_by: BQ
   active: true
@@ -100,7 +100,7 @@ sites:
   url: https://www.lemonde.fr/
   homepage: https://www.lemonde.fr/
   category: newspaper
-  language_primary: en
+  language_primary: fr
   notes: ''
   suggested_by: BQ
   active: true
@@ -119,7 +119,7 @@ sites:
   url: https://www.lesechos.fr/
   homepage: https://www.lesechos.fr/
   category: newspaper
-  language_primary: en
+  language_primary: fr
   notes: ''
   suggested_by: BQ
   active: true
@@ -138,7 +138,7 @@ sites:
   url: https://www.liberation.fr/
   homepage: https://www.liberation.fr/
   category: newspaper
-  language_primary: en
+  language_primary: fr
   notes: ''
   suggested_by: BQ
   active: true

@@ -5,7 +5,7 @@ sites:
   url: https://www.24chasa.bg/
   homepage: https://www.24chasa.bg/
   category: newspaper
-  language_primary: en
+  language_primary: bg
   notes: ''
   suggested_by: BQ
   active: true
@@ -45,7 +45,7 @@ sites:
   url: https://www.dnevnik.bg/
   homepage: https://www.dnevnik.bg/
   category: newspaper
-  language_primary: en
+  language_primary: bg
   notes: ''
   suggested_by: BQ
   active: true

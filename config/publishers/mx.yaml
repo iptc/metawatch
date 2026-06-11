@@ -5,7 +5,7 @@ sites:
   url: https://diario.mx/
   homepage: https://diario.mx/
   category: newspaper
-  language_primary: en
+  language_primary: es
   notes: ''
   suggested_by: BQ
   active: true
@@ -24,7 +24,7 @@ sites:
   url: https://www.debate.com.mx/
   homepage: https://www.debate.com.mx/
   category: newspaper
-  language_primary: en
+  language_primary: es
   notes: Needs manual feed triage 2026-05-12 (RSS dead, no replacement found).
   suggested_by: BQ
   active: true
@@ -42,7 +42,7 @@ sites:
   url: https://oem.com.mx/elsoldemexico/
   homepage: https://oem.com.mx/elsoldemexico/
   category: newspaper
-  language_primary: en
+  language_primary: es
   notes: ''
   suggested_by: BQ
   active: true
@@ -80,7 +80,7 @@ sites:
   url: https://www.eluniversal.com.mx/
   homepage: https://www.eluniversal.com.mx/
   category: newspaper
-  language_primary: en
+  language_primary: es
   notes: ''
   suggested_by: BQ
   active: true
@@ -99,7 +99,7 @@ sites:
   url: https://www.sopitas.com/
   homepage: https://www.sopitas.com/
   category: newspaper
-  language_primary: en
+  language_primary: es
   notes: ''
   suggested_by: BQ
   active: true

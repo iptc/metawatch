@@ -5,7 +5,7 @@ sites:
   url: http://www.avgi.gr/
   homepage: http://www.avgi.gr/
   category: newspaper
-  language_primary: en
+  language_primary: el
   notes: ''
   suggested_by: BQ
   active: true
@@ -44,7 +44,7 @@ sites:
   url: https://www.tanea.gr/
   homepage: https://www.tanea.gr/
   category: newspaper
-  language_primary: en
+  language_primary: el
   notes: ''
   suggested_by: BQ
   active: true

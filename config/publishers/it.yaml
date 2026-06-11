@@ -5,7 +5,7 @@ sites:
   url: https://ansa.it
   homepage: https://ansa.it
   category: news-agency
-  language_primary: en
+  language_primary: it
   notes: ''
   suggested_by: MS
   active: true
@@ -46,7 +46,7 @@ sites:
   url: https://ilmessaggero.it
   homepage: https://ilmessaggero.it
   category: newspaper
-  language_primary: en
+  language_primary: it
   notes: ''
   suggested_by: MS
   active: true
@@ -65,7 +65,7 @@ sites:
   url: http://www.repubblica.it
   homepage: http://www.repubblica.it
   category: newspaper
-  language_primary: en
+  language_primary: it
   notes: ''
   suggested_by: MS
   active: true
@@ -84,7 +84,7 @@ sites:
   url: https://lastampa.it
   homepage: https://lastampa.it
   category: newspaper
-  language_primary: en
+  language_primary: it
   notes: ''
   suggested_by: MS
   active: true

@@ -5,7 +5,7 @@ sites:
   url: https://www.telegraaf.nl/
   homepage: https://www.telegraaf.nl/
   category: newspaper
-  language_primary: en
+  language_primary: nl
   notes: ''
   suggested_by: BQ
   active: true
@@ -24,7 +24,7 @@ sites:
   url: https://www.volkskrant.nl/
   homepage: https://www.volkskrant.nl/
   category: newspaper
-  language_primary: en
+  language_primary: nl
   notes: ''
   suggested_by: BQ
   active: true
@@ -43,7 +43,7 @@ sites:
   url: https://www.nd.nl/
   homepage: https://www.nd.nl/
   category: newspaper
-  language_primary: en
+  language_primary: nl
   notes: ''
   suggested_by: BQ
   active: true
@@ -62,7 +62,7 @@ sites:
   url: https://www.trouw.nl/
   homepage: https://www.trouw.nl/
   category: newspaper
-  language_primary: en
+  language_primary: nl
   notes: ''
   suggested_by: BQ
   active: true

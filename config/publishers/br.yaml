@@ -5,7 +5,7 @@ sites:
   url: https://www.correio24horas.com.br/
   homepage: https://www.correio24horas.com.br/
   category: newspaper
-  language_primary: en
+  language_primary: pt
   notes: ''
   suggested_by: BQ
   active: true
@@ -25,7 +25,7 @@ sites:
   url: https://www.folha.uol.com.br/
   homepage: https://www.folha.uol.com.br/
   category: newspaper
-  language_primary: en
+  language_primary: pt
   notes: ''
   suggested_by: BQ
   active: true
