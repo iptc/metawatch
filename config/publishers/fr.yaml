@@ -158,9 +158,12 @@ sites:
   homepage: https://www.afp.com/en
   category: news-agency
   language_primary: en
-  notes: ''
+  notes: 'DEACTIVATED — B2B wire agency, no public news wire to crawl. afp.com is
+    a corporate site; the only public feed (afp.com/.../lactualite-de-lafp) is
+    AFP''s institutional/PR news about the agency itself, not its editorial
+    photography. Same bucket as Keystone-SDA, TT, PA Media.'
   suggested_by: BQ
-  active: true
+  active: false
   discovery:
     strategy: sitemap
     sitemap_urls: []
