@@ -619,6 +619,23 @@
     }
   },
   {
+    "site_id": "botswana-gazette",
+    "site_name": "The Botswana Gazette",
+    "url": "https://www.thegazette.news/",
+    "country": "BW",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.thegazette.news/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 27.5,
+    "pct_with_iptc": 50.0,
+    "cdn_breakdown": {
+      "none": 10
+    }
+  },
+  {
     "site_id": "sudan-akhbar",
     "site_name": "Sudan Akhbar",
     "url": "https://www.sudanakhbar.com/",
@@ -959,6 +976,23 @@
     }
   },
   {
+    "site_id": "akipress",
+    "site_name": "AKIpress",
+    "url": "https://kg.akipress.org/",
+    "country": "KG",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://kg.akipress.org/rss/news.rss",
+    "articles_sampled": 20,
+    "images_analysed": 19,
+    "mean_iptc_score": 10.53,
+    "pct_with_iptc": 26.3,
+    "cdn_breakdown": {
+      "none": 19
+    }
+  },
+  {
     "site_id": "el-pais-uy",
     "site_name": "El Pa\u00eds (Uruguay)",
     "url": "https://www.elpais.com.uy/",
@@ -1146,6 +1180,40 @@
     }
   },
   {
+    "site_id": "zambia-daily-mail",
+    "site_name": "Zambia Daily Mail",
+    "url": "https://www.daily-mail.co.zm/",
+    "country": "ZM",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.daily-mail.co.zm/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 9,
+    "mean_iptc_score": 5.56,
+    "pct_with_iptc": 22.2,
+    "cdn_breakdown": {
+      "none": 9
+    }
+  },
+  {
+    "site_id": "dailynews-zimbabwe",
+    "site_name": "Daily News",
+    "url": "https://dailynews.co.zw/",
+    "country": "ZW",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://dailynews.co.zw/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 9,
+    "mean_iptc_score": 5.56,
+    "pct_with_iptc": 11.1,
+    "cdn_breakdown": {
+      "none": 9
+    }
+  },
+  {
     "site_id": "phileleftheros",
     "site_name": "Phileleftheros",
     "url": "http://www.philenews.com/",
@@ -1296,6 +1364,23 @@
     "pct_with_iptc": 10.0,
     "cdn_breakdown": {
       "none": 20
+    }
+  },
+  {
+    "site_id": "kloop",
+    "site_name": "Kloop",
+    "url": "https://kloop.kg/",
+    "country": "KG",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://kloop.kg/feed/",
+    "articles_sampled": 12,
+    "images_analysed": 11,
+    "mean_iptc_score": 4.55,
+    "pct_with_iptc": 72.7,
+    "cdn_breakdown": {
+      "none": 11
     }
   },
   {
@@ -1469,6 +1554,74 @@
     }
   },
   {
+    "site_id": "journal-de-brazza",
+    "site_name": "Journal de Brazza",
+    "url": "https://www.journaldebrazza.com/",
+    "country": "CG",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.journaldebrazza.com/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 2.5,
+    "pct_with_iptc": 10.0,
+    "cdn_breakdown": {
+      "none": 10
+    }
+  },
+  {
+    "site_id": "kassataya",
+    "site_name": "Kassataya Mauritanie",
+    "url": "https://kassataya.com/",
+    "country": "MR",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://kassataya.com/feed",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 2.5,
+    "pct_with_iptc": 10.0,
+    "cdn_breakdown": {
+      "none": 10
+    }
+  },
+  {
+    "site_id": "mwnation",
+    "site_name": "Nation Online (Nation Publications)",
+    "url": "https://mwnation.com/",
+    "country": "MW",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://mwnation.com/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 2.5,
+    "pct_with_iptc": 10.0,
+    "cdn_breakdown": {
+      "none": 10
+    }
+  },
+  {
+    "site_id": "asia-plus",
+    "site_name": "Asia-Plus",
+    "url": "https://asiaplus.news/",
+    "country": "TJ",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://asiaplus.news/tg/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 2.5,
+    "pct_with_iptc": 10.0,
+    "cdn_breakdown": {
+      "cloudflare": 10
+    }
+  },
+  {
     "site_id": "radio-okapi",
     "site_name": "Radio Okapi",
     "url": "https://www.radiookapi.net/",
@@ -1528,6 +1681,40 @@
     "status": "ok",
     "discovery_strategy": "config:rss",
     "sitemap_url_used": "https://www.rp.pl/rss_main",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 1.25,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 20
+    }
+  },
+  {
+    "site_id": "khaama-press",
+    "site_name": "Khaama Press",
+    "url": "https://www.khaama.com/",
+    "country": "AF",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.khaama.com/feed/",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 1.25,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 20
+    }
+  },
+  {
+    "site_id": "pajhwok",
+    "site_name": "Pajhwok Afghan News",
+    "url": "https://pajhwok.com/",
+    "country": "AF",
+    "category": "news-agency",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://pajhwok.com/feed/",
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 1.25,
@@ -7497,5 +7684,720 @@
     "cdn_breakdown": {
       "none": 15
     }
+  },
+  {
+    "site_id": "mmegi",
+    "site_name": "Mmegi",
+    "url": "https://www.mmegi.bw/",
+    "country": "BW",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.mmegi.bw/rssFeed/1",
+    "articles_sampled": 3,
+    "images_analysed": 3,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 3
+    }
+  },
+  {
+    "site_id": "ariana-news",
+    "site_name": "Ariana News",
+    "url": "https://www.ariananews.af/",
+    "country": "AF",
+    "category": "broadcaster",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.ariananews.af/feed/",
+    "articles_sampled": 20,
+    "images_analysed": 5,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 80.0,
+    "cdn_breakdown": {
+      "none": 5
+    }
+  },
+  {
+    "site_id": "sunday-standard",
+    "site_name": "Sunday Standard",
+    "url": "https://www.sundaystandard.info/",
+    "country": "BW",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.sundaystandard.info/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 9,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 77.8,
+    "cdn_breakdown": {
+      "cloudflare": 9
+    }
+  },
+  {
+    "site_id": "vox-congo",
+    "site_name": "Vox Congo",
+    "url": "https://www.vox.cg/",
+    "country": "CG",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.vox.cg/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 9,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 11.1,
+    "cdn_breakdown": {
+      "none": 9
+    }
+  },
+  {
+    "site_id": "etilaatroz",
+    "site_name": "Etilaatroz",
+    "url": "https://www.etilaatroz.com/",
+    "country": "AF",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://etilaatroz.com/feed/",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 20.0,
+    "cdn_breakdown": {
+      "none": 20
+    }
+  },
+  {
+    "site_id": "journal-du-cameroun",
+    "site_name": "Journal du Cameroun",
+    "url": "https://fr.journalducameroun.com/",
+    "country": "CM",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://fr.journalducameroun.com/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 10
+    }
+  },
+  {
+    "site_id": "tsa-algerie",
+    "site_name": "TSA (Tout Sur l'Alg\u00e9rie)",
+    "url": "https://www.tsa-algerie.com/",
+    "country": "DZ",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.tsa-algerie.com/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 20.0,
+    "cdn_breakdown": {
+      "cloudflare": 10
+    }
+  },
+  {
+    "site_id": "237actu",
+    "site_name": "237actu",
+    "url": "https://237actu.com/",
+    "country": "CM",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://237actu.com/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 10.0,
+    "cdn_breakdown": {
+      "none": 10
+    }
+  },
+  {
+    "site_id": "adiac-congo",
+    "site_name": "Les D\u00e9p\u00eaches de Brazzaville (ADIAC)",
+    "url": "https://www.adiac-congo.com/",
+    "country": "CG",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.adiac-congo.com/rss.xml",
+    "articles_sampled": 10,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "actu-cameroun",
+    "site_name": "Actu Cameroun",
+    "url": "https://actucameroun.com/",
+    "country": "CM",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://actucameroun.com/feed/",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 15.0,
+    "cdn_breakdown": {
+      "none": 13,
+      "cloudflare": 7
+    }
+  },
+  {
+    "site_id": "echorouk",
+    "site_name": "Echorouk Online",
+    "url": "https://www.echoroukonline.com/",
+    "country": "DZ",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.echoroukonline.com/feed",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 10
+    }
+  },
+  {
+    "site_id": "el-watan",
+    "site_name": "El Watan",
+    "url": "https://elwatan.dz/",
+    "country": "DZ",
+    "category": "newspaper",
+    "status": "discovery_parse_error",
+    "discovery_strategy": "robots:first_sitemap",
+    "sitemap_url_used": "https://elwatan.dz/sitemap_index.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "el-khabar",
+    "site_name": "El Khabar",
+    "url": "https://www.elkhabar.com/",
+    "country": "DZ",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.elkhabar.com/feed",
+    "articles_sampled": 15,
+    "images_analysed": 11,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 11
+    }
+  },
+  {
+    "site_id": "cameroon-news-agency",
+    "site_name": "Cameroon News Agency",
+    "url": "https://www.cameroonnewsagency.com/",
+    "country": "CM",
+    "category": "news-agency",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.cameroonnewsagency.com/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 10
+    }
+  },
+  {
+    "site_id": "24kg-ky",
+    "site_name": "24.kg (Kyrgyz edition)",
+    "url": "https://24.kg/kyrgyzcha/",
+    "country": "KG",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://24.kg/kyrgyzcha/rss/",
+    "articles_sampled": 20,
+    "images_analysed": 4,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 4
+    }
+  },
+  {
+    "site_id": "sahara-media",
+    "site_name": "Sahara Media",
+    "url": "https://saharamedias.net/",
+    "country": "MR",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://saharamedias.net/feed",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 9,
+      "bunny": 1
+    }
+  },
+  {
+    "site_id": "times-mw",
+    "site_name": "Times Group Malawi",
+    "url": "https://times.mw/",
+    "country": "MW",
+    "category": "newspaper",
+    "status": "robots_disallow",
+    "discovery_strategy": "robots_disallow",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "kaktus-media",
+    "site_name": "Kaktus Media",
+    "url": "https://kaktus.media/",
+    "country": "KG",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://kaktus.media/?rss=index",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 20
+    }
+  },
+  {
+    "site_id": "mauriactu",
+    "site_name": "Mauriactu",
+    "url": "https://mauriactu.info/",
+    "country": "MR",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://mauriactu.info/ar/rss.xml",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 10
+    }
+  },
+  {
+    "site_id": "opais-mz",
+    "site_name": "O Pa\u00eds",
+    "url": "https://opais.co.mz/",
+    "country": "MZ",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://opais.co.mz/feed/",
+    "articles_sampled": 5,
+    "images_analysed": 5,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 100.0,
+    "cdn_breakdown": {
+      "none": 5
+    }
+  },
+  {
+    "site_id": "carta-de-mocambique",
+    "site_name": "Carta de Mo\u00e7ambique",
+    "url": "https://cartamz.com/",
+    "country": "MZ",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://cartamz.com/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 20.0,
+    "cdn_breakdown": {
+      "cloudflare": 10
+    }
+  },
+  {
+    "site_id": "ikon-mn",
+    "site_name": "iKon.mn",
+    "url": "https://ikon.mn/",
+    "country": "MN",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://ikon.mn/rss.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 20
+    }
+  },
+  {
+    "site_id": "avesta",
+    "site_name": "Avesta",
+    "url": "https://avesta.tj/",
+    "country": "TJ",
+    "category": "online",
+    "status": "discovery_blocked",
+    "discovery_strategy": "fallback_needed",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "jornal-noticias-mz",
+    "site_name": "Jornal Not\u00edcias",
+    "url": "https://www.jornalnoticias.co.mz/",
+    "country": "MZ",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.jornalnoticias.co.mz/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 30.0,
+    "cdn_breakdown": {
+      "none": 10
+    }
+  },
+  {
+    "site_id": "mnb-mn",
+    "site_name": "Mongolian National Broadcaster (MNB)",
+    "url": "https://www.mnb.mn/",
+    "country": "MN",
+    "category": "broadcaster",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.mnb.mn/rss",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 20
+    }
+  },
+  {
+    "site_id": "radio-ozodi",
+    "site_name": "Radio Ozodi (RFE/RL Tajik)",
+    "url": "https://www.ozodi.org/",
+    "country": "TJ",
+    "category": "broadcaster",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.ozodi.org/api/zmkovl-vomx-tpeypmr",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "akamai": 20
+    }
+  },
+  {
+    "site_id": "orient-tm",
+    "site_name": "Orient",
+    "url": "https://orient.tm/",
+    "country": "TM",
+    "category": "online",
+    "status": "robots_disallow",
+    "discovery_strategy": "robots_disallow",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "turkmen-news",
+    "site_name": "Turkmen.news",
+    "url": "https://turkmen.news/",
+    "country": "TM",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://turkmen.news/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 50.0,
+    "cdn_breakdown": {
+      "none": 10
+    }
+  },
+  {
+    "site_id": "khovar",
+    "site_name": "NIAT Khovar",
+    "url": "https://khovar.tj/",
+    "country": "TJ",
+    "category": "news-agency",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://khovar.tj/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 10
+    }
+  },
+  {
+    "site_id": "hronika-turkmenistana",
+    "site_name": "Chronicles of Turkmenistan",
+    "url": "https://www.hronikatm.com/",
+    "country": "TM",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://hronikatm.com/feed/",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 20
+    }
+  },
+  {
+    "site_id": "kun-uz",
+    "site_name": "Kun.uz",
+    "url": "https://kun.uz/",
+    "country": "UZ",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://kun.uz/news/rss",
+    "articles_sampled": 15,
+    "images_analysed": 15,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 20.0,
+    "cdn_breakdown": {
+      "cloudflare": 15
+    }
+  },
+  {
+    "site_id": "zambia-news-diggers",
+    "site_name": "News Diggers!",
+    "url": "https://diggers.news/",
+    "country": "ZM",
+    "category": "online",
+    "status": "discovery_blocked",
+    "discovery_strategy": "robots:first_sitemap",
+    "sitemap_url_used": "https://diggers.news/wp-sitemap.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "jornal-domingo-mz",
+    "site_name": "Jornal Domingo",
+    "url": "https://www.jornaldomingo.co.mz/",
+    "country": "MZ",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.jornaldomingo.co.mz/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 10.0,
+    "cdn_breakdown": {
+      "none": 10
+    }
+  },
+  {
+    "site_id": "mwebantu",
+    "site_name": "Mwebantu",
+    "url": "https://www.mwebantu.com/",
+    "country": "ZM",
+    "category": "online",
+    "status": "robots_disallow",
+    "discovery_strategy": "robots_disallow",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "herald-zimbabwe",
+    "site_name": "The Herald",
+    "url": "https://www.heraldonline.co.zw/",
+    "country": "ZW",
+    "category": "newspaper",
+    "status": "discovery_blocked",
+    "discovery_strategy": "fallback_needed",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "gazeta-uz",
+    "site_name": "Gazeta.uz",
+    "url": "https://www.gazeta.uz/uz/",
+    "country": "UZ",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.gazeta.uz/uz/rss/",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 20
+    }
+  },
+  {
+    "site_id": "times-of-zambia",
+    "site_name": "Times of Zambia",
+    "url": "https://www.times.co.zm/",
+    "country": "ZM",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.times.co.zm/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 6,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 50.0,
+    "cdn_breakdown": {
+      "none": 6
+    }
+  },
+  {
+    "site_id": "nyasatimes",
+    "site_name": "Malawi Nyasa Times",
+    "url": "https://www.nyasatimes.com/",
+    "country": "MW",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.nyasatimes.com/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 10.0,
+    "cdn_breakdown": {
+      "cloudflare": 10
+    }
+  },
+  {
+    "site_id": "uza-uz",
+    "site_name": "UzA (Uzbekistan National News Agency)",
+    "url": "https://uza.uz/uz",
+    "country": "UZ",
+    "category": "news-agency",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://uza.uz/uz/rss",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 16
+    }
+  },
+  {
+    "site_id": "263chat",
+    "site_name": "263Chat",
+    "url": "https://263chat.com/",
+    "country": "ZW",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://263chat.com/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 9,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 9
+    }
+  },
+  {
+    "site_id": "newzimbabwe",
+    "site_name": "NewZimbabwe.com",
+    "url": "https://www.newzimbabwe.com/",
+    "country": "ZW",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.newzimbabwe.com/feed/",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 20
+    }
+  },
+  {
+    "site_id": "arzuw-news",
+    "site_name": "Arzuw News",
+    "url": "https://arzuw.news/",
+    "country": "TM",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://arzuw.news/feed",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 10
+    }
+  },
+  {
+    "site_id": "podrobno-uz",
+    "site_name": "Podrobno.uz",
+    "url": "https://podrobno.uz/",
+    "country": "UZ",
+    "category": "online",
+    "status": "timeout",
+    "discovery_strategy": "timeout",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
   }
 ]
