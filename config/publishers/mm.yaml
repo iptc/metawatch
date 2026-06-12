@@ -19,3 +19,45 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: the-irrawaddy
+  name: The Irrawaddy
+  url: https://www.irrawaddy.com/
+  homepage: https://www.irrawaddy.com/
+  category: online
+  language_primary: en
+  notes: 'BLOCKED — found by BQ; correct feed is irrawaddy.com/feed, but
+    Cloudflare 403s the crawler from every origin (EU and the US runner) — only
+    a real browser passes. Needs a browser-capable fetch path.'
+  suggested_by: BQ
+  active: false
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.irrawaddy.com/feed
+    js_required: true
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: myanmar-now
+  name: Myanmar Now
+  url: https://myanmar-now.org/en/
+  homepage: https://myanmar-now.org/en/
+  category: online
+  language_primary: en
+  notes: 'BLOCKED — found by BQ; feed is correct and fresh with images, but
+    article pages 403 the US crawl runner (work from a normal IP). Needs
+    residential/browser egress.'
+  suggested_by: BQ
+  active: false
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://myanmar-now.org/en/feed/
+    js_required: true
+  sample:
+    max_articles: 20
+    window_days: 30
