@@ -49,10 +49,10 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.chicagotribune.com/sitemap.xml
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.chicagotribune.com/arcio/rss/category/news/breaking/?query=display_date:[now-2d+TO+now]&sort=display_date:desc
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
@@ -242,7 +242,8 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.usatoday.com/news-sitemap.xml
     picture_sitemap_url: null
     rss_urls: []
     js_required: false
@@ -298,7 +299,8 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.bloomberg.com/sitemaps/news/index.xml
     picture_sitemap_url: null
     rss_urls: []
     js_required: false
@@ -373,7 +375,8 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.axios.com/sitemap.xml
     picture_sitemap_url: null
     rss_urls: []
     js_required: false
@@ -486,7 +489,8 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.voanews.com/sitemap.xml
     picture_sitemap_url: null
     rss_urls: []
     js_required: false

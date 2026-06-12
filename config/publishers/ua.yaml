@@ -29,10 +29,11 @@ sites:
   suggested_by: BQ
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
-    rss_urls: []
+    rss_urls:
+    - https://www.pravda.com.ua/eng/rss
     js_required: false
   sample:
     max_articles: 20

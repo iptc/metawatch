@@ -30,7 +30,8 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://saudigazette.com.sa/sitemaps/news_sitemap.xml
     picture_sitemap_url: null
     rss_urls: []
     js_required: false

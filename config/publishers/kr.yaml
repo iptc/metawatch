@@ -11,7 +11,8 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.chosun.com/arc/outboundfeeds/news-sitemap/?outputType=xml
     picture_sitemap_url: null
     rss_urls: []
     js_required: false
@@ -50,7 +51,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.koreaherald.com/common_prog/rssdispatch.php?ct=010100000000
+    - https://www.koreaherald.com/rss/newsAll
     js_required: false
   sample:
     max_articles: 20

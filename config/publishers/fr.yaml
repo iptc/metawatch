@@ -125,10 +125,10 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.lesechos.fr/sitemap_news.xml
     picture_sitemap_url: null
-    rss_urls:
-    - https://syndication.lesechos.fr/rss/Echos_monde.xml
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
@@ -221,11 +221,11 @@ sites:
   suggested_by: BQ
   active: true
   discovery:
-    strategy: rss
-    sitemap_urls: []
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.lexpress.fr/arc/outboundfeeds/sitemap-news.xml
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.lexpress.fr/arc/outboundfeeds/rss/?outputType=xml
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

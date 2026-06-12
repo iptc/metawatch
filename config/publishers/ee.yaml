@@ -11,10 +11,10 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.delfi.ee/sitemap/index.xml
     picture_sitemap_url: null
-    rss_urls:
-    - http://feeds2.feedburner.com/delfiuudised
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

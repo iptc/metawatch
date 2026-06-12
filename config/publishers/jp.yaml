@@ -358,10 +358,11 @@ sites:
   suggested_by: BQ
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
-    rss_urls: []
+    rss_urls:
+    - https://www.jiji.com/rss/ranking.rdf
     js_required: false
   sample:
     max_articles: 20
@@ -376,10 +377,11 @@ sites:
   suggested_by: BQ
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
-    rss_urls: []
+    rss_urls:
+    - https://www.kyodo.co.jp/feed/
     js_required: false
   sample:
     max_articles: 20

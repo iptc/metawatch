@@ -56,7 +56,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.biobiochile.cl/lista-feeds.shtml
+    - https://feeds.feedburner.com/radiobiobio/NNeJ
     js_required: false
   sample:
     max_articles: 20

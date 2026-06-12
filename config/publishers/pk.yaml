@@ -10,11 +10,11 @@ sites:
   suggested_by: BQ
   active: true
   discovery:
-    strategy: rss
-    sitemap_urls: []
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.dawn.com/feeds/sitemap
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.dawn.com/feed
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
@@ -29,11 +29,11 @@ sites:
   suggested_by: BQ
   active: true
   discovery:
-    strategy: rss
-    sitemap_urls: []
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.geo.tv/assets/uploads/google_news_latest.xml
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.geo.tv/rss/1/53
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
@@ -49,7 +49,8 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.thenews.com.pk/assets/uploads/google_news_latest.xml
     picture_sitemap_url: null
     rss_urls: []
     js_required: false

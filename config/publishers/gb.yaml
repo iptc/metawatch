@@ -454,11 +454,11 @@ sites:
   suggested_by: BQ
   active: true
   discovery:
-    strategy: rss
-    sitemap_urls: []
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.itv.com/sitemap.xml
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.itv.com/news/index.rss
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

@@ -333,7 +333,8 @@ sites:
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.rtl.de/sitemap-news.xml
     picture_sitemap_url: null
     rss_urls: []
     js_required: false

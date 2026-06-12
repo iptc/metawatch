@@ -10,11 +10,11 @@ sites:
   suggested_by: BQ
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.abc.es/rss/feeds/abcPortada.xml
+    - https://www.abc.es/rss/2.0/portada/
     js_required: false
   sample:
     max_articles: 20
@@ -128,7 +128,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.abc.es/rss/feeds/abcPortada.xml
+    - https://www.abc.es/rss/2.0/portada/
     js_required: false
   sample:
     max_articles: 20

@@ -68,10 +68,11 @@ sites:
   suggested_by: BQ
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
-    rss_urls: []
+    rss_urls:
+    - https://oglobo.globo.com/rss/oglobo
     js_required: false
   sample:
     max_articles: 20
