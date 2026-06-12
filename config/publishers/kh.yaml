@@ -45,12 +45,12 @@ sites:
   homepage: https://www.khmertimeskh.com/
   category: newspaper
   language_primary: en
-  notes: 'Reactivated to record real US status. The prior "article pages 403 the
-    US runner" verdict came from single-request curl probes, which we now know
-    give false 403s for cookie/session WAFs (the crawler''s persistent client
-    passes where an isolated fetch fails — see le-soir). Feed is
-    khmertimeskh.com/feed/ (fresh, with images). Let the next crawl confirm;
-    re-deactivate only on real run evidence (e.g. 0 images from the US runner).'
+  notes: 'BLOCKED — Cloudflare. The 2026-06-12 merge crawl confirmed the US
+    runner gets a "Just a moment..." JS challenge (HTTP 403) on khmertimeskh.com/feed/,
+    both discovery attempts — a consistent block, not flicker. Works from an
+    EU/residential IP (feed fresh, with images), so it is a datacenter-IP
+    challenge, not a permanent disallow. Needs a browser-capable fetch path.
+    KH coverage stands via phnom-penh-post + cambojanews.'
   suggested_by: BQ
   active: true
   discovery:
@@ -59,7 +59,7 @@ sites:
     picture_sitemap_url: null
     rss_urls:
     - https://www.khmertimeskh.com/feed/
-    js_required: false
+    js_required: true
   sample:
     max_articles: 20
     window_days: 30
@@ -69,11 +69,12 @@ sites:
   homepage: https://www.cambodiadaily.com/
   category: online
   language_primary: km
-  notes: 'Reactivated to record real US status. The prior "article pages 403 the
-    US runner" verdict came from single-request curl probes, which give false
-    403s for cookie/session WAFs (see le-soir). Khmer-language feed
-    cambodiadaily.com/feed/ is fresh with images. Let the next crawl confirm;
-    re-deactivate only on real run evidence.'
+  notes: 'BLOCKED — Cloudflare. The 2026-06-12 merge crawl confirmed the US
+    runner gets a "Just a moment..." JS challenge (HTTP 403) on cambodiadaily.com/feed/,
+    both discovery attempts — a consistent block, not flicker. Works from an
+    EU/residential IP (Khmer-language feed fresh, with images), so it is a
+    datacenter-IP challenge, not a permanent disallow. Needs a browser-capable
+    fetch path.'
   suggested_by: BQ
   active: true
   discovery:
@@ -82,7 +83,7 @@ sites:
     picture_sitemap_url: null
     rss_urls:
     - https://www.cambodiadaily.com/feed/
-    js_required: false
+    js_required: true
   sample:
     max_articles: 20
     window_days: 30
