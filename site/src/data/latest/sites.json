@@ -1384,6 +1384,23 @@
     }
   },
   {
+    "site_id": "turkmenistan-golden-age",
+    "site_name": "Turkmenistan: The Golden Age",
+    "url": "https://turkmenistan.gov.tm/",
+    "country": "TM",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://turkmenistan.gov.tm/rss.xml",
+    "articles_sampled": 20,
+    "images_analysed": 12,
+    "mean_iptc_score": 4.17,
+    "pct_with_iptc": 58.3,
+    "cdn_breakdown": {
+      "none": 12
+    }
+  },
+  {
     "site_id": "evening-standard",
     "site_name": "Evening Standard",
     "url": "https://www.standard.co.uk/",
@@ -8399,5 +8416,84 @@
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {}
+  },
+  {
+    "site_id": "xalq-sozi",
+    "site_name": "Xalq So'zi (Narodnoe Slovo)",
+    "url": "https://xs.uz/",
+    "country": "UZ",
+    "category": "newspaper",
+    "status": "discovery_blocked",
+    "discovery_strategy": "config:sitemap",
+    "sitemap_url_used": "https://xs.uz/news-sitemap.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "rta-afghanistan",
+    "site_name": "Radio Television Afghanistan (RTA)",
+    "url": "https://rta.af/",
+    "country": "AF",
+    "category": "broadcaster",
+    "status": "discovery_blocked",
+    "discovery_strategy": "robots:first_sitemap",
+    "sitemap_url_used": "https://rta.af/sitemap_index.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "tdh-turkmenistan",
+    "site_name": "TDH (Turkmen State News Agency)",
+    "url": "https://tdh.gov.tm/",
+    "country": "TM",
+    "category": "news-agency",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://tdh.gov.tm/ru/rss.xml",
+    "articles_sampled": 20,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "alemarah-iea",
+    "site_name": "Islamic Emirate of Afghanistan - Alemarah",
+    "url": "https://alemarah.af/",
+    "country": "AF",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://alemarah.af/feed/",
+    "articles_sampled": 4,
+    "images_analysed": 4,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 4
+    }
+  },
+  {
+    "site_id": "alemarah-english",
+    "site_name": "Islamic Emirate of Afghanistan - Alemarah (English)",
+    "url": "https://www.alemarahenglish.af/",
+    "country": "AF",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.alemarahenglish.af/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 10
+    }
   }
 ]
