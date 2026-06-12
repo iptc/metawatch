@@ -25,15 +25,17 @@ sites:
   homepage: https://www.graphic.com.gh/
   category: newspaper
   language_primary: en
-  notes: 'NEEDS FEED (path-to-500 revisit): homepage 200 but sitemap.xml lists
-    no article locs and news-sitemap.xml 404s. No usable feed found yet.'
+  notes: 'Atom feed supplied by BQ (25 entries, fresh, article pages fetch 200).
+    Replaces the dead sitemap path — sitemap.xml had no article locs and
+    news-sitemap.xml 404d.'
   suggested_by: BQ
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
-    rss_urls: []
+    rss_urls:
+    - https://www.graphic.com.gh/news.feed?type=atom
     js_required: false
   sample:
     max_articles: 20
