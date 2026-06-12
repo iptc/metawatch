@@ -257,11 +257,11 @@ sites:
   suggested_by: MS ??
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.thelocal.de/feeds/rss.php
+    - https://feeds.thelocal.com/rss/de
     js_required: false
   sample:
     max_articles: 20
