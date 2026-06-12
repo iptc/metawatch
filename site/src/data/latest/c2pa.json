@@ -1,19 +1,19 @@
 {
-  "image_count_total": 5396,
-  "image_count_with_c2pa": 6,
-  "pct_with_c2pa": 0.11,
+  "image_count_total": 6167,
+  "image_count_with_c2pa": 15,
+  "pct_with_c2pa": 0.24,
   "by_outcome": [
     {
       "outcome": "valid",
-      "images": 5
+      "images": 13
     },
     {
       "outcome": "modified",
-      "images": 0
+      "images": 2
     },
     {
       "outcome": "expired",
-      "images": 1
+      "images": 0
     },
     {
       "outcome": "untrusted_issuer",
@@ -27,25 +27,29 @@
   "by_signer": [
     {
       "signer": "OpenAI OpCo, LLC",
-      "images": 3
+      "images": 9
     },
     {
       "signer": "International Press Telecommunications Council",
+      "images": 3
+    },
+    {
+      "signer": "Adobe Inc.",
       "images": 2
     },
     {
-      "signer": "Canva",
+      "signer": "Google LLC",
       "images": 1
     }
   ],
   "by_validation_state": [
     {
       "state": "Valid",
-      "images": 5
+      "images": 13
     },
     {
       "state": "Invalid",
-      "images": 1
+      "images": 2
     }
   ],
   "top_sites": [
@@ -53,30 +57,42 @@
       "site_id": "iptc",
       "site_name": "IPTC",
       "country": "GB",
-      "images_with_c2pa": 2
-    },
-    {
-      "site_id": "phileleftheros",
-      "site_name": "Phileleftheros",
-      "country": "CY",
-      "images_with_c2pa": 1
+      "images_with_c2pa": 3
     },
     {
       "site_id": "tanea-gr",
       "site_name": "\u03a4\u03b1 \u039d\u03ad\u03b1",
       "country": "GR",
+      "images_with_c2pa": 3
+    },
+    {
+      "site_id": "kathmandu-post",
+      "site_name": "The Kathmandu Post",
+      "country": "NP",
+      "images_with_c2pa": 3
+    },
+    {
+      "site_id": "le-pays-td",
+      "site_name": "Le Pays",
+      "country": "TD",
+      "images_with_c2pa": 3
+    },
+    {
+      "site_id": "die-presse",
+      "site_name": "Die Presse",
+      "country": "AT",
       "images_with_c2pa": 1
     },
     {
-      "site_id": "premium-times-ng",
-      "site_name": "Premium Times (Nigeria)",
-      "country": "NG",
+      "site_id": "cyprus-mail",
+      "site_name": "Cyprus Mail",
+      "country": "CY",
       "images_with_c2pa": 1
     },
     {
-      "site_id": "mail-guardian",
-      "site_name": "Mail & Guardian",
-      "country": "ZA",
+      "site_id": "ettoday",
+      "site_name": "ETtoday (\u6771\u68ee\u65b0\u805e\u96f2)",
+      "country": "TW",
       "images_with_c2pa": 1
     }
   ]
