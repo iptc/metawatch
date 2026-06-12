@@ -46,18 +46,19 @@ sites:
   homepage: https://myanmar-now.org/en/
   category: online
   language_primary: en
-  notes: 'BLOCKED — found by BQ; feed is correct and fresh with images, but
-    article pages 403 the US crawl runner (work from a normal IP). Needs
-    residential/browser egress.'
+  notes: 'Reactivated to record real US status. The prior "article pages 403 the
+    US runner" verdict came from single-request curl probes, which give false
+    403s for cookie/session WAFs (see le-soir). Feed is fresh with images. Let
+    the next crawl confirm; re-deactivate only on real run evidence.'
   suggested_by: BQ
-  active: false
+  active: true
   discovery:
     strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
     - https://myanmar-now.org/en/feed/
-    js_required: true
+    js_required: false
   sample:
     max_articles: 20
     window_days: 30

@@ -44,13 +44,12 @@ sites:
   homepage: https://www.lesoir.be/
   category: newspaper
   language_primary: fr
-  notes: 'BLOCKED — bot-wall WAF (path-to-500 revisit). Correct feed + news
-    sitemap are known (rss_urls / sitemap_urls below, supplied by BQ), but the
-    WAF returns 403 "Access Denied" to our httpx client even with a browser
-    User-Agent, from both EU and US — works only in a real browser that solves
-    the JS/fingerprint challenge. Needs a headless-browser fetch path
-    (js_required) before these surfaces can be reached; same capability the
-    JS-rendered SPA sites need.'
+  notes: 'Works from the US crawl runner: 10 articles, 10 images in the
+    2026-06-10 crawl via config:rss. The earlier "bot-wall WAF" verdict was a
+    single-request testing artifact — the WAF sets a session cookie on the first
+    request (robots.txt) that later fetches need; the crawler''s persistent
+    client supplies it, but ad-hoc single-URL probes (curl / isolated httpx) do
+    not, so they see a 403. Not js_required.'
   suggested_by: BQ
   active: true
   discovery:
@@ -60,7 +59,7 @@ sites:
     picture_sitemap_url: null
     rss_urls:
     - https://www.lesoir.be/rss2/2/cible_principale
-    js_required: true
+    js_required: false
   sample:
     max_articles: 20
     window_days: 30
