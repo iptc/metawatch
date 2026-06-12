@@ -44,9 +44,10 @@ sites:
   homepage: https://www.keystone-sda.ch/
   category: news-agency
   language_primary: de
-  notes: ''
+  notes: 'DEACTIVATED — B2B wire/photo agency (IPTC member), no public news feed
+    to crawl (BQ). Content is distributed to clients, not published publicly.'
   suggested_by: BQ (IPTC member)
-  active: true
+  active: false
   discovery:
     strategy: sitemap
     sitemap_urls: []
