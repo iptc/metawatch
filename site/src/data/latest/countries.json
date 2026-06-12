@@ -55,6 +55,11 @@
     "mean_score": 14.21
   },
   {
+    "country": "MM",
+    "site_count": 2,
+    "mean_score": 13.75
+  },
+  {
     "country": "AT",
     "site_count": 9,
     "mean_score": 13.33
@@ -406,7 +411,7 @@
   },
   {
     "country": "KH",
-    "site_count": 2,
+    "site_count": 4,
     "mean_score": 0.0
   },
   {
@@ -437,11 +442,6 @@
   {
     "country": "MG",
     "site_count": 3,
-    "mean_score": 0.0
-  },
-  {
-    "country": "MM",
-    "site_count": 1,
     "mean_score": 0.0
   },
   {

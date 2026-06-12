@@ -602,6 +602,23 @@
     }
   },
   {
+    "site_id": "myanmar-now",
+    "site_name": "Myanmar Now",
+    "url": "https://myanmar-now.org/en/",
+    "country": "MM",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://myanmar-now.org/en/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 27.5,
+    "pct_with_iptc": 40.0,
+    "cdn_breakdown": {
+      "none": 10
+    }
+  },
+  {
     "site_id": "sudan-akhbar",
     "site_name": "Sudan Akhbar",
     "url": "https://www.sudanakhbar.com/",
@@ -2265,36 +2282,6 @@
     "cdn_breakdown": {
       "akamai": 14
     }
-  },
-  {
-    "site_id": "corbeau-news",
-    "site_name": "Corbeau News Centrafrique",
-    "url": "https://corbeaunews-centrafrique.org/",
-    "country": "CF",
-    "category": "online",
-    "status": "discovery_blocked",
-    "discovery_strategy": "fallback_needed",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
-    "site_id": "oubangui-medias",
-    "site_name": "Oubangui M\u00e9dias",
-    "url": "https://oubanguimedias.com/",
-    "country": "CF",
-    "category": "online",
-    "status": "discovery_blocked",
-    "discovery_strategy": "fallback_needed",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
   },
   {
     "site_id": "toronto-star",
@@ -4088,21 +4075,6 @@
     }
   },
   {
-    "site_id": "hondudiario",
-    "site_name": "Hondudiario",
-    "url": "https://www.hondudiario.com/",
-    "country": "HN",
-    "category": "online",
-    "status": "unreachable",
-    "discovery_strategy": "unreachable",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "kaieteur-news",
     "site_name": "Kaieteur News",
     "url": "https://www.kaieteurnewsonline.com/",
@@ -4490,23 +4462,6 @@
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "cloudflare": 20
-    }
-  },
-  {
-    "site_id": "corriere-della-sera",
-    "site_name": "Corriere della Sera",
-    "url": "https://www.corriere.it/",
-    "country": "IT",
-    "category": "newspaper",
-    "status": "ok",
-    "discovery_strategy": "robots:news_sitemap",
-    "sitemap_url_used": "https://www.corriere.it/salute/il-medico-risponde/news/sitemap.xml",
-    "articles_sampled": 6,
-    "images_analysed": 4,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "cloudfront": 4
     }
   },
   {
@@ -4980,21 +4935,6 @@
     "cdn_breakdown": {
       "akamai": 10
     }
-  },
-  {
-    "site_id": "cambojanews",
-    "site_name": "CamboJA News",
-    "url": "https://cambojanews.com/",
-    "country": "KH",
-    "category": "online",
-    "status": "discovery_blocked",
-    "discovery_strategy": "robots:first_sitemap",
-    "sitemap_url_used": "https://cambojanews.com/sitemap_index.xml",
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
   },
   {
     "site_id": "kyodo-news-japanese",
@@ -5677,21 +5617,6 @@
     "cdn_breakdown": {
       "akamai": 19
     }
-  },
-  {
-    "site_id": "informante",
-    "site_name": "Informant\u00e9",
-    "url": "https://informante.web.na/",
-    "country": "NA",
-    "category": "newspaper",
-    "status": "unreachable",
-    "discovery_strategy": "unreachable",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
   },
   {
     "site_id": "nettavisen",
@@ -6532,21 +6457,6 @@
     }
   },
   {
-    "site_id": "waterkant",
-    "site_name": "Waterkant",
-    "url": "https://www.waterkant.net/",
-    "country": "SR",
-    "category": "online",
-    "status": "discovery_blocked",
-    "discovery_strategy": "robots:first_sitemap",
-    "sitemap_url_used": "https://www.waterkant.net/sitemap_index.xml",
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "saudi-gazette",
     "site_name": "Saudi Gazette",
     "url": "https://saudigazette.com.sa/",
@@ -6885,21 +6795,6 @@
     "cdn_breakdown": {
       "cloudfront": 20
     }
-  },
-  {
-    "site_id": "daily-news-tz",
-    "site_name": "Daily News",
-    "url": "https://dailynews.co.tz/",
-    "country": "TZ",
-    "category": "newspaper",
-    "status": "discovery_blocked",
-    "discovery_strategy": "fallback_needed",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
   },
   {
     "site_id": "hurriyet-daily-news",
@@ -7434,5 +7329,161 @@
     "cdn_breakdown": {
       "none": 20
     }
+  },
+  {
+    "site_id": "khmer-times",
+    "site_name": "Khmer Times",
+    "url": "https://www.khmertimeskh.com/",
+    "country": "KH",
+    "category": "newspaper",
+    "status": "discovery_blocked",
+    "discovery_strategy": "fallback_needed",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "corbeau-news",
+    "site_name": "Corbeau News Centrafrique",
+    "url": "https://corbeaunews-centrafrique.org/",
+    "country": "CF",
+    "category": "online",
+    "status": "discovery_blocked",
+    "discovery_strategy": "fallback_needed",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "waterkant",
+    "site_name": "Waterkant",
+    "url": "https://www.waterkant.net/",
+    "country": "SR",
+    "category": "online",
+    "status": "discovery_blocked",
+    "discovery_strategy": "robots:first_sitemap",
+    "sitemap_url_used": "https://www.waterkant.net/sitemap_index.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "cambojanews",
+    "site_name": "CamboJA News",
+    "url": "https://cambojanews.com/",
+    "country": "KH",
+    "category": "online",
+    "status": "discovery_blocked",
+    "discovery_strategy": "robots:first_sitemap",
+    "sitemap_url_used": "https://cambojanews.com/sitemap_index.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "daily-news-tz",
+    "site_name": "Daily News",
+    "url": "https://dailynews.co.tz/",
+    "country": "TZ",
+    "category": "newspaper",
+    "status": "discovery_blocked",
+    "discovery_strategy": "fallback_needed",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "hondudiario",
+    "site_name": "Hondudiario",
+    "url": "https://www.hondudiario.com/",
+    "country": "HN",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.hondudiario.com/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 20.0,
+    "cdn_breakdown": {
+      "none": 10
+    }
+  },
+  {
+    "site_id": "cambodia-daily-km",
+    "site_name": "Cambodia Daily (Khmer)",
+    "url": "https://www.cambodiadaily.com/",
+    "country": "KH",
+    "category": "online",
+    "status": "discovery_blocked",
+    "discovery_strategy": "robots:first_sitemap",
+    "sitemap_url_used": "https://www.cambodiadaily.com/sitemap_index.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "corriere-della-sera",
+    "site_name": "Corriere della Sera",
+    "url": "https://www.corriere.it/",
+    "country": "IT",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://xml2.corriereobjects.it/feed-hp/homepage-restyle-2025.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudfront": 20
+    }
+  },
+  {
+    "site_id": "oubangui-medias",
+    "site_name": "Oubangui M\u00e9dias",
+    "url": "https://oubanguimedias.com/",
+    "country": "CF",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://oubanguimedias.com/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 10
+    }
+  },
+  {
+    "site_id": "informante",
+    "site_name": "Informant\u00e9",
+    "url": "https://informante.web.na/",
+    "country": "NA",
+    "category": "newspaper",
+    "status": "unreachable",
+    "discovery_strategy": "unreachable",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
   }
 ]

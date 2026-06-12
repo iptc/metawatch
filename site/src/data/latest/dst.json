@@ -1,9 +1,9 @@
 {
-  "image_count_total": 6167,
-  "image_count_valid": 6116,
+  "image_count_total": 6213,
+  "image_count_valid": 6162,
   "images_with_dst_iptc": 4,
   "images_with_dst_c2pa": 12,
-  "pct_with_dst_iptc": 0.07,
+  "pct_with_dst_iptc": 0.06,
   "by_bucket_iptc": [
     {
       "bucket": "Other",
