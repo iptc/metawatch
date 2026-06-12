@@ -1,0 +1,61 @@
+country: GY
+sites:
+- id: kaieteur-news
+  name: Kaieteur News
+  url: https://www.kaieteurnewsonline.com/
+  homepage: https://www.kaieteurnewsonline.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://kaieteurnewsonline.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: guyana-times
+  name: Guyana Times
+  url: https://guyanatimesgy.com/
+  homepage: https://guyanatimesgy.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://guyanatimesgy.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: demerara-waves
+  name: Demerara Waves
+  url: https://demerarawaves.com/
+  homepage: https://demerarawaves.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://demerarawaves.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

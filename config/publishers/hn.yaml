@@ -1,0 +1,61 @@
+country: HN
+sites:
+- id: proceso-digital
+  name: Proceso Digital
+  url: https://proceso.hn/
+  homepage: https://proceso.hn/
+  category: online
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://proceso.hn/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: criterio-hn
+  name: Criterio.hn
+  url: https://criterio.hn/
+  homepage: https://criterio.hn/
+  category: online
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://criterio.hn/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: hondudiario
+  name: Hondudiario
+  url: https://www.hondudiario.com/
+  homepage: https://www.hondudiario.com/
+  category: online
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.hondudiario.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

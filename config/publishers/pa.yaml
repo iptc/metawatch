@@ -1,0 +1,61 @@
+country: PA
+sites:
+- id: la-prensa-pa
+  name: La Prensa
+  url: https://www.prensa.com/
+  homepage: https://www.prensa.com/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.prensa.com/arc/outboundfeeds/rss/?outputType=xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: tvn-noticias
+  name: TVN Noticias
+  url: https://www.tvn-2.com/
+  homepage: https://www.tvn-2.com/
+  category: broadcaster
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.tvn-2.com/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: mi-diario
+  name: Mi Diario
+  url: https://www.midiario.com/
+  homepage: https://www.midiario.com/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.midiario.com/arc/outboundfeeds/rss/?outputType=xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

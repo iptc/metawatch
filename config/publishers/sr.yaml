@@ -1,0 +1,61 @@
+country: SR
+sites:
+- id: de-ware-tijd
+  name: De Ware Tijd
+  url: https://www.dwtonline.com/
+  homepage: https://www.dwtonline.com/
+  category: newspaper
+  language_primary: nl
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://dwtonline.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: dagblad-suriname
+  name: Dagblad Suriname
+  url: https://www.dbsuriname.com/
+  homepage: https://www.dbsuriname.com/
+  category: newspaper
+  language_primary: nl
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.dbsuriname.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: waterkant
+  name: Waterkant
+  url: https://www.waterkant.net/
+  homepage: https://www.waterkant.net/
+  category: online
+  language_primary: nl
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.waterkant.net/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

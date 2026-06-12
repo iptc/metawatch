@@ -1,0 +1,41 @@
+country: NI
+sites:
+- id: confidencial-ni
+  name: Confidencial
+  url: https://confidencial.digital/
+  homepage: https://confidencial.digital/
+  category: online
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://confidencial.digital/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: despacho505
+  name: Despacho 505
+  url: https://despacho505.com/
+  homepage: https://despacho505.com/
+  category: online
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://despacho505.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

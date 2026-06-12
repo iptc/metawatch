@@ -1,0 +1,41 @@
+country: PG
+sites:
+- id: post-courier
+  name: Post-Courier
+  url: https://www.postcourier.com.pg/
+  homepage: https://www.postcourier.com.pg/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.postcourier.com.pg/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: pngfacts
+  name: PNG Facts
+  url: https://www.pngfacts.com/
+  homepage: https://www.pngfacts.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.pngfacts.com/news/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

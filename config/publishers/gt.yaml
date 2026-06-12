@@ -1,0 +1,41 @@
+country: GT
+sites:
+- id: prensa-libre
+  name: Prensa Libre
+  url: https://www.prensalibre.com/
+  homepage: https://www.prensalibre.com/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.prensalibre.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: la-hora-gt
+  name: La Hora
+  url: https://lahora.gt/
+  homepage: https://lahora.gt/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://lahora.gt/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

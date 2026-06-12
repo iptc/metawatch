@@ -1,0 +1,61 @@
+country: DO
+sites:
+- id: diario-libre
+  name: Diario Libre
+  url: https://www.diariolibre.com/
+  homepage: https://www.diariolibre.com/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.diariolibre.com/rss/portada.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: el-nacional-do
+  name: El Nacional
+  url: https://elnacional.com.do/
+  homepage: https://elnacional.com.do/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://elnacional.com.do/rss/home.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: hoy-do
+  name: Hoy
+  url: https://hoy.com.do/
+  homepage: https://hoy.com.do/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://hoy.com.do/rss/home.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

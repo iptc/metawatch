@@ -1,0 +1,41 @@
+country: KH
+sites:
+- id: phnom-penh-post
+  name: The Phnom Penh Post
+  url: https://phnompenhpost.com/
+  homepage: https://phnompenhpost.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://phnompenhpost.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: cambojanews
+  name: CamboJA News
+  url: https://cambojanews.com/
+  homepage: https://cambojanews.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://cambojanews.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

@@ -1,0 +1,21 @@
+country: LA
+sites:
+- id: laotian-times
+  name: The Laotian Times
+  url: https://laotiantimes.com/
+  homepage: https://laotiantimes.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://laotiantimes.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
