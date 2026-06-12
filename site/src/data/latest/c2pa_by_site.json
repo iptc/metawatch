@@ -1,5 +1,26 @@
 {
-  "phileleftheros": {
+  "die-presse": {
+    "image_count_with_c2pa": 1,
+    "by_outcome": [
+      {
+        "outcome": "modified",
+        "images": 1
+      }
+    ],
+    "by_signer": [
+      {
+        "signer": "Adobe Inc.",
+        "images": 1
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Invalid",
+        "images": 1
+      }
+    ]
+  },
+  "cyprus-mail": {
     "image_count_with_c2pa": 1,
     "by_outcome": [
       {
@@ -21,79 +42,104 @@
     ]
   },
   "iptc": {
-    "image_count_with_c2pa": 2,
+    "image_count_with_c2pa": 3,
     "by_outcome": [
       {
         "outcome": "valid",
-        "images": 2
+        "images": 3
       }
     ],
     "by_signer": [
       {
         "signer": "International Press Telecommunications Council",
-        "images": 2
+        "images": 3
       }
     ],
     "by_validation_state": [
       {
         "state": "Valid",
-        "images": 2
+        "images": 3
       }
     ]
   },
   "tanea-gr": {
-    "image_count_with_c2pa": 1,
+    "image_count_with_c2pa": 3,
     "by_outcome": [
       {
         "outcome": "valid",
-        "images": 1
+        "images": 3
       }
     ],
     "by_signer": [
       {
         "signer": "OpenAI OpCo, LLC",
+        "images": 3
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Valid",
+        "images": 3
+      }
+    ]
+  },
+  "kathmandu-post": {
+    "image_count_with_c2pa": 3,
+    "by_outcome": [
+      {
+        "outcome": "valid",
+        "images": 3
+      }
+    ],
+    "by_signer": [
+      {
+        "signer": "OpenAI OpCo, LLC",
+        "images": 2
+      },
+      {
+        "signer": "Google LLC",
         "images": 1
       }
     ],
     "by_validation_state": [
       {
         "state": "Valid",
-        "images": 1
+        "images": 3
       }
     ]
   },
-  "premium-times-ng": {
-    "image_count_with_c2pa": 1,
+  "le-pays-td": {
+    "image_count_with_c2pa": 3,
     "by_outcome": [
       {
         "outcome": "valid",
-        "images": 1
+        "images": 3
       }
     ],
     "by_signer": [
       {
         "signer": "OpenAI OpCo, LLC",
-        "images": 1
+        "images": 3
       }
     ],
     "by_validation_state": [
       {
         "state": "Valid",
-        "images": 1
+        "images": 3
       }
     ]
   },
-  "mail-guardian": {
+  "ettoday": {
     "image_count_with_c2pa": 1,
     "by_outcome": [
       {
-        "outcome": "expired",
+        "outcome": "modified",
         "images": 1
       }
     ],
     "by_signer": [
       {
-        "signer": "Canva",
+        "signer": "Adobe Inc.",
         "images": 1
       }
     ],

@@ -1,5 +1,45 @@
 {
-  "phileleftheros": {
+  "expansao": {
+    "images_with_dst_iptc": 2,
+    "images_with_dst_c2pa": 0,
+    "by_bucket_iptc": [
+      {
+        "bucket": "Other",
+        "images": 2
+      }
+    ],
+    "by_bucket_c2pa": [],
+    "by_uri_iptc": [
+      {
+        "uri": "nil",
+        "term": "nil",
+        "bucket": "Other",
+        "images": 2
+      }
+    ],
+    "by_uri_c2pa": []
+  },
+  "die-presse": {
+    "images_with_dst_iptc": 0,
+    "images_with_dst_c2pa": 1,
+    "by_bucket_iptc": [],
+    "by_bucket_c2pa": [
+      {
+        "bucket": "Edited with Generative AI",
+        "images": 1
+      }
+    ],
+    "by_uri_iptc": [],
+    "by_uri_c2pa": [
+      {
+        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/compositeWithTrainedAlgorithmicMedia",
+        "term": "compositeWithTrainedAlgorithmicMedia",
+        "bucket": "Edited with Generative AI",
+        "images": 1
+      }
+    ]
+  },
+  "cyprus-mail": {
     "images_with_dst_iptc": 0,
     "images_with_dst_c2pa": 1,
     "by_bucket_iptc": [],
@@ -21,12 +61,12 @@
   },
   "tanea-gr": {
     "images_with_dst_iptc": 0,
-    "images_with_dst_c2pa": 1,
+    "images_with_dst_c2pa": 3,
     "by_bucket_iptc": [],
     "by_bucket_c2pa": [
       {
         "bucket": "AI-generated",
-        "images": 1
+        "images": 3
       }
     ],
     "by_uri_iptc": [],
@@ -35,17 +75,21 @@
         "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
         "term": "trainedAlgorithmicMedia",
         "bucket": "AI-generated",
-        "images": 1
+        "images": 3
       }
     ]
   },
-  "premium-times-ng": {
+  "kathmandu-post": {
     "images_with_dst_iptc": 0,
-    "images_with_dst_c2pa": 1,
+    "images_with_dst_c2pa": 3,
     "by_bucket_iptc": [],
     "by_bucket_c2pa": [
       {
         "bucket": "AI-generated",
+        "images": 2
+      },
+      {
+        "bucket": "Composite",
         "images": 1
       }
     ],
@@ -55,11 +99,57 @@
         "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
         "term": "trainedAlgorithmicMedia",
         "bucket": "AI-generated",
+        "images": 2
+      },
+      {
+        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/composite",
+        "term": "composite",
+        "bucket": "Composite",
         "images": 1
       }
     ]
   },
-  "mail-guardian": {
+  "le-pays-td": {
+    "images_with_dst_iptc": 0,
+    "images_with_dst_c2pa": 3,
+    "by_bucket_iptc": [],
+    "by_bucket_c2pa": [
+      {
+        "bucket": "AI-generated",
+        "images": 3
+      }
+    ],
+    "by_uri_iptc": [],
+    "by_uri_c2pa": [
+      {
+        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+        "term": "trainedAlgorithmicMedia",
+        "bucket": "AI-generated",
+        "images": 3
+      }
+    ]
+  },
+  "icilome": {
+    "images_with_dst_iptc": 1,
+    "images_with_dst_c2pa": 0,
+    "by_bucket_iptc": [
+      {
+        "bucket": "Edited with Generative AI",
+        "images": 1
+      }
+    ],
+    "by_bucket_c2pa": [],
+    "by_uri_iptc": [
+      {
+        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/compositeWithTrainedAlgorithmicMedia",
+        "term": "compositeWithTrainedAlgorithmicMedia",
+        "bucket": "Edited with Generative AI",
+        "images": 1
+      }
+    ],
+    "by_uri_c2pa": []
+  },
+  "ettoday": {
     "images_with_dst_iptc": 0,
     "images_with_dst_c2pa": 1,
     "by_bucket_iptc": [],
@@ -78,5 +168,25 @@
         "images": 1
       }
     ]
+  },
+  "npr": {
+    "images_with_dst_iptc": 1,
+    "images_with_dst_c2pa": 0,
+    "by_bucket_iptc": [
+      {
+        "bucket": "Real-life capture",
+        "images": 1
+      }
+    ],
+    "by_bucket_c2pa": [],
+    "by_uri_iptc": [
+      {
+        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/digitalCapture",
+        "term": "digitalCapture",
+        "bucket": "Real-life capture",
+        "images": 1
+      }
+    ],
+    "by_uri_c2pa": []
   }
 }
