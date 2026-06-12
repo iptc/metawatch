@@ -514,3 +514,22 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: time
+  name: TIME
+  url: https://time.com/
+  homepage: https://time.com/
+  category: magazine
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://time.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
