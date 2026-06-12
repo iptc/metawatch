@@ -1,0 +1,78 @@
+country: KG
+sites:
+- id: 24kg-ky
+  name: 24.kg (Kyrgyz edition)
+  url: https://24.kg/kyrgyzcha/
+  homepage: https://24.kg/kyrgyzcha/
+  category: online
+  language_primary: ky
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://24.kg/kyrgyzcha/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: akipress
+  name: AKIpress
+  url: https://kg.akipress.org/
+  homepage: https://kg.akipress.org/
+  category: online
+  language_primary: ru
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://kg.akipress.org/rss/news.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: kaktus-media
+  name: Kaktus Media
+  url: https://kaktus.media/
+  homepage: https://kaktus.media/
+  category: online
+  language_primary: ru
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://kaktus.media/?rss=index
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: kloop
+  name: Kloop
+  url: https://kloop.kg/
+  homepage: https://kloop.kg/
+  category: online
+  language_primary: ru
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://kloop.kg/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

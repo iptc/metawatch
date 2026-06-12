@@ -1,0 +1,78 @@
+country: AF
+sites:
+- id: etilaatroz
+  name: Etilaatroz
+  url: https://www.etilaatroz.com/
+  homepage: https://www.etilaatroz.com/
+  category: newspaper
+  language_primary: fa
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://etilaatroz.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: pajhwok
+  name: Pajhwok Afghan News
+  url: https://pajhwok.com/
+  homepage: https://pajhwok.com/
+  category: news-agency
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://pajhwok.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: ariana-news
+  name: Ariana News
+  url: https://www.ariananews.af/
+  homepage: https://www.ariananews.af/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.ariananews.af/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: khaama-press
+  name: Khaama Press
+  url: https://www.khaama.com/
+  homepage: https://www.khaama.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.khaama.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

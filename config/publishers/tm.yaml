@@ -1,0 +1,78 @@
+country: TM
+sites:
+- id: hronika-turkmenistana
+  name: Chronicles of Turkmenistan
+  url: https://www.hronikatm.com/
+  homepage: https://www.hronikatm.com/
+  category: online
+  language_primary: ru
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://hronikatm.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: turkmen-news
+  name: Turkmen.news
+  url: https://turkmen.news/
+  homepage: https://turkmen.news/
+  category: online
+  language_primary: ru
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://turkmen.news/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: arzuw-news
+  name: Arzuw News
+  url: https://arzuw.news/
+  homepage: https://arzuw.news/
+  category: online
+  language_primary: ru
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://arzuw.news/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: orient-tm
+  name: Orient
+  url: https://orient.tm/
+  homepage: https://orient.tm/
+  category: online
+  language_primary: ru
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://orient.tm/ru/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

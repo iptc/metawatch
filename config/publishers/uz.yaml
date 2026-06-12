@@ -1,0 +1,78 @@
+country: UZ
+sites:
+- id: kun-uz
+  name: Kun.uz
+  url: https://kun.uz/
+  homepage: https://kun.uz/
+  category: online
+  language_primary: uz
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://kun.uz/news/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: gazeta-uz
+  name: Gazeta.uz
+  url: https://www.gazeta.uz/uz/
+  homepage: https://www.gazeta.uz/uz/
+  category: online
+  language_primary: uz
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.gazeta.uz/uz/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: uza-uz
+  name: UzA (Uzbekistan National News Agency)
+  url: https://uza.uz/uz
+  homepage: https://uza.uz/uz
+  category: news-agency
+  language_primary: uz
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://uza.uz/uz/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: podrobno-uz
+  name: Podrobno.uz
+  url: https://podrobno.uz/
+  homepage: https://podrobno.uz/
+  category: online
+  language_primary: ru
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://podrobno.uz/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

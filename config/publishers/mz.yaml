@@ -1,0 +1,78 @@
+country: MZ
+sites:
+- id: opais-mz
+  name: O País
+  url: https://opais.co.mz/
+  homepage: https://opais.co.mz/
+  category: online
+  language_primary: pt
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://opais.co.mz/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: carta-de-mocambique
+  name: Carta de Moçambique
+  url: https://cartamz.com/
+  homepage: https://cartamz.com/
+  category: online
+  language_primary: pt
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://cartamz.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: jornal-noticias-mz
+  name: Jornal Notícias
+  url: https://www.jornalnoticias.co.mz/
+  homepage: https://www.jornalnoticias.co.mz/
+  category: newspaper
+  language_primary: pt
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.jornalnoticias.co.mz/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: jornal-domingo-mz
+  name: Jornal Domingo
+  url: https://www.jornaldomingo.co.mz/
+  homepage: https://www.jornaldomingo.co.mz/
+  category: newspaper
+  language_primary: pt
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.jornaldomingo.co.mz/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

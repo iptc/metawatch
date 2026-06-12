@@ -1,0 +1,59 @@
+country: BW
+sites:
+- id: mmegi
+  name: Mmegi
+  url: https://www.mmegi.bw/
+  homepage: https://www.mmegi.bw/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.mmegi.bw/rssFeed/1
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: sunday-standard
+  name: Sunday Standard
+  url: https://www.sundaystandard.info/
+  homepage: https://www.sundaystandard.info/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.sundaystandard.info/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: botswana-gazette
+  name: The Botswana Gazette
+  url: https://www.thegazette.news/
+  homepage: https://www.thegazette.news/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.thegazette.news/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

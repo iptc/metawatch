@@ -1,0 +1,78 @@
+country: CM
+sites:
+- id: journal-du-cameroun
+  name: Journal du Cameroun
+  url: https://fr.journalducameroun.com/
+  homepage: https://fr.journalducameroun.com/
+  category: online
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://fr.journalducameroun.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: actu-cameroun
+  name: Actu Cameroun
+  url: https://actucameroun.com/
+  homepage: https://actucameroun.com/
+  category: online
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://actucameroun.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: cameroon-news-agency
+  name: Cameroon News Agency
+  url: https://www.cameroonnewsagency.com/
+  homepage: https://www.cameroonnewsagency.com/
+  category: news-agency
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.cameroonnewsagency.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: 237actu
+  name: 237actu
+  url: https://237actu.com/
+  homepage: https://237actu.com/
+  category: online
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://237actu.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

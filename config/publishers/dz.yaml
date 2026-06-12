@@ -1,0 +1,78 @@
+country: DZ
+sites:
+- id: tsa-algerie
+  name: TSA (Tout Sur l'Algérie)
+  url: https://www.tsa-algerie.com/
+  homepage: https://www.tsa-algerie.com/
+  category: online
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.tsa-algerie.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: echorouk
+  name: Echorouk Online
+  url: https://www.echoroukonline.com/
+  homepage: https://www.echoroukonline.com/
+  category: newspaper
+  language_primary: ar
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.echoroukonline.com/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: el-khabar
+  name: El Khabar
+  url: https://www.elkhabar.com/
+  homepage: https://www.elkhabar.com/
+  category: newspaper
+  language_primary: ar
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.elkhabar.com/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: el-watan
+  name: El Watan
+  url: https://elwatan.dz/
+  homepage: https://elwatan.dz/
+  category: newspaper
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://elwatan.dz/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

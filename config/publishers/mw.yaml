@@ -1,0 +1,59 @@
+country: MW
+sites:
+- id: mwnation
+  name: Nation Online (Nation Publications)
+  url: https://mwnation.com/
+  homepage: https://mwnation.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://mwnation.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: times-mw
+  name: Times Group Malawi
+  url: https://times.mw/
+  homepage: https://times.mw/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://times.mw/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: nyasatimes
+  name: Malawi Nyasa Times
+  url: https://www.nyasatimes.com/
+  homepage: https://www.nyasatimes.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.nyasatimes.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

@@ -1,0 +1,78 @@
+country: ZM
+sites:
+- id: zambia-news-diggers
+  name: News Diggers!
+  url: https://diggers.news/
+  homepage: https://diggers.news/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://diggers.news/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: zambia-daily-mail
+  name: Zambia Daily Mail
+  url: https://www.daily-mail.co.zm/
+  homepage: https://www.daily-mail.co.zm/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.daily-mail.co.zm/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: times-of-zambia
+  name: Times of Zambia
+  url: https://www.times.co.zm/
+  homepage: https://www.times.co.zm/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.times.co.zm/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: mwebantu
+  name: Mwebantu
+  url: https://www.mwebantu.com/
+  homepage: https://www.mwebantu.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.mwebantu.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

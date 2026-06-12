@@ -1,0 +1,59 @@
+country: CG
+sites:
+- id: adiac-congo
+  name: Les Dépêches de Brazzaville (ADIAC)
+  url: https://www.adiac-congo.com/
+  homepage: https://www.adiac-congo.com/
+  category: newspaper
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.adiac-congo.com/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: journal-de-brazza
+  name: Journal de Brazza
+  url: https://www.journaldebrazza.com/
+  homepage: https://www.journaldebrazza.com/
+  category: online
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.journaldebrazza.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: vox-congo
+  name: Vox Congo
+  url: https://www.vox.cg/
+  homepage: https://www.vox.cg/
+  category: online
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.vox.cg/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
