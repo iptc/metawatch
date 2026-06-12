@@ -1,6 +1,6 @@
 {
-  "n_sites": 443,
-  "n_images": 6162,
+  "n_sites": 444,
+  "n_images": 6235,
   "signals": [
     {
       "key": "robots-ai",
@@ -8,8 +8,8 @@
       "label": "robots.txt \u2014 any AI bot blocked",
       "note": "Blocks at least one known AI/scraper UA",
       "num": 230,
-      "denom": 443,
-      "pct": 51.9
+      "denom": 444,
+      "pct": 51.8
     },
     {
       "key": "tdmrep",
@@ -17,7 +17,7 @@
       "label": "/.well-known/tdmrep.json",
       "note": "TDM Reservation Protocol (EU DSM Art. 4)",
       "num": 6,
-      "denom": 443,
+      "denom": 444,
       "pct": 1.4
     },
     {
@@ -26,7 +26,7 @@
       "label": "TDMRep \u2014 per-page <meta>",
       "note": "<meta name=\"tdm-reservation\" content=\"1\"> on \u22651 article",
       "num": 7,
-      "denom": 443,
+      "denom": 444,
       "pct": 1.6
     },
     {
@@ -35,7 +35,7 @@
       "label": "RSL \u2014 License: in robots.txt",
       "note": "Really Simple Licensing (rslstandard.org)",
       "num": 2,
-      "denom": 443,
+      "denom": 444,
       "pct": 0.5
     },
     {
@@ -44,7 +44,7 @@
       "label": "/ai.txt",
       "note": "Spawning AI consent proposal",
       "num": 3,
-      "denom": 443,
+      "denom": 444,
       "pct": 0.7
     },
     {
@@ -53,7 +53,7 @@
       "label": "robots.txt \u2014 Content-Signal",
       "note": "Cloudflare Content Signals (contentsignals.org)",
       "num": 20,
-      "denom": 443,
+      "denom": 444,
       "pct": 4.5
     },
     {
@@ -62,7 +62,7 @@
       "label": "trust.txt \u2014 datatrainingallowed=no",
       "note": "JournalList trust.txt opt-out directive",
       "num": 2,
-      "denom": 443,
+      "denom": 444,
       "pct": 0.5
     },
     {
@@ -71,7 +71,7 @@
       "label": "noai / noimageai meta robots",
       "note": "AI-specific tokens on X-Robots-Tag or <meta name=\"robots\">",
       "num": 1,
-      "denom": 443,
+      "denom": 444,
       "pct": 0.2
     },
     {
@@ -80,7 +80,7 @@
       "label": "noarchive / nosnippet meta robots",
       "note": "Honoured as AI-opt-out by Bing/Copilot (noarchive) and Google (nosnippet)",
       "num": 78,
-      "denom": 443,
+      "denom": 444,
       "pct": 17.6
     },
     {
@@ -89,7 +89,7 @@
       "label": "IPTC PLUS:DataMining",
       "note": "XMP-plus:DataMining on \u22651 sampled image",
       "num": 9,
-      "denom": 443,
+      "denom": 444,
       "pct": 2.0
     },
     {
@@ -98,7 +98,7 @@
       "label": "CAWG Training and Data Mining Assertion",
       "note": "cawg.training-mining assertion in \u22651 sampled image's C2PA manifest",
       "num": 1,
-      "denom": 443,
+      "denom": 444,
       "pct": 0.2
     }
   ],

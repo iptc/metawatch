@@ -3909,21 +3909,6 @@
     }
   },
   {
-    "site_id": "daily-graphic",
-    "site_name": "Daily Graphic",
-    "url": "https://www.graphic.com.gh/",
-    "country": "GH",
-    "category": "newspaper",
-    "status": "discovery_blocked",
-    "discovery_strategy": "robots:news_sitemap",
-    "sitemap_url_used": "https://www.graphic.com.gh/component/jmap/sitemap/gnews?format=gnews",
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "itv-news",
     "site_name": "ITV News",
     "url": "https://www.itv.com/news/",
@@ -7331,81 +7316,6 @@
     }
   },
   {
-    "site_id": "khmer-times",
-    "site_name": "Khmer Times",
-    "url": "https://www.khmertimeskh.com/",
-    "country": "KH",
-    "category": "newspaper",
-    "status": "discovery_blocked",
-    "discovery_strategy": "fallback_needed",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
-    "site_id": "corbeau-news",
-    "site_name": "Corbeau News Centrafrique",
-    "url": "https://corbeaunews-centrafrique.org/",
-    "country": "CF",
-    "category": "online",
-    "status": "discovery_blocked",
-    "discovery_strategy": "fallback_needed",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
-    "site_id": "waterkant",
-    "site_name": "Waterkant",
-    "url": "https://www.waterkant.net/",
-    "country": "SR",
-    "category": "online",
-    "status": "discovery_blocked",
-    "discovery_strategy": "robots:first_sitemap",
-    "sitemap_url_used": "https://www.waterkant.net/sitemap_index.xml",
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
-    "site_id": "cambojanews",
-    "site_name": "CamboJA News",
-    "url": "https://cambojanews.com/",
-    "country": "KH",
-    "category": "online",
-    "status": "discovery_blocked",
-    "discovery_strategy": "robots:first_sitemap",
-    "sitemap_url_used": "https://cambojanews.com/sitemap_index.xml",
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
-    "site_id": "daily-news-tz",
-    "site_name": "Daily News",
-    "url": "https://dailynews.co.tz/",
-    "country": "TZ",
-    "category": "newspaper",
-    "status": "discovery_blocked",
-    "discovery_strategy": "fallback_needed",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "hondudiario",
     "site_name": "Hondudiario",
     "url": "https://www.hondudiario.com/",
@@ -7421,21 +7331,6 @@
     "cdn_breakdown": {
       "none": 10
     }
-  },
-  {
-    "site_id": "cambodia-daily-km",
-    "site_name": "Cambodia Daily (Khmer)",
-    "url": "https://www.cambodiadaily.com/",
-    "country": "KH",
-    "category": "online",
-    "status": "discovery_blocked",
-    "discovery_strategy": "robots:first_sitemap",
-    "sitemap_url_used": "https://www.cambodiadaily.com/sitemap_index.xml",
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
   },
   {
     "site_id": "corriere-della-sera",
@@ -7472,18 +7367,135 @@
     }
   },
   {
-    "site_id": "informante",
-    "site_name": "Informant\u00e9",
-    "url": "https://informante.web.na/",
-    "country": "NA",
+    "site_id": "khmer-times",
+    "site_name": "Khmer Times",
+    "url": "https://www.khmertimeskh.com/",
+    "country": "KH",
     "category": "newspaper",
-    "status": "unreachable",
-    "discovery_strategy": "unreachable",
+    "status": "discovery_blocked",
+    "discovery_strategy": "fallback_needed",
     "sitemap_url_used": null,
     "articles_sampled": 0,
     "images_analysed": 0,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {}
+  },
+  {
+    "site_id": "cambodia-daily-km",
+    "site_name": "Cambodia Daily (Khmer)",
+    "url": "https://www.cambodiadaily.com/",
+    "country": "KH",
+    "category": "online",
+    "status": "discovery_blocked",
+    "discovery_strategy": "robots:first_sitemap",
+    "sitemap_url_used": "https://www.cambodiadaily.com/sitemap_index.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "waterkant",
+    "site_name": "Waterkant",
+    "url": "https://www.waterkant.net/",
+    "country": "SR",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.waterkant.net/feed/",
+    "articles_sampled": 8,
+    "images_analysed": 8,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 8
+    }
+  },
+  {
+    "site_id": "cambojanews",
+    "site_name": "CamboJA News",
+    "url": "https://cambojanews.com/",
+    "country": "KH",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://cambojanews.com/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 10
+    }
+  },
+  {
+    "site_id": "daily-graphic",
+    "site_name": "Daily Graphic",
+    "url": "https://www.graphic.com.gh/",
+    "country": "GH",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.graphic.com.gh/news.feed?type=atom",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 20
+    }
+  },
+  {
+    "site_id": "daily-news-tz",
+    "site_name": "Daily News",
+    "url": "https://dailynews.co.tz/",
+    "country": "TZ",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://dailynews.co.tz/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 10
+    }
+  },
+  {
+    "site_id": "informante",
+    "site_name": "Informant\u00e9",
+    "url": "https://informante.web.na/",
+    "country": "NA",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://informante.web.na/?feed=rss2",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 10
+    }
+  },
+  {
+    "site_id": "corbeau-news",
+    "site_name": "Corbeau News Centrafrique",
+    "url": "https://corbeaunews-centrafrique.org/",
+    "country": "CF",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://corbeaunews-centrafrique.org/feed/",
+    "articles_sampled": 15,
+    "images_analysed": 15,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 40.0,
+    "cdn_breakdown": {
+      "none": 15
+    }
   }
 ]
