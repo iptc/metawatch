@@ -1,0 +1,61 @@
+country: TZ
+sites:
+- id: the-citizen-tz
+  name: The Citizen
+  url: https://www.thecitizen.co.tz/
+  homepage: https://www.thecitizen.co.tz/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.thecitizen.co.tz/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: daily-news-tz
+  name: Daily News
+  url: https://dailynews.co.tz/
+  homepage: https://dailynews.co.tz/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://dailynews.co.tz/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: habarileo
+  name: HabariLeo
+  url: https://habarileo.co.tz/
+  homepage: https://habarileo.co.tz/
+  category: newspaper
+  language_primary: sw
+  notes: 'BLOCKED — feed is correct but article pages 403 the US crawl runner (works from a normal IP). Needs residential/browser egress.'
+  suggested_by: BQ
+  active: false
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://habarileo.co.tz/feed/
+    js_required: true
+  sample:
+    max_articles: 20
+    window_days: 30

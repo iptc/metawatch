@@ -1,0 +1,41 @@
+country: AO
+sites:
+- id: folha8
+  name: Folha 8
+  url: https://jornalf8.net/
+  homepage: https://jornalf8.net/
+  category: online
+  language_primary: pt
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://jornalf8.net/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: expansao
+  name: Expansão
+  url: https://expansao.co.ao/
+  homepage: https://expansao.co.ao/
+  category: online
+  language_primary: pt
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://expansao.co.ao/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

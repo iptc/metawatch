@@ -1,0 +1,61 @@
+country: NA
+sites:
+- id: the-namibian
+  name: The Namibian
+  url: https://www.namibian.com.na/
+  homepage: https://www.namibian.com.na/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.namibian.com.na/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: windhoek-observer
+  name: Windhoek Observer
+  url: https://observer24.com.na/
+  homepage: https://observer24.com.na/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://observer24.com.na/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: informante
+  name: Informanté
+  url: https://informante.web.na/
+  homepage: https://informante.web.na/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://informante.web.na/?feed=rss2
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

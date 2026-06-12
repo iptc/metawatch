@@ -1,0 +1,61 @@
+country: BJ
+sites:
+- id: matin-libre
+  name: Matin Libre
+  url: https://matinlibre.com/
+  homepage: https://matinlibre.com/
+  category: online
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://matinlibre.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: la-nouvelle-tribune-bj
+  name: La Nouvelle Tribune
+  url: https://lanouvelletribune.info/
+  homepage: https://lanouvelletribune.info/
+  category: online
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://lanouvelletribune.info/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: beninwebtv
+  name: Benin Web TV
+  url: https://beninwebtv.com/
+  homepage: https://beninwebtv.com/
+  category: online
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://beninwebtv.com/feed.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

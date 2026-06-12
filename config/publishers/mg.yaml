@@ -1,0 +1,61 @@
+country: MG
+sites:
+- id: madagascar-tribune
+  name: Madagascar Tribune
+  url: https://www.madagascar-tribune.com/
+  homepage: https://www.madagascar-tribune.com/
+  category: newspaper
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.madagascar-tribune.com/spip.php?page=backend
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: lexpress-mada
+  name: L'Express de Madagascar
+  url: https://www.lexpress.mg/
+  homepage: https://www.lexpress.mg/
+  category: newspaper
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.lexpress.mg/feeds/posts/default
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: newsmada
+  name: Newsmada
+  url: https://newsmada.com/
+  homepage: https://newsmada.com/
+  category: online
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://newsmada.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

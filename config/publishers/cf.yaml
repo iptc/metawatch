@@ -1,0 +1,61 @@
+country: CF
+sites:
+- id: corbeau-news
+  name: Corbeau News Centrafrique
+  url: https://corbeaunews-centrafrique.org/
+  homepage: https://corbeaunews-centrafrique.org/
+  category: online
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://corbeaunews-centrafrique.org/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: oubangui-medias
+  name: Oubangui Médias
+  url: https://oubanguimedias.com/
+  homepage: https://oubanguimedias.com/
+  category: online
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://oubanguimedias.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: radio-ndeke-luka
+  name: Radio Ndeke Luka
+  url: https://www.radiondekeluka.org/
+  homepage: https://www.radiondekeluka.org/
+  category: broadcaster
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.radiondekeluka.org/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

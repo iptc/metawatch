@@ -1,0 +1,61 @@
+country: TD
+sites:
+- id: alwihda-info
+  name: Alwihda Info
+  url: https://www.alwihdainfo.com/
+  homepage: https://www.alwihdainfo.com/
+  category: online
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.alwihdainfo.com/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: tchadinfos
+  name: Tchadinfos
+  url: https://tchadinfos.com/
+  homepage: https://tchadinfos.com/
+  category: online
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://tchadinfos.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: le-pays-td
+  name: Le Pays
+  url: https://www.lepaystchad.com/
+  homepage: https://www.lepaystchad.com/
+  category: online
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.lepaystchad.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

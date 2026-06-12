@@ -1,0 +1,41 @@
+country: RW
+sites:
+- id: kt-press
+  name: KT Press
+  url: https://www.ktpress.rw/
+  homepage: https://www.ktpress.rw/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.ktpress.rw/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: the-chronicles-rw
+  name: The Chronicles
+  url: https://www.chronicles.rw/
+  homepage: https://www.chronicles.rw/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.chronicles.rw/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

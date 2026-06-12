@@ -1,0 +1,41 @@
+country: CD
+sites:
+- id: actualite-cd
+  name: Actualité.cd
+  url: https://actualite.cd/
+  homepage: https://actualite.cd/
+  category: online
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://actualite.cd/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: radio-okapi
+  name: Radio Okapi
+  url: https://www.radiookapi.net/
+  homepage: https://www.radiookapi.net/
+  category: broadcaster
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.radiookapi.net/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

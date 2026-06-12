@@ -1,0 +1,61 @@
+country: LY
+sites:
+- id: libya-herald
+  name: Libya Herald
+  url: https://libyaherald.com/
+  homepage: https://libyaherald.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://libyaherald.com/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: libya-review
+  name: Libya Review
+  url: https://libyareview.com/
+  homepage: https://libyareview.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://libyareview.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: al-marsad
+  name: Al Marsad
+  url: https://en.almarsad.co/
+  homepage: https://en.almarsad.co/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://en.almarsad.co/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

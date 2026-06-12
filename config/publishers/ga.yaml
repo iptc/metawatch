@@ -1,0 +1,61 @@
+country: GA
+sites:
+- id: gabon-review
+  name: Gabon Review
+  url: https://www.gabonreview.com/
+  homepage: https://www.gabonreview.com/
+  category: online
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.gabonreview.com/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: lunion-ga
+  name: L'Union
+  url: https://www.union.sonapresse.com/
+  homepage: https://www.union.sonapresse.com/
+  category: newspaper
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.union.sonapresse.com/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: gabonactu
+  name: Gabon Actu
+  url: https://gabonactu.com/
+  homepage: https://gabonactu.com/
+  category: online
+  language_primary: fr
+  notes: ''
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://gabonactu.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
