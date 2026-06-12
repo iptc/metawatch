@@ -76,3 +76,61 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: rta-afghanistan
+  name: Radio Television Afghanistan (RTA)
+  url: https://rta.af/
+  homepage: https://rta.af/
+  category: broadcaster
+  language_primary: ps
+  notes: State broadcaster. Added for the state-vs-independent metadata comparison.
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://rta.af/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: alemarah-iea
+  name: Islamic Emirate of Afghanistan - Alemarah
+  url: https://alemarah.af/
+  homepage: https://alemarah.af/
+  category: online
+  language_primary: ps
+  notes: Official Islamic Emirate (Taliban government) outlet. Feed 403s some clients but serves clean
+    RSS to the crawler UA (verified via discover()). State outlet.
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://alemarah.af/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: alemarah-english
+  name: Islamic Emirate of Afghanistan - Alemarah (English)
+  url: https://www.alemarahenglish.af/
+  homepage: https://www.alemarahenglish.af/
+  category: online
+  language_primary: en
+  notes: Official Islamic Emirate English edition. Serves clean RSS to the crawler UA. State outlet.
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.alemarahenglish.af/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

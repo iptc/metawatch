@@ -76,3 +76,22 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: xalq-sozi
+  name: Xalq So'zi (Narodnoe Slovo)
+  url: https://xs.uz/
+  homepage: https://xs.uz/
+  category: newspaper
+  language_primary: uz
+  notes: State daily (parliament/government organ). News-sitemap. Added for the state-vs-independent comparison.
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://xs.uz/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

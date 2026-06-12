@@ -76,3 +76,41 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: tdh-turkmenistan
+  name: TDH (Turkmen State News Agency)
+  url: https://tdh.gov.tm/
+  homepage: https://tdh.gov.tm/
+  category: news-agency
+  language_primary: ru
+  notes: State news agency (Turkmen Dowlet Habarlary). Added for the state-vs-independent metadata comparison.
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://tdh.gov.tm/ru/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: turkmenistan-golden-age
+  name: 'Turkmenistan: The Golden Age'
+  url: https://turkmenistan.gov.tm/
+  homepage: https://turkmenistan.gov.tm/
+  category: online
+  language_primary: ru
+  notes: Official government portal (.gov.tm). State outlet, for state-vs-independent comparison.
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://turkmenistan.gov.tm/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
