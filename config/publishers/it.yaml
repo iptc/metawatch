@@ -25,18 +25,17 @@ sites:
   homepage: https://www.corriere.it/
   category: newspaper
   language_primary: it
-  notes: 'STALE/EMPTY SURFACES (path-to-500 revisit): reachable (200), but the
-    RSS feed /rss/news.xml is frozen (newest entry Jan 2020) and sitemap.xml
-    has no <loc> children. Needs a live feed or news-sitemap (or homepage
-    scraping) before it will yield articles.'
+  notes: 'Live homepage RSS supplied by BQ (65 entries, fresh, article pages
+    fetch 200). Replaces the frozen /rss/news.xml (newest entry Jan 2020) and the
+    empty sitemap.xml that previously yielded nothing.'
   suggested_by: MS
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - http://xml2.corriereobjects.it/rss/homepage.xml
+    - https://xml2.corriereobjects.it/feed-hp/homepage-restyle-2025.xml
     js_required: false
   sample:
     max_articles: 20
