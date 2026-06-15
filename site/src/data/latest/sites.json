@@ -8495,5 +8495,69 @@
     "cdn_breakdown": {
       "cloudflare": 10
     }
+  },
+  {
+    "site_id": "ktrk",
+    "site_name": "KTRK (Kyrgyz Public Broadcaster)",
+    "url": "https://ktrk.kg/",
+    "country": "KG",
+    "category": "broadcaster",
+    "status": "unreachable",
+    "discovery_strategy": "unreachable",
+    "sitemap_url_used": "https://ktrk.kg/sitemap.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "ech-chaab",
+    "site_name": "Ech-Chaab",
+    "url": "https://www.echaab.dz/",
+    "country": "DZ",
+    "category": "newspaper",
+    "status": "unreachable",
+    "discovery_strategy": "unreachable",
+    "sitemap_url_used": "https://www.echaab.dz/sitemap_index.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "tengrinews-kz",
+    "site_name": "Tengrinews",
+    "url": "https://tengrinews.kz/",
+    "country": "KZ",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:sitemap",
+    "sitemap_url_used": "https://tengrinews.kz/sitemap-index.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 20
+    }
+  },
+  {
+    "site_id": "tengrinews-en",
+    "site_name": "Tengrinews (English)",
+    "url": "https://en.tengrinews.kz/",
+    "country": "KZ",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:sitemap",
+    "sitemap_url_used": "https://en.tengrinews.kz/en-sitemap-index.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 20
+    }
   }
 ]

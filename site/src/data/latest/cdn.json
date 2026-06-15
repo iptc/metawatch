@@ -3,7 +3,7 @@
     "cloudflare": 1951,
     "fastly": 733,
     "akamai": 1349,
-    "none": 1801,
+    "none": 1841,
     "cloudfront": 946,
     "bunny": 31
   },
@@ -16,9 +16,9 @@
     },
     {
       "provider": "none",
-      "images": 1801,
-      "stripped": 1491,
-      "pct_stripped": 82.8
+      "images": 1841,
+      "stripped": 1531,
+      "pct_stripped": 83.2
     },
     {
       "provider": "akamai",
