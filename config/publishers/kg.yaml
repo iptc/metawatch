@@ -76,3 +76,23 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: ktrk
+  name: KTRK (Kyrgyz Public Broadcaster)
+  url: https://ktrk.kg/
+  homepage: https://ktrk.kg/
+  category: broadcaster
+  language_primary: ru
+  notes: State broadcaster. Sitemap index. Drops connections from our EU test IP (RemoteProtocolError);
+    kept active so the US crawl records honest status. Added for the state-vs-independent comparison.
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://ktrk.kg/sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

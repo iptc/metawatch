@@ -76,3 +76,23 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: ech-chaab
+  name: Ech-Chaab
+  url: https://www.echaab.dz/
+  homepage: https://www.echaab.dz/
+  category: newspaper
+  language_primary: ar
+  notes: State-owned Arabic daily. Yoast sitemap index; now resolves via lastmod-sorted index recursion.
+    Added for the state-vs-independent comparison.
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.echaab.dz/sitemap_index.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
