@@ -98,11 +98,14 @@ sites:
   homepage: https://suspilne.media/
   category: broadcaster
   language_primary: uk
-  notes: 'Ukraine''s national PUBLIC broadcaster (UA:PBC / Suspilne Movlennia). Feed: rss/all.rss (200
-    entries, fresh). Suspilne holds a C2PA conformance certificate, but as of the 2026-06 spot-check neither
-    the delivered (CDN-resized) nor the full-resolution original news images carry a C2PA manifest or
-    any embedded IPTC/XMP metadata — capability, not yet live signing. A high-value site to watch for
-    a C2PA-deployment transition.'
+  notes: 'Ukraine''s national PUBLIC broadcaster (UA:PBC / Suspilne Movlennia). Kept active so the
+    status is recorded, but the US crawl runner gets blocked_by_waf: suspilne.media is behind
+    Cloudflare and returns HTTP 403 (server: cloudflare, cf-ray) to the datacenter IP, while the
+    rss/all.rss feed serves 200 fresh entries from a normal/EU IP. So we cannot measure their images
+    from the US runner. C2PA: Suspilne holds a C2PA conformance certificate, but a manual EU spot-check
+    (2026-06) found neither the delivered (CDN-resized) nor the full-resolution original news images
+    carry a C2PA manifest or any embedded IPTC/XMP — capability, not yet live signing. A high-value
+    site to watch on two axes: a C2PA-deployment transition, and the Cloudflare block easing.'
   suggested_by: BQ
   active: true
   discovery:
