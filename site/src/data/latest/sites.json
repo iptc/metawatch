@@ -5160,24 +5160,6 @@
     }
   },
   {
-    "site_id": "kyodo-news-japanese",
-    "site_name": "Kyodo News (\u65e5\u672c\u8a9e)",
-    "url": "https://www.kyodo.co.jp/",
-    "country": "JP",
-    "category": "news-agency",
-    "status": "ok",
-    "discovery_strategy": "html:rss_link",
-    "sitemap_url_used": "https://www.kyodo.co.jp/feed/",
-    "articles_sampled": 10,
-    "images_analysed": 9,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "none": 1,
-      "cloudfront": 8
-    }
-  },
-  {
     "site_id": "zakzak",
     "site_name": "zakzak",
     "url": "http://www.zakzak.co.jp/",

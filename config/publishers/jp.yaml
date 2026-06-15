@@ -373,9 +373,13 @@ sites:
   homepage: https://www.kyodo.co.jp/
   category: news-agency
   language_primary: ja
-  notes: ''
+  notes: 'DEACTIVATED — corporate feed, not news. www.kyodo.co.jp/feed/ is the
+    Kyodo PR Wire (paid corporate press-release distribution): entries are
+    company announcements (product adoptions, exhibitions, auction results),
+    not journalism. Kyodo''s actual reporting is covered by the active
+    kyodo-news-english entry; no public Japanese-language news feed found.'
   suggested_by: BQ
-  active: true
+  active: false
   discovery:
     strategy: rss
     sitemap_urls: []
