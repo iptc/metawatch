@@ -4571,21 +4571,6 @@
     }
   },
   {
-    "site_id": "the-wire-india",
-    "site_name": "The Wire",
-    "url": "https://thewire.in/",
-    "country": "IN",
-    "category": "online",
-    "status": "discovery_blocked",
-    "discovery_strategy": "fallback_needed",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "news18",
     "site_name": "News18",
     "url": "https://www.news18.com/",
@@ -8560,5 +8545,20 @@
     "cdn_breakdown": {
       "none": 20
     }
+  },
+  {
+    "site_id": "the-wire-india",
+    "site_name": "The Wire",
+    "url": "https://thewire.in/",
+    "country": "IN",
+    "category": "online",
+    "status": "blocked_by_waf",
+    "discovery_strategy": "fallback_needed",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
   }
 ]
