@@ -7888,21 +7888,6 @@
     }
   },
   {
-    "site_id": "el-watan",
-    "site_name": "El Watan",
-    "url": "https://elwatan.dz/",
-    "country": "DZ",
-    "category": "newspaper",
-    "status": "discovery_parse_error",
-    "discovery_strategy": "robots:first_sitemap",
-    "sitemap_url_used": "https://elwatan.dz/sitemap_index.xml",
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "el-khabar",
     "site_name": "El Khabar",
     "url": "https://www.elkhabar.com/",
@@ -8575,5 +8560,20 @@
     "cdn_breakdown": {
       "none": 20
     }
+  },
+  {
+    "site_id": "el-watan",
+    "site_name": "El Watan",
+    "url": "https://elwatan.dz/",
+    "country": "DZ",
+    "category": "newspaper",
+    "status": "discovery_parse_error",
+    "discovery_strategy": "robots:first_sitemap",
+    "sitemap_url_used": "https://elwatan.dz/sitemap_index.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
   }
 ]
