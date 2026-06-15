@@ -63,9 +63,16 @@ sites:
   homepage: https://elwatan.dz/
   category: newspaper
   language_primary: fr
-  notes: ''
+  notes: 'DEACTIVATED — WAF blocks the US crawl runner. elwatan.dz (server:
+    DZ-HTTP) serves datacenter IPs an HTML challenge page (HTTP 200, text/html)
+    instead of the RSS feed; the crawler parses the HTML, gets 0 entries, falls
+    back, and the fallback sitemap (also HTML) produced the run''s single
+    discovery_parse_error. The feed is correct and works from a normal/EU IP
+    (20 entries). No alternative: elwatan.com is defunct, elwatan-dz.com
+    redirects to the same WAF. Confirmed via debug-fetch (US runner 20.163.4.33).
+    DZ French coverage stays via tsa-algerie. Reactivate if the IP block lifts.'
   suggested_by: BQ
-  active: true
+  active: false
   discovery:
     strategy: rss
     sitemap_urls: []
