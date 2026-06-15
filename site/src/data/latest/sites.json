@@ -6917,23 +6917,6 @@
     }
   },
   {
-    "site_id": "anadolu-agency",
-    "site_name": "Anadolu Agency",
-    "url": "https://www.aa.com.tr/en",
-    "country": "TR",
-    "category": "news-agency",
-    "status": "ok",
-    "discovery_strategy": "config:rss",
-    "sitemap_url_used": "https://www.aa.com.tr/en/rss/default?cat=guncel",
-    "articles_sampled": 8,
-    "images_analysed": 4,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "none": 4
-    }
-  },
-  {
     "site_id": "cumhuriyet",
     "site_name": "Cumhuriyet",
     "url": "https://www.cumhuriyet.com.tr/",
@@ -8574,6 +8557,23 @@
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "none": 10
+    }
+  },
+  {
+    "site_id": "anadolu-agency",
+    "site_name": "Anadolu Agency",
+    "url": "https://www.aa.com.tr/tr",
+    "country": "TR",
+    "category": "news-agency",
+    "status": "ok",
+    "discovery_strategy": "html:rss_link",
+    "sitemap_url_used": "https://www.aa.com.tr/tr/rss/",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 20
     }
   }
 ]
