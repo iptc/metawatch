@@ -247,8 +247,7 @@ sites:
     strategy: sitemap
     sitemap_urls: []
     picture_sitemap_url: null
-    rss_urls:
-    - http://feeds.reuters.com/reuters/UKTopNews
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

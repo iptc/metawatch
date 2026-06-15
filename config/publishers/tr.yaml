@@ -59,18 +59,21 @@ sites:
     window_days: 30
 - id: anadolu-agency
   name: Anadolu Agency
-  url: https://www.aa.com.tr/en
-  homepage: https://www.aa.com.tr/en
+  url: https://www.aa.com.tr/tr
+  homepage: https://www.aa.com.tr/tr
   category: news-agency
   language_primary: tr
-  notes: ''
+  notes: 'Switched from the English feed to the Turkish one (cat=guncel) to match
+    language_primary: tr and the prefer-local-language policy. TR feed verified:
+    20 candidates, article fetch 200. (The EN feed also works; the earlier
+    "errored" reading was a transient blip.)'
   active: true
   discovery:
     strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.aa.com.tr/en/rss/default?cat=guncel
+    - https://www.aa.com.tr/tr/rss/default?cat=guncel
     js_required: false
   sample:
     max_articles: 20
