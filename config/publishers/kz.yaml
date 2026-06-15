@@ -56,3 +56,61 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: nur-kz
+  name: NUR.KZ
+  url: https://www.nur.kz/
+  homepage: https://www.nur.kz/
+  category: online
+  language_primary: ru
+  notes: Large mass-market general news portal.
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.nur.kz/rss/all.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: orda-kz
+  name: Orda.kz
+  url: https://orda.kz/
+  homepage: https://orda.kz/
+  category: online
+  language_primary: ru
+  notes: Independent outlet — counterpart to state press for the comparison.
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://orda.kz/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: egemen-qazaqstan
+  name: Egemen Qazaqstan
+  url: https://egemen.kz/
+  homepage: https://egemen.kz/
+  category: newspaper
+  language_primary: kk
+  notes: State-owned Kazakh-language daily. Covers both the local-language and state sides of the state-vs-independent
+    comparison.
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://egemen.kz/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
