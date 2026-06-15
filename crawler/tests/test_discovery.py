@@ -106,3 +106,63 @@ def test_strip_tracking_params_keeps_meaningful_query():
 def test_strip_tracking_params_noop_without_query():
     from pmd_crawler.discovery import strip_tracking_params
     assert strip_tracking_params("https://example.com/a/b") == "https://example.com/a/b"
+
+
+# --- WAF detection (blocked_by_waf status) ---
+import httpx
+from pmd_crawler.discovery import _detect_waf, status_for_empty_discovery
+
+
+def _resp(status, headers=None, body=b""):
+    return httpx.Response(status_code=status, headers=headers or {}, content=body)
+
+
+def test_detect_waf_cloudflare_just_a_moment_body():
+    r = _resp(403, {"content-type": "text/html"}, b"<title>Just a moment...</title>")
+    assert _detect_waf(r) == "cloudflare"
+
+
+def test_detect_waf_cloudflare_header_on_refusal():
+    # cf-ray header on a 403 is a block even without a body marker.
+    r = _resp(403, {"cf-ray": "8a1b2c", "content-type": "text/html"}, b"<html>blocked</html>")
+    assert _detect_waf(r) == "cloudflare"
+
+
+def test_detect_waf_akamai_header_refusal():
+    r = _resp(403, {"server": "AkamaiGHost", "content-type": "text/html"},
+              b"<h1>Access Denied</h1> Reference&#32;#18.abcd")
+    assert _detect_waf(r) == "akamai"
+
+
+def test_detect_waf_datadome_header():
+    r = _resp(403, {"x-datadome": "protected", "content-type": "text/html"}, b"datadome")
+    assert _detect_waf(r) == "datadome"
+
+
+def test_detect_waf_soft_404_html_is_not_waf():
+    # A catch-all homepage / soft-404 returns 200 text/html for an unknown feed
+    # URL. No vendor header, no challenge marker -> NOT a WAF (user's point).
+    r = _resp(200, {"content-type": "text/html"},
+              b"<!DOCTYPE html><html><head><title>Home</title></head><body>Welcome</body></html>")
+    assert _detect_waf(r) is None
+
+
+def test_detect_waf_generic_403_without_fingerprint_is_not_waf():
+    # A bare 403 with no vendor header and no challenge body stays http_error.
+    r = _resp(403, {"content-type": "text/plain"}, b"Forbidden")
+    assert _detect_waf(r) is None
+
+
+def test_detect_waf_cloudflare_fronted_200_feed_is_not_block():
+    # A real RSS feed served *through* Cloudflare (cf-ray present, 200 OK) must
+    # not be flagged — only refusals/challenges are.
+    r = _resp(200, {"cf-ray": "8a1b2c", "content-type": "application/rss+xml"},
+              b"<?xml version='1.0'?><rss><channel><title>News</title></channel></rss>")
+    assert _detect_waf(r) is None
+
+
+def test_status_for_empty_discovery_maps_waf():
+    assert status_for_empty_discovery("config:rss", "waf_blocked") == "blocked_by_waf"
+    # Non-WAF kinds are unchanged.
+    assert status_for_empty_discovery("config:rss", "http_error") == "discovery_blocked"
+    assert status_for_empty_discovery("config:sitemap", "parse_error") == "discovery_parse_error"

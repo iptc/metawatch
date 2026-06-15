@@ -32,6 +32,80 @@ SITEMAP_NS = {
     "image": "http://www.google.com/schemas/sitemap-image/1.1",
 }
 
+# WAF / bot-management challenge fingerprints. We flag ``waf_blocked`` only on a
+# POSITIVE signature: a vendor header paired with a refusal status, or a body
+# marker specific to a challenge interstitial. We deliberately do NOT treat
+# "got HTML when we expected XML" as a signal — a soft-404 or a catch-all
+# homepage redirect returns HTML for an unknown feed URL too, and that isn't a
+# block. Body markers are lowercased substrings unique enough that ordinary
+# article content won't contain them.
+_WAF_BODY_MARKERS: dict[str, tuple[str, ...]] = {
+    "cloudflare": (
+        "just a moment", "attention required! | cloudflare", "cf-browser-verification",
+        "challenge-platform", "cf_chl_opt", "checking if the site connection is secure",
+    ),
+    "datadome": ("datadome", "captcha-delivery.com"),
+    "imperva": ("_incapsula_resource", "incapsula incident id", "powered by incapsula"),
+    "sucuri": ("sucuri website firewall", "access denied - sucuri website firewall"),
+    # "access denied" is too generic to stand alone; only trusted with the header.
+    "akamai": ("access denied", "reference&#32;#"),
+}
+_WAF_REFUSAL_CODES = frozenset({401, 403, 429, 503})
+
+
+def _detect_waf(resp: httpx.Response) -> str | None:
+    """Return the WAF/bot-management vendor if ``resp`` is a recognizable block
+    or challenge, else None.
+
+    Precision over recall — a signal requires either (a) a vendor header on a
+    refusal response (or with that vendor's body marker), or (b) a
+    challenge-page body marker unique to a vendor. A generic HTML body, a bare
+    status code, or a feed merely *fronted* by a CDN does not qualify.
+    Connection resets and plain timeouts carry no response, so they can't be
+    attributed here and remain ``network_error`` → ``unreachable``.
+    """
+    h = resp.headers
+    server = (h.get("server") or "").lower()
+    refusal = resp.status_code in _WAF_REFUSAL_CODES
+
+    has_cf = "cf-ray" in h or "cf-mitigated" in h or "cloudflare" in server
+    has_dd = "x-datadome" in h or "x-dd-b" in h
+    has_ak = "akamaighost" in server or "x-akamai-transformed" in h
+    has_imp = "x-iinfo" in h or "incapsula" in (h.get("x-cdn") or "").lower()
+    has_suc = "x-sucuri-id" in h or "x-sucuri-block" in h
+    any_vendor_hdr = has_cf or has_dd or has_ak or has_imp or has_suc
+
+    # Sucuri's block header is unambiguous on its own.
+    if has_suc:
+        return "sucuri"
+
+    # Only pay to decode the body when there's a reason to suspect a challenge.
+    body = ""
+    if any_vendor_hdr or refusal or "html" in (h.get("content-type") or "").lower():
+        try:
+            body = resp.text[:4000].lower()
+        except Exception:
+            body = ""
+
+    def _marker(vendor: str) -> bool:
+        return any(m in body for m in _WAF_BODY_MARKERS[vendor])
+
+    if has_cf and (refusal or _marker("cloudflare")):
+        return "cloudflare"
+    if has_dd and (refusal or _marker("datadome")):
+        return "datadome"
+    if has_ak and (refusal or _marker("akamai")):
+        return "akamai"
+    if has_imp and (refusal or _marker("imperva")):
+        return "imperva"
+    # Body markers with no vendor header — specific enough to stand alone, so a
+    # proxied or relabeled WAF is still caught. "akamai" excluded: its only
+    # marker ("access denied") is too generic without the header.
+    for vendor in ("cloudflare", "datadome", "imperva", "sucuri"):
+        if _marker(vendor):
+            return vendor
+    return None
+
 
 @dataclass
 class RobotsDecision:
@@ -222,7 +296,7 @@ async def _walk_sitemap(
     except Exception:
         return [], "network_error"
     if r.status_code >= 400:
-        return [], "http_error"
+        return [], ("waf_blocked" if _detect_waf(r) else "http_error")
 
     body = r.content
     # Some sites serve .xml.gz sitemaps without setting Content-Encoding,
@@ -242,7 +316,7 @@ async def _walk_sitemap(
     try:
         root = etree.fromstring(body)
     except etree.XMLSyntaxError:
-        return [], "parse_error"
+        return [], ("waf_blocked" if _detect_waf(r) else "parse_error")
 
     tag = etree.QName(root.tag).localname
 
@@ -462,8 +536,10 @@ async def _fetch_rss_once(
     if r.status_code >= 400:
         ct = (r.headers.get("content-type") or "").split(";")[0].strip()
         snippet = r.text[:120].replace("\n", " ").replace("\r", "")
-        _console.print(f"  {tag} http {r.status_code} {feed_url}  ct={ct!r}  body={snippet!r}")
-        return [], "http_error"
+        waf = _detect_waf(r)
+        kind = "waf_blocked" if waf else "http_error"
+        _console.print(f"  {tag} {kind}{f' ({waf})' if waf else ''} {r.status_code} {feed_url}  ct={ct!r}  body={snippet!r}")
+        return [], kind
     if not r.content:
         _console.print(f"  {tag} parse_error {feed_url}  (empty body, status {r.status_code})")
         return [], "parse_error"
@@ -472,10 +548,13 @@ async def _fetch_rss_once(
         ct = (r.headers.get("content-type") or "").split(";")[0].strip()
         snippet = r.text[:120].replace("\n", " ").replace("\r", "")
         bozo = getattr(parsed, "bozo_exception", None)
+        waf = _detect_waf(r)
+        kind = "waf_blocked" if waf else "parse_error"
         _console.print(
-            f"  {tag} parse_error {feed_url}  ct={ct!r}  bozo={type(bozo).__name__ if bozo else '?'}  body={snippet!r}"
+            f"  {tag} {kind}{f' ({waf})' if waf else ''} {feed_url}  ct={ct!r}  "
+            f"bozo={type(bozo).__name__ if bozo else '?'}  body={snippet!r}"
         )
-        return [], "parse_error"
+        return [], kind
 
     cutoff = datetime.now(UTC) - timedelta(days=window_days)
     out: list[ArticleCandidate] = []
@@ -616,6 +695,8 @@ def status_for_empty_discovery(strategy: str, discovery_error: str | None) -> st
     """
     if strategy == "unreachable":
         return "unreachable"
+    if discovery_error == "waf_blocked":
+        return "blocked_by_waf"
     if discovery_error == "http_error":
         return "discovery_blocked"
     if discovery_error == "parse_error":
@@ -635,9 +716,10 @@ async def discover(
     Returns (robots, source_url, strategy, articles, discovery_error).
 
     discovery_error is the error kind from the last attempted source when
-    no articles were harvested — one of "http_error", "parse_error",
-    "network_error", or None. Lets callers distinguish "the source 4xx'd"
-    from "the source was reachable but had no candidates in window",
+    no articles were harvested — one of "waf_blocked" (a recognized WAF/bot
+    challenge), "http_error", "parse_error", "network_error", or None. Lets
+    callers distinguish "the source 4xx'd" from "the source was reachable but
+    had no candidates in window",
     which look identical to the user otherwise.
 
     Source priority — first to yield >=1 article wins:
