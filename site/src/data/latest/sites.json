@@ -1656,6 +1656,23 @@
     }
   },
   {
+    "site_id": "rio-times",
+    "site_name": "Rio Times",
+    "url": "https://riotimesonline.com/",
+    "country": "BR",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://riotimesonline.com/feed",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 2.5,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudflare": 10
+    }
+  },
+  {
     "site_id": "radio-okapi",
     "site_name": "Radio Okapi",
     "url": "https://www.radiookapi.net/",
@@ -2040,21 +2057,6 @@
     }
   },
   {
-    "site_id": "bdnews24",
-    "site_name": "BDNews24",
-    "url": "https://bdnews24.com/",
-    "country": "BD",
-    "category": "newspaper",
-    "status": "discovery_blocked",
-    "discovery_strategy": "config:sitemap",
-    "sitemap_url_used": "https://bdnews24.com/news_sitemap.xml",
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "the-australian",
     "site_name": "The Australian",
     "url": "https://www.theaustralian.com.au/",
@@ -2136,21 +2138,6 @@
     }
   },
   {
-    "site_id": "trud-bg",
-    "site_name": "\u0414\u043d\u0435\u0432\u0435\u043d \u0422\u0440\u0443\u0434",
-    "url": "https://trud.bg/",
-    "country": "BG",
-    "category": "newspaper",
-    "status": "discovery_blocked",
-    "discovery_strategy": "fallback_needed",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "the-age",
     "site_name": "The Age",
     "url": "https://www.theage.com.au/",
@@ -2219,21 +2206,6 @@
     }
   },
   {
-    "site_id": "novinite",
-    "site_name": "Novinite (Sofia News Agency)",
-    "url": "https://www.novinite.com/",
-    "country": "BG",
-    "category": "news-agency",
-    "status": "discovery_blocked",
-    "discovery_strategy": "fallback_needed",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "het-nieuwsblad",
     "site_name": "Het Nieuwsblad",
     "url": "https://www.nieuwsblad.be/",
@@ -2300,21 +2272,6 @@
     "cdn_breakdown": {
       "none": 9
     }
-  },
-  {
-    "site_id": "rio-times",
-    "site_name": "Rio Times",
-    "url": "https://riotimesonline.com/",
-    "country": "BR",
-    "category": "newspaper",
-    "status": "discovery_blocked",
-    "discovery_strategy": "fallback_needed",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
   },
   {
     "site_id": "opinion-bo",
@@ -2962,21 +2919,6 @@
     }
   },
   {
-    "site_id": "the-local",
-    "site_name": "The Local",
-    "url": "http://www.thelocal.de/",
-    "country": "DE",
-    "category": "newspaper",
-    "status": "discovery_blocked",
-    "discovery_strategy": "fallback_needed",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "frankfurter-rundschau",
     "site_name": "Frankfurter Rundschau",
     "url": "http://www.fr.de/",
@@ -3454,21 +3396,6 @@
     }
   },
   {
-    "site_id": "efe",
-    "site_name": "Agencia EFE",
-    "url": "https://efe.com/",
-    "country": "ES",
-    "category": "news-agency",
-    "status": "discovery_blocked",
-    "discovery_strategy": "config:sitemap",
-    "sitemap_url_used": "https://efe.com/news-sitemap.xml",
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "el-comercio-ec",
     "site_name": "El Comercio (Ecuador)",
     "url": "https://www.elcomercio.com/",
@@ -3897,21 +3824,6 @@
     "discovery_strategy": "config:sitemap",
     "sitemap_url_used": "https://www.ft.com/sitemaps/news.xml",
     "articles_sampled": 20,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
-    "site_id": "new-statesman",
-    "site_name": "New Statesman",
-    "url": "https://www.newstatesman.com/",
-    "country": "GB",
-    "category": "newspaper",
-    "status": "discovery_blocked",
-    "discovery_strategy": "fallback_needed",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
     "images_analysed": 0,
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
@@ -4947,21 +4859,6 @@
     }
   },
   {
-    "site_id": "the-tokyo-reporter",
-    "site_name": "The Tokyo Reporter",
-    "url": "https://www.tokyoreporter.com/",
-    "country": "JP",
-    "category": "broadcaster",
-    "status": "discovery_blocked",
-    "discovery_strategy": "robots:first_sitemap",
-    "sitemap_url_used": "https://www.tokyoreporter.com/sitemap.xml",
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "mainichi-shimbun",
     "site_name": "Mainichi Shimbun (\u6bce\u65e5\u65b0\u805e)",
     "url": "https://mainichi.jp/",
@@ -5454,51 +5351,6 @@
     }
   },
   {
-    "site_id": "malta-today",
-    "site_name": "Malta Today",
-    "url": "https://www.maltatoday.com.mt/",
-    "country": "MT",
-    "category": "newspaper",
-    "status": "discovery_blocked",
-    "discovery_strategy": "fallback_needed",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
-    "site_id": "the-malta-independent",
-    "site_name": "The Malta Independent",
-    "url": "http://www.independent.com.mt/",
-    "country": "MT",
-    "category": "newspaper",
-    "status": "discovery_blocked",
-    "discovery_strategy": "fallback_needed",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
-    "site_id": "times-of-malta",
-    "site_name": "Times of Malta",
-    "url": "https://www.timesofmalta.com/",
-    "country": "MT",
-    "category": "newspaper",
-    "status": "discovery_blocked",
-    "discovery_strategy": "config:sitemap",
-    "sitemap_url_used": "https://timesofmalta.com/sitemap_latest.xml",
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "diario",
     "site_name": "Diario",
     "url": "https://diario.mx/",
@@ -5728,21 +5580,6 @@
     }
   },
   {
-    "site_id": "the-nation",
-    "site_name": "The Nation",
-    "url": "https://thenationonlineng.net/",
-    "country": "NG",
-    "category": "newspaper",
-    "status": "discovery_blocked",
-    "discovery_strategy": "no_sitemap",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "de-telegraaf",
     "site_name": "De Telegraaf",
     "url": "https://www.telegraaf.nl/",
@@ -5826,21 +5663,6 @@
     "cdn_breakdown": {
       "akamai": 15
     }
-  },
-  {
-    "site_id": "rnz",
-    "site_name": "Radio New Zealand (RNZ)",
-    "url": "https://www.rnz.co.nz/",
-    "country": "NZ",
-    "category": "broadcaster",
-    "status": "discovery_blocked",
-    "discovery_strategy": "fallback_needed",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
   },
   {
     "site_id": "dagbladet",
@@ -5944,21 +5766,6 @@
     "cdn_breakdown": {
       "cloudfront": 20
     }
-  },
-  {
-    "site_id": "manila-bulletin",
-    "site_name": "Manila Bulletin",
-    "url": "https://mb.com.ph/",
-    "country": "PH",
-    "category": "newspaper",
-    "status": "discovery_blocked",
-    "discovery_strategy": "fallback_needed",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
   },
   {
     "site_id": "post-courier",
@@ -6093,21 +5900,6 @@
     "cdn_breakdown": {
       "akamai": 20
     }
-  },
-  {
-    "site_id": "jornal-de-not-cias",
-    "site_name": "Jornal de Not\u00edcias",
-    "url": "https://www.jn.pt/",
-    "country": "PT",
-    "category": "newspaper",
-    "status": "discovery_blocked",
-    "discovery_strategy": "robots:news_sitemap",
-    "sitemap_url_used": "https://www.jn.pt/feed/news/sitemap.xml",
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
   },
   {
     "site_id": "gazeta-wyborcza",
@@ -6564,21 +6356,6 @@
     "cdn_breakdown": {
       "none": 20
     }
-  },
-  {
-    "site_id": "sta",
-    "site_name": "Slovenska tiskovna agencija (STA)",
-    "url": "https://www.sta.si/",
-    "country": "SI",
-    "category": "news-agency",
-    "status": "discovery_blocked",
-    "discovery_strategy": "fallback_needed",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
   },
   {
     "site_id": "nov-as",
@@ -7159,21 +6936,6 @@
     }
   },
   {
-    "site_id": "quartz",
-    "site_name": "Quartz",
-    "url": "https://qz.com/",
-    "country": "US",
-    "category": "newspaper",
-    "status": "discovery_blocked",
-    "discovery_strategy": "config:sitemap",
-    "sitemap_url_used": "https://qz.com/sitemap.xml",
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "chicago-tribune",
     "site_name": "Chicago Tribune",
     "url": "https://www.chicagotribune.com/",
@@ -7538,36 +7300,6 @@
     "cdn_breakdown": {
       "none": 10
     }
-  },
-  {
-    "site_id": "khmer-times",
-    "site_name": "Khmer Times",
-    "url": "https://www.khmertimeskh.com/",
-    "country": "KH",
-    "category": "newspaper",
-    "status": "discovery_blocked",
-    "discovery_strategy": "fallback_needed",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
-    "site_id": "cambodia-daily-km",
-    "site_name": "Cambodia Daily (Khmer)",
-    "url": "https://www.cambodiadaily.com/",
-    "country": "KH",
-    "category": "online",
-    "status": "discovery_blocked",
-    "discovery_strategy": "robots:first_sitemap",
-    "sitemap_url_used": "https://www.cambodiadaily.com/sitemap_index.xml",
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
   },
   {
     "site_id": "waterkant",
@@ -8027,21 +7759,6 @@
     }
   },
   {
-    "site_id": "avesta",
-    "site_name": "Avesta",
-    "url": "https://avesta.tj/",
-    "country": "TJ",
-    "category": "online",
-    "status": "discovery_blocked",
-    "discovery_strategy": "fallback_needed",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "jornal-noticias-mz",
     "site_name": "Jornal Not\u00edcias",
     "url": "https://www.jornalnoticias.co.mz/",
@@ -8176,21 +7893,6 @@
     }
   },
   {
-    "site_id": "zambia-news-diggers",
-    "site_name": "News Diggers!",
-    "url": "https://diggers.news/",
-    "country": "ZM",
-    "category": "online",
-    "status": "discovery_blocked",
-    "discovery_strategy": "robots:first_sitemap",
-    "sitemap_url_used": "https://diggers.news/wp-sitemap.xml",
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "jornal-domingo-mz",
     "site_name": "Jornal Domingo",
     "url": "https://www.jornaldomingo.co.mz/",
@@ -8215,21 +7917,6 @@
     "category": "online",
     "status": "robots_disallow",
     "discovery_strategy": "robots_disallow",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
-    "site_id": "herald-zimbabwe",
-    "site_name": "The Herald",
-    "url": "https://www.heraldonline.co.zw/",
-    "country": "ZW",
-    "category": "newspaper",
-    "status": "discovery_blocked",
-    "discovery_strategy": "fallback_needed",
     "sitemap_url_used": null,
     "articles_sampled": 0,
     "images_analysed": 0,
@@ -8365,36 +8052,6 @@
     "status": "timeout",
     "discovery_strategy": "timeout",
     "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
-    "site_id": "xalq-sozi",
-    "site_name": "Xalq So'zi (Narodnoe Slovo)",
-    "url": "https://xs.uz/",
-    "country": "UZ",
-    "category": "newspaper",
-    "status": "discovery_blocked",
-    "discovery_strategy": "config:sitemap",
-    "sitemap_url_used": "https://xs.uz/news-sitemap.xml",
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
-    "site_id": "rta-afghanistan",
-    "site_name": "Radio Television Afghanistan (RTA)",
-    "url": "https://rta.af/",
-    "country": "AF",
-    "category": "broadcaster",
-    "status": "discovery_blocked",
-    "discovery_strategy": "robots:first_sitemap",
-    "sitemap_url_used": "https://rta.af/sitemap_index.xml",
     "articles_sampled": 0,
     "images_analysed": 0,
     "mean_iptc_score": 0.0,
@@ -8545,5 +8202,354 @@
     "mean_iptc_score": 0.0,
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {}
+  },
+  {
+    "site_id": "trud-bg",
+    "site_name": "\u0414\u043d\u0435\u0432\u0435\u043d \u0422\u0440\u0443\u0434",
+    "url": "https://trud.bg/",
+    "country": "BG",
+    "category": "newspaper",
+    "status": "blocked_by_waf",
+    "discovery_strategy": "fallback_needed",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "bdnews24",
+    "site_name": "BDNews24",
+    "url": "https://bdnews24.com/",
+    "country": "BD",
+    "category": "newspaper",
+    "status": "blocked_by_waf",
+    "discovery_strategy": "config:sitemap",
+    "sitemap_url_used": "https://bdnews24.com/news_sitemap.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "khmer-times",
+    "site_name": "Khmer Times",
+    "url": "https://www.khmertimeskh.com/",
+    "country": "KH",
+    "category": "newspaper",
+    "status": "blocked_by_waf",
+    "discovery_strategy": "fallback_needed",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "novinite",
+    "site_name": "Novinite (Sofia News Agency)",
+    "url": "https://www.novinite.com/",
+    "country": "BG",
+    "category": "news-agency",
+    "status": "blocked_by_waf",
+    "discovery_strategy": "fallback_needed",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "malta-today",
+    "site_name": "Malta Today",
+    "url": "https://www.maltatoday.com.mt/",
+    "country": "MT",
+    "category": "newspaper",
+    "status": "blocked_by_waf",
+    "discovery_strategy": "fallback_needed",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "rta-afghanistan",
+    "site_name": "Radio Television Afghanistan (RTA)",
+    "url": "https://rta.af/",
+    "country": "AF",
+    "category": "broadcaster",
+    "status": "blocked_by_waf",
+    "discovery_strategy": "robots:first_sitemap",
+    "sitemap_url_used": "https://rta.af/sitemap_index.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "the-malta-independent",
+    "site_name": "The Malta Independent",
+    "url": "http://www.independent.com.mt/",
+    "country": "MT",
+    "category": "newspaper",
+    "status": "blocked_by_waf",
+    "discovery_strategy": "fallback_needed",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "times-of-malta",
+    "site_name": "Times of Malta",
+    "url": "https://www.timesofmalta.com/",
+    "country": "MT",
+    "category": "newspaper",
+    "status": "blocked_by_waf",
+    "discovery_strategy": "config:sitemap",
+    "sitemap_url_used": "https://timesofmalta.com/sitemap_latest.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "the-nation",
+    "site_name": "The Nation",
+    "url": "https://thenationonlineng.net/",
+    "country": "NG",
+    "category": "newspaper",
+    "status": "blocked_by_waf",
+    "discovery_strategy": "no_sitemap",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "the-tokyo-reporter",
+    "site_name": "The Tokyo Reporter",
+    "url": "https://www.tokyoreporter.com/",
+    "country": "JP",
+    "category": "broadcaster",
+    "status": "blocked_by_waf",
+    "discovery_strategy": "robots:first_sitemap",
+    "sitemap_url_used": "https://www.tokyoreporter.com/sitemap.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "new-statesman",
+    "site_name": "New Statesman",
+    "url": "https://www.newstatesman.com/",
+    "country": "GB",
+    "category": "newspaper",
+    "status": "discovery_blocked",
+    "discovery_strategy": "fallback_needed",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "jornal-de-not-cias",
+    "site_name": "Jornal de Not\u00edcias",
+    "url": "https://www.jn.pt/",
+    "country": "PT",
+    "category": "newspaper",
+    "status": "discovery_blocked",
+    "discovery_strategy": "robots:news_sitemap",
+    "sitemap_url_used": "https://www.jn.pt/feed/news/sitemap.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "sta",
+    "site_name": "Slovenska tiskovna agencija (STA)",
+    "url": "https://www.sta.si/",
+    "country": "SI",
+    "category": "news-agency",
+    "status": "blocked_by_waf",
+    "discovery_strategy": "fallback_needed",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "quartz",
+    "site_name": "Quartz",
+    "url": "https://qz.com/",
+    "country": "US",
+    "category": "newspaper",
+    "status": "blocked_by_waf",
+    "discovery_strategy": "config:sitemap",
+    "sitemap_url_used": "https://qz.com/sitemap.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "avesta",
+    "site_name": "Avesta",
+    "url": "https://avesta.tj/",
+    "country": "TJ",
+    "category": "online",
+    "status": "blocked_by_waf",
+    "discovery_strategy": "fallback_needed",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "xalq-sozi",
+    "site_name": "Xalq So'zi (Narodnoe Slovo)",
+    "url": "https://xs.uz/",
+    "country": "UZ",
+    "category": "newspaper",
+    "status": "blocked_by_waf",
+    "discovery_strategy": "config:sitemap",
+    "sitemap_url_used": "https://xs.uz/news-sitemap.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "rnz",
+    "site_name": "Radio New Zealand (RNZ)",
+    "url": "https://www.rnz.co.nz/",
+    "country": "NZ",
+    "category": "broadcaster",
+    "status": "discovery_blocked",
+    "discovery_strategy": "fallback_needed",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "herald-zimbabwe",
+    "site_name": "The Herald",
+    "url": "https://www.heraldonline.co.zw/",
+    "country": "ZW",
+    "category": "newspaper",
+    "status": "blocked_by_waf",
+    "discovery_strategy": "fallback_needed",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "manila-bulletin",
+    "site_name": "Manila Bulletin",
+    "url": "https://mb.com.ph/",
+    "country": "PH",
+    "category": "newspaper",
+    "status": "discovery_blocked",
+    "discovery_strategy": "fallback_needed",
+    "sitemap_url_used": null,
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "zambia-news-diggers",
+    "site_name": "News Diggers!",
+    "url": "https://diggers.news/",
+    "country": "ZM",
+    "category": "online",
+    "status": "blocked_by_waf",
+    "discovery_strategy": "robots:first_sitemap",
+    "sitemap_url_used": "https://diggers.news/wp-sitemap.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "cambodia-daily-km",
+    "site_name": "Cambodia Daily (Khmer)",
+    "url": "https://www.cambodiadaily.com/",
+    "country": "KH",
+    "category": "online",
+    "status": "blocked_by_waf",
+    "discovery_strategy": "robots:first_sitemap",
+    "sitemap_url_used": "https://www.cambodiadaily.com/sitemap_index.xml",
+    "articles_sampled": 0,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
+  },
+  {
+    "site_id": "the-local",
+    "site_name": "The Local",
+    "url": "http://www.thelocal.de/",
+    "country": "DE",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://feeds.thelocal.com/rss/de",
+    "articles_sampled": 17,
+    "images_analysed": 17,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 17
+    }
+  },
+  {
+    "site_id": "efe",
+    "site_name": "Agencia EFE",
+    "url": "https://efe.com/",
+    "country": "ES",
+    "category": "news-agency",
+    "status": "ok",
+    "discovery_strategy": "config:sitemap",
+    "sitemap_url_used": "https://efe.com/news-sitemap.xml",
+    "articles_sampled": 20,
+    "images_analysed": 17,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 17
+    }
   }
 ]

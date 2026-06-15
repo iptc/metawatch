@@ -1,15 +1,15 @@
 {
   "n_sites": 504,
-  "n_images": 6888,
+  "n_images": 6932,
   "signals": [
     {
       "key": "robots-ai",
       "scope": "site",
       "label": "robots.txt \u2014 any AI bot blocked",
       "note": "Blocks at least one known AI/scraper UA",
-      "num": 239,
+      "num": 241,
       "denom": 504,
-      "pct": 47.4
+      "pct": 47.8
     },
     {
       "key": "tdmrep",
@@ -43,9 +43,9 @@
       "scope": "site",
       "label": "/ai.txt",
       "note": "Spawning AI consent proposal",
-      "num": 3,
+      "num": 4,
       "denom": 504,
-      "pct": 0.6
+      "pct": 0.8
     },
     {
       "key": "content-signals",
@@ -106,30 +106,30 @@
     {
       "ua": "CCBot",
       "operator": "Common Crawl",
-      "blocked": 203,
+      "blocked": 205,
       "total": 510,
-      "pct_blocked": 39.8
+      "pct_blocked": 40.2
     },
     {
       "ua": "GPTBot",
       "operator": "OpenAI",
-      "blocked": 189,
+      "blocked": 190,
       "total": 510,
-      "pct_blocked": 37.1
+      "pct_blocked": 37.3
     },
     {
       "ua": "Bytespider",
       "operator": "ByteDance",
-      "blocked": 182,
+      "blocked": 183,
       "total": 510,
-      "pct_blocked": 35.7
+      "pct_blocked": 35.9
     },
     {
       "ua": "ClaudeBot",
       "operator": "Anthropic",
-      "blocked": 179,
+      "blocked": 180,
       "total": 510,
-      "pct_blocked": 35.1
+      "pct_blocked": 35.3
     },
     {
       "ua": "Google-Extended",
@@ -141,37 +141,37 @@
     {
       "ua": "anthropic-ai",
       "operator": "Anthropic",
-      "blocked": 160,
+      "blocked": 161,
       "total": 510,
-      "pct_blocked": 31.4
+      "pct_blocked": 31.6
     },
     {
       "ua": "PerplexityBot",
       "operator": "Perplexity",
-      "blocked": 151,
+      "blocked": 152,
       "total": 510,
-      "pct_blocked": 29.6
+      "pct_blocked": 29.8
     },
     {
       "ua": "Amazonbot",
       "operator": "Amazon",
-      "blocked": 144,
+      "blocked": 145,
       "total": 510,
-      "pct_blocked": 28.2
+      "pct_blocked": 28.4
     },
     {
       "ua": "omgilibot",
       "operator": "Webhose",
-      "blocked": 142,
+      "blocked": 143,
       "total": 510,
-      "pct_blocked": 27.8
+      "pct_blocked": 28.0
     },
     {
       "ua": "Claude-Web",
       "operator": "Anthropic",
-      "blocked": 141,
+      "blocked": 142,
       "total": 510,
-      "pct_blocked": 27.6
+      "pct_blocked": 27.8
     },
     {
       "ua": "cohere-ai",
@@ -204,16 +204,16 @@
     {
       "ua": "omgili",
       "operator": "Webhose",
-      "blocked": 128,
+      "blocked": 129,
       "total": 510,
-      "pct_blocked": 25.1
+      "pct_blocked": 25.3
     },
     {
       "ua": "ChatGPT-User",
       "operator": "OpenAI",
-      "blocked": 125,
+      "blocked": 126,
       "total": 510,
-      "pct_blocked": 24.5
+      "pct_blocked": 24.7
     },
     {
       "ua": "FacebookBot",
@@ -232,9 +232,9 @@
     {
       "ua": "YouBot",
       "operator": "You.com",
-      "blocked": 100,
+      "blocked": 101,
       "total": 510,
-      "pct_blocked": 19.6
+      "pct_blocked": 19.8
     },
     {
       "ua": "OAI-SearchBot",
@@ -267,6 +267,13 @@
     {
       "ua": "TurnitinBot",
       "operator": "Turnitin",
+      "blocked": 82,
+      "total": 510,
+      "pct_blocked": 16.1
+    },
+    {
+      "ua": "magpie-crawler",
+      "operator": "Brandwatch",
       "blocked": 81,
       "total": 510,
       "pct_blocked": 15.9
@@ -274,13 +281,6 @@
     {
       "ua": "Claude-SearchBot",
       "operator": "Anthropic",
-      "blocked": 80,
-      "total": 510,
-      "pct_blocked": 15.7
-    },
-    {
-      "ua": "magpie-crawler",
-      "operator": "Brandwatch",
       "blocked": 80,
       "total": 510,
       "pct_blocked": 15.7
@@ -323,9 +323,9 @@
     {
       "ua": "DataForSeoBot",
       "operator": "DataForSEO",
-      "blocked": 64,
+      "blocked": 65,
       "total": 510,
-      "pct_blocked": 12.5
+      "pct_blocked": 12.7
     },
     {
       "ua": "FriendlyCrawler",
@@ -349,32 +349,32 @@
       "pct_blocked": 11.8
     },
     {
-      "ua": "MistralAI-User",
-      "operator": "Mistral",
+      "ua": "AwarioRssBot",
+      "operator": "Awario",
       "blocked": 59,
       "total": 510,
       "pct_blocked": 11.6
     },
     {
-      "ua": "AwarioRssBot",
-      "operator": "Awario",
-      "blocked": 58,
-      "total": 510,
-      "pct_blocked": 11.4
-    },
-    {
       "ua": "AwarioSmartBot",
       "operator": "Awario",
-      "blocked": 58,
+      "blocked": 59,
       "total": 510,
-      "pct_blocked": 11.4
+      "pct_blocked": 11.6
     },
     {
       "ua": "ia_archiver",
       "operator": "Internet Archive",
-      "blocked": 58,
+      "blocked": 59,
       "total": 510,
-      "pct_blocked": 11.4
+      "pct_blocked": 11.6
+    },
+    {
+      "ua": "MistralAI-User",
+      "operator": "Mistral",
+      "blocked": 59,
+      "total": 510,
+      "pct_blocked": 11.6
     },
     {
       "ua": "DeepSeekBot",
@@ -393,9 +393,9 @@
     {
       "ua": "NewsNow",
       "operator": "NewsNow",
-      "blocked": 54,
+      "blocked": 55,
       "total": 510,
-      "pct_blocked": 10.6
+      "pct_blocked": 10.8
     },
     {
       "ua": "BLEXBot",
@@ -407,27 +407,27 @@
     {
       "ua": "archive.org_bot",
       "operator": "Internet Archive",
-      "blocked": 45,
+      "blocked": 46,
       "total": 510,
-      "pct_blocked": 8.8
+      "pct_blocked": 9.0
     },
     {
       "ua": "peer39_crawler",
       "operator": "Peer39",
-      "blocked": 43,
+      "blocked": 44,
       "total": 510,
-      "pct_blocked": 8.4
-    },
-    {
-      "ua": "news-please",
-      "operator": "news-please (open-source)",
-      "blocked": 40,
-      "total": 510,
-      "pct_blocked": 7.8
+      "pct_blocked": 8.6
     },
     {
       "ua": "SeekrBot",
       "operator": "Seekr",
+      "blocked": 41,
+      "total": 510,
+      "pct_blocked": 8.0
+    },
+    {
+      "ua": "news-please",
+      "operator": "news-please (open-source)",
       "blocked": 40,
       "total": 510,
       "pct_blocked": 7.8
@@ -550,15 +550,15 @@
       "range": "0 (no AI blocks)",
       "lo": 0,
       "hi": 0,
-      "count": 271,
-      "pct": 53.1
+      "count": 269,
+      "pct": 52.7
     },
     {
       "range": "1\u20135",
       "lo": 1,
       "hi": 5,
-      "count": 37,
-      "pct": 7.3
+      "count": 38,
+      "pct": 7.5
     },
     {
       "range": "6\u201310",
@@ -578,22 +578,22 @@
       "range": "21\u2013510",
       "lo": 21,
       "hi": 510,
-      "count": 106,
-      "pct": 20.8
+      "count": 107,
+      "pct": 21.0
     }
   ],
   "convergence": [
     {
       "a": "blocks GPTBot",
       "b": "blocks ClaudeBot",
-      "a_count": 189,
-      "both": 154,
-      "pct": 81.5
+      "a_count": 190,
+      "both": 155,
+      "pct": 81.6
     },
     {
       "a": "blocks GPTBot",
       "b": "has tdmrep.json",
-      "a_count": 189,
+      "a_count": 190,
       "both": 5,
       "pct": 2.6
     },
@@ -607,7 +607,7 @@
     {
       "a": "has ai.txt",
       "b": "has tdmrep.json",
-      "a_count": 3,
+      "a_count": 4,
       "both": 0,
       "pct": 0.0
     },
@@ -5094,6 +5094,36 @@
         ]
       },
       {
+        "site_id": "the-local",
+        "site_name": "The Local",
+        "country": "DE",
+        "blocked_count": 22,
+        "blocked_uas": [
+          "Amazonbot",
+          "AwarioRssBot",
+          "AwarioSmartBot",
+          "Bytespider",
+          "CCBot",
+          "ChatGPT-User",
+          "Claude-Web",
+          "ClaudeBot",
+          "DataForSeoBot",
+          "GPTBot",
+          "NewsNow",
+          "PerplexityBot",
+          "SeekrBot",
+          "TurnitinBot",
+          "YouBot",
+          "anthropic-ai",
+          "archive.org_bot",
+          "ia_archiver",
+          "magpie-crawler",
+          "omgili",
+          "omgilibot",
+          "peer39_crawler"
+        ]
+      },
+      {
         "site_id": "15min",
         "site_name": "15min",
         "country": "LT",
@@ -7551,6 +7581,15 @@
         ]
       },
       {
+        "site_id": "rio-times",
+        "site_name": "Rio Times",
+        "country": "BR",
+        "blocked_count": 1,
+        "blocked_uas": [
+          "CCBot"
+        ]
+      },
+      {
         "site_id": "stirile-pro-tv",
         "site_name": "Stirile Pro TV",
         "country": "RO",
@@ -7703,6 +7742,12 @@
         "site_name": "Politiken",
         "country": "DK",
         "url": "http://politiken.dk/ai.txt"
+      },
+      {
+        "site_id": "rio-times",
+        "site_name": "Rio Times",
+        "country": "BR",
+        "url": "https://riotimesonline.com/ai.txt"
       }
     ],
     "trust-txt-dta": [
