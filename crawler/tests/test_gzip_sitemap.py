@@ -118,3 +118,56 @@ def test_lastmod_used_as_publication_date_fallback():
     assert by_url["https://example.com/newer"] is not None
     assert by_url["https://example.com/no-date"] is None
     assert by_url["https://example.com/newer"] > by_url["https://example.com/older"]
+
+
+def _routing_client(bodies: dict[str, bytes]):
+    """Mock client whose .get returns a different body per URL."""
+    client = MagicMock()
+
+    async def _get(url, *args, **kwargs):
+        response = MagicMock()
+        response.status_code = 200 if url in bodies else 404
+        response.content = bodies.get(url, b"")
+        return response
+
+    client.get = AsyncMock(side_effect=_get)
+    return client
+
+
+def test_sitemapindex_recurses_freshest_child_by_lastmod():
+    # Paginated indexes (Yoast post-sitemap{N}, Tengrinews …-news-{N}) list
+    # children oldest->newest, so the freshest articles are in the LAST child.
+    # With 16 children, document-order [:10] would never reach it; sorting by
+    # <lastmod> desc must surface it. The fresh child is listed LAST and is the
+    # only one with a recent lastmod.
+    INDEX = "https://example.com/sitemap-index.xml"
+    bodies = {}
+    children_xml = []
+    for i in range(15):  # stale children, listed first
+        loc = f"https://example.com/old-{i}.xml"
+        children_xml.append(
+            f"<sitemap><loc>{loc}</loc><lastmod>2020-01-0{i % 9 + 1}T00:00:00+00:00</lastmod></sitemap>"
+        )
+        bodies[loc] = (
+            b'<?xml version="1.0"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+            + f'<url><loc>https://example.com/old-article-{i}</loc></url></urlset>'.encode()
+        )
+    fresh_loc = "https://example.com/news-43.xml"
+    children_xml.append(
+        f"<sitemap><loc>{fresh_loc}</loc><lastmod>2026-06-15T03:00:00+00:00</lastmod></sitemap>"
+    )
+    bodies[fresh_loc] = (
+        b'<?xml version="1.0"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+        b'<url><loc>https://example.com/fresh-article</loc></url></urlset>'
+    )
+    bodies[INDEX] = (
+        '<?xml version="1.0"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+        + "".join(children_xml)
+        + "</sitemapindex>"
+    ).encode()
+
+    client = _routing_client(bodies)
+    candidates, err = asyncio.run(_walk_sitemap(client, INDEX, depth=0))
+    assert err is None
+    urls = {c.url for c in candidates}
+    assert "https://example.com/fresh-article" in urls

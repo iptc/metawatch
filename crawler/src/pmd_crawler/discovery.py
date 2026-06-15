@@ -248,10 +248,27 @@ async def _walk_sitemap(
 
     if tag == "sitemapindex":
         out: list[ArticleCandidate] = []
-        children = root.findall("sm:sitemap/sm:loc", SITEMAP_NS)
-        for child in children[:10]:
-            if child.text:
-                child_candidates, _ = await _walk_sitemap(client, child.text.strip(), depth + 1, seen)
+        # Recurse the most-recently-modified children first. Paginated indexes
+        # (Yoast `post-sitemap{N}.xml`, Tengrinews `…-sitemap-news-{N}.xml`)
+        # list children oldest->newest, so the freshest articles live in the
+        # LAST/highest-numbered child — taking children in document order would
+        # only ever reach stale pages and the 30-day window would drop them all.
+        # Sorting by <lastmod> desc makes the stable index URL resolve to live
+        # content regardless of which numbered child is currently newest.
+        # Children without a <lastmod> sort last but keep document order (stable
+        # sort), so indexes that don't publish lastmod behave as before.
+        sitemaps = root.findall("sm:sitemap", SITEMAP_NS)
+
+        def _child_lastmod(sm: etree._Element) -> datetime:
+            lm_el = sm.find("sm:lastmod", SITEMAP_NS)
+            parsed = _parse_iso_date(lm_el.text.strip()) if lm_el is not None and lm_el.text else None
+            return parsed or datetime.min.replace(tzinfo=UTC)
+
+        sitemaps.sort(key=_child_lastmod, reverse=True)
+        for sm in sitemaps[:15]:
+            loc_el = sm.find("sm:loc", SITEMAP_NS)
+            if loc_el is not None and loc_el.text:
+                child_candidates, _ = await _walk_sitemap(client, loc_el.text.strip(), depth + 1, seen)
                 out.extend(child_candidates)
         return out, None
 
