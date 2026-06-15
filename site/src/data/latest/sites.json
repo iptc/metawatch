@@ -1044,6 +1044,23 @@
     }
   },
   {
+    "site_id": "egemen-qazaqstan",
+    "site_name": "Egemen Qazaqstan",
+    "url": "https://egemen.kz/",
+    "country": "KZ",
+    "category": "newspaper",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://egemen.kz/rss",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 10.0,
+    "pct_with_iptc": 20.0,
+    "cdn_breakdown": {
+      "none": 20
+    }
+  },
+  {
     "site_id": "ctv-news",
     "site_name": "CTV News",
     "url": "https://www.ctvnews.ca/",
@@ -1738,6 +1755,23 @@
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "cloudflare": 20
+    }
+  },
+  {
+    "site_id": "nur-kz",
+    "site_name": "NUR.KZ",
+    "url": "https://www.nur.kz/",
+    "country": "KZ",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://www.nur.kz/rss/all.rss",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 1.25,
+    "pct_with_iptc": 5.0,
+    "cdn_breakdown": {
+      "none": 20
     }
   },
   {
@@ -8558,6 +8592,23 @@
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "none": 20
+    }
+  },
+  {
+    "site_id": "orda-kz",
+    "site_name": "Orda.kz",
+    "url": "https://orda.kz/",
+    "country": "KZ",
+    "category": "online",
+    "status": "ok",
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://orda.kz/feed/",
+    "articles_sampled": 10,
+    "images_analysed": 10,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 10
     }
   }
 ]
