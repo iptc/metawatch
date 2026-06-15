@@ -123,11 +123,11 @@
     "started_at": "2026-06-12T08:47:21.029535+00:00",
     "site_count": 401,
     "image_count": 6167,
-    "mean_score": 5.7,
+    "mean_score": 5.72,
     "images_with_iptc": 874,
     "pct_with_iptc": 12.7,
     "images_with_c2pa": 20,
-    "pct_with_c2pa": 0.29,
+    "pct_with_c2pa": 0.291,
     "c2pa_outcomes": {
       "modified": 2,
       "valid": 16,

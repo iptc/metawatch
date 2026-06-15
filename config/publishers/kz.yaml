@@ -37,25 +37,6 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
-- id: tengrinews-en
-  name: Tengrinews (English)
-  url: https://en.tengrinews.kz/
-  homepage: https://en.tengrinews.kz/
-  category: online
-  language_primary: en
-  notes: English edition. Sitemap index (paginated news sitemaps resolved by lastmod).
-  suggested_by: BQ
-  active: true
-  discovery:
-    strategy: sitemap
-    sitemap_urls:
-    - https://en.tengrinews.kz/en-sitemap-index.xml
-    picture_sitemap_url: null
-    rss_urls: []
-    js_required: false
-  sample:
-    max_articles: 20
-    window_days: 30
 - id: nur-kz
   name: NUR.KZ
   url: https://www.nur.kz/

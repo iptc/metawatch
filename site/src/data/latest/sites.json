@@ -8578,23 +8578,6 @@
     }
   },
   {
-    "site_id": "tengrinews-en",
-    "site_name": "Tengrinews (English)",
-    "url": "https://en.tengrinews.kz/",
-    "country": "KZ",
-    "category": "online",
-    "status": "ok",
-    "discovery_strategy": "config:sitemap",
-    "sitemap_url_used": "https://en.tengrinews.kz/en-sitemap-index.xml",
-    "articles_sampled": 20,
-    "images_analysed": 20,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {
-      "none": 20
-    }
-  },
-  {
     "site_id": "orda-kz",
     "site_name": "Orda.kz",
     "url": "https://orda.kz/",

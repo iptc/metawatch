@@ -115,6 +115,11 @@
     "mean_score": 7.89
   },
   {
+    "country": "KZ",
+    "site_count": 5,
+    "mean_score": 7.75
+  },
+  {
     "country": "HR",
     "site_count": 4,
     "mean_score": 7.5
@@ -128,11 +133,6 @@
     "country": "NA",
     "site_count": 3,
     "mean_score": 6.94
-  },
-  {
-    "country": "KZ",
-    "site_count": 6,
-    "mean_score": 6.46
   },
   {
     "country": "AU",

@@ -10,15 +10,15 @@
     "files": [
       {
         "name": "articles.parquet",
-        "size_bytes": 5354895
+        "size_bytes": 8208336
       },
       {
         "name": "images.parquet",
-        "size_bytes": 970272
+        "size_bytes": 1603437
       },
       {
         "name": "metadata_fields.parquet",
-        "size_bytes": 167315
+        "size_bytes": 307507
       },
       {
         "name": "robots_analysis.parquet",
@@ -30,7 +30,7 @@
       },
       {
         "name": "sites.parquet",
-        "size_bytes": 33495
+        "size_bytes": 49937
       }
     ]
   },
