@@ -1,26 +1,26 @@
 {
-  "die-presse": {
+  "echorouk": {
     "image_count_with_c2pa": 1,
     "by_outcome": [
       {
-        "outcome": "modified",
+        "outcome": "valid",
         "images": 1
       }
     ],
     "by_signer": [
       {
-        "signer": "Adobe Inc.",
+        "signer": "OpenAI OpCo, LLC",
         "images": 1
       }
     ],
     "by_validation_state": [
       {
-        "state": "Invalid",
+        "state": "Valid",
         "images": 1
       }
     ]
   },
-  "cyprus-mail": {
+  "gabonactu": {
     "image_count_with_c2pa": 1,
     "by_outcome": [
       {
@@ -63,39 +63,56 @@
     ]
   },
   "tanea-gr": {
-    "image_count_with_c2pa": 3,
+    "image_count_with_c2pa": 1,
     "by_outcome": [
       {
         "outcome": "valid",
-        "images": 3
+        "images": 1
       }
     ],
     "by_signer": [
       {
         "signer": "OpenAI OpCo, LLC",
-        "images": 3
+        "images": 1
       }
     ],
     "by_validation_state": [
       {
         "state": "Valid",
-        "images": 3
+        "images": 1
       }
     ]
   },
-  "kathmandu-post": {
-    "image_count_with_c2pa": 3,
+  "criterio-hn": {
+    "image_count_with_c2pa": 1,
     "by_outcome": [
       {
         "outcome": "valid",
-        "images": 3
+        "images": 1
       }
     ],
     "by_signer": [
       {
         "signer": "OpenAI OpCo, LLC",
-        "images": 2
-      },
+        "images": 1
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Valid",
+        "images": 1
+      }
+    ]
+  },
+  "blikk": {
+    "image_count_with_c2pa": 1,
+    "by_outcome": [
+      {
+        "outcome": "valid",
+        "images": 1
+      }
+    ],
+    "by_signer": [
       {
         "signer": "Google LLC",
         "images": 1
@@ -104,48 +121,6 @@
     "by_validation_state": [
       {
         "state": "Valid",
-        "images": 3
-      }
-    ]
-  },
-  "le-pays-td": {
-    "image_count_with_c2pa": 3,
-    "by_outcome": [
-      {
-        "outcome": "valid",
-        "images": 3
-      }
-    ],
-    "by_signer": [
-      {
-        "signer": "OpenAI OpCo, LLC",
-        "images": 3
-      }
-    ],
-    "by_validation_state": [
-      {
-        "state": "Valid",
-        "images": 3
-      }
-    ]
-  },
-  "ettoday": {
-    "image_count_with_c2pa": 1,
-    "by_outcome": [
-      {
-        "outcome": "modified",
-        "images": 1
-      }
-    ],
-    "by_signer": [
-      {
-        "signer": "Adobe Inc.",
-        "images": 1
-      }
-    ],
-    "by_validation_state": [
-      {
-        "state": "Invalid",
         "images": 1
       }
     ]
@@ -154,12 +129,8 @@
     "image_count_with_c2pa": 3,
     "by_outcome": [
       {
-        "outcome": "valid",
-        "images": 1
-      },
-      {
         "outcome": "expired",
-        "images": 2
+        "images": 3
       }
     ],
     "by_signer": [
@@ -171,15 +142,32 @@
     "by_validation_state": [
       {
         "state": "Invalid",
-        "images": 2
-      },
-      {
-        "state": "Valid",
-        "images": 1
+        "images": 3
       }
     ]
   },
   "mauriactu": {
+    "image_count_with_c2pa": 2,
+    "by_outcome": [
+      {
+        "outcome": "valid",
+        "images": 2
+      }
+    ],
+    "by_signer": [
+      {
+        "signer": "OpenAI OpCo, LLC",
+        "images": 2
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Valid",
+        "images": 2
+      }
+    ]
+  },
+  "le-pays-td": {
     "image_count_with_c2pa": 2,
     "by_outcome": [
       {

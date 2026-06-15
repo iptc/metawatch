@@ -1,15 +1,15 @@
 {
-  "n_sites": 505,
-  "n_images": 6932,
+  "n_sites": 502,
+  "n_images": 6686,
   "signals": [
     {
       "key": "robots-ai",
       "scope": "site",
       "label": "robots.txt \u2014 any AI bot blocked",
       "note": "Blocks at least one known AI/scraper UA",
-      "num": 241,
-      "denom": 505,
-      "pct": 47.7
+      "num": 239,
+      "denom": 502,
+      "pct": 47.6
     },
     {
       "key": "tdmrep",
@@ -17,7 +17,7 @@
       "label": "/.well-known/tdmrep.json",
       "note": "TDM Reservation Protocol (EU DSM Art. 4)",
       "num": 6,
-      "denom": 505,
+      "denom": 502,
       "pct": 1.2
     },
     {
@@ -25,9 +25,9 @@
       "scope": "site",
       "label": "TDMRep \u2014 per-page <meta>",
       "note": "<meta name=\"tdm-reservation\" content=\"1\"> on \u22651 article",
-      "num": 7,
-      "denom": 505,
-      "pct": 1.4
+      "num": 8,
+      "denom": 502,
+      "pct": 1.6
     },
     {
       "key": "rsl",
@@ -35,7 +35,7 @@
       "label": "RSL \u2014 License: in robots.txt",
       "note": "Really Simple Licensing (rslstandard.org)",
       "num": 2,
-      "denom": 505,
+      "denom": 502,
       "pct": 0.4
     },
     {
@@ -44,7 +44,7 @@
       "label": "/ai.txt",
       "note": "Spawning AI consent proposal",
       "num": 4,
-      "denom": 505,
+      "denom": 502,
       "pct": 0.8
     },
     {
@@ -53,7 +53,7 @@
       "label": "robots.txt \u2014 Content-Signal",
       "note": "Cloudflare Content Signals (contentsignals.org)",
       "num": 22,
-      "denom": 505,
+      "denom": 502,
       "pct": 4.4
     },
     {
@@ -62,7 +62,7 @@
       "label": "trust.txt \u2014 datatrainingallowed=no",
       "note": "JournalList trust.txt opt-out directive",
       "num": 2,
-      "denom": 505,
+      "denom": 502,
       "pct": 0.4
     },
     {
@@ -71,7 +71,7 @@
       "label": "noai / noimageai meta robots",
       "note": "AI-specific tokens on X-Robots-Tag or <meta name=\"robots\">",
       "num": 1,
-      "denom": 505,
+      "denom": 502,
       "pct": 0.2
     },
     {
@@ -79,18 +79,18 @@
       "scope": "site",
       "label": "noarchive / nosnippet meta robots",
       "note": "Honoured as AI-opt-out by Bing/Copilot (noarchive) and Google (nosnippet)",
-      "num": 78,
-      "denom": 505,
-      "pct": 15.4
+      "num": 82,
+      "denom": 502,
+      "pct": 16.3
     },
     {
       "key": "iptc-datamining",
       "scope": "site",
       "label": "IPTC PLUS:DataMining",
       "note": "XMP-plus:DataMining on \u22651 sampled image",
-      "num": 10,
-      "denom": 505,
-      "pct": 2.0
+      "num": 8,
+      "denom": 502,
+      "pct": 1.6
     },
     {
       "key": "cawg-training-mining",
@@ -98,7 +98,7 @@
       "label": "CAWG Training and Data Mining Assertion",
       "note": "cawg.training-mining assertion in \u22651 sampled image's C2PA manifest",
       "num": 1,
-      "denom": 505,
+      "denom": 502,
       "pct": 0.2
     }
   ],
@@ -106,442 +106,442 @@
     {
       "ua": "CCBot",
       "operator": "Common Crawl",
-      "blocked": 205,
-      "total": 511,
-      "pct_blocked": 40.1
+      "blocked": 204,
+      "total": 506,
+      "pct_blocked": 40.3
     },
     {
       "ua": "GPTBot",
       "operator": "OpenAI",
-      "blocked": 190,
-      "total": 511,
-      "pct_blocked": 37.2
+      "blocked": 189,
+      "total": 506,
+      "pct_blocked": 37.4
     },
     {
       "ua": "Bytespider",
       "operator": "ByteDance",
-      "blocked": 183,
-      "total": 511,
-      "pct_blocked": 35.8
+      "blocked": 182,
+      "total": 506,
+      "pct_blocked": 36.0
     },
     {
       "ua": "ClaudeBot",
       "operator": "Anthropic",
-      "blocked": 180,
-      "total": 511,
-      "pct_blocked": 35.2
+      "blocked": 179,
+      "total": 506,
+      "pct_blocked": 35.4
     },
     {
       "ua": "Google-Extended",
       "operator": "Google",
       "blocked": 163,
-      "total": 511,
-      "pct_blocked": 31.9
+      "total": 506,
+      "pct_blocked": 32.2
     },
     {
       "ua": "anthropic-ai",
       "operator": "Anthropic",
-      "blocked": 161,
-      "total": 511,
-      "pct_blocked": 31.5
+      "blocked": 159,
+      "total": 506,
+      "pct_blocked": 31.4
     },
     {
       "ua": "PerplexityBot",
       "operator": "Perplexity",
-      "blocked": 152,
-      "total": 511,
-      "pct_blocked": 29.7
+      "blocked": 150,
+      "total": 506,
+      "pct_blocked": 29.6
     },
     {
       "ua": "Amazonbot",
       "operator": "Amazon",
-      "blocked": 145,
-      "total": 511,
-      "pct_blocked": 28.4
+      "blocked": 144,
+      "total": 506,
+      "pct_blocked": 28.5
     },
     {
       "ua": "omgilibot",
       "operator": "Webhose",
-      "blocked": 143,
-      "total": 511,
-      "pct_blocked": 28.0
+      "blocked": 141,
+      "total": 506,
+      "pct_blocked": 27.9
     },
     {
       "ua": "Claude-Web",
       "operator": "Anthropic",
-      "blocked": 142,
-      "total": 511,
-      "pct_blocked": 27.8
+      "blocked": 140,
+      "total": 506,
+      "pct_blocked": 27.7
     },
     {
       "ua": "cohere-ai",
       "operator": "Cohere",
-      "blocked": 140,
-      "total": 511,
-      "pct_blocked": 27.4
+      "blocked": 139,
+      "total": 506,
+      "pct_blocked": 27.5
     },
     {
       "ua": "Applebot-Extended",
       "operator": "Apple",
       "blocked": 138,
-      "total": 511,
-      "pct_blocked": 27.0
-    },
-    {
-      "ua": "Diffbot",
-      "operator": "Diffbot",
-      "blocked": 134,
-      "total": 511,
-      "pct_blocked": 26.2
+      "total": 506,
+      "pct_blocked": 27.3
     },
     {
       "ua": "Meta-ExternalAgent",
       "operator": "Meta",
       "blocked": 134,
-      "total": 511,
-      "pct_blocked": 26.2
+      "total": 506,
+      "pct_blocked": 26.5
+    },
+    {
+      "ua": "Diffbot",
+      "operator": "Diffbot",
+      "blocked": 133,
+      "total": 506,
+      "pct_blocked": 26.3
     },
     {
       "ua": "omgili",
       "operator": "Webhose",
-      "blocked": 129,
-      "total": 511,
-      "pct_blocked": 25.2
+      "blocked": 128,
+      "total": 506,
+      "pct_blocked": 25.3
     },
     {
       "ua": "ChatGPT-User",
       "operator": "OpenAI",
-      "blocked": 126,
-      "total": 511,
-      "pct_blocked": 24.7
+      "blocked": 124,
+      "total": 506,
+      "pct_blocked": 24.5
     },
     {
       "ua": "FacebookBot",
       "operator": "Meta",
-      "blocked": 112,
-      "total": 511,
+      "blocked": 111,
+      "total": 506,
       "pct_blocked": 21.9
     },
     {
       "ua": "Meta-ExternalFetcher",
       "operator": "Meta",
-      "blocked": 104,
-      "total": 511,
+      "blocked": 103,
+      "total": 506,
       "pct_blocked": 20.4
-    },
-    {
-      "ua": "YouBot",
-      "operator": "You.com",
-      "blocked": 101,
-      "total": 511,
-      "pct_blocked": 19.8
     },
     {
       "ua": "OAI-SearchBot",
       "operator": "OpenAI",
       "blocked": 99,
-      "total": 511,
-      "pct_blocked": 19.4
+      "total": 506,
+      "pct_blocked": 19.6
+    },
+    {
+      "ua": "YouBot",
+      "operator": "You.com",
+      "blocked": 99,
+      "total": 506,
+      "pct_blocked": 19.6
     },
     {
       "ua": "Timpibot",
       "operator": "Timpi",
-      "blocked": 93,
-      "total": 511,
+      "blocked": 92,
+      "total": 506,
       "pct_blocked": 18.2
     },
     {
       "ua": "Scrapy",
       "operator": "Open-source scraper",
       "blocked": 83,
-      "total": 511,
-      "pct_blocked": 16.2
+      "total": 506,
+      "pct_blocked": 16.4
     },
     {
       "ua": "ImagesiftBot",
       "operator": "ImageSift",
-      "blocked": 82,
-      "total": 511,
-      "pct_blocked": 16.0
-    },
-    {
-      "ua": "TurnitinBot",
-      "operator": "Turnitin",
-      "blocked": 82,
-      "total": 511,
-      "pct_blocked": 16.0
-    },
-    {
-      "ua": "magpie-crawler",
-      "operator": "Brandwatch",
       "blocked": 81,
-      "total": 511,
-      "pct_blocked": 15.9
+      "total": 506,
+      "pct_blocked": 16.0
     },
     {
       "ua": "Claude-SearchBot",
       "operator": "Anthropic",
       "blocked": 80,
-      "total": 511,
-      "pct_blocked": 15.7
+      "total": 506,
+      "pct_blocked": 15.8
+    },
+    {
+      "ua": "magpie-crawler",
+      "operator": "Brandwatch",
+      "blocked": 80,
+      "total": 506,
+      "pct_blocked": 15.8
+    },
+    {
+      "ua": "TurnitinBot",
+      "operator": "Turnitin",
+      "blocked": 80,
+      "total": 506,
+      "pct_blocked": 15.8
     },
     {
       "ua": "Claude-User",
       "operator": "Anthropic",
       "blocked": 76,
-      "total": 511,
-      "pct_blocked": 14.9
+      "total": 506,
+      "pct_blocked": 15.0
     },
     {
       "ua": "Perplexity-User",
       "operator": "Perplexity",
       "blocked": 76,
-      "total": 511,
-      "pct_blocked": 14.9
+      "total": 506,
+      "pct_blocked": 15.0
+    },
+    {
+      "ua": "cohere-training-data-crawler",
+      "operator": "Cohere",
+      "blocked": 70,
+      "total": 506,
+      "pct_blocked": 13.8
     },
     {
       "ua": "DuckAssistBot",
       "operator": "DuckDuckGo",
       "blocked": 70,
-      "total": 511,
-      "pct_blocked": 13.7
-    },
-    {
-      "ua": "cohere-training-data-crawler",
-      "operator": "Cohere",
-      "blocked": 69,
-      "total": 511,
-      "pct_blocked": 13.5
+      "total": 506,
+      "pct_blocked": 13.8
     },
     {
       "ua": "AI2Bot",
       "operator": "AI2",
       "blocked": 68,
-      "total": 511,
-      "pct_blocked": 13.3
-    },
-    {
-      "ua": "DataForSeoBot",
-      "operator": "DataForSEO",
-      "blocked": 65,
-      "total": 511,
-      "pct_blocked": 12.7
+      "total": 506,
+      "pct_blocked": 13.4
     },
     {
       "ua": "FriendlyCrawler",
       "operator": "Webis",
       "blocked": 64,
-      "total": 511,
+      "total": 506,
+      "pct_blocked": 12.6
+    },
+    {
+      "ua": "DataForSeoBot",
+      "operator": "DataForSEO",
+      "blocked": 63,
+      "total": 506,
       "pct_blocked": 12.5
     },
     {
       "ua": "PanguBot",
       "operator": "Huawei",
-      "blocked": 62,
-      "total": 511,
-      "pct_blocked": 12.1
+      "blocked": 63,
+      "total": 506,
+      "pct_blocked": 12.5
     },
     {
       "ua": "img2dataset",
       "operator": "Open-source scraper",
-      "blocked": 60,
-      "total": 511,
-      "pct_blocked": 11.7
-    },
-    {
-      "ua": "AwarioRssBot",
-      "operator": "Awario",
-      "blocked": 59,
-      "total": 511,
-      "pct_blocked": 11.5
-    },
-    {
-      "ua": "AwarioSmartBot",
-      "operator": "Awario",
-      "blocked": 59,
-      "total": 511,
-      "pct_blocked": 11.5
-    },
-    {
-      "ua": "ia_archiver",
-      "operator": "Internet Archive",
-      "blocked": 59,
-      "total": 511,
-      "pct_blocked": 11.5
+      "blocked": 61,
+      "total": 506,
+      "pct_blocked": 12.1
     },
     {
       "ua": "MistralAI-User",
       "operator": "Mistral",
       "blocked": 59,
-      "total": 511,
+      "total": 506,
+      "pct_blocked": 11.7
+    },
+    {
+      "ua": "AwarioRssBot",
+      "operator": "Awario",
+      "blocked": 58,
+      "total": 506,
       "pct_blocked": 11.5
+    },
+    {
+      "ua": "AwarioSmartBot",
+      "operator": "Awario",
+      "blocked": 58,
+      "total": 506,
+      "pct_blocked": 11.5
+    },
+    {
+      "ua": "Google-CloudVertexBot",
+      "operator": "Google",
+      "blocked": 57,
+      "total": 506,
+      "pct_blocked": 11.3
+    },
+    {
+      "ua": "ia_archiver",
+      "operator": "Internet Archive",
+      "blocked": 57,
+      "total": 506,
+      "pct_blocked": 11.3
     },
     {
       "ua": "DeepSeekBot",
       "operator": "DeepSeek",
       "blocked": 56,
-      "total": 511,
-      "pct_blocked": 11.0
-    },
-    {
-      "ua": "Google-CloudVertexBot",
-      "operator": "Google",
-      "blocked": 56,
-      "total": 511,
-      "pct_blocked": 11.0
+      "total": 506,
+      "pct_blocked": 11.1
     },
     {
       "ua": "NewsNow",
       "operator": "NewsNow",
-      "blocked": 55,
-      "total": 511,
-      "pct_blocked": 10.8
+      "blocked": 54,
+      "total": 506,
+      "pct_blocked": 10.7
     },
     {
       "ua": "BLEXBot",
       "operator": "WebMeUp",
       "blocked": 51,
-      "total": 511,
-      "pct_blocked": 10.0
+      "total": 506,
+      "pct_blocked": 10.1
     },
     {
       "ua": "archive.org_bot",
       "operator": "Internet Archive",
-      "blocked": 46,
-      "total": 511,
-      "pct_blocked": 9.0
+      "blocked": 45,
+      "total": 506,
+      "pct_blocked": 8.9
     },
     {
       "ua": "peer39_crawler",
       "operator": "Peer39",
-      "blocked": 44,
-      "total": 511,
-      "pct_blocked": 8.6
-    },
-    {
-      "ua": "SeekrBot",
-      "operator": "Seekr",
-      "blocked": 41,
-      "total": 511,
-      "pct_blocked": 8.0
+      "blocked": 43,
+      "total": 506,
+      "pct_blocked": 8.5
     },
     {
       "ua": "news-please",
       "operator": "news-please (open-source)",
       "blocked": 40,
-      "total": 511,
-      "pct_blocked": 7.8
+      "total": 506,
+      "pct_blocked": 7.9
+    },
+    {
+      "ua": "SeekrBot",
+      "operator": "Seekr",
+      "blocked": 40,
+      "total": 506,
+      "pct_blocked": 7.9
     },
     {
       "ua": "Feedfetcher-Google",
       "operator": "Google",
       "blocked": 39,
-      "total": 511,
-      "pct_blocked": 7.6
+      "total": 506,
+      "pct_blocked": 7.7
     },
     {
       "ua": "Gemini-Deep-Research",
       "operator": "Google",
       "blocked": 35,
-      "total": 511,
-      "pct_blocked": 6.8
+      "total": 506,
+      "pct_blocked": 6.9
     },
     {
       "ua": "Quora-Bot",
       "operator": "Quora",
       "blocked": 34,
-      "total": 511,
+      "total": 506,
       "pct_blocked": 6.7
     },
     {
       "ua": "MyCentralAIScraperBot",
       "operator": "MyCentral",
       "blocked": 33,
-      "total": 511,
+      "total": 506,
       "pct_blocked": 6.5
     },
     {
       "ua": "EchoboxBot",
       "operator": "Echobox",
       "blocked": 32,
-      "total": 511,
+      "total": 506,
+      "pct_blocked": 6.3
+    },
+    {
+      "ua": "quillbot.com",
+      "operator": "QuillBot",
+      "blocked": 32,
+      "total": 506,
       "pct_blocked": 6.3
     },
     {
       "ua": "Poseidon Research Crawler",
       "operator": "Poseidon Research",
       "blocked": 31,
-      "total": 511,
-      "pct_blocked": 6.1
-    },
-    {
-      "ua": "quillbot.com",
-      "operator": "QuillBot",
-      "blocked": 31,
-      "total": 511,
+      "total": 506,
       "pct_blocked": 6.1
     },
     {
       "ua": "SeznamHomepageCrawler",
       "operator": "Seznam",
       "blocked": 29,
-      "total": 511,
+      "total": 506,
       "pct_blocked": 5.7
     },
     {
       "ua": "TaraGroup Intelligent Bot",
       "operator": "TaraGroup",
       "blocked": 28,
-      "total": 511,
+      "total": 506,
       "pct_blocked": 5.5
     },
     {
       "ua": "AliyunSecBot",
       "operator": "Alibaba Cloud",
       "blocked": 27,
-      "total": 511,
+      "total": 506,
       "pct_blocked": 5.3
     },
     {
       "ua": "AudigentAdBot",
       "operator": "Audigent",
       "blocked": 26,
-      "total": 511,
+      "total": 506,
       "pct_blocked": 5.1
     },
     {
       "ua": "Grok",
       "operator": "xAI",
       "blocked": 26,
-      "total": 511,
+      "total": 506,
       "pct_blocked": 5.1
     },
     {
       "ua": "ViennaTinyBot",
       "operator": "Vienna Tiny",
       "blocked": 26,
-      "total": 511,
+      "total": 506,
       "pct_blocked": 5.1
     },
     {
       "ua": "Jetslide",
       "operator": "Jetslide",
       "blocked": 24,
-      "total": 511,
+      "total": 506,
       "pct_blocked": 4.7
     },
     {
       "ua": "GoogleOther",
       "operator": "Google",
-      "blocked": 22,
-      "total": 511,
-      "pct_blocked": 4.3
+      "blocked": 21,
+      "total": 506,
+      "pct_blocked": 4.2
     },
     {
       "ua": "bingbot",
       "operator": "Microsoft",
       "blocked": 7,
-      "total": 511,
+      "total": 506,
       "pct_blocked": 1.4
     }
   ],
@@ -550,50 +550,50 @@
       "range": "0 (no AI blocks)",
       "lo": 0,
       "hi": 0,
-      "count": 270,
+      "count": 267,
       "pct": 52.8
     },
     {
       "range": "1\u20135",
       "lo": 1,
       "hi": 5,
-      "count": 38,
-      "pct": 7.4
+      "count": 37,
+      "pct": 7.3
     },
     {
       "range": "6\u201310",
       "lo": 6,
       "hi": 10,
-      "count": 39,
-      "pct": 7.6
+      "count": 40,
+      "pct": 7.9
     },
     {
       "range": "11\u201320",
       "lo": 11,
       "hi": 20,
       "count": 57,
-      "pct": 11.2
+      "pct": 11.3
     },
     {
-      "range": "21\u2013511",
+      "range": "21\u2013506",
       "lo": 21,
-      "hi": 511,
-      "count": 107,
-      "pct": 20.9
+      "hi": 506,
+      "count": 105,
+      "pct": 20.8
     }
   ],
   "convergence": [
     {
       "a": "blocks GPTBot",
       "b": "blocks ClaudeBot",
-      "a_count": 190,
-      "both": 155,
-      "pct": 81.6
+      "a_count": 189,
+      "both": 154,
+      "pct": 81.5
     },
     {
       "a": "blocks GPTBot",
       "b": "has tdmrep.json",
-      "a_count": 190,
+      "a_count": 189,
       "both": 5,
       "pct": 2.6
     },
@@ -4972,37 +4972,6 @@
         ]
       },
       {
-        "site_id": "phnom-penh-post",
-        "site_name": "The Phnom Penh Post",
-        "country": "KH",
-        "blocked_count": 23,
-        "blocked_uas": [
-          "Amazonbot",
-          "Applebot-Extended",
-          "Bytespider",
-          "CCBot",
-          "ChatGPT-User",
-          "Claude-Web",
-          "ClaudeBot",
-          "DataForSeoBot",
-          "Diffbot",
-          "FacebookBot",
-          "GPTBot",
-          "Google-Extended",
-          "GoogleOther",
-          "ImagesiftBot",
-          "Meta-ExternalAgent",
-          "Meta-ExternalFetcher",
-          "PerplexityBot",
-          "Timpibot",
-          "TurnitinBot",
-          "YouBot",
-          "anthropic-ai",
-          "cohere-ai",
-          "omgilibot"
-        ]
-      },
-      {
         "site_id": "wired",
         "site_name": "Wired",
         "country": "US",
@@ -5087,36 +5056,6 @@
           "YouBot",
           "anthropic-ai",
           "cohere-ai",
-          "magpie-crawler",
-          "omgili",
-          "omgilibot",
-          "peer39_crawler"
-        ]
-      },
-      {
-        "site_id": "the-local",
-        "site_name": "The Local",
-        "country": "DE",
-        "blocked_count": 22,
-        "blocked_uas": [
-          "Amazonbot",
-          "AwarioRssBot",
-          "AwarioSmartBot",
-          "Bytespider",
-          "CCBot",
-          "ChatGPT-User",
-          "Claude-Web",
-          "ClaudeBot",
-          "DataForSeoBot",
-          "GPTBot",
-          "NewsNow",
-          "PerplexityBot",
-          "SeekrBot",
-          "TurnitinBot",
-          "YouBot",
-          "anthropic-ai",
-          "archive.org_bot",
-          "ia_archiver",
           "magpie-crawler",
           "omgili",
           "omgilibot",
@@ -5487,6 +5426,33 @@
           "magpie-crawler",
           "omgili",
           "omgilibot"
+        ]
+      },
+      {
+        "site_id": "die-zeit",
+        "site_name": "Die Zeit",
+        "country": "DE",
+        "blocked_count": 19,
+        "blocked_uas": [
+          "Applebot-Extended",
+          "Bytespider",
+          "CCBot",
+          "ClaudeBot",
+          "DeepSeekBot",
+          "Diffbot",
+          "FacebookBot",
+          "GPTBot",
+          "Google-CloudVertexBot",
+          "Google-Extended",
+          "Meta-ExternalAgent",
+          "PanguBot",
+          "Perplexity-User",
+          "PerplexityBot",
+          "Timpibot",
+          "anthropic-ai",
+          "cohere-training-data-crawler",
+          "img2dataset",
+          "quillbot.com"
         ]
       },
       {
@@ -6129,28 +6095,6 @@
           "cohere-ai",
           "omgili",
           "omgilibot"
-        ]
-      },
-      {
-        "site_id": "die-zeit",
-        "site_name": "Die Zeit",
-        "country": "DE",
-        "blocked_count": 14,
-        "blocked_uas": [
-          "Applebot-Extended",
-          "Bytespider",
-          "CCBot",
-          "ClaudeBot",
-          "DeepSeekBot",
-          "Diffbot",
-          "FacebookBot",
-          "GPTBot",
-          "Google-Extended",
-          "Meta-ExternalAgent",
-          "Perplexity-User",
-          "PerplexityBot",
-          "Timpibot",
-          "anthropic-ai"
         ]
       },
       {
@@ -7105,6 +7049,22 @@
         ]
       },
       {
+        "site_id": "phnom-penh-post",
+        "site_name": "The Phnom Penh Post",
+        "country": "KH",
+        "blocked_count": 8,
+        "blocked_uas": [
+          "Amazonbot",
+          "Applebot-Extended",
+          "Bytespider",
+          "CCBot",
+          "ClaudeBot",
+          "GPTBot",
+          "Google-Extended",
+          "Meta-ExternalAgent"
+        ]
+      },
+      {
         "site_id": "xalq-sozi",
         "site_name": "Xalq So'zi (Narodnoe Slovo)",
         "country": "UZ",
@@ -7545,15 +7505,6 @@
         ]
       },
       {
-        "site_id": "japan-today",
-        "site_name": "Japan Today",
-        "country": "JP",
-        "blocked_count": 1,
-        "blocked_uas": [
-          "ia_archiver"
-        ]
-      },
-      {
         "site_id": "l-internaute",
         "site_name": "L'Internaute",
         "country": "FR",
@@ -7619,10 +7570,10 @@
     ],
     "tdmrep": [
       {
-        "site_id": "france24",
-        "site_name": "France24",
+        "site_id": "ouest-france",
+        "site_name": "Ouest-France",
         "country": "FR",
-        "url": "https://www.france24.com/fr/.well-known/tdmrep.json"
+        "url": "https://www.ouest-france.fr/.well-known/tdmrep.json"
       },
       {
         "site_id": "le-figaro",
@@ -7631,10 +7582,10 @@
         "url": "http://www.lefigaro.fr/.well-known/tdmrep.json"
       },
       {
-        "site_id": "ouest-france",
-        "site_name": "Ouest-France",
+        "site_id": "france24",
+        "site_name": "France24",
         "country": "FR",
-        "url": "https://www.ouest-france.fr/.well-known/tdmrep.json"
+        "url": "https://www.france24.com/fr/.well-known/tdmrep.json"
       },
       {
         "site_id": "le-parisien",
@@ -7678,6 +7629,13 @@
         "articles_total": 20
       },
       {
+        "site_id": "frankfurter-allgemeine",
+        "site_name": "Frankfurter Allgemeine",
+        "country": "DE",
+        "articles": 20,
+        "articles_total": 20
+      },
+      {
         "site_id": "l-express",
         "site_name": "L'Express",
         "country": "FR",
@@ -7692,18 +7650,18 @@
         "articles_total": 20
       },
       {
-        "site_id": "frankfurter-allgemeine",
-        "site_name": "Frankfurter Allgemeine",
-        "country": "DE",
-        "articles": 19,
-        "articles_total": 20
-      },
-      {
         "site_id": "le-soir",
         "site_name": "Le Soir",
         "country": "BE",
         "articles": 10,
         "articles_total": 10
+      },
+      {
+        "site_id": "le-point",
+        "site_name": "Le Point",
+        "country": "FR",
+        "articles": 2,
+        "articles_total": 20
       }
     ],
     "rsl": [
@@ -7726,6 +7684,12 @@
     ],
     "ai-txt": [
       {
+        "site_id": "rio-times",
+        "site_name": "Rio Times",
+        "country": "BR",
+        "url": "https://riotimesonline.com/ai.txt"
+      },
+      {
         "site_id": "beninwebtv",
         "site_name": "Benin Web TV",
         "country": "BJ",
@@ -7742,12 +7706,6 @@
         "site_name": "Politiken",
         "country": "DK",
         "url": "http://politiken.dk/ai.txt"
-      },
-      {
-        "site_id": "rio-times",
-        "site_name": "Rio Times",
-        "country": "BR",
-        "url": "https://riotimesonline.com/ai.txt"
       }
     ],
     "trust-txt-dta": [
@@ -7947,7 +7905,7 @@
         "site_id": "livedoor-news",
         "site_name": "Livedoor News",
         "country": "JP",
-        "images": 1
+        "images": 2
       }
     ],
     "noarchive-meta": [
@@ -7970,9 +7928,21 @@
         "images": 20
       },
       {
+        "site_id": "chicago-tribune",
+        "site_name": "Chicago Tribune",
+        "country": "US",
+        "images": 20
+      },
+      {
         "site_id": "ctv-news",
         "site_name": "CTV News",
         "country": "CA",
+        "images": 20
+      },
+      {
+        "site_id": "dagens-nyheter",
+        "site_name": "Dagens Nyheter",
+        "country": "SE",
         "images": 20
       },
       {
@@ -7982,15 +7952,21 @@
         "images": 20
       },
       {
+        "site_id": "el-correo",
+        "site_name": "El Correo",
+        "country": "ES",
+        "images": 20
+      },
+      {
         "site_id": "ettoday",
         "site_name": "ETtoday (\u6771\u68ee\u65b0\u805e\u96f2)",
         "country": "TW",
         "images": 20
       },
       {
-        "site_id": "france-televisions",
-        "site_name": "France T\u00e9l\u00e9visions (franceinfo)",
-        "country": "FR",
+        "site_id": "frankfurter-allgemeine",
+        "site_name": "Frankfurter Allgemeine",
+        "country": "DE",
         "images": 20
       },
       {
@@ -8048,6 +8024,12 @@
         "images": 20
       },
       {
+        "site_id": "metro",
+        "site_name": "Metro",
+        "country": "GB",
+        "images": 20
+      },
+      {
         "site_id": "n-tv",
         "site_name": "n-tv",
         "country": "DE",
@@ -8078,6 +8060,12 @@
         "images": 20
       },
       {
+        "site_id": "rtl-news",
+        "site_name": "RTL News",
+        "country": "DE",
+        "images": 20
+      },
+      {
         "site_id": "spiegel-online-german",
         "site_name": "Spiegel Online (German)",
         "country": "DE",
@@ -8090,9 +8078,21 @@
         "images": 20
       },
       {
+        "site_id": "sydney-morning-herald",
+        "site_name": "Sydney Morning Herald",
+        "country": "AU",
+        "images": 20
+      },
+      {
         "site_id": "tagesschau-de",
         "site_name": "tagesschau.de",
         "country": "DE",
+        "images": 20
+      },
+      {
+        "site_id": "the-age",
+        "site_name": "The Age",
+        "country": "AU",
         "images": 20
       },
       {
@@ -8120,27 +8120,27 @@
         "images": 20
       },
       {
+        "site_id": "trouw",
+        "site_name": "Trouw",
+        "country": "NL",
+        "images": 20
+      },
+      {
+        "site_id": "usa-today",
+        "site_name": "USA Today",
+        "country": "US",
+        "images": 20
+      },
+      {
         "site_id": "vnexpress-en",
         "site_name": "VnExpress (English)",
         "country": "VN",
         "images": 20
       },
       {
-        "site_id": "wdr",
-        "site_name": "Westdeutscher Rundfunk (WDR)",
-        "country": "DE",
-        "images": 20
-      },
-      {
         "site_id": "wired",
         "site_name": "Wired",
         "country": "US",
-        "images": 20
-      },
-      {
-        "site_id": "zakzak",
-        "site_name": "zakzak",
-        "country": "JP",
         "images": 20
       },
       {
@@ -8156,6 +8156,18 @@
         "images": 20
       },
       {
+        "site_id": "abc",
+        "site_name": "ABC",
+        "country": "ES",
+        "images": 19
+      },
+      {
+        "site_id": "abc-es",
+        "site_name": "ABC.es",
+        "country": "ES",
+        "images": 19
+      },
+      {
         "site_id": "aftenposten",
         "site_name": "Aftenposten",
         "country": "NO",
@@ -8168,105 +8180,39 @@
         "images": 19
       },
       {
-        "site_id": "el-correo",
-        "site_name": "El Correo",
-        "country": "ES",
+        "site_id": "bbc-news",
+        "site_name": "BBC News",
+        "country": "GB",
         "images": 19
-      },
-      {
-        "site_id": "frankfurter-allgemeine",
-        "site_name": "Frankfurter Allgemeine",
-        "country": "DE",
-        "images": 19
-      },
-      {
-        "site_id": "sydney-morning-herald",
-        "site_name": "Sydney Morning Herald",
-        "country": "AU",
-        "images": 19
-      },
-      {
-        "site_id": "the-age",
-        "site_name": "The Age",
-        "country": "AU",
-        "images": 19
-      },
-      {
-        "site_id": "trouw",
-        "site_name": "Trouw",
-        "country": "NL",
-        "images": 19
-      },
-      {
-        "site_id": "abc",
-        "site_name": "ABC",
-        "country": "ES",
-        "images": 18
-      },
-      {
-        "site_id": "abc-es",
-        "site_name": "ABC.es",
-        "country": "ES",
-        "images": 18
       },
       {
         "site_id": "de-volkskrant",
         "site_name": "de Volkskrant",
         "country": "NL",
-        "images": 18
+        "images": 19
       },
       {
-        "site_id": "new-zealand-herald",
-        "site_name": "New Zealand Herald",
-        "country": "NZ",
-        "images": 18
+        "site_id": "france-televisions",
+        "site_name": "France T\u00e9l\u00e9visions (franceinfo)",
+        "country": "FR",
+        "images": 19
       },
       {
-        "site_id": "usa-today",
-        "site_name": "USA Today",
-        "country": "US",
-        "images": 18
-      },
-      {
-        "site_id": "bbc-news",
-        "site_name": "BBC News",
-        "country": "GB",
-        "images": 17
-      },
-      {
-        "site_id": "helsingin-sanomat",
-        "site_name": "Helsingin Sanomat",
-        "country": "FI",
-        "images": 17
-      },
-      {
-        "site_id": "toronto-star",
-        "site_name": "Toronto Star",
-        "country": "CA",
-        "images": 17
-      },
-      {
-        "site_id": "metro",
-        "site_name": "Metro",
-        "country": "GB",
-        "images": 16
-      },
-      {
-        "site_id": "rtl-news",
-        "site_name": "RTL News",
+        "site_id": "wdr",
+        "site_name": "Westdeutscher Rundfunk (WDR)",
         "country": "DE",
-        "images": 16
-      },
-      {
-        "site_id": "sankei-shimbun",
-        "site_name": "Sankei Shimbun (\u7523\u7d4c\u65b0\u805e)",
-        "country": "JP",
-        "images": 16
+        "images": 19
       },
       {
         "site_id": "svenska-dagbladet",
         "site_name": "Svenska Dagbladet",
         "country": "SE",
+        "images": 17
+      },
+      {
+        "site_id": "sankei-shimbun",
+        "site_name": "Sankei Shimbun (\u7523\u7d4c\u65b0\u805e)",
+        "country": "JP",
         "images": 16
       },
       {
@@ -8276,22 +8222,34 @@
         "images": 15
       },
       {
+        "site_id": "helsingin-sanomat",
+        "site_name": "Helsingin Sanomat",
+        "country": "FI",
+        "images": 15
+      },
+      {
         "site_id": "s-ddeutsche-zeitung",
         "site_name": "S\u00fcddeutsche Zeitung",
         "country": "DE",
         "images": 15
       },
       {
-        "site_id": "chicago-tribune",
-        "site_name": "Chicago Tribune",
-        "country": "US",
+        "site_id": "zakzak",
+        "site_name": "zakzak",
+        "country": "JP",
+        "images": 15
+      },
+      {
+        "site_id": "new-zealand-herald",
+        "site_name": "New Zealand Herald",
+        "country": "NZ",
         "images": 14
       },
       {
         "site_id": "nettavisen",
         "site_name": "Nettavisen",
         "country": "NO",
-        "images": 13
+        "images": 12
       },
       {
         "site_id": "the-daily-mirror-sunday-mirror",
@@ -8300,9 +8258,9 @@
         "images": 11
       },
       {
-        "site_id": "jiji-press",
-        "site_name": "Jiji Press",
-        "country": "JP",
+        "site_id": "ekstra-bladet",
+        "site_name": "Ekstra Bladet",
+        "country": "DK",
         "images": 10
       },
       {
@@ -8336,15 +8294,21 @@
         "images": 10
       },
       {
-        "site_id": "ekstra-bladet",
-        "site_name": "Ekstra Bladet",
-        "country": "DK",
+        "site_id": "jiji-press",
+        "site_name": "Jiji Press",
+        "country": "JP",
+        "images": 9
+      },
+      {
+        "site_id": "ap",
+        "site_name": "Associated Press",
+        "country": "US",
         "images": 8
       },
       {
-        "site_id": "vg",
-        "site_name": "VG",
-        "country": "NO",
+        "site_id": "washington-post",
+        "site_name": "Washington Post",
+        "country": "US",
         "images": 8
       },
       {
@@ -8360,26 +8324,26 @@
         "images": 7
       },
       {
-        "site_id": "ap",
-        "site_name": "Associated Press",
-        "country": "US",
-        "images": 6
-      },
-      {
-        "site_id": "washington-post",
-        "site_name": "Washington Post",
-        "country": "US",
-        "images": 6
+        "site_id": "vg",
+        "site_name": "VG",
+        "country": "NO",
+        "images": 7
       },
       {
         "site_id": "expressen",
         "site_name": "Expressen",
         "country": "SE",
+        "images": 5
+      },
+      {
+        "site_id": "aktuality-sk",
+        "site_name": "aktuality.sk",
+        "country": "SK",
         "images": 4
       },
       {
-        "site_id": "heise-online",
-        "site_name": "Heise Online",
+        "site_id": "die-welt",
+        "site_name": "Die Welt",
         "country": "DE",
         "images": 4
       },
@@ -8390,9 +8354,21 @@
         "images": 3
       },
       {
-        "site_id": "die-welt",
-        "site_name": "Die Welt",
+        "site_id": "heise-online",
+        "site_name": "Heise Online",
         "country": "DE",
+        "images": 3
+      },
+      {
+        "site_id": "le-point",
+        "site_name": "Le Point",
+        "country": "FR",
+        "images": 2
+      },
+      {
+        "site_id": "mlad-fronta-dnes-mf-dnes",
+        "site_name": "Mlad\u00e1 fronta DNES (MF DNES)",
+        "country": "CZ",
         "images": 2
       },
       {
@@ -8402,10 +8378,10 @@
         "images": 2
       },
       {
-        "site_id": "aktuality-sk",
-        "site_name": "aktuality.sk",
-        "country": "SK",
-        "images": 1
+        "site_id": "toronto-star",
+        "site_name": "Toronto Star",
+        "country": "CA",
+        "images": 2
       },
       {
         "site_id": "brujula-digital",
@@ -8414,9 +8390,15 @@
         "images": 1
       },
       {
-        "site_id": "mlad-fronta-dnes-mf-dnes",
-        "site_name": "Mlad\u00e1 fronta DNES (MF DNES)",
-        "country": "CZ",
+        "site_id": "neue-vorarlberger-tageszeitung-neue",
+        "site_name": "Neue Vorarlberger Tageszeitung (NEUE)",
+        "country": "AT",
+        "images": 1
+      },
+      {
+        "site_id": "new-york-post",
+        "site_name": "New York Post",
+        "country": "US",
         "images": 1
       }
     ],
@@ -8425,37 +8407,13 @@
         "site_id": "spectator",
         "site_name": "Spectator",
         "country": "GB",
-        "images": 9
-      },
-      {
-        "site_id": "phnom-penh-post",
-        "site_name": "The Phnom Penh Post",
-        "country": "KH",
         "images": 6
       },
       {
-        "site_id": "politico",
-        "site_name": "Politico",
-        "country": "US",
-        "images": 4
-      },
-      {
-        "site_id": "the-japan-times",
-        "site_name": "The Japan Times",
-        "country": "JP",
-        "images": 4
-      },
-      {
-        "site_id": "focus-online",
-        "site_name": "FOCUS Online",
-        "country": "DE",
-        "images": 3
-      },
-      {
-        "site_id": "novi-list",
-        "site_name": "Novi list",
-        "country": "HR",
-        "images": 3
+        "site_id": "blikk",
+        "site_name": "Blikk",
+        "country": "HU",
+        "images": 5
       },
       {
         "site_id": "npr",
@@ -8464,22 +8422,34 @@
         "images": 3
       },
       {
-        "site_id": "s-ddeutsche-zeitung",
-        "site_name": "S\u00fcddeutsche Zeitung",
-        "country": "DE",
+        "site_id": "the-japan-times",
+        "site_name": "The Japan Times",
+        "country": "JP",
         "images": 3
       },
       {
-        "site_id": "blikk",
-        "site_name": "Blikk",
-        "country": "HU",
+        "site_id": "tchadinfos",
+        "site_name": "Tchadinfos",
+        "country": "TD",
         "images": 2
       },
       {
         "site_id": "egemen-qazaqstan",
         "site_name": "Egemen Qazaqstan",
         "country": "KZ",
-        "images": 2
+        "images": 1
+      },
+      {
+        "site_id": "focus-online",
+        "site_name": "FOCUS Online",
+        "country": "DE",
+        "images": 1
+      },
+      {
+        "site_id": "realitatea",
+        "site_name": "Realitatea",
+        "country": "RO",
+        "images": 1
       }
     ],
     "cawg-training-mining": [

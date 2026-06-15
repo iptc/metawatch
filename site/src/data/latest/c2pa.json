@@ -1,19 +1,19 @@
 {
-  "image_count_total": 6987,
-  "image_count_with_c2pa": 20,
-  "pct_with_c2pa": 0.29,
+  "image_count_total": 6765,
+  "image_count_with_c2pa": 15,
+  "pct_with_c2pa": 0.22,
   "by_outcome": [
     {
       "outcome": "valid",
-      "images": 16
+      "images": 12
     },
     {
       "outcome": "modified",
-      "images": 2
+      "images": 0
     },
     {
       "outcome": "expired",
-      "images": 2
+      "images": 3
     },
     {
       "outcome": "untrusted_issuer",
@@ -27,7 +27,7 @@
   "by_signer": [
     {
       "signer": "OpenAI OpCo, LLC",
-      "images": 11
+      "images": 8
     },
     {
       "signer": "International Press Telecommunications Council",
@@ -38,10 +38,6 @@
       "images": 3
     },
     {
-      "signer": "Adobe Inc.",
-      "images": 2
-    },
-    {
       "signer": "Google LLC",
       "images": 1
     }
@@ -49,11 +45,11 @@
   "by_validation_state": [
     {
       "state": "Valid",
-      "images": 16
+      "images": 12
     },
     {
       "state": "Invalid",
-      "images": 4
+      "images": 3
     }
   ],
   "top_sites": [
@@ -61,24 +57,6 @@
       "site_id": "iptc",
       "site_name": "IPTC",
       "country": "GB",
-      "images_with_c2pa": 3
-    },
-    {
-      "site_id": "tanea-gr",
-      "site_name": "\u03a4\u03b1 \u039d\u03ad\u03b1",
-      "country": "GR",
-      "images_with_c2pa": 3
-    },
-    {
-      "site_id": "kathmandu-post",
-      "site_name": "The Kathmandu Post",
-      "country": "NP",
-      "images_with_c2pa": 3
-    },
-    {
-      "site_id": "le-pays-td",
-      "site_name": "Le Pays",
-      "country": "TD",
       "images_with_c2pa": 3
     },
     {
@@ -94,21 +72,39 @@
       "images_with_c2pa": 2
     },
     {
-      "site_id": "die-presse",
-      "site_name": "Die Presse",
-      "country": "AT",
+      "site_id": "le-pays-td",
+      "site_name": "Le Pays",
+      "country": "TD",
+      "images_with_c2pa": 2
+    },
+    {
+      "site_id": "echorouk",
+      "site_name": "Echorouk Online",
+      "country": "DZ",
       "images_with_c2pa": 1
     },
     {
-      "site_id": "cyprus-mail",
-      "site_name": "Cyprus Mail",
-      "country": "CY",
+      "site_id": "gabonactu",
+      "site_name": "Gabon Actu",
+      "country": "GA",
       "images_with_c2pa": 1
     },
     {
-      "site_id": "ettoday",
-      "site_name": "ETtoday (\u6771\u68ee\u65b0\u805e\u96f2)",
-      "country": "TW",
+      "site_id": "tanea-gr",
+      "site_name": "\u03a4\u03b1 \u039d\u03ad\u03b1",
+      "country": "GR",
+      "images_with_c2pa": 1
+    },
+    {
+      "site_id": "criterio-hn",
+      "site_name": "Criterio.hn",
+      "country": "HN",
+      "images_with_c2pa": 1
+    },
+    {
+      "site_id": "blikk",
+      "site_name": "Blikk",
+      "country": "HU",
       "images_with_c2pa": 1
     }
   ]
