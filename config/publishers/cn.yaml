@@ -87,9 +87,14 @@ sites:
   homepage: https://english.news.cn/
   category: news-agency
   language_primary: en
-  notes: 'english.news.cn exposes no feed/sitemap; the legacy xinhuanet.com English RSS still updates.'
+  notes: 'DEACTIVATED — no live feed. The legacy worldrss.xml (on both
+    xinhuanet.com and news.cn) is frozen: newest item is 2018-01-24, so every
+    crawl yields no_articles_found. english.news.cn exposes no working
+    feed/sitemap (sitemap_news.xml / news-sitemap.xml / google-news-sitemap.xml
+    all 404; robots.txt declares none). Reactivate if a live Xinhua feed
+    surfaces.'
   suggested_by: BQ (IPTC member)
-  active: true
+  active: false
   discovery:
     strategy: rss
     sitemap_urls: []

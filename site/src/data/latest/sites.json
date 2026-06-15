@@ -2658,21 +2658,6 @@
     }
   },
   {
-    "site_id": "xinhua",
-    "site_name": "Xinhua News Agency (English)",
-    "url": "https://english.news.cn/",
-    "country": "CN",
-    "category": "news-agency",
-    "status": "no_articles_found",
-    "discovery_strategy": "fallback_needed",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "el-tiempo",
     "site_name": "El Tiempo",
     "url": "https://www.eltiempo.com/",
