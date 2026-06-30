@@ -32,7 +32,7 @@
 scored_fields:
   - label: Creator
     weight: 25
-    aliases: [By-line, Creator, Artist, "XMP-dc:Creator", "IPTC:By-line", "IFD0:Artist", "XMP-plus:ImageCreator"]
+    aliases: [By-line, Creator, Artist, "XMP-dc:Creator", "IPTC:By-line", "IFD0:Artist", "XMP-plus:ImageCreator", "XMP-plus:ImageCreatorName"]
   - label: Copyright
     weight: 25
     aliases: [CopyrightNotice, Rights, Copyright, "XMP-dc:Rights", "IPTC:CopyrightNotice", "IFD0:Copyright", "XMP-plus:CopyrightOwner"]
@@ -194,7 +194,6 @@ tracked_fields:
 #  "XMP-iptcExt:RegistryEntryRole"
 #  "XMP-iptcExt:RegistryItemID"
 #  "XMP-iptcExt:RegistryOrganisationID"
-#  "XMP-dc:Description"
 #  "XMP-photoshop:AuthorsPosition"
 #  "XMP-photoshop:CaptionWriter"
 #  "XMP-photoshop:City"
@@ -207,7 +206,6 @@ tracked_fields:
 #  "XMP-plus:CopyrightOwnerID"
 #  "XMP-plus:CopyrightOwnerName"
 #  "XMP-plus:ImageCreatorID"
-#  "XMP-plus:ImageCreatorName"
 #  "XMP-plus:ImageCreatorImageID"
 #  "XMP-plus:ImageSupplierID"
 #  "XMP-plus:ImageSupplierName"
