@@ -148,5 +148,21 @@
       "valid": 12,
       "expired": 3
     }
+  },
+  {
+    "run_id": "2026-07-01T031746Z",
+    "started_at": "2026-07-01T03:17:46.969328+00:00",
+    "site_count": 455,
+    "image_count": 6845,
+    "mean_score": 5.53,
+    "images_with_iptc": 776,
+    "pct_with_iptc": 11.4,
+    "images_with_c2pa": 15,
+    "pct_with_c2pa": 0.22,
+    "c2pa_outcomes": {
+      "valid": 13,
+      "expired": 1,
+      "modified": 1
+    }
   }
 ]

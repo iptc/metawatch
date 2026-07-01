@@ -1,11 +1,31 @@
 {
-  "expansao": {
-    "images_with_dst_iptc": 2,
+  "237actu": {
+    "images_with_dst_iptc": 0,
+    "images_with_dst_c2pa": 1,
+    "by_bucket_iptc": [],
+    "by_bucket_c2pa": [
+      {
+        "bucket": "AI-generated",
+        "images": 1
+      }
+    ],
+    "by_uri_iptc": [],
+    "by_uri_c2pa": [
+      {
+        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+        "term": "trainedAlgorithmicMedia",
+        "bucket": "AI-generated",
+        "images": 1
+      }
+    ]
+  },
+  "le-parisien": {
+    "images_with_dst_iptc": 1,
     "images_with_dst_c2pa": 0,
     "by_bucket_iptc": [
       {
         "bucket": "Other",
-        "images": 2
+        "images": 1
       }
     ],
     "by_bucket_c2pa": [],
@@ -14,119 +34,49 @@
         "uri": "nil",
         "term": "nil",
         "bucket": "Other",
-        "images": 2
+        "images": 1
       }
     ],
     "by_uri_c2pa": []
   },
-  "echorouk": {
+  "livedoor-news": {
     "images_with_dst_iptc": 0,
-    "images_with_dst_c2pa": 1,
+    "images_with_dst_c2pa": 2,
     "by_bucket_iptc": [],
     "by_bucket_c2pa": [
       {
-        "bucket": "AI-generated",
+        "bucket": "Other",
+        "images": 1
+      },
+      {
+        "bucket": "Edited with Generative AI",
         "images": 1
       }
     ],
     "by_uri_iptc": [],
     "by_uri_c2pa": [
       {
-        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
-        "term": "trainedAlgorithmicMedia",
-        "bucket": "AI-generated",
+        "uri": "http://c2pa.org/digitalsourcetype/empty",
+        "term": "empty",
+        "bucket": "Other",
         "images": 1
-      }
-    ]
-  },
-  "gabonactu": {
-    "images_with_dst_iptc": 0,
-    "images_with_dst_c2pa": 1,
-    "by_bucket_iptc": [],
-    "by_bucket_c2pa": [
+      },
       {
-        "bucket": "AI-generated",
-        "images": 1
-      }
-    ],
-    "by_uri_iptc": [],
-    "by_uri_c2pa": [
-      {
-        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
-        "term": "trainedAlgorithmicMedia",
-        "bucket": "AI-generated",
-        "images": 1
-      }
-    ]
-  },
-  "tanea-gr": {
-    "images_with_dst_iptc": 0,
-    "images_with_dst_c2pa": 1,
-    "by_bucket_iptc": [],
-    "by_bucket_c2pa": [
-      {
-        "bucket": "AI-generated",
-        "images": 1
-      }
-    ],
-    "by_uri_iptc": [],
-    "by_uri_c2pa": [
-      {
-        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
-        "term": "trainedAlgorithmicMedia",
-        "bucket": "AI-generated",
-        "images": 1
-      }
-    ]
-  },
-  "criterio-hn": {
-    "images_with_dst_iptc": 0,
-    "images_with_dst_c2pa": 1,
-    "by_bucket_iptc": [],
-    "by_bucket_c2pa": [
-      {
-        "bucket": "AI-generated",
-        "images": 1
-      }
-    ],
-    "by_uri_iptc": [],
-    "by_uri_c2pa": [
-      {
-        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
-        "term": "trainedAlgorithmicMedia",
-        "bucket": "AI-generated",
-        "images": 1
-      }
-    ]
-  },
-  "blikk": {
-    "images_with_dst_iptc": 0,
-    "images_with_dst_c2pa": 1,
-    "by_bucket_iptc": [],
-    "by_bucket_c2pa": [
-      {
-        "bucket": "Composite",
-        "images": 1
-      }
-    ],
-    "by_uri_iptc": [],
-    "by_uri_c2pa": [
-      {
-        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/composite",
-        "term": "composite",
-        "bucket": "Composite",
+        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/compositeWithTrainedAlgorithmicMedia",
+        "term": "compositeWithTrainedAlgorithmicMedia",
+        "bucket": "Edited with Generative AI",
         "images": 1
       }
     ]
   },
   "kloop": {
     "images_with_dst_iptc": 0,
-    "images_with_dst_c2pa": 3,
+    "images_with_dst_c2pa": 2,
     "by_bucket_iptc": [],
     "by_bucket_c2pa": [
       {
         "bucket": "Edited with Generative AI",
-        "images": 3
+        "images": 2
       }
     ],
     "by_uri_iptc": [],
@@ -135,7 +85,27 @@
         "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/compositeWithTrainedAlgorithmicMedia",
         "term": "compositeWithTrainedAlgorithmicMedia",
         "bucket": "Edited with Generative AI",
-        "images": 3
+        "images": 2
+      }
+    ]
+  },
+  "astana-times": {
+    "images_with_dst_iptc": 0,
+    "images_with_dst_c2pa": 2,
+    "by_bucket_iptc": [],
+    "by_bucket_c2pa": [
+      {
+        "bucket": "Edited with Generative AI",
+        "images": 2
+      }
+    ],
+    "by_uri_iptc": [],
+    "by_uri_c2pa": [
+      {
+        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/compositeWithTrainedAlgorithmicMedia",
+        "term": "compositeWithTrainedAlgorithmicMedia",
+        "bucket": "Edited with Generative AI",
+        "images": 2
       }
     ]
   },
@@ -156,6 +126,26 @@
         "term": "trainedAlgorithmicMedia",
         "bucket": "AI-generated",
         "images": 2
+      }
+    ]
+  },
+  "kathmandu-post": {
+    "images_with_dst_iptc": 0,
+    "images_with_dst_c2pa": 1,
+    "by_bucket_iptc": [],
+    "by_bucket_c2pa": [
+      {
+        "bucket": "AI-generated",
+        "images": 1
+      }
+    ],
+    "by_uri_iptc": [],
+    "by_uri_c2pa": [
+      {
+        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+        "term": "trainedAlgorithmicMedia",
+        "bucket": "AI-generated",
+        "images": 1
       }
     ]
   },
