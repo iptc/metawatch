@@ -68,6 +68,10 @@ class SiteRow:
     content_signal_ai_train: str | None = None  # "no" / "yes" / None
     content_signal_ai_input: str | None = None
     content_signal_search: str | None = None
+    # Bot-management / access-blocking vendor identified at crawl time (e.g.
+    # "cloudflare", "akamai", "datadome"). None when no positive fingerprint
+    # was found. Only populated when status is blocked_by_waf.
+    block_vendor: str | None = None
 
 
 @dataclass
@@ -337,6 +341,7 @@ def _sites_table(rows: list[SiteRow]) -> pa.Table:
         "content_signal_ai_train": [r.content_signal_ai_train for r in rows],
         "content_signal_ai_input": [r.content_signal_ai_input for r in rows],
         "content_signal_search": [r.content_signal_search for r in rows],
+        "block_vendor": [r.block_vendor for r in rows],
     })
 
 

@@ -189,18 +189,71 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
     for img in images:
         images_by_site[img["site_id"]].append(img)
 
+    articles_by_site: dict[str, list[dict]] = defaultdict(list)
+    for a in articles:
+        articles_by_site[a["site_id"]].append(a)
+
+    def _block_info(s: dict) -> tuple[str, str | None, str | None]:
+        """Return (effective_status, block_phase, block_vendor) for a site.
+
+        Unifies the three historical blocked statuses into a single 'blocked'
+        value, and computes which phase of the crawl was blocked plus the
+        vendor when known.
+
+        Phases:
+          'discovery' — the feed/sitemap fetch itself failed (blocked_by_waf /
+                        discovery_blocked from the stored status).
+          'article'   — discovery succeeded but ≥80 % of article fetches
+                        returned errors and zero images were harvested.
+
+        Vendor: stored in sites.parquet as block_vendor for new crawls;
+        null for existing data and for article-phase blocks (response headers
+        not stored at that granularity).
+        """
+        raw_status = s["status"]
+
+        # Discovery-phase blocks stored by the crawler.
+        if raw_status in ("blocked_by_waf", "discovery_blocked"):
+            vendor = s.get("block_vendor")  # null for pre-schema-change data
+            return "blocked", "discovery", vendor
+
+        # Article-phase: only when discovery succeeded but we got no images.
+        if raw_status == "ok":
+            site_arts = articles_by_site.get(s["site_id"], [])
+            if site_arts and s.get("images_analysed", 0) == 0:
+                n_blocked = sum(
+                    1 for a in site_arts
+                    if (a.get("http_status") or 0) == 0 or (a.get("http_status") or 0) >= 400
+                )
+                if n_blocked / len(site_arts) >= 0.8:
+                    return "blocked", "article", None
+
+        return raw_status, None, None
+
     publisher_urls = load_publisher_urls()
     sites_out = []
     for s in sites:
         site_imgs = images_by_site.get(s["site_id"], [])
         ok_imgs = [i for i in site_imgs if i["http_status"] == 200]
+        effective_status, block_phase, block_vendor = _block_info(s)
+        # For blocked sites, compute the dominant article HTTP code (most frequent
+        # non-200) as a lightweight diagnostic hint for the detail page.
+        block_http_codes: dict[str, int] = {}
+        if effective_status == "blocked" and block_phase == "article":
+            for a in articles_by_site.get(s["site_id"], []):
+                code = a.get("http_status") or 0
+                if code != 200:
+                    block_http_codes[str(code)] = block_http_codes.get(str(code), 0) + 1
         sites_out.append({
             "site_id": s["site_id"],
             "site_name": s["site_name"],
             "url": publisher_urls.get(s["site_id"], ""),
             "country": s["country"],
             "category": s["category"],
-            "status": s["status"],
+            "status": effective_status,
+            "block_phase": block_phase,
+            "block_vendor": block_vendor,
+            "block_http_codes": block_http_codes,
             "discovery_strategy": s["discovery_strategy"],
             "sitemap_url_used": s["sitemap_url_used"],
             "articles_sampled": s["articles_sampled"],

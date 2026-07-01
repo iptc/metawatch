@@ -296,7 +296,8 @@ async def _walk_sitemap(
     except Exception:
         return [], "network_error"
     if r.status_code >= 400:
-        return [], ("waf_blocked" if _detect_waf(r) else "http_error")
+        waf = _detect_waf(r)
+        return [], (f"waf:{waf}" if waf else "http_error")
 
     body = r.content
     # Some sites serve .xml.gz sitemaps without setting Content-Encoding,
@@ -316,7 +317,8 @@ async def _walk_sitemap(
     try:
         root = etree.fromstring(body)
     except etree.XMLSyntaxError:
-        return [], ("waf_blocked" if _detect_waf(r) else "parse_error")
+        waf = _detect_waf(r)
+        return [], (f"waf:{waf}" if waf else "parse_error")
 
     tag = etree.QName(root.tag).localname
 
@@ -537,8 +539,8 @@ async def _fetch_rss_once(
         ct = (r.headers.get("content-type") or "").split(";")[0].strip()
         snippet = r.text[:120].replace("\n", " ").replace("\r", "")
         waf = _detect_waf(r)
-        kind = "waf_blocked" if waf else "http_error"
-        _console.print(f"  {tag} {kind}{f' ({waf})' if waf else ''} {r.status_code} {feed_url}  ct={ct!r}  body={snippet!r}")
+        kind = f"waf:{waf}" if waf else "http_error"
+        _console.print(f"  {tag} {kind} {r.status_code} {feed_url}  ct={ct!r}  body={snippet!r}")
         return [], kind
     if not r.content:
         _console.print(f"  {tag} parse_error {feed_url}  (empty body, status {r.status_code})")
@@ -549,9 +551,9 @@ async def _fetch_rss_once(
         snippet = r.text[:120].replace("\n", " ").replace("\r", "")
         bozo = getattr(parsed, "bozo_exception", None)
         waf = _detect_waf(r)
-        kind = "waf_blocked" if waf else "parse_error"
+        kind = f"waf:{waf}" if waf else "parse_error"
         _console.print(
-            f"  {tag} {kind}{f' ({waf})' if waf else ''} {feed_url}  ct={ct!r}  "
+            f"  {tag} {kind} {feed_url}  ct={ct!r}  "
             f"bozo={type(bozo).__name__ if bozo else '?'}  body={snippet!r}"
         )
         return [], kind
@@ -695,7 +697,7 @@ def status_for_empty_discovery(strategy: str, discovery_error: str | None) -> st
     """
     if strategy == "unreachable":
         return "unreachable"
-    if discovery_error == "waf_blocked":
+    if discovery_error and discovery_error.startswith("waf:"):
         return "blocked_by_waf"
     if discovery_error == "http_error":
         return "discovery_blocked"

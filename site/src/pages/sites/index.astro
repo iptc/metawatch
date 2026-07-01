@@ -45,22 +45,13 @@ const sites = getSites();
       files, so the publisher still appears in the <a href={`${base}/ai-policy/`}>AI prefs</a>
       counts.</dd>
 
-    <dt><code>blocked_by_waf</code></dt>
-    <dd>A sitemap or feed request was met by a web-application firewall / bot-management
-      challenge that we could positively fingerprint — a vendor signature in the response
-      headers (Cloudflare, Akamai, DataDome, Imperva, Sucuri) or a challenge-page body such as
-      Cloudflare's <em>“Just a moment…”</em>. The feed often works fine from an ordinary browser
-      or residential IP; the publisher's bot protection is refusing automated clients like ours.
-      We only assign this on a confirmed signature — an ambiguous HTML response stays
-      <code>discovery_parse_error</code>, and a dropped connection stays <code>unreachable</code>,
-      because those can't be reliably attributed to a WAF.</dd>
-
-    <dt><code>discovery_blocked</code></dt>
-    <dd>Every attempt to fetch a sitemap or RSS feed returned an HTTP error (e.g. 403/404/500)
-      with <em>no</em> recognizable WAF fingerprint — typically a CDN or origin that distinguishes
-      the site's root from its feed paths, or an access rule we can't attribute to a specific
-      bot-management vendor. (Confirmed WAF challenges are reported separately as
-      <code>blocked_by_waf</code> above.)</dd>
+    <dt><code>blocked</code></dt>
+    <dd>The crawler could not retrieve content at some point in the pipeline — either the
+      feed/sitemap fetch itself failed, or articles were discovered but most individual page
+      fetches returned errors. Common causes: paywall, bot-protection layer (Cloudflare,
+      Akamai, DataDome, TollBit, etc.), geo-restriction, or a CDN rule that distinguishes
+      the site's root from its feed or article paths. The publisher detail page shows which
+      phase was blocked and the vendor when we could positively fingerprint it.</dd>
 
     <dt><code>discovery_parse_error</code></dt>
     <dd>A sitemap or feed URL returned HTTP 200 but the body wasn't valid XML / RSS / Atom.

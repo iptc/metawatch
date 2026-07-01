@@ -85,13 +85,30 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
     <div class="card">
       <strong>Status: {site.status}.</strong>
       {site.status === 'robots_disallow' && <span> The site's robots.txt disallows our crawler.</span>}
+      {site.status === 'blocked' && site.block_phase === 'discovery' && <span> The feed or sitemap was blocked before any articles could be discovered. Image metadata cannot be assessed.</span>}
+      {site.status === 'blocked' && site.block_phase === 'article' && <span> The feed was fetched and articles were discovered, but most article fetches returned HTTP errors. The site is likely behind a paywall, bot-protection layer, or geo-restriction that permits feed access but blocks individual article pages from our crawl infrastructure. Image metadata cannot be assessed.</span>}
       {site.status === 'no_articles_found' && <span> The feed or sitemap was fetched cleanly but had no articles inside our sample window.</span>}
-      {site.status === 'discovery_blocked' && <span> The feed or sitemap returned an HTTP error (typically 4xx) — usually a CDN or WAF refusing the crawl runner's IP. Often resolvable from a different egress; the source itself is fine.</span>}
       {site.status === 'discovery_parse_error' && <span> The feed or sitemap responded but the body wasn't valid XML/RSS — often a WAF challenge page served with a 200.</span>}
       {site.status === 'unreachable' && <span> Every feed and sitemap we tried failed at the network layer (DNS, connection, TLS, or timeout).</span>}
       {site.status === 'timeout' && <span> The site took longer than 5 minutes to crawl and was cut off.</span>}
       {site.status === 'error' && <span> An unexpected error occurred during the crawl.</span>}
     </div>
+  )}
+
+  {site.status === 'blocked' && (
+    <section>
+      <h2>Crawl access</h2>
+      <table class="sortable">
+        <thead><tr><th>Detail</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Phase blocked</td><td>{site.block_phase === 'discovery' ? 'Feed / sitemap discovery' : 'Article fetching'}</td></tr>
+          <tr><td>Vendor identified</td><td>{site.block_vendor ? <span class="vendor-name">{site.block_vendor}</span> : <span style="color:var(--iptc-muted)">not identified</span>}</td></tr>
+          {site.block_phase === 'article' && Object.entries(site.block_http_codes).sort((a, b) => b[1] - a[1]).map(([code, count]) => (
+            <tr><td>HTTP {code}</td><td>{count} article{count === 1 ? '' : 's'}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
   )}
 
   {history.length >= 2 && (
@@ -663,6 +680,10 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
   }
   .cross {
     color: var(--iptc-bar-bg-strong, #d1d5db);
+  }
+  .vendor-name {
+    text-transform: capitalize;
+    font-weight: 500;
   }
   .grid-2 {
     display: grid;

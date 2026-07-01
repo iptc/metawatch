@@ -311,7 +311,10 @@ async def _crawl_site(
     if robots.fetched:
         await _ensure_optouts()
 
-    def _site_row(status: str, sitemap: str | None, articles: int, images: int, score: float) -> SiteRow:
+    def _site_row(
+        status: str, sitemap: str | None, articles: int, images: int, score: float,
+        block_vendor: str | None = None,
+    ) -> SiteRow:
         assert optout_signals is not None, "_site_row called before _ensure_optouts()"
         return SiteRow(
             run_id=run_id, site_id=site.id, site_name=site.name,
@@ -330,7 +333,14 @@ async def _crawl_site(
             content_signal_ai_train=optout_signals.content_signals.get("ai-train"),
             content_signal_ai_input=optout_signals.content_signals.get("ai-input"),
             content_signal_search=optout_signals.content_signals.get("search"),
+            block_vendor=block_vendor,
         )
+
+    def _vendor_from_disc_err(err: str | None) -> str | None:
+        """Extract the WAF vendor from a disc_err of the form 'waf:<vendor>'."""
+        if err and err.startswith("waf:"):
+            return err[4:] or None
+        return None
 
     if not robots.allowed_at_root:
         # robots.fetched is True here (RSS-path synthetic robots is always
@@ -345,7 +355,8 @@ async def _crawl_site(
         status = discovery.status_for_empty_discovery(strategy, disc_err)
         await _ensure_optouts()
         return {
-            "site": _site_row(status, sitemap_url, 0, 0, 0.0),
+            "site": _site_row(status, sitemap_url, 0, 0, 0.0,
+                              block_vendor=_vendor_from_disc_err(disc_err)),
             "articles": [], "images": [], "fields": [],
             "robots_analysis": robots_analysis,
         }

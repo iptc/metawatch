@@ -93,6 +93,9 @@ export interface Site {
   country: string;
   category: string;
   status: string;
+  block_phase: 'discovery' | 'article' | null;
+  block_vendor: string | null;
+  block_http_codes: Record<string, number>;
   discovery_strategy: string;
   sitemap_url_used: string | null;
   articles_sampled: number;
