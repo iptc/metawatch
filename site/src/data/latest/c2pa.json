@@ -1,19 +1,19 @@
 {
-  "image_count_total": 6765,
+  "image_count_total": 6845,
   "image_count_with_c2pa": 15,
   "pct_with_c2pa": 0.22,
   "by_outcome": [
     {
       "outcome": "valid",
-      "images": 12
+      "images": 13
     },
     {
       "outcome": "modified",
-      "images": 0
+      "images": 1
     },
     {
       "outcome": "expired",
-      "images": 3
+      "images": 1
     },
     {
       "outcome": "untrusted_issuer",
@@ -27,29 +27,29 @@
   "by_signer": [
     {
       "signer": "OpenAI OpCo, LLC",
-      "images": 8
+      "images": 6
     },
     {
       "signer": "International Press Telecommunications Council",
+      "images": 4
+    },
+    {
+      "signer": "Adobe Inc.",
       "images": 3
     },
     {
       "signer": "Canva",
-      "images": 3
-    },
-    {
-      "signer": "Google LLC",
-      "images": 1
+      "images": 2
     }
   ],
   "by_validation_state": [
     {
       "state": "Valid",
-      "images": 12
+      "images": 13
     },
     {
       "state": "Invalid",
-      "images": 3
+      "images": 2
     }
   ],
   "top_sites": [
@@ -57,13 +57,19 @@
       "site_id": "iptc",
       "site_name": "IPTC",
       "country": "GB",
-      "images_with_c2pa": 3
+      "images_with_c2pa": 4
     },
     {
       "site_id": "kloop",
       "site_name": "Kloop",
       "country": "KG",
-      "images_with_c2pa": 3
+      "images_with_c2pa": 2
+    },
+    {
+      "site_id": "astana-times",
+      "site_name": "The Astana Times",
+      "country": "KZ",
+      "images_with_c2pa": 2
     },
     {
       "site_id": "mauriactu",
@@ -78,33 +84,21 @@
       "images_with_c2pa": 2
     },
     {
-      "site_id": "echorouk",
-      "site_name": "Echorouk Online",
-      "country": "DZ",
+      "site_id": "237actu",
+      "site_name": "237actu",
+      "country": "CM",
       "images_with_c2pa": 1
     },
     {
-      "site_id": "gabonactu",
-      "site_name": "Gabon Actu",
-      "country": "GA",
+      "site_id": "livedoor-news",
+      "site_name": "Livedoor News",
+      "country": "JP",
       "images_with_c2pa": 1
     },
     {
-      "site_id": "tanea-gr",
-      "site_name": "\u03a4\u03b1 \u039d\u03ad\u03b1",
-      "country": "GR",
-      "images_with_c2pa": 1
-    },
-    {
-      "site_id": "criterio-hn",
-      "site_name": "Criterio.hn",
-      "country": "HN",
-      "images_with_c2pa": 1
-    },
-    {
-      "site_id": "blikk",
-      "site_name": "Blikk",
-      "country": "HU",
+      "site_id": "kathmandu-post",
+      "site_name": "The Kathmandu Post",
+      "country": "NP",
       "images_with_c2pa": 1
     }
   ]

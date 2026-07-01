@@ -1,26 +1,5 @@
 {
-  "echorouk": {
-    "image_count_with_c2pa": 1,
-    "by_outcome": [
-      {
-        "outcome": "valid",
-        "images": 1
-      }
-    ],
-    "by_signer": [
-      {
-        "signer": "OpenAI OpCo, LLC",
-        "images": 1
-      }
-    ],
-    "by_validation_state": [
-      {
-        "state": "Valid",
-        "images": 1
-      }
-    ]
-  },
-  "gabonactu": {
+  "237actu": {
     "image_count_with_c2pa": 1,
     "by_outcome": [
       {
@@ -42,27 +21,27 @@
     ]
   },
   "iptc": {
-    "image_count_with_c2pa": 3,
+    "image_count_with_c2pa": 4,
     "by_outcome": [
       {
         "outcome": "valid",
-        "images": 3
+        "images": 4
       }
     ],
     "by_signer": [
       {
         "signer": "International Press Telecommunications Council",
-        "images": 3
+        "images": 4
       }
     ],
     "by_validation_state": [
       {
         "state": "Valid",
-        "images": 3
+        "images": 4
       }
     ]
   },
-  "tanea-gr": {
+  "livedoor-news": {
     "image_count_with_c2pa": 1,
     "by_outcome": [
       {
@@ -72,49 +51,7 @@
     ],
     "by_signer": [
       {
-        "signer": "OpenAI OpCo, LLC",
-        "images": 1
-      }
-    ],
-    "by_validation_state": [
-      {
-        "state": "Valid",
-        "images": 1
-      }
-    ]
-  },
-  "criterio-hn": {
-    "image_count_with_c2pa": 1,
-    "by_outcome": [
-      {
-        "outcome": "valid",
-        "images": 1
-      }
-    ],
-    "by_signer": [
-      {
-        "signer": "OpenAI OpCo, LLC",
-        "images": 1
-      }
-    ],
-    "by_validation_state": [
-      {
-        "state": "Valid",
-        "images": 1
-      }
-    ]
-  },
-  "blikk": {
-    "image_count_with_c2pa": 1,
-    "by_outcome": [
-      {
-        "outcome": "valid",
-        "images": 1
-      }
-    ],
-    "by_signer": [
-      {
-        "signer": "Google LLC",
+        "signer": "Adobe Inc.",
         "images": 1
       }
     ],
@@ -126,23 +63,48 @@
     ]
   },
   "kloop": {
-    "image_count_with_c2pa": 3,
+    "image_count_with_c2pa": 2,
     "by_outcome": [
       {
+        "outcome": "modified",
+        "images": 1
+      },
+      {
         "outcome": "expired",
-        "images": 3
+        "images": 1
       }
     ],
     "by_signer": [
       {
         "signer": "Canva",
-        "images": 3
+        "images": 2
       }
     ],
     "by_validation_state": [
       {
         "state": "Invalid",
-        "images": 3
+        "images": 2
+      }
+    ]
+  },
+  "astana-times": {
+    "image_count_with_c2pa": 2,
+    "by_outcome": [
+      {
+        "outcome": "valid",
+        "images": 2
+      }
+    ],
+    "by_signer": [
+      {
+        "signer": "Adobe Inc.",
+        "images": 2
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Valid",
+        "images": 2
       }
     ]
   },
@@ -164,6 +126,27 @@
       {
         "state": "Valid",
         "images": 2
+      }
+    ]
+  },
+  "kathmandu-post": {
+    "image_count_with_c2pa": 1,
+    "by_outcome": [
+      {
+        "outcome": "valid",
+        "images": 1
+      }
+    ],
+    "by_signer": [
+      {
+        "signer": "OpenAI OpCo, LLC",
+        "images": 1
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Valid",
+        "images": 1
       }
     ]
   },
