@@ -115,6 +115,18 @@ def fmt_dt(v) -> str | None:
     return v.isoformat() if hasattr(v, "isoformat") else str(v)
 
 
+def images_with_any_field(fields: list[dict]) -> set[str]:
+    """Return the set of image_url_hashes that have at least one scored or
+    tracked field present (has_value=True) in metadata_fields.parquet.
+
+    This is the correct basis for 'pct_with_iptc': an image qualifies if any
+    field from scoring.yaml (scored_fields OR tracked_fields) was found,
+    regardless of which metadata container (IPTC-IIM, XMP, or EXIF/TIFF)
+    held it.
+    """
+    return {r["image_url_hash"] for r in fields if r["has_value"]}
+
+
 def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -134,9 +146,10 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         "article_count": runs[0]["article_count"] if runs else 0,
         "image_count": runs[0]["image_count"] if runs else 0,
     }
+    field_hashes = images_with_any_field(fields)
     image_scores = [img["iptc_score"] for img in images if img["http_status"] == 200]
     summary["global_mean_score"] = round(mean(image_scores), 2) if image_scores else 0.0
-    summary["images_with_iptc"] = sum(1 for img in images if img["has_iptc_iim"] or img["has_iptc_xmp"])
+    summary["images_with_iptc"] = sum(1 for img in images if img["image_url_hash"] in field_hashes)
     summary["images_with_c2pa"] = sum(1 for img in images if img["has_c2pa"])
     summary["pct_with_iptc"] = (
         round(100.0 * summary["images_with_iptc"] / len(images), 1) if images else 0.0
@@ -260,7 +273,7 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
             "images_analysed": s["images_analysed"],
             "mean_iptc_score": s["mean_iptc_score"],
             "pct_with_iptc": (
-                round(100.0 * sum(1 for i in ok_imgs if i["has_iptc_iim"] or i["has_iptc_xmp"]) / len(ok_imgs), 1)
+                round(100.0 * sum(1 for i in ok_imgs if i["image_url_hash"] in field_hashes) / len(ok_imgs), 1)
                 if ok_imgs else 0.0
             ),
             "cdn_breakdown": _counter([i["cdn_provider"] for i in ok_imgs]),
@@ -337,7 +350,7 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
             continue
         cdn = img["cdn_provider"]
         optimizer_cross[cdn]["images"] += 1
-        if not (img["has_iptc_iim"] or img["has_iptc_xmp"]):
+        if img["image_url_hash"] not in field_hashes:
             optimizer_cross[cdn]["stripped"] += 1
     cdn_out = {
         "providers": cdn_breakdown,
@@ -996,6 +1009,7 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         valid_image_count = 0
         c2pa_outcome_counts: dict[str, int] = defaultdict(int)
         imgs_path = d / "images.parquet"
+        run_field_hashes = images_with_any_field(read(d / "metadata_fields.parquet"))
         run_images: list[dict] = []
         if imgs_path.exists():
             run_images = read(imgs_path)
@@ -1004,7 +1018,7 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
                     continue
                 valid_image_count += 1
                 scores.append(r["iptc_score"])
-                if r.get("has_iptc_iim") or r.get("has_iptc_xmp"):
+                if r["image_url_hash"] in run_field_hashes:
                     iptc_count += 1
                 if r.get("has_c2pa"):
                     c2pa_count += 1

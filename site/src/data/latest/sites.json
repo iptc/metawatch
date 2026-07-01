@@ -154,7 +154,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 70.0,
-    "pct_with_iptc": 85.0,
+    "pct_with_iptc": 90.0,
     "cdn_breakdown": {
       "cloudflare": 20
     }
@@ -234,7 +234,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 57.5,
-    "pct_with_iptc": 90.0,
+    "pct_with_iptc": 85.0,
     "cdn_breakdown": {
       "fastly": 20
     }
@@ -275,7 +275,7 @@
     "articles_sampled": 16,
     "images_analysed": 16,
     "mean_iptc_score": 54.69,
-    "pct_with_iptc": 100.0,
+    "pct_with_iptc": 93.8,
     "cdn_breakdown": {
       "fastly": 16
     }
@@ -295,7 +295,7 @@
     "articles_sampled": 15,
     "images_analysed": 15,
     "mean_iptc_score": 53.33,
-    "pct_with_iptc": 80.0,
+    "pct_with_iptc": 86.7,
     "cdn_breakdown": {
       "cloudfront": 15
     }
@@ -315,7 +315,7 @@
     "articles_sampled": 20,
     "images_analysed": 17,
     "mean_iptc_score": 50.0,
-    "pct_with_iptc": 88.2,
+    "pct_with_iptc": 76.5,
     "cdn_breakdown": {
       "akamai": 16,
       "fastly": 1
@@ -336,7 +336,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 48.75,
-    "pct_with_iptc": 55.0,
+    "pct_with_iptc": 50.0,
     "cdn_breakdown": {
       "none": 20
     }
@@ -356,7 +356,7 @@
     "articles_sampled": 20,
     "images_analysed": 19,
     "mean_iptc_score": 48.68,
-    "pct_with_iptc": 84.2,
+    "pct_with_iptc": 73.7,
     "cdn_breakdown": {
       "akamai": 17,
       "cloudfront": 2
@@ -377,7 +377,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 46.25,
-    "pct_with_iptc": 95.0,
+    "pct_with_iptc": 75.0,
     "cdn_breakdown": {
       "akamai": 20
     }
@@ -397,7 +397,7 @@
     "articles_sampled": 20,
     "images_analysed": 19,
     "mean_iptc_score": 43.42,
-    "pct_with_iptc": 68.4,
+    "pct_with_iptc": 63.2,
     "cdn_breakdown": {
       "akamai": 1,
       "cloudfront": 18
@@ -438,7 +438,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 38.75,
-    "pct_with_iptc": 55.0,
+    "pct_with_iptc": 50.0,
     "cdn_breakdown": {
       "cloudfront": 20
     }
@@ -518,7 +518,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 36.25,
-    "pct_with_iptc": 65.0,
+    "pct_with_iptc": 60.0,
     "cdn_breakdown": {
       "fastly": 20
     }
@@ -579,7 +579,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 30.0,
-    "pct_with_iptc": 65.0,
+    "pct_with_iptc": 70.0,
     "cdn_breakdown": {
       "akamai": 20
     }
@@ -599,7 +599,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 30.0,
-    "pct_with_iptc": 30.0,
+    "pct_with_iptc": 35.0,
     "cdn_breakdown": {
       "cloudflare": 20
     }
@@ -679,7 +679,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 22.5,
-    "pct_with_iptc": 80.0,
+    "pct_with_iptc": 75.0,
     "cdn_breakdown": {
       "cloudflare": 20
     }
@@ -699,7 +699,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 22.5,
-    "pct_with_iptc": 10.0,
+    "pct_with_iptc": 70.0,
     "cdn_breakdown": {
       "none": 20
     }
@@ -779,7 +779,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 20.0,
-    "pct_with_iptc": 70.0,
+    "pct_with_iptc": 60.0,
     "cdn_breakdown": {
       "none": 20
     }
@@ -799,7 +799,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 18.75,
-    "pct_with_iptc": 25.0,
+    "pct_with_iptc": 50.0,
     "cdn_breakdown": {
       "none": 19,
       "akamai": 1
@@ -820,7 +820,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 18.75,
-    "pct_with_iptc": 45.0,
+    "pct_with_iptc": 35.0,
     "cdn_breakdown": {
       "none": 20
     }
@@ -880,7 +880,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 15.0,
-    "pct_with_iptc": 40.0,
+    "pct_with_iptc": 30.0,
     "cdn_breakdown": {
       "none": 20
     }
@@ -900,7 +900,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 15.0,
-    "pct_with_iptc": 50.0,
+    "pct_with_iptc": 40.0,
     "cdn_breakdown": {
       "cloudflare": 20
     }
@@ -940,7 +940,7 @@
     "articles_sampled": 20,
     "images_analysed": 19,
     "mean_iptc_score": 14.29,
-    "pct_with_iptc": 57.1,
+    "pct_with_iptc": 71.4,
     "cdn_breakdown": {
       "none": 7
     }
@@ -960,7 +960,7 @@
     "articles_sampled": 10,
     "images_analysed": 6,
     "mean_iptc_score": 12.5,
-    "pct_with_iptc": 83.3,
+    "pct_with_iptc": 33.3,
     "cdn_breakdown": {
       "cloudflare": 6
     }
@@ -980,7 +980,7 @@
     "articles_sampled": 10,
     "images_analysed": 10,
     "mean_iptc_score": 12.5,
-    "pct_with_iptc": 30.0,
+    "pct_with_iptc": 20.0,
     "cdn_breakdown": {
       "none": 10
     }
@@ -1000,7 +1000,7 @@
     "articles_sampled": 12,
     "images_analysed": 12,
     "mean_iptc_score": 12.5,
-    "pct_with_iptc": 50.0,
+    "pct_with_iptc": 58.3,
     "cdn_breakdown": {
       "none": 12
     }
@@ -1040,7 +1040,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 11.25,
-    "pct_with_iptc": 0.0,
+    "pct_with_iptc": 35.0,
     "cdn_breakdown": {
       "fastly": 20
     }
@@ -1060,7 +1060,7 @@
     "articles_sampled": 20,
     "images_analysed": 16,
     "mean_iptc_score": 10.94,
-    "pct_with_iptc": 37.5,
+    "pct_with_iptc": 62.5,
     "cdn_breakdown": {
       "cloudflare": 16
     }
@@ -1120,7 +1120,7 @@
     "articles_sampled": 5,
     "images_analysed": 3,
     "mean_iptc_score": 8.33,
-    "pct_with_iptc": 66.7,
+    "pct_with_iptc": 100.0,
     "cdn_breakdown": {
       "none": 3
     }
@@ -1160,7 +1160,7 @@
     "articles_sampled": 12,
     "images_analysed": 12,
     "mean_iptc_score": 8.33,
-    "pct_with_iptc": 8.3,
+    "pct_with_iptc": 33.3,
     "cdn_breakdown": {
       "cloudflare": 12
     }
@@ -1200,7 +1200,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 7.5,
-    "pct_with_iptc": 0.0,
+    "pct_with_iptc": 30.0,
     "cdn_breakdown": {
       "cloudflare": 20
     }
@@ -1220,7 +1220,7 @@
     "articles_sampled": 10,
     "images_analysed": 10,
     "mean_iptc_score": 7.5,
-    "pct_with_iptc": 60.0,
+    "pct_with_iptc": 30.0,
     "cdn_breakdown": {
       "cloudflare": 10
     }
@@ -1240,7 +1240,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 7.5,
-    "pct_with_iptc": 25.0,
+    "pct_with_iptc": 20.0,
     "cdn_breakdown": {
       "cloudflare": 20
     }
@@ -1260,7 +1260,7 @@
     "articles_sampled": 4,
     "images_analysed": 4,
     "mean_iptc_score": 6.25,
-    "pct_with_iptc": 50.0,
+    "pct_with_iptc": 75.0,
     "cdn_breakdown": {
       "cloudfront": 4
     }
@@ -1280,7 +1280,7 @@
     "articles_sampled": 12,
     "images_analysed": 12,
     "mean_iptc_score": 6.25,
-    "pct_with_iptc": 0.0,
+    "pct_with_iptc": 25.0,
     "cdn_breakdown": {
       "cloudflare": 12
     }
@@ -1300,7 +1300,7 @@
     "articles_sampled": 20,
     "images_analysed": 9,
     "mean_iptc_score": 5.56,
-    "pct_with_iptc": 66.7,
+    "pct_with_iptc": 22.2,
     "cdn_breakdown": {
       "none": 9
     }
@@ -1320,7 +1320,7 @@
     "articles_sampled": 10,
     "images_analysed": 9,
     "mean_iptc_score": 5.56,
-    "pct_with_iptc": 22.2,
+    "pct_with_iptc": 11.1,
     "cdn_breakdown": {
       "none": 9
     }
@@ -1340,7 +1340,7 @@
     "articles_sampled": 10,
     "images_analysed": 10,
     "mean_iptc_score": 5.0,
-    "pct_with_iptc": 0.0,
+    "pct_with_iptc": 10.0,
     "cdn_breakdown": {
       "cloudflare": 10
     }
@@ -1360,7 +1360,7 @@
     "articles_sampled": 15,
     "images_analysed": 15,
     "mean_iptc_score": 5.0,
-    "pct_with_iptc": 46.7,
+    "pct_with_iptc": 6.7,
     "cdn_breakdown": {
       "none": 15
     }
@@ -1420,7 +1420,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 5.0,
-    "pct_with_iptc": 0.0,
+    "pct_with_iptc": 20.0,
     "cdn_breakdown": {
       "cloudflare": 20
     }
@@ -1500,7 +1500,7 @@
     "articles_sampled": 12,
     "images_analysed": 11,
     "mean_iptc_score": 4.55,
-    "pct_with_iptc": 72.7,
+    "pct_with_iptc": 54.5,
     "cdn_breakdown": {
       "none": 11
     }
@@ -1600,7 +1600,7 @@
     "articles_sampled": 14,
     "images_analysed": 14,
     "mean_iptc_score": 3.57,
-    "pct_with_iptc": 0.0,
+    "pct_with_iptc": 14.3,
     "cdn_breakdown": {
       "cloudflare": 14
     }
@@ -1660,7 +1660,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 2.78,
-    "pct_with_iptc": 27.8,
+    "pct_with_iptc": 22.2,
     "cdn_breakdown": {
       "none": 18
     }
@@ -1680,7 +1680,7 @@
     "articles_sampled": 20,
     "images_analysed": 19,
     "mean_iptc_score": 2.63,
-    "pct_with_iptc": 0.0,
+    "pct_with_iptc": 10.5,
     "cdn_breakdown": {
       "cloudflare": 19
     }
@@ -1700,7 +1700,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 2.5,
-    "pct_with_iptc": 0.0,
+    "pct_with_iptc": 10.0,
     "cdn_breakdown": {
       "cloudflare": 20
     }
@@ -1760,7 +1760,7 @@
     "articles_sampled": 10,
     "images_analysed": 10,
     "mean_iptc_score": 2.5,
-    "pct_with_iptc": 30.0,
+    "pct_with_iptc": 20.0,
     "cdn_breakdown": {
       "cloudflare": 9,
       "none": 1
@@ -1801,7 +1801,7 @@
     "articles_sampled": 10,
     "images_analysed": 10,
     "mean_iptc_score": 2.5,
-    "pct_with_iptc": 20.0,
+    "pct_with_iptc": 10.0,
     "cdn_breakdown": {
       "cloudflare": 10
     }
@@ -1821,7 +1821,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 2.5,
-    "pct_with_iptc": 20.0,
+    "pct_with_iptc": 25.0,
     "cdn_breakdown": {
       "none": 20
     }
@@ -1861,7 +1861,7 @@
     "articles_sampled": 20,
     "images_analysed": 19,
     "mean_iptc_score": 1.32,
-    "pct_with_iptc": 0.0,
+    "pct_with_iptc": 5.3,
     "cdn_breakdown": {
       "cloudflare": 19
     }
@@ -1881,7 +1881,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 1.25,
-    "pct_with_iptc": 0.0,
+    "pct_with_iptc": 5.0,
     "cdn_breakdown": {
       "none": 20
     }
@@ -1901,7 +1901,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 1.25,
-    "pct_with_iptc": 10.0,
+    "pct_with_iptc": 5.0,
     "cdn_breakdown": {
       "none": 20
     }
@@ -1921,7 +1921,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 1.25,
-    "pct_with_iptc": 0.0,
+    "pct_with_iptc": 5.0,
     "cdn_breakdown": {
       "cloudflare": 20
     }
@@ -1961,7 +1961,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 1.25,
-    "pct_with_iptc": 0.0,
+    "pct_with_iptc": 5.0,
     "cdn_breakdown": {
       "fastly": 20
     }
@@ -1981,7 +1981,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 1.25,
-    "pct_with_iptc": 0.0,
+    "pct_with_iptc": 5.0,
     "cdn_breakdown": {
       "none": 20
     }
@@ -2217,7 +2217,7 @@
     "articles_sampled": 10,
     "images_analysed": 1,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 100.0,
+    "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "none": 1
     }
@@ -3258,7 +3258,7 @@
     "articles_sampled": 10,
     "images_analysed": 10,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 10.0,
+    "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "none": 10
     }
@@ -3774,7 +3774,7 @@
     "articles_sampled": 10,
     "images_analysed": 6,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 16.7,
+    "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "cloudflare": 6
     }
@@ -3952,7 +3952,7 @@
     "articles_sampled": 10,
     "images_analysed": 10,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
+    "pct_with_iptc": 10.0,
     "cdn_breakdown": {
       "cloudflare": 10
     }
@@ -4368,7 +4368,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 5.0,
+    "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "cloudfront": 20
     }
@@ -4646,7 +4646,7 @@
     "articles_sampled": 10,
     "images_analysed": 10,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
+    "pct_with_iptc": 20.0,
     "cdn_breakdown": {
       "none": 10
     }
@@ -5039,7 +5039,7 @@
     "articles_sampled": 20,
     "images_analysed": 1,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 100.0,
+    "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "cloudfront": 1
     }
@@ -5297,7 +5297,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 55.0,
+    "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "none": 20
     }
@@ -5615,7 +5615,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 5.0,
+    "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "akamai": 20
     }
@@ -5795,7 +5795,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 95.0,
+    "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "cloudfront": 20
     }
@@ -6093,7 +6093,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 15.0,
+    "pct_with_iptc": 10.0,
     "cdn_breakdown": {
       "cloudfront": 20
     }
@@ -6557,7 +6557,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 5.0,
+    "pct_with_iptc": 10.0,
     "cdn_breakdown": {
       "none": 20
     }
@@ -7040,7 +7040,7 @@
     "articles_sampled": 10,
     "images_analysed": 10,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
+    "pct_with_iptc": 20.0,
     "cdn_breakdown": {
       "none": 10
     }
@@ -7100,7 +7100,7 @@
     "articles_sampled": 10,
     "images_analysed": 10,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 90.0,
+    "pct_with_iptc": 40.0,
     "cdn_breakdown": {
       "none": 10
     }
@@ -7300,7 +7300,7 @@
     "articles_sampled": 10,
     "images_analysed": 10,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 50.0,
+    "pct_with_iptc": 40.0,
     "cdn_breakdown": {
       "none": 10
     }
@@ -7737,7 +7737,7 @@
     "articles_sampled": 12,
     "images_analysed": 12,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
+    "pct_with_iptc": 8.3,
     "cdn_breakdown": {
       "cloudflare": 12
     }
@@ -8194,7 +8194,7 @@
     "articles_sampled": 10,
     "images_analysed": 10,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 10.0,
+    "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "none": 10
     }
@@ -8653,7 +8653,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 5.0,
+    "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "none": 20
     }
@@ -8673,7 +8673,7 @@
     "articles_sampled": 10,
     "images_analysed": 10,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 90.0,
+    "pct_with_iptc": 60.0,
     "cdn_breakdown": {
       "none": 10
     }
@@ -8813,7 +8813,7 @@
     "articles_sampled": 10,
     "images_analysed": 10,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
+    "pct_with_iptc": 20.0,
     "cdn_breakdown": {
       "none": 10
     }
@@ -8871,7 +8871,7 @@
     "articles_sampled": 10,
     "images_analysed": 10,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 37.5,
+    "pct_with_iptc": 25.0,
     "cdn_breakdown": {
       "none": 8
     }
@@ -8891,7 +8891,7 @@
     "articles_sampled": 20,
     "images_analysed": 20,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 5.0,
+    "pct_with_iptc": 15.0,
     "cdn_breakdown": {
       "cloudflare": 20
     }
@@ -8929,7 +8929,7 @@
     "articles_sampled": 10,
     "images_analysed": 10,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 60.0,
+    "pct_with_iptc": 50.0,
     "cdn_breakdown": {
       "none": 10
     }
@@ -9305,7 +9305,7 @@
     "articles_sampled": 10,
     "images_analysed": 10,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
+    "pct_with_iptc": 30.0,
     "cdn_breakdown": {
       "none": 10
     }
@@ -9753,7 +9753,7 @@
     "articles_sampled": 1,
     "images_analysed": 1,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 100.0,
+    "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "none": 1
     }
@@ -9773,7 +9773,7 @@
     "articles_sampled": 15,
     "images_analysed": 15,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 26.7,
+    "pct_with_iptc": 6.7,
     "cdn_breakdown": {
       "cloudflare": 15
     }
@@ -9793,7 +9793,7 @@
     "articles_sampled": 10,
     "images_analysed": 10,
     "mean_iptc_score": 0.0,
-    "pct_with_iptc": 10.0,
+    "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "cloudfront": 10
     }

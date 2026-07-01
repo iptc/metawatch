@@ -9,7 +9,8 @@
         "XMP-dc:Creator",
         "IPTC:By-line",
         "IFD0:Artist",
-        "XMP-plus:ImageCreator"
+        "XMP-plus:ImageCreator",
+        "XMP-plus:ImageCreatorName"
       ],
       "weight": 25
     },
