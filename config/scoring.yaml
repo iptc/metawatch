@@ -57,7 +57,7 @@ tracked_fields:
   - label: DataMining
     aliases: [DataMining, "XMP-plus:DataMining"]
   - label: DateCreated
-    aliases: [DateCreated, CreateDate, DateTimeOriginal, "XMP:DateCreated"]
+    aliases: [DateCreated, DateTimeOriginal, "IPTC:DateCreated", "XMP-photoshop:DateCreated", "ExifIFD:DateTimeOriginal"]
   - label: DigitalSourceType
     aliases: [DigitalSourceType, "XMP-iptcExt:DigitalSourceType"]
   - label: ExtendedDescriptionAccessibility
