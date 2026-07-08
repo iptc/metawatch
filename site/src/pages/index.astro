@@ -17,18 +17,25 @@ const scorePoints = history.map(h => ({ x: h.started_at, y: h.mean_score }));
 const iptcPoints = history.map(h => ({ x: h.started_at, y: h.pct_with_iptc }));
 ---
 <Layout title="Overview">
-  <h1>Metawatch</h1>
-  <p class="lede">
-    Metawatch tracks how often major news publishers preserve embedded photo metadata
-    (Exif, IPTC Photo Metadata (in both original IIM format and newer XMP format), and C2PA) on the images they publish.
-    We crawl a curated list of publishers monthly and score the photographs they serve.
-  </p>
+  <div class="intro-row">
+    <div class="intro-text">
+      <h1>Metawatch</h1>
+      <p class="lede">
+        Metawatch tracks how often major news publishers preserve embedded photo metadata
+        (Exif, IPTC Photo Metadata (in both original IIM format and newer XMP format), and C2PA) on the images they publish.
+        We crawl a curated list of publishers monthly and score the photographs they serve.
+      </p>
 
-  <p class="feedback-cta">
-    Got a publisher we should add, a metric we're missing, or a number that looks wrong?
-    <a href="https://forms.gle/Knhr7ZwvMyEL5MNQA" target="_blank" rel="noopener">Tell us via this short form</a>
-    — we read every response.
-  </p>
+      <p class="feedback-cta">
+        Got a publisher we should add, a metric we're missing, or a number that looks wrong?
+        <a href="https://forms.gle/Knhr7ZwvMyEL5MNQA" target="_blank" rel="noopener">Tell us via this short form</a>
+        — we read every response.
+      </p>
+    </div>
+    <a href="https://iptc.org/" class="intro-logo-link" target="_blank" rel="noopener" aria-label="IPTC website">
+      <img src={`${base}/iptc-logo.png`} alt="IPTC" class="intro-logo" />
+    </a>
+  </div>
 
   <div class="card-row">
     <a class="stat" href={`${base}/dataset/`}><span class="stat-label">Latest run</span><span class="stat-value">{runDate}</span></a>

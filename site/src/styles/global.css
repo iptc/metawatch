@@ -94,6 +94,10 @@ a:hover { color: var(--iptc-green-dark); }
 }
 .site-header nav { display: flex; gap: 1.25rem; font-weight: 600; }
 .site-header nav a:hover { color: var(--iptc-green); }
+.intro-row { display: flex; align-items: flex-start; gap: 2rem; }
+.intro-text { flex: 1 1 0; min-width: 0; }
+.intro-logo-link { flex-shrink: 0; line-height: 0; padding-top: 0.25rem; }
+.intro-logo { width: 160px; height: 160px; display: block; }
 
 main {
   max-width: var(--max-content);
