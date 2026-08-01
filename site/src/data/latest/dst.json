@@ -1,23 +1,31 @@
 {
-  "image_count_total": 6845,
-  "image_count_valid": 6803,
-  "images_with_dst_iptc": 1,
-  "images_with_dst_c2pa": 12,
-  "pct_with_dst_iptc": 0.01,
+  "image_count_total": 6680,
+  "image_count_valid": 6662,
+  "images_with_dst_iptc": 6,
+  "images_with_dst_c2pa": 8,
+  "pct_with_dst_iptc": 0.09,
   "by_bucket_iptc": [
     {
+      "bucket": "Real-life capture",
+      "images": 4
+    },
+    {
       "bucket": "Other",
-      "images": 1
+      "images": 2
     }
   ],
   "by_bucket_c2pa": [
     {
-      "bucket": "AI-generated",
-      "images": 6
-    },
-    {
       "bucket": "Edited with Generative AI",
       "images": 5
+    },
+    {
+      "bucket": "AI-generated",
+      "images": 1
+    },
+    {
+      "bucket": "Composite",
+      "images": 1
     },
     {
       "bucket": "Other",
@@ -26,24 +34,36 @@
   ],
   "by_uri_iptc": [
     {
+      "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/digitalCapture",
+      "term": "digitalCapture",
+      "bucket": "Real-life capture",
+      "images": 4
+    },
+    {
       "uri": "nil",
       "term": "nil",
       "bucket": "Other",
-      "images": 1
+      "images": 2
     }
   ],
   "by_uri_c2pa": [
-    {
-      "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
-      "term": "trainedAlgorithmicMedia",
-      "bucket": "AI-generated",
-      "images": 6
-    },
     {
       "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/compositeWithTrainedAlgorithmicMedia",
       "term": "compositeWithTrainedAlgorithmicMedia",
       "bucket": "Edited with Generative AI",
       "images": 5
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+      "term": "trainedAlgorithmicMedia",
+      "bucket": "AI-generated",
+      "images": 1
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/composite",
+      "term": "composite",
+      "bucket": "Composite",
+      "images": 1
     },
     {
       "uri": "http://c2pa.org/digitalsourcetype/empty",

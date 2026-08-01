@@ -1,11 +1,11 @@
 {
-  "image_count_total": 6845,
-  "image_count_with_c2pa": 15,
-  "pct_with_c2pa": 0.22,
+  "image_count_total": 6680,
+  "image_count_with_c2pa": 9,
+  "pct_with_c2pa": 0.13,
   "by_outcome": [
     {
       "outcome": "valid",
-      "images": 13
+      "images": 6
     },
     {
       "outcome": "modified",
@@ -13,7 +13,7 @@
     },
     {
       "outcome": "expired",
-      "images": 1
+      "images": 2
     },
     {
       "outcome": "untrusted_issuer",
@@ -26,30 +26,34 @@
   ],
   "by_signer": [
     {
-      "signer": "OpenAI OpCo, LLC",
-      "images": 6
-    },
-    {
-      "signer": "International Press Telecommunications Council",
-      "images": 4
-    },
-    {
-      "signer": "Adobe Inc.",
+      "signer": "Canva",
       "images": 3
     },
     {
-      "signer": "Canva",
+      "signer": "Adobe Inc.",
       "images": 2
+    },
+    {
+      "signer": "International Press Telecommunications Council",
+      "images": 2
+    },
+    {
+      "signer": "OpenAI OpCo, LLC",
+      "images": 1
+    },
+    {
+      "signer": "Google LLC",
+      "images": 1
     }
   ],
   "by_validation_state": [
     {
       "state": "Valid",
-      "images": 13
+      "images": 6
     },
     {
       "state": "Invalid",
-      "images": 2
+      "images": 3
     }
   ],
   "top_sites": [
@@ -57,48 +61,48 @@
       "site_id": "iptc",
       "site_name": "IPTC",
       "country": "GB",
-      "images_with_c2pa": 4
+      "images_with_c2pa": 2
+    },
+    {
+      "site_id": "crhoy",
+      "site_name": "CRHoy",
+      "country": "CR",
+      "images_with_c2pa": 1
+    },
+    {
+      "site_id": "myjoyonline",
+      "site_name": "MyJoyOnline",
+      "country": "GH",
+      "images_with_c2pa": 1
     },
     {
       "site_id": "kloop",
       "site_name": "Kloop",
       "country": "KG",
-      "images_with_c2pa": 2
-    },
-    {
-      "site_id": "astana-times",
-      "site_name": "The Astana Times",
-      "country": "KZ",
-      "images_with_c2pa": 2
-    },
-    {
-      "site_id": "mauriactu",
-      "site_name": "Mauriactu",
-      "country": "MR",
-      "images_with_c2pa": 2
-    },
-    {
-      "site_id": "le-pays-td",
-      "site_name": "Le Pays",
-      "country": "TD",
-      "images_with_c2pa": 2
-    },
-    {
-      "site_id": "237actu",
-      "site_name": "237actu",
-      "country": "CM",
       "images_with_c2pa": 1
     },
     {
-      "site_id": "livedoor-news",
-      "site_name": "Livedoor News",
-      "country": "JP",
+      "site_id": "dvb-english",
+      "site_name": "DVB (Democratic Voice of Burma, English)",
+      "country": "MM",
+      "images_with_c2pa": 1
+    },
+    {
+      "site_id": "soptas",
+      "site_name": "Soptas",
+      "country": "MX",
       "images_with_c2pa": 1
     },
     {
       "site_id": "kathmandu-post",
       "site_name": "The Kathmandu Post",
       "country": "NP",
+      "images_with_c2pa": 1
+    },
+    {
+      "site_id": "the-citizen-tz",
+      "site_name": "The Citizen",
+      "country": "TZ",
       "images_with_c2pa": 1
     }
   ]
