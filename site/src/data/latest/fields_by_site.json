@@ -2607,169 +2607,6 @@
       "scored": false
     }
   ],
-  "kleine-zeitung": [
-    {
-      "field": "Creator",
-      "present": 11,
-      "total": 17,
-      "pct": 64.7,
-      "scored": true
-    },
-    {
-      "field": "Copyright",
-      "present": 7,
-      "total": 17,
-      "pct": 41.2,
-      "scored": true
-    },
-    {
-      "field": "CaptionDescription",
-      "present": 7,
-      "total": 17,
-      "pct": 41.2,
-      "scored": true
-    },
-    {
-      "field": "CreditLine",
-      "present": 3,
-      "total": 17,
-      "pct": 17.6,
-      "scored": true
-    },
-    {
-      "field": "AIPromptInformation",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AIPromptWriterName",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemUsed",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemVersionUsed",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AltTextAccessibility",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DataMining",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DateCreated",
-      "present": 10,
-      "total": 17,
-      "pct": 58.8,
-      "scored": false
-    },
-    {
-      "field": "DigitalSourceType",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ExtendedDescriptionAccessibility",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Genre",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Keywords",
-      "present": 2,
-      "total": 17,
-      "pct": 11.8,
-      "scored": false
-    },
-    {
-      "field": "LicensorName",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorURL",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationCreated",
-      "present": 3,
-      "total": 17,
-      "pct": 17.6,
-      "scored": false
-    },
-    {
-      "field": "LocationShown",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ObjectName",
-      "present": 2,
-      "total": 17,
-      "pct": 11.8,
-      "scored": false
-    },
-    {
-      "field": "Source",
-      "present": 3,
-      "total": 17,
-      "pct": 17.6,
-      "scored": false
-    },
-    {
-      "field": "UsageTerms",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "WebStatement",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    }
-  ],
   "orf-nachrichten-news": [
     {
       "field": "Creator",
@@ -11083,169 +10920,6 @@
       "scored": false
     }
   ],
-  "crhoy": [
-    {
-      "field": "Creator",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "Copyright",
-      "present": 1,
-      "total": 12,
-      "pct": 8.3,
-      "scored": true
-    },
-    {
-      "field": "CaptionDescription",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CreditLine",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "AIPromptInformation",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AIPromptWriterName",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemUsed",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemVersionUsed",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AltTextAccessibility",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DataMining",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DateCreated",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DigitalSourceType",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ExtendedDescriptionAccessibility",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Genre",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Keywords",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorName",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorURL",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationCreated",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationShown",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ObjectName",
-      "present": 1,
-      "total": 12,
-      "pct": 8.3,
-      "scored": false
-    },
-    {
-      "field": "Source",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "UsageTerms",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "WebStatement",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    }
-  ],
   "la-nacion-cr": [
     {
       "field": "Creator",
@@ -16462,169 +16136,6 @@
       "scored": false
     }
   ],
-  "wdr": [
-    {
-      "field": "Creator",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "Copyright",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CaptionDescription",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CreditLine",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "AIPromptInformation",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AIPromptWriterName",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemUsed",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemVersionUsed",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AltTextAccessibility",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DataMining",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DateCreated",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DigitalSourceType",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ExtendedDescriptionAccessibility",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Genre",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Keywords",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorName",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorURL",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationCreated",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationShown",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ObjectName",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Source",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "UsageTerms",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "WebStatement",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    }
-  ],
   "ekstra-bladet": [
     {
       "field": "Creator",
@@ -16947,169 +16458,6 @@
       "field": "WebStatement",
       "present": 0,
       "total": 17,
-      "pct": 0.0,
-      "scored": false
-    }
-  ],
-  "diario-libre": [
-    {
-      "field": "Creator",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "Copyright",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CaptionDescription",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CreditLine",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "AIPromptInformation",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AIPromptWriterName",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemUsed",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemVersionUsed",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AltTextAccessibility",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DataMining",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DateCreated",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DigitalSourceType",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ExtendedDescriptionAccessibility",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Genre",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Keywords",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorName",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorURL",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationCreated",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationShown",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ObjectName",
-      "present": 1,
-      "total": 19,
-      "pct": 5.3,
-      "scored": false
-    },
-    {
-      "field": "Source",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "UsageTerms",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "WebStatement",
-      "present": 0,
-      "total": 19,
       "pct": 0.0,
       "scored": false
     }
@@ -23467,332 +22815,6 @@
       "field": "WebStatement",
       "present": 0,
       "total": 20,
-      "pct": 0.0,
-      "scored": false
-    }
-  ],
-  "france-televisions": [
-    {
-      "field": "Creator",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "Copyright",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CaptionDescription",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CreditLine",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "AIPromptInformation",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AIPromptWriterName",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemUsed",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemVersionUsed",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AltTextAccessibility",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DataMining",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DateCreated",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DigitalSourceType",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ExtendedDescriptionAccessibility",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Genre",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Keywords",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorName",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorURL",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationCreated",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationShown",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ObjectName",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Source",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "UsageTerms",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "WebStatement",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    }
-  ],
-  "bbc-news": [
-    {
-      "field": "Creator",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "Copyright",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CaptionDescription",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CreditLine",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "AIPromptInformation",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AIPromptWriterName",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemUsed",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemVersionUsed",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AltTextAccessibility",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DataMining",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DateCreated",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DigitalSourceType",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ExtendedDescriptionAccessibility",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Genre",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Keywords",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorName",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorURL",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationCreated",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationShown",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ObjectName",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Source",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "UsageTerms",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "WebStatement",
-      "present": 0,
-      "total": 18,
       "pct": 0.0,
       "scored": false
     }
@@ -32925,169 +31947,6 @@
       "scored": false
     }
   ],
-  "corriere-della-sera": [
-    {
-      "field": "Creator",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "Copyright",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CaptionDescription",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CreditLine",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "AIPromptInformation",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AIPromptWriterName",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemUsed",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemVersionUsed",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AltTextAccessibility",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DataMining",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DateCreated",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DigitalSourceType",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ExtendedDescriptionAccessibility",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Genre",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Keywords",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorName",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorURL",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationCreated",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationShown",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ObjectName",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Source",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "UsageTerms",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "WebStatement",
-      "present": 0,
-      "total": 18,
-      "pct": 0.0,
-      "scored": false
-    }
-  ],
   "il-messaggero": [
     {
       "field": "Creator",
@@ -34881,169 +33740,6 @@
       "scored": false
     }
   ],
-  "iza": [
-    {
-      "field": "Creator",
-      "present": 0,
-      "total": 16,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "Copyright",
-      "present": 0,
-      "total": 16,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CaptionDescription",
-      "present": 0,
-      "total": 16,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CreditLine",
-      "present": 0,
-      "total": 16,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "AIPromptInformation",
-      "present": 0,
-      "total": 16,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AIPromptWriterName",
-      "present": 0,
-      "total": 16,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemUsed",
-      "present": 0,
-      "total": 16,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemVersionUsed",
-      "present": 0,
-      "total": 16,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AltTextAccessibility",
-      "present": 0,
-      "total": 16,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DataMining",
-      "present": 0,
-      "total": 16,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DateCreated",
-      "present": 0,
-      "total": 16,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DigitalSourceType",
-      "present": 0,
-      "total": 16,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ExtendedDescriptionAccessibility",
-      "present": 0,
-      "total": 16,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Genre",
-      "present": 0,
-      "total": 16,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Keywords",
-      "present": 0,
-      "total": 16,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorName",
-      "present": 0,
-      "total": 16,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorURL",
-      "present": 0,
-      "total": 16,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationCreated",
-      "present": 0,
-      "total": 16,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationShown",
-      "present": 0,
-      "total": 16,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ObjectName",
-      "present": 0,
-      "total": 16,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Source",
-      "present": 0,
-      "total": 16,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "UsageTerms",
-      "present": 0,
-      "total": 16,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "WebStatement",
-      "present": 0,
-      "total": 16,
-      "pct": 0.0,
-      "scored": false
-    }
-  ],
   "japan-today": [
     {
       "field": "Creator",
@@ -36344,169 +35040,6 @@
       "field": "WebStatement",
       "present": 0,
       "total": 20,
-      "pct": 0.0,
-      "scored": false
-    }
-  ],
-  "sankei-shimbun": [
-    {
-      "field": "Creator",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "Copyright",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CaptionDescription",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CreditLine",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "AIPromptInformation",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AIPromptWriterName",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemUsed",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemVersionUsed",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AltTextAccessibility",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DataMining",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DateCreated",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DigitalSourceType",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ExtendedDescriptionAccessibility",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Genre",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Keywords",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorName",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorURL",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationCreated",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationShown",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ObjectName",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Source",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "UsageTerms",
-      "present": 0,
-      "total": 17,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "WebStatement",
-      "present": 0,
-      "total": 17,
       "pct": 0.0,
       "scored": false
     }
@@ -47102,169 +45635,6 @@
       "field": "WebStatement",
       "present": 0,
       "total": 13,
-      "pct": 0.0,
-      "scored": false
-    }
-  ],
-  "trouw": [
-    {
-      "field": "Creator",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "Copyright",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CaptionDescription",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CreditLine",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "AIPromptInformation",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AIPromptWriterName",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemUsed",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemVersionUsed",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AltTextAccessibility",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DataMining",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DateCreated",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DigitalSourceType",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ExtendedDescriptionAccessibility",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Genre",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Keywords",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorName",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorURL",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationCreated",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationShown",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ObjectName",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Source",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "UsageTerms",
-      "present": 0,
-      "total": 12,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "WebStatement",
-      "present": 0,
-      "total": 12,
       "pct": 0.0,
       "scored": false
     }
@@ -64710,169 +63080,6 @@
       "scored": false
     }
   ],
-  "new-york-post": [
-    {
-      "field": "Creator",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "Copyright",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CaptionDescription",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CreditLine",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "AIPromptInformation",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AIPromptWriterName",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemUsed",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemVersionUsed",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AltTextAccessibility",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DataMining",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DateCreated",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DigitalSourceType",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ExtendedDescriptionAccessibility",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Genre",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Keywords",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorName",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorURL",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationCreated",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationShown",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ObjectName",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Source",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "UsageTerms",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "WebStatement",
-      "present": 0,
-      "total": 19,
-      "pct": 0.0,
-      "scored": false
-    }
-  ],
   "ny-times": [
     {
       "field": "Creator",
@@ -65684,169 +63891,6 @@
       "field": "WebStatement",
       "present": 0,
       "total": 20,
-      "pct": 0.0,
-      "scored": false
-    }
-  ],
-  "axios": [
-    {
-      "field": "Creator",
-      "present": 0,
-      "total": 14,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "Copyright",
-      "present": 0,
-      "total": 14,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CaptionDescription",
-      "present": 0,
-      "total": 14,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "CreditLine",
-      "present": 0,
-      "total": 14,
-      "pct": 0.0,
-      "scored": true
-    },
-    {
-      "field": "AIPromptInformation",
-      "present": 0,
-      "total": 14,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AIPromptWriterName",
-      "present": 0,
-      "total": 14,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemUsed",
-      "present": 0,
-      "total": 14,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AISystemVersionUsed",
-      "present": 0,
-      "total": 14,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "AltTextAccessibility",
-      "present": 0,
-      "total": 14,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DataMining",
-      "present": 0,
-      "total": 14,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DateCreated",
-      "present": 0,
-      "total": 14,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "DigitalSourceType",
-      "present": 0,
-      "total": 14,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ExtendedDescriptionAccessibility",
-      "present": 0,
-      "total": 14,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Genre",
-      "present": 0,
-      "total": 14,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Keywords",
-      "present": 0,
-      "total": 14,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorName",
-      "present": 0,
-      "total": 14,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LicensorURL",
-      "present": 0,
-      "total": 14,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationCreated",
-      "present": 0,
-      "total": 14,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "LocationShown",
-      "present": 0,
-      "total": 14,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "ObjectName",
-      "present": 0,
-      "total": 14,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "Source",
-      "present": 0,
-      "total": 14,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "UsageTerms",
-      "present": 0,
-      "total": 14,
-      "pct": 0.0,
-      "scored": false
-    },
-    {
-      "field": "WebStatement",
-      "present": 0,
-      "total": 14,
       "pct": 0.0,
       "scored": false
     }
@@ -69270,6 +67314,1962 @@
       "field": "WebStatement",
       "present": 0,
       "total": 12,
+      "pct": 0.0,
+      "scored": false
+    }
+  ],
+  "diario-libre": [
+    {
+      "field": "Creator",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "Copyright",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CaptionDescription",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CreditLine",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "AIPromptInformation",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AIPromptWriterName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemUsed",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemVersionUsed",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AltTextAccessibility",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DataMining",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DateCreated",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DigitalSourceType",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ExtendedDescriptionAccessibility",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Genre",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Keywords",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorURL",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationCreated",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationShown",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ObjectName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Source",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "UsageTerms",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "WebStatement",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    }
+  ],
+  "bbc-news": [
+    {
+      "field": "Creator",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "Copyright",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CaptionDescription",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CreditLine",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "AIPromptInformation",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AIPromptWriterName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemUsed",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemVersionUsed",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AltTextAccessibility",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DataMining",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DateCreated",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DigitalSourceType",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ExtendedDescriptionAccessibility",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Genre",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Keywords",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorURL",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationCreated",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationShown",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ObjectName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Source",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "UsageTerms",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "WebStatement",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    }
+  ],
+  "france-televisions": [
+    {
+      "field": "Creator",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "Copyright",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CaptionDescription",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CreditLine",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "AIPromptInformation",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AIPromptWriterName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemUsed",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemVersionUsed",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AltTextAccessibility",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DataMining",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DateCreated",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DigitalSourceType",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ExtendedDescriptionAccessibility",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Genre",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Keywords",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorURL",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationCreated",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationShown",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ObjectName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Source",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "UsageTerms",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "WebStatement",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    }
+  ],
+  "corriere-della-sera": [
+    {
+      "field": "Creator",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "Copyright",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CaptionDescription",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CreditLine",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "AIPromptInformation",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AIPromptWriterName",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemUsed",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemVersionUsed",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AltTextAccessibility",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DataMining",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DateCreated",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DigitalSourceType",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ExtendedDescriptionAccessibility",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Genre",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Keywords",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorName",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorURL",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationCreated",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationShown",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ObjectName",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Source",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "UsageTerms",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "WebStatement",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    }
+  ],
+  "crhoy": [
+    {
+      "field": "Creator",
+      "present": 2,
+      "total": 20,
+      "pct": 10.0,
+      "scored": true
+    },
+    {
+      "field": "Copyright",
+      "present": 2,
+      "total": 20,
+      "pct": 10.0,
+      "scored": true
+    },
+    {
+      "field": "CaptionDescription",
+      "present": 2,
+      "total": 20,
+      "pct": 10.0,
+      "scored": true
+    },
+    {
+      "field": "CreditLine",
+      "present": 2,
+      "total": 20,
+      "pct": 10.0,
+      "scored": true
+    },
+    {
+      "field": "AIPromptInformation",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AIPromptWriterName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemUsed",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemVersionUsed",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AltTextAccessibility",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DataMining",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DateCreated",
+      "present": 3,
+      "total": 20,
+      "pct": 15.0,
+      "scored": false
+    },
+    {
+      "field": "DigitalSourceType",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ExtendedDescriptionAccessibility",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Genre",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Keywords",
+      "present": 2,
+      "total": 20,
+      "pct": 10.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorURL",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationCreated",
+      "present": 2,
+      "total": 20,
+      "pct": 10.0,
+      "scored": false
+    },
+    {
+      "field": "LocationShown",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ObjectName",
+      "present": 3,
+      "total": 20,
+      "pct": 15.0,
+      "scored": false
+    },
+    {
+      "field": "Source",
+      "present": 2,
+      "total": 20,
+      "pct": 10.0,
+      "scored": false
+    },
+    {
+      "field": "UsageTerms",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "WebStatement",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    }
+  ],
+  "wdr": [
+    {
+      "field": "Creator",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "Copyright",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CaptionDescription",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CreditLine",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "AIPromptInformation",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AIPromptWriterName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemUsed",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemVersionUsed",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AltTextAccessibility",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DataMining",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DateCreated",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DigitalSourceType",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ExtendedDescriptionAccessibility",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Genre",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Keywords",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorURL",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationCreated",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationShown",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ObjectName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Source",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "UsageTerms",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "WebStatement",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    }
+  ],
+  "iza": [
+    {
+      "field": "Creator",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "Copyright",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CaptionDescription",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CreditLine",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "AIPromptInformation",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AIPromptWriterName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemUsed",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemVersionUsed",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AltTextAccessibility",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DataMining",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DateCreated",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DigitalSourceType",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ExtendedDescriptionAccessibility",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Genre",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Keywords",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorURL",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationCreated",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationShown",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ObjectName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Source",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "UsageTerms",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "WebStatement",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    }
+  ],
+  "kleine-zeitung": [
+    {
+      "field": "Creator",
+      "present": 7,
+      "total": 20,
+      "pct": 35.0,
+      "scored": true
+    },
+    {
+      "field": "Copyright",
+      "present": 4,
+      "total": 20,
+      "pct": 20.0,
+      "scored": true
+    },
+    {
+      "field": "CaptionDescription",
+      "present": 2,
+      "total": 20,
+      "pct": 10.0,
+      "scored": true
+    },
+    {
+      "field": "CreditLine",
+      "present": 2,
+      "total": 20,
+      "pct": 10.0,
+      "scored": true
+    },
+    {
+      "field": "AIPromptInformation",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AIPromptWriterName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemUsed",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemVersionUsed",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AltTextAccessibility",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DataMining",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DateCreated",
+      "present": 7,
+      "total": 20,
+      "pct": 35.0,
+      "scored": false
+    },
+    {
+      "field": "DigitalSourceType",
+      "present": 1,
+      "total": 20,
+      "pct": 5.0,
+      "scored": false
+    },
+    {
+      "field": "ExtendedDescriptionAccessibility",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Genre",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Keywords",
+      "present": 2,
+      "total": 20,
+      "pct": 10.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorURL",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationCreated",
+      "present": 2,
+      "total": 20,
+      "pct": 10.0,
+      "scored": false
+    },
+    {
+      "field": "LocationShown",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ObjectName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Source",
+      "present": 2,
+      "total": 20,
+      "pct": 10.0,
+      "scored": false
+    },
+    {
+      "field": "UsageTerms",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "WebStatement",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    }
+  ],
+  "axios": [
+    {
+      "field": "Creator",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "Copyright",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CaptionDescription",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CreditLine",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "AIPromptInformation",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AIPromptWriterName",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemUsed",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemVersionUsed",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AltTextAccessibility",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DataMining",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DateCreated",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DigitalSourceType",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ExtendedDescriptionAccessibility",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Genre",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Keywords",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorName",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorURL",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationCreated",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationShown",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ObjectName",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Source",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "UsageTerms",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "WebStatement",
+      "present": 0,
+      "total": 17,
+      "pct": 0.0,
+      "scored": false
+    }
+  ],
+  "sankei-shimbun": [
+    {
+      "field": "Creator",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "Copyright",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CaptionDescription",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CreditLine",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "AIPromptInformation",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AIPromptWriterName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemUsed",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemVersionUsed",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AltTextAccessibility",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DataMining",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DateCreated",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DigitalSourceType",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ExtendedDescriptionAccessibility",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Genre",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Keywords",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorURL",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationCreated",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationShown",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ObjectName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Source",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "UsageTerms",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "WebStatement",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    }
+  ],
+  "new-york-post": [
+    {
+      "field": "Creator",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "Copyright",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CaptionDescription",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CreditLine",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "AIPromptInformation",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AIPromptWriterName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemUsed",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemVersionUsed",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AltTextAccessibility",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DataMining",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DateCreated",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DigitalSourceType",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ExtendedDescriptionAccessibility",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Genre",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Keywords",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorURL",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationCreated",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationShown",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ObjectName",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Source",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "UsageTerms",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "WebStatement",
+      "present": 0,
+      "total": 20,
+      "pct": 0.0,
+      "scored": false
+    }
+  ],
+  "trouw": [
+    {
+      "field": "Creator",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "Copyright",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CaptionDescription",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "CreditLine",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": true
+    },
+    {
+      "field": "AIPromptInformation",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AIPromptWriterName",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemUsed",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemVersionUsed",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AltTextAccessibility",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DataMining",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DateCreated",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DigitalSourceType",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ExtendedDescriptionAccessibility",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Genre",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Keywords",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorName",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorURL",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationCreated",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LocationShown",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ObjectName",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Source",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "UsageTerms",
+      "present": 0,
+      "total": 19,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "WebStatement",
+      "present": 0,
+      "total": 19,
       "pct": 0.0,
       "scored": false
     }

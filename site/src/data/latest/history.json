@@ -66,13 +66,13 @@
     "started_at": "2026-08-01T03:08:41.721226+00:00",
     "site_count": 445,
     "image_count": 6680,
-    "mean_score": 6.05,
+    "mean_score": 6.0,
     "images_with_iptc": 725,
-    "pct_with_iptc": 10.9,
-    "images_with_c2pa": 9,
-    "pct_with_c2pa": 0.135,
+    "pct_with_iptc": 10.8,
+    "images_with_c2pa": 8,
+    "pct_with_c2pa": 0.119,
     "c2pa_outcomes": {
-      "valid": 6,
+      "valid": 5,
       "expired": 2,
       "modified": 1
     }

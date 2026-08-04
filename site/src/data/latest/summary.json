@@ -7,9 +7,9 @@
   "site_count_robots_blocked": 15,
   "article_count": 7408,
   "image_count": 6680,
-  "global_mean_score": 6.05,
+  "global_mean_score": 6.0,
   "images_with_iptc": 725,
-  "images_with_c2pa": 9,
-  "pct_with_iptc": 10.9,
-  "pct_with_c2pa": 0.13
+  "images_with_c2pa": 8,
+  "pct_with_iptc": 10.8,
+  "pct_with_c2pa": 0.12
 }

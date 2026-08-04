@@ -1,11 +1,11 @@
 {
-  "image_count_total": 6680,
-  "image_count_with_c2pa": 9,
-  "pct_with_c2pa": 0.13,
+  "image_count_total": 6715,
+  "image_count_with_c2pa": 8,
+  "pct_with_c2pa": 0.12,
   "by_outcome": [
     {
       "outcome": "valid",
-      "images": 6
+      "images": 5
     },
     {
       "outcome": "modified",
@@ -30,10 +30,6 @@
       "images": 3
     },
     {
-      "signer": "Adobe Inc.",
-      "images": 2
-    },
-    {
       "signer": "International Press Telecommunications Council",
       "images": 2
     },
@@ -44,12 +40,16 @@
     {
       "signer": "Google LLC",
       "images": 1
+    },
+    {
+      "signer": "Adobe Inc.",
+      "images": 1
     }
   ],
   "by_validation_state": [
     {
       "state": "Valid",
-      "images": 6
+      "images": 5
     },
     {
       "state": "Invalid",
@@ -62,12 +62,6 @@
       "site_name": "IPTC",
       "country": "GB",
       "images_with_c2pa": 2
-    },
-    {
-      "site_id": "crhoy",
-      "site_name": "CRHoy",
-      "country": "CR",
-      "images_with_c2pa": 1
     },
     {
       "site_id": "myjoyonline",
