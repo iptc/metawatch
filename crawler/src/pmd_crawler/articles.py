@@ -24,6 +24,7 @@ from __future__ import annotations
 import json
 import re
 from dataclasses import dataclass
+from html import unescape
 from urllib.parse import urljoin, urlparse
 
 import httpx
@@ -66,6 +67,10 @@ class ArticleResult:
     # other being the site-wide /.well-known/tdmrep.json file (already probed
     # in optout.py).
     tdm_reservation: int | None = None
+    # Headline read from the article HTML, used only when discovery didn't
+    # supply one (see _extract_title). None when the fetch failed or the page
+    # carries no usable headline.
+    title: str | None = None
 
     def __post_init__(self) -> None:
         if self.noai_tokens is None:
@@ -101,7 +106,141 @@ async def fetch_article(
     return ArticleResult(
         candidate, r.status_code, [main_image] if main_image else [], jsonld, noai,
         tdm_reservation=tdm_reservation,
+        title=_extract_title(parser, jsonld, base_url),
     )
+
+
+# Separators publishers put between the headline and the site name in <title>
+# ("Headline | CR Hoy", "Headline - Trouw"). Split from the right, and only
+# where what follows is recognisably the site's own name (see
+# _strip_site_suffix) — headlines contain these characters too.
+_TITLE_SEPARATOR_RE = re.compile(r"\s+[|–—‒·•]\s+|\s+-\s+")
+
+
+def _extract_title(
+    parser: HTMLParser, jsonld: str | None, base_url: str
+) -> str | None:
+    """Read the article headline from the page itself.
+
+    Discovery only learns a title when the source hands one over: <news:title>
+    in a news sitemap, or an RSS entry title. Sites on a plain lastmod-only
+    sitemap (iza, and most of the 597 untitled rows in the 2026-08-01 run)
+    arrive with title=None, and the site's article table then falls back to
+    printing the raw URL. The article HTML is already in hand here, so take
+    the headline from it.
+
+    Priority: JSON-LD ``headline`` (the publisher's own declaration, and
+    already parsed out for the metadata columns) -> og:title -> twitter:title
+    -> <title>. The <title> value gets a trailing site name trimmed; the
+    earlier sources rarely carry one.
+    """
+    headline = _headline_from_jsonld(jsonld)
+    if headline:
+        return headline
+
+    for selector in (
+        'meta[property="og:title"]',
+        'meta[name="og:title"]',
+        'meta[name="twitter:title"]',
+    ):
+        for node in parser.css(selector):
+            value = _clean(node.attributes.get("content"))
+            if value:
+                return value
+
+    node = parser.css_first("title")
+    value = _clean(node.text() if node else None)
+    if not value:
+        return None
+    return _strip_site_suffix(value, parser, base_url)
+
+
+def _strip_site_suffix(title: str, parser: HTMLParser, base_url: str) -> str:
+    """Drop a trailing site name from a <title>, if that's what the tail is.
+
+    Trimming on the separator alone would eat real headline text — "Trump meets
+    Xi - live updates" ends exactly like "Headline - Trouw". So the tail is only
+    removed when it matches something that identifies the site: og:site_name,
+    <meta name="application-name">, or a label of the hostname. Comparison
+    ignores case, spaces and punctuation, which is what makes "CR Hoy" match
+    crhoy.com and "The Guardian" match theguardian.com.
+
+    Stripping repeats while the tail keeps matching: Hindustan Times ships
+    "… | Hindustan Times | Hindustan Times".
+    """
+    names: list[str] = []
+    for selector in (
+        'meta[property="og:site_name"]',
+        'meta[name="og:site_name"]',
+        'meta[name="application-name"]',
+    ):
+        for node in parser.css(selector):
+            value = _clean(node.attributes.get("content"))
+            if value:
+                names.append(value)
+    host = (urlparse(base_url).hostname or "").lower()
+    names.extend(host.split("."))
+    normalised_names = {_norm(n) for n in names if _norm(n)}
+    if not normalised_names:
+        return title
+
+    while True:
+        separators = list(_TITLE_SEPARATOR_RE.finditer(title))
+        if not separators:
+            return title
+        last = separators[-1]
+        head, tail = title[: last.start()].strip(), title[last.end():].strip()
+        if not head or _norm(tail) not in normalised_names:
+            return title
+        title = head
+
+
+def _norm(value: str) -> str:
+    """Lowercase and strip everything but alphanumerics, for name comparison."""
+    return re.sub(r"[^0-9a-z]", "", value.lower())
+
+
+def _headline_from_jsonld(raw: str | None) -> str | None:
+    """Pull ``headline`` off the first article-typed node in the JSON-LD.
+
+    The result is HTML-unescaped: <script> content is not entity-decoded by the
+    parser, so publishers who build their JSON-LD from escaped CMS strings hand
+    us headlines like "Ser extremamente vulner&#225;vel" (Correio). The other
+    sources come from attributes or element text, which arrive already decoded.
+    """
+    if not raw:
+        return None
+    try:
+        data = json.loads(raw)
+    except (json.JSONDecodeError, ValueError):
+        return None
+    headline = _walk_jsonld_for_headline(data)
+    return _clean(unescape(headline)) if headline else None
+
+
+def _walk_jsonld_for_headline(node: object) -> str | None:
+    if isinstance(node, dict):
+        if any(_is_article_type(x) for x in _type_set(node.get("@type"))):
+            headline = _clean(node.get("headline"))
+            if headline:
+                return headline
+        for v in node.values():
+            found = _walk_jsonld_for_headline(v)
+            if found:
+                return found
+    elif isinstance(node, list):
+        for v in node:
+            found = _walk_jsonld_for_headline(v)
+            if found:
+                return found
+    return None
+
+
+def _clean(value: object) -> str | None:
+    """Collapse whitespace in a candidate title; None unless it survives."""
+    if not isinstance(value, str):
+        return None
+    return re.sub(r"\s+", " ", value).strip() or None
 
 
 def _extract_tdm_reservation(parser: HTMLParser) -> int | None:

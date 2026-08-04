@@ -264,6 +264,7 @@ async def fetch_sitemap_articles(
     if not candidates:
         return [], root_err  # propagate the first-level error if any
 
+    candidates = dedupe_candidates(candidates)
     cutoff = datetime.now(UTC) - timedelta(days=window_days)
     filtered = [
         c for c in candidates
@@ -274,6 +275,47 @@ async def fetch_sitemap_articles(
         reverse=True,
     )
     return filtered[:max_articles], None
+
+
+def dedupe_candidates(candidates: list[ArticleCandidate]) -> list[ArticleCandidate]:
+    """Collapse repeated article URLs, merging metadata across the copies.
+
+    The same article routinely turns up more than once in a single discovery
+    source. CRHoy lists every recent story in both `sitemap-latest.xml`
+    (<lastmod> only) and `sitemap-news.xml` (a full <news:news> block); Axios
+    repeats URLs across its paginated sitemaps; a handful of RSS feeds carry
+    the same story twice. Left unmerged we fetch the article once per copy and
+    emit an article row for each, so the site's 20-article sample covers far
+    fewer distinct stories than it looks like — Axios measured 7 in the
+    2026-08-01 run, CRHoy 11 — and the site's article table shows each story
+    twice, once headlined and once (the copy from the plain sitemap, which has
+    no news:title) as a bare URL.
+
+    First occurrence keeps its position; later copies only supply what it
+    lacks. A copy carrying a news:title also wins the date and language: its
+    news:publication_date is the article's real publication time, where the
+    <lastmod> the plain-sitemap copy carries is merely the last edit.
+    """
+    by_url: dict[str, ArticleCandidate] = {}
+    for cand in candidates:
+        kept = by_url.get(cand.url)
+        if kept is None:
+            by_url[cand.url] = cand
+            continue
+        if cand.title and not kept.title:
+            kept.title = cand.title
+            kept.language = cand.language or kept.language
+            kept.keywords = cand.keywords or kept.keywords
+            if cand.publication_date is not None:
+                kept.publication_date = cand.publication_date
+        else:
+            kept.publication_date = kept.publication_date or cand.publication_date
+            kept.language = kept.language or cand.language
+            kept.keywords = kept.keywords or cand.keywords
+        kept.image_urls_from_sitemap = (
+            kept.image_urls_from_sitemap or cand.image_urls_from_sitemap
+        )
+    return list(by_url.values())
 
 
 async def _walk_sitemap(
@@ -583,6 +625,7 @@ async def _fetch_rss_once(
                 image_urls_from_sitemap=_images_from_rss_entry(entry),
             )
         )
+    out = dedupe_candidates(out)
     out.sort(
         key=lambda c: c.publication_date or datetime.min.replace(tzinfo=UTC),
         reverse=True,

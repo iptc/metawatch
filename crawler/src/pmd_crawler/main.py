@@ -408,7 +408,11 @@ async def _crawl_site(
         articles.append(
             ArticleRow(
                 run_id=run_id, site_id=site.id, article_url=cand.url,
-                publication_date=cand.publication_date, title=cand.title,
+                publication_date=cand.publication_date,
+                # Discovery's title (news:title / RSS entry title) wins; the
+                # headline read from the article HTML fills the gap for sites
+                # whose sitemap carries no <news:news> block.
+                title=cand.title or art.title,
                 language=cand.language, keywords=cand.keywords,
                 jsonld_news_article=art.jsonld_news_article,
                 http_status=art.http_status, fetched_at=datetime.now(UTC),

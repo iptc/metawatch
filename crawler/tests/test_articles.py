@@ -11,6 +11,7 @@ from pmd_crawler.articles import (
     MIN_DIM,
     _extract_main_image,
     _extract_tdm_reservation,
+    _extract_title,
     _from_dom_walk,
     _from_itemprop_image,
     _from_jsonld,
@@ -424,3 +425,83 @@ def test_og_image_still_wins_over_headline_adjacent():
 def test_placeholder_svg_detection_ignores_query_string():
     assert _looks_like_placeholder("https://x/gift-icon.svg?_dc=123") is True
     assert _looks_like_placeholder("https://x/photos/real_big.jpg?w=600") is False
+
+
+# ─── Headline extraction ─────────────────────────────────────────────────────
+
+
+def _page(head: str) -> HTMLParser:
+    return HTMLParser(f"<!doctype html><html><head>{head}</head><body></body></html>")
+
+
+def test_title_prefers_jsonld_headline():
+    raw = json.dumps({"@type": "NewsArticle", "headline": "Averías eléctricas en Cartago"})
+    html = _page('<meta property="og:title" content="Og version"><title>T | CR Hoy</title>')
+    assert _extract_title(html, raw, "https://crhoy.com/a/") == "Averías eléctricas en Cartago"
+
+
+def test_title_falls_back_to_og_title():
+    html = _page('<meta property="og:title" content="Og headline"><title>T | CR Hoy</title>')
+    assert _extract_title(html, None, "https://crhoy.com/a/") == "Og headline"
+
+
+def test_title_falls_back_to_title_tag_with_site_name_stripped():
+    html = _page("<title>Averías eléctricas en Cartago | CR Hoy</title>")
+    # "CR Hoy" normalises to the crhoy.com hostname label.
+    assert _extract_title(html, None, "https://crhoy.com/a/") == "Averías eléctricas en Cartago"
+
+
+def test_title_strips_suffix_matching_og_site_name():
+    html = _page(
+        '<meta property="og:site_name" content="Sankei Shimbun">'
+        "<title>米関税の取り消し求め25州も提訴 - Sankei Shimbun</title>"
+    )
+    assert _extract_title(html, None, "https://www.iza.ne.jp/a/") == "米関税の取り消し求め25州も提訴"
+
+
+def test_title_keeps_tail_that_is_not_the_site_name():
+    # Regression guard: trimming on the separator alone would eat real
+    # headline text, since this ends exactly like "Headline - Trouw".
+    html = _page("<title>Trump meets Xi - live updates</title>")
+    assert _extract_title(html, None, "https://www.trouw.nl/a/") == "Trump meets Xi - live updates"
+
+
+def test_title_keeps_headline_containing_separator():
+    html = _page("<title>Ordenan a Hacienda responder | CR Hoy</title>")
+    assert _extract_title(html, None, "https://www.crhoy.com/a/") == "Ordenan a Hacienda responder"
+
+
+def test_title_collapses_whitespace():
+    html = _page("<title>\n  Fuerte temblor   en Cartago\n</title>")
+    assert _extract_title(html, None, "https://example.com/a/") == "Fuerte temblor en Cartago"
+
+
+def test_title_none_when_page_has_no_headline():
+    assert _extract_title(_page(""), None, "https://example.com/a/") is None
+
+
+def test_jsonld_headline_found_in_graph():
+    raw = json.dumps({"@graph": [
+        {"@type": "WebPage", "name": "Page"},
+        {"@type": "NewsArticle", "headline": "Deep headline"},
+    ]})
+    assert _extract_title(_page(""), raw, "https://example.com/a/") == "Deep headline"
+
+
+def test_jsonld_non_article_headline_ignored():
+    raw = json.dumps({"@type": "WebPage", "headline": "Not an article"})
+    html = _page("<title>Real headline</title>")
+    assert _extract_title(html, raw, "https://example.com/a/") == "Real headline"
+
+
+def test_jsonld_headline_is_html_unescaped():
+    # <script> text isn't entity-decoded by the parser, so escaped CMS strings
+    # reach us verbatim (Correio, August 2026).
+    raw = json.dumps({"@type": "NewsArticle", "headline": "Ser extremamente vulner&#225;vel"})
+    assert _extract_title(_page(""), raw, "https://correio.com/a/") == "Ser extremamente vulnerável"
+
+
+def test_title_strips_repeated_site_name_suffix():
+    # Hindustan Times ships the site name twice.
+    html = _page("<title>Sports News | Hindustan Times | Hindustan Times</title>")
+    assert _extract_title(html, None, "https://www.hindustantimes.com/a/") == "Sports News"

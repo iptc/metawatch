@@ -166,3 +166,62 @@ def test_status_for_empty_discovery_maps_waf():
     # Non-WAF kinds are unchanged.
     assert status_for_empty_discovery("config:rss", "http_error") == "discovery_blocked"
     assert status_for_empty_discovery("config:sitemap", "parse_error") == "discovery_parse_error"
+
+
+# ─── Candidate de-duplication ────────────────────────────────────────────────
+
+
+def _cand(url, *, date=None, title=None, language=None, keywords=None, images=None):
+    from pmd_crawler.discovery import ArticleCandidate
+    return ArticleCandidate(
+        url=url, publication_date=date, title=title, language=language,
+        keywords=keywords or [], image_urls_from_sitemap=images or [],
+    )
+
+
+def test_dedupe_collapses_repeated_urls():
+    from pmd_crawler.discovery import dedupe_candidates
+    out = dedupe_candidates([_cand("https://x/a"), _cand("https://x/b"), _cand("https://x/a")])
+    assert [c.url for c in out] == ["https://x/a", "https://x/b"]
+
+
+def test_dedupe_news_copy_supplies_title_date_and_language():
+    # The CRHoy case: the same article in sitemap-latest.xml (lastmod only,
+    # listed first) and sitemap-news.xml (full <news:news> block). The news
+    # copy's publication_date is the real one; lastmod is just the last edit.
+    from pmd_crawler.discovery import dedupe_candidates
+    lastmod = datetime(2026, 7, 31, 18, 56, tzinfo=UTC)
+    news_date = datetime(2026, 7, 31, 18, 7, tzinfo=UTC)
+    out = dedupe_candidates([
+        _cand("https://crhoy.com/a", date=lastmod),
+        _cand("https://crhoy.com/a", date=news_date, title="La FIFA retira el plan",
+              language="es", keywords=["fifa"]),
+    ])
+    assert len(out) == 1
+    assert out[0].title == "La FIFA retira el plan"
+    assert out[0].language == "es"
+    assert out[0].keywords == ["fifa"]
+    assert out[0].publication_date == news_date
+
+
+def test_dedupe_keeps_first_title_when_both_copies_have_one():
+    from pmd_crawler.discovery import dedupe_candidates
+    first = datetime(2026, 7, 31, 10, 0, tzinfo=UTC)
+    out = dedupe_candidates([
+        _cand("https://x/a", date=first, title="First"),
+        _cand("https://x/a", date=datetime(2026, 7, 30, 10, 0, tzinfo=UTC), title="Second"),
+    ])
+    assert len(out) == 1
+    assert out[0].title == "First"
+    assert out[0].publication_date == first
+
+
+def test_dedupe_fills_gaps_from_later_copy():
+    from pmd_crawler.discovery import dedupe_candidates
+    date = datetime(2026, 7, 31, 10, 0, tzinfo=UTC)
+    out = dedupe_candidates([
+        _cand("https://x/a", title="Story"),
+        _cand("https://x/a", date=date, images=["https://cdn/x.jpg"]),
+    ])
+    assert out[0].publication_date == date
+    assert out[0].image_urls_from_sitemap == ["https://cdn/x.jpg"]
