@@ -76,5 +76,20 @@
       "expired": 2,
       "modified": 1
     }
+  },
+  {
+    "run_id": "2026-09-01T022404Z",
+    "started_at": "2026-09-01T02:24:04.465845+00:00",
+    "site_count": 456,
+    "image_count": 6869,
+    "mean_score": 6.21,
+    "images_with_iptc": 733,
+    "pct_with_iptc": 10.7,
+    "images_with_c2pa": 11,
+    "pct_with_c2pa": 0.161,
+    "c2pa_outcomes": {
+      "valid": 7,
+      "modified": 4
+    }
   }
 ]

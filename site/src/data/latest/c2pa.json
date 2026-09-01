@@ -1,19 +1,19 @@
 {
-  "image_count_total": 6715,
-  "image_count_with_c2pa": 8,
-  "pct_with_c2pa": 0.12,
+  "image_count_total": 6869,
+  "image_count_with_c2pa": 11,
+  "pct_with_c2pa": 0.16,
   "by_outcome": [
     {
       "outcome": "valid",
-      "images": 5
+      "images": 7
     },
     {
       "outcome": "modified",
-      "images": 1
+      "images": 4
     },
     {
       "outcome": "expired",
-      "images": 2
+      "images": 0
     },
     {
       "outcome": "untrusted_issuer",
@@ -26,7 +26,11 @@
   ],
   "by_signer": [
     {
-      "signer": "Canva",
+      "signer": "OpenAI OpCo, LLC",
+      "images": 4
+    },
+    {
+      "signer": "Google LLC",
       "images": 3
     },
     {
@@ -34,11 +38,7 @@
       "images": 2
     },
     {
-      "signer": "OpenAI OpCo, LLC",
-      "images": 1
-    },
-    {
-      "signer": "Google LLC",
+      "signer": "Canva",
       "images": 1
     },
     {
@@ -49,14 +49,20 @@
   "by_validation_state": [
     {
       "state": "Valid",
-      "images": 5
+      "images": 7
     },
     {
       "state": "Invalid",
-      "images": 3
+      "images": 4
     }
   ],
   "top_sites": [
+    {
+      "site_id": "icilome",
+      "site_name": "IciLome",
+      "country": "TG",
+      "images_with_c2pa": 3
+    },
     {
       "site_id": "iptc",
       "site_name": "IPTC",
@@ -64,39 +70,39 @@
       "images_with_c2pa": 2
     },
     {
-      "site_id": "myjoyonline",
-      "site_name": "MyJoyOnline",
-      "country": "GH",
+      "site_id": "el-comercio-ec",
+      "site_name": "El Comercio (Ecuador)",
+      "country": "EC",
       "images_with_c2pa": 1
     },
     {
-      "site_id": "kloop",
-      "site_name": "Kloop",
-      "country": "KG",
+      "site_id": "gabon-review",
+      "site_name": "Gabon Review",
+      "country": "GA",
       "images_with_c2pa": 1
     },
     {
-      "site_id": "dvb-english",
-      "site_name": "DVB (Democratic Voice of Burma, English)",
-      "country": "MM",
+      "site_id": "criterio-hn",
+      "site_name": "Criterio.hn",
+      "country": "HN",
       "images_with_c2pa": 1
     },
     {
-      "site_id": "soptas",
-      "site_name": "Soptas",
-      "country": "MX",
+      "site_id": "kurdistan24",
+      "site_name": "Kurdistan 24",
+      "country": "IQ",
       "images_with_c2pa": 1
     },
     {
-      "site_id": "kathmandu-post",
-      "site_name": "The Kathmandu Post",
-      "country": "NP",
+      "site_id": "le-pays-td",
+      "site_name": "Le Pays",
+      "country": "TD",
       "images_with_c2pa": 1
     },
     {
-      "site_id": "the-citizen-tz",
-      "site_name": "The Citizen",
-      "country": "TZ",
+      "site_id": "efecto-cocuyo",
+      "site_name": "Efecto Cocuyo",
+      "country": "VE",
       "images_with_c2pa": 1
     }
   ]
