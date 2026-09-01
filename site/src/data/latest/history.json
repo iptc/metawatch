@@ -1,20 +1,5 @@
 [
   {
-    "run_id": "2026-05-19T115436Z",
-    "started_at": "2026-05-19T11:54:36.932899+00:00",
-    "site_count": 294,
-    "image_count": 4399,
-    "mean_score": 6.92,
-    "images_with_iptc": 520,
-    "pct_with_iptc": 11.8,
-    "images_with_c2pa": 4,
-    "pct_with_c2pa": 0.091,
-    "c2pa_outcomes": {
-      "valid": 2,
-      "modified": 2
-    }
-  },
-  {
     "run_id": "2026-06-03T125219Z",
     "started_at": "2026-06-03T12:52:19.783226+00:00",
     "site_count": 339,
@@ -28,21 +13,6 @@
       "valid": 3,
       "other_invalid": 1,
       "modified": 1
-    }
-  },
-  {
-    "run_id": "2026-06-15T112458Z",
-    "started_at": "2026-06-15T11:24:58.984152+00:00",
-    "site_count": 452,
-    "image_count": 6765,
-    "mean_score": 5.38,
-    "images_with_iptc": 793,
-    "pct_with_iptc": 11.9,
-    "images_with_c2pa": 15,
-    "pct_with_c2pa": 0.224,
-    "c2pa_outcomes": {
-      "valid": 12,
-      "expired": 3
     }
   },
   {
@@ -65,7 +35,7 @@
     "run_id": "2026-08-01T030841Z",
     "started_at": "2026-08-01T03:08:41.721226+00:00",
     "site_count": 445,
-    "image_count": 6680,
+    "image_count": 6715,
     "mean_score": 6.0,
     "images_with_iptc": 725,
     "pct_with_iptc": 10.8,
