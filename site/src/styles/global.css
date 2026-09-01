@@ -94,6 +94,11 @@ a:hover { color: var(--iptc-green-dark); }
 }
 .site-header nav { display: flex; gap: 1.25rem; font-weight: 600; }
 .site-header nav a:hover { color: var(--iptc-green); }
+/* IPTC mark in the header band. The logo is self-contained — a blue gradient
+   tile carrying the white wordmark — so it needs no backing of its own. */
+.site-header .header-logo-link { flex-shrink: 0; line-height: 0; }
+.site-header .header-logo { width: 40px; height: 40px; display: block; }
+
 .intro-row { display: flex; align-items: flex-start; gap: 2rem; }
 .intro-text { flex: 1 1 0; min-width: 0; }
 .intro-logo-link { flex-shrink: 0; line-height: 0; padding-top: 0.25rem; }
@@ -182,6 +187,15 @@ th {
 tbody tr:hover { background: #fbfcfc; }
 td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 
+/* Rank ("#") column: header and figures share one centred axis. Deliberately
+   not .num — right-aligning a 1-2 digit rank under a "#" header reads as a
+   misalignment, while the real numeric columns still want right alignment. */
+td.rank, th.rank {
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  width: 3rem;
+}
+
 th.sortable-col {
   cursor: pointer;
   user-select: none;
@@ -258,6 +272,11 @@ td:has(> .score-bar) { white-space: nowrap; }
 
 @media (max-width: 700px) {
   h1 { font-size: 1.75rem; }
-  .site-header .header-inner { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  /* Wrap rather than stack, so the brand and the IPTC mark keep sharing the
+     top line (mark hard right) and the nav flows onto its own row beneath. */
+  .site-header .header-inner { flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; }
+  .site-header .brand { order: 1; }
+  .site-header .header-logo-link { order: 2; margin-left: auto; }
+  .site-header nav { order: 3; flex-basis: 100%; flex-wrap: wrap; gap: 0.5rem 1rem; }
   main { padding: 1.5rem 1rem 3rem; }
 }

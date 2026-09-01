@@ -33,7 +33,7 @@ const iptcPoints = history.map(h => ({ x: h.started_at, y: h.pct_with_iptc }));
       </p>
     </div>
     <a href="https://iptc.org/" class="intro-logo-link" target="_blank" rel="noopener" aria-label="IPTC website">
-      <img src={`${base}/iptc-logo.png`} alt="IPTC" class="intro-logo" />
+      <img src={`${base}/iptc-logo-gradient.svg`} alt="IPTC" class="intro-logo" />
     </a>
   </div>
 
@@ -60,7 +60,8 @@ const iptcPoints = history.map(h => ({ x: h.started_at, y: h.pct_with_iptc }));
     <section>
       <h2>Trends across runs</h2>
       <p>
-        Each point is one crawl run. See the
+        Each point is one crawl run. Note that the earlier points are slightly
+        skewed, as we crawled fewer publishers in those runs. See the
         <a href={`${base}/dataset/`}> dataset page</a> for the underlying
         parquet files.
       </p>
@@ -110,12 +111,12 @@ const iptcPoints = history.map(h => ({ x: h.started_at, y: h.pct_with_iptc }));
   <p>Ranked by mean IPTC score across all sampled images in the latest crawl.</p>
   <table class="sortable">
     <thead>
-      <tr><th>#</th><th>Site</th><th>Country</th><th>Category</th><th class="num">Images</th><th class="num">% with IPTC</th><th class="num">Score</th></tr>
+      <tr><th class="rank">#</th><th>Site</th><th>Country</th><th>Category</th><th class="num">Images</th><th class="num">% with IPTC</th><th class="num">Score</th></tr>
     </thead>
     <tbody>
       {top10Sites.map((s, i) => (
         <tr>
-          <td class="num">{i + 1}</td>
+          <td class="rank">{i + 1}</td>
           <td><a href={`${base}/sites/${s.site_id}/`}>{s.site_name}</a></td>
           <td>{countryName(s.country)}</td>
           <td><span class={`pill ${s.category}`}>{categoryLabel(s.category)}</span></td>
@@ -135,12 +136,12 @@ const iptcPoints = history.map(h => ({ x: h.started_at, y: h.pct_with_iptc }));
   <p>Country mean is the average of site scores, equal-weighted per site.</p>
   <table class="sortable">
     <thead>
-      <tr><th>#</th><th>Country</th><th class="num">Sites</th><th class="num">Mean score</th></tr>
+      <tr><th class="rank">#</th><th>Country</th><th class="num">Sites</th><th class="num">Mean score</th></tr>
     </thead>
     <tbody>
       {top10Countries.map((c, i) => (
         <tr>
-          <td class="num">{i + 1}</td>
+          <td class="rank">{i + 1}</td>
           <td><a href={`${base}/countries/${c.country.toLowerCase()}/`}>{countryName(c.country)}</a></td>
           <td class="num">{c.site_count}</td>
           <td class="num">
