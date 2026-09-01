@@ -2,7 +2,7 @@
   {
     "run_id": "2026-06-03T125219Z",
     "started_at": "2026-06-03T12:52:19.783226+00:00",
-    "site_count": 339,
+    "site_count": 329,
     "image_count": 5315,
     "mean_score": 6.17,
     "images_with_iptc": 590,
@@ -18,7 +18,7 @@
   {
     "run_id": "2026-07-01T031746Z",
     "started_at": "2026-07-01T03:17:46.969328+00:00",
-    "site_count": 455,
+    "site_count": 445,
     "image_count": 6845,
     "mean_score": 5.53,
     "images_with_iptc": 776,
@@ -34,7 +34,7 @@
   {
     "run_id": "2026-08-01T030841Z",
     "started_at": "2026-08-01T03:08:41.721226+00:00",
-    "site_count": 445,
+    "site_count": 434,
     "image_count": 6715,
     "mean_score": 6.0,
     "images_with_iptc": 725,

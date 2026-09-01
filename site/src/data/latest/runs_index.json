@@ -39,7 +39,7 @@
     "started_at": "2026-08-01T03:08:41.721226+00:00",
     "ended_at": "2026-08-01T04:14:51.089001+00:00",
     "site_count_attempted": 508,
-    "site_count_succeeded": 445,
+    "site_count_succeeded": 434,
     "image_count": 6715,
     "directory": "2026-08-01",
     "files": [
@@ -74,7 +74,7 @@
     "started_at": "2026-07-01T03:17:46.969328+00:00",
     "ended_at": "2026-07-01T04:30:12.392776+00:00",
     "site_count_attempted": 508,
-    "site_count_succeeded": 455,
+    "site_count_succeeded": 445,
     "image_count": 6845,
     "directory": "2026-07-01",
     "files": [
@@ -109,7 +109,7 @@
     "started_at": "2026-06-03T12:52:19.783226+00:00",
     "ended_at": "2026-06-03T13:43:15.689785+00:00",
     "site_count_attempted": 380,
-    "site_count_succeeded": 339,
+    "site_count_succeeded": 329,
     "image_count": 5315,
     "directory": "2026-06-03",
     "files": [

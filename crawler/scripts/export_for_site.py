@@ -127,6 +127,50 @@ def images_with_any_field(fields: list[dict]) -> set[str]:
     return {r["image_url_hash"] for r in fields if r["has_value"]}
 
 
+def block_info(
+    s: dict, articles_by_site: dict[str, list[dict]],
+) -> tuple[str, str | None, str | None]:
+    """Return (effective_status, block_phase, block_vendor) for a site.
+
+    Unifies the three historical blocked statuses into a single 'blocked'
+    value, and computes which phase of the crawl was blocked plus the
+    vendor when known.
+
+    Phases:
+      'discovery' — the feed/sitemap fetch itself failed (blocked_by_waf /
+                    discovery_blocked from the stored status).
+      'article'   — discovery succeeded but ≥80 % of article fetches
+                    returned errors and zero images were harvested.
+
+    Vendor: stored in sites.parquet as block_vendor for new crawls;
+    null for existing data and for article-phase blocks (response headers
+    not stored at that granularity).
+
+    Module-level rather than nested in ``export_run`` so the headline counts
+    and the per-site rows classify sites identically — see
+    ``derived_run_counts``.
+    """
+    raw_status = s["status"]
+
+    # Discovery-phase blocks stored by the crawler.
+    if raw_status in ("blocked_by_waf", "discovery_blocked"):
+        vendor = s.get("block_vendor")  # null for pre-schema-change data
+        return "blocked", "discovery", vendor
+
+    # Article-phase: only when discovery succeeded but we got no images.
+    if raw_status == "ok":
+        site_arts = articles_by_site.get(s["site_id"], [])
+        if site_arts and s.get("images_analysed", 0) == 0:
+            n_blocked = sum(
+                1 for a in site_arts
+                if (a.get("http_status") or 0) == 0 or (a.get("http_status") or 0) >= 400
+            )
+            if n_blocked / len(site_arts) >= 0.8:
+                return "blocked", "article", None
+
+    return raw_status, None, None
+
+
 def derived_run_counts(
     sites: list[dict], articles: list[dict], images: list[dict],
 ) -> dict[str, int]:
@@ -143,13 +187,23 @@ def derived_run_counts(
     the site claiming 6,680 images while ``images.parquet`` held 6,715). Deriving
     every published count from the tables keeps one denominator throughout, and
     is identical to the header for any run that was never merged into.
+
+    ``site_count_succeeded`` counts *effective* status, not the raw one stored
+    by the crawler. A site whose discovery worked but whose every article fetch
+    was refused (paywall or bot wall — the FT, Bloomberg, the Economist and
+    Libération all behave this way) is stored as "ok" with zero images, but
+    block_info() reclassifies it as blocked for the per-site rows. Counting the
+    raw status here made the homepage advertise 445 publishers crawled while the
+    Sites page listed 434 — one definition, used in both places, avoids that.
     """
+    articles_by_site: dict[str, list[dict]] = defaultdict(list)
+    for a in articles:
+        articles_by_site[a["site_id"]].append(a)
+    effective = [block_info(s, articles_by_site)[0] for s in sites]
     return {
         "site_count_attempted": len(sites),
-        "site_count_succeeded": sum(1 for s in sites if s["status"] == "ok"),
-        "site_count_robots_blocked": sum(
-            1 for s in sites if s["status"] == "robots_disallow"
-        ),
+        "site_count_succeeded": sum(1 for st in effective if st == "ok"),
+        "site_count_robots_blocked": sum(1 for st in effective if st == "robots_disallow"),
         "article_count": len(articles),
         "image_count": len(images),
     }
@@ -231,41 +285,7 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         articles_by_site[a["site_id"]].append(a)
 
     def _block_info(s: dict) -> tuple[str, str | None, str | None]:
-        """Return (effective_status, block_phase, block_vendor) for a site.
-
-        Unifies the three historical blocked statuses into a single 'blocked'
-        value, and computes which phase of the crawl was blocked plus the
-        vendor when known.
-
-        Phases:
-          'discovery' — the feed/sitemap fetch itself failed (blocked_by_waf /
-                        discovery_blocked from the stored status).
-          'article'   — discovery succeeded but ≥80 % of article fetches
-                        returned errors and zero images were harvested.
-
-        Vendor: stored in sites.parquet as block_vendor for new crawls;
-        null for existing data and for article-phase blocks (response headers
-        not stored at that granularity).
-        """
-        raw_status = s["status"]
-
-        # Discovery-phase blocks stored by the crawler.
-        if raw_status in ("blocked_by_waf", "discovery_blocked"):
-            vendor = s.get("block_vendor")  # null for pre-schema-change data
-            return "blocked", "discovery", vendor
-
-        # Article-phase: only when discovery succeeded but we got no images.
-        if raw_status == "ok":
-            site_arts = articles_by_site.get(s["site_id"], [])
-            if site_arts and s.get("images_analysed", 0) == 0:
-                n_blocked = sum(
-                    1 for a in site_arts
-                    if (a.get("http_status") or 0) == 0 or (a.get("http_status") or 0) >= 400
-                )
-                if n_blocked / len(site_arts) >= 0.8:
-                    return "blocked", "article", None
-
-        return raw_status, None, None
+        return block_info(s, articles_by_site)
 
     publisher_urls = load_publisher_urls()
     sites_out = []
