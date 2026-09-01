@@ -127,6 +127,34 @@ def images_with_any_field(fields: list[dict]) -> set[str]:
     return {r["image_url_hash"] for r in fields if r["has_value"]}
 
 
+def derived_run_counts(
+    sites: list[dict], articles: list[dict], images: list[dict],
+) -> dict[str, int]:
+    """Recount a run's headline totals from its own tables.
+
+    ``runs.parquet`` records the totals the crawler saw when the run was first
+    written, but ``merge_run`` deliberately leaves that header untouched when a
+    partial re-crawl patches sites into an existing run — the merge is a fix-up
+    of the run, not a new run. After a merge the header therefore disagrees with
+    sites/articles/images, which do reflect reality.
+
+    Publishing the header counts alongside percentages computed from the tables
+    put two different denominators on the same page (the 2026-08-01 merge left
+    the site claiming 6,680 images while ``images.parquet`` held 6,715). Deriving
+    every published count from the tables keeps one denominator throughout, and
+    is identical to the header for any run that was never merged into.
+    """
+    return {
+        "site_count_attempted": len(sites),
+        "site_count_succeeded": sum(1 for s in sites if s["status"] == "ok"),
+        "site_count_robots_blocked": sum(
+            1 for s in sites if s["status"] == "robots_disallow"
+        ),
+        "article_count": len(articles),
+        "image_count": len(images),
+    }
+
+
 def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -140,11 +168,7 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         "run_id": runs[0]["run_id"] if runs else None,
         "started_at": fmt_dt(runs[0]["started_at"]) if runs else None,
         "ended_at": fmt_dt(runs[0]["ended_at"]) if runs else None,
-        "site_count_attempted": runs[0]["site_count_attempted"] if runs else 0,
-        "site_count_succeeded": runs[0]["site_count_succeeded"] if runs else 0,
-        "site_count_robots_blocked": runs[0]["site_count_robots_blocked"] if runs else 0,
-        "article_count": runs[0]["article_count"] if runs else 0,
-        "image_count": runs[0]["image_count"] if runs else 0,
+        **derived_run_counts(sites, articles, images),
     }
     field_hashes = images_with_any_field(fields)
     image_scores = [img["iptc_score"] for img in images if img["http_status"] == 200]
@@ -1027,11 +1051,14 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
                         list(r.get("c2pa_failure_codes") or []),
                     )
                     c2pa_outcome_counts[bucket] += 1
+        run_counts = derived_run_counts(
+            read(d / "sites.parquet"), read(d / "articles.parquet"), run_images,
+        )
         history.append({
             "run_id": run["run_id"],
             "started_at": run_started,
-            "site_count": run["site_count_succeeded"],
-            "image_count": run["image_count"],
+            "site_count": run_counts["site_count_succeeded"],
+            "image_count": run_counts["image_count"],
             "mean_score": round(mean(scores), 2) if scores else 0.0,
             "images_with_iptc": iptc_count,
             "pct_with_iptc": (
@@ -1110,13 +1137,18 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
             {"name": f.name, "size_bytes": f.stat().st_size}
             for f in sorted(run_path.glob("*.parquet"))
         ]
+        idx_counts = derived_run_counts(
+            read(run_path / "sites.parquet"),
+            read(run_path / "articles.parquet"),
+            read(run_path / "images.parquet"),
+        )
         runs_index.append({
             "run_id": rmeta["run_id"],
             "started_at": fmt_dt(rmeta["started_at"]),
             "ended_at": fmt_dt(rmeta["ended_at"]),
-            "site_count_attempted": rmeta["site_count_attempted"],
-            "site_count_succeeded": rmeta["site_count_succeeded"],
-            "image_count": rmeta["image_count"],
+            "site_count_attempted": idx_counts["site_count_attempted"],
+            "site_count_succeeded": idx_counts["site_count_succeeded"],
+            "image_count": idx_counts["image_count"],
             "directory": run_path.name,
             "files": files,
         })

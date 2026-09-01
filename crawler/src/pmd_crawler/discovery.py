@@ -761,8 +761,9 @@ async def discover(
     Returns (robots, source_url, strategy, articles, discovery_error).
 
     discovery_error is the error kind from the last attempted source when
-    no articles were harvested — one of "waf_blocked" (a recognized WAF/bot
-    challenge), "http_error", "parse_error", "network_error", or None. Lets
+    no articles were harvested — one of "waf:<vendor>" (a recognized WAF/bot
+    challenge, vendor-qualified so callers can report who blocked us),
+    "http_error", "parse_error", "network_error", or None. Lets
     callers distinguish "the source 4xx'd" from "the source was reachable but
     had no candidates in window",
     which look identical to the user otherwise.

@@ -162,7 +162,11 @@ def test_detect_waf_cloudflare_fronted_200_feed_is_not_block():
 
 
 def test_status_for_empty_discovery_maps_waf():
-    assert status_for_empty_discovery("config:rss", "waf_blocked") == "blocked_by_waf"
+    # Producers emit the vendor-qualified form "waf:<vendor>" (discovery.py
+    # builds it in four places), never a bare "waf_blocked" — main.py parses
+    # the vendor back out of this same string.
+    assert status_for_empty_discovery("config:rss", "waf:cloudflare") == "blocked_by_waf"
+    assert status_for_empty_discovery("config:sitemap", "waf:akamai") == "blocked_by_waf"
     # Non-WAF kinds are unchanged.
     assert status_for_empty_discovery("config:rss", "http_error") == "discovery_blocked"
     assert status_for_empty_discovery("config:sitemap", "parse_error") == "discovery_parse_error"
