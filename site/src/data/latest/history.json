@@ -50,7 +50,7 @@
   {
     "run_id": "2026-09-01T022404Z",
     "started_at": "2026-09-01T02:24:04.465845+00:00",
-    "site_count": 456,
+    "site_count": 445,
     "image_count": 6869,
     "mean_score": 6.21,
     "images_with_iptc": 733,
