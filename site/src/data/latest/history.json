@@ -2,7 +2,7 @@
   {
     "run_id": "2026-06-03T125219Z",
     "started_at": "2026-06-03T12:52:19.783226+00:00",
-    "site_count": 329,
+    "site_count": 328,
     "image_count": 5315,
     "mean_score": 6.17,
     "images_with_iptc": 590,
@@ -18,7 +18,7 @@
   {
     "run_id": "2026-07-01T031746Z",
     "started_at": "2026-07-01T03:17:46.969328+00:00",
-    "site_count": 445,
+    "site_count": 443,
     "image_count": 6845,
     "mean_score": 5.53,
     "images_with_iptc": 776,
@@ -34,7 +34,7 @@
   {
     "run_id": "2026-08-01T030841Z",
     "started_at": "2026-08-01T03:08:41.721226+00:00",
-    "site_count": 434,
+    "site_count": 432,
     "image_count": 6715,
     "mean_score": 6.0,
     "images_with_iptc": 725,
@@ -50,7 +50,7 @@
   {
     "run_id": "2026-09-01T022404Z",
     "started_at": "2026-09-01T02:24:04.465845+00:00",
-    "site_count": 445,
+    "site_count": 441,
     "image_count": 6869,
     "mean_score": 6.21,
     "images_with_iptc": 733,

@@ -101,11 +101,12 @@ const sitesAtZero = siteScores.filter(v => v <= 0).length;
         </div>
       </div>
       <p class="chart-note">
-        Counts publishers that returned at least one image — a publisher we
-        reached but got no pictures from has no score to plot, and would
-        otherwise sit in the tail alongside those who genuinely embed nothing.
+        Covers every publisher that returned at least one image. Publishers we
+        reached but got no photograph from are listed separately as
+        <a href={`${base}/sites/`}><code>no_images</code></a> rather than scored
+        zero, since that is usually our blind spot rather than their practice.
         Country scores are the mean of that country&rsquo;s publishers. The
-        dashed line averages these per-publisher scores equally, so it sits a
+        dashed line averages these scores one publisher at a time, so it sits a
         little below the <strong>{summary.global_mean_score}</strong> headline
         figure, which weights every image equally instead.
       </p>

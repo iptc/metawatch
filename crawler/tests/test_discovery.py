@@ -229,3 +229,59 @@ def test_dedupe_fills_gaps_from_later_copy():
     ])
     assert out[0].publication_date == date
     assert out[0].image_urls_from_sitemap == ["https://cdn/x.jpg"]
+
+
+# ─── Unbranded 200-status JS cookie challenges ───────────────────────────────
+
+# Trimmed from the real gazeta.ru response: HTTP 200, ~4 KB, title "Document",
+# a script that plants a cookie and calls location.replace, and nothing else.
+_GAZETA_CHALLENGE = (
+    "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\">"
+    "<title>Document</title><script>(function(){var d=new Date().getTime();"
+    "function uuid(){return 'xxxx'.replace(/x/g,function(){return 0;});}"
+    "document.cookie='__bot='+uuid()+'; path=/';"
+    "location.replace(window.location.pathname);})();</script></head><body></body></html>"
+)
+
+
+def test_js_challenge_detected_on_real_shape():
+    from pmd_crawler.discovery import looks_like_js_challenge
+    assert looks_like_js_challenge(_GAZETA_CHALLENGE) is True
+
+
+def test_js_challenge_not_flagged_without_navigation():
+    # Sets a cookie but never redirects — that's analytics, not a wall.
+    from pmd_crawler.discovery import looks_like_js_challenge
+    html = "<html><head><script>document.cookie='a=1';</script></head><body></body></html>"
+    assert looks_like_js_challenge(html) is False
+
+
+def test_js_challenge_not_flagged_when_article_furniture_present():
+    # The safety net: a short page that sets a cookie and redirects but still
+    # carries a real image is a document, not a challenge.
+    from pmd_crawler.discovery import looks_like_js_challenge
+    html = (
+        "<html><head><script>document.cookie='a=1';location.replace('/x');</script>"
+        "</head><body><img src=\"/lead.jpg\"></body></html>"
+    )
+    assert looks_like_js_challenge(html) is False
+
+
+def test_js_challenge_not_flagged_on_a_full_size_page():
+    # Size ceiling: a real article is far larger than any interstitial, even if
+    # it happens to contain both markers.
+    from pmd_crawler.discovery import looks_like_js_challenge
+    html = (
+        "<html><head><script>document.cookie='a=1';location.reload();</script></head>"
+        "<body>" + ("x" * 13000) + "</body></html>"
+    )
+    assert looks_like_js_challenge(html) is False
+
+
+def test_detect_waf_reports_js_challenge_vendor():
+    r = _resp(200, {"content-type": "text/html"}, _GAZETA_CHALLENGE.encode())
+    assert _detect_waf(r) == "js-challenge"
+
+
+def test_status_for_empty_discovery_maps_js_challenge():
+    assert status_for_empty_discovery("config:rss", "waf:js-challenge") == "blocked_by_waf"

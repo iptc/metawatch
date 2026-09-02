@@ -30,7 +30,7 @@ from urllib.parse import urljoin, urlparse
 import httpx
 from selectolax.parser import HTMLParser, Node
 
-from .discovery import ArticleCandidate
+from .discovery import ArticleCandidate, looks_like_js_challenge
 from .optout import scan_robots_directives
 
 MIN_DIM = 200
@@ -93,6 +93,17 @@ async def fetch_article(
         if candidate.image_urls_from_sitemap:
             return ArticleResult(candidate, r.status_code, [candidate.image_urls_from_sitemap[0]], None)
         return ArticleResult(candidate, r.status_code, [], None)
+
+    # A bot wall that answers 200 with a cookie-planting script is a refusal,
+    # not an article. Recorded with status 0 — the same sentinel as "no usable
+    # response" from an exception — so it counts as a failed fetch rather than
+    # as an article that merely happens to have no photograph. Without this a
+    # walled site reads as fully crawled and scores zero, which blames the
+    # publisher for a door we were never let through.
+    if looks_like_js_challenge(r.text):
+        if candidate.image_urls_from_sitemap:
+            return ArticleResult(candidate, 0, [candidate.image_urls_from_sitemap[0]], None)
+        return ArticleResult(candidate, 0, [], None)
 
     parser = HTMLParser(r.text)
     base_url = r.url.human_repr() if hasattr(r.url, "human_repr") else str(r.url)

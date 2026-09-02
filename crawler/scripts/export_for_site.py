@@ -167,6 +167,13 @@ def block_info(
             )
             if n_blocked / len(site_arts) >= 0.8:
                 return "blocked", "article", None
+            # Articles fetched cleanly, yet not one lead image came back. That
+            # is a gap on our side, not a publisher with no photographs: TDH
+            # and Les Dépêches de Brazzaville both publish images, but declare
+            # neither JSON-LD nor og:image for the extractor to find. Counting
+            # these as successes overstated the roster and put four publishers
+            # in the score distribution at zero on no evidence.
+            return "no_images", None, None
 
     return raw_status, None, None
 

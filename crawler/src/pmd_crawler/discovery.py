@@ -53,6 +53,50 @@ _WAF_BODY_MARKERS: dict[str, tuple[str, ...]] = {
 _WAF_REFUSAL_CODES = frozenset({401, 403, 429, 503})
 
 
+#: Upper bound on a JS-challenge shell. Real articles run to tens of KB; the
+#: interstitials seen in the wild are 2–6 KB of script and nothing else.
+_JS_CHALLENGE_MAX_BYTES = 12000
+
+#: Ways a challenge page forces the reload once it has planted its cookie.
+_JS_CHALLENGE_NAV = (
+    "location.replace", "location.reload", "location.href", "location.assign",
+)
+
+
+def looks_like_js_challenge(html: str) -> bool:
+    """True when an HTTP 200 body is a bot-wall interstitial, not a document.
+
+    Some bot walls answer *every* request with 200 and a few kilobytes of
+    JavaScript that plants a cookie and reloads, instead of the 403 or
+    vendor-branded challenge :func:`_detect_waf` recognises. Gazeta.ru does
+    this: all 20 sampled articles came back "200 OK" as a 4 KB page titled
+    "Document", which scored naively as twenty successful fetches of articles
+    that merely happened to carry no photograph.
+
+    Precision over recall, in keeping with ``_detect_waf``. All four must hold:
+
+    * the body is tiny;
+    * it sets a cookie from script;
+    * it forces a navigation, so the cookie is the point of the page;
+    * it contains no article furniture whatsoever — no image, no structured
+      data, no links, no paragraphs.
+
+    The last test is what makes this safe. A real article that happens to set a
+    cookie and redirect still carries images, links or text, so it cannot match.
+    """
+    if len(html) > _JS_CHALLENGE_MAX_BYTES:
+        return False
+    low = html.lower()
+    if "document.cookie" not in low:
+        return False
+    if not any(nav in low for nav in _JS_CHALLENGE_NAV):
+        return False
+    return not any(
+        marker in low
+        for marker in ("<img", "og:image", "ld+json", "<a ", "<p>", "<article")
+    )
+
+
 def _detect_waf(resp: httpx.Response) -> str | None:
     """Return the WAF/bot-management vendor if ``resp`` is a recognizable block
     or challenge, else None.
@@ -104,6 +148,17 @@ def _detect_waf(resp: httpx.Response) -> str | None:
     for vendor in ("cloudflare", "datadome", "imperva", "sucuri"):
         if _marker(vendor):
             return vendor
+    # Unbranded 200-status cookie challenge. No vendor to name, so it reports
+    # as "js-challenge"; the point is that this is a refusal, not a document.
+    # Tested against the whole body, not the 4 KB `body` slice above, because
+    # the size ceiling is half of what makes the fingerprint safe.
+    if "html" in (h.get("content-type") or "").lower():
+        try:
+            full = resp.text
+        except Exception:
+            full = ""
+        if full and looks_like_js_challenge(full):
+            return "js-challenge"
     return None
 
 

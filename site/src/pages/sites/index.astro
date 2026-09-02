@@ -64,6 +64,14 @@ const sites = getSites();
       infrequently or whose sitemap only lists section landing pages rather than individual
       articles.</dd>
 
+    <dt><code>no_images</code></dt>
+    <dd>Articles were discovered and fetched successfully, but we could not identify a lead
+      photograph on any of them. This is usually a limitation on our side rather than a
+      publisher with no pictures — most often the pages declare neither JSON-LD
+      <code>NewsArticle</code> nor an <code>og:image</code> for us to follow. These publishers
+      are excluded from the scores and the distribution charts, because scoring them zero
+      would report our own blind spot as their result.</dd>
+
     <dt><code>unreachable</code></dt>
     <dd>We couldn't establish a connection at all — DNS resolution failed, the TCP connection
       was refused, or the TLS handshake didn't complete. The site may be down, may have
