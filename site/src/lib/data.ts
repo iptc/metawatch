@@ -135,9 +135,18 @@ export interface CdnData {
   by_provider: CdnByProvider[];
 }
 
+export interface ScoreBucket {
+  label: string;
+  lo: number;
+  hi: number;
+  count: number;
+  pct: number;
+}
+
 export interface HistoryPoint {
   run_id: string;
   started_at: string;
+  score_buckets: ScoreBucket[];
   site_count: number;
   image_count: number;
   mean_score: number;

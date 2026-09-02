@@ -171,6 +171,56 @@ def block_info(
     return raw_status, None, None
 
 
+#: Buckets for the publisher score distribution. Zero is deliberately its own
+#: bucket rather than the bottom of a 0–10 band: "published nothing at all" is a
+#: different statement from "published a little", and lumping them together
+#: hides the single most striking feature of the data.
+SCORE_BUCKETS: list[tuple[str, float, float]] = [
+    ("0", 0.0, 0.0),
+    *[(f"{lo}–{lo + 10}", float(lo), float(lo + 10)) for lo in range(0, 90, 10)],
+    ("90–100", 90.0, 100.0),
+]
+
+
+def score_distribution(
+    sites: list[dict], articles: list[dict],
+) -> list[dict[str, object]]:
+    """Bucket measured publishers by their mean image score.
+
+    Counts only publishers whose effective status is 'ok' — the same basis as
+    ``site_count_succeeded``, so the bucket counts sum to it. Blocked and
+    robots-disallowed sites are excluded rather than counted as zero, which
+    would conflate "we couldn't look" with "they embed nothing".
+
+    The lowest band is exclusive of zero (a site scoring 0.5 lands in "0–10",
+    not in "0"), so the two are never double-counted.
+    """
+    articles_by_site: dict[str, list[dict]] = defaultdict(list)
+    for a in articles:
+        articles_by_site[a["site_id"]].append(a)
+
+    scores = [
+        s["mean_iptc_score"] for s in sites
+        if block_info(s, articles_by_site)[0] == "ok"
+    ]
+    out: list[dict[str, object]] = []
+    for label, lo, hi in SCORE_BUCKETS:
+        if lo == hi == 0.0:
+            n = sum(1 for v in scores if v <= 0)
+        elif hi >= 100.0:
+            n = sum(1 for v in scores if v > lo)
+        else:
+            n = sum(1 for v in scores if lo < v <= hi)
+        out.append({
+            "label": label,
+            "lo": lo,
+            "hi": hi,
+            "count": n,
+            "pct": round(100.0 * n / len(scores), 1) if scores else 0.0,
+        })
+    return out
+
+
 def derived_run_counts(
     sites: list[dict], articles: list[dict], images: list[dict],
 ) -> dict[str, int]:
@@ -1071,10 +1121,11 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
                         list(r.get("c2pa_failure_codes") or []),
                     )
                     c2pa_outcome_counts[bucket] += 1
-        run_counts = derived_run_counts(
-            read(d / "sites.parquet"), read(d / "articles.parquet"), run_images,
-        )
+        run_sites = read(d / "sites.parquet")
+        run_articles = read(d / "articles.parquet")
+        run_counts = derived_run_counts(run_sites, run_articles, run_images)
         history.append({
+            "score_buckets": score_distribution(run_sites, run_articles),
             "run_id": run["run_id"],
             "started_at": run_started,
             "site_count": run_counts["site_count_succeeded"],

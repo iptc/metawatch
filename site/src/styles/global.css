@@ -279,4 +279,15 @@ td:has(> .score-bar) { white-space: nowrap; }
   .site-header .header-logo-link { order: 2; margin-left: auto; }
   .site-header nav { order: 3; flex-basis: 100%; flex-wrap: wrap; gap: 0.5rem 1rem; }
   main { padding: 1.5rem 1rem 3rem; }
+
+  /* Tables carry more columns than a phone is wide (the homepage Top sites
+     table has a min-content width around 640px), which made the whole page
+     scroll sideways. Turning the table into its own scroll container keeps
+     the sideways scroll inside the table where it belongs. */
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }

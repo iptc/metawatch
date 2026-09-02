@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import TimeSeriesChart from '../components/TimeSeriesChart.astro';
+import ScoreDistributionChart from '../components/ScoreDistributionChart.astro';
 import { getSummary, getCountries, getSites, getHistory, scoreClass, countryName, categoryLabel } from '../lib/data';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -15,6 +16,17 @@ const runDate = summary.started_at ? new Date(summary.started_at).toISOString().
 
 const scorePoints = history.map(h => ({ x: h.started_at, y: h.mean_score }));
 const iptcPoints = history.map(h => ({ x: h.started_at, y: h.pct_with_iptc }));
+
+// Distribution of the latest run, with the previous run for month-on-month
+// comparison. Guarded because the buckets only exist from the run that first
+// exported them.
+const latestRun = history.length ? history[history.length - 1] : null;
+const prevRun = history.length > 1 ? history[history.length - 2] : null;
+const distBuckets = latestRun?.score_buckets ?? [];
+const prevBuckets = prevRun?.score_buckets ?? null;
+const runDay = (h: { started_at: string } | null) =>
+  h ? new Date(h.started_at).toISOString().slice(0, 10) : '';
+const zeroPct = distBuckets.length ? distBuckets[0].pct : 0;
 ---
 <Layout title="Overview">
   <div class="intro-row">
@@ -54,6 +66,28 @@ const iptcPoints = history.map(h => ({ x: h.started_at, y: h.pct_with_iptc }));
       <strong>No crawl run is available yet.</strong> The site will populate
       once the crawler has produced its first run and the data has been exported.
     </div>
+  )}
+
+  {distBuckets.length > 0 && (
+    <section>
+      <h2>How publishers are distributed</h2>
+      <p>
+        Every measured publisher placed in a band by the mean score of its sampled
+        images. The average of <strong>{summary.global_mean_score}</strong> describes
+        almost nobody: <strong>{zeroPct}%</strong> of publishers embed no metadata we
+        can find at all, and the rest spread thinly across the range.
+        {prevBuckets && ' Dashes mark the previous run.'}
+      </p>
+      <div class="chart-cell">
+        <ScoreDistributionChart
+          buckets={distBuckets}
+          prev={prevBuckets}
+          prevLabel={runDay(prevRun)}
+          currLabel={runDay(latestRun)}
+          total={summary.site_count_succeeded}
+        />
+      </div>
+    </section>
   )}
 
   {history.length >= 2 && (

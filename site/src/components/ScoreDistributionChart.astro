@@ -1,0 +1,173 @@
+---
+/**
+ * Distribution of publisher mean scores, as a histogram.
+ *
+ * Plots the *share* of measured publishers in each score band rather than the
+ * raw count, so runs stay comparable as the panel grows — the roster went from
+ * 329 measured publishers in June to 445 in September, and counts would move
+ * with that even if no publisher changed.
+ *
+ * Zero gets its own bar, separated from the rest by a gap: "embeds nothing at
+ * all" is a different claim from "embeds a little", and it is where three
+ * quarters of the industry sits. That separation is the point of the chart.
+ *
+ * An optional `prev` series is drawn as a hollow tick per band so month-on-month
+ * movement is visible without a second axis.
+ *
+ * Props:
+ *   buckets  — { label, count, pct }[] for the run being shown
+ *   prev     — same shape for the previous run, or null
+ *   prevLabel/currLabel — date strings for the legend
+ *   total    — number of publishers in `buckets`, for the caption
+ */
+interface Bucket { label: string; count: number; pct: number; }
+interface Props {
+  buckets: Bucket[];
+  prev?: Bucket[] | null;
+  prevLabel?: string | null;
+  currLabel?: string;
+  total: number;
+}
+
+const { buckets, prev = null, prevLabel = null, currLabel = '', total } = Astro.props as Props;
+
+const W = 720;
+const H = 280;
+const PAD_L = 46;
+const PAD_R = 14;
+const PAD_T = 22;
+const PAD_B = 52;
+const innerW = W - PAD_L - PAD_R;
+const innerH = H - PAD_T - PAD_B;
+
+const N = buckets.length;
+// Visual gap after the zero bar — it is a category, not the first of a series.
+const GAP = 14;
+const bandW = (innerW - GAP) / N;
+const barW = Math.min(bandW * 0.68, 42);
+
+const maxPct = Math.max(1, ...buckets.map(b => b.pct), ...(prev ?? []).map(b => b.pct));
+// Round the axis up to a readable step so ticks land on whole numbers —
+// scaling straight off the data max gave labels like 22 / 44 / 65 / 87.
+const rawMax = maxPct * 1.08;
+const step = rawMax > 60 ? 20 : rawMax > 30 ? 10 : rawMax > 12 ? 5 : 2;
+const yHi = Math.ceil(rawMax / step) * step;
+
+function bandX(i: number): number {
+  return PAD_L + i * bandW + (i > 0 ? GAP : 0);
+}
+function barX(i: number): number {
+  return bandX(i) + (bandW - barW) / 2;
+}
+function yPos(v: number): number {
+  return PAD_T + innerH * (1 - v / yHi);
+}
+
+const yTicks = Array.from({ length: Math.round(yHi / step) + 1 }, (_, i) => i * step);
+const baseY = yPos(0);
+---
+{N === 0 ? (
+  <p style="color:var(--iptc-muted);font-style:italic">No distribution available yet.</p>
+) : (
+  <figure class="dist-chart">
+    <svg viewBox={`0 0 ${W} ${H}`} role="img"
+         aria-label={`Distribution of publisher scores. ${buckets.map(b => `${b.label}: ${b.pct}%`).join(', ')}`}>
+      {/* Gridlines */}
+      {yTicks.map(v => (
+        <g>
+          <line x1={PAD_L} x2={W - PAD_R} y1={yPos(v)} y2={yPos(v)}
+                stroke="var(--iptc-grid, #e5e7eb)" stroke-width="1" />
+          <text x={PAD_L - 8} y={yPos(v) + 4} text-anchor="end"
+                font-size="11" fill="var(--iptc-muted, #6b7280)">
+            {Math.round(v)}%
+          </text>
+        </g>
+      ))}
+
+      {/* Bars */}
+      {buckets.map((b, i) => (
+        <g>
+          <title>{b.label === '0' ? 'Score of exactly 0' : `Score ${b.label}`}: {b.count} publishers ({b.pct}%)</title>
+          <rect x={barX(i)} y={yPos(b.pct)} width={barW} height={Math.max(1, baseY - yPos(b.pct))}
+                fill={i === 0 ? 'var(--iptc-bad, #b91c1c)' : 'var(--iptc-green, #88c16a)'}
+                opacity={i === 0 ? 0.82 : 1} rx="1" />
+          {b.pct > 0 && (
+            <text x={barX(i) + barW / 2} y={yPos(b.pct) - 6} text-anchor="middle"
+                  font-size={b.pct >= 5 ? '11' : '9.5'} font-weight="600"
+                  fill={b.pct >= 5 ? 'var(--iptc-dark, #2c3e50)' : 'var(--iptc-muted, #6b7280)'}>
+              {b.pct}%
+            </text>
+          )}
+        </g>
+      ))}
+
+      {/* Previous-run marker */}
+      {prev && prev.map((b, i) => (
+        i < N && Math.abs(b.pct - buckets[i].pct) > 0.05 ? (
+          <line x1={barX(i) - 3} x2={barX(i) + barW + 3} y1={yPos(b.pct)} y2={yPos(b.pct)}
+                stroke="var(--iptc-navy, #455f72)" stroke-width="2"
+                stroke-linecap="round" opacity="0.75">
+            <title>{prevLabel}: {b.pct}%</title>
+          </line>
+        ) : null
+      ))}
+
+      {/* Baseline */}
+      <line x1={PAD_L} x2={W - PAD_R} y1={baseY} y2={baseY}
+            stroke="var(--iptc-border, #e3e6ea)" stroke-width="1" />
+
+      {/* X labels */}
+      {buckets.map((b, i) => (
+        <text x={barX(i) + barW / 2} y={H - PAD_B + 17} text-anchor="middle"
+              font-size={i === 0 ? '12' : '10.5'}
+              font-weight={i === 0 ? '700' : '400'}
+              fill={i === 0 ? 'var(--iptc-dark, #2c3e50)' : 'var(--iptc-muted, #6b7280)'}>
+          {b.label}
+        </text>
+      ))}
+
+      <text x={PAD_L + innerW / 2} y={H - 8} text-anchor="middle"
+            font-size="11" fill="var(--iptc-muted, #6b7280)">
+        Mean IPTC score of the publisher&rsquo;s sampled images
+      </text>
+
+      <text x={13} y={PAD_T + innerH / 2} text-anchor="middle"
+            transform={`rotate(-90 13 ${PAD_T + innerH / 2})`}
+            font-size="11" fill="var(--iptc-muted, #6b7280)">
+        % of publishers
+      </text>
+    </svg>
+
+    <figcaption>
+      <span class="key"><span class="swatch zero"></span>Scores exactly zero</span>
+      <span class="key"><span class="swatch some"></span>Any metadata{currLabel ? ` — ${currLabel}` : ''}</span>
+      {prev && prevLabel && (
+        <span class="key"><span class="swatch prev"></span>{prevLabel}</span>
+      )}
+      <span class="key n">{total} publishers measured</span>
+    </figcaption>
+  </figure>
+)}
+
+<style>
+  .dist-chart { margin: 0; }
+  .dist-chart svg { width: 100%; height: auto; max-width: 720px; display: block; }
+  .dist-chart figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.1rem;
+    margin-top: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--iptc-muted);
+    max-width: 720px;
+  }
+  .key { display: inline-flex; align-items: center; gap: 0.35rem; }
+  .key.n { margin-left: auto; font-variant-numeric: tabular-nums; }
+  .swatch { width: 11px; height: 11px; border-radius: 2px; display: inline-block; }
+  .swatch.zero { background: var(--iptc-bad); opacity: 0.82; }
+  .swatch.some { background: var(--iptc-green); }
+  .swatch.prev { height: 3px; border-radius: 2px; background: var(--iptc-navy); opacity: 0.75; }
+  @media (max-width: 560px) {
+    .key.n { margin-left: 0; }
+  }
+</style>
