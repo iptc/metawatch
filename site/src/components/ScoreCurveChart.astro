@@ -1,0 +1,178 @@
+---
+/**
+ * Every measured entity as one thin line, sorted highest score to lowest.
+ *
+ * A rank-ordered curve rather than a histogram: the y-axis is the actual score
+ * (fixed 0–100 so runs and charts are directly comparable), and the x-axis is
+ * just rank, which carries no scale worth labelling. The shape is the message —
+ * a short steep face, then a long flat tail on the floor.
+ *
+ * Entities scoring exactly zero have nothing to draw, so the tail would vanish
+ * into the axis. It's drawn instead as a weighted rule along the baseline
+ * spanning that range, which states the same fact without implying those
+ * publishers have a little metadata.
+ *
+ * `prev` draws the previous run as a faint outline behind the bars. Both series
+ * are sorted independently: this compares the *shape* of the distribution month
+ * on month, not any individual publisher's movement, so the two curves are
+ * normalised to the same width even when the run sizes differ.
+ *
+ * Props:
+ *   scores     — every measured entity's score this run, any order
+ *   prev       — the same for the previous run, or null
+ *   prevLabel  — date string for the previous run, for the legend
+ *   unit       — plural noun for what one line represents
+ */
+interface Props {
+  scores: number[];
+  prev?: number[] | null;
+  prevLabel?: string | null;
+  unit: string;
+}
+
+const { scores, prev = null, prevLabel = null, unit } = Astro.props as Props;
+const unitSingular = unit.replace(/ies$/, 'y').replace(/s$/, '');
+
+const sorted = [...scores].sort((a, b) => b - a);
+const N = sorted.length;
+const nonZero = sorted.filter(v => v > 0).length;
+const zeroCount = N - nonZero;
+
+const prevSorted = prev && prev.length ? [...prev].sort((a, b) => b - a) : null;
+
+const avg = N ? sorted.reduce((a, b) => a + b, 0) / N : 0;
+const meanVal = Math.round(avg * 100) / 100;
+const aboveMean = sorted.filter(v => v > avg).length;
+
+const W = 720;
+const H = 290;
+const PAD_L = 46;
+const PAD_R = 16;
+const PAD_T = 20;
+const PAD_B = 54;
+const innerW = W - PAD_L - PAD_R;
+const innerH = H - PAD_T - PAD_B;
+
+const band = N > 0 ? innerW / N : 0;
+const barW = Math.max(0.9, band * 0.72);
+
+function xPos(i: number): number { return PAD_L + i * band; }
+function yPos(v: number): number { return PAD_T + innerH * (1 - v / 100); }
+
+const baseY = yPos(0);
+const yTicks = [0, 25, 50, 75, 100];
+const meanY = yPos(avg);
+const tailX = xPos(nonZero);
+
+// Previous run as a step path, normalised to the same width so the comparison
+// is of shape rather than of roster size.
+let prevPath = '';
+if (prevSorted && prevSorted.length > 1) {
+  const pBand = innerW / prevSorted.length;
+  prevPath = prevSorted
+    .map((v, i) => {
+      const x0 = PAD_L + i * pBand;
+      const x1 = x0 + pBand;
+      return `${i === 0 ? `M ${x0.toFixed(1)} ${yPos(v).toFixed(1)}` : `L ${x0.toFixed(1)} ${yPos(v).toFixed(1)}`} L ${x1.toFixed(1)} ${yPos(v).toFixed(1)}`;
+    })
+    .join(' ');
+}
+---
+{N === 0 ? (
+  <p style="color:var(--iptc-muted);font-style:italic">Nothing measured yet.</p>
+) : (
+  <figure class="curve-chart">
+    <svg viewBox={`0 0 ${W} ${H}`} role="img"
+         aria-label={`Every measured ${unitSingular} ranked by score, highest to lowest. ${nonZero} of ${N} score above zero, the highest being ${sorted[0].toFixed(1)}; ${zeroCount} score exactly zero.`}>
+      {yTicks.map(v => (
+        <g>
+          <line x1={PAD_L} x2={W - PAD_R} y1={yPos(v)} y2={yPos(v)}
+                stroke="var(--iptc-grid, #e5e7eb)" stroke-width="1" />
+          <text x={PAD_L - 8} y={yPos(v) + 4} text-anchor="end"
+                font-size="11" fill="var(--iptc-muted, #6b7280)">{v}</text>
+        </g>
+      ))}
+
+      {/* Previous run, behind everything */}
+      {prevPath && (
+        <path d={prevPath} fill="none" stroke="var(--iptc-navy, #455f72)"
+              stroke-width="1.25" opacity="0.4" stroke-linejoin="round" />
+      )}
+
+      {/* One line per entity scoring above zero */}
+      {sorted.map((v, i) => (
+        v > 0 ? (
+          <rect x={xPos(i)} y={yPos(v)} width={barW} height={Math.max(0.9, baseY - yPos(v))}
+                fill="var(--iptc-green, #88c16a)" />
+        ) : null
+      ))}
+
+      {/* The flat tail */}
+      {zeroCount > 0 && (
+        <g>
+          <line x1={tailX} x2={W - PAD_R} y1={baseY} y2={baseY}
+                stroke="var(--iptc-bad, #b91c1c)" stroke-width="3.5" opacity="0.85">
+            <title>{`${zeroCount} ${unit} score exactly zero`}</title>
+          </line>
+          <text x={(tailX + (W - PAD_R)) / 2} y={baseY + 20} text-anchor="middle"
+                font-size="11.5" font-weight="600" fill="var(--iptc-bad, #b91c1c)">
+            {`${zeroCount} ${unit} at zero`}
+          </text>
+        </g>
+      )}
+
+      {/* Mean reference */}
+      <line x1={PAD_L} x2={W - PAD_R} y1={meanY} y2={meanY}
+            stroke="var(--iptc-navy, #455f72)" stroke-width="1.5"
+            stroke-dasharray="5 4" opacity="0.9" />
+      <text x={W - PAD_R} y={meanY - 6} text-anchor="end"
+            font-size="11" font-weight="600" fill="var(--iptc-navy, #455f72)">
+        {`mean ${meanVal} per ${unitSingular} — ${aboveMean} above it`}
+      </text>
+
+      <line x1={PAD_L} x2={W - PAD_R} y1={baseY} y2={baseY}
+            stroke="var(--iptc-border, #e3e6ea)" stroke-width="1" />
+
+      <text x={PAD_L} y={H - 12} text-anchor="start"
+            font-size="11" fill="var(--iptc-muted, #6b7280)">highest scoring</text>
+      <text x={W - PAD_R} y={H - 12} text-anchor="end"
+            font-size="11" fill="var(--iptc-muted, #6b7280)">lowest</text>
+
+      <text x={13} y={PAD_T + innerH / 2} text-anchor="middle"
+            transform={`rotate(-90 13 ${PAD_T + innerH / 2})`}
+            font-size="11" fill="var(--iptc-muted, #6b7280)">
+        IPTC score
+      </text>
+    </svg>
+
+    <figcaption>
+      <span class="key"><span class="swatch some"></span>{`Each line is one of ${N} ${unit}`}</span>
+      {prevPath && prevLabel && (
+        <span class="key"><span class="swatch prev"></span>{prevLabel}</span>
+      )}
+      <span class="key n">{`${nonZero} carry metadata · ${zeroCount} carry none`}</span>
+    </figcaption>
+  </figure>
+)}
+
+<style>
+  .curve-chart { margin: 0; }
+  .curve-chart svg { width: 100%; height: auto; max-width: 720px; display: block; }
+  .curve-chart figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 1.1rem;
+    margin-top: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--iptc-muted);
+    max-width: 720px;
+  }
+  .curve-chart .key { display: inline-flex; align-items: center; gap: 0.35rem; }
+  .curve-chart .key.n { margin-left: auto; font-variant-numeric: tabular-nums; }
+  .curve-chart .swatch { width: 11px; height: 11px; border-radius: 2px; display: inline-block; }
+  .curve-chart .swatch.some { background: var(--iptc-green); }
+  .curve-chart .swatch.prev { height: 2px; border-radius: 2px; background: var(--iptc-navy); opacity: 0.4; }
+  @media (max-width: 560px) {
+    .curve-chart .key.n { margin-left: 0; }
+  }
+</style>

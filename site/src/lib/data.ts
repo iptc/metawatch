@@ -135,18 +135,9 @@ export interface CdnData {
   by_provider: CdnByProvider[];
 }
 
-export interface ScoreBucket {
-  label: string;
-  lo: number;
-  hi: number;
-  count: number;
-  pct: number;
-}
-
 export interface HistoryPoint {
   run_id: string;
   started_at: string;
-  score_buckets: ScoreBucket[];
   site_count: number;
   image_count: number;
   mean_score: number;
@@ -286,6 +277,36 @@ export function getSiteHistory(siteId: string): SeriesPoint[] {
 
 export function getCountryHistory(cc: string): SeriesPoint[] {
   return ((historyByCountryJson as Record<string, SeriesPoint[]>)[cc]) ?? [];
+}
+
+/**
+ * Every publisher's score for one run, as a plain array.
+ *
+ * Drawn from the per-site history, which only records publishers that actually
+ * yielded at least one image — you cannot have a score without images, and a
+ * publisher we reached but got no pictures from would otherwise land in the
+ * zero bucket alongside publishers who genuinely embed nothing. That makes this
+ * count slightly smaller than `site_count_succeeded`; the charts say so.
+ */
+export function getScoresForRun(startedAt: string): number[] {
+  const all = historyBySiteJson as Record<string, SeriesPoint[]>;
+  const out: number[] = [];
+  for (const series of Object.values(all)) {
+    const hit = series.find(p => p.x === startedAt);
+    if (hit) out.push(hit.y);
+  }
+  return out;
+}
+
+/** As getScoresForRun, but one value per country (mean of its publishers). */
+export function getCountryScoresForRun(startedAt: string): number[] {
+  const all = historyByCountryJson as Record<string, SeriesPoint[]>;
+  const out: number[] = [];
+  for (const series of Object.values(all)) {
+    const hit = series.find(p => p.x === startedAt);
+    if (hit) out.push(hit.y);
+  }
+  return out;
 }
 
 export function getSiteFieldStats(siteId: string): SiteFieldStat[] {
