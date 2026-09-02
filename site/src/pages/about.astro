@@ -38,66 +38,106 @@ const SPEC = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadat
 
   <h2>What inspired this, and what has changed since</h2>
   <p>
-    Metawatch has two ancestors. The first is a study IMATAG published in 2018,
-    <a href="https://www.imatag.com/blog/state-of-image-metadata-in-2018" target="_blank" rel="noopener">The
-    state of image metadata in 2018</a>, which examined more than 50,000 images across over 750
-    editorial websites. The second is IPTC's own response to it: a prototype crawler built in
-    2019 and presented at that year's Photo Metadata Conference
-    (<a href="https://www.iptc.org/download/events/phmdc2019/IPTC-PhMdC2019-Photo%20Metadata%20Crawler%20June%202019.pdf" target="_blank" rel="noopener">slides,
-    PDF</a>). Metawatch is the third generation of that idea: the same question, asked every
-    month instead of once.
+    Metawatch has two ancestors. The first is IMATAG's
+    <a href="https://www.imatag.com/blog/state-of-image-metadata-in-2018" target="_blank" rel="noopener">State of Image Metadata</a>, published in 2018
+    and updated for the press in 2019. The second is IPTC's own response: a prototype crawler
+    built in 2019 and presented at that year's Photo Metadata Conference
+    (<a href="https://www.iptc.org/download/events/phmdc2019/IPTC-PhMdC2019-Photo%20Metadata%20Crawler%20June%202019.pdf" target="_blank" rel="noopener">slides, PDF</a>). Metawatch is the third
+    generation of that idea &mdash; the same question, asked every month rather than once.
   </p>
 
-  <h3>Against IMATAG, 2018</h3>
+  <h3>The 2018 picture, and now</h3>
+  <p>
+    IMATAG's 2018 report split editorial images three ways. Recomputing those buckets on their
+    own definition of credit &mdash; an image counts if any of
+    <code>Xmp.photoshop.Credit</code>, <code>Iptc.Application2.Credit</code>,
+    <code>Xmp.dc.rights</code>, <code>Iptc.Application2.Copyright</code> or
+    <code>Exif.Image.Copyright</code> is filled &mdash; gives this:
+  </p>
   <table>
     <thead>
-      <tr><th>Measure, editorial images</th><th class="num">IMATAG 2018</th><th class="num">Metawatch, Sept 2026</th></tr>
+      <tr><th>Editorial images</th><th class="num">IMATAG 2018</th><th class="num">Metawatch, Sept 2026</th></tr>
     </thead>
     <tbody>
-      <tr><td>Retain any embedded metadata</td><td class="num">20%</td><td class="num">10.7%</td></tr>
-      <tr><td>Author or distributor identifiable</td><td class="num">8%</td><td class="num">8.1%</td></tr>
+      <tr><td>No embedded metadata at all</td><td class="num">80%</td><td class="num">89.3%</td></tr>
+      <tr><td>Some metadata, but no credit or copyright</td><td class="num">12%</td><td class="num">3.0%</td></tr>
+      <tr><td>Metadata including credit or copyright</td><td class="num">8%</td><td class="num">7.7%</td></tr>
     </tbody>
   </table>
   <p>
-    These two rows point in different directions, and the difference is the interesting part.
-    The <strong>attribution signal has not moved at all</strong> — 8% then, 8.1% now — but the
-    share of news photographs carrying <em>any</em> metadata has roughly <strong>halved</strong>.
-    Read together they suggest that the minority of publishers who deliberately preserve
-    authorship still do, while everything else in the file — the descriptive and rights payload
-    around it — is being stripped considerably harder than it was eight years ago.
+    The credit-bearing slice has not moved in eight years: 8% then, 7.7% now. What has changed is
+    the middle. The band of images carrying <em>something</em> but not a credit has collapsed from
+    12% to 3%, and total stripping is up nine points. Images increasingly arrive either properly
+    credited or completely bare, with less and less in between.
+  </p>
+
+  <h3>The same publishers, seven years on</h3>
+  <p>
+    IMATAG's 2019 update named individual titles and published its method, so this is the closest
+    thing to a like-for-like re-run that exists. Their figure is the share of a site's images
+    carrying credit metadata; ours is the same test on the lead photograph of each sampled article.
+  </p>
+  <div class="tablewrap">
+  <table class="sortable">
+    <thead>
+      <tr><th>Publisher</th><th class="num">IMATAG 2019</th><th class="num">Metawatch 2026</th><th>Direction</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Spiegel Online</td><td class="num">73%</td><td class="num">95%</td><td>improved</td></tr>
+      <tr><td>Le Monde</td><td class="num">55%</td><td class="num">88%</td><td>improved</td></tr>
+      <tr><td>Le Figaro</td><td class="num">45%</td><td class="num">60%</td><td>improved</td></tr>
+      <tr><td>Huffington Post UK</td><td class="num">40%</td><td class="num">0%</td><td>fell</td></tr>
+      <tr><td>Politico</td><td class="num">38%</td><td class="num">83%</td><td>improved</td></tr>
+      <tr><td>Washington Post</td><td class="num">31%</td><td class="num">0%</td><td>fell</td></tr>
+      <tr><td>stern.de</td><td class="num">10%</td><td class="num">0%</td><td>fell</td></tr>
+      <tr><td>Les Echos</td><td class="num">6%</td><td class="num">80%</td><td>improved</td></tr>
+      <tr><td>El Pais</td><td class="num">4%</td><td class="num">0%</td><td>fell</td></tr>
+      <tr><td>The Guardian</td><td class="num">3%</td><td class="num">0%</td><td>unchanged</td></tr>
+      <tr><td>Die Zeit</td><td class="num">1%</td><td class="num">0%</td><td>unchanged</td></tr>
+      <tr><td>L'Express</td><td class="num">1%</td><td class="num">0%</td><td>unchanged</td></tr>
+      <tr><td>NY Times</td><td class="num">0%</td><td class="num">0%</td><td>unchanged</td></tr>
+      <tr><td>La Vanguardia</td><td class="num">0%</td><td class="num">0%</td><td>unchanged</td></tr>
+      <tr><td>New York Post</td><td class="num">0%</td><td class="num">0%</td><td>unchanged</td></tr>
+      <tr><td>Le Point</td><td class="num">0%</td><td class="num">0%</td><td>unchanged</td></tr>
+      <tr><td>Wired</td><td class="num">0%</td><td class="num">0%</td><td>unchanged</td></tr>
+      <tr><td>La Presse</td><td class="num">0%</td><td class="num">0%</td><td>unchanged</td></tr>
+      <tr><td>USA Today</td><td class="num">0%</td><td class="num">95%</td><td>improved</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>
+    <strong>Read the two directions differently.</strong> IMATAG sampled every image wider than
+    400&nbsp;pixels on a site's home page and article pages &mdash; between 1,000 and 7,000 images
+    per site. We sample one lead photograph per article. A lead photograph is the image on a page
+    most likely to have come from an agency with its credit intact, so our percentages should sit
+    <em>above</em> theirs for the same publisher, whatever the truth. That asymmetry is useful:
+    increases here may be partly our sampling, but decreases happened <em>despite</em> it, and a
+    zero cannot be manufactured by a favourable sample.
   </p>
   <p>
-    On IMATAG's site-level split, 10% of editorial sites preserved all metadata in 2018, 40%
-    erased it entirely and 50% partially. Our equivalents are 1.1%, 71.5% and 27.4%. We would
-    not lean on that comparison: it is the least alike of the measures here. We did rule out
-    two explanations — it is not our wider geographic reach (Western Europe and North America
-    erase at 71.9%, the rest of the world at 71.2%, effectively identical) and it is not mainly
-    sample size (cutting our own publishers from twenty images to five moves the all-zero rate
-    about 5 points, against a 31-point gap). What we cannot check is IMATAG's own definition of
-    erasure, or how they chose images: we take one lead photograph per article, and their
-    detailed methodology was never published.
+    So the reliable findings are the falls and the flats. Four publishers that carried credit in
+    2019 now carry none: the Huffington Post UK, the Washington Post, stern.de and El Pais. In each
+    case we found not merely a missing credit but <em>no embedded metadata of any kind</em> on any
+    image we sampled. And eight titles sat at or near zero in 2019 and are still there &mdash; the
+    New York Times, Wired, Le Point, La Vanguardia, the New York Post, Die Zeit, L'Express and the
+    Guardian. Seven years, no movement. Whichever side of the line a newsroom was on in 2019, it is
+    almost certainly still on it.
   </p>
 
   <h3>Against IPTC's own 2019 crawler</h3>
   <p>
-    The 2019 prototype checked 200 news feeds across 35 countries and scored each country by the
-    share of images carrying any IPTC field. Across the 30 of those countries we still cover, the
-    mean has risen from <strong>4.2% to 10.2%</strong> — 14 improved, 12 flat, 4 worse. Counting
-    only fields that cannot be satisfied by an Exif equivalent, a stricter test closer to what the
-    2019 tool measured, it is <strong>4.2% to 8.2%</strong>.
-  </p>
-  <p>
-    That looks like real progress, and it may be — but treat it gently. The 2019 run reported
-    exactly 0.00% for the Netherlands, Norway, Ireland, Finland and Switzerland, and those
-    countries plainly do have embedded metadata today. Some of that gap is a prototype with
-    known blind spots — it read only RSS and Atom feeds, and skipped images under 150&nbsp;pixels
-    — rather than publishers who genuinely embedded nothing. A baseline biased low will flatter
-    any successor. The publisher lists also differ: 200 feeds then, 508 now.
+    The 2019 IPTC prototype checked 200 news feeds across 35 countries. Across the 30 of those we
+    still cover, the mean share of images carrying any IPTC field has risen from 4.2% to 10.2%
+    (8.2% counting only fields that no Exif tag can satisfy, which is closer to what that tool
+    measured). Treat it gently: the 2019 run reported exactly 0.00% for the Netherlands, Norway,
+    Ireland, Finland and Switzerland, which is far more likely to reflect a prototype's blind spots
+    &mdash; it read only RSS and Atom feeds and skipped images under 150&nbsp;pixels &mdash; than
+    five countries embedding nothing at all. A baseline biased low flatters its successor.
   </p>
   <p style="color:var(--iptc-muted);font-size:0.92rem">
-    Every figure in this section is recomputed from the published Parquet files, so anyone who
-    prefers a different definition can redo it. If anyone at IMATAG would like to compare
-    methodologies properly, we would welcome it — <a href="mailto:office@iptc.org">office@iptc.org</a>.
+    Every figure here is recomputed from the published Parquet files, so anyone preferring a
+    different definition can redo it. If anyone at IMATAG would like to compare methodologies
+    properly, we would welcome it &mdash; <a href="mailto:office@iptc.org">office@iptc.org</a>.
   </p>
 
   <h2>The score</h2>
