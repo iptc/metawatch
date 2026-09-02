@@ -8161,24 +8161,6 @@
     }
   },
   {
-    "site_id": "gazeta",
-    "site_name": "Gazeta.ru",
-    "url": "https://www.gazeta.ru/",
-    "country": "RU",
-    "category": "online",
-    "status": "no_images",
-    "block_phase": null,
-    "block_vendor": null,
-    "block_http_codes": {},
-    "discovery_strategy": "config:sitemap",
-    "sitemap_url_used": "https://www.gazeta.ru/sitemap_news-y.xml",
-    "articles_sampled": 20,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "kt-press",
     "site_name": "KT Press",
     "url": "https://www.ktpress.rw/",
@@ -10051,5 +10033,25 @@
     "cdn_breakdown": {
       "none": 19
     }
+  },
+  {
+    "site_id": "gazeta",
+    "site_name": "Gazeta.ru",
+    "url": "https://www.gazeta.ru/",
+    "country": "RU",
+    "category": "online",
+    "status": "blocked",
+    "block_phase": "article",
+    "block_vendor": null,
+    "block_http_codes": {
+      "0": 2
+    },
+    "discovery_strategy": "config:sitemap",
+    "sitemap_url_used": "https://www.gazeta.ru/sitemap_news-y.xml",
+    "articles_sampled": 2,
+    "images_analysed": 0,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {}
   }
 ]
