@@ -36,70 +36,68 @@ const SPEC = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadat
     way to measure the problem and watch whether it improves.
   </p>
 
-  <h2>What inspired this</h2>
+  <h2>What inspired this, and what has changed since</h2>
   <p>
-    Metawatch owes its existence to a study IMATAG published in 2018,
+    Metawatch has two ancestors. The first is a study IMATAG published in 2018,
     <a href="https://www.imatag.com/blog/state-of-image-metadata-in-2018" target="_blank" rel="noopener">The
-    state of image metadata in 2018</a>. They examined more than 50,000 images across over 750
-    editorial websites and found that only 8% of photographs on news sites carried useful
-    metadata. That study was a snapshot; the obvious next question was whether the picture
-    changes over time, and nobody was measuring it repeatedly. That is the gap Metawatch exists
-    to fill.
-  </p>
-  <p>
-    Eight years later, here is our closest like-for-like reading of the same measures. Note
-    that these are two different studies with different samples and different definitions, not
-    two readings from one instrument — see the caution below the table.
+    state of image metadata in 2018</a>, which examined more than 50,000 images across over 750
+    editorial websites. The second is IPTC's own response to it: a prototype crawler built in
+    2019 and presented at that year's Photo Metadata Conference
+    (<a href="https://www.iptc.org/download/events/phmdc2019/IPTC-PhMdC2019-Photo%20Metadata%20Crawler%20June%202019.pdf" target="_blank" rel="noopener">slides,
+    PDF</a>). Metawatch is the third generation of that idea: the same question, asked every
+    month instead of once.
   </p>
 
+  <h3>Against IMATAG, 2018</h3>
   <table>
     <thead>
-      <tr><th>Measure</th><th class="num">IMATAG 2018</th><th class="num">Metawatch, Sept 2026</th></tr>
+      <tr><th>Measure, editorial images</th><th class="num">IMATAG 2018</th><th class="num">Metawatch, Sept 2026</th></tr>
     </thead>
     <tbody>
-      <tr>
-        <td>News images carrying author, rights, source or description</td>
-        <td class="num">8%</td><td class="num">8.8%</td>
-      </tr>
-      <tr>
-        <td>Of images keeping any metadata, share carrying all four</td>
-        <td class="num">~20%</td><td class="num">23.9%</td>
-      </tr>
-      <tr>
-        <td>Publishers preserving metadata on every image sampled</td>
-        <td class="num">10%</td><td class="num">1.1%</td>
-      </tr>
-      <tr>
-        <td>Publishers with no metadata on any image sampled</td>
-        <td class="num">40%</td><td class="num">71.5%</td>
-      </tr>
-      <tr>
-        <td>Publishers preserving on some images but not others</td>
-        <td class="num">50%</td><td class="num">27.4%</td>
-      </tr>
+      <tr><td>Retain any embedded metadata</td><td class="num">20%</td><td class="num">10.7%</td></tr>
+      <tr><td>Author or distributor identifiable</td><td class="num">8%</td><td class="num">8.1%</td></tr>
     </tbody>
   </table>
-
   <p>
-    The per-image reading has not moved: <strong>8% then, 8.8% now</strong>. Eight years of
-    standards work, tooling and advocacy, and the share of news photographs reaching readers
-    with their author or rights intact is the same within measurement noise.
+    These two rows point in different directions, and the difference is the interesting part.
+    The <strong>attribution signal has not moved at all</strong> — 8% then, 8.1% now — but the
+    share of news photographs carrying <em>any</em> metadata has roughly <strong>halved</strong>.
+    Read together they suggest that the minority of publishers who deliberately preserve
+    authorship still do, while everything else in the file — the descriptive and rights payload
+    around it — is being stripped considerably harder than it was eight years ago.
   </p>
   <p>
-    The publisher-level rows suggest something worse — that consistent practice has collapsed
-    and outright erasure has grown — but they are the least comparable numbers here and we
-    would not lean on them. Two things we can rule out: it is not explained by our wider
-    geographic reach (publishers in Western Europe and North America erase at 71.9%, the rest
-    of the world at 71.2% — effectively identical), and it is not mainly a sampling artefact
-    (re-running our own publishers on a five-image sample instead of a twenty-image one raises
-    the all-zero rate by about 5 points, nowhere near the 31-point gap). What we cannot rule
-    out is that IMATAG defined "erases metadata" differently, or sampled images differently:
-    we take one lead photograph per article, and their detailed methodology is not public.
+    On IMATAG's site-level split, 10% of editorial sites preserved all metadata in 2018, 40%
+    erased it entirely and 50% partially. Our equivalents are 1.1%, 71.5% and 27.4%. We would
+    not lean on that comparison: it is the least alike of the measures here. We did rule out
+    two explanations — it is not our wider geographic reach (Western Europe and North America
+    erase at 71.9%, the rest of the world at 71.2%, effectively identical) and it is not mainly
+    sample size (cutting our own publishers from twenty images to five moves the all-zero rate
+    about 5 points, against a 31-point gap). What we cannot check is IMATAG's own definition of
+    erasure, or how they chose images: we take one lead photograph per article, and their
+    detailed methodology was never published.
+  </p>
+
+  <h3>Against IPTC's own 2019 crawler</h3>
+  <p>
+    The 2019 prototype checked 200 news feeds across 35 countries and scored each country by the
+    share of images carrying any IPTC field. Across the 30 of those countries we still cover, the
+    mean has risen from <strong>4.2% to 10.2%</strong> — 14 improved, 12 flat, 4 worse. Counting
+    only fields that cannot be satisfied by an Exif equivalent, a stricter test closer to what the
+    2019 tool measured, it is <strong>4.2% to 8.2%</strong>.
+  </p>
+  <p>
+    That looks like real progress, and it may be — but treat it gently. The 2019 run reported
+    exactly 0.00% for the Netherlands, Norway, Ireland, Finland and Switzerland, and those
+    countries plainly do have embedded metadata today. Some of that gap is a prototype with
+    known blind spots — it read only RSS and Atom feeds, and skipped images under 150&nbsp;pixels
+    — rather than publishers who genuinely embedded nothing. A baseline biased low will flatter
+    any successor. The publisher lists also differ: 200 feeds then, 508 now.
   </p>
   <p style="color:var(--iptc-muted);font-size:0.92rem">
-    If anyone at IMATAG would like to compare methodologies properly, we would welcome it —
-    <a href="mailto:office@iptc.org">office@iptc.org</a>. Our per-image data is published, so
-    the comparison can be redone on any definition you prefer.
+    Every figure in this section is recomputed from the published Parquet files, so anyone who
+    prefers a different definition can redo it. If anyone at IMATAG would like to compare
+    methodologies properly, we would welcome it — <a href="mailto:office@iptc.org">office@iptc.org</a>.
   </p>
 
   <h2>The score</h2>
