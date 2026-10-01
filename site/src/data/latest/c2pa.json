@@ -1,15 +1,15 @@
 {
-  "image_count_total": 6869,
-  "image_count_with_c2pa": 11,
-  "pct_with_c2pa": 0.16,
+  "image_count_total": 6518,
+  "image_count_with_c2pa": 33,
+  "pct_with_c2pa": 0.51,
   "by_outcome": [
     {
       "outcome": "valid",
-      "images": 7
+      "images": 16
     },
     {
       "outcome": "modified",
-      "images": 4
+      "images": 3
     },
     {
       "outcome": "expired",
@@ -17,92 +17,142 @@
     },
     {
       "outcome": "untrusted_issuer",
-      "images": 0
+      "images": 3
     },
     {
       "outcome": "other_invalid",
-      "images": 0
+      "images": 11
     }
   ],
   "by_signer": [
     {
       "signer": "OpenAI OpCo, LLC",
-      "images": 4
-    },
-    {
-      "signer": "Google LLC",
-      "images": 3
-    },
-    {
-      "signer": "International Press Telecommunications Council",
-      "images": 2
-    },
-    {
-      "signer": "Canva",
-      "images": 1
+      "images": 9
     },
     {
       "signer": "Adobe Inc.",
+      "images": 8
+    },
+    {
+      "signer": "Canva",
+      "images": 7
+    },
+    {
+      "signer": "International Press Telecommunications Council",
+      "images": 5
+    },
+    {
+      "signer": "Google LLC",
+      "images": 2
+    },
+    {
+      "signer": "Comite International des Telecommunications de Presse",
+      "images": 1
+    },
+    {
+      "signer": "(unknown signer)",
       "images": 1
     }
   ],
   "by_validation_state": [
     {
-      "state": "Valid",
-      "images": 7
+      "state": "Invalid",
+      "images": 17
     },
     {
-      "state": "Invalid",
-      "images": 4
+      "state": "Valid",
+      "images": 16
     }
   ],
   "top_sites": [
     {
-      "site_id": "icilome",
-      "site_name": "IciLome",
-      "country": "TG",
-      "images_with_c2pa": 3
+      "site_id": "el-comercio-ec",
+      "site_name": "El Comercio (Ecuador)",
+      "country": "EC",
+      "images_with_c2pa": 6
     },
     {
       "site_id": "iptc",
       "site_name": "IPTC",
       "country": "GB",
-      "images_with_c2pa": 2
+      "images_with_c2pa": 6
     },
     {
-      "site_id": "el-comercio-ec",
-      "site_name": "El Comercio (Ecuador)",
-      "country": "EC",
-      "images_with_c2pa": 1
-    },
-    {
-      "site_id": "gabon-review",
-      "site_name": "Gabon Review",
-      "country": "GA",
-      "images_with_c2pa": 1
-    },
-    {
-      "site_id": "criterio-hn",
-      "site_name": "Criterio.hn",
-      "country": "HN",
-      "images_with_c2pa": 1
+      "site_id": "mauriactu",
+      "site_name": "Mauriactu",
+      "country": "MR",
+      "images_with_c2pa": 5
     },
     {
       "site_id": "kurdistan24",
       "site_name": "Kurdistan 24",
       "country": "IQ",
+      "images_with_c2pa": 4
+    },
+    {
+      "site_id": "icilome",
+      "site_name": "IciLome",
+      "country": "TG",
+      "images_with_c2pa": 2
+    },
+    {
+      "site_id": "expansao",
+      "site_name": "Expans\u00e3o",
+      "country": "AO",
       "images_with_c2pa": 1
     },
     {
-      "site_id": "le-pays-td",
-      "site_name": "Le Pays",
-      "country": "TD",
+      "site_id": "prensa-libre",
+      "site_name": "Prensa Libre",
+      "country": "GT",
       "images_with_c2pa": 1
     },
     {
-      "site_id": "efecto-cocuyo",
-      "site_name": "Efecto Cocuyo",
-      "country": "VE",
+      "site_id": "nhk-news-web",
+      "site_name": "NHK News Web",
+      "country": "JP",
+      "images_with_c2pa": 1
+    },
+    {
+      "site_id": "libya-review",
+      "site_name": "Libya Review",
+      "country": "LY",
+      "images_with_c2pa": 1
+    },
+    {
+      "site_id": "despacho505",
+      "site_name": "Despacho 505",
+      "country": "NI",
+      "images_with_c2pa": 1
+    },
+    {
+      "site_id": "premium-times-ng",
+      "site_name": "Premium Times (Nigeria)",
+      "country": "NG",
+      "images_with_c2pa": 1
+    },
+    {
+      "site_id": "rappler",
+      "site_name": "Rappler",
+      "country": "PH",
+      "images_with_c2pa": 1
+    },
+    {
+      "site_id": "asia-plus",
+      "site_name": "Asia-Plus",
+      "country": "TJ",
+      "images_with_c2pa": 1
+    },
+    {
+      "site_id": "turkmenistan-golden-age",
+      "site_name": "Turkmenistan: The Golden Age",
+      "country": "TM",
+      "images_with_c2pa": 1
+    },
+    {
+      "site_id": "the-citizen-tz",
+      "site_name": "The Citizen",
+      "country": "TZ",
       "images_with_c2pa": 1
     }
   ]

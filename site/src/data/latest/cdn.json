@@ -1,47 +1,47 @@
 {
   "providers": {
-    "cloudflare": 2090,
-    "akamai": 1294,
-    "none": 1762,
-    "fastly": 720,
-    "cloudfront": 938,
-    "bunny": 31
+    "cloudflare": 1967,
+    "none": 1628,
+    "akamai": 1216,
+    "fastly": 691,
+    "cloudfront": 968,
+    "bunny": 21
   },
   "by_provider": [
     {
       "provider": "cloudflare",
-      "images": 2090,
-      "stripped": 1895,
-      "pct_stripped": 90.7
+      "images": 1967,
+      "stripped": 1772,
+      "pct_stripped": 90.1
     },
     {
       "provider": "none",
-      "images": 1762,
-      "stripped": 1542,
+      "images": 1628,
+      "stripped": 1424,
       "pct_stripped": 87.5
     },
     {
       "provider": "akamai",
-      "images": 1294,
-      "stripped": 1145,
-      "pct_stripped": 88.5
+      "images": 1216,
+      "stripped": 1078,
+      "pct_stripped": 88.7
     },
     {
       "provider": "cloudfront",
-      "images": 938,
-      "stripped": 820,
+      "images": 968,
+      "stripped": 846,
       "pct_stripped": 87.4
     },
     {
       "provider": "fastly",
-      "images": 720,
-      "stripped": 669,
-      "pct_stripped": 92.9
+      "images": 691,
+      "stripped": 654,
+      "pct_stripped": 94.6
     },
     {
       "provider": "bunny",
-      "images": 31,
-      "stripped": 31,
+      "images": 21,
+      "stripped": 21,
       "pct_stripped": 100.0
     }
   ]

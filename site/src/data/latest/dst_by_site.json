@@ -1,11 +1,11 @@
 {
   "expansao": {
-    "images_with_dst_iptc": 1,
+    "images_with_dst_iptc": 3,
     "images_with_dst_c2pa": 0,
     "by_bucket_iptc": [
       {
         "bucket": "Other",
-        "images": 1
+        "images": 3
       }
     ],
     "by_bucket_c2pa": [],
@@ -14,12 +14,32 @@
         "uri": "nil",
         "term": "nil",
         "bucket": "Other",
+        "images": 3
+      }
+    ],
+    "by_uri_c2pa": []
+  },
+  "kleine-zeitung": {
+    "images_with_dst_iptc": 1,
+    "images_with_dst_c2pa": 0,
+    "by_bucket_iptc": [
+      {
+        "bucket": "Real-life capture",
+        "images": 1
+      }
+    ],
+    "by_bucket_c2pa": [],
+    "by_uri_iptc": [
+      {
+        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/digitalCapture",
+        "term": "digitalCapture",
+        "bucket": "Real-life capture",
         "images": 1
       }
     ],
     "by_uri_c2pa": []
   },
-  "s-ddeutsche-zeitung": {
+  "bild": {
     "images_with_dst_iptc": 1,
     "images_with_dst_c2pa": 0,
     "by_bucket_iptc": [
@@ -40,6 +60,118 @@
     "by_uri_c2pa": []
   },
   "el-comercio-ec": {
+    "images_with_dst_iptc": 6,
+    "images_with_dst_c2pa": 6,
+    "by_bucket_iptc": [
+      {
+        "bucket": "Edited with Generative AI",
+        "images": 6
+      }
+    ],
+    "by_bucket_c2pa": [
+      {
+        "bucket": "Edited with Generative AI",
+        "images": 6
+      }
+    ],
+    "by_uri_iptc": [
+      {
+        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/compositeWithTrainedAlgorithmicMedia",
+        "term": "compositeWithTrainedAlgorithmicMedia",
+        "bucket": "Edited with Generative AI",
+        "images": 6
+      }
+    ],
+    "by_uri_c2pa": [
+      {
+        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/compositeWithTrainedAlgorithmicMedia",
+        "term": "compositeWithTrainedAlgorithmicMedia",
+        "bucket": "Edited with Generative AI",
+        "images": 6
+      }
+    ]
+  },
+  "iptc": {
+    "images_with_dst_iptc": 0,
+    "images_with_dst_c2pa": 3,
+    "by_bucket_iptc": [],
+    "by_bucket_c2pa": [
+      {
+        "bucket": "Computer-enhanced",
+        "images": 3
+      }
+    ],
+    "by_uri_iptc": [],
+    "by_uri_c2pa": [
+      {
+        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/algorithmicallyEnhanced",
+        "term": "algorithmicallyEnhanced",
+        "bucket": "Computer-enhanced",
+        "images": 3
+      }
+    ]
+  },
+  "myjoyonline": {
+    "images_with_dst_iptc": 1,
+    "images_with_dst_c2pa": 0,
+    "by_bucket_iptc": [
+      {
+        "bucket": "Other",
+        "images": 1
+      }
+    ],
+    "by_bucket_c2pa": [],
+    "by_uri_iptc": [
+      {
+        "uri": "nil",
+        "term": "nil",
+        "bucket": "Other",
+        "images": 1
+      }
+    ],
+    "by_uri_c2pa": []
+  },
+  "blikk": {
+    "images_with_dst_iptc": 1,
+    "images_with_dst_c2pa": 0,
+    "by_bucket_iptc": [
+      {
+        "bucket": "Real-life capture",
+        "images": 1
+      }
+    ],
+    "by_bucket_c2pa": [],
+    "by_uri_iptc": [
+      {
+        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/digitalCapture",
+        "term": "digitalCapture",
+        "bucket": "Real-life capture",
+        "images": 1
+      }
+    ],
+    "by_uri_c2pa": []
+  },
+  "kurdistan24": {
+    "images_with_dst_iptc": 0,
+    "images_with_dst_c2pa": 4,
+    "by_bucket_iptc": [],
+    "by_bucket_c2pa": [
+      {
+        "bucket": "Other",
+        "images": 4
+      }
+    ],
+    "by_uri_iptc": [],
+    "by_uri_c2pa": [
+      {
+        "uri": "http://c2pa.org/digitalsourcetype/empty",
+        "term": "empty",
+        "bucket": "Other",
+        "images": 4
+      }
+    ]
+  },
+  "nhk-news-web": {
     "images_with_dst_iptc": 0,
     "images_with_dst_c2pa": 1,
     "by_bucket_iptc": [],
@@ -59,7 +191,7 @@
       }
     ]
   },
-  "gabon-review": {
+  "libya-review": {
     "images_with_dst_iptc": 0,
     "images_with_dst_c2pa": 1,
     "by_bucket_iptc": [],
@@ -79,7 +211,59 @@
       }
     ]
   },
-  "criterio-hn": {
+  "mauriactu": {
+    "images_with_dst_iptc": 0,
+    "images_with_dst_c2pa": 5,
+    "by_bucket_iptc": [],
+    "by_bucket_c2pa": [
+      {
+        "bucket": "AI-generated",
+        "images": 5
+      }
+    ],
+    "by_uri_iptc": [],
+    "by_uri_c2pa": [
+      {
+        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+        "term": "trainedAlgorithmicMedia",
+        "bucket": "AI-generated",
+        "images": 5
+      }
+    ]
+  },
+  "despacho505": {
+    "images_with_dst_iptc": 1,
+    "images_with_dst_c2pa": 1,
+    "by_bucket_iptc": [
+      {
+        "bucket": "Edited with Generative AI",
+        "images": 1
+      }
+    ],
+    "by_bucket_c2pa": [
+      {
+        "bucket": "Edited with Generative AI",
+        "images": 1
+      }
+    ],
+    "by_uri_iptc": [
+      {
+        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/compositeWithTrainedAlgorithmicMedia",
+        "term": "compositeWithTrainedAlgorithmicMedia",
+        "bucket": "Edited with Generative AI",
+        "images": 1
+      }
+    ],
+    "by_uri_c2pa": [
+      {
+        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/compositeWithTrainedAlgorithmicMedia",
+        "term": "compositeWithTrainedAlgorithmicMedia",
+        "bucket": "Edited with Generative AI",
+        "images": 1
+      }
+    ]
+  },
+  "premium-times-ng": {
     "images_with_dst_iptc": 0,
     "images_with_dst_c2pa": 1,
     "by_bucket_iptc": [],
@@ -99,54 +283,34 @@
       }
     ]
   },
-  "kurdistan24": {
+  "rappler": {
     "images_with_dst_iptc": 0,
     "images_with_dst_c2pa": 1,
     "by_bucket_iptc": [],
     "by_bucket_c2pa": [
       {
-        "bucket": "Other",
+        "bucket": "Edited with Generative AI",
         "images": 1
       }
     ],
     "by_uri_iptc": [],
     "by_uri_c2pa": [
       {
-        "uri": "http://c2pa.org/digitalsourcetype/empty",
-        "term": "empty",
-        "bucket": "Other",
-        "images": 1
-      }
-    ]
-  },
-  "le-pays-td": {
-    "images_with_dst_iptc": 0,
-    "images_with_dst_c2pa": 1,
-    "by_bucket_iptc": [],
-    "by_bucket_c2pa": [
-      {
-        "bucket": "AI-generated",
-        "images": 1
-      }
-    ],
-    "by_uri_iptc": [],
-    "by_uri_c2pa": [
-      {
-        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
-        "term": "trainedAlgorithmicMedia",
-        "bucket": "AI-generated",
+        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/compositeWithTrainedAlgorithmicMedia",
+        "term": "compositeWithTrainedAlgorithmicMedia",
+        "bucket": "Edited with Generative AI",
         "images": 1
       }
     ]
   },
   "icilome": {
     "images_with_dst_iptc": 0,
-    "images_with_dst_c2pa": 3,
+    "images_with_dst_c2pa": 1,
     "by_bucket_iptc": [],
     "by_bucket_c2pa": [
       {
         "bucket": "AI-generated",
-        "images": 3
+        "images": 1
       }
     ],
     "by_uri_iptc": [],
@@ -155,11 +319,11 @@
         "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
         "term": "trainedAlgorithmicMedia",
         "bucket": "AI-generated",
-        "images": 3
+        "images": 1
       }
     ]
   },
-  "efecto-cocuyo": {
+  "asia-plus": {
     "images_with_dst_iptc": 0,
     "images_with_dst_c2pa": 1,
     "by_bucket_iptc": [],
@@ -178,5 +342,65 @@
         "images": 1
       }
     ]
+  },
+  "turkmenistan-golden-age": {
+    "images_with_dst_iptc": 0,
+    "images_with_dst_c2pa": 1,
+    "by_bucket_iptc": [],
+    "by_bucket_c2pa": [
+      {
+        "bucket": "AI-generated",
+        "images": 1
+      }
+    ],
+    "by_uri_iptc": [],
+    "by_uri_c2pa": [
+      {
+        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+        "term": "trainedAlgorithmicMedia",
+        "bucket": "AI-generated",
+        "images": 1
+      }
+    ]
+  },
+  "the-citizen-tz": {
+    "images_with_dst_iptc": 0,
+    "images_with_dst_c2pa": 1,
+    "by_bucket_iptc": [],
+    "by_bucket_c2pa": [
+      {
+        "bucket": "Computer-enhanced",
+        "images": 1
+      }
+    ],
+    "by_uri_iptc": [],
+    "by_uri_c2pa": [
+      {
+        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/algorithmicallyEnhanced",
+        "term": "algorithmicallyEnhanced",
+        "bucket": "Computer-enhanced",
+        "images": 1
+      }
+    ]
+  },
+  "propublica": {
+    "images_with_dst_iptc": 1,
+    "images_with_dst_c2pa": 0,
+    "by_bucket_iptc": [
+      {
+        "bucket": "Real-life capture",
+        "images": 1
+      }
+    ],
+    "by_bucket_c2pa": [],
+    "by_uri_iptc": [
+      {
+        "uri": "http://cv.iptc.org/newscodes/digitalsourcetype/digitalCapture",
+        "term": "digitalCapture",
+        "bucket": "Real-life capture",
+        "images": 1
+      }
+    ],
+    "by_uri_c2pa": []
   }
 }
