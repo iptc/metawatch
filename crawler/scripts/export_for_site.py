@@ -266,16 +266,22 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
     }
     (out_dir / "scoring.json").write_text(json.dumps(scoring_out, indent=2))
 
+    # A site stored as "ok" but with zero images (a paywall or bot wall that let
+    # discovery through — see derived_run_counts) has no score to contribute;
+    # counting its placeholder 0.0 dragged France down by three points against
+    # the same mean in history_by_country, which skips it. Same rule here, so
+    # the country tables and their run-over-run ranks share one number.
     countries_agg: dict[str, dict] = defaultdict(lambda: {"sites": [], "scores": []})
     for s in sites:
         cc = s["country"]
         countries_agg[cc]["sites"].append(s["site_id"])
-        if s["status"] == "ok":
+        if s["status"] == "ok" and s["images_analysed"] > 0:
             countries_agg[cc]["scores"].append(s["mean_iptc_score"])
     countries_out = [
         {
             "country": cc,
             "site_count": len(data["sites"]),
+            "scored_site_count": len(data["scores"]),
             "mean_score": round(mean(data["scores"]), 2) if data["scores"] else 0.0,
         }
         for cc, data in sorted(countries_agg.items())
@@ -1111,8 +1117,10 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
             })
             country_buckets[s["country"]].append(s["mean_iptc_score"])
         for cc, vals in country_buckets.items():
+            # n = publishers behind the mean, so the site can leave thinly
+            # sampled countries out of the rankings run by run.
             history_by_country[cc].append({
-                "x": run_started, "y": round(mean(vals), 2),
+                "x": run_started, "y": round(mean(vals), 2), "n": len(vals),
             })
 
         # Per-site per-Four-C series. Join this run's metadata_fields with
