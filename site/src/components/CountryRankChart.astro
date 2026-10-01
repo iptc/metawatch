@@ -1,0 +1,131 @@
+---
+/**
+ * Bump chart: where this run's top countries ranked in each earlier run.
+ *
+ * One line per country, rank 1 at the top. Ten countries is more than a
+ * categorical palette can keep apart, so identity comes from direct labels at
+ * both ends rather than colour; hovering a line lifts it out of the rest.
+ * A country that wasn't ranked in some run (too few publishers scored that
+ * month, or not yet tracked) gets a break in its line rather than an
+ * interpolated guess.
+ *
+ * Props:
+ *   runs      — getCountryRankings(), oldest first
+ *   countries — the codes to draw, best first (normally this run's top 10)
+ *   names     — code → display name
+ */
+import type { RankedRun } from '../lib/data';
+
+interface Props {
+  runs: RankedRun[];
+  countries: string[];
+  names: Record<string, string>;
+}
+
+const { runs, countries, names } = Astro.props as Props;
+const label = (cc: string) => names[cc] ?? cc;
+
+const N = runs.length;
+const series = countries.map(cc => ({
+  cc,
+  points: runs.map(r => {
+    const hit = r.ranks.find(x => x.country === cc);
+    return hit ? { rank: hit.rank, score: hit.score, n: hit.n, of: r.ranks.length } : null;
+  }),
+}));
+
+const maxRank = Math.max(
+  countries.length,
+  ...series.flatMap(s => s.points.map(p => p?.rank ?? 0)),
+);
+
+const ROW = 24;
+const PAD_L = 132;
+const PAD_R = 150;
+const PAD_T = 14;
+const PAD_B = 34;
+const W = 720;
+const innerW = W - PAD_L - PAD_R;
+const H = PAD_T + (maxRank - 1) * ROW + PAD_B;
+
+const xPos = (i: number) => (N <= 1 ? PAD_L + innerW / 2 : PAD_L + (i / (N - 1)) * innerW);
+const yPos = (rank: number) => PAD_T + (rank - 1) * ROW;
+
+// Contiguous runs of ranked points become separate subpaths, so a gap reads
+// as "not ranked that month" rather than a straight line through it.
+function pathFor(points: ({ rank: number } | null)[]): string {
+  let d = '';
+  let pen = false;
+  points.forEach((p, i) => {
+    if (!p) { pen = false; return; }
+    d += `${pen ? 'L' : 'M'} ${xPos(i).toFixed(1)} ${yPos(p.rank).toFixed(1)} `;
+    pen = true;
+  });
+  return d.trim();
+}
+
+const day = (iso: string) => iso.slice(0, 10);
+const rankTicks = Array.from({ length: maxRank }, (_, i) => i + 1);
+---
+{N < 2 ? (
+  <p style="color:var(--iptc-muted)">Rank history needs at least two runs.</p>
+) : (
+  <figure class="bump-chart">
+    <svg viewBox={`0 0 ${W} ${H}`} role="img"
+         aria-label={`Rank of ${countries.map(label).join(', ')} in each run from ${day(runs[0].started_at)} to ${day(runs[N - 1].started_at)}`}>
+      {/* Faint guide per rank row, recessive so the lines carry the chart. */}
+      {rankTicks.map(r => (
+        <line x1={PAD_L} x2={W - PAD_R} y1={yPos(r)} y2={yPos(r)}
+              stroke="var(--iptc-border)" stroke-width="1" />
+      ))}
+      {runs.map((r, i) => (
+        <text x={xPos(i)} y={H - 10} text-anchor="middle" font-size="11" fill="var(--iptc-muted)">
+          {day(r.started_at)}
+        </text>
+      ))}
+
+      {series.map(s => {
+        const first = s.points.findIndex(p => p !== null);
+        const last = s.points[N - 1];
+        return (
+          <g class="bump-line">
+            <path d={pathFor(s.points)} fill="none" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" />
+            {s.points.map((p, i) => p && (
+              <g>
+                <circle cx={xPos(i)} cy={yPos(p.rank)} r="5" class="dot" />
+                {/* Hit target bigger than the mark. */}
+                <circle cx={xPos(i)} cy={yPos(p.rank)} r="11" fill="transparent">
+                  <title>{`${label(s.cc)}: #${p.rank} of ${p.of} on ${day(runs[i].started_at)} — score ${p.score.toFixed(1)}, ${p.n} publishers`}</title>
+                </circle>
+              </g>
+            ))}
+            {first === 0 && s.points[0] && (
+              <text x={PAD_L - 12} y={yPos(s.points[0].rank) + 4} text-anchor="end"
+                    font-size="12" class="end-label">
+                {label(s.cc)}
+              </text>
+            )}
+            {last && (
+              <text x={W - PAD_R + 12} y={yPos(last.rank) + 4} text-anchor="start"
+                    font-size="12" class="end-label">
+                <tspan font-weight="700">{`#${last.rank}`}</tspan><tspan dx="5">{label(s.cc)}</tspan>
+              </text>
+            )}
+          </g>
+        );
+      })}
+    </svg>
+  </figure>
+)}
+
+<style>
+  .bump-chart { margin: 0; }
+  .bump-chart svg { width: 100%; height: auto; display: block; }
+  .bump-line path { stroke: var(--iptc-navy); opacity: 0.55; transition: opacity 0.15s, stroke-width 0.15s; }
+  .bump-line .dot { fill: var(--iptc-bg); stroke: var(--iptc-navy); stroke-width: 2; }
+  .bump-line .end-label { fill: var(--iptc-text); }
+  .bump-chart svg:hover .bump-line { opacity: 0.25; }
+  .bump-chart svg:hover .bump-line:hover { opacity: 1; }
+  .bump-chart svg:hover .bump-line:hover path { opacity: 1; stroke-width: 3; }
+</style>

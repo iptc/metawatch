@@ -74,13 +74,19 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       // Click-to-sort for any <table class="sortable">. Column type
       // (numeric vs string) is auto-detected from the first 10 rows.
       // Re-clicking a header toggles asc ↔ desc. Headers marked
-      // data-nosort="true" are skipped.
+      // data-nosort="true" are skipped. A cell's data-sort attribute, when
+      // present, is sorted on instead of its text (e.g. "▲ 2" sorts as 2).
       (function () {
+        function cellText(td) {
+          if (td && td.hasAttribute('data-sort')) return td.getAttribute('data-sort').trim();
+          return ((td && td.textContent) || '').trim();
+        }
         function detectNumeric(rows, colIdx) {
+          // Sample the first 10 non-blank cells, not the first 10 rows — a
+          // column can open with a run of blanks (unranked countries).
           var n = 0, total = 0;
-          for (var i = 0; i < Math.min(rows.length, 10); i++) {
-            var cell = rows[i].cells[colIdx];
-            var t = (cell && cell.textContent || '').trim();
+          for (var i = 0; i < rows.length && total < 10; i++) {
+            var t = cellText(rows[i].cells[colIdx]);
             if (!t || t === '—' || t === '-') continue;
             total++;
             if (!isNaN(parseFloat(t.replace(/[,%\s]/g, '')))) n++;
@@ -88,7 +94,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           return total > 0 && n / total >= 0.75;
         }
         function extractCell(td, isNum) {
-          var t = ((td && td.textContent) || '').trim();
+          var t = cellText(td);
           if (!t || t === '—' || t === '-') return isNum ? -Infinity : '';
           if (isNum) {
             var v = parseFloat(t.replace(/[,%\s]/g, ''));
@@ -111,6 +117,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             var av = extractCell(a.cells[colIdx], isNum);
             var bv = extractCell(b.cells[colIdx], isNum);
             if (av === bv) return 0;
+            // Blanks sink to the bottom whichever way the column is sorted.
+            var blank = isNum ? -Infinity : '';
+            if (av === blank) return 1;
+            if (bv === blank) return -1;
             if (dir === 'asc') return av < bv ? -1 : 1;
             return av < bv ? 1 : -1;
           });

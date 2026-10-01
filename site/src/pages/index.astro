@@ -2,7 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import TimeSeriesChart from '../components/TimeSeriesChart.astro';
 import ScoreCurveChart from '../components/ScoreCurveChart.astro';
-import { getSummary, getCountries, getSites, getHistory, getScoresForRun, getCountryScoresForRun, scoreClass, countryName, categoryLabel } from '../lib/data';
+import CountryRankChart from '../components/CountryRankChart.astro';
+import RankMoveCell from '../components/RankMoveCell.astro';
+import { getSummary, getCountries, getSites, getHistory, getScoresForRun, getCountryScoresForRun, getCountryRankings, getLatestCountryRanks, MIN_RANKED_SITES, scoreClass, countryName, categoryLabel } from '../lib/data';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const summary = getSummary();
@@ -11,7 +13,15 @@ const sites = getSites().filter(s => s.status === 'ok');
 const history = getHistory();
 
 const top10Sites = sites.slice(0, 10);
-const top10Countries = countries.slice(0, 10);
+// Countries are ranked only with more than MIN_RANKED_SITES publishers
+// scored, so one or two sites can't carry a country to the top.
+const countryRankings = getCountryRankings();
+const { ranks: countryRanks, prevRun: prevRankRun } = getLatestCountryRanks();
+const top10Countries = countries
+  .filter(c => countryRanks.has(c.country))
+  .sort((a, b) => countryRanks.get(a.country)!.rank - countryRanks.get(b.country)!.rank)
+  .slice(0, 10);
+const countryNames = Object.fromEntries(countries.map(c => [c.country, countryName(c.country)]));
 const runDate = summary.started_at ? new Date(summary.started_at).toISOString().slice(0, 10) : 'no run yet';
 
 const scorePoints = history.map(h => ({ x: h.started_at, y: h.mean_score }));
@@ -70,6 +80,38 @@ const sitesAtZero = siteScores.filter(v => v <= 0).length;
     </div>
   )}
 
+  {history.length >= 2 && (
+    <section>
+      <h2>Trends across runs</h2>
+      <p>
+        Each point is one crawl run. Note that the earlier points are slightly
+        skewed, as we crawled fewer publishers in those runs. See the
+        <a href={`${base}/dataset/`}> dataset page</a> for the underlying
+        parquet files.
+      </p>
+      <div class="chart-grid">
+        <div class="chart-cell">
+          <h3>Mean IPTC score</h3>
+          <TimeSeriesChart
+            points={scorePoints}
+            yLabel="Score (0–100)"
+            yMax={100}
+            format={(n: number) => n.toFixed(1)}
+          />
+        </div>
+        <div class="chart-cell">
+          <h3>% of images with any IPTC</h3>
+          <TimeSeriesChart
+            points={iptcPoints}
+            yLabel="% with IPTC"
+            yMax={100}
+            format={(n: number) => `${n.toFixed(1)}%`}
+          />
+        </div>
+      </div>
+    </section>
+  )}
+
   {siteScores.length > 0 && (
     <section>
       <h2>How the scores are distributed</h2>
@@ -113,38 +155,6 @@ const sitesAtZero = siteScores.filter(v => v <= 0).length;
     </section>
   )}
 
-  {history.length >= 2 && (
-    <section>
-      <h2>Trends across runs</h2>
-      <p>
-        Each point is one crawl run. Note that the earlier points are slightly
-        skewed, as we crawled fewer publishers in those runs. See the
-        <a href={`${base}/dataset/`}> dataset page</a> for the underlying
-        parquet files.
-      </p>
-      <div class="chart-grid">
-        <div class="chart-cell">
-          <h3>Mean IPTC score</h3>
-          <TimeSeriesChart
-            points={scorePoints}
-            yLabel="Score (0–100)"
-            yMax={100}
-            format={(n: number) => n.toFixed(1)}
-          />
-        </div>
-        <div class="chart-cell">
-          <h3>% of images with any IPTC</h3>
-          <TimeSeriesChart
-            points={iptcPoints}
-            yLabel="% with IPTC"
-            yMax={100}
-            format={(n: number) => `${n.toFixed(1)}%`}
-          />
-        </div>
-      </div>
-    </section>
-  )}
-
   <style>
     /* min() so the track collapses below its ideal width on a phone instead
        of forcing the page to scroll sideways. */
@@ -166,6 +176,11 @@ const sitesAtZero = siteScores.filter(v => v <= 0).length;
       border: 1px solid var(--iptc-border);
       border-radius: 6px;
       padding: 0.75rem 1rem 1rem;
+    }
+    .rank-chart-title {
+      margin: 1.5rem 0 0.5rem;
+      font-size: 1rem;
+      color: var(--iptc-navy);
     }
     .chart-cell h3 {
       margin: 0 0 0.4rem;
@@ -200,24 +215,52 @@ const sitesAtZero = siteScores.filter(v => v <= 0).length;
   <p><a href={`${base}/sites/`}>See all sites →</a></p>
 
   <h2>Top countries</h2>
-  <p>Country mean is the average of site scores, equal-weighted per site.</p>
+  <p>
+    Country mean is the average of site scores, equal-weighted per site. Only
+    countries with more than {MIN_RANKED_SITES} publishers scored are ranked,
+    so a single publisher can't put a country at the top.
+    {prevRankRun && <>Movement is against the {runDay({ started_at: prevRankRun })} run.</>}
+  </p>
   <table class="sortable">
     <thead>
-      <tr><th class="rank">#</th><th>Country</th><th class="num">Sites</th><th class="num">Mean score</th></tr>
+      <tr><th class="rank">#</th><th>Country</th><th class="num">Sites scored</th><th class="num">Mean score</th><th class="num">Since last run</th></tr>
     </thead>
     <tbody>
-      {top10Countries.map((c, i) => (
-        <tr>
-          <td class="rank">{i + 1}</td>
-          <td><a href={`${base}/countries/${c.country.toLowerCase()}/`}>{countryName(c.country)}</a></td>
-          <td class="num">{c.site_count}</td>
-          <td class="num">
-            <span class={`score-bar ${scoreClass(c.mean_score)}`}><span style={`width:${c.mean_score}%`}></span></span>
-            {c.mean_score.toFixed(1)}
-          </td>
-        </tr>
-      ))}
+      {top10Countries.map(c => {
+        const move = countryRanks.get(c.country)!;
+        return (
+          <tr>
+            <td class="rank">{move.rank}</td>
+            <td><a href={`${base}/countries/${c.country.toLowerCase()}/`}>{countryName(c.country)}</a></td>
+            <td class="num">{c.scored_site_count}</td>
+            <td class="num">
+              <span class={`score-bar ${scoreClass(c.mean_score)}`}><span style={`width:${c.mean_score}%`}></span></span>
+              {c.mean_score.toFixed(1)}
+            </td>
+            <RankMoveCell move={move} prevLabel={runDay({ started_at: prevRankRun ?? '' })} />
+          </tr>
+        );
+      })}
     </tbody>
   </table>
+
+  {countryRankings.length >= 2 && (
+    <>
+      <h3 class="rank-chart-title">How this run&rsquo;s top 10 ranked in earlier runs</h3>
+      <div class="chart-cell">
+        <CountryRankChart
+          runs={countryRankings}
+          countries={top10Countries.map(c => c.country)}
+          names={countryNames}
+        />
+      </div>
+      <p class="chart-note">
+        A break in a line means that country wasn&rsquo;t ranked that run —
+        usually because too few of its publishers returned images. Earlier
+        runs ranked fewer countries, as we tracked fewer publishers. Hover a
+        point for its score.
+      </p>
+    </>
+  )}
   <p><a href={`${base}/countries/`}>See all countries →</a></p>
 </Layout>

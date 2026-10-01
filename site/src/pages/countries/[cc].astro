@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import TimeSeriesChart from '../../components/TimeSeriesChart.astro';
-import { getCountries, getSites, getCountryHistory, scoreClass, countryName, categoryLabel } from '../../lib/data';
+import { getCountries, getSites, getCountryHistory, getLatestCountryRanks, MIN_RANKED_SITES, scoreClass, countryName, categoryLabel } from '../../lib/data';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
@@ -13,6 +13,13 @@ export function getStaticPaths() {
 const { country } = Astro.props;
 const sites = getSites().filter(s => s.country === country.country);
 const history = getCountryHistory(country.country);
+const { ranks, prevRun } = getLatestCountryRanks();
+const move = ranks.get(country.country);
+const rankedCount = ranks.size;
+const moveText = !move || !prevRun ? null
+  : move.delta === null ? `not ranked on ${prevRun.slice(0, 10)}`
+  : move.delta === 0 ? `unchanged since ${prevRun.slice(0, 10)}`
+  : `${move.delta > 0 ? 'up' : 'down'} ${Math.abs(move.delta)} since ${prevRun.slice(0, 10)}`;
 ---
 <Layout title={countryName(country.country)}>
   <p><a href={`${base}/countries/`}>← All countries</a></p>
@@ -21,7 +28,21 @@ const history = getCountryHistory(country.country);
   <div class="card-row">
     <div class="stat"><span class="stat-label">Sites</span><span class="stat-value">{country.site_count}</span></div>
     <div class="stat"><span class="stat-label">Mean IPTC score</span><span class="stat-value">{country.mean_score.toFixed(1)}</span></div>
+    <a class="stat" href={`${base}/countries/`}>
+      <span class="stat-label">Rank</span>
+      {move ? (
+        <span class="stat-value">#{move.rank}<span class="stat-of"> of {rankedCount}</span></span>
+      ) : (
+        <span class="stat-value stat-of">unranked</span>
+      )}
+      <span class="stat-sub">{move ? moveText : `needs more than ${MIN_RANKED_SITES} publishers scored`}</span>
+    </a>
   </div>
+
+  <style>
+    .stat-of { font-size: 0.55em; font-weight: 400; color: var(--iptc-muted); }
+    .stat-sub { font-size: 0.75rem; color: var(--iptc-muted); }
+  </style>
 
   {history.length >= 2 && (
     <section>

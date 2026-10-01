@@ -82,7 +82,10 @@ export interface C2paData {
 
 export interface Country {
   country: string;
+  /** Every publisher we track there, whatever happened when we crawled it. */
   site_count: number;
+  /** Publishers that yielded images this run — the ones behind mean_score. */
+  scored_site_count: number;
   mean_score: number;
 }
 
@@ -275,8 +278,81 @@ export function getSiteHistory(siteId: string): SeriesPoint[] {
   return ((historyBySiteJson as Record<string, SeriesPoint[]>)[siteId]) ?? [];
 }
 
+export interface CountrySeriesPoint extends SeriesPoint { n: number; }
+
 export function getCountryHistory(cc: string): SeriesPoint[] {
-  return ((historyByCountryJson as Record<string, SeriesPoint[]>)[cc]) ?? [];
+  return ((historyByCountryJson as Record<string, CountrySeriesPoint[]>)[cc]) ?? [];
+}
+
+/**
+ * A country enters the rankings only when more than this many of its
+ * publishers were scored in that run. One or two publishers make a country's
+ * mean that publisher's score, so a single site can top the table. Raise it
+ * as coverage per country grows.
+ */
+export const MIN_RANKED_SITES = 3;
+
+export interface CountryRank {
+  country: string;
+  rank: number;
+  score: number;
+  n: number;
+}
+
+export interface RankedRun {
+  started_at: string;
+  ranks: CountryRank[];
+}
+
+/**
+ * Country rankings for every run, oldest first, each restricted to countries
+ * with more than MIN_RANKED_SITES scored publishers *in that run* — so a
+ * country that dips below the bar one month drops out rather than being
+ * ranked on a thinner sample. Ties share a rank (1, 2, 2, 4).
+ */
+export function getCountryRankings(): RankedRun[] {
+  const all = historyByCountryJson as Record<string, CountrySeriesPoint[]>;
+  const byRun = new Map<string, { country: string; score: number; n: number }[]>();
+  for (const [country, series] of Object.entries(all)) {
+    for (const p of series) {
+      if (p.n <= MIN_RANKED_SITES) continue;
+      if (!byRun.has(p.x)) byRun.set(p.x, []);
+      byRun.get(p.x)!.push({ country, score: p.y, n: p.n });
+    }
+  }
+  return [...byRun.keys()].sort().map(started_at => {
+    const rows = byRun.get(started_at)!.sort((a, b) => b.score - a.score || a.country.localeCompare(b.country));
+    const ranks: CountryRank[] = [];
+    rows.forEach((r, i) => {
+      const tied = i > 0 && r.score === rows[i - 1].score;
+      ranks.push({ ...r, rank: tied ? ranks[i - 1].rank : i + 1 });
+    });
+    return { started_at, ranks };
+  });
+}
+
+/**
+ * Movement since the previous run: positive = climbed. null = not ranked last
+ * run (new to the table, or newly over the bar), so there is nothing to
+ * compare against.
+ */
+export interface RankMove {
+  rank: number;
+  prevRank: number | null;
+  delta: number | null;
+}
+
+export function getLatestCountryRanks(): { ranks: Map<string, RankMove>; prevRun: string | null } {
+  const runs = getCountryRankings();
+  const latest = runs[runs.length - 1];
+  const prev = runs.length > 1 ? runs[runs.length - 2] : null;
+  const prevByCc = new Map(prev?.ranks.map(r => [r.country, r.rank]) ?? []);
+  const ranks = new Map<string, RankMove>();
+  for (const r of latest?.ranks ?? []) {
+    const prevRank = prevByCc.get(r.country) ?? null;
+    ranks.set(r.country, { rank: r.rank, prevRank, delta: prevRank === null ? null : prevRank - r.rank });
+  }
+  return { ranks, prevRun: prev?.started_at ?? null };
 }
 
 /**

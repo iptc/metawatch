@@ -1,0 +1,58 @@
+---
+/**
+ * Table cell showing a country's rank movement since the previous run.
+ *
+ * data-sort carries the raw delta so the click-to-sort script orders by
+ * movement rather than by the arrow glyph; unranked-last-run sorts last.
+ *
+ * Props:
+ *   move      — from getLatestCountryRanks(), or undefined if not ranked now
+ *   prevLabel — previous run's date, for the tooltip
+ */
+import type { RankMove } from '../lib/data';
+
+interface Props {
+  move?: RankMove;
+  prevLabel: string;
+}
+
+const { move, prevLabel } = Astro.props as Props;
+
+const places = (n: number) => `${n} place${n === 1 ? '' : 's'}`;
+let text = '—';
+let cls = 'flat';
+let title = 'Not ranked';
+if (move) {
+  if (move.delta === null) {
+    text = 'new';
+    cls = 'new';
+    title = `Not ranked in ${prevLabel}`;
+  } else if (move.delta > 0) {
+    text = `▲ ${move.delta}`;
+    cls = 'up';
+    title = `Up ${places(move.delta)} since ${prevLabel} (was #${move.prevRank})`;
+  } else if (move.delta < 0) {
+    text = `▼ ${-move.delta}`;
+    cls = 'down';
+    title = `Down ${places(-move.delta)} since ${prevLabel} (was #${move.prevRank})`;
+  } else {
+    text = '–';
+    title = `Unchanged since ${prevLabel}`;
+  }
+}
+---
+<td class={`num rank-move ${cls}`} data-sort={move?.delta ?? ''} title={title}>
+  <span aria-hidden="true">{text}</span><span class="visually-hidden">{title}</span>
+</td>
+
+<style>
+  .rank-move { white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .rank-move.up { color: var(--iptc-green-dark); }
+  .rank-move.down { color: var(--iptc-bad); }
+  .rank-move.flat, .rank-move.new { color: var(--iptc-muted); }
+  .rank-move.new { font-size: 0.85em; font-style: italic; }
+  .visually-hidden {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); white-space: nowrap;
+  }
+</style>
