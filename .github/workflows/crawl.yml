@@ -19,6 +19,11 @@ on:
       run_date:
         description: "Run directory to write to (YYYY-MM-DD). Leave blank for today's UTC date. Set this to the *original* crawl's date when doing a mid-month merge so the patched rows land in the right monthly snapshot, not a new directory dated today."
         required: false
+      sign_requests:
+        description: "Sign requests with Web Bot Auth (needs the METAWATCH_WBA_PRIVATE_KEY secret). Off for scheduled runs until we've measured its effect."
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -47,6 +52,8 @@ jobs:
       - name: Run crawl
         env:
           CRAWL_DATE: ${{ steps.date.outputs.date }}
+          # Empty (signing off) unless the dispatch asked for it.
+          METAWATCH_WBA_PRIVATE_KEY: ${{ inputs.sign_requests && secrets.METAWATCH_WBA_PRIVATE_KEY || '' }}
         run: |
           # Determine target date. run_date input wins if set (used for
           # mid-month --merge re-crawls so they land in the original

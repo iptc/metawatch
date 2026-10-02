@@ -20,6 +20,7 @@ dependencies = [
     "tenacity>=8.5",
     "pyexiftool>=0.5",
     "c2pa-python>=0.32",
+    "cryptography>=42",
 ]
 
 [project.optional-dependencies]

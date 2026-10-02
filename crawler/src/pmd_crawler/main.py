@@ -20,7 +20,7 @@ from rich.progress import (
     TimeElapsedColumn,
 )
 
-from . import DEFAULT_HEADERS, __version__, config, discovery
+from . import DEFAULT_HEADERS, __version__, config, discovery, webbotauth
 from .articles import fetch_article
 from .images import ExifPool, fetch_and_analyse
 from .optout import SiteOptoutSignals, probe_site_optouts
@@ -120,7 +120,10 @@ def _domain_of(url: str) -> str:
 
 
 async def _smoke_async(site: config.Site) -> None:
-    async with httpx.AsyncClient(headers=DEFAULT_HEADERS) as client:
+    signer = webbotauth.load_signer()
+    async with httpx.AsyncClient(
+        headers=DEFAULT_HEADERS, event_hooks=webbotauth.event_hooks(signer),
+    ) as client:
         robots, sitemap_url, strategy, articles, _disc_err = await discovery.discover(client, site)
     console.print(f"[bold]{site.name}[/bold] ({site.id}) — {site.country}")
     console.print(f"  robots.txt fetched: {robots.fetched}  allowed: {robots.allowed_at_root}")
@@ -145,6 +148,10 @@ async def _run_async(
     succeeded = 0
     blocked = 0
 
+    signer = webbotauth.load_signer()
+    if signer:
+        console.print(f"[bold]Web Bot Auth signing on[/bold] — keyid {signer.keyid}, agent {signer.agent_header}")
+
     timeout = httpx.Timeout(connect=10.0, read=15.0, write=10.0, pool=10.0)
     limits = httpx.Limits(max_connections=concurrency * 4, max_keepalive_connections=concurrency)
 
@@ -154,6 +161,7 @@ async def _run_async(
             timeout=timeout,
             limits=limits,
             follow_redirects=True,
+            event_hooks=webbotauth.event_hooks(signer),
         ) as client,
         ExifPool() as exif_pool,
     ):
