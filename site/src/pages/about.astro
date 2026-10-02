@@ -263,11 +263,16 @@ const SPEC = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadat
   <h2>Politeness</h2>
   <p>
     Metawatch identifies itself as <code>Metawatch/2.0</code> with a
-    <code>From: metadata-crawler@iptc.org</code> header. It always reads <code>robots.txt</code>
-    first, respects <code>Crawl-delay</code>, and waits at least one second between requests to
+    <code>From: metadata-crawler@iptc.org</code> header. It honours <code>robots.txt</code>,
+    respects <code>Crawl-delay</code>, and waits at least one second between requests to
     the same domain. If a publisher declares a long crawl delay we shrink the article sample so
     the whole site finishes within a fixed time budget, rather than hammering them at the edge
     of their allowance. We do not bypass paywalls, fingerprints, or CDN bot-management rules.
+  </p>
+  <p>
+    Site operators can find everything about the crawler &mdash; exactly what it fetches, how
+    to verify its requests, and how to block or slow it &mdash; on
+    <a href={`${base}/crawler/`}>About our crawler</a>.
   </p>
 
   <h2>How often we run</h2>

@@ -1,0 +1,144 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Web Bot Auth identity. Must match the key served at DIRECTORY and the
+// METAWATCH_WBA_PRIVATE_KEY secret; update here when the key is rotated
+// (see deploy/iptc.org/README.md).
+const SIGNATURE_AGENT = 'https://iptc.org';
+const DIRECTORY = `${SIGNATURE_AGENT}/.well-known/http-message-signatures-directory`;
+const KEYID = 'rtvhLrHEsgX7dk-Bj5Fb9Zzi2CjxEccPinja47gY6yk';
+// The header value as sent: a quoted structured-field string.
+const AGENT_HEADER = `"${SIGNATURE_AGENT}"`;
+---
+<Layout title="About our crawler">
+  <p><a href={`${base}/about/`}>← About Metawatch</a></p>
+  <h1>About our crawler</h1>
+
+  <p class="lede">
+    If you have seen <code>Metawatch/2.0</code> in your logs, this page is for you. Metawatch is
+    a research crawler run by the <a href="https://iptc.org/">IPTC</a>, the global standards
+    body for news media. Once a month it visits a few hundred news publishers, reads the
+    embedded metadata of a small sample of the photographs they publish, and reports how much
+    survives. It does not collect content for AI training or any other reuse.
+  </p>
+
+  <h2>At a glance</h2>
+  <table class="facts">
+    <tbody>
+      <tr><th scope="row">Operator</th><td>IPTC (International Press Telecommunications Council)</td></tr>
+      <tr><th scope="row">Purpose</th><td>Measuring whether photo metadata (Exif, IPTC, C2PA) survives publication. Results are public on this site.</td></tr>
+      <tr><th scope="row">User-Agent</th><td><span class="mono">Metawatch/2.0</span></td></tr>
+      <tr><th scope="row">From</th><td><span class="mono">metadata-crawler@iptc.org</span></td></tr>
+      <tr><th scope="row">Signature-Agent</th><td><span class="mono">{AGENT_HEADER}</span> (<a href="#verify">how to verify</a>)</td></tr>
+      <tr><th scope="row">Robots token</th><td><span class="mono">Metawatch</span></td></tr>
+      <tr><th scope="row">Schedule</th><td>Monthly, starting 02:00&nbsp;UTC on the 1st; occasional re-crawls of single sites</td></tr>
+      <tr><th scope="row">Volume</th><td>Typically 40&ndash;60 requests per publisher per month</td></tr>
+      <tr><th scope="row">Runs from</th><td>GitHub Actions (Microsoft Azure, United States)</td></tr>
+      <tr><th scope="row">Source code</th><td><a href="https://github.com/iptc/metawatch">github.com/iptc/metawatch</a> (MIT)</td></tr>
+      <tr><th scope="row">Contact</th><td><a href="mailto:office@iptc.org">office@iptc.org</a></td></tr>
+    </tbody>
+  </table>
+
+  <h2>What it fetches</h2>
+  <p>For each publisher, once a month:</p>
+  <ul>
+    <li><code>robots.txt</code>.</li>
+    <li>An RSS feed or news sitemap to find recent articles. If we don't already know yours,
+        we look for one linked from your homepage or in <code>robots.txt</code>, then try a
+        few common paths such as <code>/feed</code> and <code>/sitemap.xml</code>, stopping
+        at the first that works.</li>
+    <li>Up to 20 articles published in the last 30 days.</li>
+    <li>One image per article: the lead photograph the publisher declares in its
+        JSON-LD or <code>og:image</code> markup, up to 20&nbsp;MB.</li>
+    <li>A few site-wide policy files, so we can report publishers' AI and text-and-data-mining
+        preferences: <code>/.well-known/tdmrep.json</code>, <code>/ai.txt</code> and
+        <code>/.well-known/trust.txt</code>.</li>
+  </ul>
+  <p>
+    It does not run JavaScript, follow links beyond the sampled articles, submit forms, log in,
+    or fetch anything behind a paywall.
+  </p>
+
+  <h2>What we keep</h2>
+  <p>
+    From each article: its URL, headline, publication date, language, keywords and its
+    structured-data (<code>NewsArticle</code>) markup. Not the article text. From each image:
+    its URL, dimensions, file size, which metadata fields are present and their values, and
+    any C2PA manifest summary. The image file itself is deleted as soon as its metadata has
+    been read. Everything we keep is published as open data on the
+    <a href={`${base}/dataset/`}>Dataset page</a>, so you can see exactly what we recorded
+    about your site.
+  </p>
+
+  <h2>How it behaves</h2>
+  <ul>
+    <li><strong>One request at a time per site</strong>, at least one second apart plus a
+        random delay, or longer if your <code>robots.txt</code> sets a <code>Crawl-delay</code>.
+        If your crawl delay is long, we take fewer articles rather than staying longer: each
+        site is capped at five minutes.</li>
+    <li><strong><code>robots.txt</code> is honoured</strong> for our token
+        (<code>Metawatch</code>) and for <code>User-agent: *</code>. Article URLs it disallows
+        are dropped. Where we use a feed a publisher has listed for us, we fetch that feed
+        before <code>robots.txt</code>, because some firewalls block an address outright after
+        it reads <code>robots.txt</code>; the article URLs from the feed are still checked
+        against your rules. If <code>robots.txt</code> can't be read at all, we treat the site
+        as allowing us.</li>
+    <li><strong>No disguise.</strong> We always send the same <code>User-Agent</code> and
+        <code>From</code> headers, never a browser's. We don't rotate addresses to get round
+        blocks, solve CAPTCHAs, or try to defeat bot-management rules. When a site blocks us,
+        we record it as blocked and stop.</li>
+  </ul>
+
+  <h2 id="verify">Verifying that a request is really ours</h2>
+  <p>
+    The crawler runs on GitHub-hosted runners, whose IP addresses change from run to run, so we
+    can't publish an IP list. Instead each request is signed with
+    <a href="https://developers.cloudflare.com/bots/reference/bot-verification/web-bot-auth/">Web Bot Auth</a>
+    (HTTP Message Signatures, <a href="https://www.rfc-editor.org/rfc/rfc9421">RFC&nbsp;9421</a>).
+    Each signed request carries:
+  </p>
+  <ul>
+    <li><code>Signature-Agent: {AGENT_HEADER}</code></li>
+    <li><code>Signature-Input</code> covering <code>@authority</code> and
+        <code>signature-agent</code>, with <code>{`keyid="${KEYID}"`}</code>,
+        <code>alg="ed25519"</code> and <code>tag="web-bot-auth"</code>, valid for 60 seconds</li>
+    <li><code>Signature</code>: the Ed25519 signature</li>
+  </ul>
+  <p>
+    Our public key is published at <a href={DIRECTORY}><code>{DIRECTORY}</code></a>. A request
+    that claims to be Metawatch but doesn't verify against that key isn't from us.
+  </p>
+
+  <h2>Blocking or limiting us</h2>
+  <p>To stop Metawatch crawling your site, add this to your <code>robots.txt</code>:</p>
+  <pre><code>User-agent: Metawatch
+Disallow: /</code></pre>
+  <p>To slow it down instead:</p>
+  <pre><code>User-agent: Metawatch
+Crawl-delay: 10</code></pre>
+  <p>
+    Changes take effect at the next monthly crawl. You can also ask us to remove your site, or
+    correct its entry, at <a href="mailto:office@iptc.org">office@iptc.org</a>. We honour
+    removal requests without question. A blocked site still appears on Metawatch with the
+    status <code>robots_disallow</code>, since honouring that choice is part of what we measure.
+  </p>
+
+  <h2>Seen something wrong?</h2>
+  <p>
+    If the crawler misbehaves (too many requests, ignoring your <code>robots.txt</code>, anything
+    else) please email <a href="mailto:office@iptc.org">office@iptc.org</a> with the time,
+    your domain and, if you have them, the request headers. We read every message.
+  </p>
+
+  <style>
+    .facts { width: auto; max-width: 100%; }
+    .facts th { text-align: left; font-weight: 600; white-space: nowrap; padding-right: 1.5rem; vertical-align: top; }
+    .facts td { overflow-wrap: anywhere; }
+    /* Not <code>: Astro's compiler reopens a <code> after </table> and wraps
+       the rest of the page in it. */
+    .facts .mono { font-family: var(--font-mono); font-size: 0.9em; }
+    pre { background: var(--iptc-surface); border: 1px solid var(--iptc-border); border-radius: 6px; padding: 0.75rem 1rem; overflow-x: auto; }
+  </style>
+</Layout>
