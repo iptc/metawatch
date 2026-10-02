@@ -253,6 +253,9 @@ const SPEC = 'https://iptc.org/std/photometadata/specification/IPTC-PhotoMetadat
         user-agent. We record the entry but don't crawl.</li>
     <li><code>no_articles_found</code> — discovery succeeded but no articles in the 30-day
         window were returned (often a sitemap that points at an empty news feed).</li>
+    <li><code>no_feed_found</code> — every feed and sitemap address we tried simply wasn't
+        there (a 404, or an ordinary web page where a feed should be). The publisher has no
+        feed or sitemap we know of; we track them until one appears.</li>
     <li><code>unreachable</code> — every feed and sitemap we tried failed at the network
         layer. This usually means that a CDN or WAF is rejecting our requests. We make no
         assumptions about whether the site is healthy for human readers.</li>

@@ -54,15 +54,22 @@ const sites = getSites();
       phase was blocked and the vendor when we could positively fingerprint it.</dd>
 
     <dt><code>discovery_parse_error</code></dt>
-    <dd>A sitemap or feed URL returned HTTP 200 but the body wasn't valid XML / RSS / Atom.
-      Usually means the publisher's URL routing returns the HTML index page for unknown paths
-      (SPA-style catch-all), or the feed is genuinely malformed.</dd>
+    <dd>A sitemap or feed URL returned what claimed to be a feed, but the body wasn't valid
+      XML / RSS / Atom: the feed exists but is malformed. (An ordinary web page served where
+      a feed should be counts as <code>no_feed_found</code> instead.)</dd>
 
     <dt><code>no_articles_found</code></dt>
     <dd>Sitemap or feed was reachable and parsed successfully, but contained no articles within
       our publication-date sampling window (most recent 30 days). Typical for sites that publish
       infrequently or whose sitemap only lists section landing pages rather than individual
       articles.</dd>
+
+    <dt><code>no_feed_found</code></dt>
+    <dd>Every feed and sitemap address we tried simply wasn't there: a 404, or an ordinary
+      web page (often the homepage, or a "not found" page served as a success) where a feed
+      should be. Nobody refused us; the publisher just has no feed or sitemap we know of. If
+      you run one of these sites, a Google News sitemap or RSS feed is all we need &mdash;
+      <a href={`${base}/crawler/`}>see how our crawler uses it</a>.</dd>
 
     <dt><code>no_images</code></dt>
     <dd>Articles were discovered and fetched successfully, but we could not identify a lead

@@ -88,7 +88,8 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
       {site.status === 'blocked' && site.block_phase === 'discovery' && <span> The feed or sitemap was blocked before any articles could be discovered. Image metadata cannot be assessed.</span>}
       {site.status === 'blocked' && site.block_phase === 'article' && <span> The feed was fetched and articles were discovered, but most article fetches returned HTTP errors. The site is likely behind a paywall, bot-protection layer, or geo-restriction that permits feed access but blocks individual article pages from our crawl infrastructure. Image metadata cannot be assessed.</span>}
       {site.status === 'no_articles_found' && <span> The feed or sitemap was fetched cleanly but had no articles inside our sample window.</span>}
-      {site.status === 'discovery_parse_error' && <span> The feed or sitemap responded but the body wasn't valid XML/RSS — often a WAF challenge page served with a 200.</span>}
+      {site.status === 'discovery_parse_error' && <span> The feed or sitemap responded but the body wasn't valid XML/RSS: the feed exists but is malformed.</span>}
+      {site.status === 'no_feed_found' && <span> Every feed and sitemap address we tried wasn't there (a 404, or an ordinary web page where a feed should be). The publisher has no feed or sitemap we know of yet. Image metadata cannot be assessed.</span>}
       {site.status === 'unreachable' && <span> Every feed and sitemap we tried failed at the network layer (DNS, connection, TLS, or timeout).</span>}
       {site.status === 'timeout' && <span> The site took longer than 5 minutes to crawl and was cut off.</span>}
       {site.status === 'error' && <span> An unexpected error occurred during the crawl.</span>}
