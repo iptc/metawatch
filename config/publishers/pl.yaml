@@ -79,3 +79,29 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: pap
+  name: PAP (Polska Agencja Prasowa)
+  url: https://www.pap.pl/
+  homepage: https://www.pap.pl/
+  category: news-agency
+  language_primary: pl
+  notes: 'Polish national news agency; IPTC member since 2026-10. Public news site
+    (Drupal) with PAP Foto lead images, unlike B2B-only agencies. NO usable feed or
+    sitemap as of 2026-10-02: /rss.xml is a soft 404 ("Not found" with HTTP 200),
+    /en/rss.xml holds only two stale MediaRoom press releases, robots.txt declares no
+    sitemap and the common sitemap paths 404 or redirect to the homepage. The RSS on
+    samorzad.pap.pl and pap-mediaroom.pl is local-council posts and press releases, not
+    PAP journalism. Expect no_articles_found until PAP provides a news sitemap or feed
+    (BQ asking them). One sampled article image (pap_20261001_0I1.jpg, 821x547) carried
+    no IPTC/XMP/Exif.'
+  suggested_by: BQ
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
