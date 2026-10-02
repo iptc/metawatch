@@ -90,6 +90,12 @@
     "mean_score": 14.38
   },
   {
+    "country": "VE",
+    "site_count": 3,
+    "scored_site_count": 2,
+    "mean_score": 11.88
+  },
+  {
     "country": "AT",
     "site_count": 9,
     "scored_site_count": 7,
@@ -117,12 +123,6 @@
     "country": "PT",
     "site_count": 6,
     "scored_site_count": 4,
-    "mean_score": 7.5
-  },
-  {
-    "country": "VE",
-    "site_count": 3,
-    "scored_site_count": 1,
     "mean_score": 7.5
   },
   {
@@ -398,7 +398,7 @@
   {
     "country": "BG",
     "site_count": 4,
-    "scored_site_count": 2,
+    "scored_site_count": 3,
     "mean_score": 0.0
   },
   {
