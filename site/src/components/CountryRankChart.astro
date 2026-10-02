@@ -2,9 +2,11 @@
 /**
  * Bump chart: where this run's top countries ranked in each earlier run.
  *
- * One line per country, rank 1 at the top. Ten countries is more than a
- * categorical palette can keep apart, so identity comes from direct labels at
- * both ends rather than colour; hovering a line lifts it out of the rest.
+ * One line per country, rank 1 at the top. Each line gets its own colour, but
+ * ten hues on crossing lines can never all be told apart (no ten-colour set
+ * clears the all-pairs colour-blind floor), so the direct labels at both ends
+ * still carry identity and colour is the quick cue; hovering a line lifts it
+ * out of the rest.
  * A country that wasn't ranked in some run (too few publishers scored that
  * month, or not yet tracked) gets a break in its line rather than an
  * interpolated guess.
@@ -24,6 +26,23 @@ interface Props {
 
 const { runs, countries, names } = Astro.props as Props;
 const label = (cc: string) => names[cc] ?? cc;
+
+// Muted, equal-lightness hues, ordered so that countries on neighbouring
+// ranks never get a confusable pair: every adjacent pair clears ΔE 11.6
+// under simulated colour-blindness and 20 for normal vision (OKLab ×100).
+// Assigned by this run's rank, so a country's colour can change next month.
+const SERIES_COLORS = [
+  '#d95926', // orange
+  '#0b8aa8', // cyan
+  '#b8323a', // red
+  '#c98500', // ochre
+  '#2a78d6', // blue
+  '#d55181', // magenta
+  '#3f7f1f', // green
+  '#4a3aa7', // violet
+  '#199e70', // aqua
+  '#9a5518', // brown
+];
 
 const N = runs.length;
 const series = countries.map(cc => ({
@@ -84,11 +103,11 @@ const rankTicks = Array.from({ length: maxRank }, (_, i) => i + 1);
         </text>
       ))}
 
-      {series.map(s => {
+      {series.map((s, si) => {
         const first = s.points.findIndex(p => p !== null);
         const last = s.points[N - 1];
         return (
-          <g class="bump-line">
+          <g class="bump-line" style={`--c:${SERIES_COLORS[si % SERIES_COLORS.length]}`}>
             <path d={pathFor(s.points)} fill="none" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" />
             {s.points.map((p, i) => p && (
@@ -122,10 +141,10 @@ const rankTicks = Array.from({ length: maxRank }, (_, i) => i + 1);
 <style>
   .bump-chart { margin: 0; }
   .bump-chart svg { width: 100%; height: auto; display: block; }
-  .bump-line path { stroke: var(--iptc-navy); opacity: 0.55; transition: opacity 0.15s, stroke-width 0.15s; }
-  .bump-line .dot { fill: var(--iptc-bg); stroke: var(--iptc-navy); stroke-width: 2; }
+  .bump-line path { stroke: var(--c, var(--iptc-navy)); opacity: 0.85; transition: opacity 0.15s, stroke-width 0.15s; }
+  .bump-line .dot { fill: var(--iptc-bg); stroke: var(--c, var(--iptc-navy)); stroke-width: 2; }
   .bump-line .end-label { fill: var(--iptc-text); }
-  .bump-chart svg:hover .bump-line { opacity: 0.25; }
+  .bump-chart svg:hover .bump-line { opacity: 0.2; }
   .bump-chart svg:hover .bump-line:hover { opacity: 1; }
   .bump-chart svg:hover .bump-line:hover path { opacity: 1; stroke-width: 3; }
 </style>
