@@ -10,6 +10,7 @@ const SIGNATURE_AGENT = 'https://iptc.org';
 const DIRECTORY = `${SIGNATURE_AGENT}/.well-known/http-message-signatures-directory`;
 const KEYID = 'rtvhLrHEsgX7dk-Bj5Fb9Zzi2CjxEccPinja47gY6yk';
 // The header value as sent: a quoted structured-field string.
+const FEEDBACK_FORM = 'https://forms.gle/Knhr7ZwvMyEL5MNQA';
 const AGENT_HEADER = `"${SIGNATURE_AGENT}"`;
 ---
 <Layout title="About our crawler">
@@ -37,7 +38,7 @@ const AGENT_HEADER = `"${SIGNATURE_AGENT}"`;
       <tr><th scope="row">Volume</th><td>Typically 40&ndash;60 requests per publisher per month</td></tr>
       <tr><th scope="row">Runs from</th><td>GitHub Actions (Microsoft Azure, United States)</td></tr>
       <tr><th scope="row">Source code</th><td><a href="https://github.com/iptc/metawatch">github.com/iptc/metawatch</a> (MIT)</td></tr>
-      <tr><th scope="row">Contact</th><td><a href="mailto:office@iptc.org">office@iptc.org</a></td></tr>
+      <tr><th scope="row">Contact</th><td><a href={FEEDBACK_FORM} target="_blank" rel="noopener">Feedback form</a>; removal requests to <a href="mailto:office@iptc.org">office@iptc.org</a></td></tr>
     </tbody>
   </table>
 
@@ -128,8 +129,9 @@ Crawl-delay: 10</code></pre>
   <h2>Seen something wrong?</h2>
   <p>
     If the crawler misbehaves (too many requests, ignoring your <code>robots.txt</code>, anything
-    else) please email <a href="mailto:office@iptc.org">office@iptc.org</a> with the time,
-    your domain and, if you have them, the request headers. We read every message.
+    else) please <a href={FEEDBACK_FORM} target="_blank" rel="noopener">tell us via this short
+    form</a>, with the time, your domain and, if you have them, the request headers. We read
+    every response.
   </p>
 
   <style>
