@@ -147,6 +147,20 @@ def test_detect_waf_soft_404_html_is_not_waf():
     assert _detect_waf(r) is None
 
 
+def test_detect_waf_imperva_404_is_not_a_block():
+    # pap.pl: guessed feed paths 404, and Imperva injects its resource script
+    # into those 404 pages. Vendor header + vendor marker, but "not found" is
+    # an answer, not a refusal -> NOT a WAF block.
+    body = (b'<html><head><title>Strona nieznaleziona</title>'
+            b'<script src="/_Incapsula_Resource?SWJIYLWA=5074"></script></head></html>')
+    for status in (404, 410):
+        r = _resp(status, {"x-cdn": "Imperva", "x-iinfo": "45-1", "content-type": "text/html"}, body)
+        assert _detect_waf(r) is None
+    # The same page as a 403 is still a block.
+    r = _resp(403, {"x-cdn": "Imperva", "x-iinfo": "45-1", "content-type": "text/html"}, body)
+    assert _detect_waf(r) == "imperva"
+
+
 def test_detect_waf_generic_403_without_fingerprint_is_not_waf():
     # A bare 403 with no vendor header and no challenge body stays http_error.
     r = _resp(403, {"content-type": "text/plain"}, b"Forbidden")

@@ -108,6 +108,15 @@ def _detect_waf(resp: httpx.Response) -> str | None:
     Connection resets and plain timeouts carry no response, so they can't be
     attributed here and remain ``network_error`` → ``unreachable``.
     """
+    # "Not found" is an answer, not a refusal. A WAF that blocks says 403/429/
+    # 503 or serves a 200 challenge; it doesn't claim the page is missing. But
+    # Imperva injects its _Incapsula_Resource script into ordinary pages,
+    # 404s included, once a client has made a few requests — so guessing
+    # /feed.xml, /atom.xml… on pap.pl labelled the site "blocked by Imperva"
+    # when it simply has no feed.
+    if resp.status_code in (404, 410):
+        return None
+
     h = resp.headers
     server = (h.get("server") or "").lower()
     refusal = resp.status_code in _WAF_REFUSAL_CODES
