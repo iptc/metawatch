@@ -528,6 +528,26 @@
     }
   },
   {
+    "site_id": "tass-russian",
+    "site_name": "TASS (Russian)",
+    "url": "https://tass.ru/",
+    "country": "RU",
+    "category": "news-agency",
+    "status": "ok",
+    "block_phase": null,
+    "block_vendor": null,
+    "block_http_codes": {},
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://tass.ru/rss/v2.xml",
+    "articles_sampled": 20,
+    "images_analysed": 5,
+    "mean_iptc_score": 35.0,
+    "pct_with_iptc": 40.0,
+    "cdn_breakdown": {
+      "none": 5
+    }
+  },
+  {
     "site_id": "le-quotidien",
     "site_name": "Le Quotidien",
     "url": "http://www.lequotidien.lu/",
@@ -8114,24 +8134,6 @@
     }
   },
   {
-    "site_id": "tass-english",
-    "site_name": "TASS (English)",
-    "url": "http://tass.com/",
-    "country": "RU",
-    "category": "news-agency",
-    "status": "unreachable",
-    "block_phase": null,
-    "block_vendor": null,
-    "block_http_codes": {},
-    "discovery_strategy": "unreachable",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "meduza-english",
     "site_name": "Meduza (English)",
     "url": "https://meduza.io/en",
@@ -8150,24 +8152,6 @@
     "cdn_breakdown": {
       "cloudflare": 20
     }
-  },
-  {
-    "site_id": "tass-russian",
-    "site_name": "TASS (Russian)",
-    "url": "http://tass.ru/",
-    "country": "RU",
-    "category": "news-agency",
-    "status": "unreachable",
-    "block_phase": null,
-    "block_vendor": null,
-    "block_http_codes": {},
-    "discovery_strategy": "unreachable",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
   },
   {
     "site_id": "meduza-russian",
@@ -10027,6 +10011,26 @@
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "none": 20
+    }
+  },
+  {
+    "site_id": "tass-english",
+    "site_name": "TASS (English)",
+    "url": "https://tass.com/",
+    "country": "RU",
+    "category": "news-agency",
+    "status": "ok",
+    "block_phase": null,
+    "block_vendor": null,
+    "block_http_codes": {},
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://tass.com/rss/v2.xml",
+    "articles_sampled": 20,
+    "images_analysed": 7,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "none": 7
     }
   }
 ]

@@ -1,7 +1,7 @@
 {
   "providers": {
     "cloudflare": 1967,
-    "none": 1628,
+    "none": 1640,
     "akamai": 1216,
     "fastly": 691,
     "cloudfront": 968,
@@ -16,9 +16,9 @@
     },
     {
       "provider": "none",
-      "images": 1628,
-      "stripped": 1424,
-      "pct_stripped": 87.5
+      "images": 1640,
+      "stripped": 1434,
+      "pct_stripped": 87.4
     },
     {
       "provider": "akamai",
