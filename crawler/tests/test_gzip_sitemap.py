@@ -60,12 +60,22 @@ def test_uncompressed_sitemap_still_works():
 
 
 def test_http_error_propagates():
-    client = _fake_client(b"", status=404)
+    client = _fake_client(b"", status=500)
     candidates, err = asyncio.run(
         _walk_sitemap(client, "https://example.com/sitemap.xml", depth=0)
     )
     assert candidates == []
     assert err == "http_error"
+
+
+def test_missing_sitemap_is_not_found():
+    # A 404 is "not there", not a refusal; all-not-found → no_feed_found.
+    client = _fake_client(b"", status=404)
+    candidates, err = asyncio.run(
+        _walk_sitemap(client, "https://example.com/sitemap.xml", depth=0)
+    )
+    assert candidates == []
+    assert err == "not_found"
 
 
 def test_sitemap_with_leading_newline_parses():

@@ -171,6 +171,38 @@ def _detect_waf(resp: httpx.Response) -> str | None:
     return None
 
 
+
+def _not_found_kind(resp: httpx.Response) -> str | None:
+    """"not_found" when a feed/sitemap URL simply isn't there, else None.
+
+    Either an honest 404/410, or a soft 404: an ordinary HTML page served
+    with 200 where a feed or sitemap should be (PAP's /rss.xml is a "Not
+    found." page; SPA catch-alls return the homepage). Call only after
+    _detect_waf has ruled out a challenge page, which is also HTML.
+    """
+    if resp.status_code in (404, 410):
+        return "not_found"
+    ctype = (resp.headers.get("content-type") or "").lower()
+    if resp.status_code < 400 and "html" in ctype:
+        return "not_found"
+    return None
+
+
+def summarise_discovery_errors(errors: list[str | None]) -> str | None:
+    """One error kind for a site from every source discovery tried.
+
+    "not_found" only when every attempt was not found; that is what earns
+    the no_feed_found status. Otherwise the last real error wins, so a
+    configured feed that refused us isn't masked by a guessed path that
+    merely 404'd afterwards.
+    """
+    real = [e for e in errors if e is not None]
+    if not real:
+        return None
+    if all(e == "not_found" for e in real):
+        return "not_found"
+    return [e for e in real if e != "not_found"][-1]
+
 @dataclass
 class RobotsDecision:
     fetched: bool
@@ -403,7 +435,7 @@ async def _walk_sitemap(
         return [], "network_error"
     if r.status_code >= 400:
         waf = _detect_waf(r)
-        return [], (f"waf:{waf}" if waf else "http_error")
+        return [], (f"waf:{waf}" if waf else _not_found_kind(r) or "http_error")
 
     body = r.content
     # Some sites serve .xml.gz sitemaps without setting Content-Encoding,
@@ -424,7 +456,7 @@ async def _walk_sitemap(
         root = etree.fromstring(body)
     except etree.XMLSyntaxError:
         waf = _detect_waf(r)
-        return [], (f"waf:{waf}" if waf else "parse_error")
+        return [], (f"waf:{waf}" if waf else _not_found_kind(r) or "parse_error")
 
     tag = etree.QName(root.tag).localname
 
@@ -645,7 +677,7 @@ async def _fetch_rss_once(
         ct = (r.headers.get("content-type") or "").split(";")[0].strip()
         snippet = r.text[:120].replace("\n", " ").replace("\r", "")
         waf = _detect_waf(r)
-        kind = f"waf:{waf}" if waf else "http_error"
+        kind = f"waf:{waf}" if waf else _not_found_kind(r) or "http_error"
         _console.print(f"  {tag} {kind} {r.status_code} {feed_url}  ct={ct!r}  body={snippet!r}")
         return [], kind
     if not r.content:
@@ -657,7 +689,7 @@ async def _fetch_rss_once(
         snippet = r.text[:120].replace("\n", " ").replace("\r", "")
         bozo = getattr(parsed, "bozo_exception", None)
         waf = _detect_waf(r)
-        kind = f"waf:{waf}" if waf else "parse_error"
+        kind = f"waf:{waf}" if waf else _not_found_kind(r) or "parse_error"
         _console.print(
             f"  {tag} {kind} {feed_url}  ct={ct!r}  "
             f"bozo={type(bozo).__name__ if bozo else '?'}  body={snippet!r}"
@@ -810,6 +842,9 @@ def status_for_empty_discovery(strategy: str, discovery_error: str | None) -> st
         return "discovery_blocked"
     if discovery_error == "parse_error":
         return "discovery_parse_error"
+    if discovery_error == "not_found":
+        # Every feed/sitemap address we tried simply wasn't there.
+        return "no_feed_found"
     if discovery_error == "network_error":
         # Upstream usually already classified these as "unreachable", but
         # handle the lingering case too.
@@ -824,10 +859,11 @@ async def discover(
 
     Returns (robots, source_url, strategy, articles, discovery_error).
 
-    discovery_error is the error kind from the last attempted source when
-    no articles were harvested — one of "waf:<vendor>" (a recognized WAF/bot
-    challenge, vendor-qualified so callers can report who blocked us),
-    "http_error", "parse_error", "network_error", or None. Lets
+    discovery_error summarises every attempted source when no articles were
+    harvested (see summarise_discovery_errors) — one of "waf:<vendor>" (a
+    recognized WAF/bot challenge, vendor-qualified so callers can report who
+    blocked us), "http_error", "parse_error", "network_error", "not_found"
+    (only when every source was a 404/410 or soft 404), or None. Lets
     callers distinguish "the source 4xx'd" from "the source was reachable but
     had no candidates in window",
     which look identical to the user otherwise.
@@ -867,7 +903,7 @@ async def discover(
 
     attempts = 0
     network_errors = 0
-    last_err: str | None = None
+    errors: list[str | None] = []
 
     async def _robots_gate(
         source_url: str, strategy: str, articles: list[ArticleCandidate]
@@ -917,7 +953,7 @@ async def discover(
         articles, err = await fetch_rss_articles(client, url, window_days, max_articles)
         if articles:
             return await _robots_gate(url, "config:rss", articles)
-        last_err = err
+        errors.append(err)
         if err == "network_error":
             network_errors += 1
 
@@ -930,7 +966,7 @@ async def discover(
             articles, err = await fetch_rss_articles(client, url, window_days, max_articles)
             if articles:
                 return await _robots_gate(url, "html:rss_link", articles)
-            last_err = err
+            errors.append(err)
             if err == "network_error":
                 network_errors += 1
 
@@ -941,7 +977,7 @@ async def discover(
             articles, err = await fetch_rss_articles(client, url, window_days, max_articles)
             if articles:
                 return await _robots_gate(url, "guess:rss", articles)
-            last_err = err
+            errors.append(err)
             if err == "network_error":
                 network_errors += 1
 
@@ -960,8 +996,8 @@ async def discover(
         # No sitemap to try. If every RSS attempt was a network error, the
         # publisher is effectively unreachable from here.
         if attempts > 0 and network_errors == attempts:
-            return robots, None, "unreachable", [], last_err
-        return robots, None, strategy, [], last_err
+            return robots, None, "unreachable", [], summarise_discovery_errors(errors)
+        return robots, None, strategy, [], summarise_discovery_errors(errors)
 
     attempts += 1
     articles, err = await fetch_sitemap_articles(
@@ -973,9 +1009,9 @@ async def discover(
             return robots, sitemap_url, strategy, allowed, None
         # A readable robots.txt disallowed every URL in the sitemap.
         return robots, None, "robots_disallow", [], None
-    last_err = err
+    errors.append(err)
     if err == "network_error":
         network_errors += 1
     if attempts > 0 and network_errors == attempts:
-        return robots, sitemap_url, "unreachable", [], last_err
-    return robots, sitemap_url, strategy, [], last_err
+        return robots, sitemap_url, "unreachable", [], summarise_discovery_errors(errors)
+    return robots, sitemap_url, strategy, [], summarise_discovery_errors(errors)
