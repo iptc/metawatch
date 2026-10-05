@@ -29,7 +29,7 @@ from urllib.parse import urljoin, urlparse
 import feedparser
 import httpx
 import yaml
-from selectolax.parser import HTMLParser
+from selectolax.lexbor import LexborHTMLParser as HTMLParser
 
 from pmd_crawler import DEFAULT_HEADERS
 

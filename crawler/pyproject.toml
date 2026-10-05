@@ -8,7 +8,7 @@ license = { text = "MIT" }
 authors = [{ name = "IPTC", email = "office@iptc.org" }]
 dependencies = [
     "httpx>=0.27",
-    "selectolax>=0.3.21,<1.0",  # 1.0 removed the Modest backend we import (selectolax.parser); see git log
+    "selectolax>=0.4",
     "lxml>=5.2",
     "protego>=0.3",
     "pyyaml>=6.0",

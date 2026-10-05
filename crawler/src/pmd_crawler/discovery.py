@@ -14,7 +14,7 @@ import httpx
 from lxml import etree
 from protego import Protego
 from rich.console import Console
-from selectolax.parser import HTMLParser
+from selectolax.lexbor import LexborHTMLParser as HTMLParser  # see articles.py
 
 from . import USER_AGENT
 from .config import Site

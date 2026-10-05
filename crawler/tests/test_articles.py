@@ -5,7 +5,7 @@ exercised in isolation, then the full chain to verify ordering and fallthrough.
 """
 import json
 
-from selectolax.parser import HTMLParser
+from selectolax.lexbor import LexborHTMLParser as HTMLParser
 
 from pmd_crawler.articles import (
     MIN_DIM,
