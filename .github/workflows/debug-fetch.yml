@@ -24,9 +24,16 @@ jobs:
           echo "Reverse lookup:"
           host "$(curl -s https://api.ipify.org)" || true
       - name: curl probe with crawler headers
+        env:
+          # Via the environment, never spliced into the script (see crawl.yml).
+          IN_URL: ${{ github.event.inputs.url }}
         run: |
           set +e
-          URL="${{ github.event.inputs.url }}"
+          URL="$IN_URL"
+          if ! [[ "$URL" =~ ^https?:// ]]; then
+            echo "url must start with http:// or https://; got: $URL"
+            exit 1
+          fi
           echo "=== HEAD ==="
           curl -sI -L \
             -H "User-Agent: Metawatch/2.0" \

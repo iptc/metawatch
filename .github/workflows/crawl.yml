@@ -55,12 +55,19 @@ jobs:
           # Scheduled runs have no inputs, so sign them explicitly; a manual
           # dispatch signs unless sign_requests was unticked. Empty = off.
           METAWATCH_WBA_PRIVATE_KEY: ${{ (github.event_name == 'schedule' || inputs.sign_requests) && secrets.METAWATCH_WBA_PRIVATE_KEY || '' }}
+          # Inputs arrive as environment variables, never spliced into the
+          # script: ${{ inputs.x }} in a run block is pasted in as shell
+          # source, so a crafted value could run commands.
+          IN_RUN_DATE: ${{ inputs.run_date }}
+          IN_COUNTRY: ${{ inputs.country }}
+          IN_SITE_ID: ${{ inputs.site_id }}
+          IN_MERGE: ${{ inputs.merge }}
         run: |
           # Determine target date. run_date input wins if set (used for
           # mid-month --merge re-crawls so they land in the original
           # monthly directory); otherwise default to today's UTC date.
-          if [ -n "${{ inputs.run_date }}" ]; then
-            DATE="${{ inputs.run_date }}"
+          if [ -n "$IN_RUN_DATE" ]; then
+            DATE="$IN_RUN_DATE"
             # Refuse anything that isn't YYYY-MM-DD — prevents accidental
             # writes to weird paths like "../../etc/passwd" via the input.
             if ! [[ "$DATE" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
@@ -70,18 +77,31 @@ jobs:
           else
             DATE=$(date -u +%Y-%m-%d)
           fi
+          if [ -n "$IN_COUNTRY" ] && ! [[ "$IN_COUNTRY" =~ ^[A-Za-z]{2}$ ]]; then
+            echo "country must be a two-letter code; got: $IN_COUNTRY"
+            exit 1
+          fi
+          if [ -n "$IN_SITE_ID" ] && ! [[ "$IN_SITE_ID" =~ ^[a-z0-9-]+(,[a-z0-9-]+)*$ ]]; then
+            echo "site_id must be comma-separated site ids; got: $IN_SITE_ID"
+            exit 1
+          fi
           OUT="data/runs/$DATE"
           echo "Writing run to $OUT"
-          ARGS="--output $OUT"
-          if [ -n "${{ inputs.country }}" ]; then ARGS="$ARGS --country ${{ inputs.country }}"; fi
-          if [ -n "${{ inputs.site_id }}" ]; then ARGS="$ARGS --site-id ${{ inputs.site_id }}"; fi
-          if [ "${{ inputs.merge }}" = "true" ]; then ARGS="$ARGS --merge"; fi
-          .venv/bin/pmd-crawler run $ARGS
+          ARGS=(--output "$OUT")
+          if [ -n "$IN_COUNTRY" ]; then ARGS+=(--country "$IN_COUNTRY"); fi
+          if [ -n "$IN_SITE_ID" ]; then ARGS+=(--site-id "$IN_SITE_ID"); fi
+          if [ "$IN_MERGE" = "true" ]; then ARGS+=(--merge); fi
+          .venv/bin/pmd-crawler run "${ARGS[@]}"
 
       - name: Export latest run for static site
         run: .venv/bin/python crawler/scripts/export_for_site.py
 
       - name: Commit results
+        env:
+          IN_RUN_DATE: ${{ inputs.run_date }}
+          IN_COUNTRY: ${{ inputs.country }}
+          IN_SITE_ID: ${{ inputs.site_id }}
+          IN_MERGE: ${{ inputs.merge }}
         run: |
           git config user.name  "metawatch-bot"
           git config user.email "metadata-crawler@iptc.org"
@@ -92,13 +112,13 @@ jobs:
           fi
           # Mirror the date logic from the crawl step so the commit message
           # reflects the actual run directory written to, not just today.
-          if [ -n "${{ inputs.run_date }}" ]; then
-            DATE="${{ inputs.run_date }}"
+          if [ -n "$IN_RUN_DATE" ]; then
+            DATE="$IN_RUN_DATE"
           else
             DATE=$(date -u +%Y-%m-%d)
           fi
-          if [ "${{ inputs.merge }}" = "true" ]; then
-            SCOPE="${{ inputs.site_id }}${{ inputs.country }}"
+          if [ "$IN_MERGE" = "true" ]; then
+            SCOPE="${IN_SITE_ID}${IN_COUNTRY}"
             git commit -m "Crawl run $DATE (merge: ${SCOPE:-partial})"
           else
             git commit -m "Crawl run $DATE"
