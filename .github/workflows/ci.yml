@@ -4,6 +4,16 @@ on:
   pull_request:
   push:
     branches: [main]
+  # Dependencies are deliberately unpinned (security fixes arrive on their
+  # own), so a new release can break the crawler with no commit of ours.
+  # selectolax 1.0 did, on 2026-10-03. A fresh install every Monday catches
+  # that within a week; the 28th guarantees a check just before the
+  # monthly crawl on the 1st. GitHub emails whoever last edited this
+  # schedule when a scheduled run fails.
+  schedule:
+    - cron: "0 6 * * 1"
+    - cron: "0 6 28 * *"
+  workflow_dispatch:
 
 jobs:
   validate-sites:
@@ -50,3 +60,10 @@ jobs:
           .venv/bin/pip install -e './crawler[dev]'
       - run: .venv/bin/ruff check crawler/src crawler/scripts
       - run: .venv/bin/pytest crawler/tests
+      # The crawl workflow's own entry point: fails here, as it would on the
+      # 1st, if any module can't import against today's dependency releases.
+      - name: Crawler CLI loads
+        run: .venv/bin/pmd-crawler --help
+      - name: Installed versions (for diagnosing a scheduled failure)
+        if: always()
+        run: .venv/bin/pip freeze
