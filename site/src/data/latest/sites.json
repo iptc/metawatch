@@ -40,6 +40,27 @@
     }
   },
   {
+    "site_id": "politico",
+    "site_name": "Politico",
+    "url": "https://www.politico.com/",
+    "country": "US",
+    "category": "online",
+    "status": "ok",
+    "block_phase": null,
+    "block_vendor": null,
+    "block_http_codes": {},
+    "discovery_strategy": "config:rss",
+    "sitemap_url_used": "https://rss.politico.com/politics-news.xml",
+    "articles_sampled": 20,
+    "images_analysed": 18,
+    "mean_iptc_score": 84.72,
+    "pct_with_iptc": 94.4,
+    "cdn_breakdown": {
+      "cloudflare": 17,
+      "cloudfront": 1
+    }
+  },
+  {
     "site_id": "the-japan-times",
     "site_name": "The Japan Times",
     "url": "https://www.japantimes.co.jp/",
@@ -9160,24 +9181,6 @@
     "block_vendor": null,
     "block_http_codes": {},
     "discovery_strategy": "robots_disallow",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
-    "site_id": "politico",
-    "site_name": "Politico",
-    "url": "https://www.politico.com/",
-    "country": "US",
-    "category": "online",
-    "status": "blocked",
-    "block_phase": "discovery",
-    "block_vendor": null,
-    "block_http_codes": {},
-    "discovery_strategy": "fallback_needed",
     "sitemap_url_used": null,
     "articles_sampled": 0,
     "images_analysed": 0,

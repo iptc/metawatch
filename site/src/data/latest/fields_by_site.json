@@ -67969,5 +67969,168 @@
       "pct": 0.0,
       "scored": false
     }
+  ],
+  "politico": [
+    {
+      "field": "Creator",
+      "present": 16,
+      "total": 18,
+      "pct": 88.9,
+      "scored": true
+    },
+    {
+      "field": "Copyright",
+      "present": 13,
+      "total": 18,
+      "pct": 72.2,
+      "scored": true
+    },
+    {
+      "field": "CaptionDescription",
+      "present": 16,
+      "total": 18,
+      "pct": 88.9,
+      "scored": true
+    },
+    {
+      "field": "CreditLine",
+      "present": 16,
+      "total": 18,
+      "pct": 88.9,
+      "scored": true
+    },
+    {
+      "field": "AIPromptInformation",
+      "present": 0,
+      "total": 18,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AIPromptWriterName",
+      "present": 0,
+      "total": 18,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemUsed",
+      "present": 0,
+      "total": 18,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AISystemVersionUsed",
+      "present": 0,
+      "total": 18,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "AltTextAccessibility",
+      "present": 0,
+      "total": 18,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "DataMining",
+      "present": 4,
+      "total": 18,
+      "pct": 22.2,
+      "scored": false
+    },
+    {
+      "field": "DateCreated",
+      "present": 17,
+      "total": 18,
+      "pct": 94.4,
+      "scored": false
+    },
+    {
+      "field": "DigitalSourceType",
+      "present": 0,
+      "total": 18,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ExtendedDescriptionAccessibility",
+      "present": 0,
+      "total": 18,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Genre",
+      "present": 0,
+      "total": 18,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "Keywords",
+      "present": 4,
+      "total": 18,
+      "pct": 22.2,
+      "scored": false
+    },
+    {
+      "field": "LicensorName",
+      "present": 0,
+      "total": 18,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "LicensorURL",
+      "present": 3,
+      "total": 18,
+      "pct": 16.7,
+      "scored": false
+    },
+    {
+      "field": "LocationCreated",
+      "present": 14,
+      "total": 18,
+      "pct": 77.8,
+      "scored": false
+    },
+    {
+      "field": "LocationShown",
+      "present": 0,
+      "total": 18,
+      "pct": 0.0,
+      "scored": false
+    },
+    {
+      "field": "ObjectName",
+      "present": 15,
+      "total": 18,
+      "pct": 83.3,
+      "scored": false
+    },
+    {
+      "field": "Source",
+      "present": 16,
+      "total": 18,
+      "pct": 88.9,
+      "scored": false
+    },
+    {
+      "field": "UsageTerms",
+      "present": 1,
+      "total": 18,
+      "pct": 5.6,
+      "scored": false
+    },
+    {
+      "field": "WebStatement",
+      "present": 4,
+      "total": 18,
+      "pct": 22.2,
+      "scored": false
+    }
   ]
 }

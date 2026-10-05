@@ -1,18 +1,18 @@
 {
   "providers": {
-    "cloudflare": 1999,
+    "cloudflare": 2016,
     "none": 1640,
     "akamai": 1216,
     "fastly": 691,
-    "cloudfront": 968,
+    "cloudfront": 969,
     "bunny": 21
   },
   "by_provider": [
     {
       "provider": "cloudflare",
-      "images": 1999,
+      "images": 2016,
       "stripped": 1795,
-      "pct_stripped": 89.8
+      "pct_stripped": 89.0
     },
     {
       "provider": "none",
@@ -28,8 +28,8 @@
     },
     {
       "provider": "cloudfront",
-      "images": 968,
-      "stripped": 846,
+      "images": 969,
+      "stripped": 847,
       "pct_stripped": 87.4
     },
     {

@@ -30,6 +30,12 @@
     "mean_score": 18.75
   },
   {
+    "country": "US",
+    "site_count": 27,
+    "scored_site_count": 21,
+    "mean_score": 18.08
+  },
+  {
     "country": "SE",
     "site_count": 5,
     "scored_site_count": 5,
@@ -70,12 +76,6 @@
     "site_count": 2,
     "scored_site_count": 2,
     "mean_score": 15.0
-  },
-  {
-    "country": "US",
-    "site_count": 27,
-    "scored_site_count": 20,
-    "mean_score": 14.75
   },
   {
     "country": "HU",
