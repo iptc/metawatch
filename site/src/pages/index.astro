@@ -4,7 +4,7 @@ import TimeSeriesChart from '../components/TimeSeriesChart.astro';
 import ScoreCurveChart from '../components/ScoreCurveChart.astro';
 import CountryRankChart from '../components/CountryRankChart.astro';
 import RankMoveCell from '../components/RankMoveCell.astro';
-import { getSummary, getCountries, getSites, getHistory, getScoresForRun, getCountryScoresForRun, getCountryRankings, getLatestCountryRanks, MIN_RANKED_SITES, scoreClass, countryName, categoryLabel } from '../lib/data';
+import { getSummary, getCountries, getSites, getHistory, getScoresForRun, getCountryScoresForRun, getCountryRankings, getLatestCountryRanks, MIN_RANKED_SITES, MIN_RANKED_IMAGES, scoreClass, countryName, categoryLabel } from '../lib/data';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const summary = getSummary();
@@ -12,7 +12,15 @@ const countries = getCountries();
 const sites = getSites().filter(s => s.status === 'ok');
 const history = getHistory();
 
-const top10Sites = sites.slice(0, 10);
+const top10Sites = sites.filter(s => s.images_analysed >= MIN_RANKED_IMAGES).slice(0, 10);
+// Equal scores share a rank ("8=", "8="), matching how the social graphic
+// and the country table treat ties.
+const siteRankLabel = (i: number) => {
+  const score = top10Sites[i].mean_iptc_score;
+  const first = top10Sites.findIndex(t => t.mean_iptc_score === score);
+  const tied = top10Sites.filter(t => t.mean_iptc_score === score).length > 1;
+  return `${first + 1}${tied ? '=' : ''}`;
+};
 // Countries are ranked only with more than MIN_RANKED_SITES publishers
 // scored, so one or two sites can't carry a country to the top.
 const countryRankings = getCountryRankings();
@@ -190,7 +198,7 @@ const sitesAtZero = siteScores.filter(v => v <= 0).length;
   </style>
 
   <h2>Top sites</h2>
-  <p>Ranked by mean IPTC score across all sampled images in the latest crawl.</p>
+  <p>Ranked by mean IPTC score across all sampled images in the latest crawl. Only publishers with at least {MIN_RANKED_IMAGES} images sampled are ranked, so a couple of lucky photographs can't put a site at the top.</p>
   <table class="sortable">
     <thead>
       <tr><th class="rank">#</th><th>Site</th><th>Country</th><th>Category</th><th class="num">Images</th><th class="num">% with IPTC</th><th class="num">Score</th></tr>
@@ -198,7 +206,7 @@ const sitesAtZero = siteScores.filter(v => v <= 0).length;
     <tbody>
       {top10Sites.map((s, i) => (
         <tr>
-          <td class="rank">{i + 1}</td>
+          <td class="rank">{siteRankLabel(i)}</td>
           <td><a href={`${base}/sites/${s.site_id}/`}>{s.site_name}</a></td>
           <td>{countryName(s.country)}</td>
           <td><span class={`pill ${s.category}`}>{categoryLabel(s.category)}</span></td>

@@ -292,6 +292,13 @@ export function getCountryHistory(cc: string): SeriesPoint[] {
  */
 export const MIN_RANKED_SITES = 3;
 
+/**
+ * A publisher enters the Top sites ranking only with at least this many
+ * images analysed. Two lucky photographs once put ETtoday fifth in the world
+ * (October 2026); a ranking that gets quoted needs a real sample behind it.
+ */
+export const MIN_RANKED_IMAGES = 10;
+
 export interface CountryRank {
   country: string;
   rank: number;
