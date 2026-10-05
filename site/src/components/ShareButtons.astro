@@ -1,0 +1,71 @@
+---
+/**
+ * Download / share controls for one share card.
+ *
+ * LinkedIn, X and Bluesky share a LINK, not an image: each card's page
+ * (/share/<slug>/) sets the card as its og:image, so the post shows the
+ * card. "Share image" uses the device's share sheet with the PNG itself,
+ * where the browser supports sharing files (mostly phones); it stays hidden
+ * elsewhere.
+ *
+ * Props:
+ *   share — the card (share-cards.ts)
+ */
+import { shareImagePath, type ShareCard } from '../lib/share-cards';
+
+interface Props { share: ShareCard; }
+const { share } = Astro.props as Props;
+
+const site = (Astro.site?.toString() ?? 'https://metawatch.iptc.org/').replace(/\/$/, '');
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const pageUrl = `${site}${base}/share/${share.slug}/`;
+const imageHref = `${base}${shareImagePath(share)}`;
+const text = `${share.title} — from IPTC Metawatch`;
+const enc = encodeURIComponent;
+
+const links = [
+  { label: 'LinkedIn', href: `https://www.linkedin.com/sharing/share-offsite/?url=${enc(pageUrl)}` },
+  { label: 'X', href: `https://twitter.com/intent/tweet?text=${enc(text)}&url=${enc(pageUrl)}` },
+  { label: 'Bluesky', href: `https://bsky.app/intent/compose?text=${enc(`${text} ${pageUrl}`)}` },
+];
+---
+<div class="share-buttons" data-image={imageHref} data-file={`metawatch-${share.file}.png`} data-text={text} data-url={pageUrl}>
+  <a class="btn primary" href={imageHref} download={`metawatch-${share.file}.png`}>Download image</a>
+  <button class="btn native" type="button" hidden>Share image…</button>
+  {links.map(l => (
+    <a class="btn" href={l.href} target="_blank" rel="noopener">Share on {l.label}</a>
+  ))}
+</div>
+
+<script>
+  // Native share sheet with the PNG attached, where files can be shared.
+  for (const box of document.querySelectorAll<HTMLElement>('.share-buttons')) {
+    const btn = box.querySelector<HTMLButtonElement>('.native');
+    if (!btn || !navigator.canShare) continue;
+    const probe = new File([new Blob()], 'x.png', { type: 'image/png' });
+    if (!navigator.canShare({ files: [probe] })) continue;
+    btn.hidden = false;
+    btn.addEventListener('click', async () => {
+      const { image, file, text, url } = box.dataset;
+      try {
+        const blob = await (await fetch(image!)).blob();
+        await navigator.share({ files: [new File([blob], file!, { type: 'image/png' })], text: `${text} ${url}` });
+      } catch {
+        // Cancelled, or the share target refused the file: nothing to do.
+      }
+    });
+  }
+</script>
+
+<style>
+  .share-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.75rem 0 1rem; }
+  .btn {
+    display: inline-block; padding: 0.45rem 0.9rem; border-radius: 6px;
+    border: 1px solid var(--iptc-border); background: var(--iptc-surface);
+    color: var(--iptc-navy); font: inherit; font-size: 0.9rem; font-weight: 600;
+    text-decoration: none; cursor: pointer;
+  }
+  .btn:hover, .btn:focus-visible { border-color: var(--iptc-navy); }
+  .btn.primary { background: var(--iptc-navy); border-color: var(--iptc-navy); color: #fff; }
+  .btn[hidden] { display: none; }
+</style>

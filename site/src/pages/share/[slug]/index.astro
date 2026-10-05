@@ -1,0 +1,38 @@
+---
+/**
+ * One page per share card. Its link preview (og:image) is the card, so
+ * sharing this URL on LinkedIn, X or Bluesky posts the image.
+ */
+import Layout from '../../../layouts/Layout.astro';
+import ShareButtons from '../../../components/ShareButtons.astro';
+import { getShareCards, shareImagePath, cardAlt, type ShareCard } from '../../../lib/share-cards';
+
+export function getStaticPaths() {
+  return getShareCards().map(share => ({ params: { slug: share.slug }, props: { share } }));
+}
+
+const { share } = Astro.props as { share: ShareCard };
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const cc = share.slug.startsWith('country-') ? share.slug.slice('country-'.length) : null;
+---
+<Layout title={share.title} description={share.description} image={shareImagePath(share)} imageAlt={cardAlt(share)}>
+  <p><a href={`${base}/share/`}>← All share images</a></p>
+  <h1>{share.title}</h1>
+  <p class="lede">{share.description}</p>
+
+  <ShareButtons share={share} />
+
+  <img class="card-full" src={`${base}${shareImagePath(share)}`} alt={cardAlt(share)} width="1200" height="1500" />
+
+  <p class="note">
+    Free to share with credit to IPTC Metawatch. Images are regenerated from each monthly run;
+    this one shows the latest. {cc
+      ? <>See the full detail on the <a href={`${base}/countries/${cc}/`}>country page</a>.</>
+      : <>See every publisher on the <a href={`${base}/sites/`}>Sites page</a>.</>}
+  </p>
+
+  <style>
+    .card-full { display: block; width: 100%; max-width: 600px; height: auto; border: 1px solid var(--iptc-border); border-radius: 8px; }
+    .note { font-size: 0.9rem; color: var(--iptc-muted); margin-top: 1rem; }
+  </style>
+</Layout>

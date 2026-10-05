@@ -1,0 +1,49 @@
+---
+/** Gallery of this month's share images; each links to its own share page. */
+import Layout from '../../layouts/Layout.astro';
+import { getShareCards, shareImagePath, cardAlt } from '../../lib/share-cards';
+import { countryName } from '../../lib/data';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const cards = getShareCards();
+const headline = cards.filter(c => !c.slug.startsWith('country-'));
+const countries = cards.filter(c => c.slug.startsWith('country-'))
+  .sort((a, b) => countryName(a.slug.slice(8).toUpperCase()).localeCompare(countryName(b.slug.slice(8).toUpperCase())));
+---
+<Layout title="Share the results" description="This month's Metawatch rankings as images, ready to download or share.">
+  <h1>Share the results</h1>
+  <p class="lede">
+    This month's rankings as images, sized for LinkedIn and other social feeds. Download one, or
+    open it to share straight to LinkedIn, X or Bluesky. They are regenerated from every monthly
+    run and free to share with credit to IPTC Metawatch.
+  </p>
+
+  <h2>Headline rankings</h2>
+  <div class="gallery">
+    {headline.map(s => (
+      <a class="tile" href={`${base}/share/${s.slug}/`}>
+        <img src={`${base}${shareImagePath(s)}`} alt={cardAlt(s)} width="1200" height="1500" loading="lazy" />
+        <span>{s.title}</span>
+      </a>
+    ))}
+  </div>
+
+  <h2>By country</h2>
+  <p>One image for each of the {countries.length} countries in this month's ranking, listing its own publishers.</p>
+  <div class="gallery small">
+    {countries.map(s => (
+      <a class="tile" href={`${base}/share/${s.slug}/`}>
+        <img src={`${base}${shareImagePath(s)}`} alt={cardAlt(s)} width="1200" height="1500" loading="lazy" />
+        <span>{countryName(s.slug.slice(8).toUpperCase())}</span>
+      </a>
+    ))}
+  </div>
+
+  <style>
+    .gallery { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr)); }
+    .gallery.small { grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr)); }
+    .tile { display: flex; flex-direction: column; gap: 0.4rem; text-decoration: none; color: var(--iptc-navy); font-weight: 600; font-size: 0.9rem; }
+    .tile img { width: 100%; height: auto; border: 1px solid var(--iptc-border); border-radius: 6px; }
+    .tile:hover img, .tile:focus-visible img { border-color: var(--iptc-navy); }
+  </style>
+</Layout>

@@ -1,6 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import TimeSeriesChart from '../../components/TimeSeriesChart.astro';
+import ShareButtons from '../../components/ShareButtons.astro';
+import { getCountryShareCard, shareImagePath, cardAlt } from '../../lib/share-cards';
 import { getCountries, getSites, getCountryHistory, getLatestCountryRanks, MIN_RANKED_SITES, scoreClass, countryName, categoryLabel } from '../../lib/data';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -15,6 +17,7 @@ const sites = getSites().filter(s => s.country === country.country);
 const history = getCountryHistory(country.country);
 const { ranks, prevRun } = getLatestCountryRanks();
 const move = ranks.get(country.country);
+const shareCard = getCountryShareCard(country.country);
 const rankedCount = ranks.size;
 const moveText = !move || !prevRun ? null
   : move.delta === null ? `not ranked on ${prevRun.slice(0, 10)}`
@@ -40,6 +43,10 @@ const moveText = !move || !prevRun ? null
   </div>
 
   <style>
+    .share-country { display: flex; gap: 1.25rem; align-items: flex-start; flex-wrap: wrap; margin: 1.5rem 0; }
+    .share-country img { width: 160px; height: auto; border: 1px solid var(--iptc-border); border-radius: 6px; display: block; }
+    .share-country > div { flex: 1; min-width: min(280px, 100%); }
+    .share-country h2 { margin-top: 0; }
     .stat-of { font-size: 0.55em; font-weight: 400; color: var(--iptc-muted); }
     .stat-sub { font-size: 0.75rem; color: var(--iptc-muted); }
   </style>
@@ -49,6 +56,19 @@ const moveText = !move || !prevRun ? null
       <h2>Mean IPTC score over time</h2>
       <p>Mean across this country's sites, equal-weighted per site.</p>
       <TimeSeriesChart points={history} yLabel="Score (0–100)" yMax={100} />
+    </section>
+  )}
+
+  {shareCard && (
+    <section class="share-country">
+      <a href={`${base}/share/${shareCard.slug}/`}>
+        <img src={`${base}${shareImagePath(shareCard)}`} alt={cardAlt(shareCard)} width="1200" height="1500" loading="lazy" />
+      </a>
+      <div>
+        <h2>Share {countryName(country.country)}'s results</h2>
+        <p>This month's results for {countryName(country.country)} as an image, sized for LinkedIn and other social feeds.</p>
+        <ShareButtons share={shareCard} />
+      </div>
     </section>
   )}
 
