@@ -46,7 +46,7 @@ sites:
   homepage: https://www.monitor.co.ug/
   category: newspaper
   language_primary: en
-  notes: 'BLOCKED — feed is correct but article pages 403 the US crawl runner (works from a normal IP). Needs residential/browser egress.'
+  notes: 'BLOCKED — feed is correct but article pages 403 the US crawl runner (works from a normal IP). Stays blocked unless the publisher allows Metawatch through; we do not disguise where the crawler runs from.'
   suggested_by: BQ
   active: false
   discovery:

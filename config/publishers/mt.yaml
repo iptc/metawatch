@@ -27,7 +27,7 @@ sites:
   language_primary: en
   notes: 'BLOCKED (path-to-500 revisit): has a real feed at /newsfeed (linked
     on the homepage as an <a> with text "RSS"), but Cloudflare returns 403 to
-    the crawler from both EU and the US runner. Needs a browser-capable fetch.'
+    the crawler from both EU and the US runner. May clear once Cloudflare verifies Metawatch as a bot (Web Bot Auth, applied 2026-10); we do not work round the challenge.'
   suggested_by: BQ
   active: true
   discovery:

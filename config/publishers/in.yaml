@@ -218,8 +218,7 @@ sites:
   notes: 'BLOCKED — Cloudflare (path-to-500 revisit). Correct feed is
     https://cms.thewire.in/feed (40 fresh entries with images, found by BQ), but
     Cloudflare returns a "Just a moment..." challenge to the US crawl runner.
-    Works from a normal browser/EU IP. Needs a browser-capable fetch path
-    (js_required) before it will resolve.'
+    Works from a normal browser/EU IP. May clear once Cloudflare verifies Metawatch as a bot (Web Bot Auth, applied 2026-10); we do not work round the challenge.'
   suggested_by: BQ
   active: true
   discovery:

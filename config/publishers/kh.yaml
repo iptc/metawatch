@@ -49,8 +49,9 @@ sites:
     runner gets a "Just a moment..." JS challenge (HTTP 403) on khmertimeskh.com/feed/,
     both discovery attempts — a consistent block, not flicker. Works from an
     EU/residential IP (feed fresh, with images), so it is a datacenter-IP
-    challenge, not a permanent disallow. Needs a browser-capable fetch path.
-    KH coverage stands via phnom-penh-post + cambojanews.'
+    challenge, not a permanent disallow. May clear once Cloudflare verifies
+    Metawatch as a bot (Web Bot Auth, applied 2026-10); we do not work round
+    the challenge. KH coverage stands via phnom-penh-post + cambojanews.'
   suggested_by: BQ
   active: true
   discovery:
@@ -73,8 +74,9 @@ sites:
     runner gets a "Just a moment..." JS challenge (HTTP 403) on cambodiadaily.com/feed/,
     both discovery attempts — a consistent block, not flicker. Works from an
     EU/residential IP (Khmer-language feed fresh, with images), so it is a
-    datacenter-IP challenge, not a permanent disallow. Needs a browser-capable
-    fetch path.'
+    datacenter-IP challenge, not a permanent disallow. May clear once
+    Cloudflare verifies Metawatch as a bot (Web Bot Auth, applied 2026-10); we
+    do not work round the challenge.'
   suggested_by: BQ
   active: true
   discovery:

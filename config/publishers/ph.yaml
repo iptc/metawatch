@@ -46,7 +46,8 @@ sites:
   language_primary: en
   notes: 'BLOCKED (path-to-500 revisit): homepage links /rss but it returns an
     empty page (200 text/html, no feed). Site uses Cloudflare. Needs a working
-    feed/sitemap and likely a browser-capable fetch.'
+    feed/sitemap, and may also need Cloudflare to verify Metawatch as a bot
+    (Web Bot Auth, applied 2026-10).'
   suggested_by: BQ
   active: true
   discovery:

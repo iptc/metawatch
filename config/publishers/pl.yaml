@@ -46,8 +46,8 @@ sites:
   language_primary: pl
   notes: 'BLOCKED (path-to-500 revisit): article pages return an anti-AdBlock
     interstitial ("Wyłącz AdBlocka") instead of content, so no lead image is
-    extracted. Needs a tactic that gets past the adblock wall before it will
-    yield data.'
+    extracted. We do not work around reader-facing walls, so this stays blocked unless the
+    publisher allows Metawatch through.'
   suggested_by: BQ
   active: true
   discovery:

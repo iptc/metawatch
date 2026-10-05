@@ -45,8 +45,9 @@ sites:
   category: newspaper
   language_primary: pt
   notes: 'BLOCKED (path-to-500 revisit): WAF returns 403 to the crawler UA on
-    every path, from both UK and US runners — not geo-specific. Needs
-    browser-like headers or another tactic before any feed can be reached.'
+    every path, from both UK and US runners — not geo-specific. Stays
+    blocked unless the publisher allows Metawatch through; we do not disguise
+    the crawler as a browser.'
   suggested_by: BQ
   active: true
   discovery:

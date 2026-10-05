@@ -547,7 +547,7 @@ On PR: validate `config/publishers/*.yaml` against the JSON schema, run crawler 
 
 - **Working name:** Metawatch (final TBC). Shortlisted alternatives: Metalens, Metascope.
 - **Repo name:** `metawatch`.
-- **Code licence:** MIT. Repo private for now.
+- **Code licence:** MIT. Repo public.
 - **Data licence:** CC-BY 4.0 on published Parquet.
 - **Opt-out:** publishers email office@iptc.org. Documented on `/about/`.
 - **News agencies:** assigned to their home country (AP→US, AFP→FR, Reuters→GB). No separate ranking — they sit in the country tables alongside others. `category: news-agency` remains as a filter for cross-cuts ("agencies vs publishers").
@@ -560,19 +560,9 @@ On PR: validate `config/publishers/*.yaml` against the JSON schema, run crawler 
 
 ## 15. Future considerations
 
-### Member-only features
+### Member features
 
-There's a plausible future where some features sit behind IPTC membership login. Examples of features that could plausibly be member-only:
-
-- Per-image inspector with full ExifTool output for any sampled image.
-- Custom watchlist (subscribe to a set of sites; get notified when their score changes month-over-month).
-- Raw API access to the Parquet dataset (the public dataset would still exist; this would be a convenience layer).
-- Early access to monthly reports before public release.
-- "Compare us to our peers" view for member publishers, including private benchmarking.
-
-**Not in scope for the first build.** GlueUp (current IPTC membership system) doesn't appear to expose SSO, so any member-gating would currently require a parallel auth system, which isn't worth the complexity at MVP. Revisit when GlueUp adds SSO or when there's a concrete member request for one of these features.
-
-Implications for the current build: keep the data model and the static-site architecture clean enough that adding a thin authenticated layer later (Cloudflare Access, a small Worker, or similar) is straightforward — i.e. don't bake the public/private split into the schema, just into the rendering.
+Possible member-only features are discussed separately from this spec. For the current build: keep the data model and the static-site architecture clean enough that an authenticated layer could be added later, without baking a public/private split into the schema.
 
 ## 16. Out of scope (for now)
 

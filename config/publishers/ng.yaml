@@ -25,8 +25,8 @@ sites:
   homepage: https://thenationonlineng.net/
   category: newspaper
   language_primary: en
-  notes: 'BLOCKED (path-to-500 revisit): Cloudflare blocks the crawler. Needs a
-    browser-capable fetch before any feed can be reached.'
+  notes: 'BLOCKED (path-to-500 revisit): Cloudflare blocks the crawler.
+    May clear once Cloudflare verifies Metawatch as a bot (Web Bot Auth, applied 2026-10); we do not work round the challenge.'
   suggested_by: BQ
   active: true
   discovery:

@@ -119,8 +119,8 @@ sites:
   language_primary: ru
   notes: 'BLOCKED (path-to-500 revisit): article URLs redirect to an SSO/auth
     wall (/auth/sso.shtml) returning an empty shell, so no content or image is
-    extracted. Needs a tactic that gets past the auth gate before it will yield
-    data.'
+    extracted. We do not work around login walls, so this stays blocked unless the publisher
+    allows Metawatch through.'
   active: true
   discovery:
     strategy: sitemap

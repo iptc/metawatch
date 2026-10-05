@@ -27,7 +27,7 @@ sites:
   language_primary: en
   notes: 'BLOCKED — found by BQ; correct feed is irrawaddy.com/feed, but
     Cloudflare 403s the crawler from every origin (EU and the US runner) — only
-    a real browser passes. Needs a browser-capable fetch path.'
+    a real browser passes. May clear once Cloudflare verifies Metawatch as a bot (Web Bot Auth, applied 2026-10); we do not work round the challenge.'
   suggested_by: BQ
   active: false
   discovery:
