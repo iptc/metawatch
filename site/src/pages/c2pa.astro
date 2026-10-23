@@ -135,15 +135,21 @@ const c2paPctPoints = history.map(h => ({
         </tbody>
       </table>
 
-      <h2>Top sites by C2PA images</h2>
+      <h2>Top sites by percentage of images with C2PA</h2>
+      <p>
+        Initially ranked by the percentage of each site's sampled images with a C2PA
+        manifest detected.
+      </p>
       <table class="sortable">
-        <thead><tr><th>Site</th><th>Country</th><th class="num">Images with C2PA</th></tr></thead>
+        <thead><tr><th>Site</th><th>Country</th><th class="num">% with C2PA</th><th class="num">Images with C2PA</th><th class="num">Images analysed</th></tr></thead>
         <tbody>
           {data.top_sites.slice(0, 25).map(s => (
             <tr>
               <td><a href={`${base}/sites/${s.site_id}/`}>{s.site_name}</a></td>
               <td>{countryName(s.country)}</td>
+              <td class="num">{s.pct_with_c2pa.toFixed(2)}%</td>
               <td class="num">{s.images_with_c2pa}</td>
+              <td class="num">{s.images_analysed}</td>
             </tr>
           ))}
         </tbody>
