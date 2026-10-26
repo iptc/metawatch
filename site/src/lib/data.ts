@@ -77,7 +77,14 @@ export interface C2paData {
   by_outcome: { outcome: C2paOutcome; images: number }[];
   by_signer: { signer: string; images: number }[];
   by_validation_state: { state: string; images: number }[];
-  top_sites: { site_id: string; site_name: string; country: string; images_with_c2pa: number }[];
+  top_sites: {
+    site_id: string;
+    site_name: string;
+    country: string;
+    images_with_c2pa: number;
+    images_analysed: number;
+    pct_with_c2pa: number;
+  }[];
 }
 
 export interface Country {

@@ -461,8 +461,13 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
                 "site_name": site_name_by_id.get(sid, sid),
                 "country": site_country_by_id.get(sid, ""),
                 "images_with_c2pa": n,
+                "images_analysed": len(images_by_site[sid]),
+                "pct_with_c2pa": round(100.0 * n / len(images_by_site[sid]), 2),
             }
-            for sid, n in sorted(sites_with_c2pa.items(), key=lambda x: -x[1])
+            for sid, n in sorted(
+                sites_with_c2pa.items(),
+                key=lambda x: (-x[1] / len(images_by_site[x[0]]), -x[1], x[0]),
+            )
         ],
     }
     (out_dir / "c2pa.json").write_text(json.dumps(c2pa_out, indent=2))
