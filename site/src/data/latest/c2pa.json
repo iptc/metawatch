@@ -1,27 +1,27 @@
 {
-  "image_count_total": 6580,
-  "image_count_with_c2pa": 33,
-  "pct_with_c2pa": 0.5,
+  "image_count_total": 6783,
+  "image_count_with_c2pa": 29,
+  "pct_with_c2pa": 0.43,
   "by_outcome": [
     {
       "outcome": "valid",
-      "images": 16
+      "images": 20
     },
     {
       "outcome": "modified",
-      "images": 3
+      "images": 1
     },
     {
       "outcome": "expired",
-      "images": 0
+      "images": 1
     },
     {
       "outcome": "untrusted_issuer",
-      "images": 3
+      "images": 0
     },
     {
       "outcome": "other_invalid",
-      "images": 11
+      "images": 7
     }
   ],
   "by_signer": [
@@ -34,126 +34,152 @@
       "images": 8
     },
     {
-      "signer": "Canva",
-      "images": 7
+      "signer": "International Press Telecommunications Council",
+      "images": 4
     },
     {
-      "signer": "International Press Telecommunications Council",
-      "images": 5
+      "signer": "Canva",
+      "images": 3
     },
     {
       "signer": "Google LLC",
       "images": 2
     },
     {
-      "signer": "Comite International des Telecommunications de Presse",
+      "signer": "vivo Mobile Communication Co., Ltd.",
       "images": 1
     },
     {
-      "signer": "(unknown signer)",
+      "signer": "Self-signed ephemeral certificate (Content Authenticity SDK) -- LOCAL USE ONLY",
+      "images": 1
+    },
+    {
+      "signer": "Automattic",
       "images": 1
     }
   ],
   "by_validation_state": [
     {
-      "state": "Invalid",
-      "images": 17
+      "state": "Valid",
+      "images": 20
     },
     {
-      "state": "Valid",
-      "images": 16
+      "state": "Invalid",
+      "images": 9
     }
   ],
   "top_sites": [
     {
-      "site_id": "el-comercio-ec",
-      "site_name": "El Comercio (Ecuador)",
-      "country": "EC",
-      "images_with_c2pa": 6
-    },
-    {
       "site_id": "iptc",
       "site_name": "IPTC",
       "country": "GB",
-      "images_with_c2pa": 6
+      "images_with_c2pa": 4,
+      "images_analysed": 5,
+      "pct_with_c2pa": 80.0
     },
     {
       "site_id": "mauriactu",
       "site_name": "Mauriactu",
       "country": "MR",
-      "images_with_c2pa": 5
-    },
-    {
-      "site_id": "kurdistan24",
-      "site_name": "Kurdistan 24",
-      "country": "IQ",
-      "images_with_c2pa": 4
-    },
-    {
-      "site_id": "icilome",
-      "site_name": "IciLome",
-      "country": "TG",
-      "images_with_c2pa": 2
-    },
-    {
-      "site_id": "expansao",
-      "site_name": "Expans\u00e3o",
-      "country": "AO",
-      "images_with_c2pa": 1
-    },
-    {
-      "site_id": "prensa-libre",
-      "site_name": "Prensa Libre",
-      "country": "GT",
-      "images_with_c2pa": 1
-    },
-    {
-      "site_id": "nhk-news-web",
-      "site_name": "NHK News Web",
-      "country": "JP",
-      "images_with_c2pa": 1
+      "images_with_c2pa": 4,
+      "images_analysed": 9,
+      "pct_with_c2pa": 44.44
     },
     {
       "site_id": "libya-review",
       "site_name": "Libya Review",
       "country": "LY",
-      "images_with_c2pa": 1
+      "images_with_c2pa": 3,
+      "images_analysed": 10,
+      "pct_with_c2pa": 30.0
     },
     {
-      "site_id": "despacho505",
-      "site_name": "Despacho 505",
-      "country": "NI",
-      "images_with_c2pa": 1
+      "site_id": "kurdistan24",
+      "site_name": "Kurdistan 24",
+      "country": "IQ",
+      "images_with_c2pa": 4,
+      "images_analysed": 20,
+      "pct_with_c2pa": 20.0
     },
     {
-      "site_id": "premium-times-ng",
-      "site_name": "Premium Times (Nigeria)",
-      "country": "NG",
-      "images_with_c2pa": 1
+      "site_id": "el-comercio-ec",
+      "site_name": "El Comercio (Ecuador)",
+      "country": "EC",
+      "images_with_c2pa": 3,
+      "images_analysed": 20,
+      "pct_with_c2pa": 15.0
+    },
+    {
+      "site_id": "egemen-qazaqstan",
+      "site_name": "Egemen Qazaqstan",
+      "country": "KZ",
+      "images_with_c2pa": 2,
+      "images_analysed": 20,
+      "pct_with_c2pa": 10.0
+    },
+    {
+      "site_id": "la-patilla",
+      "site_name": "La Patilla",
+      "country": "VE",
+      "images_with_c2pa": 2,
+      "images_analysed": 20,
+      "pct_with_c2pa": 10.0
+    },
+    {
+      "site_id": "arzuw-news",
+      "site_name": "Arzuw News",
+      "country": "TM",
+      "images_with_c2pa": 1,
+      "images_analysed": 10,
+      "pct_with_c2pa": 10.0
+    },
+    {
+      "site_id": "daily-news-tz",
+      "site_name": "Daily News",
+      "country": "TZ",
+      "images_with_c2pa": 1,
+      "images_analysed": 10,
+      "pct_with_c2pa": 10.0
+    },
+    {
+      "site_id": "gabonactu",
+      "site_name": "Gabon Actu",
+      "country": "GA",
+      "images_with_c2pa": 1,
+      "images_analysed": 10,
+      "pct_with_c2pa": 10.0
     },
     {
       "site_id": "rappler",
       "site_name": "Rappler",
       "country": "PH",
-      "images_with_c2pa": 1
+      "images_with_c2pa": 1,
+      "images_analysed": 10,
+      "pct_with_c2pa": 10.0
     },
     {
-      "site_id": "asia-plus",
-      "site_name": "Asia-Plus",
-      "country": "TJ",
-      "images_with_c2pa": 1
+      "site_id": "nhk-news-web",
+      "site_name": "NHK News Web",
+      "country": "JP",
+      "images_with_c2pa": 1,
+      "images_analysed": 15,
+      "pct_with_c2pa": 6.67
     },
     {
-      "site_id": "turkmenistan-golden-age",
-      "site_name": "Turkmenistan: The Golden Age",
-      "country": "TM",
-      "images_with_c2pa": 1
+      "site_id": "heise-online",
+      "site_name": "Heise Online",
+      "country": "DE",
+      "images_with_c2pa": 1,
+      "images_analysed": 20,
+      "pct_with_c2pa": 5.0
     },
     {
-      "site_id": "the-citizen-tz",
-      "site_name": "The Citizen",
-      "country": "TZ",
-      "images_with_c2pa": 1
+      "site_id": "khaama-press",
+      "site_name": "Khaama Press",
+      "country": "AF",
+      "images_with_c2pa": 1,
+      "images_analysed": 20,
+      "pct_with_c2pa": 5.0
     }
   ]
 }

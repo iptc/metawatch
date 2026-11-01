@@ -78,5 +78,22 @@
       "other_invalid": 11,
       "untrusted_issuer": 3
     }
+  },
+  {
+    "run_id": "2026-11-01T021436Z",
+    "started_at": "2026-11-01T02:14:36.345235+00:00",
+    "site_count": 443,
+    "image_count": 6783,
+    "mean_score": 5.55,
+    "images_with_iptc": 715,
+    "pct_with_iptc": 10.6,
+    "images_with_c2pa": 29,
+    "pct_with_c2pa": 0.428,
+    "c2pa_outcomes": {
+      "valid": 20,
+      "expired": 1,
+      "other_invalid": 7,
+      "modified": 1
+    }
   }
 ]

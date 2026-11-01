@@ -1,97 +1,114 @@
 {
-  "expansao": {
+  "khaama-press": {
     "image_count_with_c2pa": 1,
     "by_outcome": [
       {
-        "outcome": "modified",
+        "outcome": "valid",
         "images": 1
       }
     ],
     "by_signer": [
       {
-        "signer": "Adobe Inc.",
+        "signer": "Google LLC",
         "images": 1
       }
     ],
     "by_validation_state": [
       {
-        "state": "Invalid",
+        "state": "Valid",
+        "images": 1
+      }
+    ]
+  },
+  "heise-online": {
+    "image_count_with_c2pa": 1,
+    "by_outcome": [
+      {
+        "outcome": "valid",
+        "images": 1
+      }
+    ],
+    "by_signer": [
+      {
+        "signer": "vivo Mobile Communication Co., Ltd.",
+        "images": 1
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Valid",
         "images": 1
       }
     ]
   },
   "el-comercio-ec": {
-    "image_count_with_c2pa": 6,
+    "image_count_with_c2pa": 3,
     "by_outcome": [
       {
         "outcome": "valid",
-        "images": 6
+        "images": 2
+      },
+      {
+        "outcome": "expired",
+        "images": 1
       }
     ],
     "by_signer": [
       {
         "signer": "Canva",
-        "images": 6
+        "images": 3
       }
     ],
     "by_validation_state": [
       {
         "state": "Valid",
-        "images": 6
+        "images": 2
+      },
+      {
+        "state": "Invalid",
+        "images": 1
       }
     ]
   },
-  "iptc": {
-    "image_count_with_c2pa": 6,
+  "gabonactu": {
+    "image_count_with_c2pa": 1,
     "by_outcome": [
       {
-        "outcome": "valid",
-        "images": 1
-      },
-      {
         "outcome": "other_invalid",
-        "images": 5
+        "images": 1
       }
     ],
     "by_signer": [
       {
-        "signer": "International Press Telecommunications Council",
-        "images": 5
-      },
-      {
-        "signer": "Comite International des Telecommunications de Presse",
+        "signer": "OpenAI OpCo, LLC",
         "images": 1
       }
     ],
     "by_validation_state": [
       {
         "state": "Invalid",
-        "images": 5
-      },
-      {
-        "state": "Valid",
         "images": 1
       }
     ]
   },
-  "prensa-libre": {
-    "image_count_with_c2pa": 1,
+  "iptc": {
+    "image_count_with_c2pa": 4,
     "by_outcome": [
       {
-        "outcome": "valid",
-        "images": 1
+        "outcome": "other_invalid",
+        "images": 4
       }
     ],
     "by_signer": [
       {
-        "signer": "Adobe Inc.",
-        "images": 1
+        "signer": "International Press Telecommunications Council",
+        "images": 4
       }
     ],
     "by_validation_state": [
       {
-        "state": "Valid",
-        "images": 1
+        "state": "Invalid",
+        "images": 4
       }
     ]
   },
@@ -100,27 +117,23 @@
     "by_outcome": [
       {
         "outcome": "valid",
-        "images": 1
-      },
-      {
-        "outcome": "untrusted_issuer",
-        "images": 3
+        "images": 4
       }
     ],
     "by_signer": [
       {
         "signer": "Adobe Inc.",
-        "images": 4
+        "images": 3
+      },
+      {
+        "signer": "Self-signed ephemeral certificate (Content Authenticity SDK) -- LOCAL USE ONLY",
+        "images": 1
       }
     ],
     "by_validation_state": [
       {
-        "state": "Invalid",
-        "images": 3
-      },
-      {
         "state": "Valid",
-        "images": 1
+        "images": 4
       }
     ]
   },
@@ -145,94 +158,81 @@
       }
     ]
   },
-  "libya-review": {
-    "image_count_with_c2pa": 1,
+  "egemen-qazaqstan": {
+    "image_count_with_c2pa": 2,
     "by_outcome": [
       {
-        "outcome": "valid",
+        "outcome": "modified",
         "images": 1
-      }
-    ],
-    "by_signer": [
-      {
-        "signer": "OpenAI OpCo, LLC",
-        "images": 1
-      }
-    ],
-    "by_validation_state": [
-      {
-        "state": "Valid",
-        "images": 1
-      }
-    ]
-  },
-  "mauriactu": {
-    "image_count_with_c2pa": 5,
-    "by_outcome": [
-      {
-        "outcome": "valid",
-        "images": 2
       },
       {
         "outcome": "other_invalid",
-        "images": 3
+        "images": 1
       }
     ],
     "by_signer": [
       {
         "signer": "OpenAI OpCo, LLC",
-        "images": 5
+        "images": 1
+      },
+      {
+        "signer": "Google LLC",
+        "images": 1
       }
     ],
     "by_validation_state": [
       {
         "state": "Invalid",
-        "images": 3
-      },
-      {
-        "state": "Valid",
         "images": 2
       }
     ]
   },
-  "despacho505": {
-    "image_count_with_c2pa": 1,
+  "libya-review": {
+    "image_count_with_c2pa": 3,
     "by_outcome": [
       {
         "outcome": "valid",
-        "images": 1
+        "images": 3
       }
     ],
     "by_signer": [
       {
-        "signer": "Canva",
-        "images": 1
+        "signer": "Adobe Inc.",
+        "images": 3
       }
     ],
     "by_validation_state": [
       {
         "state": "Valid",
-        "images": 1
+        "images": 3
       }
     ]
   },
-  "premium-times-ng": {
-    "image_count_with_c2pa": 1,
+  "mauriactu": {
+    "image_count_with_c2pa": 4,
     "by_outcome": [
       {
         "outcome": "valid",
+        "images": 3
+      },
+      {
+        "outcome": "other_invalid",
         "images": 1
       }
     ],
     "by_signer": [
       {
         "signer": "OpenAI OpCo, LLC",
-        "images": 1
+        "images": 4
       }
     ],
     "by_validation_state": [
       {
         "state": "Valid",
+        "images": 3
+      },
+      {
+        "state": "Invalid",
         "images": 1
       }
     ]
@@ -258,95 +258,66 @@
       }
     ]
   },
-  "icilome": {
+  "daily-news-tz": {
+    "image_count_with_c2pa": 1,
+    "by_outcome": [
+      {
+        "outcome": "valid",
+        "images": 1
+      }
+    ],
+    "by_signer": [
+      {
+        "signer": "OpenAI OpCo, LLC",
+        "images": 1
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Valid",
+        "images": 1
+      }
+    ]
+  },
+  "arzuw-news": {
+    "image_count_with_c2pa": 1,
+    "by_outcome": [
+      {
+        "outcome": "valid",
+        "images": 1
+      }
+    ],
+    "by_signer": [
+      {
+        "signer": "Automattic",
+        "images": 1
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Valid",
+        "images": 1
+      }
+    ]
+  },
+  "la-patilla": {
     "image_count_with_c2pa": 2,
     "by_outcome": [
       {
-        "outcome": "modified",
-        "images": 1
-      },
-      {
-        "outcome": "other_invalid",
-        "images": 1
-      }
-    ],
-    "by_signer": [
-      {
-        "signer": "Google LLC",
-        "images": 1
-      },
-      {
-        "signer": "(unknown signer)",
-        "images": 1
-      }
-    ],
-    "by_validation_state": [
-      {
-        "state": "Invalid",
+        "outcome": "valid",
         "images": 2
       }
-    ]
-  },
-  "asia-plus": {
-    "image_count_with_c2pa": 1,
-    "by_outcome": [
-      {
-        "outcome": "other_invalid",
-        "images": 1
-      }
     ],
     "by_signer": [
       {
         "signer": "OpenAI OpCo, LLC",
-        "images": 1
+        "images": 2
       }
     ],
     "by_validation_state": [
       {
-        "state": "Invalid",
-        "images": 1
-      }
-    ]
-  },
-  "turkmenistan-golden-age": {
-    "image_count_with_c2pa": 1,
-    "by_outcome": [
-      {
-        "outcome": "other_invalid",
-        "images": 1
-      }
-    ],
-    "by_signer": [
-      {
-        "signer": "OpenAI OpCo, LLC",
-        "images": 1
-      }
-    ],
-    "by_validation_state": [
-      {
-        "state": "Invalid",
-        "images": 1
-      }
-    ]
-  },
-  "the-citizen-tz": {
-    "image_count_with_c2pa": 1,
-    "by_outcome": [
-      {
-        "outcome": "modified",
-        "images": 1
-      }
-    ],
-    "by_signer": [
-      {
-        "signer": "Google LLC",
-        "images": 1
-      }
-    ],
-    "by_validation_state": [
-      {
-        "state": "Invalid",
-        "images": 1
+        "state": "Valid",
+        "images": 2
       }
     ]
   }
