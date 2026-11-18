@@ -57,3 +57,83 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: lessentiel
+  name: L'essentiel
+  url: https://www.lessentiel.lu/
+  homepage: https://www.lessentiel.lu/
+  category: newspaper
+  language_primary: fr
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.lessentiel.lu/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: rtl-lu
+  name: RTL Luxembourg
+  url: https://www.rtl.lu/
+  homepage: https://www.rtl.lu/
+  category: broadcaster
+  language_primary: lb
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.rtl.lu/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: luxembourg-times
+  name: Luxembourg Times
+  url: https://www.luxtimes.lu/
+  homepage: https://www.luxtimes.lu/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.luxtimes.lu/arc/outboundfeeds/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: paperjam
+  name: Paperjam
+  url: https://paperjam.lu/
+  homepage: https://paperjam.lu/
+  category: magazine
+  language_primary: fr
+  notes: 'Business and current affairs.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://paperjam.lu/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

@@ -59,3 +59,119 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: new-era-na
+  name: New Era
+  url: https://neweralive.na/
+  homepage: https://neweralive.na/
+  category: newspaper
+  language_primary: en
+  notes: 'State-owned.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://neweralive.na/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: namibian-sun
+  name: Namibian Sun
+  url: https://www.namibiansun.com/
+  homepage: https://www.namibiansun.com/
+  category: newspaper
+  language_primary: en
+  notes: 'NMH.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: homepage
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: die-republikein
+  name: Die Republikein
+  url: https://www.republikein.com.na/
+  homepage: https://www.republikein.com.na/
+  category: newspaper
+  language_primary: af
+  notes: 'Afrikaans, NMH.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: homepage
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: allgemeine-zeitung-na
+  name: Allgemeine Zeitung
+  url: https://www.az.com.na/
+  homepage: https://www.az.com.na/
+  category: newspaper
+  language_primary: de
+  notes: 'German-language, NMH.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: homepage
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: confidente-na
+  name: Confidente
+  url: https://www.confidente.com.na/
+  homepage: https://www.confidente.com.na/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.confidente.com.na/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: nampa
+  name: NAMPA
+  url: https://www.nampa.org/
+  homepage: https://www.nampa.org/
+  category: news-agency
+  language_primary: en
+  notes: 'State news agency.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: homepage
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
