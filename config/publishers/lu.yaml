@@ -6,15 +6,15 @@ sites:
   homepage: http://www.lequotidien.lu/
   category: newspaper
   language_primary: fr
-  notes: ''
+  notes: '2026-11-19: /feed/ no longer returns a feed. Switched to sitemap.xml (newest-first article urlset), found by suggest_feeds.py.'
   suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.lequotidien.lu/sitemap.xml
     picture_sitemap_url: null
-    rss_urls:
-    - http://www.lequotidien.lu/feed/
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
