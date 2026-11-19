@@ -414,6 +414,30 @@ def dedupe_candidates(candidates: list[ArticleCandidate]) -> list[ArticleCandida
     return list(by_url.values())
 
 
+def _localname(el: etree._Element) -> str:
+    """Lowercased local tag name; "" for comments/PIs (whose .tag isn't a str)."""
+    if not isinstance(el.tag, str):
+        return ""
+    return etree.QName(el).localname.lower()
+
+
+def _sm_children(el: etree._Element, name: str) -> list[etree._Element]:
+    """Direct children in the sitemap namespace whose local name matches
+    ``name`` case-insensitively (``sm:url``, ``sm:sitemap``, ``sm:loc``…)."""
+    ns = SITEMAP_NS["sm"]
+    return [
+        c for c in el
+        if isinstance(c.tag, str)
+        and etree.QName(c).namespace == ns
+        and etree.QName(c).localname.lower() == name
+    ]
+
+
+def _sm_child(el: etree._Element, name: str) -> etree._Element | None:
+    found = _sm_children(el, name)
+    return found[0] if found else None
+
+
 async def _walk_sitemap(
     client: httpx.AsyncClient,
     url: str,
@@ -439,12 +463,17 @@ async def _walk_sitemap(
 
     body = r.content
     # Some sites serve .xml.gz sitemaps without setting Content-Encoding,
-    # so httpx doesn't auto-decompress. Detect by URL suffix or gzip magic bytes.
-    if url.endswith(".gz") or body[:2] == b"\x1f\x8b":
+    # so httpx doesn't auto-decompress. Trust the gzip magic bytes, not the
+    # URL: Vísir serves plain text/xml at /news/sitemap.gz. A .gz URL whose
+    # body won't decompress is parsed as-is; only a body that *claims* to be
+    # gzip (magic bytes) and is corrupt is a parse error.
+    is_gzip = body[:2] == b"\x1f\x8b"
+    if is_gzip or url.endswith(".gz"):
         try:
             body = gzip.decompress(body)
-        except OSError:
-            return [], "parse_error"
+        except (OSError, EOFError):
+            if is_gzip:
+                return [], "parse_error"
 
     # A surprising number of sitemaps ship a stray leading newline, BOM, or
     # other whitespace before the XML declaration. lxml rejects that with
@@ -455,10 +484,27 @@ async def _walk_sitemap(
     try:
         root = etree.fromstring(body)
     except etree.XMLSyntaxError:
+        # A WAF challenge or soft-404 HTML page is the real story; report it
+        # before trying to salvage anything, so recovery can't mask it.
         waf = _detect_waf(r)
-        return [], (f"waf:{waf}" if waf else _not_found_kind(r) or "parse_error")
+        if waf:
+            return [], f"waf:{waf}"
+        nf = _not_found_kind(r)
+        if nf:
+            return [], nf
+        # Otherwise retry leniently: some sitemaps carry undeclared HTML
+        # entities (Novo Jornal's Google News sitemap has a bare &ndash;).
+        # Accept the result only if it recovered into a real sitemap root.
+        try:
+            root = etree.fromstring(body, etree.XMLParser(recover=True))
+        except etree.XMLSyntaxError:
+            root = None
+        if root is None or _localname(root) not in ("sitemapindex", "urlset"):
+            return [], "parse_error"
 
-    tag = etree.QName(root.tag).localname
+    # Root and child tags are matched case-insensitively: people.com.cn's
+    # root index is <sitemapIndex>.
+    tag = _localname(root)
 
     if tag == "sitemapindex":
         out: list[ArticleCandidate] = []
@@ -471,16 +517,16 @@ async def _walk_sitemap(
         # content regardless of which numbered child is currently newest.
         # Children without a <lastmod> sort last but keep document order (stable
         # sort), so indexes that don't publish lastmod behave as before.
-        sitemaps = root.findall("sm:sitemap", SITEMAP_NS)
+        sitemaps = _sm_children(root, "sitemap")
 
         def _child_lastmod(sm: etree._Element) -> datetime:
-            lm_el = sm.find("sm:lastmod", SITEMAP_NS)
+            lm_el = _sm_child(sm, "lastmod")
             parsed = _parse_iso_date(lm_el.text.strip()) if lm_el is not None and lm_el.text else None
             return parsed or datetime.min.replace(tzinfo=UTC)
 
         sitemaps.sort(key=_child_lastmod, reverse=True)
         for sm in sitemaps[:15]:
-            loc_el = sm.find("sm:loc", SITEMAP_NS)
+            loc_el = _sm_child(sm, "loc")
             if loc_el is not None and loc_el.text:
                 child_candidates, _ = await _walk_sitemap(client, loc_el.text.strip(), depth + 1, seen)
                 out.extend(child_candidates)
@@ -541,8 +587,8 @@ def strip_tracking_params(url: str) -> str:
 
 def _parse_urlset(root: etree._Element) -> list[ArticleCandidate]:
     out: list[ArticleCandidate] = []
-    for url_el in root.findall("sm:url", SITEMAP_NS):
-        loc_el = url_el.find("sm:loc", SITEMAP_NS)
+    for url_el in _sm_children(root, "url"):
+        loc_el = _sm_child(url_el, "loc")
         if loc_el is None or not loc_el.text:
             continue
         url = strip_tracking_params(loc_el.text.strip())
@@ -571,7 +617,7 @@ def _parse_urlset(root: etree._Element) -> list[ArticleCandidate]:
         # Without this, sites like Heute (lastmod-only sitemaps, ascending file
         # order) sort all candidates to datetime.min and we take the oldest N.
         if pub_date is None:
-            lastmod_el = url_el.find("sm:lastmod", SITEMAP_NS)
+            lastmod_el = _sm_child(url_el, "lastmod")
             if lastmod_el is not None and lastmod_el.text:
                 pub_date = _parse_iso_date(lastmod_el.text.strip())
 
