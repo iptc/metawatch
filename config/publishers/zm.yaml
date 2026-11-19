@@ -76,3 +76,60 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: lusaka-times
+  name: Lusaka Times
+  url: https://www.lusakatimes.com/
+  homepage: https://www.lusakatimes.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.lusakatimes.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: zambia-monitor
+  name: Zambia Monitor
+  url: https://www.zambiamonitor.com/
+  homepage: https://www.zambiamonitor.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.zambiamonitor.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: zambian-eye
+  name: Zambian Eye
+  url: https://zambianeye.com/
+  homepage: https://zambianeye.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://zambianeye.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

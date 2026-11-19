@@ -37,3 +37,123 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: tuoi-tre
+  name: Tuoi Tre
+  url: https://tuoitre.vn/
+  homepage: https://tuoitre.vn/
+  category: newspaper
+  language_primary: vi
+  notes: '2026-11-19: home.rss has no item dates, so the Google News sitemap is used instead.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://tuoitre.vn/sitemaps/googlenews.ashx
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: thanh-nien
+  name: Thanh Nien
+  url: https://thanhnien.vn/
+  homepage: https://thanhnien.vn/
+  category: newspaper
+  language_primary: vi
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://thanhnien.vn/rss/home.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: dan-tri
+  name: Dan Tri
+  url: https://dantri.com.vn/
+  homepage: https://dantri.com.vn/
+  category: online
+  language_primary: vi
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://dantri.com.vn/rss/home.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: vietnamplus
+  name: VietnamPlus (VNA)
+  url: https://www.vietnamplus.vn/
+  homepage: https://www.vietnamplus.vn/
+  category: news-agency
+  language_primary: vi
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.vietnamplus.vn/rss/home.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: nhan-dan
+  name: Nhan Dan
+  url: https://nhandan.vn/
+  homepage: https://nhandan.vn/
+  category: newspaper
+  language_primary: vi
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://nhandan.vn/rss/home.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: vietnamnet
+  name: VietNamNet
+  url: https://vietnamnet.vn/
+  homepage: https://vietnamnet.vn/
+  category: online
+  language_primary: vi
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://vietnamnet.vn/sitemap-news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

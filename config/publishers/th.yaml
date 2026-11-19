@@ -37,3 +37,143 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: thai-pbs
+  name: Thai PBS
+  url: https://www.thaipbs.or.th/
+  homepage: https://www.thaipbs.or.th/
+  category: broadcaster
+  language_primary: th
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.thaipbs.or.th/sitemap/sitemap_news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: thairath
+  name: Thairath
+  url: https://www.thairath.co.th/
+  homepage: https://www.thairath.co.th/
+  category: newspaper
+  language_primary: th
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.thairath.co.th/sitemap-news-daily.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: matichon
+  name: Matichon
+  url: https://www.matichon.co.th/
+  homepage: https://www.matichon.co.th/
+  category: newspaper
+  language_primary: th
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.matichon.co.th/sitemap-news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: the-nation-th
+  name: The Nation Thailand
+  url: https://www.nationthailand.com/
+  homepage: https://www.nationthailand.com/
+  category: newspaper
+  language_primary: en
+  notes: '2026-11-19: /sitemap/latest redirects to api.nationthailand.com; list starts with category pages.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.nationthailand.com/sitemap/latest
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: khaosod
+  name: Khaosod
+  url: https://www.khaosod.co.th/
+  homepage: https://www.khaosod.co.th/
+  category: newspaper
+  language_primary: th
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.khaosod.co.th/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: the-standard-th
+  name: The Standard
+  url: https://thestandard.co/
+  homepage: https://thestandard.co/
+  category: online
+  language_primary: th
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://thestandard.co/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: thai-pbs-world
+  name: Thai PBS World
+  url: https://www.thaipbsworld.com/
+  homepage: https://www.thaipbsworld.com/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.thaipbsworld.com/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

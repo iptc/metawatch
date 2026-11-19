@@ -57,3 +57,123 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: srf-news
+  name: SRF News
+  url: https://www.srf.ch/news
+  homepage: https://www.srf.ch/news
+  category: broadcaster
+  language_primary: de
+  notes: 'German-language public broadcaster'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.srf.ch/new-news-sitemap
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: rsi-news
+  name: RSI News
+  url: https://www.rsi.ch/info/
+  homepage: https://www.rsi.ch/info/
+  category: broadcaster
+  language_primary: it
+  notes: 'Italian-language public broadcaster'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.rsi.ch/generic-static/sitemap/update/story/1.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: tages-anzeiger
+  name: Tages-Anzeiger
+  url: https://www.tagesanzeiger.ch/
+  homepage: https://www.tagesanzeiger.ch/
+  category: newspaper
+  language_primary: de
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.tagesanzeiger.ch/news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: le-temps
+  name: Le Temps
+  url: https://www.letemps.ch/
+  homepage: https://www.letemps.ch/
+  category: newspaper
+  language_primary: fr
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.letemps.ch/googlenews.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: corriere-del-ticino
+  name: Corriere del Ticino
+  url: https://www.cdt.ch/
+  homepage: https://www.cdt.ch/
+  category: newspaper
+  language_primary: it
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://naxos-cdn01.gruppocdt.ch/cdt/sitemaps/sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: 20-minuten-ch
+  name: 20 Minuten
+  url: https://www.20min.ch/
+  homepage: https://www.20min.ch/
+  category: newspaper
+  language_primary: de
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.20min.ch/sitemaps/de/news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

@@ -105,3 +105,123 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: global-times
+  name: Global Times
+  url: https://www.globaltimes.cn/
+  homepage: https://www.globaltimes.cn/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.globaltimes.cn/sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: cgtn
+  name: CGTN
+  url: https://www.cgtn.com/
+  homepage: https://www.cgtn.com/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.cgtn.com/sitemap_latestnews.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: the-paper-cn
+  name: The Paper (Pengpai)
+  url: https://www.thepaper.cn/
+  homepage: https://www.thepaper.cn/
+  category: online
+  language_primary: zh
+  notes: '2026-11-19: homepage returns 403 locally but sitemap index works; newest child (special.xml) mixes channel/list pages with articles.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.thepaper.cn/sitemap/index.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: caixin-global
+  name: Caixin Global
+  url: https://www.caixinglobal.com/
+  homepage: https://www.caixinglobal.com/
+  category: magazine
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.caixinglobal.com/sitemap_index.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: sixth-tone
+  name: Sixth Tone
+  url: https://www.sixthtone.com/
+  homepage: https://www.sixthtone.com/
+  category: online
+  language_primary: en
+  notes: '2026-11-19: RSS items carry no pubDate; smoke-test still returned 20 candidates.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.sixthtone.com/rss/index.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: people-cn-zh
+  name: People's Daily Online (Chinese)
+  url: http://www.people.com.cn/
+  homepage: http://www.people.com.cn/
+  category: newspaper
+  language_primary: zh
+  notes: '2026-11-19: uses the politics news_sitemap; the root sitemap_index.xml uses a <sitemapIndex> tag the crawler does not parse (0 candidates).'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.people.com.cn/sitemap/cn/politics/news_sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

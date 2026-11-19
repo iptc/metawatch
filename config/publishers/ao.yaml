@@ -39,3 +39,97 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: novo-jornal-ao
+  name: Novo Jornal
+  url: https://novojornal.co.ao/
+  homepage: https://novojornal.co.ao/
+  category: newspaper
+  language_primary: pt
+  notes: '2026-11-19: Google News sitemap (from robots.txt) is current but not well-formed XML (undeclared HTML entities such as &ndash;), so the crawler lxml parse fails and smoke-test finds 0 candidates. Activate once the crawler parses sitemaps with recover=True or the site fixes it.'
+  suggested_by: claude
+  active: false
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://novojornal.co.ao/google_news.ashx
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: o-pais-ao
+  name: O País
+  url: https://opais.ao/
+  homepage: https://opais.ao/
+  category: newspaper
+  language_primary: pt
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://opais.ao/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: correio-da-kianda
+  name: Correio da Kianda
+  url: https://correiokianda.info/
+  homepage: https://correiokianda.info/
+  category: online
+  language_primary: pt
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://correiokianda.info/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: jornal-de-angola
+  name: Jornal de Angola
+  url: https://www.jornaldeangola.ao/
+  homepage: https://www.jornaldeangola.ao/
+  category: newspaper
+  language_primary: pt
+  notes: '2026-11-19: state daily, kept as placeholder. JS-rendered site; no RSS links, no sitemaps in robots.txt; smoke-test found 0 candidates.'
+  suggested_by: claude
+  active: false
+  discovery:
+    strategy: homepage
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: mercado-ao
+  name: Mercado
+  url: https://mercado.co.ao/
+  homepage: https://mercado.co.ao/
+  category: newspaper
+  language_primary: pt
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://mercado.co.ao/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

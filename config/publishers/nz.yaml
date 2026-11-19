@@ -57,3 +57,123 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: 1news-nz
+  name: 1News (TVNZ)
+  url: https://www.1news.co.nz/
+  homepage: https://www.1news.co.nz/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.1news.co.nz/arc/outboundfeeds/news-sitemap/?outputType=xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: newsroom-nz
+  name: Newsroom
+  url: https://newsroom.co.nz/
+  homepage: https://newsroom.co.nz/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://newsroom.co.nz/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: the-spinoff
+  name: The Spinoff
+  url: https://thespinoff.co.nz/
+  homepage: https://thespinoff.co.nz/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://thespinoff.co.nz/sitemaps/articles/1.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: otago-daily-times
+  name: Otago Daily Times
+  url: https://www.odt.co.nz/
+  homepage: https://www.odt.co.nz/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.odt.co.nz/sitemaps/odt/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: the-post-nz
+  name: The Post
+  url: https://www.thepost.co.nz/
+  homepage: https://www.thepost.co.nz/
+  category: newspaper
+  language_primary: en
+  notes: 'Stuff-owned Wellington daily; stuff.co.nz returned 406 on 2026-11-19, so may share the same WAF in CI.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.thepost.co.nz/sitemap/news/sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: te-ao-maori-news
+  name: Te Ao Maori News
+  url: https://www.teaonews.co.nz/
+  homepage: https://www.teaonews.co.nz/
+  category: broadcaster
+  language_primary: en
+  notes: '2026-11-19: formerly teaomaori.news, now teaonews.co.nz; latest news sitemap lists only a few items at a time.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.teaonews.co.nz/arc/outboundfeeds/sitemap-news/latest/
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

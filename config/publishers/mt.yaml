@@ -62,3 +62,83 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: newsbook-mt
+  name: Newsbook
+  url: https://newsbook.com.mt/
+  homepage: https://newsbook.com.mt/
+  category: online
+  language_primary: mt
+  notes: 'Maltese-language news site'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://newsbook.com.mt/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: lovin-malta
+  name: Lovin Malta
+  url: https://lovinmalta.com/
+  homepage: https://lovinmalta.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://lovinmalta.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: the-shift-mt
+  name: The Shift News
+  url: https://theshiftnews.com/
+  homepage: https://theshiftnews.com/
+  category: online
+  language_primary: en
+  notes: '2026-11-19: Yoast post sitemaps stale since June 2026; RSS is current.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://theshiftnews.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: net-news-mt
+  name: Net News
+  url: https://netnews.com.mt/
+  homepage: https://netnews.com.mt/
+  category: broadcaster
+  language_primary: mt
+  notes: 'News site of NET TV (Nationalist Party-owned media). 2026-11-19: no RSS; Yoast sitemap index mixes category pages with articles.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://netnews.com.mt/sitemap_index.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

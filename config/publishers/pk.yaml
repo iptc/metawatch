@@ -57,3 +57,82 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: express-tribune
+  name: The Express Tribune
+  url: https://tribune.com.pk/
+  homepage: https://tribune.com.pk/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://tribune.com.pk/sitemap/latest-1.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: ary-news
+  name: ARY News
+  url: https://arynews.tv/
+  homepage: https://arynews.tv/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://arynews.tv/sitemap/news_sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: app-pk
+  name: Associated Press of Pakistan (APP)
+  url: https://www.app.com.pk/
+  homepage: https://www.app.com.pk/
+  category: news-agency
+  language_primary: en
+  notes: 'State news agency.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.app.com.pk/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: the-nation-pk
+  name: The Nation (Pakistan)
+  url: https://www.nation.com.pk/
+  homepage: https://www.nation.com.pk/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.nation.com.pk/sitemap_news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

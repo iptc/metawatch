@@ -59,3 +59,83 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: npy
+  name: NPY (Noticias Paraguay)
+  url: https://www.npy.com.py/
+  homepage: https://www.npy.com.py/
+  category: online
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.npy.com.py/index.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: extra-py
+  name: Diario Extra
+  url: https://www.extra.com.py/
+  homepage: https://www.extra.com.py/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.extra.com.py/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: cronica-py
+  name: Crónica
+  url: https://www.cronica.com.py/
+  homepage: https://www.cronica.com.py/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.cronica.com.py/arc/outboundfeeds/sitemap-news-index/?outputType=xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: telefuturo
+  name: Telefuturo
+  url: https://www.telefuturo.com.py/
+  homepage: https://www.telefuturo.com.py/
+  category: broadcaster
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.telefuturo.com.py/index.atom
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

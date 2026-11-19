@@ -76,3 +76,98 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: vecernji-list
+  name: Večernji list
+  url: https://www.vecernji.hr/
+  homepage: https://www.vecernji.hr/
+  category: newspaper
+  language_primary: hr
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.vecernji.hr/feeds/latest
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: tportal
+  name: tportal.hr
+  url: https://www.tportal.hr/
+  homepage: https://www.tportal.hr/
+  category: online
+  language_primary: hr
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.tportal.hr/rss-najnovije.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: slobodna-dalmacija
+  name: Slobodna Dalmacija
+  url: https://slobodnadalmacija.hr/
+  homepage: https://slobodnadalmacija.hr/
+  category: newspaper
+  language_primary: hr
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://slobodnadalmacija.hr/sitemapindex-slobodna-dalmacija.xml.gz
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: hrt
+  name: HRT (Hrvatska radiotelevizija)
+  url: https://www.hrt.hr/
+  homepage: https://www.hrt.hr/
+  category: broadcaster
+  language_primary: hr
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://feed.hrt.hr/vijesti/page.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: dnevnik-hr
+  name: Dnevnik.hr (Nova TV)
+  url: https://dnevnik.hr/
+  homepage: https://dnevnik.hr/
+  category: broadcaster
+  language_primary: hr
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://dnevnik.hr/services/sitemaps/news
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

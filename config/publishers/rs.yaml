@@ -18,3 +18,136 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: politika
+  name: Politika
+  url: https://www.politika.rs/
+  homepage: https://www.politika.rs/
+  category: newspaper
+  language_primary: sr
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.politika.rs/sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: blic
+  name: Blic
+  url: https://www.blic.rs/
+  homepage: https://www.blic.rs/
+  category: newspaper
+  language_primary: sr
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.blic.rs/sitemap-stories-news-news.xml.gz
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: rts
+  name: RTS (Radio-televizija Srbije)
+  url: https://www.rts.rs/sr/index.html
+  homepage: https://www.rts.rs/sr/index.html
+  category: broadcaster
+  language_primary: sr
+  notes: 'Placeholder 2026-11-19: homepage RSS link is malformed (//rss.html), /rss.html is an empty XML stub, no sitemap; homepage discovery finds 0 articles. Needs manual triage.'
+  suggested_by: claude
+  active: false
+  discovery:
+    strategy: homepage
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: danas
+  name: Danas
+  url: https://www.danas.rs/
+  homepage: https://www.danas.rs/
+  category: newspaper
+  language_primary: sr
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.danas.rs/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: kurir
+  name: Kurir
+  url: https://www.kurir.rs/
+  homepage: https://www.kurir.rs/
+  category: newspaper
+  language_primary: sr
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.kurir.rs/sitemaps-v2/news.xml
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.kurir.rs/rss/najnovije-vesti
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: nova-rs
+  name: Nova.rs
+  url: https://nova.rs/
+  homepage: https://nova.rs/
+  category: online
+  language_primary: sr
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://nova.rs/sitemap/sitemap_news_1.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: b92
+  name: B92
+  url: https://www.b92.net/
+  homepage: https://www.b92.net/
+  category: broadcaster
+  language_primary: sr
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.b92.net/rss/b92
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

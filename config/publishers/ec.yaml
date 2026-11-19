@@ -59,3 +59,103 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: primicias
+  name: Primicias
+  url: https://www.primicias.ec/
+  homepage: https://www.primicias.ec/
+  category: online
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.primicias.ec/sitemap-google-news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: el-telegrafo
+  name: El Telégrafo
+  url: https://www.eltelegrafo.com.ec/
+  homepage: https://www.eltelegrafo.com.ec/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.eltelegrafo.com.ec/component/route66/sitemap/1/k2?format=xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: gk-city
+  name: GK
+  url: https://gk.city/
+  homepage: https://gk.city/
+  category: online
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://gk.city/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: extra-ec
+  name: Extra
+  url: https://www.extra.ec/
+  homepage: https://www.extra.ec/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.extra.ec/sitemap-google-news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: teleamazonas
+  name: Teleamazonas
+  url: https://www.teleamazonas.com/
+  homepage: https://www.teleamazonas.com/
+  category: broadcaster
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.teleamazonas.com/sitemap-google-news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

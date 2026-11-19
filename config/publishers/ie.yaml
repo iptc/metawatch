@@ -75,3 +75,83 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: rte-news
+  name: RTÉ News
+  url: https://www.rte.ie/news/
+  homepage: https://www.rte.ie/news/
+  category: broadcaster
+  language_primary: en
+  notes: 'Public broadcaster'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.rte.ie/feeds/rss/?index=/news/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: irish-examiner
+  name: Irish Examiner
+  url: https://www.irishexaminer.com/
+  homepage: https://www.irishexaminer.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.irishexaminer.com/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: thejournal-ie
+  name: TheJournal.ie
+  url: https://www.thejournal.ie/
+  homepage: https://www.thejournal.ie/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.thejournal.ie/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: irish-mirror
+  name: Irish Mirror
+  url: https://www.irishmirror.ie/
+  homepage: https://www.irishmirror.ie/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.irishmirror.ie/map_news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

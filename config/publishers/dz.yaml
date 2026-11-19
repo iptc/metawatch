@@ -103,3 +103,97 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: aps-dz
+  name: Algérie Presse Service (APS)
+  url: https://www.aps.dz/
+  homepage: https://www.aps.dz/
+  category: news-agency
+  language_primary: fr
+  notes: '2026-11-19: state news agency, kept as placeholder. No RSS link on homepage; robots.txt sitemap (/sitemap.xml) lists only section pages, no articles. Needs a working article source before activating.'
+  suggested_by: claude
+  active: false
+  discovery:
+    strategy: homepage
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: ennahar
+  name: Ennahar Online
+  url: https://www.ennaharonline.com/
+  homepage: https://www.ennaharonline.com/
+  category: online
+  language_primary: ar
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.ennaharonline.com/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: el-bilad
+  name: El Bilad
+  url: https://www.elbilad.net/
+  homepage: https://www.elbilad.net/
+  category: newspaper
+  language_primary: ar
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.elbilad.net/sitemap/ar/news/google_news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: algerie360
+  name: Algérie 360
+  url: https://www.algerie360.com/
+  homepage: https://www.algerie360.com/
+  category: online
+  language_primary: fr
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.algerie360.com/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: algerie-patriotique
+  name: Algérie Patriotique
+  url: https://algeriepatriotique.com/
+  homepage: https://algeriepatriotique.com/
+  category: online
+  language_primary: fr
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://algeriepatriotique.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

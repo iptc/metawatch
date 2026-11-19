@@ -19,6 +19,7 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
 - id: la-naci-n
   name: La Nación
   url: https://www.lanacion.com.ar/
@@ -38,6 +39,7 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
 - id: infobae
   name: Infobae
   url: https://www.infobae.com/
@@ -53,6 +55,66 @@ sites:
     picture_sitemap_url: null
     rss_urls:
     - https://www.infobae.com/arc/outboundfeeds/rss/category/america/mundo/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: pagina-12
+  name: Página/12
+  url: https://www.pagina12.com.ar/
+  homepage: https://www.pagina12.com.ar/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.pagina12.com.ar/arc/outboundfeeds/breakingnews-short.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: perfil
+  name: Perfil
+  url: https://www.perfil.com/
+  homepage: https://www.perfil.com/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.perfil.com/sitemap/news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: tn-ar
+  name: TN (Todo Noticias)
+  url: https://tn.com.ar/
+  homepage: https://tn.com.ar/
+  category: broadcaster
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://tn.com.ar/arc/outboundfeeds/news-sitemap/?outputType=xml
+    picture_sitemap_url: null
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

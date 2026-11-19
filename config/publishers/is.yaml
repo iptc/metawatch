@@ -18,3 +18,105 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: ruv-is
+  name: RÚV
+  url: https://www.ruv.is/
+  homepage: https://www.ruv.is/
+  category: broadcaster
+  language_primary: is
+  notes: 'Public broadcaster'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.ruv.is/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: visir-is
+  name: Vísir
+  url: https://www.visir.is/
+  homepage: https://www.visir.is/
+  category: online
+  language_primary: is
+  notes: '2026-11-19: news sitemap https://www.visir.is/news/sitemap.gz is plain XML despite .gz suffix and the crawler fails to parse it; using homepage-linked RSS instead.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.visir.is/rss/allt
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: dv-is
+  name: DV
+  url: https://www.dv.is/
+  homepage: https://www.dv.is/
+  category: newspaper
+  language_primary: is
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.dv.is/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: heimildin-is
+  name: Heimildin
+  url: https://heimildin.is/
+  homepage: https://heimildin.is/
+  category: newspaper
+  language_primary: is
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls:
+    - https://heimildin.is/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls:
+    - https://heimildin.is/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: mannlif-is
+  name: Mannlíf
+  url: https://www.mannlif.is/
+  homepage: https://www.mannlif.is/
+  category: online
+  language_primary: is
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls:
+    - https://mannlif.is/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls:
+    - https://mannlif.is/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

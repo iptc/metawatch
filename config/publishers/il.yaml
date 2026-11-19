@@ -57,3 +57,123 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: ynetnews
+  name: Ynetnews
+  url: https://www.ynetnews.com/
+  homepage: https://www.ynetnews.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.ynetnews.com/api/google_site_map_by_period/0/7
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: ynet
+  name: Ynet
+  url: https://www.ynet.co.il/
+  homepage: https://www.ynet.co.il/
+  category: online
+  language_primary: he
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.ynet.co.il/iphone/json/api/20m/google_site_map/8-2-3-6-538-1208-550-544-4003
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: globes
+  name: Globes
+  url: https://www.globes.co.il/
+  homepage: https://www.globes.co.il/
+  category: newspaper
+  language_primary: he
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.globes.co.il/data/webservices/google-maps.ashx?language=he
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: maariv
+  name: Maariv
+  url: https://www.maariv.co.il/
+  homepage: https://www.maariv.co.il/
+  category: newspaper
+  language_primary: he
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.maariv.co.il/googlenewssitemap/gnsitemap
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: i24news
+  name: i24NEWS
+  url: https://www.i24news.tv/en
+  homepage: https://www.i24news.tv/en
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.i24news.tv/en/sitemapGoogleNews.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: arutz-sheva
+  name: Arutz Sheva (Israel National News)
+  url: https://www.israelnationalnews.com/
+  homepage: https://www.israelnationalnews.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.israelnationalnews.com/Rss.aspx?act=.1
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

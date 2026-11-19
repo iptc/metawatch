@@ -76,3 +76,78 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: lrt
+  name: LRT
+  url: https://www.lrt.lt/
+  homepage: https://www.lrt.lt/
+  category: broadcaster
+  language_primary: lt
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.lrt.lt/?rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: delfi-lt
+  name: Delfi (Lithuania)
+  url: https://www.delfi.lt/
+  homepage: https://www.delfi.lt/
+  category: online
+  language_primary: lt
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.delfi.lt/news/sitemap/latest.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: elta
+  name: ELTA
+  url: https://www.elta.lt/lt
+  homepage: https://www.elta.lt/lt
+  category: news-agency
+  language_primary: lt
+  notes: 'Placeholder 2026-11-19: no RSS/sitemap in homepage, robots.txt or common paths; homepage discovery finds 0 articles. Needs manual triage.'
+  suggested_by: claude
+  active: false
+  discovery:
+    strategy: homepage
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: kauno-diena
+  name: Kauno diena
+  url: https://kauno.diena.lt/
+  homepage: https://kauno.diena.lt/
+  category: newspaper
+  language_primary: lt
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://kauno.diena.lt/sitemaps/news/sitemap-news-1.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

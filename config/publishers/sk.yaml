@@ -57,3 +57,78 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: dennik-n
+  name: Denník N
+  url: https://dennikn.sk/
+  homepage: https://dennikn.sk/
+  category: newspaper
+  language_primary: sk
+  notes: Homepage returns 403 to probe 2026-11-19, but news sitemap and article fetch work in smoke test (20 candidates). Many entries are e.dennikn.sk/minuta live items.
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://dennikn.sk/api/sitemap/news
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: pravda-sk
+  name: Pravda
+  url: https://www.pravda.sk/
+  homepage: https://www.pravda.sk/
+  category: newspaper
+  language_primary: sk
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.pravda.sk/spravy/rss/xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: tasr
+  name: TASR
+  url: https://www.tasr.sk/
+  homepage: https://www.tasr.sk/
+  category: news-agency
+  language_primary: sk
+  notes: 'Placeholder 2026-11-19: no RSS/sitemap in homepage, robots.txt or common paths (common sitemap paths return HTML); homepage discovery finds 0 articles. Needs manual triage.'
+  suggested_by: claude
+  active: false
+  discovery:
+    strategy: homepage
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: hnonline
+  name: Hospodárske noviny
+  url: https://hnonline.sk/
+  homepage: https://hnonline.sk/
+  category: newspaper
+  language_primary: sk
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://hnonline.sk/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

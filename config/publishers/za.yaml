@@ -57,3 +57,98 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: iol
+  name: IOL
+  url: https://iol.co.za/
+  homepage: https://iol.co.za/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://iol.co.za/sitemap/iol/news/
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: daily-maverick
+  name: Daily Maverick
+  url: https://www.dailymaverick.co.za/
+  homepage: https://www.dailymaverick.co.za/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.dailymaverick.co.za/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: sabc-news
+  name: SABC News
+  url: https://www.sabcnews.com/sabcnews/
+  homepage: https://www.sabcnews.com/sabcnews/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.sabcnews.com/sabcnews/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: maroela-media
+  name: Maroela Media
+  url: https://maroelamedia.co.za/
+  homepage: https://maroelamedia.co.za/
+  category: online
+  language_primary: af
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://maroelamedia.co.za/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: groundup
+  name: GroundUp
+  url: https://groundup.org.za/
+  homepage: https://groundup.org.za/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://groundup.org.za/sitenews/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
