@@ -40,19 +40,19 @@ sites:
     window_days: 30
 - id: times-of-zambia
   name: Times of Zambia
-  url: https://www.times.co.zm/
-  homepage: https://www.times.co.zm/
+  url: https://times.co.zm/
+  homepage: https://times.co.zm/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: '2026-11-19: www.times.co.zm now redirects to times.co.zm and /feed/ returns no items; using the Yoast sitemap index (crawler walks newest post sitemap first).'
   suggested_by: BQ
   active: true
   discovery:
-    strategy: rss
-    sitemap_urls: []
+    strategy: sitemap
+    sitemap_urls:
+    - https://times.co.zm/sitemap_index.xml
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.times.co.zm/feed/
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

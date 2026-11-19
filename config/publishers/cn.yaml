@@ -27,16 +27,15 @@ sites:
   homepage: http://en.people.cn/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: 'DEACTIVATED 2026-11-19: no current source. sitemap_index.xml (the only robots.txt sitemap) is a news urlset whose newest item is 2026-06-22; rss/China.xml is from 2011; no RSS links on the homepage. Reactivate if a live feed appears.'
   suggested_by: BQ
-  active: true
+  active: false
   discovery:
     strategy: sitemap
     sitemap_urls:
     - http://en.people.cn/sitemap_index.xml
     picture_sitemap_url: null
-    rss_urls:
-    - http://en.people.cn/rss/China.xml
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

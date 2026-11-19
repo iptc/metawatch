@@ -45,9 +45,9 @@ sites:
   homepage: https://novojornal.co.ao/
   category: newspaper
   language_primary: pt
-  notes: '2026-11-19: Google News sitemap (from robots.txt) is current but not well-formed XML (undeclared HTML entities such as &ndash;), so the crawler lxml parse fails and smoke-test finds 0 candidates. Activate once the crawler parses sitemaps with recover=True or the site fixes it.'
+  notes: '2026-11-19: google_news.ashx contains an undeclared &ndash; entity; parseable since the crawler gained recover-mode XML parsing (PR #6).'
   suggested_by: claude
-  active: false
+  active: true
   discovery:
     strategy: sitemap
     sitemap_urls:

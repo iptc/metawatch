@@ -25,12 +25,12 @@ sites:
   homepage: https://www.thejakartapost.com/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: '2026-11-19: sitemap.xml returned 404; switched to the news sitemap declared in robots.txt (40 current articles).'
   active: true
   discovery:
     strategy: sitemap
     sitemap_urls:
-    - https://www.thejakartapost.com/sitemap.xml
+    - https://www.thejakartapost.com/sitemap_news.xml
     picture_sitemap_url: null
     rss_urls: []
     js_required: false

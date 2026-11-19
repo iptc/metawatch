@@ -46,9 +46,9 @@ sites:
   homepage: https://www.expreso.ec/
   category: newspaper
   language_primary: es
-  notes: ''
+  notes: 'DEACTIVATED 2026-11-19: no new articles since about 2026-10-21 in any source (rss/home.xml is empty; section feeds, google-news sitemap and homepage all stop around 19-21 Oct). Reactivate if publishing resumes.'
   suggested_by: BQ
-  active: true
+  active: false
   discovery:
     strategy: rss
     sitemap_urls: []

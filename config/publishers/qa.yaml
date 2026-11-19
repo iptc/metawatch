@@ -6,9 +6,13 @@ sites:
   homepage: https://www.aljazeera.com/
   category: broadcaster
   language_primary: en
-  notes: ''
+  notes: 'DEACTIVATED 2026-11-19 (BQ decision): aljazeera.com/robots.txt comments prohibit text
+    and data mining and automated scraping without written permission from Al Jazeera
+    Media Network. Not crawled at their request. (Separately, RSS item links carry
+    ?traffic_source=rss, which robots.txt disallows; news-sitemap.xml would work if
+    permission is ever granted.)'
   suggested_by: BQ
-  active: true
+  active: false
   discovery:
     strategy: rss
     sitemap_urls: []
@@ -45,9 +49,11 @@ sites:
   homepage: https://www.aljazeera.net/
   category: broadcaster
   language_primary: ar
-  notes: ''
+  notes: 'DEACTIVATED 2026-11-19 (BQ decision): aljazeera.net/robots.txt comments prohibit text
+    and data mining and automated scraping without written permission from Al Jazeera
+    Media Network. Not crawled at their request.'
   suggested_by: claude
-  active: true
+  active: false
   discovery:
     strategy: sitemap
     sitemap_urls:

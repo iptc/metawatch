@@ -4,17 +4,17 @@ sites:
   name: Mail & Guardian
   url: https://mg.co.za/
   homepage: https://mg.co.za/
-  category: broadcaster
+  category: newspaper
   language_primary: en
-  notes: ''
+  notes: '2026-11-19: /feed/ is dead; /rss/ verified (50 current items). Category corrected from broadcaster to newspaper.'
   suggested_by: BQ
   active: true
   discovery:
-    strategy: sitemap
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://mg.co.za/feed/
+    - https://mg.co.za/rss/
     js_required: false
   sample:
     max_articles: 20
@@ -25,15 +25,15 @@ sites:
   homepage: https://www.news24.com/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: '2026-11-19: dead TopStories RSS removed; uses the sitemap declared in robots.txt (what the crawler already fell back to). The 2026-11-01 run fetched 20 articles but every article request returned HTTP 429 (rate limited), so 0 images were analysed. Not fixable in config.'
   suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.news24.com/sitemap
     picture_sitemap_url: null
-    rss_urls:
-    - https://feeds.24.com/articles/News24/TopStories/rss
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

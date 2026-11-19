@@ -21,18 +21,18 @@ sites:
     window_days: 30
 - id: capital-fm-ke
   name: Capital FM (Kenya)
-  url: https://www.capitalfm.co.ke/
-  homepage: https://www.capitalfm.co.ke/
+  url: https://capitalfm.africa/
+  homepage: https://capitalfm.africa/
   category: broadcaster
   language_primary: en
-  notes: ''
+  notes: '2026-11-19: site moved from capitalfm.co.ke to capitalfm.africa (old host redirects). Old /news/feed/ dropped; using news-sitemap.xml (82 current articles).'
   active: true
   discovery:
-    strategy: rss
-    sitemap_urls: []
+    strategy: sitemap
+    sitemap_urls:
+    - https://capitalfm.africa/news-sitemap.xml
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.capitalfm.co.ke/news/feed/
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
