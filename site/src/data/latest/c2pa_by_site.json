@@ -320,5 +320,68 @@
         "images": 2
       }
     ]
+  },
+  "cyprus-mail": {
+    "image_count_with_c2pa": 1,
+    "by_outcome": [
+      {
+        "outcome": "valid",
+        "images": 1
+      }
+    ],
+    "by_signer": [
+      {
+        "signer": "OpenAI OpCo, LLC",
+        "images": 1
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Valid",
+        "images": 1
+      }
+    ]
+  },
+  "dca-gt": {
+    "image_count_with_c2pa": 1,
+    "by_outcome": [
+      {
+        "outcome": "modified",
+        "images": 1
+      }
+    ],
+    "by_signer": [
+      {
+        "signer": "Adobe Inc.",
+        "images": 1
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Invalid",
+        "images": 1
+      }
+    ]
+  },
+  "die-republikein": {
+    "image_count_with_c2pa": 9,
+    "by_outcome": [
+      {
+        "outcome": "valid",
+        "images": 9
+      }
+    ],
+    "by_signer": [
+      {
+        "signer": "OpenAI OpCo, LLC",
+        "images": 9
+      }
+    ],
+    "by_validation_state": [
+      {
+        "state": "Valid",
+        "images": 9
+      }
+    ]
   }
 }

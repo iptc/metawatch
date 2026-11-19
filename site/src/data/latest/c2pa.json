@@ -1,15 +1,15 @@
 {
-  "image_count_total": 6783,
-  "image_count_with_c2pa": 29,
-  "pct_with_c2pa": 0.43,
+  "image_count_total": 7330,
+  "image_count_with_c2pa": 40,
+  "pct_with_c2pa": 0.55,
   "by_outcome": [
     {
       "outcome": "valid",
-      "images": 20
+      "images": 30
     },
     {
       "outcome": "modified",
-      "images": 1
+      "images": 2
     },
     {
       "outcome": "expired",
@@ -27,11 +27,11 @@
   "by_signer": [
     {
       "signer": "OpenAI OpCo, LLC",
-      "images": 9
+      "images": 19
     },
     {
       "signer": "Adobe Inc.",
-      "images": 8
+      "images": 9
     },
     {
       "signer": "International Press Telecommunications Council",
@@ -61,11 +61,11 @@
   "by_validation_state": [
     {
       "state": "Valid",
-      "images": 20
+      "images": 30
     },
     {
       "state": "Invalid",
-      "images": 9
+      "images": 10
     }
   ],
   "top_sites": [
@@ -76,6 +76,14 @@
       "images_with_c2pa": 4,
       "images_analysed": 5,
       "pct_with_c2pa": 80.0
+    },
+    {
+      "site_id": "die-republikein",
+      "site_name": "Die Republikein",
+      "country": "NA",
+      "images_with_c2pa": 9,
+      "images_analysed": 20,
+      "pct_with_c2pa": 45.0
     },
     {
       "site_id": "mauriactu",
@@ -142,6 +150,14 @@
       "pct_with_c2pa": 10.0
     },
     {
+      "site_id": "dca-gt",
+      "site_name": "Diario de Centro Am\u00e9rica",
+      "country": "GT",
+      "images_with_c2pa": 1,
+      "images_analysed": 10,
+      "pct_with_c2pa": 10.0
+    },
+    {
       "site_id": "gabonactu",
       "site_name": "Gabon Actu",
       "country": "GA",
@@ -164,6 +180,14 @@
       "images_with_c2pa": 1,
       "images_analysed": 15,
       "pct_with_c2pa": 6.67
+    },
+    {
+      "site_id": "cyprus-mail",
+      "site_name": "Cyprus Mail",
+      "country": "CY",
+      "images_with_c2pa": 1,
+      "images_analysed": 20,
+      "pct_with_c2pa": 5.0
     },
     {
       "site_id": "heise-online",

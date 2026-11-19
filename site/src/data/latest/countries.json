@@ -1,17 +1,5 @@
 [
   {
-    "country": "NI",
-    "site_count": 2,
-    "scored_site_count": 2,
-    "mean_score": 22.5
-  },
-  {
-    "country": "SA",
-    "site_count": 2,
-    "scored_site_count": 2,
-    "mean_score": 21.88
-  },
-  {
     "country": "DE",
     "site_count": 19,
     "scored_site_count": 17,
@@ -22,18 +10,6 @@
     "site_count": 5,
     "scored_site_count": 5,
     "mean_score": 19.5
-  },
-  {
-    "country": "CY",
-    "site_count": 3,
-    "scored_site_count": 3,
-    "mean_score": 17.92
-  },
-  {
-    "country": "LU",
-    "site_count": 3,
-    "scored_site_count": 2,
-    "mean_score": 17.5
   },
   {
     "country": "NL",
@@ -48,40 +24,16 @@
     "mean_score": 17.1
   },
   {
-    "country": "GT",
-    "site_count": 2,
-    "scored_site_count": 2,
-    "mean_score": 16.88
-  },
-  {
     "country": "LV",
-    "site_count": 3,
-    "scored_site_count": 2,
-    "mean_score": 16.88
-  },
-  {
-    "country": "CR",
-    "site_count": 3,
-    "scored_site_count": 3,
-    "mean_score": 15.0
-  },
-  {
-    "country": "HU",
-    "site_count": 3,
-    "scored_site_count": 3,
-    "mean_score": 15.0
+    "site_count": 8,
+    "scored_site_count": 7,
+    "mean_score": 13.21
   },
   {
     "country": "US",
     "site_count": 27,
     "scored_site_count": 21,
     "mean_score": 12.88
-  },
-  {
-    "country": "NA",
-    "site_count": 3,
-    "scored_site_count": 3,
-    "mean_score": 12.5
   },
   {
     "country": "PT",
@@ -100,6 +52,12 @@
     "site_count": 2,
     "scored_site_count": 2,
     "mean_score": 11.25
+  },
+  {
+    "country": "GT",
+    "site_count": 6,
+    "scored_site_count": 5,
+    "mean_score": 11.0
   },
   {
     "country": "AT",
@@ -132,6 +90,24 @@
     "mean_score": 9.17
   },
   {
+    "country": "LU",
+    "site_count": 7,
+    "scored_site_count": 6,
+    "mean_score": 8.12
+  },
+  {
+    "country": "NI",
+    "site_count": 7,
+    "scored_site_count": 4,
+    "mean_score": 6.25
+  },
+  {
+    "country": "SA",
+    "site_count": 7,
+    "scored_site_count": 5,
+    "mean_score": 6.25
+  },
+  {
     "country": "UY",
     "site_count": 1,
     "scored_site_count": 1,
@@ -144,6 +120,18 @@
     "mean_score": 5.92
   },
   {
+    "country": "HU",
+    "site_count": 10,
+    "scored_site_count": 10,
+    "mean_score": 5.78
+  },
+  {
+    "country": "CY",
+    "site_count": 7,
+    "scored_site_count": 5,
+    "mean_score": 5.0
+  },
+  {
     "country": "KH",
     "site_count": 4,
     "scored_site_count": 2,
@@ -154,6 +142,12 @@
     "site_count": 2,
     "scored_site_count": 2,
     "mean_score": 5.0
+  },
+  {
+    "country": "CR",
+    "site_count": 8,
+    "scored_site_count": 8,
+    "mean_score": 4.84
   },
   {
     "country": "KZ",
@@ -322,6 +316,12 @@
     "site_count": 5,
     "scored_site_count": 4,
     "mean_score": 0.62
+  },
+  {
+    "country": "NA",
+    "site_count": 9,
+    "scored_site_count": 5,
+    "mean_score": 0.5
   },
   {
     "country": "BR",
