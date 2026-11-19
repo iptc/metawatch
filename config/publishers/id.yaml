@@ -25,12 +25,133 @@ sites:
   homepage: https://www.thejakartapost.com/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: '2026-11-19: sitemap.xml returned 404; switched to the news sitemap declared in robots.txt (40 current articles).'
   active: true
   discovery:
     strategy: sitemap
     sitemap_urls:
-    - https://www.thejakartapost.com/sitemap.xml
+    - https://www.thejakartapost.com/sitemap_news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: kompas
+  name: Kompas.com
+  url: https://www.kompas.com/
+  homepage: https://www.kompas.com/
+  category: online
+  language_primary: id
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.kompas.com/sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: detik
+  name: Detik.com
+  url: https://www.detik.com/
+  homepage: https://www.detik.com/
+  category: online
+  language_primary: id
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://news.detik.com/sitemap_news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: cnn-indonesia
+  name: CNN Indonesia
+  url: https://www.cnnindonesia.com/
+  homepage: https://www.cnnindonesia.com/
+  category: broadcaster
+  language_primary: id
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.cnnindonesia.com/nasional/rss
+    - https://www.cnnindonesia.com/internasional/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: liputan6
+  name: Liputan6
+  url: https://www.liputan6.com/
+  homepage: https://www.liputan6.com/
+  category: online
+  language_primary: id
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://feed.liputan6.com/rss/news
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: jakarta-globe
+  name: Jakarta Globe
+  url: https://jakartaglobe.id/
+  homepage: https://jakartaglobe.id/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://jakartaglobe.id/sitemap/news/news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: kumparan
+  name: Kumparan
+  url: https://kumparan.com/
+  homepage: https://kumparan.com/
+  category: online
+  language_primary: id
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://kumparan.com/sitemap_channel_news.xml
     picture_sitemap_url: null
     rss_urls: []
     js_required: false

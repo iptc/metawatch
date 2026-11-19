@@ -63,3 +63,83 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: vrt-nws
+  name: VRT NWS
+  url: https://www.vrt.be/vrtnws/nl/
+  homepage: https://www.vrt.be/vrtnws/nl/
+  category: broadcaster
+  language_primary: nl
+  notes: 'Flemish public broadcaster'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.vrt.be/vrtnws/nl.news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: rtbf-info
+  name: RTBF Info
+  url: https://www.rtbf.be/info
+  homepage: https://www.rtbf.be/info
+  category: broadcaster
+  language_primary: fr
+  notes: 'French-language public broadcaster'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.rtbf.be/sitemaps/latest-news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: la-libre-be
+  name: La Libre Belgique
+  url: https://www.lalibre.be/
+  homepage: https://www.lalibre.be/
+  category: newspaper
+  language_primary: fr
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.lalibre.be/arc/outboundfeeds/sitemap-news/?outputType=xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: hln-be
+  name: Het Laatste Nieuws
+  url: https://www.hln.be/
+  homepage: https://www.hln.be/
+  category: newspaper
+  language_primary: nl
+  notes: '2026-11-19: homepage redirects to DPG Media consent page; news sitemap and article pages fetch fine.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.hln.be/sitemap-news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

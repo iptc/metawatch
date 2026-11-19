@@ -79,3 +79,83 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: gma-news
+  name: GMA News
+  url: https://www.gmanetwork.com/news/
+  homepage: https://www.gmanetwork.com/news/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://data.gmanetwork.com/gno/rss/news/feed.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: philippine-news-agency
+  name: Philippine News Agency
+  url: https://www.pna.gov.ph/
+  homepage: https://www.pna.gov.ph/
+  category: news-agency
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.pna.gov.ph/sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: businessworld-ph
+  name: BusinessWorld
+  url: https://bworldonline.com/
+  homepage: https://bworldonline.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://bworldonline.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: sunstar
+  name: SunStar
+  url: https://www.sunstar.com.ph/
+  homepage: https://www.sunstar.com.ph/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.sunstar.com.ph/news_sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

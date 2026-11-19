@@ -57,3 +57,101 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: digi24
+  name: Digi24
+  url: https://www.digi24.ro/
+  homepage: https://www.digi24.ro/
+  category: broadcaster
+  language_primary: ro
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.digi24.ro/rss_files/google_news.xml
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.digi24.ro/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: hotnews
+  name: HotNews.ro
+  url: https://hotnews.ro/
+  homepage: https://hotnews.ro/
+  category: online
+  language_primary: ro
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://hotnews.ro/sitemap-news.xml
+    picture_sitemap_url: null
+    rss_urls:
+    - https://hotnews.ro/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: libertatea
+  name: Libertatea
+  url: https://www.libertatea.ro/
+  homepage: https://www.libertatea.ro/
+  category: newspaper
+  language_primary: ro
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.libertatea.ro/sitemap-news.xml
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.libertatea.ro/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: agerpres
+  name: Agerpres
+  url: https://agerpres.ro/
+  homepage: https://agerpres.ro/
+  category: news-agency
+  language_primary: ro
+  notes: 'Placeholder 2026-11-19: no first-party RSS/sitemap found; /feed returns Cloudflare 522 and /rss redirects to a third-party proxy (allorigins/bazqux). Needs manual triage.'
+  suggested_by: claude
+  active: false
+  discovery:
+    strategy: homepage
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: g4media
+  name: G4Media
+  url: https://www.g4media.ro/
+  homepage: https://www.g4media.ro/
+  category: online
+  language_primary: ro
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.g4media.ro/sitemaps/news.xml
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.g4media.ro/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

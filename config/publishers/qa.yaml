@@ -6,9 +6,13 @@ sites:
   homepage: https://www.aljazeera.com/
   category: broadcaster
   language_primary: en
-  notes: ''
+  notes: 'DEACTIVATED 2026-11-19 (BQ decision): aljazeera.com/robots.txt comments prohibit text
+    and data mining and automated scraping without written permission from Al Jazeera
+    Media Network. Not crawled at their request. (Separately, RSS item links carry
+    ?traffic_source=rss, which robots.txt disallows; news-sitemap.xml would work if
+    permission is ever granted.)'
   suggested_by: BQ
-  active: true
+  active: false
   discovery:
     strategy: rss
     sitemap_urls: []
@@ -34,6 +38,108 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: al-jazeera-arabic
+  name: Al Jazeera Arabic
+  url: https://www.aljazeera.net/
+  homepage: https://www.aljazeera.net/
+  category: broadcaster
+  language_primary: ar
+  notes: 'DEACTIVATED 2026-11-19 (BQ decision): aljazeera.net/robots.txt comments prohibit text
+    and data mining and automated scraping without written permission from Al Jazeera
+    Media Network. Not crawled at their request.'
+  suggested_by: claude
+  active: false
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.aljazeera.net/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: the-peninsula-qa
+  name: The Peninsula
+  url: https://thepeninsulaqatar.com/
+  homepage: https://thepeninsulaqatar.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://thepeninsulaqatar.com/sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: gulf-times
+  name: Gulf Times
+  url: https://www.gulf-times.com/
+  homepage: https://www.gulf-times.com/
+  category: newspaper
+  language_primary: en
+  notes: 'DEACTIVATED placeholder (2026-11-19): homepage smoke-test found 0 candidates; newsSitemap.xml is stale (2026-05), monthly sitemaps list malformed doubled-host URLs, /rss is robots-disallowed.'
+  suggested_by: claude
+  active: false
+  discovery:
+    strategy: homepage
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: al-sharq-qa
+  name: Al Sharq
+  url: https://al-sharq.com/
+  homepage: https://al-sharq.com/
+  category: newspaper
+  language_primary: ar
+  notes: 'Local and Arab/international section feeds (no site-wide feed; sitemap index stale since 2025-05).'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://al-sharq.com/category/%D9%85%D8%AD%D9%84%D9%8A%D8%A7%D8%AA/feed
+    - https://al-sharq.com/category/%D8%B9%D8%B1%D8%A8%D9%8A-%D9%88%D8%AF%D9%88%D9%84%D9%8A/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: al-arab-qa
+  name: Al Arab (Qatar)
+  url: https://alarab.qa/
+  homepage: https://alarab.qa/
+  category: newspaper
+  language_primary: ar
+  notes: 'General and official news section feeds (sitemap index stale since 2024-02).'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://alarab.qa/category/%D8%A7%D9%84%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1-%D8%A7%D9%84%D8%B9%D8%A7%D9%85%D8%A9/feed
+    - https://alarab.qa/category/%D8%A7%D9%84%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1-%D8%A7%D9%84%D8%B1%D8%B3%D9%85%D9%8A%D8%A9/feed
     js_required: false
   sample:
     max_articles: 20

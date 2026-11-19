@@ -40,19 +40,19 @@ sites:
     window_days: 30
 - id: times-of-zambia
   name: Times of Zambia
-  url: https://www.times.co.zm/
-  homepage: https://www.times.co.zm/
+  url: https://times.co.zm/
+  homepage: https://times.co.zm/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: '2026-11-19: www.times.co.zm now redirects to times.co.zm and /feed/ returns no items; using the Yoast sitemap index (crawler walks newest post sitemap first).'
   suggested_by: BQ
   active: true
   discovery:
-    strategy: rss
-    sitemap_urls: []
+    strategy: sitemap
+    sitemap_urls:
+    - https://times.co.zm/sitemap_index.xml
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.times.co.zm/feed/
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
@@ -72,6 +72,63 @@ sites:
     picture_sitemap_url: null
     rss_urls:
     - https://www.mwebantu.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: lusaka-times
+  name: Lusaka Times
+  url: https://www.lusakatimes.com/
+  homepage: https://www.lusakatimes.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.lusakatimes.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: zambia-monitor
+  name: Zambia Monitor
+  url: https://www.zambiamonitor.com/
+  homepage: https://www.zambiamonitor.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.zambiamonitor.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: zambian-eye
+  name: Zambian Eye
+  url: https://zambianeye.com/
+  homepage: https://zambianeye.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://zambianeye.com/feed/
     js_required: false
   sample:
     max_articles: 20

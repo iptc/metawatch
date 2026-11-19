@@ -37,3 +37,79 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: le360
+  name: Le360
+  url: https://fr.le360.ma/
+  homepage: https://fr.le360.ma/
+  category: online
+  language_primary: fr
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://fr.le360.ma/arc/outboundfeeds/sitemap-news/
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: alyaoum24
+  name: Alyaoum24
+  url: https://alyaoum24.com/
+  homepage: https://alyaoum24.com/
+  category: online
+  language_primary: ar
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://alyaoum24.com/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: akhbarona
+  name: Akhbarona
+  url: https://www.akhbarona.com/
+  homepage: https://www.akhbarona.com/
+  category: online
+  language_primary: ar
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.akhbarona.com/sitemap-news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: telquel
+  name: TelQuel
+  url: https://telquel.ma/
+  homepage: https://telquel.ma/
+  category: magazine
+  language_primary: fr
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://telquel.ma/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

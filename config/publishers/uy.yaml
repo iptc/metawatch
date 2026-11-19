@@ -18,3 +18,140 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: la-diaria
+  name: la diaria
+  url: https://ladiaria.com.uy/
+  homepage: https://ladiaria.com.uy/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://ladiaria.com.uy/feeds/articulos/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: el-observador-uy
+  name: El Observador
+  url: https://www.elobservador.com.uy/
+  homepage: https://www.elobservador.com.uy/
+  category: newspaper
+  language_primary: es
+  notes: '2026-11-19: placeholder. Homepage and robots-listed sitemaps return 403 to the Metawatch UA locally, so discovery could not be verified; re-probe from CI.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: homepage
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: montevideo-portal
+  name: Montevideo Portal
+  url: https://www.montevideo.com.uy/
+  homepage: https://www.montevideo.com.uy/
+  category: online
+  language_primary: es
+  notes: '2026-11-19: placeholder. Homepage loads but no RSS link found and sitemap.xml returns 403 locally; re-probe from CI.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: homepage
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: subrayado
+  name: Subrayado (Canal 10)
+  url: https://www.subrayado.com.uy/
+  homepage: https://www.subrayado.com.uy/
+  category: broadcaster
+  language_primary: es
+  notes: '2026-11-19: placeholder. Homepage and robots-listed sitemaps return 403 to the Metawatch UA locally, so discovery could not be verified; re-probe from CI.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: homepage
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: teledoce
+  name: Telemundo (Teledoce)
+  url: https://www.teledoce.com/
+  homepage: https://www.teledoce.com/
+  category: broadcaster
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.teledoce.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: brecha
+  name: Brecha
+  url: https://brecha.com.uy/
+  homepage: https://brecha.com.uy/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://brecha.com.uy/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: sarandi-690
+  name: Radio Sarandí 690
+  url: https://www.sarandi690.com.uy/
+  homepage: https://www.sarandi690.com.uy/
+  category: broadcaster
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.sarandi690.com.uy/feed.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

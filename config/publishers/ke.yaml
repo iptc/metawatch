@@ -21,18 +21,112 @@ sites:
     window_days: 30
 - id: capital-fm-ke
   name: Capital FM (Kenya)
-  url: https://www.capitalfm.co.ke/
-  homepage: https://www.capitalfm.co.ke/
+  url: https://capitalfm.africa/
+  homepage: https://capitalfm.africa/
   category: broadcaster
   language_primary: en
+  notes: '2026-11-19: site moved from capitalfm.co.ke to capitalfm.africa (old host redirects). Old /news/feed/ dropped; using news-sitemap.xml (82 current articles).'
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://capitalfm.africa/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: nation-africa-ke
+  name: Daily Nation
+  url: https://nation.africa/kenya
+  homepage: https://nation.africa/kenya
+  category: newspaper
+  language_primary: en
   notes: ''
+  suggested_by: claude
   active: true
   discovery:
     strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.capitalfm.co.ke/news/feed/
+    - https://nation.africa/kenya/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: citizen-digital
+  name: Citizen Digital
+  url: https://citizen.digital/
+  homepage: https://citizen.digital/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.citizen.digital/feed.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: kbc-ke
+  name: Kenya Broadcasting Corporation (KBC)
+  url: https://www.kbc.co.ke/
+  homepage: https://www.kbc.co.ke/
+  category: broadcaster
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.kbc.co.ke/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: kenyans-co-ke
+  name: Kenyans.co.ke
+  url: https://www.kenyans.co.ke/
+  homepage: https://www.kenyans.co.ke/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.kenyans.co.ke/feeds/news
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-star-ke
+  name: The Star (Kenya)
+  url: https://www.the-star.co.ke/
+  homepage: https://www.the-star.co.ke/
+  category: newspaper
+  language_primary: en
+  notes: '2026-11-19: kept as placeholder. Next.js site with no RSS links; /sitemap.xml lists only 4 static pages; smoke-test found no articles.'
+  suggested_by: claude
+  active: false
+  discovery:
+    strategy: homepage
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

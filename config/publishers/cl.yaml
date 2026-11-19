@@ -19,6 +19,7 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
 - id: emol
   name: Emol
   url: https://www.emol.com/
@@ -42,6 +43,7 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
 - id: biobiochile
   name: BioBioChile
   url: https://www.biobiochile.cl/
@@ -61,6 +63,7 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
 - id: cooperativa-cl
   name: Cooperativa
   url: https://www.cooperativa.cl/
@@ -76,6 +79,66 @@ sites:
     picture_sitemap_url: null
     rss_urls:
     - https://www.cooperativa.cl/noticias/site/tax/port/all/rss_3___1.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: el-mostrador
+  name: El Mostrador
+  url: https://www.elmostrador.cl/
+  homepage: https://www.elmostrador.cl/
+  category: online
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.elmostrador.cl/sitemap_news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: 24horas-cl
+  name: 24 Horas (TVN)
+  url: https://www.24horas.cl/
+  homepage: https://www.24horas.cl/
+  category: broadcaster
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.24horas.cl/24horas/site/sitemap_pags.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: cnn-chile
+  name: CNN Chile
+  url: https://www.cnnchile.com/
+  homepage: https://www.cnnchile.com/
+  category: broadcaster
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.cnnchile.com/_files/sitemaps/sitemap_news.xml
+    picture_sitemap_url: null
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

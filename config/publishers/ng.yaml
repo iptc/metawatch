@@ -56,3 +56,98 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: vanguard-ng
+  name: Vanguard
+  url: https://www.vanguardngr.com/
+  homepage: https://www.vanguardngr.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.vanguardngr.com/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: daily-trust
+  name: Daily Trust
+  url: https://dailytrust.com/
+  homepage: https://dailytrust.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://dailytrust.com/feed/gn
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: daily-post-ng
+  name: Daily Post (Nigeria)
+  url: https://dailypost.ng/
+  homepage: https://dailypost.ng/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://dailypost.ng/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: nan-news
+  name: News Agency of Nigeria (NAN)
+  url: https://nannews.ng/
+  homepage: https://nannews.ng/
+  category: news-agency
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://nannews.ng/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: businessday-ng
+  name: BusinessDay (Nigeria)
+  url: https://businessday.ng/
+  homepage: https://businessday.ng/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://businessday.ng/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

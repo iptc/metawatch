@@ -59,3 +59,83 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: syria-tv
+  name: Syria TV
+  url: https://www.syria.tv/
+  homepage: https://www.syria.tv/
+  category: broadcaster
+  language_primary: ar
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.syria.tv/rss2
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: north-press-agency
+  name: North Press Agency
+  url: https://npasyria.com/
+  homepage: https://npasyria.com/
+  category: news-agency
+  language_primary: ar
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://npasyria.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: syrian-observer
+  name: The Syrian Observer
+  url: https://syrianobserver.com/
+  homepage: https://syrianobserver.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://syrianobserver.com/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: al-thawra-sy
+  name: Al-Thawra
+  url: https://thawra.sy/
+  homepage: https://thawra.sy/
+  category: newspaper
+  language_primary: ar
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://thawra.sy/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

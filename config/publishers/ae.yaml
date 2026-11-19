@@ -56,3 +56,103 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: wam
+  name: WAM (Emirates News Agency)
+  url: https://www.wam.ae/
+  homepage: https://www.wam.ae/
+  category: news-agency
+  language_primary: en
+  notes: 'State news agency.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.wam.ae/en/sitemap/news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: al-bayan
+  name: Al Bayan
+  url: https://www.albayan.ae/
+  homepage: https://www.albayan.ae/
+  category: newspaper
+  language_primary: ar
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.albayan.ae/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: emarat-al-youm
+  name: Emarat Al Youm
+  url: https://www.emaratalyoum.com/
+  homepage: https://www.emaratalyoum.com/
+  category: newspaper
+  language_primary: ar
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.emaratalyoum.com/news-sitemaps-1.368006?ot=ot.AjaxPageLayout
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: al-ittihad
+  name: Al Ittihad
+  url: https://www.aletihad.ae/
+  homepage: https://www.aletihad.ae/
+  category: newspaper
+  language_primary: ar
+  notes: 'News sitemap is hosted on the publisher''s Azure blob storage (listed in robots.txt).'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://saadmedia365aznc.blob.core.windows.net/media/sitemap/news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: sky-news-arabia
+  name: Sky News Arabia
+  url: https://www.skynewsarabia.com/
+  homepage: https://www.skynewsarabia.com/
+  category: broadcaster
+  language_primary: ar
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.skynewsarabia.com/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

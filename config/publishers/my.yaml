@@ -37,3 +37,103 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: malaysiakini
+  name: Malaysiakini
+  url: https://www.malaysiakini.com/
+  homepage: https://www.malaysiakini.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.malaysiakini.com/en/rss/news.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: new-straits-times
+  name: New Straits Times
+  url: https://www.nst.com.my/
+  homepage: https://www.nst.com.my/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.nst.com.my/sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: malay-mail
+  name: Malay Mail
+  url: https://www.malaymail.com/
+  homepage: https://www.malaymail.com/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.malaymail.com/sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: bernama
+  name: Bernama
+  url: https://www.bernama.com/
+  homepage: https://www.bernama.com/
+  category: news-agency
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.bernama.com/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: utusan-malaysia
+  name: Utusan Malaysia
+  url: https://www.utusan.com.my/
+  homepage: https://www.utusan.com.my/
+  category: newspaper
+  language_primary: ms
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.utusan.com.my/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

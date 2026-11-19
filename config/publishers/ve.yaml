@@ -62,6 +62,7 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
 - id: la-patilla
   name: La Patilla
   url: https://www.lapatilla.com/
@@ -77,6 +78,86 @@ sites:
     picture_sitemap_url: null
     rss_urls:
     - https://lapatilla.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: el-pitazo
+  name: El Pitazo
+  url: https://elpitazo.net/
+  homepage: https://elpitazo.net/
+  category: online
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://elpitazo.net/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: tal-cual
+  name: Tal Cual
+  url: https://talcualdigital.com/
+  homepage: https://talcualdigital.com/
+  category: online
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://talcualdigital.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: el-carabobeno
+  name: El Carabobeño
+  url: https://www.el-carabobeno.com/
+  homepage: https://www.el-carabobeno.com/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.el-carabobeno.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: runrunes
+  name: Runrunes
+  url: https://runrun.es/
+  homepage: https://runrun.es/
+  category: online
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://runrun.es/feed/
     js_required: false
   sample:
     max_articles: 20

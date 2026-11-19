@@ -76,3 +76,98 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: delo
+  name: Delo
+  url: https://www.delo.si/
+  homepage: https://www.delo.si/
+  category: newspaper
+  language_primary: sl
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.delo.si/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: dnevnik-si
+  name: Dnevnik (Slovenia)
+  url: https://www.dnevnik.si/
+  homepage: https://www.dnevnik.si/
+  category: newspaper
+  language_primary: sl
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.dnevnik.si/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: vecer
+  name: Večer
+  url: https://vecer.com/
+  homepage: https://vecer.com/
+  category: newspaper
+  language_primary: sl
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://vecer.com/feed/allarticles
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: n1-si
+  name: N1 Slovenija
+  url: https://n1info.si/
+  homepage: https://n1info.si/
+  category: online
+  language_primary: sl
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://n1info.si/sitemap/sitemap_news_1.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: zurnal24
+  name: Žurnal24
+  url: https://www.zurnal24.si/
+  homepage: https://www.zurnal24.si/
+  category: online
+  language_primary: sl
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.zurnal24.si/feeds/latest
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

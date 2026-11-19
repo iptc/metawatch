@@ -18,3 +18,143 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: irna-en
+  name: IRNA (Islamic Republic News Agency, English)
+  url: https://en.irna.ir/
+  homepage: https://en.irna.ir/
+  category: news-agency
+  language_primary: en
+  notes: 'State news agency.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://en.irna.ir/sitemap/news/sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: irna
+  name: IRNA (Islamic Republic News Agency)
+  url: https://www.irna.ir/
+  homepage: https://www.irna.ir/
+  category: news-agency
+  language_primary: fa
+  notes: 'State news agency.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.irna.ir/sitemap/news/sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: mehr-news-en
+  name: Mehr News Agency (English)
+  url: https://en.mehrnews.com/
+  homepage: https://en.mehrnews.com/
+  category: news-agency
+  language_primary: en
+  notes: 'State-affiliated news agency.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://en.mehrnews.com/sitemap/news/sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: isna
+  name: ISNA (Iranian Students News Agency)
+  url: https://www.isna.ir/
+  homepage: https://www.isna.ir/
+  category: news-agency
+  language_primary: fa
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.isna.ir/sitemap/news/sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: hamshahri
+  name: Hamshahri Online
+  url: https://www.hamshahrionline.ir/
+  homepage: https://www.hamshahrionline.ir/
+  category: newspaper
+  language_primary: fa
+  notes: 'Tehran municipality daily.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.hamshahrionline.ir/sitemap/news/sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: iran-international
+  name: Iran International
+  url: https://www.iranintl.com/
+  homepage: https://www.iranintl.com/
+  category: broadcaster
+  language_primary: fa
+  notes: 'Diaspora/exile outlet, London-based.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.iranintl.com/sitemap-news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: radio-farda
+  name: Radio Farda
+  url: https://www.radiofarda.com/
+  homepage: https://www.radiofarda.com/
+  category: broadcaster
+  language_primary: fa
+  notes: 'Diaspora/exile outlet, RFE/RL Persian service, Prague-based.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.radiofarda.com/api/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

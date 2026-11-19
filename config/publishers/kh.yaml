@@ -89,3 +89,83 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: kampuchea-thmey
+  name: Kampuchea Thmey Daily
+  url: https://www.kampucheathmey.com/
+  homepage: https://www.kampucheathmey.com/
+  category: newspaper
+  language_primary: km
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.kampucheathmey.com/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: thmey-thmey
+  name: Thmey Thmey
+  url: https://thmeythmey.com/
+  homepage: https://thmeythmey.com/
+  category: online
+  language_primary: km
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://thmeythmey.com/sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: post-khmer
+  name: Post Khmer
+  url: https://postkhmer.com/
+  homepage: https://postkhmer.com/
+  category: newspaper
+  language_primary: km
+  notes: 'Khmer-language sister title of The Phnom Penh Post (same group); feed reachable 2026-11-19 while phnompenhpost.com is WAF-blocked.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://postkhmer.com/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: koh-santepheap
+  name: Koh Santepheap Daily
+  url: https://kohsantepheapdaily.com.kh/
+  homepage: https://kohsantepheapdaily.com.kh/
+  category: newspaper
+  language_primary: km
+  notes: '2026-11-19: WordPress feed currently exposes only 1 item; low yield per run.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://kohsantepheapdaily.com.kh/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

@@ -19,6 +19,7 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
 - id: el-debate
   name: El Debate
   url: https://www.debate.com.mx/
@@ -37,6 +38,7 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
 - id: el-sol-de-mexico
   name: El Sol de Mexico
   url: https://oem.com.mx/elsoldemexico/
@@ -56,6 +58,7 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
 - id: el-universal-english
   name: El Universal (English)
   url: https://www.eluniversal.com.mx/english
@@ -75,6 +78,7 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
 - id: el-universal-spanish
   name: El Universal (Spanish)
   url: https://www.eluniversal.com.mx/
@@ -94,6 +98,7 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
 - id: soptas
   name: Soptas
   url: https://www.sopitas.com/
@@ -109,6 +114,166 @@ sites:
     picture_sitemap_url: null
     rss_urls:
     - https://www.sopitas.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: milenio
+  name: Milenio
+  url: https://www.milenio.com/
+  homepage: https://www.milenio.com/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.milenio.com/sitemap/sitemap-google-news-index.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: excelsior
+  name: Excélsior
+  url: https://www.excelsior.com.mx/
+  homepage: https://www.excelsior.com.mx/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.excelsior.com.mx/sitemap-google-news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: proceso-mx
+  name: Proceso
+  url: https://www.proceso.com.mx/
+  homepage: https://www.proceso.com.mx/
+  category: magazine
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.proceso.com.mx/sitemap-news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: el-financiero-mx
+  name: El Financiero
+  url: https://www.elfinanciero.com.mx/
+  homepage: https://www.elfinanciero.com.mx/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.elfinanciero.com.mx/arc/outboundfeeds/google-news-feed/?outputType=xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: la-jornada
+  name: La Jornada
+  url: https://www.jornada.com.mx/
+  homepage: https://www.jornada.com.mx/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.jornada.com.mx/services/feeds/rss/todas
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: animal-politico
+  name: Animal Político
+  url: https://grupoanimal.mx/noticias
+  homepage: https://grupoanimal.mx/noticias
+  category: online
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://grupoanimal.mx/sitemap-news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: el-economista-mx
+  name: El Economista
+  url: https://www.eleconomista.com.mx/
+  homepage: https://www.eleconomista.com.mx/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.eleconomista.com.mx/sitemap-google-news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: aristegui-noticias
+  name: Aristegui Noticias
+  url: https://aristeguinoticias.com/
+  homepage: https://aristeguinoticias.com/
+  category: online
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://editorial.aristeguinoticias.com/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

@@ -59,3 +59,79 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: mwananchi
+  name: Mwananchi
+  url: https://www.mwananchi.co.tz/
+  homepage: https://www.mwananchi.co.tz/
+  category: newspaper
+  language_primary: sw
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.mwananchi.co.tz/sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: global-publishers-tz
+  name: Global Publishers
+  url: https://globalpublishers.co.tz/
+  homepage: https://globalpublishers.co.tz/
+  category: online
+  language_primary: sw
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://globalpublishers.co.tz/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: the-chanzo
+  name: The Chanzo
+  url: https://thechanzo.com/
+  homepage: https://thechanzo.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://thechanzo.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: jamhuri-tz
+  name: Jamhuri
+  url: https://www.jamhurimedia.co.tz/
+  homepage: https://www.jamhurimedia.co.tz/
+  category: newspaper
+  language_primary: sw
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.jamhurimedia.co.tz/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

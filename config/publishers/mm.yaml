@@ -62,3 +62,63 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: global-new-light-of-myanmar
+  name: The Global New Light of Myanmar
+  url: https://www.gnlm.com.mm/
+  homepage: https://www.gnlm.com.mm/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.gnlm.com.mm/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: irrawaddy-burmese
+  name: The Irrawaddy (Burmese)
+  url: https://burma.irrawaddy.com/
+  homepage: https://burma.irrawaddy.com/
+  category: online
+  language_primary: my
+  notes: 'Burmese-language edition of The Irrawaddy (exile media); the English entry the-irrawaddy is inactive.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://burma.irrawaddy.com/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: dvb-burmese
+  name: DVB (Burmese)
+  url: https://burmese.dvb.no/
+  homepage: https://burmese.dvb.no/
+  category: broadcaster
+  language_primary: my
+  notes: 'Burmese-language edition of DVB (exile media); separate from dvb-english.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://burmese.dvb.no/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

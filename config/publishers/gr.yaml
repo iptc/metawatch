@@ -58,3 +58,103 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: ertnews-gr
+  name: ERT News
+  url: https://www.ertnews.gr/
+  homepage: https://www.ertnews.gr/
+  category: broadcaster
+  language_primary: el
+  notes: 'Public broadcaster'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.ertnews.gr/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: protothema-gr
+  name: Πρώτο Θέμα
+  url: https://www.protothema.gr/
+  homepage: https://www.protothema.gr/
+  category: newspaper
+  language_primary: el
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.protothema.gr/sitemap/NewsArticles/sitemap_index.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: iefimerida-gr
+  name: iefimerida
+  url: https://www.iefimerida.gr/
+  homepage: https://www.iefimerida.gr/
+  category: online
+  language_primary: el
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.iefimerida.gr/rss.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: efsyn-gr
+  name: Εφημερίδα των Συντακτών
+  url: https://www.efsyn.gr/
+  homepage: https://www.efsyn.gr/
+  category: newspaper
+  language_primary: el
+  notes: '2026-11-19: Yoast sitemap index puts author/category sitemaps first; using homepage-linked RSS.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.efsyn.gr/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: naftemporiki-gr
+  name: Ναυτεμπορική
+  url: https://www.naftemporiki.gr/
+  homepage: https://www.naftemporiki.gr/
+  category: newspaper
+  language_primary: el
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.naftemporiki.gr/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

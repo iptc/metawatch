@@ -57,3 +57,79 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+- id: youm7
+  name: Youm7 (Al-Youm Al-Sabea)
+  url: https://www.youm7.com/
+  homepage: https://www.youm7.com/
+  category: newspaper
+  language_primary: ar
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.youm7.com/sitemap/SitemapNews
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: ahram-online
+  name: Ahram Online
+  url: https://english.ahram.org.eg/
+  homepage: https://english.ahram.org.eg/
+  category: newspaper
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://english.ahram.org.eg/ui/front/sitemapindex.aspx
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: egypt-independent
+  name: Egypt Independent
+  url: https://www.egyptindependent.com/
+  homepage: https://www.egyptindependent.com/
+  category: online
+  language_primary: en
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.egyptindependent.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+- id: el-watan-news-eg
+  name: El Watan News
+  url: https://www.elwatannews.com/
+  homepage: https://www.elwatannews.com/
+  category: newspaper
+  language_primary: ar
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.elwatannews.com/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
