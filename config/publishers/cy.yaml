@@ -57,3 +57,82 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: in-cyprus
+  name: In-Cyprus
+  url: https://en.philenews.com/
+  homepage: https://en.philenews.com/
+  category: online
+  language_primary: en
+  notes: 'Part of Phileleftheros media group. 2026-11-18 probe: in-cyprus.philenews.com now redirects to en.philenews.com (Philenews English).'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls:
+    - https://en.philenews.com/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls:
+    - https://en.philenews.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: kathimerini-cy
+  name: Kathimerini Cyprus
+  url: https://www.kathimerini.com.cy/
+  homepage: https://www.kathimerini.com.cy/
+  category: newspaper
+  language_primary: el
+  notes: '2026-11-18 probe: no RSS link on homepage; robots.txt sitemap line is commented out; common sitemap paths absent.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: homepage
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: sigma-live
+  name: Sigma Live
+  url: https://www.sigmalive.com/
+  homepage: https://www.sigmalive.com/
+  category: broadcaster
+  language_primary: el
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.sigmalive.com/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: cna-cy
+  name: Cyprus News Agency
+  url: https://www.cna.org.cy/
+  homepage: https://www.cna.org.cy/
+  category: news-agency
+  language_primary: el
+  notes: 'EANA member. Homepage returns 403 locally but 200 from the GitHub runner (debug-fetch, 2026-11-19); left as homepage so the crawler discovers feeds from CI.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: homepage
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

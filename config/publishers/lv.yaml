@@ -57,3 +57,103 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: delfi-lv
+  name: Delfi.lv
+  url: https://www.delfi.lv/
+  homepage: https://www.delfi.lv/
+  category: online
+  language_primary: lv
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.delfi.lv/delfi/sitemap/index.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: tvnet-lv
+  name: TVNET
+  url: https://www.tvnet.lv/
+  homepage: https://www.tvnet.lv/
+  category: online
+  language_primary: lv
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.tvnet.lv/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: lsm-lv
+  name: LSM.lv
+  url: https://www.lsm.lv/
+  homepage: https://www.lsm.lv/
+  category: broadcaster
+  language_primary: lv
+  notes: 'Latvian public broadcaster news portal.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.lsm.lv/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: latvijas-avize
+  name: Latvijas Avīze
+  url: https://www.la.lv/
+  homepage: https://www.la.lv/
+  category: newspaper
+  language_primary: lv
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.la.lv/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: apollo-lv
+  name: Apollo.lv
+  url: https://www.apollo.lv/
+  homepage: https://www.apollo.lv/
+  category: online
+  language_primary: lv
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.apollo.lv/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

@@ -39,3 +39,82 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: soy502
+  name: Soy502
+  url: https://www.soy502.com/
+  homepage: https://www.soy502.com/
+  category: online
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.soy502.com/sitemaps/googlenews.php
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: publinews-gt
+  name: Publinews Guatemala
+  url: https://www.publinews.gt/
+  homepage: https://www.publinews.gt/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.publinews.gt/arc/outboundfeeds/sitemap-index/?outputType=xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: dca-gt
+  name: Diario de Centro América
+  url: https://dca.gob.gt/
+  homepage: https://dca.gob.gt/
+  category: newspaper
+  language_primary: es
+  notes: 'Official government newspaper.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://dca.gob.gt/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: agn-gt
+  name: Agencia Guatemalteca de Noticias
+  url: https://agn.gt/
+  homepage: https://agn.gt/
+  category: news-agency
+  language_primary: es
+  notes: 'State news agency. 2026-11-18 probe: no RSS; sitemap.xml lists section pages only, not articles.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: homepage
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

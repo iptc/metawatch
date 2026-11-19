@@ -57,3 +57,143 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: telex-hu
+  name: Telex
+  url: https://telex.hu/
+  homepage: https://telex.hu/
+  category: online
+  language_primary: hu
+  notes: 'Independent, leading online news.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://telex.hu/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: index-hu
+  name: Index.hu
+  url: https://index.hu/
+  homepage: https://index.hu/
+  category: online
+  language_primary: hu
+  notes: 'Pro-government alignment after 2020.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://index.hu/24ora/rss/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: huszonnegy-hu
+  name: 24.hu
+  url: https://24.hu/
+  homepage: https://24.hu/
+  category: online
+  language_primary: hu
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://24.hu/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: hvg-hu
+  name: HVG
+  url: https://hvg.hu/
+  homepage: https://hvg.hu/
+  category: magazine
+  language_primary: hu
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://hvg.hu/rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: negyszaznegyvennegy
+  name: 444.hu
+  url: https://444.hu/
+  homepage: https://444.hu/
+  category: online
+  language_primary: hu
+  notes: 'Independent, investigative.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://444.hu/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: origo-hu
+  name: Origo
+  url: https://www.origo.hu/
+  homepage: https://www.origo.hu/
+  category: online
+  language_primary: hu
+  notes: 'Pro-government alignment.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.origo.hu/contentpartner/rss/origoall/origo.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: rtl-hu
+  name: RTL Hírek
+  url: https://rtl.hu/
+  homepage: https://rtl.hu/
+  category: broadcaster
+  language_primary: hu
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://rtl.hu/sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

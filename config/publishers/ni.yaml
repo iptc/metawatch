@@ -39,3 +39,102 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: la-prensa-ni
+  name: La Prensa (Nicaragua)
+  url: https://www.laprensani.com/
+  homepage: https://www.laprensani.com/
+  category: newspaper
+  language_primary: es
+  notes: 'Operating in exile.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.laprensani.com/sitemaps/news-sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: cien-noticias
+  name: 100% Noticias
+  url: https://100noticias.tv/
+  homepage: https://100noticias.tv/
+  category: online
+  language_primary: es
+  notes: 'Operating in exile. Moved from 100noticias.com.ni (no longer resolves) to 100noticias.tv (found by BQ, 2026-11-19). /feed/ is 404; news sitemap verified.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://100noticias.tv/sitemap_news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: articulo-66
+  name: Artículo 66
+  url: https://www.articulo66.com/
+  homepage: https://www.articulo66.com/
+  category: online
+  language_primary: es
+  notes: 'Sitemap found by BQ (2026-11-19). Cloudflare returns 403 to the crawler UA both locally and from the GitHub runner (debug-fetch), so expect blocked results.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.articulo66.com/post-sitemap1.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: el-19-digital
+  name: El 19 Digital
+  url: https://www.el19digital.com/
+  homepage: https://www.el19digital.com/
+  category: online
+  language_primary: es
+  notes: 'Pro-government (FSLN-aligned). 2026-11-18 probe: no RSS; sitemap.xml lists only the homepage.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: homepage
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: canal-10-ni
+  name: Canal 10 (Nicaragua)
+  url: https://canal10.com.ni/
+  homepage: https://canal10.com.ni/
+  category: broadcaster
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.canal10.com.ni/sitemap-news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

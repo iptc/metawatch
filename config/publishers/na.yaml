@@ -59,3 +59,124 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: new-era-na
+  name: New Era
+  url: https://neweralive.na/
+  homepage: https://neweralive.na/
+  category: newspaper
+  language_primary: en
+  notes: 'State-owned.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://neweralive.na/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: namibian-sun
+  name: Namibian Sun
+  url: https://www.namibiansun.com/
+  homepage: https://www.namibiansun.com/
+  category: newspaper
+  language_primary: en
+  notes: 'NMH. 2026-11-18 probe: feeds from the /rss index page (137 = local-news, 147 = short-news).'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.namibiansun.com/rssFeed/137
+    - https://www.namibiansun.com/rssFeed/147
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: die-republikein
+  name: Die Republikein
+  url: https://www.republikein.com.na/
+  homepage: https://www.republikein.com.na/
+  category: newspaper
+  language_primary: af
+  notes: 'Afrikaans, NMH. No site-wide feed exists (checked /rss index, 2026-11-19). Using the most active news sections: 163 = landbou (~33 items/30d), fallback 177 = regering (~11 items/30d). 167 = rubrieke is busier but columns/devotionals.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.republikein.com.na/rssFeed/163
+    - https://www.republikein.com.na/rssFeed/177
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: allgemeine-zeitung-na
+  name: Allgemeine Zeitung
+  url: https://www.az.com.na/
+  homepage: https://www.az.com.na/
+  category: newspaper
+  language_primary: de
+  notes: 'German-language, NMH. ROBOTS-DISALLOWED: az.com.na/robots.txt is `User-agent: * / Disallow: /`, so the crawler will record robots_disallow. Feeds from the /rss index page (2026-11-18 probe; 75 = lokales).'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.az.com.na/rssFeed/75
+    - https://www.az.com.na/rssFeed/1
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: confidente-na
+  name: Confidente
+  url: http://www.confidentenamibia.com/
+  homepage: http://www.confidentenamibia.com/
+  category: newspaper
+  language_primary: en
+  notes: 'Moved from confidente.com.na (no longer resolves) to confidentenamibia.com (found by BQ, 2026-11-19). Very slow: timed out locally (45s) and from the GitHub runner (15s); discovery unverified.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: homepage
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: nampa
+  name: NAMPA
+  url: https://www.nampa.org/
+  homepage: https://www.nampa.org/
+  category: news-agency
+  language_primary: en
+  notes: 'State news agency; kept for coverage although no feed or sitemap exists. 2026-11-19: no RSS link, no sitemap, robots.txt declares none.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: homepage
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

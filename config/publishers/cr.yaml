@@ -57,3 +57,104 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: la-republica-cr
+  name: La República (Costa Rica)
+  url: https://www.larepublica.net/
+  homepage: https://www.larepublica.net/
+  category: newspaper
+  language_primary: es
+  notes: 'Business-focused.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls:
+    - https://www.larepublica.net/sitemap_news.xml
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.larepublica.net/feeds/feed.rss
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: diario-extra-cr
+  name: Diario Extra
+  url: https://www.diarioextra.com/
+  homepage: https://www.diarioextra.com/
+  category: newspaper
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.diarioextra.com/sitemap-news.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: observador-cr
+  name: El Observador CR
+  url: https://observador.cr/
+  homepage: https://observador.cr/
+  category: online
+  language_primary: es
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://observador.cr/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: semanario-universidad
+  name: Semanario Universidad
+  url: https://semanariouniversidad.com/
+  homepage: https://semanariouniversidad.com/
+  category: newspaper
+  language_primary: es
+  notes: 'Weekly, University of Costa Rica.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://semanariouniversidad.com/feed/
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: teletica
+  name: Teletica
+  url: https://www.teletica.com/
+  homepage: https://www.teletica.com/
+  category: broadcaster
+  language_primary: es
+  notes: 'Feed /rss/feed/noticias found by BQ, verified 2026-11-19 (120 items). /rss returns an empty feed; /sitemaps/master lists section pages only.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.teletica.com/rss/feed/noticias
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30

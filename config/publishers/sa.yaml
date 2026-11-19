@@ -38,3 +38,102 @@ sites:
   sample:
     max_articles: 20
     window_days: 30
+
+- id: al-arabiya
+  name: Al Arabiya
+  url: https://www.alarabiya.net/
+  homepage: https://www.alarabiya.net/
+  category: broadcaster
+  language_primary: ar
+  notes: 'Pan-Arab; Saudi-owned, Dubai-based. Feed found by BQ (2026-11-19). Returns 403 to the crawler UA both locally and from the GitHub runner (debug-fetch), so expect blocked results.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.alarabiya.net/feed/rss2/ar.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: okaz
+  name: Okaz
+  url: https://www.okaz.com.sa/
+  homepage: https://www.okaz.com.sa/
+  category: newspaper
+  language_primary: ar
+  notes: ''
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.okaz.com.sa/sitemaps/news_sitemap.xml
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: al-riyadh
+  name: Al Riyadh
+  url: https://www.alriyadh.com/
+  homepage: https://www.alriyadh.com/
+  category: newspaper
+  language_primary: ar
+  notes: 'Feed found by BQ (2026-11-19). TLS fails (server sends an incomplete certificate chain) from both local and the GitHub runner, so expect unreachable results until fixed upstream.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://www.alriyadh.com/section.main.xml
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: asharq-al-awsat
+  name: Asharq Al-Awsat
+  url: https://aawsat.com/
+  homepage: https://aawsat.com/
+  category: newspaper
+  language_primary: ar
+  notes: 'Pan-Arab; SRMG-owned.'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: rss
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls:
+    - https://aawsat.com/feed
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
+
+- id: al-ekhbariya
+  name: Al Ekhbariya
+  url: https://www.alekhbariya.net/
+  homepage: https://www.alekhbariya.net/
+  category: broadcaster
+  language_primary: ar
+  notes: 'State-run broadcaster. 2026-11-18 probe: no RSS; sitemap.xml lists only 4 section pages (2021).'
+  suggested_by: claude
+  active: true
+  discovery:
+    strategy: homepage
+    sitemap_urls: []
+    picture_sitemap_url: null
+    rss_urls: []
+    js_required: false
+  sample:
+    max_articles: 20
+    window_days: 30
