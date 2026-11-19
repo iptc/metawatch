@@ -82,13 +82,13 @@
   {
     "run_id": "2026-11-01T021436Z",
     "started_at": "2026-11-01T02:14:36.345235+00:00",
-    "site_count": 476,
-    "image_count": 7330,
-    "mean_score": 5.12,
+    "site_count": 477,
+    "image_count": 7350,
+    "mean_score": 5.1,
     "images_with_iptc": 725,
     "pct_with_iptc": 9.9,
     "images_with_c2pa": 40,
-    "pct_with_c2pa": 0.547,
+    "pct_with_c2pa": 0.545,
     "c2pa_outcomes": {
       "valid": 30,
       "expired": 1,

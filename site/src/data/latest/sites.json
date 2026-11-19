@@ -10324,24 +10324,6 @@
     }
   },
   {
-    "site_id": "le-quotidien",
-    "site_name": "Le Quotidien",
-    "url": "http://www.lequotidien.lu/",
-    "country": "LU",
-    "category": "newspaper",
-    "status": "no_feed_found",
-    "block_phase": null,
-    "block_vendor": null,
-    "block_http_codes": {},
-    "discovery_strategy": "fallback_needed",
-    "sitemap_url_used": null,
-    "articles_sampled": 0,
-    "images_analysed": 0,
-    "mean_iptc_score": 0.0,
-    "pct_with_iptc": 0.0,
-    "cdn_breakdown": {}
-  },
-  {
     "site_id": "negyszaznegyvennegy",
     "site_name": "444.hu",
     "url": "https://444.hu/",
@@ -10961,6 +10943,26 @@
     "pct_with_iptc": 0.0,
     "cdn_breakdown": {
       "cloudflare": 12
+    }
+  },
+  {
+    "site_id": "le-quotidien",
+    "site_name": "Le Quotidien",
+    "url": "http://www.lequotidien.lu/",
+    "country": "LU",
+    "category": "newspaper",
+    "status": "ok",
+    "block_phase": null,
+    "block_vendor": null,
+    "block_http_codes": {},
+    "discovery_strategy": "config:sitemap",
+    "sitemap_url_used": "https://www.lequotidien.lu/sitemap.xml",
+    "articles_sampled": 20,
+    "images_analysed": 20,
+    "mean_iptc_score": 0.0,
+    "pct_with_iptc": 0.0,
+    "cdn_breakdown": {
+      "cloudfront": 20
     }
   }
 ]

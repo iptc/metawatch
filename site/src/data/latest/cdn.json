@@ -4,7 +4,7 @@
     "none": 1772,
     "akamai": 1222,
     "fastly": 749,
-    "cloudfront": 993,
+    "cloudfront": 1013,
     "bunny": 32
   },
   "by_provider": [
@@ -28,9 +28,9 @@
     },
     {
       "provider": "cloudfront",
-      "images": 993,
-      "stripped": 866,
-      "pct_stripped": 87.2
+      "images": 1013,
+      "stripped": 886,
+      "pct_stripped": 87.5
     },
     {
       "provider": "fastly",

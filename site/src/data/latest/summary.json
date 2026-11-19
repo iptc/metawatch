@@ -3,13 +3,13 @@
   "started_at": "2026-11-01T02:14:36.345235+00:00",
   "ended_at": "2026-11-01T03:23:50.800993+00:00",
   "site_count_attempted": 554,
-  "site_count_succeeded": 476,
+  "site_count_succeeded": 477,
   "site_count_robots_blocked": 18,
-  "article_count": 8072,
-  "image_count": 7330,
-  "global_mean_score": 5.12,
+  "article_count": 8092,
+  "image_count": 7350,
+  "global_mean_score": 5.1,
   "images_with_iptc": 725,
   "images_with_c2pa": 40,
   "pct_with_iptc": 9.9,
-  "pct_with_c2pa": 0.55
+  "pct_with_c2pa": 0.54
 }
