@@ -69,10 +69,11 @@ sites:
   active: true
   discovery:
     strategy: rss
-    sitemap_urls: []
+    sitemap_urls:
+    - https://www.larepublica.net/sitemap_news.xml
     picture_sitemap_url: null
     rss_urls:
-    - https://www.larepublica.net/rss
+    - https://www.larepublica.net/feeds/feed.rss
     js_required: false
   sample:
     max_articles: 20
@@ -88,8 +89,9 @@ sites:
   suggested_by: claude
   active: true
   discovery:
-    strategy: homepage
-    sitemap_urls: []
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.diarioextra.com/sitemap-news.xml
     picture_sitemap_url: null
     rss_urls: []
     js_required: false
@@ -143,7 +145,7 @@ sites:
   homepage: https://www.teletica.com/
   category: broadcaster
   language_primary: es
-  notes: ''
+  notes: 'Feed /rss/feed/noticias found by BQ, verified 2026-11-19 (120 items). /rss returns an empty feed; /sitemaps/master lists section pages only.'
   suggested_by: claude
   active: true
   discovery:
@@ -151,7 +153,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.teletica.com/rss
+    - https://www.teletica.com/rss/feed/noticias
     js_required: false
   sample:
     max_articles: 20

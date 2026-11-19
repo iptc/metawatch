@@ -188,8 +188,9 @@ sites:
   suggested_by: claude
   active: true
   discovery:
-    strategy: homepage
-    sitemap_urls: []
+    strategy: sitemap
+    sitemap_urls:
+    - https://rtl.hu/sitemap.xml
     picture_sitemap_url: null
     rss_urls: []
     js_required: false

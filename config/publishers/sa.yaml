@@ -45,7 +45,7 @@ sites:
   homepage: https://www.alarabiya.net/
   category: broadcaster
   language_primary: ar
-  notes: 'Pan-Arab; Saudi-owned, Dubai-based.'
+  notes: 'Pan-Arab; Saudi-owned, Dubai-based. Feed found by BQ (2026-11-19). Returns 403 to the crawler UA both locally and from the GitHub runner (debug-fetch), so expect blocked results.'
   suggested_by: claude
   active: true
   discovery:
@@ -53,7 +53,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.alarabiya.net/.mrss/ar.xml
+    - https://www.alarabiya.net/feed/rss2/ar.xml
     js_required: false
   sample:
     max_articles: 20
@@ -69,11 +69,11 @@ sites:
   suggested_by: claude
   active: true
   discovery:
-    strategy: rss
-    sitemap_urls: []
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.okaz.com.sa/sitemaps/news_sitemap.xml
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.okaz.com.sa/rss.xml
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
@@ -85,7 +85,7 @@ sites:
   homepage: https://www.alriyadh.com/
   category: newspaper
   language_primary: ar
-  notes: ''
+  notes: 'Feed found by BQ (2026-11-19). TLS fails (server sends an incomplete certificate chain) from both local and the GitHub runner, so expect unreachable results until fixed upstream.'
   suggested_by: claude
   active: true
   discovery:
@@ -93,7 +93,7 @@ sites:
     sitemap_urls: []
     picture_sitemap_url: null
     rss_urls:
-    - https://www.alriyadh.com/rss.xml
+    - https://www.alriyadh.com/section.main.xml
     js_required: false
   sample:
     max_articles: 20
@@ -125,7 +125,7 @@ sites:
   homepage: https://www.alekhbariya.net/
   category: broadcaster
   language_primary: ar
-  notes: 'State-run broadcaster.'
+  notes: 'State-run broadcaster. 2026-11-18 probe: no RSS; sitemap.xml lists only 4 section pages (2021).'
   suggested_by: claude
   active: true
   discovery:

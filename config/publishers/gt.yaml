@@ -50,11 +50,11 @@ sites:
   suggested_by: claude
   active: true
   discovery:
-    strategy: rss
-    sitemap_urls: []
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.soy502.com/sitemaps/googlenews.php
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.soy502.com/rss.xml
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
@@ -70,8 +70,9 @@ sites:
   suggested_by: claude
   active: true
   discovery:
-    strategy: homepage
-    sitemap_urls: []
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.publinews.gt/arc/outboundfeeds/sitemap-index/?outputType=xml
     picture_sitemap_url: null
     rss_urls: []
     js_required: false
@@ -89,10 +90,11 @@ sites:
   suggested_by: claude
   active: true
   discovery:
-    strategy: homepage
+    strategy: rss
     sitemap_urls: []
     picture_sitemap_url: null
-    rss_urls: []
+    rss_urls:
+    - https://dca.gob.gt/feed/
     js_required: false
   sample:
     max_articles: 20
@@ -104,15 +106,14 @@ sites:
   homepage: https://agn.gt/
   category: news-agency
   language_primary: es
-  notes: 'State news agency.'
+  notes: 'State news agency. 2026-11-18 probe: no RSS; sitemap.xml lists section pages only, not articles.'
   suggested_by: claude
   active: true
   discovery:
-    strategy: rss
+    strategy: homepage
     sitemap_urls: []
     picture_sitemap_url: null
-    rss_urls:
-    - https://agn.gt/feed/
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

@@ -60,19 +60,20 @@ sites:
 
 - id: in-cyprus
   name: In-Cyprus
-  url: https://in-cyprus.philenews.com/
-  homepage: https://in-cyprus.philenews.com/
+  url: https://en.philenews.com/
+  homepage: https://en.philenews.com/
   category: online
   language_primary: en
-  notes: 'Part of Phileleftheros media group.'
+  notes: 'Part of Phileleftheros media group. 2026-11-18 probe: in-cyprus.philenews.com now redirects to en.philenews.com (Philenews English).'
   suggested_by: claude
   active: true
   discovery:
     strategy: rss
-    sitemap_urls: []
+    sitemap_urls:
+    - https://en.philenews.com/news-sitemap.xml
     picture_sitemap_url: null
     rss_urls:
-    - https://in-cyprus.philenews.com/feed/
+    - https://en.philenews.com/feed/
     js_required: false
   sample:
     max_articles: 20
@@ -84,15 +85,14 @@ sites:
   homepage: https://www.kathimerini.com.cy/
   category: newspaper
   language_primary: el
-  notes: ''
+  notes: '2026-11-18 probe: no RSS link on homepage; robots.txt sitemap line is commented out; common sitemap paths absent.'
   suggested_by: claude
   active: true
   discovery:
-    strategy: rss
+    strategy: homepage
     sitemap_urls: []
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.kathimerini.com.cy/feed/
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
@@ -124,7 +124,7 @@ sites:
   homepage: https://www.cna.org.cy/
   category: news-agency
   language_primary: el
-  notes: 'EANA member. Crawling likely to be blocked.'
+  notes: 'EANA member. Homepage returns 403 locally but 200 from the GitHub runner (debug-fetch, 2026-11-19); left as homepage so the crawler discovers feeds from CI.'
   suggested_by: claude
   active: true
   discovery:
