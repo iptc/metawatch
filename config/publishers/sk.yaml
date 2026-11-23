@@ -25,13 +25,13 @@ sites:
   homepage: https://www.cas.sk/
   category: newspaper
   language_primary: sk
-  notes: ''
+  notes: '2026-11-23: switched from novycas-sitemap.xml (mostly /tag/ pages) to the Google News sitemap declared in robots.txt.'
   suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
     sitemap_urls:
-    - https://www.cas.sk/sitemaps/novycas-sitemap.xml
+    - https://www.cas.sk/google_news.xml
     picture_sitemap_url: null
     rss_urls: []
     js_required: false

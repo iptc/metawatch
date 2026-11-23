@@ -82,7 +82,7 @@ sites:
   homepage: https://xs.uz/
   category: newspaper
   language_primary: uz
-  notes: State daily (parliament/government organ). News-sitemap. Added for the state-vs-independent comparison.
+  notes: 'State daily (parliament/government organ). News-sitemap. Added for the state-vs-independent comparison. 2026-11-23: the news sitemap lists every language variant of each story; variants not yet translated return a "news not found" page (6/20 in 2026-11).'
   suggested_by: BQ
   active: true
   discovery:

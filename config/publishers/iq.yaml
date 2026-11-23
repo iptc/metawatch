@@ -6,7 +6,7 @@ sites:
   homepage: https://www.rudaw.net/english
   category: online
   language_primary: en
-  notes: ''
+  notes: '2026-11-23: sitemap.xml lists ~45k articles plus ~136 static pages (/search, /live-tv, language homepages) whose lastmod is the generation time, so they crowd the sample (10/20 in 2026-11). No feed or alternative sitemap found.'
   active: true
   discovery:
     strategy: sitemap

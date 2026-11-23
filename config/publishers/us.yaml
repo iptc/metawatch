@@ -82,15 +82,15 @@ sites:
   homepage: https://edition.cnn.com/
   category: broadcaster
   language_primary: en
-  notes: ''
+  notes: '2026-11-23: rss.cnn.com/rss/edition.rss is stale (old cnn.it links). Using the article sitemap index (monthly per-section children); sitemap/news.xml is ~40% video and shopping deals.'
   suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://edition.cnn.com/sitemap/article.xml
     picture_sitemap_url: null
-    rss_urls:
-    - http://rss.cnn.com/rss/edition.rss
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
@@ -218,13 +218,13 @@ sites:
   homepage: https://qz.com/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: '2026-11-23: sitemap.xml is an index of pages.xml plus 256 hash-sharded post sitemaps with no lastmod, so the walker reached static pages (/about, /login). Using one post shard, which holds the newest posts in a random slice. qz.com returns 403 locally; works from the runner.'
   suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
     sitemap_urls:
-    - https://qz.com/sitemap.xml
+    - https://qz.com/sitemap/posts/00.xml
     picture_sitemap_url: null
     rss_urls: []
     js_required: false

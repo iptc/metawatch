@@ -104,9 +104,9 @@ sites:
   homepage: https://www.lusa.pt/
   category: news-agency
   language_primary: pt
-  notes: ''
+  notes: 'DEACTIVATED 2026-11-23: lusa.pt/sitemap.xml lists only 14 section pages, there is no feed, and the 2026-11 crawl sampled only the homepage. Wire agency; revisit if a public news feed appears.'
   suggested_by: BQ (IPTC member)
-  active: true
+  active: false
   discovery:
     strategy: sitemap
     sitemap_urls:
