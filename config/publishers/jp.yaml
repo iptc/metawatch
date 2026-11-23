@@ -159,19 +159,19 @@ sites:
     window_days: 30
 - id: nhk-news-web
   name: NHK News Web
-  url: https://www.nhk.or.jp/
-  homepage: https://www.nhk.or.jp/
-  category: newspaper
+  url: https://news.web.nhk/newsweb/
+  homepage: https://news.web.nhk/newsweb/
+  category: broadcaster
   language_primary: ja
-  notes: ''
+  notes: 'Moved to news.web.nhk (NHK ONE). The old www3.nhk.or.jp/rss/news/cat0.xml stopped updating in 2026-08. 2026-11-20: using the nationwide-article news sitemap (~44 current articles) from news.web.nhk/sitemap.xml; the new RSS feed news.web.nhk/n-data/conf/na/rss/cat0.xml (found by BQ) has only ~7 items. robots.txt blocks named AI bots only.'
   suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://news.web.nhk/sitemap/sitemap-news-nationwide-article.xml
     picture_sitemap_url: null
-    rss_urls:
-    - http://www3.nhk.or.jp/rss/news/cat0.xml
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20
