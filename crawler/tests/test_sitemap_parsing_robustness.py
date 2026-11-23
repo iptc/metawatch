@@ -89,12 +89,12 @@ def test_mixed_case_child_elements_parse():
     url = "https://example.com/sitemap.xml"
     body = (
         f'<?xml version="1.0"?><URLSet xmlns="{NS}">'
-        f"<URL><Loc>https://example.com/a</Loc><LastMod>2026-11-01</LastMod></URL>"
+        f"<URL><Loc>https://example.com/a-101</Loc><LastMod>2026-11-01</LastMod></URL>"
         f"</URLSet>"
     ).encode()
     candidates, err = _walk({url: httpx.Response(200, headers=XML, content=body)}, url)
     assert err is None
-    assert [c.url for c in candidates] == ["https://example.com/a"]
+    assert [c.url for c in candidates] == ["https://example.com/a-101"]
     assert candidates[0].publication_date is not None
 
 

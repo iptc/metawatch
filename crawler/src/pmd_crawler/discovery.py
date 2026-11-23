@@ -7,7 +7,7 @@ import gzip
 import re
 from dataclasses import dataclass, field
 from datetime import UTC, datetime, timedelta
-from urllib.parse import parse_qsl, urlencode, urljoin, urlparse, urlsplit, urlunsplit
+from urllib.parse import parse_qsl, unquote, urlencode, urljoin, urlparse, urlsplit, urlunsplit
 
 import feedparser
 import httpx
@@ -557,6 +557,79 @@ def _is_probable_article_url(url: str) -> bool:
     return not path.endswith(_NON_ARTICLE_EXTENSIONS)
 
 
+# Last path segments that name a site utility page, never a story. Matched
+# against the final segment only, so `/news/search-for-survivors-…` is safe.
+_NON_ARTICLE_LAST_SEGMENTS = frozenset({
+    "search", "login", "signin", "sign-in", "register", "logout", "account",
+    "about", "about-us", "contact", "contact-us", "subscribe", "subscription",
+    "subscriptions", "newsletter", "newsletters", "emails", "more", "live-tv",
+    "livetv", "radio", "tv-audio", "privacy", "privacy-policy", "terms",
+    "cookies", "sitemap", "archive", "archives", "feeds", "rss", "jobs",
+    "careers", "advertise", "faq", "help",
+})
+
+# Path segments that introduce a listing of stories rather than a story:
+# `/tag/aviakompaniya/` (Orda.kz), `/author/78/` (Tengrinews).
+_LISTING_SEGMENTS = frozenset({"tag", "tags", "author", "authors"})
+
+# Path segments that introduce a section name. `/english/categories/culture`
+# (Rudaw) is a section front, but `/category/world/uk-prime-minister-…`
+# (Japan Today) is a story, so these only count when the segment after them
+# is the last one and looks like a single word (see _looks_like_word).
+_SECTION_PREFIX_SEGMENTS = frozenset({
+    "category", "categories", "section", "sections", "topic", "topics",
+})
+
+
+def _looks_like_word(segment: str) -> bool:
+    """No digits and fewer than two hyphens/underscores: `lifestyle`,
+    `world_news`, `sport-cup` — not `bolivia-declares-state-of-emergency`."""
+    return (
+        not any(ch.isdigit() for ch in segment)
+        and segment.count("-") + segment.count("_") < 2
+        and "." not in segment
+    )
+
+
+def non_article_reason(url: str, *, from_sitemap: bool) -> str | None:
+    """Why `url` is evidently not a news story, or None if it may be one.
+
+    Sitemaps often list section fronts, tag pages and utility pages next to
+    articles, and give them a fresh <lastmod> every time the sitemap is
+    regenerated, so they sort to the top and crowd out real stories (the
+    2026-11 run sampled only section or tag pages for Hindustan Times,
+    TimesLIVE, The Star and Orda.kz, and mostly static pages for Rudaw and
+    Quartz). Reasons:
+
+      * ``homepage`` — no path at all.
+      * ``listing``  — a /tag/ or /author/ segment before the last one.
+      * ``static``   — the last segment is a utility page (/search, /login…).
+      * ``section``  — sitemap sources only: at most two path segments that
+        each look like a single word (no digits, fewer than two
+        hyphens/underscores), e.g. `/lifestyle`, `/entertainment/bollywood`,
+        `/english`; or a single word after /category/ or /section/ at any
+        depth, e.g. `/english/categories/culture`. Not applied to
+        RSS, whose items are almost always stories and where WordPress
+        sites publish short slugs such as `/hailing/` or `/festival-coreano/`.
+    """
+    parts = urlparse(url)
+    segs = [unquote(s) for s in parts.path.split("/") if s]
+    if not segs:
+        # `?p=404227` (WordPress shortlinks) identifies a post; a bare root doesn't.
+        return None if parts.query else "homepage"
+    low = [s.lower() for s in segs]
+    if any(s in _LISTING_SEGMENTS for s in low[:-1]):
+        return "listing"
+    if low[-1] in _NON_ARTICLE_LAST_SEGMENTS:
+        return "static"
+    if from_sitemap and not parts.query:
+        if len(segs) <= 2 and all(_looks_like_word(s) for s in segs):
+            return "section"
+        if len(low) >= 2 and low[-2] in _SECTION_PREFIX_SEGMENTS and _looks_like_word(segs[-1]):
+            return "section"
+    return None
+
+
 # Marketing / tracking query parameters that publishers append to feed links but
 # that don't identify the article. We strip them so we (a) fetch the canonical
 # URL, and (b) honor robots.txt correctly — several publishers Disallow the
@@ -592,7 +665,7 @@ def _parse_urlset(root: etree._Element) -> list[ArticleCandidate]:
         if loc_el is None or not loc_el.text:
             continue
         url = strip_tracking_params(loc_el.text.strip())
-        if not _is_probable_article_url(url):
+        if not _is_probable_article_url(url) or non_article_reason(url, from_sitemap=True):
             continue
         news_el = url_el.find("news:news", SITEMAP_NS)
         pub_date = None
@@ -748,7 +821,11 @@ async def _fetch_rss_once(
         link = entry.get("link")
         if link:
             link = strip_tracking_params(link)
-        if not link or not _is_probable_article_url(link):
+        if (
+            not link
+            or not _is_probable_article_url(link)
+            or non_article_reason(link, from_sitemap=False)
+        ):
             continue
         pub = _entry_datetime(entry)
         if pub is not None and pub < cutoff:
