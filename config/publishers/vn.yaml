@@ -6,15 +6,15 @@ sites:
   homepage: https://vietnamnews.vn/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: '2026-11-23: rss/home.rss yielded only the homepage; using the news sitemap declared in robots.txt.'
   suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
-    sitemap_urls: []
+    sitemap_urls:
+    - https://vietnamnews.vn/sitemap_news.xml
     picture_sitemap_url: null
-    rss_urls:
-    - https://vietnamnews.vn/rss/home.rss
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

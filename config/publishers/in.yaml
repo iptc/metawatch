@@ -25,13 +25,13 @@ sites:
   homepage: https://www.bhaskar.com/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: '2026-11-23: switched from the daily video sitemap to the Google News sitemap index declared in robots.txt.'
   suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
     sitemap_urls:
-    - https://www.bhaskar.com/sitemaps-v1--sitemap-latest-videos-daily-index.xml
+    - https://www.bhaskar.com/sitemaps-v1--sitemap-google-news-index.xml
     picture_sitemap_url: null
     rss_urls: []
     js_required: false
@@ -63,13 +63,13 @@ sites:
   homepage: https://www.hindustantimes.com/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: '2026-11-23: switched from sitemap/section.xml (section pages only) to the news sitemap declared in robots.txt.'
   suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
     sitemap_urls:
-    - https://www.hindustantimes.com/sitemap/section.xml
+    - https://www.hindustantimes.com/sitemap/news.xml
     picture_sitemap_url: null
     rss_urls: []
     js_required: false

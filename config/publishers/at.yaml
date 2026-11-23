@@ -158,9 +158,9 @@ sites:
   homepage: https://science.apa.at/
   category: news-agency
   language_primary: de
-  notes: ''
+  notes: 'DEACTIVATED 2026-11-23: science.apa.at/sitemap.xml lists APA-Science partner, project and page entries, not APA news. APA is a B2B wire; no public news feed or sitemap found on apa.at. Revisit if one appears.'
   suggested_by: BQ (IPTC member)
-  active: true
+  active: false
   discovery:
     strategy: sitemap
     sitemap_urls:

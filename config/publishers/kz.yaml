@@ -62,9 +62,9 @@ sites:
   homepage: https://orda.kz/
   category: online
   language_primary: ru
-  notes: Independent outlet — counterpart to state press for the comparison.
+  notes: 'Independent outlet — counterpart to state press for the comparison. DEACTIVATED 2026-11-23: /feed/ has not updated since 2026-08-31 and the newest news sitemap (sitemap_news418.xml) ends 2026-08-20, so the 2026-11 crawl fell back to robots.txt and sampled only /tag/ pages. Reactivate when a current feed or sitemap appears.'
   suggested_by: BQ
-  active: true
+  active: false
   discovery:
     strategy: rss
     sitemap_urls: []

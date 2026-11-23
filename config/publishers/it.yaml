@@ -103,16 +103,15 @@ sites:
   homepage: https://www.rainews.it/
   category: broadcaster
   language_primary: it
-  notes: 'General/international news RSS. Previously pointed at the Televideo
-    (teletext) feed, which carries text-only pages with no images.'
+  notes: 'Earlier pointed at the Televideo (teletext) feed (text-only, no images). 2026-11-23: rss/tutti was ~85% video pages (TG rubriche, Ballando con le Stelle clips); using the news sitemap from sitemap.xml, which lists /articoli/ pages including TGR regional news.'
   suggested_by: MS
   active: true
   discovery:
-    strategy: rss
-    sitemap_urls: []
+    strategy: sitemap
+    sitemap_urls:
+    - https://www.rainews.it/sitemap.news.xml
     picture_sitemap_url: null
-    rss_urls:
-    - https://www.rainews.it/rss/tutti
+    rss_urls: []
     js_required: false
   sample:
     max_articles: 20

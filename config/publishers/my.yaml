@@ -6,9 +6,9 @@ sites:
   homepage: https://www.thestar.com.my/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: 'DEACTIVATED 2026-11-23: thestar.com.my/robots.txt comments prohibit text and data mining and scraping by automated means without written permission from Star Media Group (same policy as Al Jazeera). The 2026-11 crawl also sampled section pages from sitemap.xml.'
   suggested_by: BQ
-  active: true
+  active: false
   discovery:
     strategy: sitemap
     sitemap_urls:

@@ -44,13 +44,13 @@ sites:
   homepage: https://www.timeslive.co.za/
   category: newspaper
   language_primary: en
-  notes: ''
+  notes: '2026-11-23: switched from sitemap-section/ (section pages only) to the news sitemap index declared in robots.txt.'
   suggested_by: BQ
   active: true
   discovery:
     strategy: sitemap
     sitemap_urls:
-    - https://www.timeslive.co.za/arc/outboundfeeds/sitemap-section/
+    - https://www.timeslive.co.za/arc/outboundfeeds/sitemap-news-index/
     picture_sitemap_url: null
     rss_urls: []
     js_required: false
