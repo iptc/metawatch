@@ -160,12 +160,16 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
   )}
 
   {samples.length > 0 && (
-    <section>
+    <section id="sample">
       <h2>This run's sample</h2>
       <p>
         The articles we picked up from {site.site_name}'s feed in this run,
         plus the lead image we extracted from each. Thumbnails load lazily as
         you scroll. Click an article or image to open it directly.
+      </p>
+      <p class="sample-filter" id="sample-filter" hidden>
+        Showing only the {samples.filter(s => s.has_c2pa).length} image{samples.filter(s => s.has_c2pa).length === 1 ? '' : 's'}
+        with a C2PA manifest. <a href="#sample">Show all {samples.length}</a>
       </p>
       <table class="samples">
         <thead>
@@ -201,7 +205,8 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
               && scoredFieldLabels.some(l => presentSet.has(l));
             return (
               <>
-                <tr class="summary-row" data-detail={detailId}>
+                <tr class="summary-row" id={`image-${i + 1}`} data-detail={detailId}
+                    data-c2pa={s.has_c2pa ? '1' : '0'}>
                   <td class="num">
                     <button class="samples-toggle"
                             aria-controls={detailId}
@@ -350,6 +355,42 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
             if (btn) toggleSample(btn);
           });
         });
+        // Deep links from the C2PA page:
+        //   #c2pa     → show only the sample rows whose image has a manifest
+        //   #image-N  → open row N's details and bring it into view
+        function applySampleHash() {
+          var hash = window.location.hash;
+          var onlyC2pa = hash === '#c2pa';
+          var filterNote = document.getElementById('sample-filter');
+          if (filterNote) filterNote.hidden = !onlyC2pa;
+          document.querySelectorAll('tr.summary-row').forEach(function (row) {
+            var hide = onlyC2pa && row.getAttribute('data-c2pa') !== '1';
+            row.hidden = hide;
+            var detail = document.getElementById(row.getAttribute('data-detail'));
+            var btn = row.querySelector('.samples-toggle');
+            if (detail && hide) detail.hidden = true;
+            if (btn && hide) {
+              btn.setAttribute('aria-expanded', 'false');
+              var caret = btn.querySelector('.caret');
+              if (caret) caret.textContent = '▸';
+            }
+          });
+          if (onlyC2pa) {
+            var section = document.getElementById('sample');
+            if (section) section.scrollIntoView({ block: 'start' });
+            return;
+          }
+          var target = /^#image-\d+$/.test(hash) ? document.getElementById(hash.slice(1)) : null;
+          if (!target) return;
+          var tbtn = target.querySelector('.samples-toggle');
+          if (tbtn && tbtn.getAttribute('aria-expanded') !== 'true') toggleSample(tbtn);
+          target.scrollIntoView({ block: 'center' });
+          target.classList.remove('linked');
+          void target.offsetWidth;  // restart the highlight animation
+          target.classList.add('linked');
+        }
+        window.addEventListener('hashchange', applySampleHash);
+        applySampleHash();
       </script>
     </section>
   )}
@@ -390,8 +431,11 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
       <h2>C2PA on this site</h2>
       <p>
         {c2pa.image_count_with_c2pa} image{c2pa.image_count_with_c2pa === 1 ? '' : 's'}
-        carried a <a href="/c2pa/">C2PA</a> manifest in this run. See the
-        <a href="/c2pa/">project-wide C2PA page</a> for what each outcome means.
+        carried a <a href={`${base}/c2pa/`}>C2PA</a> manifest in this run.
+        {samples.some(s => s.has_c2pa) && (
+          <a href="#c2pa">Show {c2pa.image_count_with_c2pa === 1 ? 'it' : 'them'} in this run's sample ↑</a>
+        )}
+        See the <a href={`${base}/c2pa/`}>project-wide C2PA page</a> for what each outcome means.
       </p>
       <div class="grid-2">
         <div>
@@ -640,6 +684,19 @@ const displayUrl = site.url ? site.url.replace(/\/+$/, '') : '';
   dl.image-facts dd {
     margin: 0;
     overflow-wrap: anywhere;
+  }
+  .sample-filter {
+    background: var(--iptc-bar-bg, #eaecef);
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+  }
+  tr.summary-row { scroll-margin-top: 5rem; }
+  tr.summary-row.linked > td {
+    animation: linked-flash 2.5s ease-out;
+  }
+  @keyframes linked-flash {
+    from { background: rgba(255, 200, 0, 0.35); }
+    to { background: transparent; }
   }
   .thumb {
     width: 96px;
