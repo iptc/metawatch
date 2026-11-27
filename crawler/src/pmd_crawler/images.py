@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import asyncio
 import os
+import re
 import tempfile
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -17,6 +18,22 @@ from . import dst as dst_mod
 
 MAX_IMAGE_BYTES = 20 * 1024 * 1024  # 20 MB
 ALLOWED_MIME = {"image/jpeg", "image/png", "image/webp", "image/avif", "image/gif", "image/tiff"}
+
+# Remote C2PA manifests (referenced from XMP dcterms:provenance rather than
+# embedded as JUMBF — e.g. Photoshop's mandatory Content Credentials, 2026-11)
+# are fetched by us through the crawler's own httpx client, NOT by c2pa-rs,
+# so the request gets a bounded timeout and size cap. c2pa-rs is configured
+# never to go to the network itself.
+MAX_REMOTE_MANIFEST_BYTES = 2 * 1024 * 1024  # real Adobe manifests are ~30 KB
+REMOTE_MANIFEST_TIMEOUT = httpx.Timeout(10.0)
+_C2PA_SETTINGS = {"verify": {"remote_manifest_fetch": False}}
+
+
+def _c2pa_context() -> c2pa.Context:
+    # Fresh per call: readers run on executor threads, and contexts are cheap.
+    return c2pa.Context(c2pa.Settings.from_dict(_C2PA_SETTINGS))
+
+_REMOTE_URL_RE = re.compile(r"must fetch remote manifests from url (\S+)")
 
 
 @dataclass
@@ -34,6 +51,15 @@ class ImageResult:
     c2pa_manifest_signer: str | None = None
     c2pa_validation_status: str | None = None
     c2pa_failure_codes: list[str] = field(default_factory=list)
+    # "embedded" (JUMBF in the file) | "remote" (fetched via dcterms:provenance)
+    # | None when no manifest was read.
+    c2pa_manifest_location: str | None = None
+    # Set whenever the image references a remote manifest, even if fetching
+    # or reading it failed — so a dead link still shows up in the data.
+    c2pa_remote_manifest_url: str | None = None
+    # Why a referenced remote manifest wasn't read: "http_<status>",
+    # "timeout", "network", "too_large", "not_https", "unreadable".
+    c2pa_remote_fetch_error: str | None = None
     dst_iptc: str | None = None
     dst_c2pa: list[str] = field(default_factory=list)
     cdn_provider: str = "unknown"
@@ -107,19 +133,26 @@ async def fetch_and_analyse(
     except Exception:
         tags = {}
 
-    # C2PA presence + active manifest summary. Runs in an executor because the
-    # c2pa-rs binding is blocking. Any error means "no manifest" — there are many
-    # legitimate ways for that to happen (wrong format, truncated file, etc.).
+    # C2PA presence + active manifest summary. c2pa-rs is blocking, so it
+    # runs in an executor. Any reader error means "no manifest" — there are
+    # many legitimate ways for that to happen (wrong format, truncated file).
+    loop = asyncio.get_running_loop()
     try:
-        c2pa_present, c2pa_signer, c2pa_state, c2pa_failures, c2pa_dst, c2pa_cawg = (
-            await asyncio.get_running_loop().run_in_executor(None, _detect_c2pa, tmp_path)
-        )
-        result.has_c2pa = c2pa_present
-        result.c2pa_manifest_signer = c2pa_signer
-        result.c2pa_validation_status = c2pa_state
-        result.c2pa_failure_codes = c2pa_failures
-        result.dst_c2pa = c2pa_dst
-        result.cawg_training_mining = c2pa_cawg
+        c2pa_res = await loop.run_in_executor(None, _detect_c2pa, tmp_path, result.mime_type, None)
+        if c2pa_res.remote_url is None and not c2pa_res.present:
+            c2pa_res.remote_url = _xmp_provenance(tags)
+        if c2pa_res.remote_url and not c2pa_res.present:
+            result.c2pa_remote_manifest_url = c2pa_res.remote_url
+            manifest_bytes, err = await fetch_remote_manifest(client, c2pa_res.remote_url)
+            if manifest_bytes is None:
+                result.c2pa_remote_fetch_error = err
+            else:
+                c2pa_res = await loop.run_in_executor(
+                    None, _detect_c2pa, tmp_path, result.mime_type, manifest_bytes
+                )
+                if not c2pa_res.present:
+                    result.c2pa_remote_fetch_error = "unreadable"
+        _apply_c2pa(result, c2pa_res)
     except Exception:
         pass
 
@@ -147,16 +180,77 @@ async def fetch_and_analyse(
     return result
 
 
-def _detect_c2pa(
-    path: Path,
-) -> tuple[bool, str | None, str | None, list[str], list[str], dict | None]:
-    """Return (has_c2pa, signer_issuer, validation_state, failure_codes, dst_uris, cawg_training_mining).
+@dataclass
+class C2paRead:
+    present: bool = False
+    location: str | None = None  # "embedded" | "remote"
+    remote_url: str | None = None
+    signer: str | None = None
+    state: str | None = None
+    failure_codes: list[str] = field(default_factory=list)
+    dst_uris: list[str] = field(default_factory=list)
+    cawg: dict | None = None
 
-    Detection is presence-first: the c2pa-rs Python binding raises
-    ``ManifestNotFound`` when no JUMBF manifest is embedded, and various
-    other parse errors for malformed or non-image content. Any exception is
-    treated as "no manifest" — false negatives are acceptable, false positives
-    would be misleading.
+
+def _apply_c2pa(result: ImageResult, r: C2paRead) -> None:
+    result.has_c2pa = r.present
+    result.c2pa_manifest_location = r.location
+    if r.remote_url:
+        result.c2pa_remote_manifest_url = r.remote_url
+    result.c2pa_manifest_signer = r.signer
+    result.c2pa_validation_status = r.state
+    result.c2pa_failure_codes = r.failure_codes
+    result.dst_c2pa = r.dst_uris
+    result.cawg_training_mining = r.cawg
+
+
+def _xmp_provenance(tags: dict[str, object]) -> str | None:
+    """dcterms:provenance from ExifTool output (-G1 key ``XMP-dcterms:Provenance``)."""
+    for k, v in tags.items():
+        if k.lower().endswith("xmp-dcterms:provenance") and isinstance(v, str) and v.strip():
+            return v.strip()
+    return None
+
+
+async def fetch_remote_manifest(
+    client: httpx.AsyncClient, url: str
+) -> tuple[bytes | None, str | None]:
+    """Fetch a remote C2PA manifest store. Returns (bytes, None) or (None, error_code)."""
+    if not url.lower().startswith("https://"):
+        return None, "not_https"
+    try:
+        async with client.stream(
+            "GET", url, timeout=REMOTE_MANIFEST_TIMEOUT, follow_redirects=True
+        ) as r:
+            if r.status_code >= 400:
+                return None, f"http_{r.status_code}"
+            buf = bytearray()
+            async for chunk in r.aiter_bytes():
+                buf.extend(chunk)
+                if len(buf) > MAX_REMOTE_MANIFEST_BYTES:
+                    return None, "too_large"
+            return bytes(buf), None
+    except httpx.TimeoutException:
+        return None, "timeout"
+    except Exception:
+        return None, "network"
+
+
+def _detect_c2pa(
+    path: Path, mime: str | None = None, manifest_data: bytes | None = None
+) -> C2paRead:
+    """Read the C2PA manifest for *path*.
+
+    Detection is presence-first: c2pa-rs raises ``ManifestNotFound`` when no
+    manifest is present, and various parse errors for malformed or non-image
+    content. Any exception is treated as "no manifest" — false negatives are
+    acceptable, false positives would be misleading.
+
+    c2pa-rs never fetches over the network here. When the file only carries
+    a remote reference (XMP dcterms:provenance), the reader raises a
+    "must fetch remote manifests from url …" error; we return that URL in
+    ``remote_url`` and the caller fetches it and calls again with
+    ``manifest_data``.
 
     failure_codes is the list of `failure[].code` entries from the active
     manifest's validation results — e.g. ``signingCredential.untrusted``,
@@ -166,30 +260,38 @@ def _detect_c2pa(
     active manifest's c2pa.actions / c2pa.actions.v2 assertions.
     """
     try:
-        reader = c2pa.Reader(str(path))
-    except Exception:
-        return False, None, None, [], [], None
+        if manifest_data is not None:
+            with open(path, "rb") as f:
+                reader = c2pa.Reader(
+                    mime or path.suffix.lstrip(".") or "application/octet-stream", f,
+                    manifest_data=manifest_data, context=_c2pa_context(),
+                )
+        else:
+            reader = c2pa.Reader(str(path), context=_c2pa_context())
+    except Exception as e:
+        m = _REMOTE_URL_RE.search(str(e))
+        return C2paRead(remote_url=m.group(1) if m else None)
+    out = C2paRead(present=True, location="remote" if manifest_data is not None else "embedded")
     try:
         state = reader.get_validation_state()
+        out.state = str(state) if state is not None else None
         manifest = reader.get_active_manifest()
-        signer = None
         if isinstance(manifest, dict):
             sig = manifest.get("signature_info")
             if isinstance(sig, dict):
-                signer = sig.get("issuer") or sig.get("signer")
-        failure_codes: list[str] = []
+                out.signer = sig.get("issuer") or sig.get("signer")
         try:
             vr = reader.get_validation_results()
             if isinstance(vr, dict):
                 active = vr.get("activeManifest") or {}
-                failure_codes = [f["code"] for f in active.get("failure", []) if "code" in f]
+                out.failure_codes = [f["code"] for f in active.get("failure", []) if "code" in f]
         except Exception:
             pass
-        dst_uris = dst_mod.extract_dst_from_c2pa_manifest(manifest)
-        cawg = optout.extract_cawg_training_mining(manifest) if isinstance(manifest, dict) else None
-        return True, signer, str(state) if state is not None else None, failure_codes, dst_uris, cawg
+        out.dst_uris = dst_mod.extract_dst_from_c2pa_manifest(manifest)
+        out.cawg = optout.extract_cawg_training_mining(manifest) if isinstance(manifest, dict) else None
     except Exception:
-        return True, None, None, [], [], None
+        pass
+    return out
 
 
 def _suffix_for(mime: str | None) -> str:
