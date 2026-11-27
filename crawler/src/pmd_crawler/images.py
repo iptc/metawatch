@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+import json
 import os
 import re
 import tempfile
@@ -62,6 +63,11 @@ class ImageResult:
     c2pa_remote_fetch_error: str | None = None
     dst_iptc: str | None = None
     dst_c2pa: list[str] = field(default_factory=list)
+    # digitalSourceType URIs from every manifest in the C2PA provenance tree
+    # (active first), and the strongest AI level they imply: generated |
+    # contains | algorithmic | none-declared; None when no manifest was read.
+    dst_c2pa_tree: list[str] = field(default_factory=list)
+    c2pa_ai_level: str | None = None
     cdn_provider: str = "unknown"
     cdn_optimizer_active: str = "unknown"
     metadata_field_count: int = 0
@@ -189,6 +195,8 @@ class C2paRead:
     state: str | None = None
     failure_codes: list[str] = field(default_factory=list)
     dst_uris: list[str] = field(default_factory=list)
+    dst_tree_uris: list[str] = field(default_factory=list)
+    ai_level: str | None = None
     cawg: dict | None = None
 
 
@@ -201,6 +209,8 @@ def _apply_c2pa(result: ImageResult, r: C2paRead) -> None:
     result.c2pa_validation_status = r.state
     result.c2pa_failure_codes = r.failure_codes
     result.dst_c2pa = r.dst_uris
+    result.dst_c2pa_tree = r.dst_tree_uris
+    result.c2pa_ai_level = r.ai_level
     result.cawg_training_mining = r.cawg
 
 
@@ -257,7 +267,9 @@ def _detect_c2pa(
     ``assertion.dataHash.mismatch``. Empty for valid manifests.
 
     dst_uris collects every distinct digitalSourceType URI seen in the
-    active manifest's c2pa.actions / c2pa.actions.v2 assertions.
+    active manifest's c2pa.actions / c2pa.actions.v2 assertions;
+    dst_tree_uris and ai_level cover the whole provenance tree (see
+    dst.collect_c2pa_ai_disclosure).
     """
     try:
         if manifest_data is not None:
@@ -288,6 +300,12 @@ def _detect_c2pa(
         except Exception:
             pass
         out.dst_uris = dst_mod.extract_dst_from_c2pa_manifest(manifest)
+        out.ai_level = "none-declared"
+        try:
+            store = json.loads(reader.json())
+            out.ai_level, out.dst_tree_uris = dst_mod.collect_c2pa_ai_disclosure(store)
+        except Exception:
+            out.dst_tree_uris = list(out.dst_uris)
         out.cawg = optout.extract_cawg_training_mining(manifest) if isinstance(manifest, dict) else None
     except Exception:
         pass

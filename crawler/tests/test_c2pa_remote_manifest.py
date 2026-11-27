@@ -78,6 +78,12 @@ async def test_remote_manifest_is_fetched_and_read():
     assert result.c2pa_manifest_signer == "Adobe Inc."
     # Different pixels from the signed asset, so the hash can't match.
     assert "assertion.dataHash.mismatch" in result.c2pa_failure_codes
+    # Photoshop's own manifest declares no digitalSourceType; the AI
+    # declaration is in the Firefly manifest of the componentOf ingredient.
+    composite = "http://cv.iptc.org/newscodes/digitalsourcetype/compositeWithTrainedAlgorithmicMedia"
+    assert result.dst_c2pa == []
+    assert result.dst_c2pa_tree == [composite]
+    assert result.c2pa_ai_level == "contains"
 
 
 @pytest.mark.parametrize("handler, error", [
@@ -92,6 +98,7 @@ async def test_failed_remote_fetch_keeps_the_reference(handler, error):
     assert result.c2pa_manifest_location is None
     assert result.c2pa_remote_manifest_url == MANIFEST_URL
     assert result.c2pa_remote_fetch_error == error
+    assert result.c2pa_ai_level is None
 
 
 async def test_remote_fetch_timeout():

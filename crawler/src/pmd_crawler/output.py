@@ -123,6 +123,8 @@ class ImageRow:
     c2pa_remote_fetch_error: str | None = None
     dst_iptc: str | None = None
     dst_c2pa: list[str] = field(default_factory=list)
+    dst_c2pa_tree: list[str] = field(default_factory=list)
+    c2pa_ai_level: str | None = None  # generated | contains | algorithmic | none-declared
     iptc_xmp_tags_json: str | None = None  # JSON-encoded filtered tag dict, see scoring.stored_evidence_tags (IPTC/XMP + scored EXIF)
     # AI opt-out image-level signals (Phase 3). `noai_tokens` collects
     # noai/noimageai/noml seen in either the image's X-Robots-Tag header or
@@ -389,6 +391,8 @@ def _images_table(rows: list[ImageRow]) -> pa.Table:
         "c2pa_remote_fetch_error": pa.array([r.c2pa_remote_fetch_error for r in rows], type=pa.string()),
         "dst_iptc": [r.dst_iptc for r in rows],
         "dst_c2pa": [r.dst_c2pa for r in rows],
+        "dst_c2pa_tree": pa.array([r.dst_c2pa_tree for r in rows], type=pa.list_(pa.string())),
+        "c2pa_ai_level": pa.array([r.c2pa_ai_level for r in rows], type=pa.string()),
         "iptc_xmp_tags_json": [r.iptc_xmp_tags_json for r in rows],
         "cdn_provider": [r.cdn_provider for r in rows],
         "cdn_optimizer_active": [r.cdn_optimizer_active for r in rows],
