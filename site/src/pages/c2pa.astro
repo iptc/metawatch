@@ -1,11 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import TimeSeriesChart from '../components/TimeSeriesChart.astro';
-import { getC2pa, getHistory, countryName } from '../lib/data';
+import { getC2pa, getHistory, getSites, getSiteSamples, countryName } from '../lib/data';
 
 const data = getC2pa();
 const history = getHistory();
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Every C2PA-bearing image in this run, with its row number on the
+// publisher page so each one can link straight to /sites/<id>/#image-<n>.
+const c2paImages = getSites()
+  .flatMap(site => getSiteSamples(site.site_id).map((s, i) => ({ site, s, row: i + 1 })))
+  .filter(({ s }) => s.has_c2pa)
+  .sort((a, b) => a.site.site_name.localeCompare(b.site.site_name) || a.row - b.row);
+const dstTerm = (uri: string) => uri.replace(/\/+$/, '').split('/').pop() ?? uri;
 
 const c2paCountPoints = history.map(h => ({
   x: h.started_at,
@@ -148,12 +156,57 @@ const c2paPctPoints = history.map(h => ({
               <td><a href={`${base}/sites/${s.site_id}/`}>{s.site_name}</a></td>
               <td>{countryName(s.country)}</td>
               <td class="num">{s.pct_with_c2pa.toFixed(2)}%</td>
-              <td class="num">{s.images_with_c2pa}</td>
+              <td class="num"><a href={`${base}/sites/${s.site_id}/#c2pa`} title={`Show ${s.site_name}'s C2PA images`}>{s.images_with_c2pa}</a></td>
               <td class="num">{s.images_analysed}</td>
             </tr>
           ))}
         </tbody>
       </table>
+
+      {c2paImages.length > 0 && (
+        <>
+          <h2 id="images">Every image with C2PA</h2>
+          <p>
+            All {c2paImages.length} image{c2paImages.length === 1 ? '' : 's'} carrying a manifest in this
+            run. Click an image (or <strong>View</strong>) to open the image's row on its publisher page, with the full metadata
+            details expanded.
+          </p>
+          <table class="sortable c2pa-images">
+            <thead>
+              <tr>
+                <th>Image</th><th>Site</th><th>Article</th><th>Signer</th><th>State</th>
+                <th>Declared source type</th>
+              </tr>
+            </thead>
+            <tbody>
+              {c2paImages.map(({ site, s, row }) => (
+                <tr>
+                  <td>
+                    <a href={`${base}/sites/${site.site_id}/#image-${row}`} class="view-link"
+                       title={`View this image on ${site.site_name}'s page`}>
+                      {s.image_url && s.image_http_status === 200
+                        ? <img src={s.image_url} alt="" class="thumb" loading="lazy" decoding="async" />
+                        : null}
+                      <span>View&nbsp;→</span>
+                    </a>
+                  </td>
+                  <td><a href={`${base}/sites/${site.site_id}/`}>{site.site_name}</a></td>
+                  <td class="article-cell">
+                    <a href={s.article_url} target="_blank" rel="noopener">{s.title || s.article_url} ↗</a>
+                  </td>
+                  <td><code>{s.c2pa_signer ?? '—'}</code></td>
+                  <td><code>{s.c2pa_validation_status ?? '—'}</code></td>
+                  <td>
+                    {s.dst_c2pa && s.dst_c2pa.length > 0
+                      ? s.dst_c2pa.map(uri => <div><a href={uri} target="_blank" rel="noopener"><code>{dstTerm(uri)}</code></a></div>)
+                      : <span style="color:var(--iptc-muted)">none declared</span>}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </>
+      )}
     </>
   )}
 
@@ -166,3 +219,23 @@ const c2paPctPoints = history.map(h => ({
     <code>cawg.metadata</code> assertions (that's planned).
   </p>
 </Layout>
+
+<style>
+  .c2pa-images .thumb {
+    width: 96px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+    background: var(--iptc-bar-bg, #eaecef);
+  }
+  .c2pa-images .view-link {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 0.85rem;
+  }
+  .c2pa-images .article-cell {
+    max-width: 22rem;
+  }
+</style>
