@@ -376,6 +376,9 @@ One Parquet file per logical table per run, written to `data/runs/{YYYY-MM-DD}/`
 | c2pa_manifest_location | string (nullable): `embedded` \| `remote` |
 | c2pa_remote_manifest_url | string (nullable): dcterms:provenance URL, set even if the fetch failed |
 | c2pa_remote_fetch_error | string (nullable): `http_<status>` \| `timeout` \| `network` \| `too_large` \| `not_https` \| `unreadable` |
+| dst_c2pa | list<string>: digitalSourceType URIs declared by the active manifest |
+| dst_c2pa_tree | list<string>: digitalSourceType URIs from every manifest in the provenance tree (active first, then ingredients) |
+| c2pa_ai_level | string (nullable): strongest AI level declared anywhere in the tree: `generated` \| `contains` \| `algorithmic` \| `none-declared` (absence is never "not AI"); a whole-asset generative term reached through a `componentOf` ingredient counts as `contains`. Same rules as Origin Verify. |
 | cdn_provider | string | `cloudflare` \| `fastly` \| `akamai` \| `cloudfront` \| `imgix` \| `cloudinary` \| `bunny` \| `other` \| `none` \| `unknown` |
 | cdn_optimizer_active | string | `true` \| `false` \| `unknown` |
 | metadata_field_count | int | total count of populated fields |

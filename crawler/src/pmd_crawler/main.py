@@ -460,6 +460,8 @@ async def _crawl_site(
                 c2pa_remote_fetch_error=img.c2pa_remote_fetch_error,
                 dst_iptc=img.dst_iptc,
                 dst_c2pa=img.dst_c2pa,
+                dst_c2pa_tree=img.dst_c2pa_tree,
+                c2pa_ai_level=img.c2pa_ai_level,
                 cdn_provider=img.cdn_provider,
                 cdn_optimizer_active=img.cdn_optimizer_active,
                 metadata_field_count=img.metadata_field_count,

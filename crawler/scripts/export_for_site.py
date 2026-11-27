@@ -515,6 +515,9 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
     by_uri_c2pa: dict[str, int] = defaultdict(int)
     images_with_dst_iptc = 0
     images_with_dst_c2pa = 0
+    # Strongest AI level declared anywhere in each C2PA image's provenance
+    # tree (crawls from 2026-12 on; older runs have no c2pa_ai_level).
+    by_ai_level_c2pa: dict[str, int] = defaultdict(int)
     # Per-site tallies, populated alongside the global ones.
     site_dst: dict[str, dict] = defaultdict(lambda: {
         "images_with_dst_iptc": 0,
@@ -523,6 +526,7 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         "by_bucket_c2pa": defaultdict(int),
         "by_uri_iptc": defaultdict(int),
         "by_uri_c2pa": defaultdict(int),
+        "by_ai_level_c2pa": defaultdict(int),
     })
     for img in images:
         if img.get("http_status") != 200:
@@ -536,7 +540,15 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
             site_dst[sid]["images_with_dst_iptc"] += 1
             site_dst[sid]["by_uri_iptc"][dst_iptc] += 1
             site_dst[sid]["by_bucket_iptc"][bucket_for_dst(dst_iptc, dst_vocab)] += 1
-        for uri in (img.get("dst_c2pa") or []):
+        if img.get("c2pa_ai_level"):
+            by_ai_level_c2pa[img["c2pa_ai_level"]] += 1
+            site_dst[sid]["by_ai_level_c2pa"][img["c2pa_ai_level"]] += 1
+        # Whole provenance tree when the crawl recorded it, else the active
+        # manifest only (runs before 2026-12).
+        c2pa_uris = img.get("dst_c2pa_tree")
+        if c2pa_uris is None:
+            c2pa_uris = img.get("dst_c2pa") or []
+        for uri in c2pa_uris:
             images_with_dst_c2pa += 1  # counts every occurrence; an image with N C2PA DSTs contributes N
             by_uri_c2pa[uri] += 1
             by_bucket_c2pa[bucket_for_dst(uri, dst_vocab)] += 1
@@ -556,6 +568,10 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
             for k, v in sorted(d.items(), key=lambda x: -x[1])
         ]
 
+    def _ordered_ai_levels(d: dict[str, int]) -> list[dict]:
+        order = ("generated", "contains", "algorithmic", "none-declared")
+        return [{"level": k, "images": d[k]} for k in order if d.get(k)]
+
     valid_images = sum(1 for i in images if i.get("http_status") == 200)
     dst_out = {
         "image_count_total": len(images),
@@ -569,6 +585,7 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
         "by_bucket_c2pa": _ordered_buckets(by_bucket_c2pa),
         "by_uri_iptc": _ordered_uris(by_uri_iptc),
         "by_uri_c2pa": _ordered_uris(by_uri_c2pa),
+        "by_ai_level_c2pa": _ordered_ai_levels(by_ai_level_c2pa),
     }
     (out_dir / "dst.json").write_text(json.dumps(dst_out, indent=2))
 
@@ -584,6 +601,7 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
             "by_bucket_c2pa": _ordered_buckets(agg["by_bucket_c2pa"]),
             "by_uri_iptc": _ordered_uris(agg["by_uri_iptc"]),
             "by_uri_c2pa": _ordered_uris(agg["by_uri_c2pa"]),
+            "by_ai_level_c2pa": _ordered_ai_levels(agg["by_ai_level_c2pa"]),
         }
     (out_dir / "dst_by_site.json").write_text(json.dumps(dst_by_site_out, indent=2))
 
@@ -1025,6 +1043,8 @@ def export_run(run_dir: Path, out_dir: Path, all_runs: list[Path]) -> None:
                 "file_size_bytes": img.get("file_size_bytes"),
                 "dst_iptc": img.get("dst_iptc"),
                 "dst_c2pa": list(img.get("dst_c2pa") or []),
+                "dst_c2pa_tree": list(img.get("dst_c2pa_tree") or []),
+                "c2pa_ai_level": img.get("c2pa_ai_level"),
                 # Compact: only fields that ARE present are listed. The full
                 # set (scored + tracked) comes from scoring.yaml; anything
                 # absent from this list is missing for this image.
