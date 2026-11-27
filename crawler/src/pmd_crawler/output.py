@@ -118,6 +118,9 @@ class ImageRow:
     iptc_score: float
     # Defaults kept last so dataclass field-ordering rules are happy.
     c2pa_failure_codes: list[str] = field(default_factory=list)
+    c2pa_manifest_location: str | None = None  # embedded | remote
+    c2pa_remote_manifest_url: str | None = None
+    c2pa_remote_fetch_error: str | None = None
     dst_iptc: str | None = None
     dst_c2pa: list[str] = field(default_factory=list)
     iptc_xmp_tags_json: str | None = None  # JSON-encoded filtered tag dict, see scoring.stored_evidence_tags (IPTC/XMP + scored EXIF)
@@ -381,6 +384,9 @@ def _images_table(rows: list[ImageRow]) -> pa.Table:
         "c2pa_manifest_signer": [r.c2pa_manifest_signer for r in rows],
         "c2pa_validation_status": [r.c2pa_validation_status for r in rows],
         "c2pa_failure_codes": [r.c2pa_failure_codes for r in rows],
+        "c2pa_manifest_location": pa.array([r.c2pa_manifest_location for r in rows], type=pa.string()),
+        "c2pa_remote_manifest_url": pa.array([r.c2pa_remote_manifest_url for r in rows], type=pa.string()),
+        "c2pa_remote_fetch_error": pa.array([r.c2pa_remote_fetch_error for r in rows], type=pa.string()),
         "dst_iptc": [r.dst_iptc for r in rows],
         "dst_c2pa": [r.dst_c2pa for r in rows],
         "iptc_xmp_tags_json": [r.iptc_xmp_tags_json for r in rows],

@@ -214,7 +214,7 @@ For each image URL:
 1. HEAD request first; reject if `content-type` not in image whitelist or if `content-length` > 20MB.
 2. GET, stream to a temp file. **Capture full response headers** — needed for CDN attribution.
 3. Run **ExifTool** in batch mode → JSON output. Capture all tags structured and grouped by family (, IPTC, XMP).
-4. Run **c2pa-python** → record presence of manifest, signing entity, validation status.
+4. Run **c2pa-python** → record presence of manifest, signing entity, validation status. If the image only references a remote manifest (XMP `dcterms:provenance`, as Photoshop's mandatory Content Credentials do), fetch it through the crawler's HTTP client (HTTPS only, 10 s timeout, 2 MB cap) and validate it against the image; record the reference and any fetch failure even when the manifest can't be read.
 5. **CDN detection** (see §5b): combine response-header signals, image URL host, and a cached CNAME lookup on the host. Output: `{cdn_provider, cdn_optimizer_active}` per image.
 6. Compute **field presence flags** for each metadata field of interest (see §7).
 7. Record image dimensions, MIME type, file size, fetch latency, HTTP status.
@@ -373,6 +373,9 @@ One Parquet file per logical table per run, written to `data/runs/{YYYY-MM-DD}/`
 | has_c2pa | bool |
 | c2pa_manifest_signer | string (nullable) |
 | c2pa_validation_status | string (nullable) |
+| c2pa_manifest_location | string (nullable): `embedded` \| `remote` |
+| c2pa_remote_manifest_url | string (nullable): dcterms:provenance URL, set even if the fetch failed |
+| c2pa_remote_fetch_error | string (nullable): `http_<status>` \| `timeout` \| `network` \| `too_large` \| `not_https` \| `unreadable` |
 | cdn_provider | string | `cloudflare` \| `fastly` \| `akamai` \| `cloudfront` \| `imgix` \| `cloudinary` \| `bunny` \| `other` \| `none` \| `unknown` |
 | cdn_optimizer_active | string | `true` \| `false` \| `unknown` |
 | metadata_field_count | int | total count of populated fields |
